@@ -76,13 +76,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
-        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
+        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded, m_Grappling;
 
 
         public Vector3 Velocity
         {
             get { return m_RigidBody.velocity; }
         }
+        public bool Grappling
+        {
+            get { return m_Grappling; }
+            set { m_Grappling = value; }
+        }
+
 
         public bool Grounded
         {
