@@ -346,10 +346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2014188932}
   movementSettings:
-    ForwardSpeed: 0
-    BackwardSpeed: 0
-    StrafeSpeed: 3
-    RunMultiplier: 2
+    ForwardSpeed: 4
+    RunMultiplier: 2.27
     RunKey: 304
     JumpForce: 8
     SlopeCurveModifier:
@@ -449,6 +447,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &973535147 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400070, guid: 3353e4f866c39d043a315b41717c9bb7, type: 3}
+  m_PrefabInstance: {fileID: 1128609126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1128609126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -741,8 +744,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306992243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.14}
-  m_LocalScale: {x: 13.61, y: 1, z: 35}
+  m_LocalPosition: {x: 0, y: 0, z: 183.1}
+  m_LocalScale: {x: 13.61, y: 1, z: 400}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -998,6 +1001,7 @@ GameObject:
   - component: {fileID: 2014188933}
   - component: {fileID: 2014188932}
   - component: {fileID: 2014188931}
+  - component: {fileID: 2014188934}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1064,9 +1068,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014188930}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 25.3, y: 4.35, z: 3.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &2014188934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014188930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfc8eb1f3a130546b28c23d17435624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 973535147}
+  smoothSpeed: 0.125
+  offset: {x: 12, y: 1, z: 0}
