@@ -52,7 +52,6 @@ public class GrapplingHook : MonoBehaviour
 		// On descend la corde
 		else if (isGrappling )
 		{
-			perso.transform.position = Vector3.Lerp(transform.position, location, 0);
 			LR.SetPosition(0, transform.position);
 			LR.SetPosition(1, location);
 
@@ -72,7 +71,7 @@ public class GrapplingHook : MonoBehaviour
 			isGrappling = true;
 			location = hit.point;
 			//FPC.Grappling = true;
-			//gameObject.GetComponent<Rigidbody>().useGravity = false;
+			gameObject.GetComponent<Rigidbody>().useGravity = false;
 
 			LR.SetPosition(1, location);
 			LR.enabled = true;
@@ -97,7 +96,7 @@ public class GrapplingHook : MonoBehaviour
 	// DÃ©placement du joueur vers le point touchÃ© par le grappin
 	public void MoveDown()
 	{
-		transform.position = transform.position - Vector3.Lerp(transform.position, location, 1-(speed * Time.deltaTime / Vector3.Distance(transform.position, location)));
+		transform.position = Vector3.Lerp(transform.position, location, -(speed * Time.deltaTime / Vector3.Distance(transform.position, location)));
 		LR.SetPosition(0, transform.position);
 		LR.SetPosition(1, location);
 
@@ -109,6 +108,6 @@ public class GrapplingHook : MonoBehaviour
 		isGrappling = false;
 		//FPC.Grappling = false;
 		LR.enabled = false;
-		//gameObject.GetComponent<Rigidbody>().useGravity = true;
+		gameObject.GetComponent<Rigidbody>().useGravity = true;
 	}
 }

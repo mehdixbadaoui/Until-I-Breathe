@@ -728,7 +728,6 @@ MonoBehaviour:
   location: {x: 0, y: 0, z: 0}
   speed: 10
   hook: {fileID: 1623789242}
-  FPC: {fileID: 973535143}
   LR: {fileID: 1334789076}
   keyGrapplin: 99
 --- !u!4 &973535147 stripped
@@ -1188,6 +1187,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1575806070 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 865260883434338260, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+  m_PrefabInstance: {fileID: 576182199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589959038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,6 +1421,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1702241110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3541754002163558908, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+  m_PrefabInstance: {fileID: 576182199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1702241111
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702241110}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1702241115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702241110}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e558d475d48994a820dd44ade67884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatTheRopeIsConnectedTo: {fileID: 1575806070}
+  whatIsHangingFromTheRope: {fileID: 263589560}
+  allRopeSections: []
+--- !u!114 &1702241116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702241110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc9a3a4cad454c48a452166e1d60d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perso: {fileID: 1851114007}
+  surfaces:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  maxDistance: 50
+  isGrappling: 0
+  location: {x: 0, y: 0, z: 0}
+  speed: 10
+  hook: {fileID: 0}
+  LR: {fileID: 1334789076}
+  keyGrapplin: 99
+--- !u!4 &1851114007 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9055611149103614817, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+  m_PrefabInstance: {fileID: 576182199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2014188930
 GameObject:
   m_ObjectHideFlags: 0
