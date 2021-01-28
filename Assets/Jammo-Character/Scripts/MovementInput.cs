@@ -22,8 +22,12 @@ public class MovementInput : MonoBehaviour {
 	public Camera cam;
 	public CharacterController controller;
 	public bool isGrounded;
+	private bool m_Jump;
+	public float jumpSpeed = 4.0F;
+	public float gravity = 20.0F;
+	private Vector3 moveDirection = Vector3.zero;
 
-    [Header("Animation Smoothing")]
+	[Header("Animation Smoothing")]
     [Range(0, 1f)]
     public float HorizontalAnimSmoothTime = 0.2f;
     [Range(0, 1f)]
@@ -58,9 +62,16 @@ public class MovementInput : MonoBehaviour {
         }
         moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
         controller.Move(moveVector);
-
+		if (controller.isGrounded && Input.GetButton("Jump"))
+		{
+			moveDirection.y = jumpSpeed;
+			//moveDirection.y -= gravity * Time.deltaTime;
+			controller.Move(moveDirection * Time.deltaTime);
+		}
+        
 
     }
+    
 
     void PlayerMoveAndRotation() {
 		InputX = Input.GetAxis ("Horizontal");

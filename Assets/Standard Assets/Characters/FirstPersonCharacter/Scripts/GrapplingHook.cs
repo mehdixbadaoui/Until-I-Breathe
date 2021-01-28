@@ -7,6 +7,7 @@ public class GrapplingHook : MonoBehaviour
 
 	public Transform perso;
 	public RaycastHit hit;
+	public CharacterController characterController; 
 
 	public LayerMask surfaces;
 	public int maxDistance = 50;
@@ -67,8 +68,19 @@ public class GrapplingHook : MonoBehaviour
 	{
 		// RayCast de "maxDistance" unite depuis le personnage vers _____.
 		// Si ce raycast touche quelque chose c'est que la grappin est utilisable
-		if (Physics.Raycast(perso.transform.position, perso.transform.up, out hit, maxDistance, surfaces))
+		//if (Physics.Raycast(perso.transform.position, perso.transform.up, out hit, maxDistance, surfaces))
+		//{
+		//	isGrappling = true;
+		//	location = hit.point;
+		//	FPC.Grappling = true;
+		//	gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+		//	LR.SetPosition(1, location);
+		//	LR.enabled = true;
+		//}
+		if (Physics.Raycast(characterController.transform.position, characterController.transform.up, out hit, maxDistance, surfaces))
 		{
+			
 			isGrappling = true;
 			location = hit.point;
 			//FPC.Grappling = true;
@@ -83,7 +95,7 @@ public class GrapplingHook : MonoBehaviour
 	// Deplacement du joueur vers le point touche par le grappin
 	public void MoveUp()
 	{
-		transform.position = Vector3.Lerp(transform.position, location, speed * Time.deltaTime / Vector3.Distance(transform.position, location));
+		characterController.SimpleMove( Vector3.Lerp(transform.position, location, speed * Time.deltaTime / Vector3.Distance(transform.position, location)));
 		LR.SetPosition(0, transform.position);
 		LR.SetPosition(1, location);
 
