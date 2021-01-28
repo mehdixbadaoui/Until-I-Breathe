@@ -138,7 +138,7 @@ public class RopeControllerSimple : MonoBehaviour
 
 
         //Add the positions to the line renderer
-        lineRenderer.numPositions = positions.Length;
+        lineRenderer.positionCount = positions.Length;
 
         lineRenderer.SetPositions(positions);
     }
