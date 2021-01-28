@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-// Pour utiliser le FirstPersonController
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class GrapplingHook : MonoBehaviour
@@ -12,7 +11,7 @@ public class GrapplingHook : MonoBehaviour
 	public LayerMask surfaces;
 	public int maxDistance = 50;
 
-	public bool isMoving;
+	public bool isGrappling;
 	public Vector3 location;
 
 	public float speed = 10;
@@ -21,69 +20,94 @@ public class GrapplingHook : MonoBehaviour
 	public RigidbodyFirstPersonController FPC;
 	public LineRenderer LR;
 
+	public KeyCode keyGrapplin;
+
 	void Update()
 	{
 
 		// Envois du grappin
-		if (Input.GetKey(KeyCode.G))
+		if (Input.GetKey(keyGrapplin) && isGrappling == false)
 		{
 			Grapple();
 		}
 
-		// Si le personnage vole, on l'envoie vers le point d'arrivÃ©e 
-		if (isMoving)
+		// Retrait du grappin
+		else if ( (Input.GetKey(KeyCode.Space)) )
 		{
-			MoveToSpot();
+			CutRope();
 		}
 
-		// Annulation / dÃ©crochage du grappin
-		if (Input.GetKey(KeyCode.Space) && isMoving)
+		// On remonte la corde
+		else if (isGrappling && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) )
 		{
-			isMoving = false;
-			//FPC.CanMove = true;
-			FPC.Grappling = true;
-			LR.enabled = false;
-			gameObject.GetComponent<Rigidbody>().useGravity = true;
-			//FPC.m_GravityMultiplier = 2;
+			MoveUp();
 		}
+
+		// On descend la corde
+		else if (isGrappling && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)))
+		{
+			MoveDown();
+		}
+
+		// On descend la corde
+		else if (isGrappling )
+		{
+			LR.SetPosition(0, transform.position);
+			LR.SetPosition(1, location);
+
+		}
+
 
 
 	}
 
-	// Lors de l'envois du grappin
+	// Envois du grappin
 	public void Grapple()
 	{
-		// On crÃ©Ã© un raycast de "maxDistance" unitÃ©s depuis la camÃ©ra vers l'avant.
+		// RayCast de "maxDistance" unite depuis le personnage vers _____.
 		// Si ce raycast touche quelque chose c'est que la grappin est utilisable
-		if (Physics.Raycast(perso.transform.position, perso.transform.forward, out hit, maxDistance, surfaces))
+		if (Physics.Raycast(perso.transform.position, perso.transform.up, out hit, maxDistance, surfaces))
 		{
-			System.Console.WriteLine("This is C#");
-			isMoving = true;
+			isGrappling = true;
 			location = hit.point;
-			//FPC.CanMove = false;
-			FPC.Grappling = false;
+			FPC.Grappling = true;
 			gameObject.GetComponent<Rigidbody>().useGravity = false;
-			//FPC.m_GravityMultiplier = 1;
-			LR.enabled = true;
+
 			LR.SetPosition(1, location);
+			LR.enabled = true;
 		}
 
+	}
+
+	// Deplacement du joueur vers le point touche par le grappin
+	public void MoveUp()
+	{
+		transform.position = Vector3.Lerp(transform.position, location, speed * Time.deltaTime / Vector3.Distance(transform.position, location));
+		LR.SetPosition(0, transform.position);
+		LR.SetPosition(1, location);
+
+		// Quand on est trop proche la corde se decroche
+		if (Vector3.Distance(transform.position, location) < 1f)
+		{
+			CutRope();
+		}
 	}
 
 	// DÃ©placement du joueur vers le point touchÃ© par le grappin
-	public void MoveToSpot()
+	public void MoveDown()
 	{
-		transform.position = Vector3.Lerp(transform.position, location, speed * Time.deltaTime / Vector3.Distance(transform.position, location));
-		LR.SetPosition(0, hook.position);
+		transform.position = Vector3.Lerp(transform.position, location, -(speed * Time.deltaTime / Vector3.Distance(transform.position, location)));
+		LR.SetPosition(0, transform.position);
+		LR.SetPosition(1, location);
 
-		// Si on est Ã  - de 1 unitÃ©(s) de la cible final on dÃ©croche le grappin automatiquement
-		if (Vector3.Distance(transform.position, location) < 1f)
-		{
-			isMoving = false;
-			//FPC.CanMove = true;
-			FPC.Grappling = true;
-			LR.enabled = false;
-			gameObject.GetComponent<Rigidbody>().useGravity = true;
-		}
+	}
+
+	// Décrochage
+	public void CutRope()
+	{
+		isGrappling = false;
+		FPC.Grappling = false;
+		LR.enabled = false;
+		gameObject.GetComponent<Rigidbody>().useGravity = true;
 	}
 }
