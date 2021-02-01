@@ -20,13 +20,7 @@ public class enter_room : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("COllision");
         if (col.tag == "uni") facade.SetActive(!facade.active);
     }
 
-    //private void OnCollisionExit(Collision col)
-    //{
-    //    Debug.Log("COllision");
-    //    if (col.collider.tag == "player") facade.SetActive(false);
-    //}
 }
