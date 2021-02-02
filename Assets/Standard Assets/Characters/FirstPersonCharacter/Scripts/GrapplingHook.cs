@@ -61,7 +61,7 @@ public class GrapplingHook : MonoBehaviour
 	private GameObject mainChar;
 
 	//How fast we can add more/less rope
-	float winchSpeed = 2f;
+	float winchSpeed = 5f;
 
 	void Start()
 	{
@@ -115,6 +115,10 @@ public class GrapplingHook : MonoBehaviour
 		spring = GetComponent<SpringJoint>();
 
 		spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
+		spring.autoConfigureConnectedAnchor = false;
+		spring.anchor = Vector3.zero;
+		spring.connectedAnchor = Vector3.zero;
+
 		spring.enableCollision = true;
 
 		//Init the spring we use to approximate the rope from point a to b
@@ -127,6 +131,8 @@ public class GrapplingHook : MonoBehaviour
 	// Deplacement du joueur vers le point touche par le grappin
 	public void MoveUp()
 	{
+		ropeLength += winchSpeed * Time.deltaTime;
+
 		// Quand on est trop proche la corde se decroche
 		if (Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position) < 1f)
 		{
@@ -137,7 +143,7 @@ public class GrapplingHook : MonoBehaviour
 	// DÃ©placement du joueur vers le point touchÃ© par le grappin
 	public void MoveDown()
 	{
-
+		ropeLength -= winchSpeed * Time.deltaTime;
 	}
 
 	// Décrochage
@@ -189,11 +195,12 @@ public class GrapplingHook : MonoBehaviour
 		//print(ropeMass);
 
 		//Add the value to the spring
-		spring.spring = kRope * 1.0f;
-		spring.damper = kRope * 0.8f;
+		spring.spring = 1000f;
+		spring.damper = 70f;
 
 		//Update length of the rope
 		spring.maxDistance = ropeLength;
+		spring.minDistance = ropeLength;
 
 
 	}
@@ -269,7 +276,7 @@ public class GrapplingHook : MonoBehaviour
 
 		}
 
-		// Envoi du grappin
+		// Send Grapplin
 		if (Input.GetKey(keyGrapplin) && isGrappling == false)
 		{
 
@@ -288,25 +295,22 @@ public class GrapplingHook : MonoBehaviour
 			&& (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 			&& ropeLength < maxRopeLength)
 		{
-			ropeLength += winchSpeed * Time.deltaTime;
-
-			hasChangedRope = true;
 
 			MoveUp();
+			hasChangedRope = true;
 		}
 
+		//Less rope
 		else if (isGrappling
 			&& (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W))
 			&& ropeLength > minRopeLength)
 		{
-			ropeLength -= winchSpeed * Time.deltaTime;
-
-			hasChangedRope = true;
-
 			MoveDown();
+			hasChangedRope = true;
 		}
 
 
+		//The rope lenght changed
 		if (hasChangedRope)
 		{
 			ropeLength = Mathf.Clamp(ropeLength, minRopeLength, maxRopeLength);

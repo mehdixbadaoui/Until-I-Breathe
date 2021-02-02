@@ -21,6 +21,11 @@ public class RigidbodyCharacter : MonoBehaviour
 
     public KeyCode Jump;
     private float distToGround;
+
+    [Range(1f, 10f)]
+    public float speed = 1f;
+
+
     private Vector3 jumpForce = new Vector3(0,1,0); 
     void Start()
     {
@@ -47,9 +52,19 @@ void Update()
             return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
         }
 
+        if (_isGrappling)
+        {
+            speed = 2;
+        }
+        else
+        {
+            speed = 1;
+        }
+
         _inputs = Vector3.zero;
-        _inputs.z = Input.GetAxis("Horizontal");
-        
+        _inputs.z = Input.GetAxis("Horizontal") * speed;
+
+
         if (_inputs != Vector3.zero)
             transform.forward = _inputs;
        
