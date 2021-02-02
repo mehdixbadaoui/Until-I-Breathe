@@ -8,6 +8,9 @@ using System.Linq;
 public class GrapplingHook : MonoBehaviour
 {
 
+    public GameObject player;
+    private hook_detecto hookk;
+
 	//Objects that will interact with the rope
 	public GameObject whatTheRopeIsConnectedTo;
 	public Transform whatIsHangingFromTheRope;
