@@ -100,6 +100,7 @@ public class GrapplingHook : MonoBehaviour
 	public void Grapple()
 	{
 
+
 		isGrappling = true;
 		rigidbodyCharacter.Grappling = true;
 
@@ -114,8 +115,9 @@ public class GrapplingHook : MonoBehaviour
 		mainChar.AddComponent<SpringJoint>();
 		spring = GetComponent<SpringJoint>();
 
-		spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
-		spring.enableCollision = true;
+        spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
+        //spring.connectedBody = hook_detector
+        spring.enableCollision = true;
 
 		//Init the spring we use to approximate the rope from point a to b
 		UpdateRopePositions();
