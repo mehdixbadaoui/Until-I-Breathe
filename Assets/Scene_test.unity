@@ -1732,7 +1732,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatTheRopeIsConnectedTo: {fileID: 0}
   whatIsHangingFromTheRope: {fileID: 0}
-  ropeJoint: {fileID: 0}
   perso: {fileID: 973535147}
   surfaces:
     serializedVersion: 2
@@ -1752,6 +1751,101 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400070, guid: 3353e4f866c39d043a315b41717c9bb7, type: 3}
   m_PrefabInstance: {fileID: 1128609126}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1100694044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1100694048}
+  - component: {fileID: 1100694047}
+  - component: {fileID: 1100694046}
+  - component: {fileID: 1100694045}
+  m_Layer: 0
+  m_Name: Crochet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &1100694045
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100694044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1100694046
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100694044}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1100694047
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100694044}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1100694048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100694044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.2, z: -11.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1111303185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2758,9 +2852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc9a3a4cad454c48a452166e1d60d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatTheRopeIsConnectedTo: {fileID: 904262378}
+  whatTheRopeIsConnectedTo: {fileID: 1100694044}
   whatIsHangingFromTheRope: {fileID: 493486792}
-  ropeJoint: {fileID: 0}
   perso: {fileID: 493486792}
   surfaces:
     serializedVersion: 2
@@ -2773,6 +2866,8 @@ MonoBehaviour:
   LR: {fileID: 0}
   ropePositions: []
   keyGrapplin: 99
+  ropeHingeAnchorRb: {fileID: 0}
+  ropeHingeAnchorSprite: {fileID: 0}
 --- !u!114 &1702241118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2824,7 +2919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatTheRopeIsConnectedTo: {fileID: 0}
   whatIsHangingFromTheRope: {fileID: 0}
-  ropeJoint: {fileID: 0}
   perso: {fileID: 1826704895}
   surfaces:
     serializedVersion: 2

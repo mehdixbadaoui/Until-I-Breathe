@@ -17,7 +17,8 @@ public class RigidbodyCharacter : MonoBehaviour
 
     private Vector3 _inputs = Vector3.zero;
     private bool _isGrounded = true;
-    
+    private bool _isGrappling = false;
+
     public KeyCode Jump;
     private float distToGround;
     private Vector3 jumpForce = new Vector3(0,1,0); 
@@ -28,7 +29,13 @@ public class RigidbodyCharacter : MonoBehaviour
         //_groundChecker = transform.GetChild(0);
         distToGround = capsuleCollider.bounds.extents.y; 
     }
-    
+
+
+    public bool Grappling
+    {
+        get { return _isGrappling; }
+        set { _isGrappling = value; }
+    }
 
 
 
