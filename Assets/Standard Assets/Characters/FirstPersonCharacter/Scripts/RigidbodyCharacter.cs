@@ -13,10 +13,12 @@ public class RigidbodyCharacter : MonoBehaviour
 
     private Rigidbody _body;
     private Vector3 _inputs = Vector3.zero;
-    private bool _isGrounded = true;
+    //private bool _isGrounded = true;
+    private bool _isGrappling;
     private CapsuleCollider capsuleCollider;
     public KeyCode Jump;
     private float distToGround; 
+
     void Start()
     {
         _body = GetComponent<Rigidbody>();
@@ -24,9 +26,12 @@ public class RigidbodyCharacter : MonoBehaviour
         //_groundChecker = transform.GetChild(0);
         distToGround = capsuleCollider.bounds.extents.y; 
     }
+
     bool IsGrounded() {
     return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
     }
+
+
 
 void Update()
     {
@@ -44,7 +49,7 @@ void Update()
               
             _body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y)/30, ForceMode.VelocityChange);
         }
-        
+
     }
 
 

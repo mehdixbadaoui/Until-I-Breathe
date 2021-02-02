@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityStandardAssets.Characters.FirstPerson;
+using System.Linq;
 
 
 public class GrapplingHook : MonoBehaviour
@@ -11,6 +12,7 @@ public class GrapplingHook : MonoBehaviour
 	public Transform whatTheRopeIsConnectedTo;
 	public Transform whatIsHangingFromTheRope;
 
+	public ConfigurableJoint ropeJoint;
 
 	public Transform perso;
 	public RaycastHit hit;
@@ -27,32 +29,52 @@ public class GrapplingHook : MonoBehaviour
 	//public MovementInput FPC;
 	public LineRenderer LR;
 
+	private SpringJoint spring;
+
 
 	//A list with all rope sections
-	public List<Vector3> allRopeSections = new List<Vector3>();
+	public List<Vector3> ropePositions = new List<Vector3>();
 
 	public KeyCode keyGrapplin;
 
+
+	//NEw code rope
+	private bool distanceSet;
+	public Rigidbody ropeHingeAnchorRb;
+	public SpriteRenderer ropeHingeAnchorSprite;
+
 	//Rope data
-	private float ropeLength = 1f;
+	private float ropeLength;
 	private float minRopeLength = 1f;
 	private float maxRopeLength = 20f;
 
 	//Mass of what the rope is carrying
-	private float loadMass = 100f;
+	private float loadMass = 3f;
+
+	private float dist_objects;
+
+	private Rigidbody body;
+
+	private GameObject mainChar;
 
 	//How fast we can add more/less rope
 	float winchSpeed = 2f;
 
-
-	//The joint we use to approximate the rope
-	SpringJoint springJoint;
-
-
 	void Start()
 	{
+		mainChar = gameObject;
+
+		//Get the configurable joint
+		//ropeJoint = GetComponent<ConfigurableJoint>();
+
 		//Init the line renderer we use to display the rope
 		LR = GetComponent<LineRenderer>();
+
+
+		//Init the Rigidbody
+		body = GetComponent<Rigidbody>();
+
+
 	}
 
 	void Update()
@@ -71,31 +93,22 @@ public class GrapplingHook : MonoBehaviour
 	// Envois du grappin
 	public void Grapple()
 	{
-		// RayCast de "maxDistance" unite depuis le personnage vers _____.
-		// Si ce raycast touche quelque chose c'est que la grappin est utilisable
-		/*		if (Physics.Raycast(perso.transform.position, perso.transform.up, out hit, maxDistance, surfaces))
-				{
-
-					isGrappling = true;
-					location = hit.point;
-					//FPC.Grappling = true;
-					//gameObject.GetComponent<Rigidbody>().useGravity = false;
-
-					LR.SetPosition(1, location);
-					LR.enabled = true;
-				}*/
 
 		isGrappling = true;
 
-		//gameObject.GetComponent<Rigidbody>().useGravity = false;
 
-		springJoint = whatTheRopeIsConnectedTo.GetComponent<SpringJoint>();
+		//The first rope length is the distance between the two objects
+		ropeLength = Vector3.Distance(whatTheRopeIsConnectedTo.position, whatIsHangingFromTheRope.position);
 
 		//Init the spring we use to approximate the rope from point a to b
-		UpdateSpring();
+		UpdateRopePositions();
 
 		//Add the weight to what the rope is carrying
 		GetComponent<Rigidbody>().mass = loadMass;
+
+		//mainChar.AddComponent<SpringJoint>();
+		//spring = GetComponent<SpringJoint>();
+
 
 		LR.enabled = true;
 
@@ -104,10 +117,6 @@ public class GrapplingHook : MonoBehaviour
 	// Deplacement du joueur vers le point touche par le grappin
 	public void MoveUp()
 	{
-		/*		characterController.SimpleMove( Vector3.Lerp(transform.position, location, speed * Time.deltaTime / Vector3.Distance(transform.position, location)));
-				LR.SetPosition(0, transform.position);
-				LR.SetPosition(1, location);*/
-
 		// Quand on est trop proche la corde se decroche
 		if (Vector3.Distance(whatTheRopeIsConnectedTo.position, whatIsHangingFromTheRope.position) < 1f)
 		{
@@ -118,9 +127,6 @@ public class GrapplingHook : MonoBehaviour
 	// DÃ©placement du joueur vers le point touchÃ© par le grappin
 	public void MoveDown()
 	{
-		/*		transform.position = transform.position - Vector3.Lerp(transform.position, location, 1-(speed * Time.deltaTime / Vector3.Distance(transform.position, location)));
-				LR.SetPosition(0, transform.position);
-				LR.SetPosition(1, location);*/
 
 	}
 
@@ -135,106 +141,147 @@ public class GrapplingHook : MonoBehaviour
 
 
 	//Update the spring constant and the length of the spring
-	private void UpdateSpring()
+	private void UpdateRopePositions()
 	{
-		//Someone said you could set this to infinity to avoid bounce, but it doesnt work
-		//kRope = float.inf
+/*
+		// 2
+		LR.positionCount = ropePositions.Count + 1;
 
-		//
-		//The mass of the rope
-		//
-		//Density of the wire (stainless steel) kg/m3
-		float density = 7750f;
-		//The radius of the wire
-		float radius = 0.02f;
-
-		float volume = Mathf.PI * radius * radius * ropeLength;
-
-		float ropeMass = volume * density;
-
-		//Add what the rope is carrying
-		ropeMass += loadMass;
-
-
-		//
-		//The spring constant (has to recalculate if the rope length is changing)
-		//
-		//The force from the rope F = rope_mass * g, which is how much the top rope segment will carry
-		float ropeForce = ropeMass * 9.81f;
-
-		//Use the spring equation to calculate F = k * x should balance this force, 
-		//where x is how much the top rope segment should stretch, such as 0.01m
-
-		//Is about 146000
-		float kRope = ropeForce / 0.01f;
-
-		//print(ropeMass);
-
-		//Add the value to the spring
-		springJoint.spring = kRope * 1.0f;
-		springJoint.damper = kRope * 0.8f;
-
-		//Update length of the rope
-		springJoint.maxDistance = ropeLength;
-	}
-
-	//Display the rope with a line renderer
-	private void DisplayRope()
-	{
-		//This is not the actual width, but the width use so we can see the rope
-		float ropeWidth = 0.2f;
-
-		LR.startWidth = ropeWidth;
-		LR.endWidth = ropeWidth;
-
-
-		//Update the list with rope sections by approximating the rope with a bezier curve
-		//A Bezier curve needs 4 control points
-		Vector3 A = whatTheRopeIsConnectedTo.position;
-		Vector3 D = whatIsHangingFromTheRope.position;
-
-		//Upper control point
-		//To get a little curve at the top than at the bottom
-		Vector3 B = A + whatTheRopeIsConnectedTo.up * (-(A - D).magnitude * 0.1f);
-		//B = A;
-
-		//Lower control point
-		Vector3 C = D + whatIsHangingFromTheRope.up * ((A - D).magnitude * 0.5f);
-
-		//Get the positions
-		BezierCurve.GetBezierCurve(A, B, C, D, allRopeSections);
-
-
-		//An array with all rope section positions
-		Vector3[] positions = new Vector3[allRopeSections.Count];
-
-		for (int i = 0; i < allRopeSections.Count; i++)
+		// 3
+		for (var i = LR.positionCount - 1; i >= 0; i--)
 		{
-			positions[i] = allRopeSections[i];
+			if (i != LR.positionCount - 1) // if not the Last point of line renderer
+			{
+				LR.SetPosition(i, ropePositions[i]);
+
+				// 4
+				if (i == ropePositions.Count - 1 || ropePositions.Count == 1)
+				{
+					var ropePosition = ropePositions[ropePositions.Count - 1];
+					if (ropePositions.Count == 1)
+					{
+						ropeHingeAnchorRb.transform.position = ropePosition;
+						if (!distanceSet)
+						{
+							SoftJointLimit softJointLimit = new SoftJointLimit();
+							softJointLimit.limit = Vector2.Distance(transform.position, ropePosition);
+							ropeJoint.linearLimit = softJointLimit;
+							distanceSet = true;
+						}
+					}
+					else
+					{
+						ropeHingeAnchorRb.transform.position = ropePosition;
+						if (!distanceSet)
+						{
+							SoftJointLimit softJointLimit = new SoftJointLimit();
+							softJointLimit.limit = Vector2.Distance(transform.position, ropePosition);
+							ropeJoint.linearLimit = softJointLimit;
+							distanceSet = true;
+						}
+					}
+				}
+
+				// 5
+				else if (i - 1 == ropePositions.IndexOf(ropePositions.Last()))
+				{
+					var ropePosition = ropePositions.Last();
+					ropeHingeAnchorRb.transform.position = ropePosition;
+					if (!distanceSet)
+
+					{
+						SoftJointLimit softJointLimit = new SoftJointLimit();
+						softJointLimit.limit = Vector2.Distance(transform.position, ropePosition);
+						ropeJoint.linearLimit = softJointLimit;
+						distanceSet = true;
+					}
+				}
+
+
+			}
+			else
+			{
+				// 6
+				LR.SetPosition(i, transform.position);
+			}
 		}
+*/
 
-		//Just add a line between the start and end position for testing purposes
-		//Vector3[] positions = new Vector3[2];
-
-		//positions[0] = whatTheRopeIsConnectedTo.position;
-		//positions[1] = whatIsHangingFromTheRope.position;
-
-
-		//Add the positions to the line renderer
-		LR.positionCount = positions.Length;
-
-		LR.SetPositions(positions);
 	}
+
+		//Display the rope with a line renderer
+		private void DisplayRope()
+		{
+/*			//This is not the actual width, but the width use so we can see the rope
+			float ropeWidth = 0.2f;
+
+			LR.startWidth = ropeWidth;
+			LR.endWidth = ropeWidth;
+
+
+			//Update the list with rope sections by approximating the rope with a bezier curve
+			//A Bezier curve needs 4 control points
+			Vector3 A = whatTheRopeIsConnectedTo.position;
+			Vector3 D = whatIsHangingFromTheRope.position;
+
+			//Upper control point
+			//To get a little curve at the top than at the bottom
+			Vector3 B = A + whatTheRopeIsConnectedTo.up * (-(A - D).magnitude * 0.1f);
+			//B = A;
+
+			//Lower control point
+			Vector3 C = D + whatIsHangingFromTheRope.up * ((A - D).magnitude * 0.5f);
+
+			//Get the positions
+			BezierCurve.GetBezierCurve(A, B, C, D, ropePositions);
+
+
+			//An array with all rope section positions
+			Vector3[] positions = new Vector3[ropePositions.Count];
+
+			for (int i = 0; i < ropePositions.Count; i++)
+			{
+				positions[i] = ropePositions[i];
+			}*/
+
+
+			//Just add a line between the start and end position for testing purposes
+			Vector3[] positions = new Vector3[2];
+
+			positions[0] = whatTheRopeIsConnectedTo.position;
+			positions[1] = whatIsHangingFromTheRope.position;
+
+
+			//Add the positions to the line renderer
+			LR.positionCount = positions.Length;
+
+			LR.SetPositions(positions);
+		}
+	
 
 	//Add more/less rope
 	private void UpdateWinch()
 	{
 		bool hasChangedRope = false;
+		dist_objects = Vector3.Distance(whatTheRopeIsConnectedTo.position, whatIsHangingFromTheRope.position);
+
+		if (isGrappling)
+        {
+			//int K = 1000;
+			//RigidbodyCharacter._isGrappling = true;
+			Vector3 u_dir = (whatTheRopeIsConnectedTo.position - whatIsHangingFromTheRope.position) / dist_objects;
+/*			SoftJointLimit softJointLimit = new SoftJointLimit();
+			softJointLimit.limit = ropeLength;
+			ropeJoint.linearLimit = softJointLimit;
+*/
 
 
-		// Envois du grappin
+		}
+
+		// Envoi du grappin
 		if (Input.GetKey(keyGrapplin) && isGrappling == false)
 		{
+
 			Grapple();
 		}
 
@@ -274,8 +321,15 @@ public class GrapplingHook : MonoBehaviour
 			ropeLength = Mathf.Clamp(ropeLength, minRopeLength, maxRopeLength);
 
 			//Need to recalculate the k-value because it depends on the length of the rope
-			UpdateSpring();
+			UpdateRopePositions();
 		}
 	}
+
+	/*
+	void OnDrawGizmos()
+    {
+
+    }
+	*/
 
 }
