@@ -43,7 +43,7 @@ public class ST_Movements : MonoBehaviour
         //float dist = Vector3.Distance(Player.position, closestGrip.transform.position);
         
         // Allows ST-2 to follow the player
-        if (HookDetector.nearHook)
+        if (!HookDetector.nearHook)
         {
             // Apply that followOffset to get a target position
             Vector3 targetPosition = Player.position + followOffset;
