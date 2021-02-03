@@ -30,7 +30,7 @@ public class hook_detector : MonoBehaviour
         if (all_hooks.Count != 0)
         {
             nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, player.transform.position)).ToList()[0];
-            //Debug.Log(nh());
+            Debug.Log(nearest_hook);
         }
         //else 
         //    Debug.Log("null");
@@ -45,7 +45,7 @@ public class hook_detector : MonoBehaviour
     {
         if (!all_hooks.Contains(other.gameObject) && other.tag == "hook")
             all_hooks.Add(other.gameObject);
-        //nearHook = true;
+        nearHook = true;
         //Debug.Log(nearHook);
     }
 

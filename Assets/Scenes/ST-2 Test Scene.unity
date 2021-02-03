@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 806209496}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Grip
+  m_TagString: hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,9 +501,10 @@ GameObject:
   - component: {fileID: 1510046788}
   - component: {fileID: 1510046787}
   - component: {fileID: 1510046786}
+  - component: {fileID: 1510046790}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Grip
+  m_TagString: hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +517,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510046785}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -584,6 +585,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1510046790
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510046785}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1655944686
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb8c3e8bad80f24b911ff20e0237201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1865890681}
+  Player: {fileID: 1865890681}
   followSharpness: 0.1
   rotationSpeed: 5
 --- !u!1 &1865890677
@@ -707,9 +724,11 @@ GameObject:
   - component: {fileID: 1865890680}
   - component: {fileID: 1865890679}
   - component: {fileID: 1865890678}
+  - component: {fileID: 1865890682}
+  - component: {fileID: 1865890683}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: uni
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,3 +810,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865890682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865890677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541a3cc60e42f9f4c8a41fbacd08b73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearest_hook: {fileID: 0}
+  player: {fileID: 1865890677}
+  detection_radius: 5
+  nearHook: 0
+--- !u!135 &1865890683
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865890677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
