@@ -12,7 +12,7 @@ public class ST_Movements : MonoBehaviour
     Vector3 startOffset;
     Vector3 rotationMask;
 
-    private hook_detecto HookDetector;
+    private hook_detector HookDetector;
 
     void Start()
     {
@@ -26,7 +26,7 @@ public class ST_Movements : MonoBehaviour
         // Cache the initial offset at time of load/spawn
         followOffset = transform.position - Player.transform.position;
 
-        HookDetector = Player.GetComponent<hook_detecto>();
+        HookDetector = Player.GetComponent<hook_detector>();
     }
 
     public void Update()
@@ -58,8 +58,8 @@ public class ST_Movements : MonoBehaviour
             Debug.Log(HookDetector.nearHook);
             for (int i = 0; i < 5; i++)
             {
-                transform.position = (HookDetector.nearest_hook.transform.position + (transform.position - HookDetector.nearest_hook.transform.position).normalized * 3f);
-                transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.up, 50.0f * Time.deltaTime);
+                transform.position = (HookDetector.nh().transform.position + (transform.position - HookDetector.nh().transform.position).normalized * 3f);
+                transform.RotateAround(HookDetector.nh().transform.position, Vector3.up, 50.0f * Time.deltaTime);
             }
         }
 

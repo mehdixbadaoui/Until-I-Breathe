@@ -9,10 +9,10 @@ public class GrapplingHook : MonoBehaviour
 {
 
     public GameObject player;
-    private hook_detecto hookk;
+    public hook_detector hook;
 
 	//Objects that will interact with the rope
-	public GameObject whatTheRopeIsConnectedTo;
+	private GameObject whatTheRopeIsConnectedTo;
 	public Transform whatIsHangingFromTheRope;
 
 	//public ConfigurableJoint ropeJoint;
@@ -30,7 +30,6 @@ public class GrapplingHook : MonoBehaviour
 	public Vector3 location;
 
 	public float speed = 10;
-	public Transform hook;
 
 	//public MovementInput FPC;
 	public LineRenderer LR;
@@ -83,6 +82,7 @@ public class GrapplingHook : MonoBehaviour
 		//Get rigidbodyCharacter component
 		rigidbodyCharacter = GetComponent<RigidbodyCharacter>();
 
+		hook = new hook_detector();
 
 	}
 
@@ -93,7 +93,6 @@ public class GrapplingHook : MonoBehaviour
 		UpdateWinch();
 
 		//Display the rope with a line renderer
-		DisplayRope();
 
 
 
@@ -118,13 +117,12 @@ public class GrapplingHook : MonoBehaviour
 		mainChar.AddComponent<SpringJoint>();
 		spring = GetComponent<SpringJoint>();
 
-		spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
+        spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
 		spring.autoConfigureConnectedAnchor = false;
 		spring.anchor = Vector3.zero;
 		spring.connectedAnchor = Vector3.zero;
 
 		spring.enableCollision = true;
-        //spring.connectedBody = hook_detector
 
 		//Init the spring we use to approximate the rope from point a to b
 		UpdateRopePositions();
@@ -264,7 +262,6 @@ public class GrapplingHook : MonoBehaviour
 	private void UpdateWinch()
 	{
 		bool hasChangedRope = false;
-		dist_objects = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
 
 		if (isGrappling)
         {
@@ -279,13 +276,22 @@ public class GrapplingHook : MonoBehaviour
 			// spring.maxDistance = ropeLength;
 			// spring.minDistance = ropeLength;
 
+			DisplayRope();
+
 		}
 
 		// Send Grapplin
 		if (Input.GetKey(keyGrapplin) && isGrappling == false)
 		{
+			Debug.Log(hook.player.tag);
+			//whatTheRopeIsConnectedTo = hook.nh();
+   //         if (whatIsHangingFromTheRope)
+   //         {
+			//	Grapple();
+			//	dist_objects = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
 
-			Grapple();
+			//}
+
 		}
 
 		// Retrait du grappin

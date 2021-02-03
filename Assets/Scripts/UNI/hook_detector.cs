@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class hook_detecto : MonoBehaviour
+public class hook_detector : MonoBehaviour
 {
     public GameObject nearest_hook;
     public GameObject player;
@@ -18,6 +18,7 @@ public class hook_detecto : MonoBehaviour
     void Start()
     {
         all_hooks = new List<GameObject>();
+        player = GameObject.FindGameObjectWithTag("uni");
     }
 
     // Update is called once per frame
@@ -27,17 +28,25 @@ public class hook_detecto : MonoBehaviour
 
         gameObject.GetComponent<SphereCollider>().radius = detection_radius;
         if (all_hooks.Count != 0)
+        {
             nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, player.transform.position)).ToList()[0];
-        else 
-            Debug.Log("null");
+            //Debug.Log(nh());
+        }
+        //else 
+        //    Debug.Log("null");
+    }
+
+    public GameObject nh()
+    {
+        return nearest_hook;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!all_hooks.Contains(other.gameObject) && other.tag == "hook")
             all_hooks.Add(other.gameObject);
-        nearHook = true;
-        Debug.Log(nearHook);
+        //nearHook = true;
+        //Debug.Log(nearHook);
     }
 
     //private void OnTriggerStay(Collider col)
