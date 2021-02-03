@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ST_Movements : MonoBehaviour
 {
-    public GameObject Player;
+    public Transform player;
     public float followSharpness = 0.1f;
     public float rotationSpeed = 5f;
 
@@ -12,7 +12,7 @@ public class ST_Movements : MonoBehaviour
     Vector3 startOffset;
     Vector3 rotationMask;
 
-    private hook_detector HookDetector;
+    bool isFollowing;
 
     void Start()
     {
@@ -21,7 +21,8 @@ public class ST_Movements : MonoBehaviour
         // Initiliaze the start position of ST-2
         Vector3 startOffset = new Vector3(-2.5f, 2f, 0.0f);
         // Initiliaze the position of ST-2 at the start of  the game
-        transform.position = Player.transform.position + startOffset;
+        transform.position = player.position + startOffset;
+        isFollowing = true;
 
         // Cache the initial offset at time of load/spawn
         followOffset = transform.position - Player.transform.position;
@@ -32,62 +33,67 @@ public class ST_Movements : MonoBehaviour
     public void Update()
     {
         // Calls this func every frame
-        //FindClosestEnemy();        
+        FindClosestEnemy();        
     }
 
     void LateUpdate()
     {        
-      
+        // Stores the nearest grip
+        GameObject closestGrip = FindClosestEnemy();
+        // Stores the distance between ST-2 & a grip point
+        float dist = Vector3.Distance(player.position, closestGrip.transform.position);
+        
         // Allows ST-2 to follow the player
-        if (!HookDetector.nearHook)
+        if (isFollowing && dist > 12)
         {
             // Apply that followOffset to get a target position
-            Vector3 targetPosition = Player.transform.position + followOffset;
+            Vector3 targetPosition = player.position + followOffset;
 
             // Smooth follow 
             transform.position += (targetPosition - transform.position) * followSharpness;
 
             // Smooth rotation
             // get a rotation that points Z axis forward, and the Y axis towards the target
-            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, (Player.transform.position - transform.position));
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, (player.position - transform.position));
             // rotate toward the target rotation, never rotating farther than "lookSpeed" in one frame.
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
         }
         else
         {
-            Debug.Log(HookDetector.nearHook);
             for (int i = 0; i < 5; i++)
             {
-                transform.position = (HookDetector.nh().transform.position + (transform.position - HookDetector.nh().transform.position).normalized * 3f);
-                transform.RotateAround(HookDetector.nh().transform.position, Vector3.up, 50.0f * Time.deltaTime);
+                //transform.position = closestGrip.transform.position + startOffset;
+                transform.position = (closestGrip.transform.position + (transform.position - closestGrip.transform.position).normalized * 3f);
+                transform.RotateAround(closestGrip.transform.position, Vector3.up, 50.0f * Time.deltaTime);
             }
+            isFollowing = true;
         }
 
-        //// Allows ST-2 to show the player where to use the grip
-        //if (7 < dist && dist <= 12)
-        //{
-        //    isFollowing = false;
-        //}
+        // Allows ST-2 to show the player where to use the grip
+        if (7 < dist && dist <= 12)
+        {
+            isFollowing = false;
+        }
     }
 
-    //// Finds the closest grip near ST-2
-    //public GameObject FindClosestEnemy()
-    //{
-    //    GameObject[] gos;
-    //    gos = GameObject.FindGameObjectsWithTag("Grip");
-    //    GameObject closest = null;
-    //    float distance = Mathf.Infinity;
-    //    Vector3 position = transform.position;
-    //    foreach (GameObject go in gos)
-    //    {
-    //        Vector3 diff = go.transform.position - position;
-    //        float curDistance = diff.sqrMagnitude;
-    //        if (curDistance < distance)
-    //        {
-    //            closest = go;
-    //            distance = curDistance;
-    //        }
-    //    }
-    //    return closest;
-    //}
+    // Finds the closest grip near ST-2
+    public GameObject FindClosestEnemy()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Grip");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest;
+    }
 }
