@@ -132,6 +132,7 @@ public class GrapplingHook : MonoBehaviour
 
 	}
 
+
 	// Deplacement du joueur vers le point touche par le grappin
 	public void MoveUp()
 	{
@@ -165,7 +166,7 @@ public class GrapplingHook : MonoBehaviour
 	//Update the spring constant and the length of the spring
 	private void UpdateRopePositions()
 	{
-		//Someone said you could set this to infinity to avoid bounce, but it doesnt work
+/*		//Someone said you could set this to infinity to avoid bounce, but it doesnt work
 		//kRope = float.inf
 
 		//
@@ -197,6 +198,9 @@ public class GrapplingHook : MonoBehaviour
 		float kRope = ropeForce / 0.01f;
 
 		//print(ropeMass);
+*/
+		
+		TheLineTouch();
 
 		//Add the value to the spring
 		spring.spring = 1000f;
@@ -209,58 +213,81 @@ public class GrapplingHook : MonoBehaviour
 
 	}
 
-		//Display the rope with a line renderer
-		private void DisplayRope()
+	//Display the rope with a line renderer
+	private void DisplayRope()
+	{
+		/*			//This is not the actual width, but the width use so we can see the rope
+					float ropeWidth = 0.2f;
+
+					LR.startWidth = ropeWidth;
+					LR.endWidth = ropeWidth;
+
+
+					//Update the list with rope sections by approximating the rope with a bezier curve
+					//A Bezier curve needs 4 control points
+					Vector3 A = whatTheRopeIsConnectedTo.position;
+					Vector3 D = whatIsHangingFromTheRope.position;
+
+					//Upper control point
+					//To get a little curve at the top than at the bottom
+					Vector3 B = A + whatTheRopeIsConnectedTo.up * (-(A - D).magnitude * 0.1f);
+					//B = A;
+
+					//Lower control point
+					Vector3 C = D + whatIsHangingFromTheRope.up * ((A - D).magnitude * 0.5f);
+
+					//Get the positions
+					BezierCurve.GetBezierCurve(A, B, C, D, ropePositions);
+
+
+					//An array with all rope section positions
+					Vector3[] positions = new Vector3[ropePositions.Count];
+
+					for (int i = 0; i < ropePositions.Count; i++)
+					{
+						positions[i] = ropePositions[i];
+					}*/
+
+
+			
+		//Just add a line between the start and end position for testing purposes
+		Vector3[] positions = new Vector3[ropePositions.Count];
+
+		//positions[0] = whatTheRopeIsConnectedTo.transform.position;
+		//positions[1] = whatIsHangingFromTheRope.transform.position;
+
+		for (int i = 0; i < ropePositions.Count; i++)
 		{
-/*			//This is not the actual width, but the width use so we can see the rope
-			float ropeWidth = 0.2f;
-
-			LR.startWidth = ropeWidth;
-			LR.endWidth = ropeWidth;
-
-
-			//Update the list with rope sections by approximating the rope with a bezier curve
-			//A Bezier curve needs 4 control points
-			Vector3 A = whatTheRopeIsConnectedTo.position;
-			Vector3 D = whatIsHangingFromTheRope.position;
-
-			//Upper control point
-			//To get a little curve at the top than at the bottom
-			Vector3 B = A + whatTheRopeIsConnectedTo.up * (-(A - D).magnitude * 0.1f);
-			//B = A;
-
-			//Lower control point
-			Vector3 C = D + whatIsHangingFromTheRope.up * ((A - D).magnitude * 0.5f);
-
-			//Get the positions
-			BezierCurve.GetBezierCurve(A, B, C, D, ropePositions);
-
-
-			//An array with all rope section positions
-			Vector3[] positions = new Vector3[ropePositions.Count];
-
-			for (int i = 0; i < ropePositions.Count; i++)
-			{
-				positions[i] = ropePositions[i];
-			}*/
-
-
-			//Just add a line between the start and end position for testing purposes
-			Vector3[] positions = new Vector3[2];
-
-			positions[0] = whatTheRopeIsConnectedTo.transform.position;
-			positions[1] = whatIsHangingFromTheRope.transform.position;
-
-
-			//Add the positions to the line renderer
-			LR.positionCount = positions.Length;
-
-			LR.SetPositions(positions);
+			positions[i] = ropePositions[i];
 		}
-	
+		
 
-	//Add more/less rope
-	private void UpdateWinch()
+		//Add the positions to the line renderer
+		LR.positionCount = positions.Length;
+
+		LR.SetPositions(positions);
+	}
+
+	//Display the rope with a line renderer
+	private void TheLineTouch()
+	{
+		bool raycastHits = false;
+
+		RaycastHit hit;
+
+		//Raycast( whatIsHangingFromTheRope.position , Vector3 direction, float maxDistance = Mathf.Infinity, int layerMask = DefaultRaycastLayers, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal);
+
+		if (raycastHits)
+        {
+
+        }
+
+
+	}
+
+
+		//Add more/less rope
+		private void UpdateWinch()
 	{
 		bool hasChangedRope = false;
 
@@ -289,8 +316,12 @@ public class GrapplingHook : MonoBehaviour
 
             if (whatTheRopeIsConnectedTo)
             {
-                Grapple();
-                dist_objects = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
+				if ( !Physics.Raycast(whatIsHangingFromTheRope.position, (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position).normalized , 
+					Vector3.Distance( whatTheRopeIsConnectedTo.transform.position , whatIsHangingFromTheRope.position ) - 1.0f )  )
+                {
+					Grapple();
+					dist_objects = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
+				}
 
             }
 
