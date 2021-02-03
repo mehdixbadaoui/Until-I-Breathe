@@ -5,7 +5,7 @@ using UnityEngine;
 public class ST_Movements : MonoBehaviour
 {
     public Transform Player;
-    public float followSharpness = 0.1f;
+    public float followSharpness = 0.05f;
     public float rotationSpeed = 5f;
 
     Vector3 followOffset;
@@ -13,6 +13,11 @@ public class ST_Movements : MonoBehaviour
     Vector3 rotationMask;
 
     private hook_detector HookDetector;
+
+    // HINTS
+
+    //bool nearHint;
+    //Transform hintPosition;
 
     void Start()
     {
@@ -36,9 +41,9 @@ public class ST_Movements : MonoBehaviour
     }
 
     void LateUpdate()
-    {   
+    {
         // Allows ST-2 to follow the player
-        if (!HookDetector.nearHook)
+        if (!HookDetector.nearHook )//&& !nearHint
         {
             // Apply that followOffset to get a target position
             Vector3 targetPosition = Player.position + followOffset;
@@ -54,9 +59,24 @@ public class ST_Movements : MonoBehaviour
         }
         else // Allows ST-2 to show the nearest hook to the player
         {
-            //transform.position = closestGrip.transform.position + startOffset;
-            transform.position = (HookDetector.nearest_hook.transform.position + (transform.position - HookDetector.nearest_hook.transform.position).normalized * 3f);
-            transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.up, 50.0f * Time.deltaTime);
+            Vector3 desiredPosition = (HookDetector.nearest_hook.transform.position + (transform.position - HookDetector.nearest_hook.transform.position).normalized * 2f);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSharpness);
+
+            transform.position = smoothedPosition;
+
+            transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.right, 180.0f * Time.deltaTime);
         }
+
+        // Detects Hints
+
+        //if (!HookDetector.nearHook && HookDetector.nearHint)
+        //{
+        //    Vector3 desiredPosition = (hintPosition.position + (HookDetector.hintPosition.position).normalized * 2f);
+        //    Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSharpness);
+
+        //    transform.position = smoothedPosition;
+
+        //    transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.up, 180.0f * Time.deltaTime);
+        //}
     }
 }

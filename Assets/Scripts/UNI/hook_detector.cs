@@ -14,6 +14,10 @@ public class hook_detector : MonoBehaviour
 
     public bool nearHook = false;
 
+    // HINTS
+    //public bool nearHint = false;
+    //public Transform hintPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +36,8 @@ public class hook_detector : MonoBehaviour
             nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, player.transform.position)).ToList()[0];
             //Debug.Log(nearest_hook);
         }
-        else
-            nearest_hook = null;
-        //Debug.Log(all_hooks.Count);
+        //else 
+        //    Debug.Log("null");
     }
 
     public GameObject nh()
@@ -45,9 +48,20 @@ public class hook_detector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!all_hooks.Contains(other.gameObject) && other.tag == "hook")
+        {
             all_hooks.Add(other.gameObject);
-        nearHook = true;
-        //Debug.Log(nearHook);
+            nearHook = true;
+        }
+
+
+        // HINTS
+
+        //if(other.tag == "Hint")
+        //{
+        //    hintPosition = other.gameObject.transform;
+        //    nearHint = true;
+        //    Debug.Log(nearHint);
+        //}
     }
 
     //private void OnTriggerStay(Collider col)
@@ -59,9 +73,16 @@ public class hook_detector : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (all_hooks.Contains(other.gameObject))
+        {
             all_hooks.Remove(other.gameObject);
-        nearHook = false;
+            nearHook = false;
+        }
+
+        // HINTS
+
+        //if (other.tag == "Hint")
+        //{
+        //    nearHint = false;
+        //}
     }
-
-
 }
