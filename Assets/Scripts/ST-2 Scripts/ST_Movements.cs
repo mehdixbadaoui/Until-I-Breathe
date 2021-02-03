@@ -25,9 +25,9 @@ public class ST_Movements : MonoBehaviour
         isFollowing = true;
 
         // Cache the initial offset at time of load/spawn
-        followOffset = transform.position - Player.transform.position;
+        //followOffset = transform.position - Player.transform.position;
 
-        HookDetector = Player.GetComponent<hook_detector>();
+        //HookDetector = Player.GetComponent<hook_detector>();
     }
 
     public void Update()

@@ -2893,20 +2893,7 @@ CapsuleCollider:
   m_Height: 1.55
   m_Direction: 1
   m_Center: {x: 0, y: 0.66, z: 0.06}
---- !u!114 &1702241116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702241110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d68d5023b0ad146b30470f78dd50c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Crouch: 0
---- !u!114 &1702241118
+--- !u!114 &1702241115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2920,20 +2907,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   hook: {fileID: 0}
-  whatIsHangingFromTheRope: {fileID: 493486792}
-  perso: {fileID: 493486792}
+  whatIsHangingFromTheRope: {fileID: 0}
+  perso: {fileID: 0}
   surfaces:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   maxDistance: 50
   isGrappling: 0
   location: {x: 0, y: 0, z: 0}
   speed: 10
   LR: {fileID: 0}
   ropePositions: []
-  keyGrapplin: 99
+  keyGrapplin: 0
   ropeHingeAnchorRb: {fileID: 0}
   ropeHingeAnchorSprite: {fileID: 0}
+--- !u!114 &1702241116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702241110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d68d5023b0ad146b30470f78dd50c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Crouch: 0
+--- !u!114 &1702241117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702241110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47536f19f681d54294a94b791597622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+  JumpHeight: 2
+  GroundDistance: 0.2
+  DashDistance: 5
+  Ground:
+    serializedVersion: 2
+    m_Bits: 0
+  Jump: 0
+  speed: 1
 --- !u!1 &1826704889
 GameObject:
   m_ObjectHideFlags: 0

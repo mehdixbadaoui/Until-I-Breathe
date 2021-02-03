@@ -9,7 +9,8 @@ public class GrapplingHook : MonoBehaviour
 {
 
     public GameObject player;
-    public hook_detector hook;
+	//public hook_detector hook;
+	public GameObject hook_detector;
 
 	//Objects that will interact with the rope
 	private GameObject whatTheRopeIsConnectedTo;
@@ -82,7 +83,7 @@ public class GrapplingHook : MonoBehaviour
 		//Get rigidbodyCharacter component
 		rigidbodyCharacter = GetComponent<RigidbodyCharacter>();
 
-		hook = new hook_detector();
+		//hook = new hook_detector();
 
 	}
 
@@ -283,16 +284,17 @@ public class GrapplingHook : MonoBehaviour
 		// Send Grapplin
 		if (Input.GetKey(keyGrapplin) && isGrappling == false)
 		{
-			Debug.Log(hook.player.tag);
-			//whatTheRopeIsConnectedTo = hook.nh();
-   //         if (whatIsHangingFromTheRope)
-   //         {
-			//	Grapple();
-			//	dist_objects = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
+            whatTheRopeIsConnectedTo = hook_detector.GetComponent<hook_detector>().nearest_hook;
+            //Debug.Log(whatTheRopeIsConnectedTo.name);
 
-			//}
+            if (whatTheRopeIsConnectedTo)
+            {
+                Grapple();
+                dist_objects = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
 
-		}
+            }
+
+        }
 
 		// Retrait du grappin
 		else if ((Input.GetKey(KeyCode.Space)) && isGrappling == true)
