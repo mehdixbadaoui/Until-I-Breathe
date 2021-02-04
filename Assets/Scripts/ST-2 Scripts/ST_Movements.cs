@@ -16,8 +16,8 @@ public class ST_Movements : MonoBehaviour
 
     // HINTS
 
-    //bool nearHint;
-    //Transform hintPosition;
+    bool nearHint;
+    Transform hintPosition;
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class ST_Movements : MonoBehaviour
     void LateUpdate()
     {
         // Allows ST-2 to follow the player
-        if (!HookDetector.nearHook )//&& !nearHint
+        if (!HookDetector.nearHook && !nearHint)
         {
             // Apply that followOffset to get a target position
             Vector3 targetPosition = Player.position + followOffset;
@@ -67,16 +67,13 @@ public class ST_Movements : MonoBehaviour
             transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.right, 180.0f * Time.deltaTime);
         }
 
-        // Detects Hints
+        // Allows ST-2 to show the nearest hint to the player
+        if (!HookDetector.nearHook && HookDetector.nearHint)
+        {
+            Vector3 desiredPosition = (HookDetector.hintPosition.position + (transform.position - HookDetector.hintPosition.position).normalized * 1f);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSharpness);
 
-        //if (!HookDetector.nearHook && HookDetector.nearHint)
-        //{
-        //    Vector3 desiredPosition = (hintPosition.position + (HookDetector.hintPosition.position).normalized * 2f);
-        //    Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSharpness);
-
-        //    transform.position = smoothedPosition;
-
-        //    transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.up, 180.0f * Time.deltaTime);
-        //}
+            transform.position = smoothedPosition;
+        }
     }
 }
