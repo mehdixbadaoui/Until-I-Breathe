@@ -14,9 +14,9 @@ public class hook_detector : MonoBehaviour
 
     public bool nearHook = false;
 
-    // HINTS
-    //public bool nearHint = false;
-    //public Transform hintPosition;
+    //HINTS
+    public bool nearHint = false;
+    public Transform hintPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -55,13 +55,11 @@ public class hook_detector : MonoBehaviour
 
 
         // HINTS
-
-        //if(other.tag == "Hint")
-        //{
-        //    hintPosition = other.gameObject.transform;
-        //    nearHint = true;
-        //    Debug.Log(nearHint);
-        //}
+        if (other.tag == "Hint")
+        {
+            hintPosition = other.gameObject.transform;
+            nearHint = true;
+        }
     }
 
     //private void OnTriggerStay(Collider col)
@@ -79,10 +77,9 @@ public class hook_detector : MonoBehaviour
         }
 
         // HINTS
-
-        //if (other.tag == "Hint")
-        //{
-        //    nearHint = false;
-        //}
+        if (other.tag == "Hint")
+        {
+            nearHint = false;
+        }
     }
 }
