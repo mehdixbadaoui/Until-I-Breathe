@@ -19,7 +19,6 @@ public class GrapplingHook : MonoBehaviour
 	//public ConfigurableJoint ropeJoint;
 
 	public Transform perso;
-	public RaycastHit hit;
 
 	public LayerMask surfaces;
 	public int maxDistance = 50;
@@ -36,6 +35,8 @@ public class GrapplingHook : MonoBehaviour
 	public LineRenderer LR;
 
 	private SpringJoint spring;
+
+	private RaycastHit hit;
 
 
 	//A list with all rope sections
@@ -283,21 +284,19 @@ public class GrapplingHook : MonoBehaviour
 	}
 
 	//Display the rope with a line renderer
-	private bool TheLineTouch()
+	private bool TheLineTouch(Transform player, Transform hook)
 	{
+		
 		bool raycastHits = false;
 
-		RaycastHit hit;
-
+		
 		//Raycast( whatIsHangingFromTheRope.position , Vector3 direction, float maxDistance = Mathf.Infinity, int layerMask = DefaultRaycastLayers, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal);
 
-		if (raycastHits)
-        {
-			return true;
-        }
+		Vector3 dir = hook.position - player.position;
 
-		return false;
+		raycastHits = Physics.Raycast(player.position, dir, out hit, dir.magnitude - hook.gameObject.GetComponent<SphereCollider>().radius);
 
+		return raycastHits;
 	}
 
 
