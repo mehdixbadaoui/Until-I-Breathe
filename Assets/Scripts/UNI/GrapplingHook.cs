@@ -125,8 +125,14 @@ public class GrapplingHook : MonoBehaviour
 
 		spring.enableCollision = true;
 
-		//Init the spring we use to approximate the rope from point a to b
-		UpdateRopePositions();
+        ropePositions.Add(whatTheRopeIsConnectedTo.transform.position);
+        ropePositions.Add(whatIsHangingFromTheRope.transform.position);
+
+        /*		ropePositions[0] = whatTheRopeIsConnectedTo.transform.position;
+				ropePositions[1] = whatIsHangingFromTheRope.transform.position;*/
+
+        //Init the spring we use to approximate the rope from point a to b
+        UpdateRopePositions();
 
 		LR.enabled = true;
 
@@ -156,6 +162,7 @@ public class GrapplingHook : MonoBehaviour
 	{
 		isGrappling = false;
 		Destroy(spring);
+		ropePositions.Clear();
 		//FPC.Grappling = false;
 		LR.enabled = false;
 		rigidbodyCharacter.Grappling = false;
@@ -166,41 +173,41 @@ public class GrapplingHook : MonoBehaviour
 	//Update the spring constant and the length of the spring
 	private void UpdateRopePositions()
 	{
-/*		//Someone said you could set this to infinity to avoid bounce, but it doesnt work
-		//kRope = float.inf
+		/*		//Someone said you could set this to infinity to avoid bounce, but it doesnt work
+				//kRope = float.inf
 
-		//
-		//The mass of the rope
-		//
-		//Density of the wire (stainless steel) kg/m3
-		float density = 7750f;
-		//The radius of the wire
-		float radius = 0.02f;
+				//
+				//The mass of the rope
+				//
+				//Density of the wire (stainless steel) kg/m3
+				float density = 7750f;
+				//The radius of the wire
+				float radius = 0.02f;
 
-		float volume = Mathf.PI * radius * radius * ropeLength;
+				float volume = Mathf.PI * radius * radius * ropeLength;
 
-		float ropeMass = volume * density;
+				float ropeMass = volume * density;
 
-		//Add what the rope is carrying
-		ropeMass += loadMass;
+				//Add what the rope is carrying
+				ropeMass += loadMass;
 
 
-		//
-		//The spring constant (has to recalculate if the rope length is changing)
-		//
-		//The force from the rope F = rope_mass * g, which is how much the top rope segment will carry
-		float ropeForce = ropeMass * 9.81f;
+				//
+				//The spring constant (has to recalculate if the rope length is changing)
+				//
+				//The force from the rope F = rope_mass * g, which is how much the top rope segment will carry
+				float ropeForce = ropeMass * 9.81f;
 
-		//Use the spring equation to calculate F = k * x should balance this force, 
-		//where x is how much the top rope segment should stretch, such as 0.01m
+				//Use the spring equation to calculate F = k * x should balance this force, 
+				//where x is how much the top rope segment should stretch, such as 0.01m
 
-		//Is about 146000
-		float kRope = ropeForce / 0.01f;
+				//Is about 146000
+				float kRope = ropeForce / 0.01f;
 
-		//print(ropeMass);
-*/
-		
-		TheLineTouch();
+				//print(ropeMass);
+		*/
+
+
 
 		//Add the value to the spring
 		spring.spring = 1000f;
@@ -249,7 +256,8 @@ public class GrapplingHook : MonoBehaviour
 					}*/
 
 
-			
+		ropePositions[ropePositions.Count - 1] = whatIsHangingFromTheRope.transform.position;
+
 		//Just add a line between the start and end position for testing purposes
 		Vector3[] positions = new Vector3[ropePositions.Count];
 
@@ -269,7 +277,13 @@ public class GrapplingHook : MonoBehaviour
 	}
 
 	//Display the rope with a line renderer
-	private void TheLineTouch()
+	private void AddRopeJoint()
+	{
+
+	}
+
+	//Display the rope with a line renderer
+	private bool TheLineTouch()
 	{
 		bool raycastHits = false;
 
@@ -279,9 +293,10 @@ public class GrapplingHook : MonoBehaviour
 
 		if (raycastHits)
         {
-
+			return true;
         }
 
+		return false;
 
 	}
 
@@ -293,16 +308,16 @@ public class GrapplingHook : MonoBehaviour
 
 		if (isGrappling)
         {
-			//int K = 1000;
-			//RigidbodyCharacter._isGrappling = true;
 			Vector3 u_dir = (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position) / dist_objects;
-			/*			SoftJointLimit softJointLimit = new SoftJointLimit();
-						softJointLimit.limit = ropeLength;
-						ropeJoint.linearLimit = softJointLimit;
-			*/
 
-			// spring.maxDistance = ropeLength;
-			// spring.minDistance = ropeLength;
+
+			if (TheLineTouch())
+			{
+				//TODO: add a method to update the joints if they are moving with an object (take the Transform instead of a list of vector)
+
+				AddRopeJoint();
+            }
+
 
 			DisplayRope();
 
@@ -311,8 +326,8 @@ public class GrapplingHook : MonoBehaviour
 		// Send Grapplin
 		if (Input.GetKey(keyGrapplin) && isGrappling == false)
 		{
+
             whatTheRopeIsConnectedTo = hook_detector.GetComponent<hook_detector>().nearest_hook;
-            //Debug.Log(whatTheRopeIsConnectedTo.name);
 
             if (whatTheRopeIsConnectedTo)
             {
