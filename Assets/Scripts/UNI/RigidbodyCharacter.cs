@@ -8,7 +8,7 @@ public class RigidbodyCharacter : MonoBehaviour
     public float Speed = 5f;
     public float JumpHeight = 2f;
     public float GroundDistance = 0.2f;
-    public float DashDistance = 5f;
+    public float checkRadius;  
     public LayerMask Ground;
     //public float fallMultiplier = 2.5f;
     //public float lowJumpMultiplier = 2f;
@@ -16,7 +16,7 @@ public class RigidbodyCharacter : MonoBehaviour
     private CapsuleCollider capsuleCollider;
 
     private Vector3 _inputs = Vector3.zero;
-    private bool _isGrounded = true;
+    private bool _isGrounded ;
     private bool _isGrappling = false;
 
     public KeyCode Jump;
@@ -24,9 +24,11 @@ public class RigidbodyCharacter : MonoBehaviour
 
     [Range(1f, 10f)]
     public float speed = 1f;
+    private float jumpTimeCounter;
+    public float jumpTime;
+    private bool isJumping; 
 
-
-    private Vector3 jumpForce = new Vector3(0,1,0); 
+    
     void Start()
     {
         _body = GetComponent<Rigidbody>();
@@ -44,13 +46,10 @@ public class RigidbodyCharacter : MonoBehaviour
 
 
 
-void Update()
+    void Update()
     {
-        //_isGrounded = Physics.CheckSphere(capsuleCollider.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
-        bool IsGrounded()
-        {
-            return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
-        }
+        _isGrounded = Physics.CheckSphere(transform.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
+        //_isGrounded = Physics.OverlapSphere(transform.position, checkRadius, Ground, QueryTriggerInteraction.Ignore);
 
         if (_isGrappling)
         {
@@ -65,19 +64,36 @@ void Update()
         _inputs.z = Input.GetAxis("Horizontal") * speed;
 
 
-        if (_inputs != Vector3.zero)
+        if (_inputs != Vector3.zero )
             transform.forward = _inputs;
        
         
 
 
 
-        if (Input.GetKey(Jump) && IsGrounded())
+        if (Input.GetKeyDown(Jump) && _isGrounded)
         {
-            _body.velocity = _body.velocity + jumpForce * JumpHeight; 
-            //_body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y) /*/ 30*/, ForceMode.Impulse);
+            isJumping = true;
+            jumpTimeCounter = jumpTime; 
+            _body.velocity = _body.velocity + Vector3.up * JumpHeight; 
+            
         }
-
+        if (Input.GetKey(Jump) && isJumping == true)
+        {
+            if(jumpTimeCounter > 0)
+            {
+                _body.velocity = _body.velocity + Vector3.up * JumpHeight;
+                jumpTimeCounter -= Time.deltaTime; 
+            }
+            else
+            {
+                isJumping = false; 
+            }
+        }
+        if (Input.GetKeyUp(Jump))
+        {
+            isJumping = false; 
+        }
 
 
     }
@@ -85,6 +101,15 @@ void Update()
 
     void FixedUpdate()
     {
-        _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+        if(IsGrounded() )
+            _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+        else
+            _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime / 2.0f );
+    }
+
+    bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+        //return Physics.OverlapSphere(transform.position, checkRadius, Ground); 
     }
 }
