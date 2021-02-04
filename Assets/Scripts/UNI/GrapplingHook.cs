@@ -19,7 +19,6 @@ public class GrapplingHook : MonoBehaviour
 	//public ConfigurableJoint ropeJoint;
 
 	public Transform perso;
-	public RaycastHit hit;
 
 	public LayerMask surfaces;
 	public int maxDistance = 50;
@@ -40,14 +39,11 @@ public class GrapplingHook : MonoBehaviour
 
 	//A list with all rope sections
 	public List<Vector3> ropePositions = new List<Vector3>();
+	private RaycastHit hit;
 
 	public KeyCode keyGrapplin;
 
 
-	//NEw code rope
-	private bool distanceSet;
-	public Rigidbody ropeHingeAnchorRb;
-	public SpriteRenderer ropeHingeAnchorSprite;
 
 	//Rope data
 	private float ropeLength;
@@ -83,8 +79,6 @@ public class GrapplingHook : MonoBehaviour
 		//Get rigidbodyCharacter component
 		rigidbodyCharacter = GetComponent<RigidbodyCharacter>();
 
-		//hook = new hook_detector();
-
 	}
 
 	void Update()
@@ -102,11 +96,8 @@ public class GrapplingHook : MonoBehaviour
 	// Envois du grappin
 	public void Grapple()
 	{
-
-
 		isGrappling = true;
 		rigidbodyCharacter.Grappling = true;
-
 
 		//The first rope length is the distance between the two objects
 		ropeLength = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
@@ -115,21 +106,12 @@ public class GrapplingHook : MonoBehaviour
 		//Add the weight to what the rope is carrying
 		GetComponent<Rigidbody>().mass = loadMass;
 
-		mainChar.AddComponent<SpringJoint>();
-		spring = GetComponent<SpringJoint>();
+		// Add the first spring joint
+		AddSpringJoint();
 
-        spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
-		spring.autoConfigureConnectedAnchor = false;
-		spring.anchor = Vector3.zero;
-		spring.connectedAnchor = Vector3.zero;
-
-		spring.enableCollision = true;
-
-        ropePositions.Add(whatTheRopeIsConnectedTo.transform.position);
+		// Add the positions to the list of rope positions
+		ropePositions.Add(whatTheRopeIsConnectedTo.transform.position);
         ropePositions.Add(whatIsHangingFromTheRope.transform.position);
-
-        /*		ropePositions[0] = whatTheRopeIsConnectedTo.transform.position;
-				ropePositions[1] = whatIsHangingFromTheRope.transform.position;*/
 
         //Init the spring we use to approximate the rope from point a to b
         UpdateRopePositions();
@@ -138,6 +120,24 @@ public class GrapplingHook : MonoBehaviour
 
 	}
 
+	// Add a spring joint
+	public void AddSpringJoint()
+	{
+		//Add the spring joint component
+		mainChar.AddComponent<SpringJoint>();
+		spring = GetComponent<SpringJoint>();
+
+		spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
+		spring.autoConfigureConnectedAnchor = false;
+		spring.anchor = Vector3.zero;
+		spring.connectedAnchor = Vector3.zero;
+
+		//Add the value to the spring
+		spring.spring = 1000f;
+		spring.damper = 70f;
+
+		spring.enableCollision = true;
+	}
 
 	// Deplacement du joueur vers le point touche par le grappin
 	public void MoveUp()
@@ -209,9 +209,6 @@ public class GrapplingHook : MonoBehaviour
 
 
 
-		//Add the value to the spring
-		spring.spring = 1000f;
-		spring.damper = 70f;
 
 		//Update length of the rope
 		spring.maxDistance = ropeLength;
@@ -276,18 +273,41 @@ public class GrapplingHook : MonoBehaviour
 		LR.SetPositions(positions);
 	}
 
-	//Display the rope with a line renderer
+	// Add a new rope joint when the line touch a rigidbody
 	private void AddRopeJoint()
 	{
+		// Place a joint between the first hook and the character
+		ropePositions.RemoveAt(ropePositions.Count);
+		ropePositions.Add(hit.point);
+		ropePositions.Add(whatIsHangingFromTheRope.transform.position);
+
+		//The new joint manage the rigidbody
+		spring.connectedBody = hit.rigidbody;
+
 
 	}
+
+
+	//Display the rope with a line renderer
+	private void DeleteRopeJoint()
+	{
+		//Remove the joint created before and add again the main character joint
+		ropePositions.RemoveAt(ropePositions.Count);
+		ropePositions.RemoveAt(ropePositions.Count);
+		ropePositions.Add(whatIsHangingFromTheRope.transform.position);
+
+		// TODO: here the spring is connecting to the first attach point, change it when it's possible with the list of Objects instead of a list of vec3
+		spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>(); ;
+
+
+	}
+
 
 	//Display the rope with a line renderer
 	private bool TheLineTouch()
 	{
 		bool raycastHits = false;
 
-		RaycastHit hit;
 
 		//Raycast( whatIsHangingFromTheRope.position , Vector3 direction, float maxDistance = Mathf.Infinity, int layerMask = DefaultRaycastLayers, QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal);
 
@@ -310,8 +330,15 @@ public class GrapplingHook : MonoBehaviour
         {
 			Vector3 u_dir = (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position) / dist_objects;
 
+			if (ropePositions.Count >= 3 )
+            {
+				if ( TheLineTouch(ropePositions[ropePositions.Count - 1], ropePositions[ropePositions.Count - 3]))
+                {
+					DeleteRopeJoint;
+                }
+            }
 
-			if (TheLineTouch())
+			else if ( TheLineTouch(ropePositions[ropePositions.Count - 1] , ropePositions[ropePositions.Count - 2]) )
 			{
 				//TODO: add a method to update the joints if they are moving with an object (take the Transform instead of a list of vector)
 
