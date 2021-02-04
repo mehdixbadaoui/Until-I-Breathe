@@ -170,7 +170,6 @@ public class GrapplingHook : MonoBehaviour
 		Destroy(spring);
 		distToHitPoints.Clear();
 		ropePositions.Clear();
-		//FPC.Grappling = false;
 		LR.enabled = false;
 		rigidbodyCharacter.Grappling = false;
 

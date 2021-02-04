@@ -18,6 +18,8 @@ public class RigidbodyCharacter : MonoBehaviour
     private Vector3 _inputs = Vector3.zero;
     private bool _isGrounded = true;
     private bool _isGrappling = false;
+    private bool _isJumping = false;
+    
 
     public KeyCode Jump;
     private float distToGround;
@@ -46,37 +48,26 @@ public class RigidbodyCharacter : MonoBehaviour
 
 void Update()
     {
-        //_isGrounded = Physics.CheckSphere(capsuleCollider.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
+/*        //_isGrounded = Physics.CheckSphere(capsuleCollider.position, GroundDistance, Ground, QueryTriggerInteraction.Ignore);
         bool IsGrounded()
         {
             return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
         }
+*/
 
-        if (_isGrappling)
+        _isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);
+
+
+        if (Input.GetKey(Jump) && (_isGrounded || _isGrappling) && !_isJumping)
         {
-            speed = 2;
-        }
-        else
-        {
-            speed = 1;
-        }
-
-        _inputs = Vector3.zero;
-        _inputs.z = Input.GetAxis("Horizontal") * speed;
-
-
-        if (_inputs != Vector3.zero)
-            transform.forward = _inputs;
-       
-        
-
-
-
-        if (Input.GetKey(Jump) && IsGrounded())
-        {
-            _body.velocity = _body.velocity + jumpForce * JumpHeight; 
+            _body.velocity = _body.velocity + jumpForce * JumpHeight;
+            _isJumping = true;
             //_body.AddForce(Vector3.up * Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y) /*/ 30*/, ForceMode.Impulse);
         }
+
+
+
+
 
 
 
@@ -85,6 +76,32 @@ void Update()
 
     void FixedUpdate()
     {
-        _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+
+        if (_isGrappling)
+        {
+            speed = 2;
+
+        }
+        else
+        {
+        }
+
+        _inputs = Vector3.zero;
+        _inputs.z = Input.GetAxis("Horizontal") * speed;
+
+        if (_inputs != Vector3.zero && !_isGrappling)
+        {
+            _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+            transform.forward = _inputs;
+        }
+
+
+        // After the fixed update we can jump again if it's gounded again
+        _isJumping = false;
+
+
+
+
+        //_body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
     }
 }
