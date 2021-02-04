@@ -16,7 +16,7 @@ public class RigidbodyCharacter : MonoBehaviour
     private CapsuleCollider capsuleCollider;
 
     private Vector3 _inputs = Vector3.zero;
-    private bool _isGrounded = true;
+    private bool _isGrounded;
     private bool _isGrappling = false;
     private bool _isJumping = false;
     
@@ -28,13 +28,19 @@ public class RigidbodyCharacter : MonoBehaviour
     public float speed = 1f;
 
 
-    private Vector3 jumpForce = new Vector3(0,1,0); 
+    private Vector3 jumpForce = new Vector3(0,1,0);
+
+    Vector3 jump = new Vector3(0, 1, 0);
+    public float geforce = 2f;
+
     void Start()
     {
         _body = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>(); 
         //_groundChecker = transform.GetChild(0);
-        distToGround = capsuleCollider.bounds.extents.y; 
+        distToGround = capsuleCollider.bounds.extents.y;
+
+        _isGrounded = true;
     }
 
 
