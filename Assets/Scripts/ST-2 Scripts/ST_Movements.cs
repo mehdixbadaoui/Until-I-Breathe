@@ -14,11 +14,6 @@ public class ST_Movements : MonoBehaviour
 
     private hook_detector HookDetector;
 
-    // HINTS
-
-    bool nearHint;
-    Transform hintPosition;
-
     void Start()
     {
         Vector3 rotationMask = new Vector3(0, 1, 0);
@@ -33,17 +28,12 @@ public class ST_Movements : MonoBehaviour
 
         // Fetches the script Hook_Detector from the Player GO
         HookDetector = Player.GetComponent<hook_detector>();
-
-    }
-
-    public void Update()
-    {     
     }
 
     void LateUpdate()
     {
         // Allows ST-2 to follow the player
-        if (!HookDetector.nearHook && !nearHint)
+        if (!HookDetector.nearHook && !HookDetector.nearDead && !HookDetector.nearHint)
         {
             // Apply that followOffset to get a target position
             Vector3 targetPosition = Player.position + followOffset;
@@ -57,7 +47,7 @@ public class ST_Movements : MonoBehaviour
             // rotate toward the target rotation, never rotating farther than "lookSpeed" in one frame.
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
         }
-        else // Allows ST-2 to show the nearest hook to the player
+        if (HookDetector.nearHook && !HookDetector.nearDead && !HookDetector.nearHint) // Allows ST-2 to show the nearest HOOK to the player
         {
             Vector3 desiredPosition = (HookDetector.nearest_hook.transform.position + (transform.position - HookDetector.nearest_hook.transform.position).normalized * 2f);
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSharpness);
@@ -67,10 +57,20 @@ public class ST_Movements : MonoBehaviour
             transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.right, 180.0f * Time.deltaTime);
         }
 
-        // Allows ST-2 to show the nearest hint to the player
-        if (!HookDetector.nearHook && HookDetector.nearHint)
+        // Allows ST-2 to show the nearest HINT to the player
+        if (!HookDetector.nearHook && !HookDetector.nearDead && HookDetector.nearHint)
         {
-            Vector3 desiredPosition = (HookDetector.hintPosition.position + (transform.position - HookDetector.hintPosition.position).normalized * 1f);
+            Vector3 desiredPosition = (HookDetector.hintPosition.position + (transform.position - HookDetector.hintPosition.position).normalized * 2f);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSharpness);
+
+            transform.position = smoothedPosition;
+
+            transform.RotateAround(HookDetector.hintPosition.position, Vector3.up, 180.0f * Time.deltaTime);
+        }
+
+        if (!HookDetector.nearHook && !HookDetector.nearHint && HookDetector.nearDead)
+        {
+            Vector3 desiredPosition = (HookDetector.deadPosition.position + (transform.position - HookDetector.deadPosition.position).normalized * 1f);
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSharpness);
 
             transform.position = smoothedPosition;
