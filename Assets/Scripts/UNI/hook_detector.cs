@@ -14,9 +14,11 @@ public class hook_detector : MonoBehaviour
 
     public bool nearHook = false;
 
-    //HINTS
+    //HINTS & DEAD ROBOTS
     public bool nearHint = false;
+    public bool nearDead = false;
     public Transform hintPosition;
+    public Transform deadPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,8 @@ public class hook_detector : MonoBehaviour
             all_hooks.Add(other.gameObject);
             nearHook = true;
         }
+        else
+        Debug.Log("h");
 
 
         // HINTS
@@ -59,6 +63,13 @@ public class hook_detector : MonoBehaviour
         {
             hintPosition = other.gameObject.transform;
             nearHint = true;
+        }
+
+        // DEAD ROBOT
+        if (other.tag == "Dead")
+        {
+            deadPosition = other.gameObject.transform;
+            nearDead = true;
         }
     }
 
@@ -80,6 +91,12 @@ public class hook_detector : MonoBehaviour
         if (other.tag == "Hint")
         {
             nearHint = false;
+        }
+
+        //DEAD
+        if (other.tag == "Dead")
+        {
+            nearDead = false;
         }
     }
 }
