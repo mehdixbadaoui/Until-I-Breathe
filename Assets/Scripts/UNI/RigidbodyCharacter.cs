@@ -112,6 +112,7 @@ public class RigidbodyCharacter : MonoBehaviour
         
         if (_isJumping)
         {
+            _body.velocity += _inputs;
             Debug.Log(Speed);
             _body.MovePosition(_body.position + last_input * Speed * Time.fixedDeltaTime);
         }

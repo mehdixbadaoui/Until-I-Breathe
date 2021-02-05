@@ -36,7 +36,8 @@ public class hook_detector : MonoBehaviour
             nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, player.transform.position)).ToList()[0];
             //Debug.Log(nearest_hook);
         }
-        //else 
+        else
+            nearest_hook = null;
         //    Debug.Log("null");
     }
 
