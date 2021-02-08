@@ -35,7 +35,9 @@ public class RigidbodyCharacter : MonoBehaviour
         _body = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>(); 
         //_groundChecker = transform.GetChild(0);
-        distToGround = capsuleCollider.bounds.extents.y; 
+        distToGround = capsuleCollider.bounds.extents.y;
+
+        _isGrounded = true;
     }
 
 
