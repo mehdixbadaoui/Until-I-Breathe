@@ -32,16 +32,22 @@ public class GrapplingHook : MonoBehaviour
 	public float speed = 10;
 
 	//public MovementInput FPC;
-	public LineRenderer LR;
+	private LineRenderer LR;
 
 	private SpringJoint spring;
 
-
+	public GameObject springjoint_rb_pref;
+	private GameObject springJointRB;
 
 	//A list with all rope sections
 	public List<Vector3> distToHitPoints = new List<Vector3>();
 	public List<Transform> ropePositions = new List<Transform>();
+
+	//Hit point between the grapplin joint and the character
 	private RaycastHit hit;
+
+	//Hit point where the grapplin is attached
+	private RaycastHit hitAttachedToGrapplin;
 
 	public KeyCode keyGrapplin;
 
@@ -62,14 +68,11 @@ public class GrapplingHook : MonoBehaviour
 	private GameObject mainChar;
 
 	//How fast we can add more/less rope
-	float winchSpeed = 5f;
+	float winchSpeed = 3f;
 
 	void Start()
 	{
 		mainChar = gameObject;
-
-		//Get the configurable joint
-		//ropeJoint = GetComponent<ConfigurableJoint>();
 
 		//Init the line renderer we use to display the rope
 		LR = GetComponent<LineRenderer>();
@@ -108,21 +111,24 @@ public class GrapplingHook : MonoBehaviour
 		//Add the weight to what the rope is carrying
 		GetComponent<Rigidbody>().mass = loadMass;
 
-		// Add the first spring joint
-		AddSpringJoint();
 
 		// Add the Transforms to the list of rope positions
 		ropePositions.Add(whatTheRopeIsConnectedTo.transform);
 		ropePositions.Add(whatIsHangingFromTheRope.transform);
 
 		// Add the distances from the rope nodes to the hit points
+		distToHitPoints.Add((whatIsHangingFromTheRope.transform.position - whatTheRopeIsConnectedTo.transform.position).normalized * 0.2f /*whatTheRopeIsConnectedTo.GetComponent<SphereCollider>().radius*/ );
+        //distToHitPoints.Add(Vector3.zero);
 		distToHitPoints.Add(Vector3.zero);
-        distToHitPoints.Add(Vector3.zero);
 
-        //Init the spring we use to approximate the rope from point a to b
-        UpdateRopePositions();
+		// Add the first spring joint
+		AddSpringJoint();
+
+		//Init the spring we use to approximate the rope from point a to b
+		UpdateRopePositions();
 
 		LR.enabled = true;
+
 
 	}
 
@@ -133,13 +139,16 @@ public class GrapplingHook : MonoBehaviour
 		mainChar.AddComponent<SpringJoint>();
 		spring = GetComponent<SpringJoint>();
 
-		spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
+		springJointRB = Instantiate(springjoint_rb_pref, ropePositions[0].position , Quaternion.identity);
+
+		spring.connectedBody = springJointRB.GetComponent<Rigidbody>();
 		spring.autoConfigureConnectedAnchor = false;
 		spring.anchor = Vector3.zero;
 		spring.connectedAnchor = Vector3.zero;
 
 		//Add the value to the spring
-		spring.spring = 1000f;
+		//spring.tolerance = 0.01f;
+		spring.spring = 1000000000000f;
 		spring.damper = 70f;
 
 		spring.enableCollision = true;
@@ -168,6 +177,7 @@ public class GrapplingHook : MonoBehaviour
 	{
 		isGrappling = false;
 		Destroy(spring);
+		Destroy(springJointRB);
 		distToHitPoints.Clear();
 		ropePositions.Clear();
 		LR.enabled = false;
@@ -284,6 +294,7 @@ public class GrapplingHook : MonoBehaviour
 	private void AddRopeJoint()
 	{
 
+
 		// Add the transform of the object touched by the raycast
 		ropePositions.RemoveAt(ropePositions.Count - 1);
 		ropePositions.Add(hit.transform);
@@ -294,10 +305,15 @@ public class GrapplingHook : MonoBehaviour
 		distToHitPoints.Add(hit.point - hit.transform.position);
 		distToHitPoints.Add(Vector3.zero);
 
-		//The new joint manage the rigidbody
-		spring.connectedBody = hit.rigidbody;
 
-		ropeLength = Vector3.Distance(ropePositions[ropePositions.Count - 1].position, ropePositions[ropePositions.Count - 2].position);
+		ropeLength -= Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], ropePositions[ropePositions.Count - 3].position + distToHitPoints[distToHitPoints.Count - 3]);
+
+		//The new joint manage the rigidbody
+		//spring.connectedBody = hit.rigidbody;
+
+
+		ropeLength = Vector3.Distance(ropePositions[ropePositions.Count - 1].position + distToHitPoints[distToHitPoints.Count - 1], ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2]);
+		springJointRB.transform.position = ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2];
 
 		UpdateRopePositions();
 
@@ -308,6 +324,9 @@ public class GrapplingHook : MonoBehaviour
 	//Display the rope with a line renderer
 	private void DeleteRopeJoint()
 	{
+
+		//ropeLength += Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], ropePositions[ropePositions.Count - 3].position + distToHitPoints[distToHitPoints.Count - 3]) ;
+
 		//Remove the joint created before and add again the main character joint
 		ropePositions.RemoveAt(ropePositions.Count - 1);
 		ropePositions.RemoveAt(ropePositions.Count - 1);
@@ -319,7 +338,10 @@ public class GrapplingHook : MonoBehaviour
 		distToHitPoints.Add(Vector3.zero);
 
 		// TODO: here the spring is connecting to the first attach point, change it when it's possible with the list of Objects instead of a list of vec3
-		spring.connectedBody = ropePositions[ropePositions.Count - 2].gameObject.GetComponent<Rigidbody>();
+		//spring.connectedBody = ropePositions[ropePositions.Count - 2].gameObject.GetComponent<Rigidbody>();
+
+		springJointRB.transform.position = ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2];
+
 
 		ropeLength = Vector3.Distance( ropePositions[ropePositions.Count - 1].position + distToHitPoints[distToHitPoints.Count - 1], ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2]);
 
@@ -341,7 +363,7 @@ public class GrapplingHook : MonoBehaviour
 		Vector3 dir = hook_pos - player;
 
 		float ray_obj = Vector3.Distance(hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.max, hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.min) / 2;
-		raycastHits = Physics.Raycast(player, dir, out hit, dir.magnitude - ray_obj * 1.5f);
+		raycastHits = Physics.Raycast(player, dir, out hit, dir.magnitude - 0.05f /*- ray_obj * 1.5f*/);
 
 
 		return raycastHits;
@@ -357,11 +379,12 @@ public class GrapplingHook : MonoBehaviour
         {
 			Vector3 u_dir = (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position) / dist_objects;
 
+
 			if (distToHitPoints.Count >= 3 )
             {
 				if ( !TheLineTouch( ropePositions[ropePositions.Count - 1].position + distToHitPoints[distToHitPoints.Count - 1] , ropePositions[ropePositions.Count - 3].position + distToHitPoints[distToHitPoints.Count - 3], ropePositions[ropePositions.Count - 3] ) )
 				{
-					Debug.Log("AddRopeJoint");
+					Debug.Log(ropePositions[ropePositions.Count - 3]);
 					DeleteRopeJoint();
                 }
             }
@@ -371,9 +394,17 @@ public class GrapplingHook : MonoBehaviour
 			{
 				//TODO: add a method to update the joints if they are moving with an object (take the Transform instead of a list of vector)
 
+				if (hit.transform != whatTheRopeIsConnectedTo.transform)
+					AddRopeJoint();
 
-				AddRopeJoint();
             }
+/*            else
+            {
+				float ray_obj = Vector3.Distance(hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.max, hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.min) / 2;
+				raycastHits = Physics.Raycast(player, dir, out hitAttachedToGrapplin, dir.magnitude - ray_obj * 1.5f);
+			}*/
+
+
 
 
 			DisplayRope();
@@ -388,7 +419,7 @@ public class GrapplingHook : MonoBehaviour
 
             if (whatTheRopeIsConnectedTo)
             {
-				if ( !Physics.Raycast(whatIsHangingFromTheRope.position, (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position).normalized , 
+				if ( !Physics.Raycast(whatIsHangingFromTheRope.position, (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position).normalized , out hit,
 					Vector3.Distance( whatTheRopeIsConnectedTo.transform.position , whatIsHangingFromTheRope.position ) - 1.0f )  )
                 {
 					Grapple();
@@ -438,11 +469,22 @@ public class GrapplingHook : MonoBehaviour
 
 
 
-	/*
+	
 	void OnDrawGizmos()
     {
+		Gizmos.color = Color.yellow;
 
-    }
-	*/
+		if (distToHitPoints.Count >= 3)
+			Gizmos.DrawSphere(ropePositions[ropePositions.Count - 3].position + distToHitPoints[distToHitPoints.Count - 3], 0.2f);
+
+		if (distToHitPoints.Count >= 2)
+			Gizmos.DrawSphere(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], 0.2f ) 
+			/*Vector3.Distance(ropePositions[ropePositions.Count - 2].gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.max, ropePositions[ropePositions.Count - 2].gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.min) / 2)*/;
+
+		Gizmos.color = Color.red;
+		if (springJointRB!= null)
+			Gizmos.DrawSphere(springJointRB.transform.position, 0.2f);
+	}
+	
 
 }
