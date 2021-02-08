@@ -6,20 +6,41 @@ public class enter_room : MonoBehaviour
 {
     //private Collider collider;
     public GameObject facade;
-    private bool visible;
+    Material mat;
+    public bool visible;
 
     private void Start()
     {
         visible = true;
+        mat = facade.GetComponent<Renderer>().material;
     }
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == "uni") /*fade(visible);*/ facade.SetActive(!facade.active);
+        if (col.tag == "uni")
+        {
+            Vector4 source = mat.color;
+            Vector4 target = new Vector4(source.x, source.y, source.z, System.Convert.ToInt32(!visible));
+
+            StartCoroutine(fade(source, target, .3f));
+
+            visible = !visible;
+        }
+        
+        ///*fade(visible);*/ facade.SetActive(!facade.active);
     }
 
-    private void fade(bool visible)
+
+    IEnumerator fade(Vector4 source, Vector4 target, float overTime)
     {
-        Vector3 initial_pos = facade.transform.position;
-        facade.transform.position = Vector3.Lerp(initial_pos, initial_pos + new Vector3(7, 0, 0), 20f);
+        float startTime = Time.time;
+        while (Time.time < startTime + overTime)
+        {
+            mat.color = Vector4.Lerp(source, target, (Time.time - startTime) / overTime);
+            yield return null;
+
+            Debug.Log(mat.color);
+        }
+        mat.color = target;
     }
+
 }
