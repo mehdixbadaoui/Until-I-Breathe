@@ -26,9 +26,10 @@ public class RigidbodyCharacter : MonoBehaviour
     public float speed = 1f;
     private float jumpTimeCounter;
     public float jumpTime;
-    private bool isJumping; 
+    private bool _isJumping;
+    private Vector3 last_input;
 
-    
+
     void Start()
     {
         _body = GetComponent<Rigidbody>();
@@ -65,22 +66,16 @@ public class RigidbodyCharacter : MonoBehaviour
         _inputs = Vector3.zero;
         _inputs.z = Input.GetAxis("Horizontal") * speed;
 
-
         if (_inputs != Vector3.zero )
             transform.forward = _inputs;
-       
-        
 
-
-
-        if (Input.GetKeyDown(Jump) && _isGrounded)
+        if ((Input.GetKeyDown(Jump) &&  ( _isGrounded || _isGrappling ))) 
         {
-            isJumping = true;
+            _isJumping = true;
             jumpTimeCounter = jumpTime; 
             _body.velocity = _body.velocity + Vector3.up * JumpHeight; 
-            
         }
-        if (Input.GetKey(Jump) && isJumping == true)
+        if (Input.GetKey(Jump) && _isJumping == true)
         {
             if(jumpTimeCounter > 0)
             {
@@ -89,29 +84,45 @@ public class RigidbodyCharacter : MonoBehaviour
             }
             else
             {
-                isJumping = false; 
+                _isJumping = false; 
             }
         }
         if (Input.GetKeyUp(Jump))
         {
-            isJumping = false; 
+            _isJumping = false; 
         }
-
-
     }
 
 
     void FixedUpdate()
     {
-        if(IsGrounded() )
-            _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
-        else
-            _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime / 2.0f );
+        Velocity_Uni(); 
     }
 
-    bool IsGrounded()
+    void Velocity_Uni()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
-        //return Physics.OverlapSphere(transform.position, checkRadius, Ground); 
+        if (_isGrappling)
+        {
+            _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+
+        }
+        else if (_isGrounded)
+        {
+            _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+            last_input = _inputs * Speed * Time.fixedDeltaTime;
+        }
+        
+        if (_isJumping)
+        {
+            _body.velocity += _inputs;
+            Debug.Log(Speed);
+            _body.MovePosition(_body.position + last_input * Speed * Time.fixedDeltaTime);
+        }
     }
+
+    //bool IsGrounded()
+    //{
+    //    return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+    //    //return Physics.OverlapSphere(transform.position, checkRadius, Ground); 
+    //}
 }

@@ -343,8 +343,6 @@ public class GrapplingHook : MonoBehaviour
 		float ray_obj = Vector3.Distance(hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.max, hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.min) / 2;
 		raycastHits = Physics.Raycast(player, dir, out hit, dir.magnitude - ray_obj * 1.5f);
 
-		Debug.Log(-dir);
-
 
 		return raycastHits;
 	}
@@ -362,7 +360,8 @@ public class GrapplingHook : MonoBehaviour
 			if (distToHitPoints.Count >= 3 )
             {
 				if ( !TheLineTouch( ropePositions[ropePositions.Count - 1].position + distToHitPoints[distToHitPoints.Count - 1] , ropePositions[ropePositions.Count - 3].position + distToHitPoints[distToHitPoints.Count - 3], ropePositions[ropePositions.Count - 3] ) )
-                {
+				{
+					Debug.Log("AddRopeJoint");
 					DeleteRopeJoint();
                 }
             }
@@ -372,7 +371,6 @@ public class GrapplingHook : MonoBehaviour
 			{
 				//TODO: add a method to update the joints if they are moving with an object (take the Transform instead of a list of vector)
 
-				Debug.Log("AddRopeJoint");
 
 				AddRopeJoint();
             }
