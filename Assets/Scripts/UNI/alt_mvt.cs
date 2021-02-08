@@ -11,6 +11,7 @@ public class alt_mvt : MonoBehaviour
     public static bool can_jump = false;
 
     float vertical_movement;
+    private Vector3 lastInput; 
 
     Rigidbody rb;
 
@@ -40,12 +41,25 @@ public class alt_mvt : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+        if(can_jump == true || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
+        {
+            transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+        }
+        
+        if (can_jump == false)
+            if (lastInput.normalized != new Vector3(0f, 0f, horizontal_movement).normalized)
+            {
+                transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+
+            }
+               
     }
 
     void Jump()
     {
+        lastInput = new Vector3(0f, 0f, horizontal_movement);  
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
+        
         can_jump = false;
     }
 
