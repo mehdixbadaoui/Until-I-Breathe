@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 346123310}
   m_Layer: 8
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -844,7 +844,9 @@ MonoBehaviour:
   detection_radius: 5
   nearHook: 0
   nearHint: 0
+  nearDead: 0
   hintPosition: {fileID: 0}
+  deadPosition: {fileID: 0}
 --- !u!135 &361035296
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1546,6 +1548,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695718895}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &715495772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 715495773}
+  - component: {fileID: 715495775}
+  - component: {fileID: 715495774}
+  m_Layer: 0
+  m_Name: ground_check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &715495773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715495772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493486792}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &715495774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715495772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea9c23158bedf646826b1d4945c642d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &715495775
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715495772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.03669244
+  m_Center: {x: 0, y: 0.04, z: 0.058636546}
 --- !u!1 &890604144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,73 +1853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c9795a96c094f4cbde4d65546aa9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 2014188932}
-  movementSettings:
-    ForwardSpeed: 4
-    RunMultiplier: 2.27
-    RunKey: 304
-    JumpForce: 8
-    SlopeCurveModifier:
-      m_Curve:
-      - time: -90
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - time: -32.119713
-        value: 1.0062267
-        inSlope: -0.00018860603
-        outSlope: -0.00018860603
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - time: 0.7168808
-        value: 0.92949235
-        inSlope: -0.008975671
-        outSlope: -0.008975671
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - time: 20.714355
-        value: 0.09505603
-        inSlope: -0.009479878
-        outSlope: -0.009479878
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - time: 90
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    CurrentTargetSpeed: 8
-  mouseLook:
-    XSensitivity: 0
-    YSensitivity: 0
-    clampVerticalRotation: 1
-    MinimumX: -90
-    MaximumX: 90
-    smooth: 0
-    smoothTime: 5
-    lockCursor: 0
-  advancedSettings:
-    groundCheckDistance: 0.01
-    stickToGroundHelperDistance: 0.5
-    slowDownRate: 40
-    airControl: 1
-    shellOffset: 0
 --- !u!136 &973535144
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2218,7 +2210,7 @@ GameObject:
   - component: {fileID: 1213692909}
   m_Layer: 8
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2330,7 +2322,7 @@ GameObject:
   - component: {fileID: 1306992248}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2664,7 +2656,7 @@ GameObject:
   - component: {fileID: 1647508499}
   m_Layer: 8
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2960,7 +2952,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702241110}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3056,7 +3048,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702241110}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a47536f19f681d54294a94b791597622, type: 3}
   m_Name: 
@@ -3100,7 +3092,7 @@ CapsuleCollider:
   m_Radius: 0.29
   m_Height: 1.55
   m_Direction: 1
-  m_Center: {x: 0, y: 0.66, z: 0.06}
+  m_Center: {x: 0, y: 0.7811719, z: 0.060000002}
 --- !u!114 &1702241115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3135,7 +3127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702241110}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8d68d5023b0ad146b30470f78dd50c5, type: 3}
   m_Name: 
@@ -3148,21 +3140,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702241110}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a47536f19f681d54294a94b791597622, type: 3}
+  m_Script: {fileID: 11500000, guid: c8e14fa610b2b6b498ad42819bb2f8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
-  JumpHeight: 2
-  GroundDistance: 0.2
-  checkRadius: 0
-  Ground:
-    serializedVersion: 2
-    m_Bits: 0
-  Jump: 0
-  speed: 1
-  jumpTime: 0
+  speed: 0.1
+  jump_force: 2
 --- !u!1 &1826704889
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,9 +3310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e558d475d48994a820dd44ade67884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatTheRopeIsConnectedTo: {fileID: 904262378}
-  whatIsHangingFromTheRope: {fileID: 1826704895}
-  allRopeSections: []
 --- !u!120 &1826704899
 LineRenderer:
   m_ObjectHideFlags: 0
