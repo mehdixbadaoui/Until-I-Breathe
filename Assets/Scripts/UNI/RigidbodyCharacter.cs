@@ -103,7 +103,8 @@ public class RigidbodyCharacter : MonoBehaviour
     {
         if (_isGrappling)
         {
-            _body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+            //_body.MovePosition(_body.position + _inputs * Speed * Time.fixedDeltaTime);
+            _body.AddForce( _inputs * 5, ForceMode.Acceleration);
 
         }
         else if (_isGrounded)
@@ -115,7 +116,6 @@ public class RigidbodyCharacter : MonoBehaviour
         if (_isJumping)
         {
             _body.velocity += _inputs;
-            Debug.Log(Speed);
             _body.MovePosition(_body.position + last_input * Speed * Time.fixedDeltaTime);
         }
     }

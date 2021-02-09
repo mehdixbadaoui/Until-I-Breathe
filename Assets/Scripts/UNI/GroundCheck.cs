@@ -11,6 +11,12 @@ public class GroundCheck : MonoBehaviour
 
     }
 
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.tag == "ground")
+            alt_mvt.can_jump = false;
+
+    }
 
     private void Update()
     {

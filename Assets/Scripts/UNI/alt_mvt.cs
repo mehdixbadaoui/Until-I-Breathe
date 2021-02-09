@@ -28,6 +28,7 @@ public class alt_mvt : MonoBehaviour
         horizontal_movement = Input.GetAxis("Horizontal");
         vertical_movement = Input.GetAxisRaw("Vertical");
         //horizontal_movement = Input.GetAxisRaw("Horizontal");
+ 
 
         if (Input.GetKey(KeyCode.Space) && can_jump)
             Jump();
