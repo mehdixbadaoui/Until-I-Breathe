@@ -56,11 +56,7 @@ public class hook_detector : MonoBehaviour
             nearHook = true;
         }
         else
-<<<<<<< HEAD
-=======
         Debug.Log("h");
->>>>>>> parent of d7cf4f6 (Expressions of ST-2 almost done)
-
 
         // HINTS
         if (other.tag == "Hint")
