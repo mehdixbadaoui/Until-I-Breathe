@@ -55,9 +55,6 @@ public class hook_detector : MonoBehaviour
             all_hooks.Add(other.gameObject);
             nearHook = true;
         }
-        else
-        Debug.Log("h");
-
 
         // HINTS
         if (other.tag == "Hint")
