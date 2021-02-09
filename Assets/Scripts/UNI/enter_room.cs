@@ -14,19 +14,32 @@ public class enter_room : MonoBehaviour
         visible = true;
         mat = facade.GetComponent<Renderer>().material;
     }
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "uni")
+        {
+            Vector4 source = mat.color;
+            Vector4 target = new Vector4(source.x, source.y, source.z, 0/*System.Convert.ToInt32(!visible)*/);
+
+            StartCoroutine(fade(source, target, .3f));
+
+            visible = true;
+        }
+        
+    }
+
     void OnTriggerExit(Collider col)
     {
         if (col.tag == "uni")
         {
             Vector4 source = mat.color;
-            Vector4 target = new Vector4(source.x, source.y, source.z, System.Convert.ToInt32(!visible));
+            Vector4 target = new Vector4(source.x, source.y, source.z, 1/*System.Convert.ToInt32(!visible)*/);
 
             StartCoroutine(fade(source, target, .3f));
 
-            visible = !visible;
+            visible = false;
         }
         
-        ///*fade(visible);*/ facade.SetActive(!facade.active);
     }
 
 
@@ -37,8 +50,6 @@ public class enter_room : MonoBehaviour
         {
             mat.color = Vector4.Lerp(source, target, (Time.time - startTime) / overTime);
             yield return null;
-
-            Debug.Log(mat.color);
         }
         mat.color = target;
     }
