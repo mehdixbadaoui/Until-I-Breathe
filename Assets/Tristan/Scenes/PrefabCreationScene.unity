@@ -123,6 +123,85 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &405574124
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6033698542394386200, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: speed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6033698542394386200, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: jump_force
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.13602924
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.9842463
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105227364255316494, guid: 18b5c737a8635094fac00464a1c8864b,
+        type: 3}
+      propertyPath: m_Name
+      value: Jammo_Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18b5c737a8635094fac00464a1c8864b, type: 3}
 --- !u!850595691 &407870946
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -357,7 +436,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1697529549
 GameObject:
@@ -374,7 +453,7 @@ GameObject:
   - component: {fileID: 1697529550}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,9 +734,17 @@ MonoBehaviour:
   assetGuid: 
   m_Mesh: {fileID: 1904282598}
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 04000000
+  m_SelectedEdges:
+  - a: 16
+    b: 17
+  - a: 18
+    b: 16
+  - a: 17
+    b: 19
+  - a: 19
+    b: 18
+  m_SelectedVertices: 10000000110000001200000013000000
 --- !u!4 &1697529554
 Transform:
   m_ObjectHideFlags: 0
@@ -670,7 +757,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1904282598
 Mesh:
@@ -678,7 +765,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20516
+  m_Name: pb_Mesh24672
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
