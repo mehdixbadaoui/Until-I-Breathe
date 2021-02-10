@@ -9,10 +9,14 @@ public class enter_room : MonoBehaviour
     Material mat;
     public bool visible;
 
+    Breathing_mechanic breathing_mechanic;
+
     private void Start()
     {
         visible = true;
         mat = facade.GetComponent<Renderer>().material;
+
+        breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
     }
     void OnTriggerEnter(Collider col)
     {
@@ -24,6 +28,10 @@ public class enter_room : MonoBehaviour
             StartCoroutine(fade(source, target, .3f));
 
             visible = true;
+
+            breathing_mechanic.breath = breathing_mechanic.max_breath;
+            breathing_mechanic.can_breath = true;
+
         }
         
     }
@@ -38,8 +46,11 @@ public class enter_room : MonoBehaviour
             StartCoroutine(fade(source, target, .3f));
 
             visible = false;
+
+            breathing_mechanic.can_breath = false;
+
         }
-        
+
     }
 
 
