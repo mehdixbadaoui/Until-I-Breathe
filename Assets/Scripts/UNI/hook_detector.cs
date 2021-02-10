@@ -56,7 +56,7 @@ public class hook_detector : MonoBehaviour
             nearHook = true;
         }
         else
-        Debug.Log("h");
+        //Debug.Log("h");
 
         // HINTS
         if (other.tag == "Hint")
