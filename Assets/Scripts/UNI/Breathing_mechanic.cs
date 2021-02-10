@@ -5,7 +5,7 @@ using UnityEngine;
 public class Breathing_mechanic : MonoBehaviour
 {
     public float max_breath = 20f;
-    public float breath = 20f;
+    public float breath;
     public float breath_speed = 1f;
 
     public float hold_speed = 2f;
@@ -24,7 +24,7 @@ public class Breathing_mechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        breath = max_breath;
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class Breathing_mechanic : MonoBehaviour
             current_hold = 1;
         }
 
-        if(Input.GetKey(exhale_key))
+        if(Input.GetKey(hold_breath_key) && Input.GetKey(exhale_key))
         {
             current_exhale = exhale_speed;
         }
@@ -51,7 +51,7 @@ public class Breathing_mechanic : MonoBehaviour
         }
 
         if(!can_breath)
-            breath -= exhale_speed * breath_speed/current_hold * Time.deltaTime;
+            breath -= current_exhale * breath_speed/current_hold * Time.deltaTime;
 
         if (breath <= 0) Die();
     }
