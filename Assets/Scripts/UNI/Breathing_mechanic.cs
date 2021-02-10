@@ -13,6 +13,7 @@ public class Breathing_mechanic : MonoBehaviour
 
     public float exhale_speed = 4;
     public float current_exhale;
+    public float min_pourc = 5f;
 
     public bool can_breath = false;
     public bool hold;
@@ -41,7 +42,7 @@ public class Breathing_mechanic : MonoBehaviour
             current_hold = 1;
         }
 
-        if(Input.GetKey(hold_breath_key) && Input.GetKey(exhale_key))
+        if(Input.GetKey(hold_breath_key) && Input.GetKey(exhale_key) && breath >= (max_breath * min_pourc / 100f))
         {
             current_exhale = exhale_speed;
         }
