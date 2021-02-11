@@ -55,7 +55,7 @@ public class alt_mvt : MonoBehaviour
             transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
         
-        if (can_jump)
+        if (!can_jump)
             if (lastInput.normalized != new Vector3(0f, 0f, horizontal_movement).normalized)
             {
                 transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);

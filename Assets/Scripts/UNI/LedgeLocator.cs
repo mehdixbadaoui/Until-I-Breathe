@@ -17,6 +17,7 @@ public class LedgeLocator : MonoBehaviour
 {
     public AnimationClip clip;
     public float climbingHorizontalOffset;
+    public float offsetLedgeClimbing; 
 
     private Vector3 topOfPlayer;
     private GameObject ledge;
@@ -64,9 +65,9 @@ public class LedgeLocator : MonoBehaviour
         {
             if (transform.localScale.x > 0)
             {
-                topOfPlayer = new Vector3(0, col.bounds.max.y, transform.position.z/*ol.bounds.max.z + .1f*/);
+                topOfPlayer = new Vector3(0, col.bounds.max.y, transform.position.z);
                 RaycastHit hit; 
-                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>())
+                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 0.5f) && hit.collider.GetComponent<Ledge>())
                 {
                     ledge = hit.collider.gameObject;
                     if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
@@ -78,10 +79,10 @@ public class LedgeLocator : MonoBehaviour
             }
             else
             {
-                topOfPlayer = new Vector3(0, col.bounds.max.y, transform.position.z /*col.bounds.min.z - .1f*/);
+                topOfPlayer = new Vector3(0, col.bounds.max.y, transform.position.z);
 
                 RaycastHit hit;
-                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>())
+                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 0.5f) && hit.collider.GetComponent<Ledge>())
                 {
                     ledge = hit.collider.gameObject;
                     if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
