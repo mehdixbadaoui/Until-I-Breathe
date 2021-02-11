@@ -34,6 +34,7 @@ public class LedgeLocator : MonoBehaviour
     private Rigidbody rb;
     private Animator anim;
 
+
     private void Start()
     {
         col = GetComponent<Collider>();
@@ -43,6 +44,8 @@ public class LedgeLocator : MonoBehaviour
         {
             animationTime = clip.length;
         }
+
+        
     }
 
 
@@ -84,7 +87,7 @@ public class LedgeLocator : MonoBehaviour
             securityRayForClimbing = new Vector3(0, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
             RaycastHit hit;
             RaycastHit hitSecurity; 
-            if (Input.GetKey(KeyCode.Space) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, 0.5f))
+            if (!alt_mvt.isGrounded && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, 0.5f))
             {
                 if (hit.collider)
                     Debug.Log("exist");
