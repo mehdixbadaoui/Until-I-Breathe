@@ -11,7 +11,9 @@ public class alt_mvt : MonoBehaviour
     public static bool can_jump = false;
 
     float vertical_movement;
-    private Vector3 lastInput; 
+    private Vector3 lastInput;
+
+    public Vector3 direction;
 
     Rigidbody rb;
 
@@ -27,6 +29,8 @@ public class alt_mvt : MonoBehaviour
     {
         horizontal_movement = Input.GetAxis("Horizontal");
         vertical_movement = Input.GetAxisRaw("Vertical");
+
+
         //horizontal_movement = Input.GetAxisRaw("Horizontal");
  
 
@@ -42,15 +46,16 @@ public class alt_mvt : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(can_jump == true || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
+        if(can_jump || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
         {
             transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
         
-        if (can_jump == false)
+        if (can_jump)
             if (lastInput.normalized != new Vector3(0f, 0f, horizontal_movement).normalized)
             {
                 transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+                //transform.position += horizontal_movement_vector * speed * Time.deltaTime;
 
             }
                
@@ -63,17 +68,5 @@ public class alt_mvt : MonoBehaviour
         
         can_jump = false;
     }
-
-    void Crouch()
-    {
-        GetComponent<CapsuleCollider>().height = 1;
-    }
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.collider.tag == "ground")
-    //        can_jump = true;
-    //}
-
 
 }
