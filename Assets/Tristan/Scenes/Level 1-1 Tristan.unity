@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfc8eb1f3a130546b28c23d17435624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 867627176}
+  player: {fileID: 1722461868}
   smoothSpeed: 0.5
-  offset: {x: 12.41, y: 5, z: 0}
+  offset: {x: 12, y: -1, z: 0}
   camHeight: 0
 --- !u!81 &117569955
 AudioListener:
@@ -597,12 +597,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &867627176 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6107320334195902493, guid: 18b5c737a8635094fac00464a1c8864b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1722461867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1115146263
 Mesh:
   m_ObjectHideFlags: 0
@@ -853,7 +847,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686256334}
   m_LocalRotation: {x: 0.8165238, y: -0.25648084, z: -0.034709644, w: 0.5160443}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 5, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1241,6 +1235,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18b5c737a8635094fac00464a1c8864b, type: 3}
+--- !u!4 &1722461868 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6033698542972717384, guid: 18b5c737a8635094fac00464a1c8864b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1722461867}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1825985991
 Mesh:
   m_ObjectHideFlags: 0
