@@ -16,10 +16,12 @@ using UnityEngine;
 public class LedgeLocator : MonoBehaviour
 {
     public AnimationClip clip;
-    public float climbingHorizontalOffset;
-    public float offsetLedgeClimbing; 
+    //public float climbingHorizontalOffset;
+    public float offsetLedgeClimbing = -0.2f;
+    public float securityOffsetLedgeClimbing = 0.51f; 
 
     private Vector3 topOfPlayer;
+    private Vector3 securityRayForClimbing; 
     private GameObject ledge;
     private float animationTime = .5f;
     private bool falling;
@@ -63,35 +65,52 @@ public class LedgeLocator : MonoBehaviour
     {
         if (!falling)
         {
-            if (transform.localScale.x > 0)
+            //if (transform.localScale.x > 0)
+            //{
+            //    topOfPlayer = new Vector3(0, col.bounds.max.y /*+ offsetLedgeClimbing*/, transform.position.z);
+            //    middleOfPlayer = new Vector3(0, col.bounds.center.y + offsetLedgeClimbing, transform.position.z);
+            //    RaycastHit hit; 
+            //    if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 0.5f) && hit.collider.GetComponent<Ledge>() && Physics.Raycast(middleOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z)))
+            //    {
+            //        ledge = hit.collider.gameObject;
+            //        if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
+            //        {
+            //            grabbingLedge = true;
+            //            anim.SetBool("LedgeHanging", true);
+            //        }
+            //    }
+            //}
+            topOfPlayer = new Vector3(0, col.bounds.max.y + offsetLedgeClimbing, transform.position.z);
+            securityRayForClimbing = new Vector3(0, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
+            RaycastHit hit;
+            RaycastHit hitSecurity; 
+            if (Input.GetKey(KeyCode.Space) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, 0.5f))
             {
-                topOfPlayer = new Vector3(0, col.bounds.max.y, transform.position.z);
-                RaycastHit hit; 
-                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 0.5f) && hit.collider.GetComponent<Ledge>())
+                if (hit.collider)
+                    Debug.Log("exist");
+                ledge = hit.collider.gameObject;
+                if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
                 {
-                    ledge = hit.collider.gameObject;
-                    if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
-                    {
-                        grabbingLedge = true;
-                        anim.SetBool("LedgeHanging", true);
-                    }
+                    grabbingLedge = true;
+                    anim.SetBool("LedgeHanging", true);
                 }
             }
-            else
-            {
-                topOfPlayer = new Vector3(0, col.bounds.max.y, transform.position.z);
+            //else
+            //{
+            //    topOfPlayer = new Vector3(0, col.bounds.max.y /*+ offsetLedgeClimbing*/, transform.position.z);
+            //    middleOfPlayer = new Vector3(0, col.bounds.center.y + offsetLedgeClimbing, transform.position.z); 
 
-                RaycastHit hit;
-                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 0.5f) && hit.collider.GetComponent<Ledge>())
-                {
-                    ledge = hit.collider.gameObject;
-                    if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
-                    {
-                        anim.SetBool("LedgeHanging", true);
-                        grabbingLedge = true;
-                    }
-                }
-            }
+            //    RaycastHit hit;
+            //    if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 0.5f) && hit.collider.GetComponent<Ledge>() && Physics.Raycast(middleOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z)))
+            //    {
+            //        ledge = hit.collider.gameObject;
+            //        if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
+            //        {
+            //            anim.SetBool("LedgeHanging", true);
+            //            grabbingLedge = true;
+            //        }
+            //    }
+            //}
             if (ledge != null && grabbingLedge)
             {
                 AdjustPlayerPosition();
@@ -114,11 +133,11 @@ public class LedgeLocator : MonoBehaviour
             anim.SetBool("LedgeHanging", false);
             if (transform.localScale.x > 0)
             {
-                StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + col.bounds.extents.y, transform.position.z + climbingHorizontalOffset), animationTime - .3f));
+                StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + col.bounds.extents.y, transform.position.z /*+ climbingHorizontalOffset*/), animationTime - .3f));
             }
             else
             {
-                StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + col.bounds.extents.y, transform.position.z - climbingHorizontalOffset), animationTime - .3f));
+                StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + col.bounds.extents.y, transform.position.z /*- climbingHorizontalOffset*/), animationTime - .3f));
             }
         }
         if (grabbingLedge && Input.GetAxis("Vertical") < 0)
@@ -167,9 +186,11 @@ public class LedgeLocator : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(Vector3.back));
-        Gizmos.color = Color.red; 
+       
+        Gizmos.color = Color.blue; 
         Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(Vector3.forward * transform.localScale.z));
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(Vector3.forward * transform.localScale.z));
     }
     protected virtual void NotFalling()
     {

@@ -25,7 +25,7 @@ public class alt_mvt : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        facingLeft = new Vector3(0, transform.localScale.y, -transform.localScale.z);
+        facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -105,7 +105,7 @@ public class alt_mvt : MonoBehaviour
         }
         if (!isFacingLeft)
         {
-            transform.localScale = new Vector3(0, transform.localScale.y, -transform.localScale.z);
+            transform.localScale = new Vector3(1, transform.localScale.y, -transform.localScale.z);
         }
     }
 
