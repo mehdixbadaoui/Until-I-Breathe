@@ -15,6 +15,8 @@ public class RigidbodyCharacter : MonoBehaviour
     private Rigidbody _body;
     private CapsuleCollider capsuleCollider;
 
+
+
     private Vector3 _inputs = Vector3.zero;
     private bool _isGrounded ;
     private bool _isGrappling = false;
@@ -38,6 +40,7 @@ public class RigidbodyCharacter : MonoBehaviour
         distToGround = capsuleCollider.bounds.extents.y;
 
         _isGrounded = true;
+        
     }
 
 
@@ -96,9 +99,10 @@ public class RigidbodyCharacter : MonoBehaviour
 
     void FixedUpdate()
     {
-        Velocity_Uni(); 
+        Velocity_Uni();
+       
     }
-
+    
     void Velocity_Uni()
     {
         if (_isGrappling)
