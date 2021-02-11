@@ -38,7 +38,7 @@ public class ST_Movements : MonoBehaviour
         followOffset = transform.position - Player.transform.position;
 
         // Fetches the script Hook_Detector from the Player GO
-        HookDetector = Player.GetComponent<hook_detector>();
+        HookDetector = Player.Find("hook_detector").GetComponent<hook_detector>();
     }
 
     private void Update()
