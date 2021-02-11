@@ -8,7 +8,7 @@ public class alt_mvt : MonoBehaviour
     float horizontal_movement;
 
     public float jump_force = .5f;
-    public static bool can_jump = false;
+    public static bool isGrounded = false;
 
     float vertical_movement;
     private Vector3 lastInput;
@@ -25,7 +25,7 @@ public class alt_mvt : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        facingLeft = new Vector3(0, transform.localScale.y, -transform.localScale.z);
+        facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class alt_mvt : MonoBehaviour
         //horizontal_movement = Input.GetAxisRaw("Horizontal");
  
 
-        if (Input.GetKeyDown(KeyCode.Space) && can_jump)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             Jump();
 
         if (Input.GetKey(KeyCode.S))
@@ -50,12 +50,12 @@ public class alt_mvt : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(can_jump || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
+        if(isGrounded || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
         {
             transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
         
-        if (!can_jump)
+        if (!isGrounded)
             if (lastInput.normalized != new Vector3(0f, 0f, horizontal_movement).normalized)
             {
                 transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
@@ -84,7 +84,7 @@ public class alt_mvt : MonoBehaviour
         lastInput = new Vector3(0f, 0f, horizontal_movement);  
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
         
-        can_jump = false;
+        isGrounded = false;
     }
 
     void Crouch()
@@ -105,7 +105,7 @@ public class alt_mvt : MonoBehaviour
         }
         if (!isFacingLeft)
         {
-            transform.localScale = new Vector3(0, transform.localScale.y, -transform.localScale.z);
+            transform.localScale = new Vector3(1, transform.localScale.y, -transform.localScale.z);
         }
     }
 

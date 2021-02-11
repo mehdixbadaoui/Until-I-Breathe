@@ -208,7 +208,7 @@ public class GrapplingHook : MonoBehaviour
 
 		//More rope
 		else if (isGrappling
-			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (alt_mvt.can_jump == false || whatTheRopeIsConnectedTo.tag == "movable_hook"))
+			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (alt_mvt.isGrounded == false || whatTheRopeIsConnectedTo.tag == "movable_hook"))
 			&& ropeLength > minRopeLength)
 		{
 			MoveDown();

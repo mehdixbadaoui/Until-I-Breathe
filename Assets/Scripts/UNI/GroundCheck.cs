@@ -7,14 +7,14 @@ public class GroundCheck : MonoBehaviour
     private void OnTriggerStay(Collider col)
     {
         if (col.tag == "ground")
-            alt_mvt.can_jump = true;
+            alt_mvt.isGrounded = true;
 
     }
 
     private void OnTriggerExit(Collider col)
     {
         if (col.tag == "ground")
-            alt_mvt.can_jump = false;
+            alt_mvt.isGrounded = false;
 
     }
 
