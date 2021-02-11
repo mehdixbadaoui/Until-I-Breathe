@@ -4653,6 +4653,7 @@ GameObject:
   - component: {fileID: 6033698542394386194}
   - component: {fileID: 6033698542394386206}
   - component: {fileID: 6033698542394386200}
+  - component: {fileID: 3479038352533220475}
   m_Layer: 2
   m_Name: Jammo_Player
   m_TagString: uni
@@ -4864,6 +4865,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   jump_force: 2
+  direction: {x: 0, y: 0, z: 0}
+--- !u!114 &3479038352533220475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7105227364255316494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad8c148afc8fea4cb2ea6f833ab7081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_breath: 20
+  breath: 0
+  breath_speed: 1
+  hold_speed: 2
+  current_hold: 0
+  exhale_speed: 4
+  current_exhale: 0
+  min_pourc: 5
+  can_breath: 0
+  hold: 0
+  hold_breath_key: 0
+  exhale_key: 0
 --- !u!1 &7107630616569155179
 GameObject:
   m_ObjectHideFlags: 0
