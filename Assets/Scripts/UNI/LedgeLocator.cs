@@ -64,29 +64,29 @@ public class LedgeLocator : MonoBehaviour
         {
             if (transform.localScale.x > 0)
             {
-                topOfPlayer = new Vector3(0, col.bounds.max.y, col.bounds.max.z + .1f);
+                topOfPlayer = new Vector3(0, col.bounds.max.y, transform.position.z/*ol.bounds.max.z + .1f*/);
                 RaycastHit hit; 
-                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward), out hit, 1f) && hit.collider.GetComponent<Ledge>())
+                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>())
                 {
                     ledge = hit.collider.gameObject;
                     if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
                     {
                         grabbingLedge = true;
-                        //anim.SetBool("LedgeHanging", true);
+                        anim.SetBool("LedgeHanging", true);
                     }
                 }
             }
             else
             {
-                topOfPlayer = new Vector3(0, col.bounds.max.y, col.bounds.min.z - .1f);
+                topOfPlayer = new Vector3(0, col.bounds.max.y, transform.position.z /*col.bounds.min.z - .1f*/);
 
                 RaycastHit hit;
-                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.back), out hit, 1f) && hit.collider.GetComponent<Ledge>())
+                if (Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>())
                 {
                     ledge = hit.collider.gameObject;
                     if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
                     {
-                        //anim.SetBool("LedgeHanging", true);
+                        anim.SetBool("LedgeHanging", true);
                         grabbingLedge = true;
                     }
                 }
@@ -110,14 +110,14 @@ public class LedgeLocator : MonoBehaviour
     {
         if (grabbingLedge && Input.GetAxis("Vertical") > 0)
         {
-            //anim.SetBool("LedgeHanging", false);
+            anim.SetBool("LedgeHanging", false);
             if (transform.localScale.x > 0)
             {
-                StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider2D>().bounds.max.y + col.bounds.extents.y, transform.position.z + climbingHorizontalOffset), animationTime - .3f));
+                StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + col.bounds.extents.y, transform.position.z + climbingHorizontalOffset), animationTime - .3f));
             }
             else
             {
-                StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider2D>().bounds.max.y + col.bounds.extents.y, transform.position.z - climbingHorizontalOffset), animationTime - .3f));
+                StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + col.bounds.extents.y, transform.position.z - climbingHorizontalOffset), animationTime - .3f));
             }
         }
         if (grabbingLedge && Input.GetAxis("Vertical") < 0)
@@ -154,7 +154,7 @@ public class LedgeLocator : MonoBehaviour
         if (!moved)
         {
             moved = true;
-            if (transform.localScale.x > 0)
+            if (transform.localScale.z > 0)
             {
                 transform.position = new Vector3(0, (ledge.GetComponent<Collider>().bounds.max.y - col.bounds.extents.y - .5f) + ledge.GetComponent<Ledge>().hangingVerticalOffset, (ledge.GetComponent<Collider>().bounds.min.z - col.bounds.extents.z) + ledge.GetComponent<Ledge>().hangingHorizontalOffset);
             }
@@ -164,7 +164,12 @@ public class LedgeLocator : MonoBehaviour
             }
         }
     }
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(Vector3.back));
+        Gizmos.color = Color.red; 
+        Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(Vector3.forward * transform.localScale.z));
+    }
     protected virtual void NotFalling()
     {
         falling = false;

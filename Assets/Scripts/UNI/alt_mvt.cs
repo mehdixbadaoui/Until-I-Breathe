@@ -14,12 +14,16 @@ public class alt_mvt : MonoBehaviour
     private Vector3 lastInput; 
 
     Rigidbody rb;
+    [HideInInspector]
+    public bool isFacingLeft;
+    private Vector3 facingLeft;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        facingLeft = new Vector3(0, transform.localScale.y, -transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -30,7 +34,7 @@ public class alt_mvt : MonoBehaviour
         //horizontal_movement = Input.GetAxisRaw("Horizontal");
  
 
-        if (Input.GetKey(KeyCode.Space) && can_jump)
+        if (Input.GetKeyDown(KeyCode.Space) && can_jump)
             Jump();
 
         if (Input.GetKey(KeyCode.S))
@@ -53,7 +57,21 @@ public class alt_mvt : MonoBehaviour
                 transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
 
             }
-               
+        if (horizontal_movement != 0)
+        {
+
+            if (horizontal_movement > 0 && isFacingLeft)
+            {
+                isFacingLeft = false;
+                Flip();
+            }
+            if (horizontal_movement < 0 && !isFacingLeft)
+            {
+                isFacingLeft = true;
+                Flip();
+            }
+        }
+
     }
 
     void Jump()
@@ -74,6 +92,16 @@ public class alt_mvt : MonoBehaviour
     //    if (collision.collider.tag == "ground")
     //        can_jump = true;
     //}
-
+    protected virtual void Flip()
+    {
+        if (isFacingLeft)
+        {
+            transform.localScale = facingLeft;
+        }
+        if (!isFacingLeft)
+        {
+            transform.localScale = new Vector3(0, transform.localScale.y, -transform.localScale.z);
+        }
+    }
 
 }
