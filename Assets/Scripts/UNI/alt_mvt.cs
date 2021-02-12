@@ -22,7 +22,7 @@ public class alt_mvt : MonoBehaviour
 
     RaycastHit ground_hit;
     CapsuleCollider capsule_collider;
-    public float extra_height;
+    public float extra_height = .3f;
 
 
     // Start is called before the first frame update
@@ -32,8 +32,6 @@ public class alt_mvt : MonoBehaviour
         facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
         capsule_collider = GetComponent<CapsuleCollider>();
 
-        //VALUE HARDCODED NEED TO CHANGE
-        extra_height = 0.2475f;
 
         Debug.Log(capsule_collider.height);
     }
@@ -64,7 +62,7 @@ public class alt_mvt : MonoBehaviour
     {
         check_ground();
 
-        if(isGrounded || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
+        if (isGrounded || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
         {
             transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
@@ -82,12 +80,12 @@ public class alt_mvt : MonoBehaviour
             if (horizontal_movement > 0 && isFacingLeft)
             {
                 isFacingLeft = false;
-                Flip();
+                //Flip();
             }
             if (horizontal_movement < 0 && !isFacingLeft)
             {
                 isFacingLeft = true;
-                Flip();
+                //Flip();
             }
         }
 
@@ -119,7 +117,7 @@ public class alt_mvt : MonoBehaviour
         }
         if (!isFacingLeft)
         {
-            transform.localScale = new Vector3(1, transform.localScale.y, -transform.localScale.z);
+            transform.localScale = new Vector3(1, transform.localScale.y, - transform.localScale.z);
         }
     }
 
