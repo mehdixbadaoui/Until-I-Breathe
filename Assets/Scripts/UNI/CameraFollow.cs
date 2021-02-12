@@ -8,6 +8,11 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     public float camHeight;
 
+    void Start()
+    {
+        player = GameObject.Find("Camera Follow").transform;
+    }
+
     void FixedUpdate()
     {
         Vector3 desiredPosition = player.position + offset;
