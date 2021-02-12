@@ -44,7 +44,7 @@ public class GrapplingHook : MonoBehaviour
 	public LayerMask surfaces;
 
 	//Movement script
-	private alt_mvt movements;
+	private Movement movements;
 
 	//Line renderer
 	private LineRenderer LR;
@@ -98,7 +98,7 @@ public class GrapplingHook : MonoBehaviour
 		body = GetComponent<Rigidbody>();
 
 		//Get rigidbodyCharacter component
-		movements = GetComponent<alt_mvt>();
+		movements = GetComponent<Movement>();
 
 	}
 
@@ -208,7 +208,7 @@ public class GrapplingHook : MonoBehaviour
 
 		//More rope
 		else if (isGrappling
-			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (alt_mvt.isGrounded == false || whatTheRopeIsConnectedTo.tag == "movable_hook"))
+			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || whatTheRopeIsConnectedTo.tag == "movable_hook"))
 			&& ropeLength > minRopeLength)
 		{
 			MoveDown();
