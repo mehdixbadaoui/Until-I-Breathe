@@ -17,6 +17,7 @@ public class Health_Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(bm.breath);
         image.fillAmount = bm.breath / bm.max_breath;
     }
 }
