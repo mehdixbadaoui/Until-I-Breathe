@@ -28,11 +28,13 @@ public class Movement : MonoBehaviour
     CapsuleCollider capsule_collider;
     public float extra_height = .3f;
 
+    public float slopeforce;
+    bool on_slope;
+    Vector3 slope_norm;
     private Vector3 lastVelocity;
     public float horizontalVelocityMax = 5;
 
     private int countGround = 0;
-
 
 
     // Start is called before the first frame update
@@ -78,6 +80,7 @@ public class Movement : MonoBehaviour
     {
         check_ground();
         countGround += 1;
+        SlopeCheck();
 
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
@@ -188,14 +191,25 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void check_ground()
+    void check_ground()
     {
 
         isGrounded = Physics.BoxCast(capsule_collider.bounds.center, transform.localScale / 2, Vector3.down, out ground_hit, Quaternion.identity, extra_height);
-/*        if (isGrounded)
-            Debug.Log(ground_hit.collider.name);
-        else
-            Debug.Log("nothing");*/
+    }
+
+    void SlopeCheck()
+    {
+        RaycastHit slope_ray;
+        if(Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out slope_ray, capsule_collider.height / 2 + .5f))
+        {
+            slope_norm = slope_ray.normal;
+            if (slope_norm != Vector3.up)
+            {
+                //transform.Translate(new Vector3(0f, -slopeforce, .1f) * speed);
+                //if (Mathf.Abs(slope_ray.transform.rotation.x) >= .3f)//too steep
+
+            }
+        }
     }
 
 }

@@ -31,10 +31,11 @@ public class enter_room : MonoBehaviour
 
                 visible = true;
 
-                breathing_mechanic.breath = breathing_mechanic.max_breath;
-                breathing_mechanic.can_breath = true;
 
             }
+
+            breathing_mechanic.breath = breathing_mechanic.max_breath;
+            breathing_mechanic.can_breath = true;
 
         }
         
@@ -51,10 +52,10 @@ public class enter_room : MonoBehaviour
 
             visible = true;
 
-            breathing_mechanic.breath = breathing_mechanic.max_breath;
-            breathing_mechanic.can_breath = true;
 
         }
+
+        breathing_mechanic.can_breath = false;
 
     }
 
