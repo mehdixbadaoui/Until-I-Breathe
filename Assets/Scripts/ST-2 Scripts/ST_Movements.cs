@@ -14,7 +14,7 @@ public class ST_Movements : MonoBehaviour
 
     private hook_detector HookDetector;
 
-    // To access the children components of ST-2
+    // To access the children components of ST-2 (sprite)
     public GameObject ChildGO_Sprite;
     private Vector3 rotation_Sprite;
     public Sprite[] sprites;
@@ -65,7 +65,7 @@ public class ST_Movements : MonoBehaviour
             // Smooth rotation
             // get a rotation that points Z axis forward, and the Y axis towards the target
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, (Player.position - transform.position));
-            // rotate toward the target rotation, never rotating farther than "lookSpeed" in one frame.
+            // rotate toward the target rotation, never rotating farther than "rotationSpeed" in one frame.
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
         }
         if (HookDetector.nearHook && !HookDetector.nearDead && !HookDetector.nearHint) // Allows ST-2 to show the nearest HOOK to the player
@@ -79,7 +79,7 @@ public class ST_Movements : MonoBehaviour
             transform.position = smoothedPosition;
 
             // Rotates near the object of interest
-            transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.right, 180.0f * Time.deltaTime);
+            //transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.right, 180.0f * Time.deltaTime);
         }
 
         // Allows ST-2 to show the nearest HINT to the player
@@ -91,7 +91,7 @@ public class ST_Movements : MonoBehaviour
             transform.position = smoothedPosition;
 
             // Rotates near the object of interest
-            transform.RotateAround(HookDetector.hintPosition.position, Vector3.up, 180.0f * Time.deltaTime);
+            //transform.RotateAround(HookDetector.hintPosition.position, Vector3.up, 180.0f * Time.deltaTime);
         }
 
         // Allows ST-2 to collect lore from dead robots nearby
@@ -103,7 +103,7 @@ public class ST_Movements : MonoBehaviour
             // Rotates near the object of interest
             transform.position = smoothedPosition;
 
-            // add features relative to HUD of lore found on dead robots
+            // Add features relative to HUD of lore found on dead robots and change expression to something sad/confused??
             ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[2];
         }
     }

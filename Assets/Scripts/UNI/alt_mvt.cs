@@ -20,12 +20,20 @@ public class alt_mvt : MonoBehaviour
     public bool isFacingLeft;
     private Vector3 facingLeft;
 
+    RaycastHit ground_hit;
+    CapsuleCollider capsule_collider;
+    public float extra_height = .3f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
+        capsule_collider = GetComponent<CapsuleCollider>();
+
+
+        Debug.Log(capsule_collider.height);
     }
 
     // Update is called once per frame
@@ -42,15 +50,19 @@ public class alt_mvt : MonoBehaviour
             Jump();
 
         if (Input.GetKey(KeyCode.S))
-            GetComponent<CapsuleCollider>().height = 1;
+            capsule_collider.height = 1;
         else
-            GetComponent<CapsuleCollider>().height = 1.5f;
+            capsule_collider.height = 1.5f;
+
+        //Debug.Log(isGrounded);
 
     }
 
     private void FixedUpdate()
     {
-        if(isGrounded || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
+        check_ground();
+
+        if (isGrounded || lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
         {
             transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
@@ -68,12 +80,12 @@ public class alt_mvt : MonoBehaviour
             if (horizontal_movement > 0 && isFacingLeft)
             {
                 isFacingLeft = false;
-                Flip();
+                //Flip();
             }
             if (horizontal_movement < 0 && !isFacingLeft)
             {
                 isFacingLeft = true;
-                Flip();
+                //Flip();
             }
         }
 
@@ -84,12 +96,12 @@ public class alt_mvt : MonoBehaviour
         lastInput = new Vector3(0f, 0f, horizontal_movement);  
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
         
-        isGrounded = false;
+        //isGrounded = false;
     }
 
     void Crouch()
     {
-        GetComponent<CapsuleCollider>().height = 1;
+        capsule_collider.height = 1;
     }
 
     //private void OnCollisionStay(Collision collision)
@@ -105,8 +117,28 @@ public class alt_mvt : MonoBehaviour
         }
         if (!isFacingLeft)
         {
-            transform.localScale = new Vector3(1, transform.localScale.y, -transform.localScale.z);
+            transform.localScale = new Vector3(1, transform.localScale.y, - transform.localScale.z);
         }
     }
+
+    void check_ground()
+    {
+
+        isGrounded = Physics.BoxCast(capsule_collider.bounds.center, transform.lossyScale / 2, Vector3.down, out ground_hit,  Quaternion.identity, extra_height);
+        if (isGrounded)
+            Debug.Log(ground_hit.collider.name);
+        else
+            Debug.Log("nothing");
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draws a 5 unit long red line in front of the object
+        Gizmos.color = Color.red;
+        //Gizmos.DrawRay(capsule_collider.bounds.center, Vector3.down * (extra_height));
+        //Gizmos.DrawSphere(capsule_collider.bounds.center, extra_height);
+        
+    }
+
 
 }

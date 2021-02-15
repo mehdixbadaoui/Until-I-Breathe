@@ -6,7 +6,7 @@ public class enter_room : MonoBehaviour
 {
     //private Collider collider;
     public GameObject facade;
-    Material mat;
+    Renderer[] rends;
     public bool visible;
 
     Breathing_mechanic breathing_mechanic;
@@ -14,7 +14,7 @@ public class enter_room : MonoBehaviour
     private void Start()
     {
         visible = true;
-        mat = facade.GetComponent<Renderer>().material;
+        rends = facade.GetComponentsInChildren<Renderer>();
 
         breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
     }
@@ -22,15 +22,19 @@ public class enter_room : MonoBehaviour
     {
         if (col.tag == "uni")
         {
-            Vector4 source = mat.color;
-            Vector4 target = new Vector4(source.x, source.y, source.z, 0/*System.Convert.ToInt32(!visible)*/);
+            foreach (Renderer rend  in rends)
+            {
+                Vector4 source = rend.material.color;
+                Vector4 target = new Vector4(source.x, source.y, source.z, 0);
 
-            StartCoroutine(fade(source, target, .3f));
+                StartCoroutine(fade(rend.material, source, target, .3f));
 
-            visible = true;
+                visible = true;
 
-            breathing_mechanic.breath = breathing_mechanic.max_breath;
-            breathing_mechanic.can_breath = true;
+                breathing_mechanic.breath = breathing_mechanic.max_breath;
+                breathing_mechanic.can_breath = true;
+
+            }
 
         }
         
@@ -38,31 +42,32 @@ public class enter_room : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == "uni")
+        foreach (Renderer rend in rends)
         {
-            Vector4 source = mat.color;
-            Vector4 target = new Vector4(source.x, source.y, source.z, 1/*System.Convert.ToInt32(!visible)*/);
+            Vector4 source = rend.material.color;
+            Vector4 target = new Vector4(source.x, source.y, source.z, 1);
 
-            StartCoroutine(fade(source, target, .3f));
+            StartCoroutine(fade(rend.material, source, target, .3f));
 
-            visible = false;
+            visible = true;
 
-            breathing_mechanic.can_breath = false;
+            breathing_mechanic.breath = breathing_mechanic.max_breath;
+            breathing_mechanic.can_breath = true;
 
         }
 
     }
 
 
-    IEnumerator fade(Vector4 source, Vector4 target, float overTime)
+    IEnumerator fade(Material material, Vector4 source, Vector4 target, float overTime)
     {
         float startTime = Time.time;
         while (Time.time < startTime + overTime)
         {
-            mat.color = Vector4.Lerp(source, target, (Time.time - startTime) / overTime);
+            material.color = Vector4.Lerp(source, target, (Time.time - startTime) / overTime);
             yield return null;
         }
-        mat.color = target;
+        material.color = target;
     }
 
 }

@@ -9,8 +9,8 @@ public class hook_detector : MonoBehaviour
     public GameObject player;
     private List<GameObject> all_hooks;
 
-    [Range(1f, 10f)]
-    public float detection_radius = 5f;
+    //[Range(1f, 10f)]
+    //public float detection_radius = 5f;
 
     public bool nearHook = false;
 
@@ -32,7 +32,7 @@ public class hook_detector : MonoBehaviour
     {
         //List<Order> SortedList = objListOrder.OrderBy(o => o.OrderDate).ToList();
 
-        gameObject.GetComponent<SphereCollider>().radius = detection_radius;
+        //gameObject.GetComponent<SphereCollider>().radius = detection_radius;
         if (all_hooks.Count != 0)
         {
             nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, player.transform.position)).ToList()[0];
