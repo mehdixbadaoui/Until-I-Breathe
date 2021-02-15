@@ -20,7 +20,12 @@ public class Movement : MonoBehaviour
     [HideInInspector]
     public bool isFacingLeft;
     private Vector3 facingLeft;
-    private bool isJumping ; 
+    private bool isJumping ;
+
+    RaycastHit ground_hit;
+    CapsuleCollider capsule_collider;
+    public float extra_height = .3f;
+
 
 
     // Start is called before the first frame update
@@ -28,6 +33,8 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
+
+        capsule_collider = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -52,13 +59,15 @@ public class Movement : MonoBehaviour
         else
             GetComponent<CapsuleCollider>().height = 1.5f;
 
-        Debug.Log(isJumping); 
+        //Debug.Log(isJumping); 
 
     }
 
     private void FixedUpdate()
     {
-        if(isGrounded /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+        check_ground();
+
+        if (isGrounded /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
             transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
             isJumping = false;
@@ -90,12 +99,12 @@ public class Movement : MonoBehaviour
             if (horizontal_movement > 0 && isFacingLeft)
             {
                 isFacingLeft = false;
-                Flip();
+                //Flip();
             }
             if (horizontal_movement < 0 && !isFacingLeft)
             {
                 isFacingLeft = true;
-                Flip();
+                //Flip();
             }
         }
         
@@ -109,11 +118,6 @@ public class Movement : MonoBehaviour
         
         isGrounded = false;
         isJumping = true; 
-    }
-
-    void Crouch()
-    {
-        GetComponent<CapsuleCollider>().height = 1;
     }
 
     //private void OnCollisionStay(Collision collision)
@@ -131,6 +135,16 @@ public class Movement : MonoBehaviour
         {
             transform.localScale = new Vector3(1, transform.localScale.y, -transform.localScale.z);
         }
+    }
+
+    private void check_ground()
+    {
+
+        isGrounded = Physics.BoxCast(capsule_collider.bounds.center, transform.localScale / 2, Vector3.down, out ground_hit, Quaternion.identity, extra_height);
+        if (isGrounded)
+            Debug.Log(ground_hit.collider.name);
+        else
+            Debug.Log("nothing");
     }
 
 }

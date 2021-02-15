@@ -4169,7 +4169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nearest_hook: {fileID: 0}
   player: {fileID: 7105227364255316494}
-  detection_radius: 5
   nearHook: 0
   nearHint: 0
   nearDead: 0
@@ -4222,7 +4221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6033698543295143192
 Transform:
   m_ObjectHideFlags: 0
@@ -4868,6 +4867,7 @@ MonoBehaviour:
   jump_force: 2
   direction: {x: 0, y: 0, z: 0}
   isFacingLeft: 0
+  extra_height: 0.3
 --- !u!114 &3479038352533220475
 MonoBehaviour:
   m_ObjectHideFlags: 0
