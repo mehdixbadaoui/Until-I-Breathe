@@ -21,23 +21,20 @@ public class GrapplingHook : MonoBehaviour
 	public GameObject springjoint_rb_pref;
 
 
-	public Transform perso;
-
-	//public int maxDistance = 50;
-
 	private bool isGrappling;
 
 
 
 	public Vector3 location;
 
-	public float speed = 10;
+	//public float speed = 10;
 
 	[Header("Rope")]
 
 
 	public float lengthRopeMax = 50;
 	public float lengthRopeMin = 2;
+
 
 	[Header("Variables")]
 
@@ -71,11 +68,11 @@ public class GrapplingHook : MonoBehaviour
 
 	//Rope data
 	private float ropeLength;
-	private float minRopeLength = 1f;
-	private float maxRopeLength = 20f;
+	private float beginLengthMin = 2f;
 
 	//Mass of what the rope is carrying
-	private float loadMass = 3f;
+	private float loadMass = 7f;
+	private float originalMass;
 
 	private float dist_objects;
 
@@ -99,6 +96,9 @@ public class GrapplingHook : MonoBehaviour
 
 		//Get rigidbodyCharacter component
 		movements = GetComponent<Movement>();
+
+		//Original mass of the body
+		originalMass = body.mass;
 
 	}
 
@@ -158,7 +158,7 @@ public class GrapplingHook : MonoBehaviour
 		//The rope lenght changed
 		if (hasChangedRope)
 		{
-			ropeLength = Mathf.Clamp(ropeLength, minRopeLength, maxRopeLength);
+			ropeLength = Mathf.Clamp(ropeLength, lengthRopeMin, lengthRopeMax);
 
 			//Need to recalculate the k-value because it depends on the length of the rope
 			UpdateRopePositions();
@@ -195,11 +195,17 @@ public class GrapplingHook : MonoBehaviour
 		}
 
 
+		if (isGrappling && Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position) > spring.maxDistance - 0.01f)
+		{
+			if (whatTheRopeIsConnectedTo.tag == "hook")
+				spring.minDistance = ropeLength ;
+		}
+
 
 		//Less rope
 		if (isGrappling
 			&& ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && (ropeLength > lengthRopeMin || whatTheRopeIsConnectedTo.tag == "movable_hook"))
-			&& ropeLength < maxRopeLength)
+			&& ropeLength < lengthRopeMax)
 		{
 
 			MoveUp();
@@ -209,7 +215,7 @@ public class GrapplingHook : MonoBehaviour
 		//More rope
 		else if (isGrappling
 			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || whatTheRopeIsConnectedTo.tag == "movable_hook"))
-			&& ropeLength > minRopeLength)
+			&& ropeLength > lengthRopeMin)
 		{
 			MoveDown();
 			hasChangedRope = true;
@@ -220,7 +226,13 @@ public class GrapplingHook : MonoBehaviour
 	// Envois du grappin
 	public void Grapple()
 	{
+		beginLengthMin = 2f;
+
 		isGrappling = true;
+		Movement.isGrapplin = true;
+
+		body.mass = loadMass;
+
 		//rigidbodyCharacter.Grappling = true;
 
 		//The first rope length is the distance between the two objects
@@ -280,7 +292,7 @@ public class GrapplingHook : MonoBehaviour
 		spring.spring = 1000000000000f;
 		spring.damper = 70f;
 
-		spring.enableCollision = true;
+		spring.enableCollision = false;
 	}
 
 	public void AddMovableSpringJoint()
@@ -324,6 +336,9 @@ public class GrapplingHook : MonoBehaviour
 	public void CutRope()
 	{
 		isGrappling = false;
+		Movement.isGrapplin = false;
+		//body.mass = originalMass;
+
 		Destroy(spring);
 		if (whatTheRopeIsConnectedTo.tag == "hook")
 			Destroy(springJointRB);
@@ -379,7 +394,7 @@ public class GrapplingHook : MonoBehaviour
 		spring.maxDistance = ropeLength;
 
 		if (whatTheRopeIsConnectedTo.tag == "hook")
-			spring.minDistance = ropeLength;
+			spring.minDistance = ropeLength - beginLengthMin;
 
 		if (whatTheRopeIsConnectedTo.tag == "movable_hook")
 			spring.minDistance = 1f;
@@ -443,6 +458,8 @@ public class GrapplingHook : MonoBehaviour
 
 		//Add the positions to the line renderer
 		LR.positionCount = positions.Length;
+
+		positions[distToHitPoints.Count - 1] += new Vector3(0f, 1f, 0f);
 
 		LR.SetPositions(positions);
 	}

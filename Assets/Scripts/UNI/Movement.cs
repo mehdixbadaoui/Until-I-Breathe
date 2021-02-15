@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
 
     public float jump_force = .5f;
     public static bool isGrounded = false;
+    public static bool isGrapplin = false;
 
     float vertical_movement;
     private Vector3 lastInput;
@@ -20,11 +21,17 @@ public class Movement : MonoBehaviour
     [HideInInspector]
     public bool isFacingLeft;
     private Vector3 facingLeft;
-    private bool isJumping ;
+    public bool isJumping;
+    private bool isJumpingAftergrapplin;
 
     RaycastHit ground_hit;
     CapsuleCollider capsule_collider;
     public float extra_height = .3f;
+
+    private Vector3 lastVelocity;
+    public float horizontalVelocityMax = 5;
+
+    private int countGround = 0;
 
 
 
@@ -47,10 +54,15 @@ public class Movement : MonoBehaviour
         //horizontal_movement = Input.GetAxisRaw("Horizontal");
  
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && ( isGrounded ) )
         {
             Jump();
-            isJumping = true; 
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && (isGrapplin))
+        {
+            JumpAfterGrapplin();
         }
 
 
@@ -59,38 +71,51 @@ public class Movement : MonoBehaviour
         else
             GetComponent<CapsuleCollider>().height = 1.5f;
 
-        //Debug.Log(isJumping); 
 
     }
 
     private void FixedUpdate()
     {
         check_ground();
+        countGround += 1;
 
-        if (isGrounded /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+        if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
+            if (isJumping == true )
+                Debug.Log(isJumping);
             transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
             isJumping = false;
+            isJumpingAftergrapplin = false;
         }
 
-        if (!isGrounded )
-            if (!isGrounded)
+        if (isGrapplin )
+        {
+            Vector3 acceleration = (rb.velocity - lastVelocity) / Time.fixedDeltaTime;
+            if (rb.velocity.z < 10f && acceleration.y <= 0 )
             {
-                if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
-                {
-                    transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-
-
-                }
-                else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
-                {
-                    transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
-                }
+                rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * speed * 10, ForceMode.VelocityChange);
+                isJumping = false;
+                isJumpingAftergrapplin = false;
             }
-            else
+        }
+
+        if (isJumping)
+        {
+            if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
+            {
+                transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+
+
+            }
+            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
             {
                 transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
             }
+        }
+        else if (isJumpingAftergrapplin)
+        {
+            //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+        }
             
         
         if (horizontal_movement != 0)
@@ -99,25 +124,51 @@ public class Movement : MonoBehaviour
             if (horizontal_movement > 0 && isFacingLeft)
             {
                 isFacingLeft = false;
-                //Flip();
+                Flip();
             }
             if (horizontal_movement < 0 && !isFacingLeft)
             {
                 isFacingLeft = true;
-                //Flip();
+                Flip();
             }
         }
-        
+
+        lastVelocity = rb.velocity;
+
+        //Debug.Log(isJumping);
+
+
 
     }
 
     void Jump()
     {
+        countGround = 0;
+        isGrounded = false;
+        isJumping = true;
         lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
         
+    }
+
+    void JumpAfterGrapplin()
+    {
+        countGround = 0;
         isGrounded = false;
-        isJumping = true; 
+        isJumpingAftergrapplin = true;
+
+        Debug.Log("jump after grapplin");
+
+        Debug.Log(rb.velocity.z);
+        if (rb.velocity.z > horizontalVelocityMax)
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, horizontalVelocityMax);
+        if (rb.velocity.z < -horizontalVelocityMax)
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -horizontalVelocityMax);
+        Debug.Log(rb.velocity.z);
+
+        lastInputJumping = new Vector3(0f, 0f, rb.velocity.z);
+        rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
+
     }
 
     //private void OnCollisionStay(Collision collision)
@@ -141,10 +192,10 @@ public class Movement : MonoBehaviour
     {
 
         isGrounded = Physics.BoxCast(capsule_collider.bounds.center, transform.localScale / 2, Vector3.down, out ground_hit, Quaternion.identity, extra_height);
-        if (isGrounded)
+/*        if (isGrounded)
             Debug.Log(ground_hit.collider.name);
         else
-            Debug.Log("nothing");
+            Debug.Log("nothing");*/
     }
 
 }
