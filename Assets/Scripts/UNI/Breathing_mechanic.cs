@@ -31,7 +31,6 @@ public class Breathing_mechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(breath);
         if(Input.GetKey(hold_breath_key))
         {
             hold = true;
