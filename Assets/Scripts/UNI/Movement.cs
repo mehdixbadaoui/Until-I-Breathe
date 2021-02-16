@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Movement : MonoBehaviour
 {
     public float speed = .2f;
+    public float grapplinSpeed = 1;
     float horizontal_movement;
 
     public float jump_force = .5f;
     public static bool isGrounded = false;
     public static bool isGrapplin = false;
+    public static float distToHook;
 
     float vertical_movement;
     private Vector3 lastInput;
@@ -35,7 +38,6 @@ public class Movement : MonoBehaviour
     public float horizontalVelocityMax = 5;
 
     private int countGround = 0;
-
 
     // Start is called before the first frame update
     void Start()
@@ -91,15 +93,41 @@ public class Movement : MonoBehaviour
             isJumpingAftergrapplin = false;
         }
 
+        //Add force if isgrapplin because Translate isnt workinbg with spring joint
         if (isGrapplin )
         {
+            isJumping = false;
+            isJumpingAftergrapplin = false;
+
             Vector3 acceleration = (rb.velocity - lastVelocity) / Time.fixedDeltaTime;
-            if (rb.velocity.z < 10f && acceleration.y <= 0 )
+
+            //If we are not too fast and if we are not upper than the hook we can apply a force
+            if (distToHook > 0.3f && Math.Abs(rb.velocity.z) < 10f)
             {
-                rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * speed * 10, ForceMode.VelocityChange);
-                isJumping = false;
-                isJumpingAftergrapplin = false;
+                //if we are at the bottom of the rope without moving
+                if (distToHook > 0.95f && Math.Abs(rb.velocity.z) < 1)
+                {
+                    rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * grapplinSpeed, ForceMode.Impulse);
+                }
+                //if we are pushing in the same directiont than the swing
+                else if (rb.velocity.z * horizontal_movement >= 0 && rb.velocity.y <= 0)
+                {
+                    if (Math.Abs(rb.velocity.z) >= 1)
+                    {
+                        rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * distToHook * grapplinSpeed * (1 / Math.Abs(rb.velocity.z)), ForceMode.VelocityChange);
+                    }
+                    else
+                    {
+                        rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * grapplinSpeed, ForceMode.VelocityChange);
+                    }
+                }
+                //If we are pushing against the movement of the swing we slow the movement
+                else if ( rb.velocity.z * horizontal_movement < 0 )
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f );
+                }
             }
+           
         }
 
         if (isJumping)

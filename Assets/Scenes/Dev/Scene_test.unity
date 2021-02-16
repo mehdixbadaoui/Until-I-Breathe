@@ -3765,11 +3765,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  grapplinSpeed: 1
   jump_force: 35
   direction: {x: 0, y: 0, z: 0}
   isFacingLeft: 0
   isJumping: 0
   extra_height: 0.3
+  slopeforce: 0
   horizontalVelocityMax: 5
 --- !u!114 &1702241120
 MonoBehaviour:
@@ -4147,12 +4149,12 @@ PrefabInstance:
     - target: {fileID: 2515764939986964580, guid: f846c9a38aaaf6742bb5195b54deb22d,
         type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2515764939986964580, guid: f846c9a38aaaf6742bb5195b54deb22d,
         type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2515764939986964581, guid: f846c9a38aaaf6742bb5195b54deb22d,
         type: 3}
@@ -4162,12 +4164,12 @@ PrefabInstance:
     - target: {fileID: 2515764939986964581, guid: f846c9a38aaaf6742bb5195b54deb22d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.1
+      value: 5.22
       objectReference: {fileID: 0}
     - target: {fileID: 2515764939986964581, guid: f846c9a38aaaf6742bb5195b54deb22d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.38
+      value: 25.16
       objectReference: {fileID: 0}
     - target: {fileID: 2515764939986964581, guid: f846c9a38aaaf6742bb5195b54deb22d,
         type: 3}

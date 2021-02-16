@@ -110,6 +110,9 @@ public class GrapplingHook : MonoBehaviour
 		{
 			Vector3 u_dir = (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position) / dist_objects;
 
+			Movement.distToHook = (whatTheRopeIsConnectedTo.transform.position.y - whatIsHangingFromTheRope.position.y ) / ropeLength ;
+
+
 
 			if (distToHitPoints.Count >= 3)
 			{
@@ -229,7 +232,9 @@ public class GrapplingHook : MonoBehaviour
 		beginLengthMin = 2f;
 
 		isGrappling = true;
-		Movement.isGrapplin = true;
+
+		if (whatTheRopeIsConnectedTo.tag == "hook")
+			Movement.isGrapplin = true;
 
 		body.mass = loadMass;
 
@@ -336,7 +341,10 @@ public class GrapplingHook : MonoBehaviour
 	public void CutRope()
 	{
 		isGrappling = false;
-		Movement.isGrapplin = false;
+
+		if (whatTheRopeIsConnectedTo.tag == "hook")
+			Movement.isGrapplin = false;
+
 		//body.mass = originalMass;
 
 		Destroy(spring);
