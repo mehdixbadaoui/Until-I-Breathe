@@ -29,10 +29,10 @@ public class Movement : MonoBehaviour
 
     RaycastHit ground_hit;
     CapsuleCollider capsule_collider;
-    public float extra_height = .3f;
+    public float ground_dist = .3f;
 
     public float slopeforce;
-    bool on_slope;
+    public bool on_slope;
     Vector3 slope_norm;
     private Vector3 lastVelocity;
     public float horizontalVelocityMax = 5;
@@ -58,13 +58,13 @@ public class Movement : MonoBehaviour
         //horizontal_movement = Input.GetAxisRaw("Horizontal");
  
 
-        if (Input.GetKeyDown(KeyCode.Space) && ( isGrounded ) )
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && countGround > 5)
         {
             Jump();
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && (isGrapplin))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrapplin)
         {
             JumpAfterGrapplin();
         }
@@ -88,10 +88,12 @@ public class Movement : MonoBehaviour
         {
             if (isJumping == true )
                 Debug.Log(isJumping);
-            transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope && horizontal_movement != 0) * slopeforce, horizontal_movement * speed));
             isJumping = false;
             isJumpingAftergrapplin = false;
         }
+
+        Debug.Log(isGrounded);
 
         //Add force if isgrapplin because Translate isnt workinbg with spring joint
         if (isGrapplin )
@@ -221,16 +223,26 @@ public class Movement : MonoBehaviour
 
     void check_ground()
     {
+        RaycastHit front;
+        RaycastHit middle;
+        RaycastHit back;
 
-        isGrounded = Physics.BoxCast(capsule_collider.bounds.center, transform.localScale / 2, Vector3.down, out ground_hit, Quaternion.identity, extra_height);
+        isGrounded = (Physics.Raycast(capsule_collider.bounds.center + transform.forward * .2f, Vector3.down, out front, capsule_collider.height / 2 + ground_dist)
+                    || Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist)
+                    || Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out middle, capsule_collider.height / 2 + ground_dist));
+
+        //isGrounded = Physics.BoxCast(capsule_collider.bounds.center, transform.localScale / 2, Vector3.down, out ground_hit, Quaternion.identity, extra_height);
+
     }
 
     void SlopeCheck()
     {
         RaycastHit slope_ray;
-        if(Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out slope_ray, capsule_collider.height / 2 + .5f))
+        bool cast = Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out slope_ray, capsule_collider.height / 2 + .5f);
+        on_slope = cast && slope_ray.normal != Vector3.up;
+
+        if (cast && on_slope)
         {
-            slope_norm = slope_ray.normal;
             if (slope_norm != Vector3.up)
             {
                 //transform.Translate(new Vector3(0f, -slopeforce, .1f) * speed);
@@ -238,6 +250,12 @@ public class Movement : MonoBehaviour
 
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(capsule_collider.bounds.center + transform.forward * 0f, .1f);
     }
 
 }
