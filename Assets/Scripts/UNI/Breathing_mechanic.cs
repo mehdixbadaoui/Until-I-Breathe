@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Breathing_mechanic : MonoBehaviour
 {
-    public float max_breath = 20f;
+    public float max_breath;
     public float breath;
     public float breath_speed = 1f;
 
