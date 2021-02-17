@@ -93,7 +93,6 @@ public class Movement : MonoBehaviour
             isJumpingAftergrapplin = false;
         }
 
-        Debug.Log(isGrounded);
 
         //Add force if isgrapplin because Translate isnt workinbg with spring joint
         if (isGrapplin )
@@ -254,8 +253,6 @@ public class Movement : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(capsule_collider.bounds.center + transform.forward * 0f, .1f);
     }
 
 }
