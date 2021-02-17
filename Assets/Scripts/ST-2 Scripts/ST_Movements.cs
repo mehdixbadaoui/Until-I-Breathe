@@ -68,6 +68,7 @@ public class ST_Movements : MonoBehaviour
             // rotate toward the target rotation, never rotating farther than "rotationSpeed" in one frame.
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
         }
+
         if (HookDetector.nearHook && !HookDetector.nearDead && !HookDetector.nearHint) // Allows ST-2 to show the nearest HOOK to the player
         {
             // Changes expression

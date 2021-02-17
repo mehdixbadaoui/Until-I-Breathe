@@ -162,7 +162,7 @@ public class GrapplingHook : MonoBehaviour
 		//The rope lenght changed
 		if (hasChangedRope)
 		{
-			ropeLength = Mathf.Clamp(ropeLength, lengthRopeMin, lengthRopeMax);
+			ropeLength = Mathf.Clamp(ropeLength, 1, lengthRopeMax);
 
 			//Need to recalculate the k-value because it depends on the length of the rope
 			UpdateRopePositions();
@@ -210,7 +210,7 @@ public class GrapplingHook : MonoBehaviour
 		//Less rope
 		if (isGrappling
 			&& ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && (ropeLength > lengthRopeMin || whatTheRopeIsConnectedTo.tag == "movable_hook"))
-			&& ropeLength < lengthRopeMax)
+			&& ropeLength >= lengthRopeMin)
 		{
 
 			MoveUp();
@@ -220,7 +220,7 @@ public class GrapplingHook : MonoBehaviour
 		//More rope
 		else if (isGrappling
 			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || whatTheRopeIsConnectedTo.tag == "movable_hook"))
-			&& ropeLength > lengthRopeMin)
+			&& ropeLength <= lengthRopeMax)
 		{
 			MoveDown();
 			hasChangedRope = true;
