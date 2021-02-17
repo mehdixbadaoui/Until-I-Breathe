@@ -129,7 +129,6 @@ public class Movement : MonoBehaviour
                     rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f );
                 }
             }
-           
         }
 
         if (isJumping)
@@ -145,8 +144,10 @@ public class Movement : MonoBehaviour
                 transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
             }
         }
-        else if (isJumpingAftergrapplin)
+
+        if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0 )
         {
+            transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
             //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
             
@@ -190,17 +191,17 @@ public class Movement : MonoBehaviour
         isGrounded = false;
         isJumpingAftergrapplin = true;
 
-        Debug.Log("jump after grapplin");
+        // Debug.Log("jump after grapplin");
 
-        Debug.Log(rb.velocity.z);
+        // Debug.Log(rb.velocity.z);
         if (rb.velocity.z > horizontalVelocityMax)
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, horizontalVelocityMax);
+            rb.velocity = new Vector3(rb.velocity.x, 0, horizontalVelocityMax);
         if (rb.velocity.z < -horizontalVelocityMax)
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -horizontalVelocityMax);
-        Debug.Log(rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, 0, -horizontalVelocityMax);
+        // Debug.Log(rb.velocity.z);
 
         lastInputJumping = new Vector3(0f, 0f, rb.velocity.z);
-        rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
+        //rb.AddForce(new Vector3(0, jump_force*3, 0), ForceMode.Impulse);
 
     }
 
@@ -255,7 +256,7 @@ public class Movement : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(capsule_collider.bounds.center + transform.forward * 0f, .1f);
+        //Gizmos.DrawSphere(capsule_collider.bounds.center + transform.forward * 0f, .1f);
     }
 
 }
