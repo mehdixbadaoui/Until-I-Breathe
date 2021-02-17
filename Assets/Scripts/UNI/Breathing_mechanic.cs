@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class Breathing_mechanic : MonoBehaviour
 
     public KeyCode hold_breath_key;
     public KeyCode exhale_key;
+
+    [SerializeField] private GameObject blowObj;
 
 
     // Start is called before the first frame update
@@ -45,6 +48,10 @@ public class Breathing_mechanic : MonoBehaviour
         if(Input.GetKey(hold_breath_key) && Input.GetKey(exhale_key) && breath >= (max_breath * min_pourc / 100f))
         {
             current_exhale = exhale_speed;
+            if(blowObj)
+                blowObj.GetComponent<ballon>().incAir(1 * Time.deltaTime);
+
+
         }
         else
         {
@@ -57,6 +64,10 @@ public class Breathing_mechanic : MonoBehaviour
         if (breath <= 0) Die();
     }
 
+    public void setBlowObj(GameObject obj)
+    {
+        blowObj = obj;
+    }
     void Die()
     {
 
