@@ -7,14 +7,14 @@ public class Platforms : MonoBehaviour
 {
     //public Transform[] Waypoints;
     //public float moveSpeed;
-    //public int pause;
+
     //int waypointIndex = 0;
 
     //float startTime;
     //float journeyLength;
 
-    public float speed;
-
+    public float timeItTakes;
+    public int pause;
     public Transform pointB;
 
     IEnumerator Start()
@@ -22,9 +22,9 @@ public class Platforms : MonoBehaviour
         var pointA = transform.position;
         while (true)
         {
-            yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, speed));
+            yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
             yield return new WaitForSeconds(pause);
-            yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, speed));
+            yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
             yield return new WaitForSeconds(pause);
         }
     }
