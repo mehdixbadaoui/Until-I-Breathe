@@ -80,9 +80,6 @@ public class Movement : MonoBehaviour
 
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
-/*            if (isJumping == true )
-                Debug.Log(isJumping);
-*/
             transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope && horizontal_movement != 0) * slopeforce, horizontal_movement * speed));
             isJumping = false;
             isJumpingAftergrapplin = false;
