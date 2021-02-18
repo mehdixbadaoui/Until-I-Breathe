@@ -39,6 +39,8 @@ public class Movement : MonoBehaviour
 
     private int countGround = 0;
 
+    private bool collisionWithWall; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +85,7 @@ public class Movement : MonoBehaviour
             transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope && horizontal_movement != 0) * slopeforce, horizontal_movement * speed));
             isJumping = false;
             isJumpingAftergrapplin = false;
+            lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
         }
 
 
@@ -122,6 +125,7 @@ public class Movement : MonoBehaviour
             }
         }
 
+
         if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin) )
         {
 
@@ -142,10 +146,17 @@ public class Movement : MonoBehaviour
             transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
             //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
+
         else if(isJumpingAftergrapplin)
         {
             rb.AddForce( new Vector3(0f, 0f, rb.velocity.z *0.8f) * speed );
         }
+
+        //if(collisionWithWall)
+        //{
+        //    rb.velocity = new Vector3(0f, 0f, 0f);
+        //}
+
             
         
         if (horizontal_movement != 0)
@@ -254,5 +265,22 @@ public class Movement : MonoBehaviour
         Gizmos.color = Color.red;
         //Gizmos.DrawSphere(capsule_collider.bounds.center + transform.forward * 0f, .1f);
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.rigidbody.isKinematic || collision.rigidbody == null)
+    //    {
+    //        collisionWithWall = true; 
+    //    }
+    //    else if (!collision.rigidbody.isKinematic)
+    //    {
+    //        collisionWithWall = false; 
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    collisionWithWall = false;
+    //}
 
 }
