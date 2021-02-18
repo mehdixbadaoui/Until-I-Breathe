@@ -197,6 +197,7 @@ public class GrapplingHook : MonoBehaviour
 		else if ((Input.GetKey(KeyCode.Space)) && isGrappling == true)
 		{
 			CutRope();
+			movements.JumpAfterGrapplin();
 		}
 
 

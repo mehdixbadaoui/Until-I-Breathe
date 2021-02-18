@@ -40,12 +40,12 @@ public class button_detector : MonoBehaviour
         
         if (other.tag == "uni")
         {
-            Debug.Log("c'est  uni brooooo");
+            //Debug.Log("c'est  uni brooooo");
             isButtonActive = true; 
         }
         else
         {
-            Debug.Log("c'est PAS uni brooooo");
+            //Debug.Log("c'est PAS uni brooooo");
         }
     }
     private void OnTriggerExit(Collider other)
