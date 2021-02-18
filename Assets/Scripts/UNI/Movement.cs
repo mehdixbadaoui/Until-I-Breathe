@@ -88,6 +88,7 @@ public class Movement : MonoBehaviour
             transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope && horizontal_movement != 0) * slopeforce, horizontal_movement * speed));
             isJumping = false;
             isJumpingAftergrapplin = false;
+            lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
         }
 
 
@@ -127,11 +128,8 @@ public class Movement : MonoBehaviour
             }
         }
 
-<<<<<<< Updated upstream
+
         if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin) )
-=======
-        if (isJumping )
->>>>>>> Stashed changes
         {
 
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
@@ -151,17 +149,17 @@ public class Movement : MonoBehaviour
             transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
             //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
-<<<<<<< Updated upstream
+
         else if(isJumpingAftergrapplin)
         {
             rb.AddForce( new Vector3(0f, 0f, rb.velocity.z *0.8f) * speed );
         }
-=======
+
         //if(collisionWithWall)
         //{
         //    rb.velocity = new Vector3(0f, 0f, 0f);
         //}
->>>>>>> Stashed changes
+
             
         
         if (horizontal_movement != 0)
