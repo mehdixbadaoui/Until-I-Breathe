@@ -1944,6 +1944,63 @@ Transform:
   m_Father: {fileID: 6435589897901783988}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2603021471746034360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7205705685807893132}
+  - component: {fileID: 5930791626386154201}
+  - component: {fileID: 8487947333418515576}
+  m_Layer: 2
+  m_Name: Object Detector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7205705685807893132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603021471746034360}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.782, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6107320334195902493}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5930791626386154201
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603021471746034360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8487947333418515576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603021471746034360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54110b64a19509d4fbd6d828b12703d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2722106143057692662
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,6 +4735,7 @@ Transform:
   - {fileID: 6033698543295143192}
   - {fileID: 6033698542972717384}
   - {fileID: 7191373835036138667}
+  - {fileID: 7205705685807893132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4843,9 +4901,7 @@ MonoBehaviour:
   whatIsHangingFromTheRope: {fileID: 6107320334195902493}
   springjoint_rb_pref: {fileID: 3691347259402888240, guid: bd4c4223b85434646a7b0d6e9ee53c20,
     type: 3}
-  perso: {fileID: 6107320334195902493}
   location: {x: 0, y: 0, z: 0}
-  speed: 10
   lengthRopeMax: 10
   lengthRopeMin: 4
   surfaces:
@@ -4865,10 +4921,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  grapplinSpeed: 1
   jump_force: 6
   direction: {x: 0, y: 0, z: 0}
   isFacingLeft: 0
-  extra_height: 0.3
+  isJumping: 0
+  ground_dist: 0.3
+  slopeforce: 0
+  on_slope: 0
+  horizontalVelocityMax: 5
 --- !u!114 &3479038352533220475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4891,8 +4952,9 @@ MonoBehaviour:
   min_pourc: 5
   can_breath: 0
   hold: 0
-  hold_breath_key: 0
-  exhale_key: 0
+  hold_breath_key: 120
+  exhale_key: 119
+  blowObj: {fileID: 0}
 --- !u!114 &9060393232164856314
 MonoBehaviour:
   m_ObjectHideFlags: 0

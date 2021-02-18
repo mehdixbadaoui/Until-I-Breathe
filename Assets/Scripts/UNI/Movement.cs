@@ -39,6 +39,8 @@ public class Movement : MonoBehaviour
 
     private int countGround = 0;
 
+    private bool collisionWithWall; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,12 +66,6 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrapplin)
-        {
-            JumpAfterGrapplin();
-        }
-
-
         if (Input.GetKey(KeyCode.S))
             GetComponent<CapsuleCollider>().height = 1;
         else
@@ -86,14 +82,15 @@ public class Movement : MonoBehaviour
 
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
-            if (isJumping == true )
+/*            if (isJumping == true )
                 Debug.Log(isJumping);
+*/
             transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope && horizontal_movement != 0) * slopeforce, horizontal_movement * speed));
             isJumping = false;
             isJumpingAftergrapplin = false;
+            lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
         }
 
-        Debug.Log(isGrounded);
 
         //Add force if isgrapplin because Translate isnt workinbg with spring joint
         if (isGrapplin )
@@ -131,8 +128,10 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (isJumping)
+
+        if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin) )
         {
+
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
             {
                 transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
@@ -150,6 +149,17 @@ public class Movement : MonoBehaviour
             transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
             //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
+
+        else if(isJumpingAftergrapplin)
+        {
+            rb.AddForce( new Vector3(0f, 0f, rb.velocity.z *0.8f) * speed );
+        }
+
+        //if(collisionWithWall)
+        //{
+        //    rb.velocity = new Vector3(0f, 0f, 0f);
+        //}
+
             
         
         if (horizontal_movement != 0)
@@ -185,7 +195,7 @@ public class Movement : MonoBehaviour
         
     }
 
-    void JumpAfterGrapplin()
+    public void JumpAfterGrapplin()
     {
         countGround = 0;
         isGrounded = false;
@@ -258,5 +268,22 @@ public class Movement : MonoBehaviour
         Gizmos.color = Color.red;
         //Gizmos.DrawSphere(capsule_collider.bounds.center + transform.forward * 0f, .1f);
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.rigidbody.isKinematic || collision.rigidbody == null)
+    //    {
+    //        collisionWithWall = true; 
+    //    }
+    //    else if (!collision.rigidbody.isKinematic)
+    //    {
+    //        collisionWithWall = false; 
+    //    }
+    //}
+
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    collisionWithWall = false;
+    //}
 
 }

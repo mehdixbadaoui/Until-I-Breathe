@@ -38,19 +38,16 @@ public class Drones : MonoBehaviour
         for (int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle) * viewDistance);
-            if(raycastHit2D.collider == null)
+            RaycastHit2D raycastHit = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance);
+            if(raycastHit.collider == null)
             {
-                Debug.Log(raycastHit2D);
                 // No hit detected
                 vertex = origin + GetVectorFromAngle(angle) * viewDistance;
             }
             else
             {
-                
                 // Hit an object on the map
-                vertex = raycastHit2D.point;
-
+                vertex = raycastHit.point;
             }
             vertices[vertexIndex] = vertex;
 
@@ -72,16 +69,17 @@ public class Drones : MonoBehaviour
         mesh.triangles = triangles;
     }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        Move();
-    }
-
+    // Returns a vector from an angle (in degrees)
     public Vector3 GetVectorFromAngle(float angle)
     {
         float angleRad = angle * (Mathf.PI / 180f);
         return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        Move();
     }
 
     void Move()
