@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Platforms : MonoBehaviour
 {
-    public Transform[] Waypoints;
-    public float moveSpeed;
-    public int pause;
-    int waypointIndex = 0;
+    //public Transform[] Waypoints;
+    //public float moveSpeed;
+    //public int pause;
+    //int waypointIndex = 0;
 
-    float startTime;
-    float journeyLength;
+    //float startTime;
+    //float journeyLength;
 
     public float speed;
 
