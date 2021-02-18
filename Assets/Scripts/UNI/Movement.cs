@@ -34,6 +34,8 @@ public class Movement : MonoBehaviour
     public float slopeforce;
     public bool on_slope;
     Vector3 slope_norm;
+    public bool too_steep;
+
     private Vector3 lastVelocity;
     public float horizontalVelocityMax = 5;
 
@@ -80,12 +82,21 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
+        if (on_slope)
+        {
+            if (too_steep)
+                rb.drag = 0f;
+            else if (isGrounded)
+                rb.drag = 10f;
+            else
+                rb.drag = .2f;
+        }
+        else
+            rb.drag = .2f;
+
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
-/*            if (isJumping == true )
-                Debug.Log(isJumping);
-*/
-            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope && horizontal_movement != 0) * slopeforce, horizontal_movement * speed));
+            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
             isJumping = false;
             isJumpingAftergrapplin = false;
             lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
@@ -249,13 +260,18 @@ public class Movement : MonoBehaviour
     void SlopeCheck()
     {
         RaycastHit slope_ray;
-        bool cast = Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out slope_ray, capsule_collider.height / 2 + .5f);
+        bool cast = Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out slope_ray, capsule_collider.height / 2 + ground_dist);
         on_slope = cast && slope_ray.normal != Vector3.up;
 
+        too_steep = on_slope && Mathf.Abs(slope_ray.collider.transform.rotation.x) >= .3f;
+    
+
+        //IDK WHAT THIS DOUBLE IF DOES BUT IF YOU DELETE IT JUMPING IS WEIRD
         if (cast && on_slope)
         {
             if (slope_norm != Vector3.up)
             {
+
                 //transform.Translate(new Vector3(0f, -slopeforce, .1f) * speed);
                 //if (Mathf.Abs(slope_ray.transform.rotation.x) >= .3f)//too steep
 
