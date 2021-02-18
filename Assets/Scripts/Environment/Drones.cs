@@ -4,99 +4,100 @@ using UnityEngine;
 
 public class Drones : MonoBehaviour
 {
-    public Transform[] Waypoints;
-    public float moveSpeed = 5f;
-    int waypointIndex = 0;
+    [Range(5, 25)]
+    public float viewRadius;
+    [Range(0, 360)]
+    public float viewAngle;
 
-    // Start is called before the first frame update
-    void Start()
+    public LayerMask targetMask;
+    public LayerMask obstacletMask;
+
+    public List<Transform> targetsInView = new List<Transform>();
+
+    public Transform pointB;
+    public float timeItTakes;
+    public int pause;
+
+    [Range(0f, 1f)]
+    public float speed;
+
+    IEnumerator Start()
     {
-        // Places the platform at the start of the waypoints[]
-        transform.position = Waypoints[waypointIndex].transform.position;
+        StartCoroutine(FindTargetWithDelay());
 
-        // Creating a mesh for the FOV of the drone
-        Mesh mesh = new Mesh();
-        GetComponent<MeshFilter>().mesh = mesh;
-
-        // Params of the FOV
-        float fov = 90f;
-        Vector3 origin = Vector3.zero;
-        int rayCount = 10; 
-        float angle = 0f;
-        float angleIncrease = fov / rayCount;
-        float viewDistance = 5f;
-
-        // Coordinates for the FOV
-        Vector3[] vertices = new Vector3[rayCount + 1 + 1];
-        Vector2[] uv = new Vector2[vertices.Length];
-        int[] triangles = new int[rayCount*3];
-
-        vertices[0] = origin;
-
-        int vertexIndex = 1;
-        int triangleIndex = 0;
-        for (int i = 0; i <= rayCount; i++)
+        //infinite loop
+        var pointA = transform.position; //initial position of the drone is the start
+        while (true)
         {
-            Vector3 vertex;
-            RaycastHit2D raycastHit = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance);
-            if(raycastHit.collider == null)
-            {
-                // No hit detected
-                vertex = origin + GetVectorFromAngle(angle) * viewDistance;
-            }
-            else
-            {
-                // Hit an object on the map
-                vertex = raycastHit.point;
-            }
-            vertices[vertexIndex] = vertex;
+            // From pA -> pB
+            yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
+            var desiredRotQA = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQA, 1f);
+            yield return new WaitForSeconds(pause);
+            
 
-            if (i > 0)
-            {
-                triangles[triangleIndex + 0] = 0; 
-                triangles[triangleIndex + 1] = vertexIndex - 1; 
-                triangles[triangleIndex + 2] = vertexIndex;
-
-                triangleIndex += 3;
-            }
-
-            vertexIndex++;
-            angle -= angleIncrease;
+            // From pB -> pA
+            yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
+            var desiredRotQB = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQB, 1f);
+            yield return new WaitForSeconds(pause);
         }
-
-        mesh.vertices = vertices;
-        mesh.uv = uv;
-        mesh.triangles = triangles;
     }
 
-    // Returns a vector from an angle (in degrees)
-    public Vector3 GetVectorFromAngle(float angle)
+    // Actually responsible for moving the drone
+    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
-        float angleRad = angle * (Mathf.PI / 180f);
-        return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+        var i = 0.0f;
+        var rate = 1.0f / time;
+        while (i < 1.0f)
+        {
+            i += Time.deltaTime * rate;
+            thisTransform.position = Vector3.Lerp(startPos, endPos, i);
+
+            yield return null;
+        }
+    }
+    
+
+    IEnumerator FindTargetWithDelay()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(2);
+            FindVisibleTarget();
+        }
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    void FindVisibleTarget()
     {
-        Move();
+        targetsInView.Clear();
+        Collider[] targetInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+
+        for(int i =0; i < targetInViewRadius.Length; i++)
+        {
+            Transform target = targetInViewRadius[i].transform;
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            if(Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            {
+                float dstToTarget = Vector3.Distance(transform.position, target.transform.position);
+                
+                if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacletMask))
+                {
+                    //Attack
+                    targetsInView.Add(target);
+                }
+            }
+        }
+
     }
 
-    void Move()
+    // Does the conversion automatically and fetches a direction depending on the angle
+    public Vector3 GetDirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
-        // Handles moving the platform from A to B or B to A
-        transform.position = Vector3.MoveTowards(transform.position, Waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
-
-        // Increases the waypointIndex when the platform reaches the current waypoint ahead
-        if (transform.position == Waypoints[waypointIndex].transform.position)
+        if(!angleIsGlobal)
         {
-            waypointIndex += 1;
+            angleInDegrees += transform.eulerAngles.y;
         }
-
-        // Resets the waypointIndex once the platform reaches the end of the Waypoints[]
-        if (waypointIndex == Waypoints.Length)
-        {
-            waypointIndex = 0;
-        }
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 }
