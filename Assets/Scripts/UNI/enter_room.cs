@@ -7,14 +7,13 @@ public class enter_room : MonoBehaviour
     //private Collider collider;
     public GameObject facade;
     Renderer[] rends;
-    public bool visible;
 
     Breathing_mechanic breathing_mechanic;
 
     private void Start()
     {
-        visible = true;
-        rends = facade.GetComponentsInChildren<Renderer>();
+        if(facade)
+            rends = facade.GetComponentsInChildren<Renderer>();
 
         breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
     }
@@ -22,15 +21,15 @@ public class enter_room : MonoBehaviour
     {
         if (col.tag == "uni")
         {
-            foreach (Renderer rend  in rends)
+            if (facade)
             {
-                Vector4 source = rend.material.color;
-                Vector4 target = new Vector4(source.x, source.y, source.z, 0);
+                foreach (Renderer rend  in rends)
+                {
+                    Vector4 source = rend.material.color;
+                    Vector4 target = new Vector4(source.x, source.y, source.z, 0);
 
-                StartCoroutine(fade(rend.material, source, target, .3f));
-
-                visible = true;
-
+                    StartCoroutine(fade(rend.material, source, target, .3f));
+                }
 
             }
 
@@ -43,17 +42,21 @@ public class enter_room : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        foreach (Renderer rend in rends)
+        if (col.tag == "uni")
         {
-            Vector4 source = rend.material.color;
-            Vector4 target = new Vector4(source.x, source.y, source.z, 1);
+            if (facade)
+            {
+                foreach (Renderer rend in rends)
+                {
+                    Vector4 source = rend.material.color;
+                    Vector4 target = new Vector4(source.x, source.y, source.z, 1);
 
-            StartCoroutine(fade(rend.material, source, target, .3f));
+                    StartCoroutine(fade(rend.material, source, target, .3f));
 
-            visible = true;
-
-
+                }
+            }
         }
+
 
         breathing_mechanic.can_breath = false;
 
