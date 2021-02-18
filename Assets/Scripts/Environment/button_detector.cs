@@ -55,5 +55,6 @@ public class button_detector : MonoBehaviour
             isButtonActive = false; 
         }
     }
+    
 }
 
