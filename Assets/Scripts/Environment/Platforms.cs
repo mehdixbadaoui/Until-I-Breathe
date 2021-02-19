@@ -13,12 +13,13 @@ public class Platforms : MonoBehaviour
     //float startTime;
     //float journeyLength;
 
+    public Transform pointB;
     public float timeItTakes;
     public int pause;
-    public Transform pointB;
 
     IEnumerator Start()
     {
+        //infinite loop
         var pointA = transform.position;
         while (true)
         {
