@@ -18,7 +18,7 @@ public class FieldOfViewEditor : Editor
         Handles.DrawLine(drones.transform.position, drones.transform.position + viewAngleB * drones.viewRadius);
 
         Handles.color = Color.red;
-        foreach(Transform visibleTarget in drones.targetsInView)
+        foreach(Transform visibleTarget in drones.visibleTargets)
         {
             Handles.DrawLine(drones.transform.position, visibleTarget.position);
         }

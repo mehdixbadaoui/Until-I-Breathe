@@ -5,22 +5,21 @@ using UnityEngine;
 
 public class Platforms : MonoBehaviour
 {
-    //public Transform[] Waypoints;
-    //public float moveSpeed;
-
-    //int waypointIndex = 0;
-
-    //float startTime;
-    //float journeyLength;
-
     public Transform pointB;
+    Vector3 pointA;
     public float timeItTakes;
     public int pause;
 
-    IEnumerator Start()
+    void Start()
+    {
+        //initial position of the platform is the start
+        pointA = transform.position;
+        StartCoroutine(ChangeDir());
+    }
+
+    IEnumerator ChangeDir()
     {
         //infinite loop
-        var pointA = transform.position;
         while (true)
         {
             yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
@@ -41,61 +40,6 @@ public class Platforms : MonoBehaviour
             yield return null;
         }
     }
-
-    //private void Start()
-    //{
-    //    // Places the platform at the start of the waypoints[]
-    //    transform.position = Waypoints[waypointIndex].transform.position;
-    //    startTime = Time.time;
-
-    //    //journeyLength = Vector3.Distance(transform.position, Waypoints[waypointIndex].transform.position);
-    //}
-
-    //void FixedUpdate()
-    //{
-    //    Move();
-    //}
-
-    //void Move()
-    //{
-    //    if (Vector3.Distance(transform.position, Waypoints[waypointIndex].transform.position) > .01f)
-    //    {
-    //        float timeSinceStarted = Time.time - startTime;
-    //        float percentageComplete = timeSinceStarted / timeTakenDuringLerp;
-
-    //        // Handles moving the platform from A to B or B to A
-    //        transform.position = Vector3.Lerp(transform.position, Waypoints[waypointIndex].transform.position, percentageComplete);
-    //    }
-    //    else
-    //    {
-    //        StartCoroutine(Delaying());
-    //    }
-    //}
-
-    //void ChangeWaypoint()
-    //{
-    //    // Increases the waypointIndex when the platform reaches the current waypoint ahead
-    //    if (transform.position == Waypoints[waypointIndex].transform.position)
-    //    {
-    //        Debug.Log("here");
-    //        waypointIndex += 1;
-    //    }
-
-    //    // Resets the waypointIndex once the platform reaches the end of the Waypoints[]
-    //    if (waypointIndex == Waypoints.Length)
-    //    {
-    //        Debug.Log("there");
-    //        waypointIndex = 0;
-    //    }
-    //}
-
-    //IEnumerator Delaying()
-    //{
-    //    yield return new WaitForSeconds(pause);
-    //    ChangeWaypoint();
-
-    //    startTime = Time.time;
-    //}
 
     // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
