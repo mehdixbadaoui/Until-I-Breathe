@@ -6,13 +6,12 @@ public class GrapplingHook : MonoBehaviour
 {
 	[Header("Components")]
 
-	public GameObject player;
-	//public hook_detector hook;
+
 	public GameObject hook_detector;
 
 	//Objects that will interact with the rope
-	private GameObject whatTheRopeIsConnectedTo;
-	public Transform whatIsHangingFromTheRope;
+	private GameObject hookObject;
+	private Transform objectHanging;
 
 	// Spring joint prefab
 	public GameObject springjoint_rb_pref;
@@ -20,9 +19,6 @@ public class GrapplingHook : MonoBehaviour
 
 	private bool isGrappling;
 
-
-
-	public Vector3 location;
 
 	//public float speed = 10;
 
@@ -88,6 +84,8 @@ public class GrapplingHook : MonoBehaviour
 		//Init the line renderer we use to display the rope
 		LR = GetComponent<LineRenderer>();
 
+		//Get the object transform
+		objectHanging = transform;
 
 		//Init the Rigidbody
 		body = GetComponent<Rigidbody>();
@@ -106,9 +104,9 @@ public class GrapplingHook : MonoBehaviour
 
 		if (isGrappling)
 		{
-			Vector3 u_dir = (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position) / dist_objects;
+			Vector3 u_dir = (hookObject.transform.position - objectHanging.position) / dist_objects;
 
-			Movement.distToHook = (whatTheRopeIsConnectedTo.transform.position.y - whatIsHangingFromTheRope.position.y ) / ropeLength ;
+			Movement.distToHook = (hookObject.transform.position.y - objectHanging.position.y ) / ropeLength ;
 
 
 
@@ -120,7 +118,7 @@ public class GrapplingHook : MonoBehaviour
 				{
 					if (!TheLineTouch(ropePositions[ropeId].position + distToHitPoints[ropeId] * 1.0001f, ropePositions[ropeId - 2].position + distToHitPoints[ropeId - 2], ropePositions[ropeId - 2]))
 					{
-						if (hit.transform != whatTheRopeIsConnectedTo.transform && hit.transform != whatIsHangingFromTheRope)
+						if (hit.transform != hookObject.transform && hit.transform != objectHanging)
 						{
 							//Debug.Log(ropePositions[ropePositions.Count - 3]);
 							DeleteRopeJoint(ropeId);
@@ -135,7 +133,7 @@ public class GrapplingHook : MonoBehaviour
 			{
 				//TODO: add a method to update the joints if they are moving with an object (take the Transform instead of a list of vector)
 
-				if (hit.transform != whatTheRopeIsConnectedTo.transform && hit.transform != whatIsHangingFromTheRope && Vector3.Distance(hit.point, ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2]) > 0.2f)
+				if (hit.transform != hookObject.transform && hit.transform != objectHanging && Vector3.Distance(hit.point, ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2]) > 0.2f)
 					AddRopeJoint();
 
 			}
@@ -147,7 +145,7 @@ public class GrapplingHook : MonoBehaviour
 			*/
 
 
-			if (whatTheRopeIsConnectedTo.tag == "hook")
+			if (hookObject.tag == "hook")
 				springJointRB.transform.position = ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2];
 
 
@@ -174,16 +172,18 @@ public class GrapplingHook : MonoBehaviour
 		if (Input.GetKey(keyGrapplin) && isGrappling == false)
 		{
 
-			whatTheRopeIsConnectedTo = hook_detector.GetComponent<hook_detector>().nearest_hook;
+			hookObject = hook_detector.GetComponent<hook_detector>().nearest_hook;
 
-			if (whatTheRopeIsConnectedTo)
+			if (hookObject)
 			{
-				if (!Physics.Raycast(whatIsHangingFromTheRope.position, (whatTheRopeIsConnectedTo.transform.position - whatIsHangingFromTheRope.position).normalized, out hit,
-					Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position) - 1.0f))
+				if (!Physics.Raycast(objectHanging.position, (hookObject.transform.position - objectHanging.position).normalized, out hit,
+					Vector3.Distance(hookObject.transform.position, objectHanging.position)) && 
+					!Physics.Raycast(hookObject.transform.position, ( objectHanging.position - hookObject.transform.position).normalized, out hit,
+					Vector3.Distance(hookObject.transform.position, objectHanging.position)) )
 				{
 					Grapple();
 					countGrapplin = 0;
-					dist_objects = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
+					dist_objects = Vector3.Distance(hookObject.transform.position, objectHanging.position);
 				}
 
 			}
@@ -198,16 +198,16 @@ public class GrapplingHook : MonoBehaviour
 		}
 
 
-		if (isGrappling && countGrapplin < 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], whatIsHangingFromTheRope.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], whatIsHangingFromTheRope.position) < spring.maxDistance)
+		if (isGrappling && countGrapplin < 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
 		{
-			if (whatTheRopeIsConnectedTo.tag == "hook")
-				beginLengthMin = ropeLength - Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], whatIsHangingFromTheRope.position);
+			if (hookObject.tag == "hook")
+				beginLengthMin = ropeLength - Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position);
 		}
 
 
 		//Less rope
 		if (isGrappling
-			&& ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && (ropeLength > lengthRopeMin || whatTheRopeIsConnectedTo.tag == "movable_hook"))
+			&& ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && (ropeLength > lengthRopeMin || hookObject.tag == "movable_hook"))
 			&& ropeLength >= lengthRopeMin)
 		{
 
@@ -217,7 +217,7 @@ public class GrapplingHook : MonoBehaviour
 
 		//More rope
 		else if (isGrappling
-			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || whatTheRopeIsConnectedTo.tag == "movable_hook"))
+			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || hookObject.tag == "movable_hook"))
 			&& ropeLength <= lengthRopeMax)
 		{
 			MoveDown();
@@ -235,7 +235,7 @@ public class GrapplingHook : MonoBehaviour
 
 		isGrappling = true;
 
-		if (whatTheRopeIsConnectedTo.tag == "hook")
+		if (hookObject.tag == "hook")
 			Movement.isGrapplin = true;
 
 		body.mass = loadMass;
@@ -243,7 +243,7 @@ public class GrapplingHook : MonoBehaviour
 		//rigidbodyCharacter.Grappling = true;
 
 		//The first rope length is the distance between the two objects
-		ropeLength = Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position);
+		ropeLength = Vector3.Distance(hookObject.transform.position, objectHanging.position);
 
 
 		//Add the weight to what the rope is carrying
@@ -251,20 +251,20 @@ public class GrapplingHook : MonoBehaviour
 
 
 		// Add the Transforms to the list of rope positions
-		ropePositions.Add(whatTheRopeIsConnectedTo.transform);
-		ropePositions.Add(whatIsHangingFromTheRope.transform);
+		ropePositions.Add(hookObject.transform);
+		ropePositions.Add(objectHanging.transform);
 
 		// Add the distances from the rope nodes to the hit points
-		distToHitPoints.Add((whatIsHangingFromTheRope.transform.position - whatTheRopeIsConnectedTo.transform.position).normalized * 0.2f /*whatTheRopeIsConnectedTo.GetComponent<SphereCollider>().radius*/ );
+		distToHitPoints.Add((objectHanging.transform.position - hookObject.transform.position).normalized * 0.2f /*whatTheRopeIsConnectedTo.GetComponent<SphereCollider>().radius*/ );
         //distToHitPoints.Add(Vector3.zero);
 		distToHitPoints.Add(Vector3.zero);
 
 
-		if (whatTheRopeIsConnectedTo.tag == "hook")
+		if (hookObject.tag == "hook")
 			// Add the first spring joint
 			AddSpringJoint();
 
-		if (whatTheRopeIsConnectedTo.tag == "movable_hook")
+		if (hookObject.tag == "movable_hook")
 			// Add the first spring joint
 			AddMovableSpringJoint();
 
@@ -308,7 +308,7 @@ public class GrapplingHook : MonoBehaviour
 		mainChar.AddComponent<SpringJoint>();
 		spring = GetComponent<SpringJoint>();
 
-		spring.connectedBody = whatTheRopeIsConnectedTo.GetComponent<Rigidbody>();
+		spring.connectedBody = hookObject.GetComponent<Rigidbody>();
 		spring.autoConfigureConnectedAnchor = false;
 		spring.anchor = Vector3.zero;
 		spring.connectedAnchor = Vector3.zero;
@@ -344,13 +344,13 @@ public class GrapplingHook : MonoBehaviour
 	{
 		isGrappling = false;
 
-		if (whatTheRopeIsConnectedTo.tag == "hook")
+		if (hookObject.tag == "hook")
 			Movement.isGrapplin = false;
 
 		//body.mass = originalMass;
 
 		Destroy(spring);
-		if (whatTheRopeIsConnectedTo.tag == "hook")
+		if (hookObject.tag == "hook")
 			Destroy(springJointRB);
 		distToHitPoints.Clear();
 		ropePositions.Clear();
@@ -369,10 +369,10 @@ public class GrapplingHook : MonoBehaviour
 		//Update length of the rope
 		spring.maxDistance = ropeLength;
 
-		if (whatTheRopeIsConnectedTo.tag == "hook")
+		if (hookObject.tag == "hook")
 			spring.minDistance = ropeLength - beginLengthMin;
 
-		if (whatTheRopeIsConnectedTo.tag == "movable_hook")
+		if (hookObject.tag == "movable_hook")
 			spring.minDistance = 1f;
 
 		//The rope changed
@@ -418,7 +418,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 
-		ropePositions[ropePositions.Count - 1] = whatIsHangingFromTheRope.transform;
+		ropePositions[ropePositions.Count - 1] = objectHanging.transform;
 		distToHitPoints[distToHitPoints.Count - 1] = Vector3.zero;
 
 		//Just add a line between the start and end position for testing purposes
@@ -449,7 +449,7 @@ public class GrapplingHook : MonoBehaviour
 		// Add the transform of the object touched by the raycast
 		ropePositions.RemoveAt(ropePositions.Count - 1);
 		ropePositions.Add(hit.transform);
-		ropePositions.Add(whatIsHangingFromTheRope.transform);
+		ropePositions.Add(objectHanging.transform);
 
 		// Place a hit distance between the transform of the object and the hit point
 		distToHitPoints.RemoveAt(distToHitPoints.Count - 1);
