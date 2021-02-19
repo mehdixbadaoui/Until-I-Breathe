@@ -9,7 +9,10 @@ public class Movement : MonoBehaviour
     public float grapplinSpeed = 1;
     float horizontal_movement;
 
-    public float jump_force = .5f;
+    /*[HideInInspector]*/ public float jump_force = .5f;
+    public float jump_force_flat = .5f;
+    public float jump_force_slope_up = .5f;
+    public float jump_force_slope_down = .5f;
     public static bool isGrounded = false;
     public static bool isGrapplin = false;
     public static float distToHook;
@@ -32,9 +35,12 @@ public class Movement : MonoBehaviour
     public float ground_dist = .3f;
 
     public float slopeforce;
-    public bool on_slope;
+    [SerializeField] private float slopeforce_val;
+    public bool on_slope_up;
+    public bool on_slope_down;
     Vector3 slope_norm;
     public bool too_steep;
+    public float slope_check_dist;
 
     private Vector3 lastVelocity;
     public float horizontalVelocityMax = 5;
@@ -82,21 +88,37 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-        if (on_slope)
-        {
-            if (too_steep)
-                rb.drag = 0f;
-            else if (isGrounded)
-                rb.drag = 10f;
-            else
-                rb.drag = .2f;
-        }
-        else
-            rb.drag = .2f;
+        Debug.Log(isGrounded);
+
+        //if (on_slope_up || on_slope_down)
+        //{
+        //    if (on_slope_up)
+        //    {
+        //        jump_force = jump_force_slope_up;
+        //    }
+        //    else if (on_slope_down)
+        //    {
+        //        //slopeforce_val = slopeforce;
+        //        jump_force = jump_force_slope_down;
+
+        //    }
+        //    if (too_steep)
+        //        rb.drag = 0f;
+        //    else if (isGrounded)
+        //        rb.drag = 100f;
+        //    else
+        //        rb.drag = .2f;
+        //}
+        //else
+        //{
+        //    rb.drag = .2f;
+        //    jump_force = jump_force_flat;
+        //}
+
 
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
-            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
             isJumping = false;
             isJumpingAftergrapplin = false;
             lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
@@ -253,21 +275,25 @@ public class Movement : MonoBehaviour
                     || Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist)
                     || Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out middle, capsule_collider.height / 2 + ground_dist));
 
-        //isGrounded = Physics.BoxCast(capsule_collider.bounds.center, transform.localScale / 2, Vector3.down, out ground_hit, Quaternion.identity, extra_height);
 
     }
 
     void SlopeCheck()
     {
-        RaycastHit slope_ray;
-        bool cast = Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out slope_ray, capsule_collider.height / 2 + ground_dist);
-        on_slope = cast && slope_ray.normal != Vector3.up;
+        RaycastHit slope_ray_front;
+        RaycastHit slope_ray_back;
 
-        too_steep = on_slope && Mathf.Abs(slope_ray.collider.transform.rotation.x) >= .3f;
+        bool cast_front = Physics.Raycast(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, Vector3.down, out slope_ray_front, capsule_collider.height / 2 + slope_check_dist);
+        bool cast_back = Physics.Raycast(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, Vector3.down, out slope_ray_back, capsule_collider.height / 2 + slope_check_dist);
+
+        on_slope_up = cast_front && slope_ray_front.normal != Vector3.up;
+        on_slope_down = cast_back && slope_ray_back.normal != Vector3.up;
+
+        too_steep = (on_slope_up && Mathf.Abs(slope_ray_front.collider.transform.rotation.x) >= .3f) || (on_slope_down &&  Mathf.Abs(slope_ray_back.collider.transform.rotation.x) >= .3f);
     
 
         //IDK WHAT THIS DOUBLE IF DOES BUT IF YOU DELETE IT JUMPING IS WEIRD
-        if (cast && on_slope)
+        if ((cast_front && on_slope_up ) || (cast_back && on_slope_down))
         {
             if (slope_norm != Vector3.up)
             {
@@ -281,7 +307,10 @@ public class Movement : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawLine(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
         //Gizmos.DrawSphere(capsule_collider.bounds.center + transform.forward * 0f, .1f);
     }
 
