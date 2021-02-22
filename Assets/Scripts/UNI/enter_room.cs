@@ -57,10 +57,9 @@ public class enter_room : MonoBehaviour
             }
         }
 
-
         breathing_mechanic.can_breath = false;
-
     }
+
 
 
     IEnumerator fade(Material material, Vector4 source, Vector4 target, float overTime)
