@@ -4,99 +4,139 @@ using UnityEngine;
 
 public class Drones : MonoBehaviour
 {
-    public Transform[] Waypoints;
-    public float moveSpeed = 5f;
-    int waypointIndex = 0;
+    // Params of patrolling
+    [Range(5, 25)]
+    public float viewRadius;
+    [Range(0, 360)]
+    public float viewAngle;
 
-    // Start is called before the first frame update
+    public LayerMask targetMask;
+    public LayerMask obstacletMask;
+
+    [HideInInspector]
+    public List<Transform> visibleTargets = new List<Transform>();
+
+    // Params of light&detection
+    public Light light;
+    bool detected;
+    bool canTurn;
+
+
+    // Params of moving
+    public Transform pointB;
+    Vector3 pointA;
+    public float timeItTakes;
+    public int pause;
+
+    [Range(0f, 10f)]
+    public float speed;
+
     void Start()
     {
-        // Places the platform at the start of the waypoints[]
-        transform.position = Waypoints[waypointIndex].transform.position;
+        //initial position of the drone is the start
+        pointA = transform.position;
+        canTurn = true;
 
-        // Creating a mesh for the FOV of the drone
-        Mesh mesh = new Mesh();
-        GetComponent<MeshFilter>().mesh = mesh;
-
-        // Params of the FOV
-        float fov = 90f;
-        Vector3 origin = Vector3.zero;
-        int rayCount = 10; 
-        float angle = 0f;
-        float angleIncrease = fov / rayCount;
-        float viewDistance = 5f;
-
-        // Coordinates for the FOV
-        Vector3[] vertices = new Vector3[rayCount + 1 + 1];
-        Vector2[] uv = new Vector2[vertices.Length];
-        int[] triangles = new int[rayCount*3];
-
-        vertices[0] = origin;
-
-        int vertexIndex = 1;
-        int triangleIndex = 0;
-        for (int i = 0; i <= rayCount; i++)
-        {
-            Vector3 vertex;
-            RaycastHit2D raycastHit = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance);
-            if(raycastHit.collider == null)
-            {
-                // No hit detected
-                vertex = origin + GetVectorFromAngle(angle) * viewDistance;
-            }
-            else
-            {
-                // Hit an object on the map
-                vertex = raycastHit.point;
-            }
-            vertices[vertexIndex] = vertex;
-
-            if (i > 0)
-            {
-                triangles[triangleIndex + 0] = 0; 
-                triangles[triangleIndex + 1] = vertexIndex - 1; 
-                triangles[triangleIndex + 2] = vertexIndex;
-
-                triangleIndex += 3;
-            }
-
-            vertexIndex++;
-            angle -= angleIncrease;
-        }
-
-        mesh.vertices = vertices;
-        mesh.uv = uv;
-        mesh.triangles = triangles;
+        IEnumerator coDR = ChangeDir();
+        StartCoroutine(coDR);
     }
 
-    // Returns a vector from an angle (in degrees)
-    public Vector3 GetVectorFromAngle(float angle)
+    void Update()
     {
-        float angleRad = angle * (Mathf.PI / 180f);
-        return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+
+
+        IEnumerator coFT = FindTargetWithDelay();
+        StartCoroutine(coFT);
+
+        //if(detected)
+        //{
+        //    StopCoroutine(coFT);
+        //    StopCoroutine(coDR);
+        //}
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    IEnumerator ChangeDir()
     {
-        Move();
+        while(true)
+        {
+        // From pA -> pB
+        yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
+        if (canTurn) //if player detected cant turn
+        {
+            var desiredRotQA = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQA, 1f);
+            yield return new WaitForSeconds(pause);
+        }
+
+
+        // From pB -> pA
+        yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
+        if (canTurn) //if player detected cant turn
+        {
+            var desiredRotQB = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQB, 1f);
+            yield return new WaitForSeconds(pause);
+        }
+        }
+
+        
     }
 
-    void Move()
+    // Actually responsible for moving the drone
+    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
     {
-        // Handles moving the platform from A to B or B to A
-        transform.position = Vector3.MoveTowards(transform.position, Waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
-
-        // Increases the waypointIndex when the platform reaches the current waypoint ahead
-        if (transform.position == Waypoints[waypointIndex].transform.position)
+        var i = 0.0f;
+        var rate = 1.0f / time;
+        while (i < 1.0f && !detected)
         {
-            waypointIndex += 1;
+            i += Time.deltaTime * rate;
+            thisTransform.position = Vector3.Lerp(startPos, endPos, i);
+
+            yield return null;
+        }
+    }
+
+    IEnumerator FindTargetWithDelay()
+    {
+        while(true)
+        {
+            yield return null;
+            FindVisibleTarget();
+        }
+    }
+
+    void FindVisibleTarget()
+    {
+        visibleTargets.Clear();
+        Collider[] targetInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+
+        for(int i =0; i < targetInViewRadius.Length; i++)
+        {
+            Transform target = targetInViewRadius[i].transform;
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            if(Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            {
+                float dstToTarget = Vector3.Distance(transform.position, target.transform.position);
+                
+                if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacletMask))
+                {
+                    visibleTargets.Add(target);
+                    detected = true;
+                    canTurn = false;
+                    light.color = Color.red;
+                }
+            }
         }
 
-        // Resets the waypointIndex once the platform reaches the end of the Waypoints[]
-        if (waypointIndex == Waypoints.Length)
+    }
+
+    // Does the conversion automatically and fetches a direction depending on the angle
+    public Vector3 GetDirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    {
+        if(!angleIsGlobal)
         {
-            waypointIndex = 0;
+            angleInDegrees += transform.eulerAngles.y;
         }
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 }
