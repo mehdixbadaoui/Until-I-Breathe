@@ -16,6 +16,8 @@ public class enter_room : MonoBehaviour
             rends = facade.GetComponentsInChildren<Renderer>();
 
         breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
+
+        Debug.Log(facade.GetComponent<Renderer>().material);
     }
     void OnTriggerEnter(Collider col)
     {
