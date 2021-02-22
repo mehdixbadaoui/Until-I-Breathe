@@ -9,9 +9,6 @@ public class hook_detector : MonoBehaviour
     public GameObject player;
     private List<GameObject> all_hooks;
 
-    //[Range(1f, 10f)]
-    //public float detection_radius = 5f;
-
     public bool nearHook = false;
 
     //HINTS & DEAD ROBOTS
@@ -30,17 +27,12 @@ public class hook_detector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //List<Order> SortedList = objListOrder.OrderBy(o => o.OrderDate).ToList();
-
-        //gameObject.GetComponent<SphereCollider>().radius = detection_radius;
         if (all_hooks.Count != 0)
         {
             nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, player.transform.position)).ToList()[0];
-            //Debug.Log(nearest_hook);
         }
         else
             nearest_hook = null;
-        //    Debug.Log("null");
     }
 
     public GameObject nh()
@@ -56,7 +48,6 @@ public class hook_detector : MonoBehaviour
             nearHook = true;
         }
         else
-        //Debug.Log("h");
 
         // HINTS
         if (other.tag == "Hint")
@@ -72,12 +63,6 @@ public class hook_detector : MonoBehaviour
             nearDead = true;
         }
     }
-
-    //private void OnTriggerStay(Collider col)
-    //{
-    //    if (col.tag == "hook") Debug.Log("CAN HOOK");
-
-    //}
 
     private void OnTriggerExit(Collider other)
     {
