@@ -6,6 +6,7 @@ using UnityEditor;
 [CustomEditor (typeof (Drones))]
 public class FieldOfViewEditor : Editor
 {
+    // Allows for us to have a visual output of the radius and angle of detection
     private void OnSceneGUI()
     {
         Drones drones = (Drones)target;
