@@ -21,7 +21,6 @@ public class Drones : MonoBehaviour
     bool detected;
     bool canTurn;
 
-
     // Params of moving
     public Transform pointB;
     Vector3 pointA;
@@ -31,55 +30,52 @@ public class Drones : MonoBehaviour
     [Range(0f, 10f)]
     public float speed;
 
+    private float timeCount = 0.0f;
+
     void Start()
     {
-        //initial position of the drone is the start
+        //initial position of the drone is the starting point of patrol
         pointA = transform.position;
         canTurn = true;
 
+        //keeps track of the coroutine created
         IEnumerator coDR = ChangeDir();
         StartCoroutine(coDR);
     }
 
     void Update()
     {
+        timeCount = timeCount + Time.deltaTime;
 
-
+        //keeps track of the coroutine created
         IEnumerator coFT = FindTargetWithDelay();
         StartCoroutine(coFT);
-
-        //if(detected)
-        //{
-        //    StopCoroutine(coFT);
-        //    StopCoroutine(coDR);
-        //}
     }
 
+    // Calls the moving function to patrol between point A and B
     IEnumerator ChangeDir()
     {
         while(true)
         {
-        // From pA -> pB
-        yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
-        if (canTurn) //if player detected cant turn
-        {
-            var desiredRotQA = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
-            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQA, 1f);
-            yield return new WaitForSeconds(pause);
-        }
+            // From pA -> pB
+            yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
+            if (canTurn) //if player detected cant turn
+            {
+                var desiredRotQA = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQA, timeCount * speed);
+                yield return new WaitForSeconds(pause);
+            }
 
 
-        // From pB -> pA
-        yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
-        if (canTurn) //if player detected cant turn
-        {
-            var desiredRotQB = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.z);
-            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQB, 1f);
-            yield return new WaitForSeconds(pause);
+            // From pB -> pA
+            yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
+            if (canTurn) //if player detected cant turn
+            {
+                var desiredRotQB = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQB, timeCount * speed);
+                yield return new WaitForSeconds(pause);
+            }
         }
-        }
-
-        
     }
 
     // Actually responsible for moving the drone
@@ -100,11 +96,12 @@ public class Drones : MonoBehaviour
     {
         while(true)
         {
-            yield return null;
+            yield return null; //waits for one frame
             FindVisibleTarget();
         }
     }
 
+    // Responsible for finding the target in view
     void FindVisibleTarget()
     {
         visibleTargets.Clear();
@@ -118,9 +115,9 @@ public class Drones : MonoBehaviour
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.transform.position);
                 
-                if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacletMask))
+                if(!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacletMask)) //actions to add if player is detected
                 {
-                    visibleTargets.Add(target);
+                    visibleTargets.Add(target); //keeps track of the visible target in an array
                     detected = true;
                     canTurn = false;
                     light.color = Color.red;
@@ -130,7 +127,7 @@ public class Drones : MonoBehaviour
 
     }
 
-    // Does the conversion automatically and fetches a direction depending on the angle
+    // Does the conversion automatically and fetches a direction in degrees depending on the angle
     public Vector3 GetDirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
         if(!angleIsGlobal)
