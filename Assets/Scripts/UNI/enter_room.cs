@@ -18,7 +18,7 @@ public class enter_room : MonoBehaviour
         breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
 
     }
-    void OnTriggerEnter(Collider col)
+    void OnTriggerStay(Collider col)
     {
         if (col.tag == "uni")
         {
@@ -26,10 +26,10 @@ public class enter_room : MonoBehaviour
             {
                 foreach (Renderer rend  in rends)
                 {
-                    Vector4 source = rend.material.color;
+                    Vector4 source = rend.material.GetColor("_BaseColor");
                     Vector4 target = new Vector4(source.x, source.y, source.z, 0);
-
-                    StartCoroutine(fade(rend.material, source, target, .3f));
+                    if(rend.material.GetColor("_BaseColor").a >= 0)
+                        StartCoroutine(fade(rend.material, source, target, .3f));
                 }
 
             }
@@ -49,7 +49,7 @@ public class enter_room : MonoBehaviour
             {
                 foreach (Renderer rend in rends)
                 {
-                    Vector4 source = rend.material.color;
+                    Vector4 source = rend.material.GetColor("_BaseColor");
                     Vector4 target = new Vector4(source.x, source.y, source.z, 1);
 
                     StartCoroutine(fade(rend.material, source, target, .3f));
@@ -71,7 +71,7 @@ public class enter_room : MonoBehaviour
             material.SetColor("_BaseColor", Vector4.Lerp(source, target, (Time.time - startTime) / overTime));
             yield return null;
         }
-        material.color = target;
+        material.SetColor("_BaseColor", target);
     }
 
 }
