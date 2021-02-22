@@ -17,7 +17,6 @@ public class enter_room : MonoBehaviour
 
         breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
 
-        Debug.Log(facade.GetComponent<Renderer>().material);
     }
     void OnTriggerEnter(Collider col)
     {
@@ -69,7 +68,7 @@ public class enter_room : MonoBehaviour
         float startTime = Time.time;
         while (Time.time < startTime + overTime)
         {
-            material.color = Vector4.Lerp(source, target, (Time.time - startTime) / overTime);
+            material.SetColor("_BaseColor", Vector4.Lerp(source, target, (Time.time - startTime) / overTime));
             yield return null;
         }
         material.color = target;
