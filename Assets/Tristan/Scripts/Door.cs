@@ -47,7 +47,7 @@ public class Door : MonoBehaviour
         if(other.tag == "uni"){
             open = true;
             close = false;
-            this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 3f);
+            this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 1.1f);
 
             if (other.transform.position.z < this.transform.position.z){
                 moveDoor = -1 ;
