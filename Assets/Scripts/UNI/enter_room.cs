@@ -28,8 +28,11 @@ public class enter_room : MonoBehaviour
                 {
                     Vector4 source = rend.material.GetColor("_BaseColor");
                     Vector4 target = new Vector4(source.x, source.y, source.z, 0);
-                    if(rend.material.GetColor("_BaseColor").a >= 0)
-                        StartCoroutine(fade(rend.material, source, target, .3f));
+                    if (rend.material.GetColor("_BaseColor").a != 0)
+                    {
+                        //StartCoroutine(fade(rend.material, source, target, .3f));
+                        rend.material.SetColor("_BaseColor", Vector4.Lerp(rend.material.GetColor("_BaseColor"), target, .3f));
+                    }
                 }
 
             }
@@ -50,7 +53,7 @@ public class enter_room : MonoBehaviour
                 foreach (Renderer rend in rends)
                 {
                     Vector4 source = rend.material.GetColor("_BaseColor");
-                    Vector4 target = new Vector4(source.x, source.y, source.z, 1);
+                    Vector4 target = new Vector4(source.x, source.y, source.z, 1f);
 
                     StartCoroutine(fade(rend.material, source, target, .3f));
 
