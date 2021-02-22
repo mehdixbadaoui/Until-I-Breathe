@@ -17,6 +17,9 @@ public class Movement : MonoBehaviour
     public static bool isGrapplin = false;
     public static float distToHook;
 
+    private bool isFlying = false;
+
+
     float vertical_movement;
     private Vector3 lastInput;
     private Vector3 lastInputJumping; 
@@ -47,7 +50,14 @@ public class Movement : MonoBehaviour
 
     private int countGround = 0;
 
-    private bool collisionWithWall; 
+    private bool collisionWithWall;
+
+
+    public bool IsFlying 
+    {
+        get { return isFlying; }   // get method
+        set { isFlying = value; }  // set method
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -114,6 +124,15 @@ public class Movement : MonoBehaviour
             jump_force = jump_force_flat;
         }
 
+        if (isFlying && !isGrapplin)
+        {
+            isGrounded = false;
+            isJumping = false;
+            isJumpingAftergrapplin = false;
+
+            transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+
+        }
 
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
@@ -161,7 +180,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin) )
+        if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying) )
         {
 
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
