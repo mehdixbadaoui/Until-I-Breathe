@@ -88,32 +88,31 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-        Debug.Log(isGrounded);
 
-        //if (on_slope_up || on_slope_down)
-        //{
-        //    if (on_slope_up)
-        //    {
-        //        jump_force = jump_force_slope_up;
-        //    }
-        //    else if (on_slope_down)
-        //    {
-        //        //slopeforce_val = slopeforce;
-        //        jump_force = jump_force_slope_down;
+        if (on_slope_up || on_slope_down)
+        {
+            if (on_slope_up)
+            {
+                jump_force = jump_force_slope_up;
+            }
+            else if (on_slope_down)
+            {
+                //slopeforce_val = slopeforce;
+                jump_force = jump_force_slope_down;
 
-        //    }
-        //    if (too_steep)
-        //        rb.drag = 0f;
-        //    else if (isGrounded)
-        //        rb.drag = 100f;
-        //    else
-        //        rb.drag = .2f;
-        //}
-        //else
-        //{
-        //    rb.drag = .2f;
-        //    jump_force = jump_force_flat;
-        //}
+            }
+            if (too_steep)
+                rb.drag = 0f;
+            else if (isGrounded)
+                rb.drag = 100f;
+            else
+                rb.drag = .2f;
+        }
+        else
+        {
+            rb.drag = .2f;
+            jump_force = jump_force_flat;
+        }
 
 
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
@@ -305,14 +304,13 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
-        //Gizmos.DrawSphere(capsule_collider.bounds.center + transform.forward * 0f, .1f);
-    }
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.magenta;
+    //    Gizmos.DrawLine(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
+    //    Gizmos.color = Color.cyan;
+    //    Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
+    //}
 
     //private void OnCollisionEnter(Collision collision)
     //{
