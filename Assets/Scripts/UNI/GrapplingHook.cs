@@ -58,6 +58,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 	private bool hasChangedRope = false;
+	private bool changeHook = false;
 
 
 	//Rope data
@@ -169,7 +170,7 @@ public class GrapplingHook : MonoBehaviour
     {
 
 		// Send Grapplin
-		if (Input.GetKey(keyGrapplin) && isGrappling == false)
+		if ((Input.GetKey(keyGrapplin) || changeHook) && isGrappling == false)
 		{
 
 			hookObject = hook_detector.GetComponent<hook_detector>().nearest_hook;
@@ -177,9 +178,9 @@ public class GrapplingHook : MonoBehaviour
 			if (hookObject)
 			{
 				if (!Physics.Raycast(objectHanging.position, (hookObject.transform.position - objectHanging.position).normalized, out hit,
-					Vector3.Distance(hookObject.transform.position, objectHanging.position)) && 
-					!Physics.Raycast(hookObject.transform.position, ( objectHanging.position - hookObject.transform.position).normalized, out hit,
-					Vector3.Distance(hookObject.transform.position, objectHanging.position)) )
+					Vector3.Distance(hookObject.transform.position, objectHanging.position)) &&
+					!Physics.Raycast(hookObject.transform.position, (objectHanging.position - hookObject.transform.position).normalized, out hit,
+					Vector3.Distance(hookObject.transform.position, objectHanging.position)))
 				{
 					Grapple();
 					countGrapplin = 0;
@@ -190,12 +191,25 @@ public class GrapplingHook : MonoBehaviour
 
 		}
 
+		changeHook = false;
+
 		// Retrait du grappin
-		else if ((Input.GetKey(KeyCode.Space)) && isGrappling == true)
+		if ((Input.GetKey(KeyCode.Space)) && isGrappling == true)
 		{
 			CutRope();
 			movements.JumpAfterGrapplin();
 		}
+
+
+		// Retrait du grappin
+		if ((Input.GetKey(keyGrapplin)) && isGrappling == true && hookObject != hook_detector.GetComponent<hook_detector>().nearest_hook )
+		{
+			changeHook = true;
+			CutRope();
+			//movements.JumpAfterGrapplin();
+		}
+
+
 
 
 		if (isGrappling && countGrapplin < 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
@@ -207,7 +221,7 @@ public class GrapplingHook : MonoBehaviour
 
 		//Less rope
 		if (isGrappling
-			&& ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && (ropeLength > lengthRopeMin || hookObject.tag == "movable_hook"))
+			&& ((Input.GetAxisRaw("Vertical")==1 || Input.GetKey(KeyCode.W)) && (ropeLength > lengthRopeMin || hookObject.tag == "movable_hook"))
 			&& ropeLength >= lengthRopeMin)
 		{
 
@@ -217,7 +231,7 @@ public class GrapplingHook : MonoBehaviour
 
 		//More rope
 		else if (isGrappling
-			&& ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || hookObject.tag == "movable_hook"))
+			&& ((Input.GetAxisRaw("Vertical") == -1 || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || hookObject.tag == "movable_hook"))
 			&& ropeLength <= lengthRopeMax)
 		{
 			MoveDown();
@@ -356,7 +370,8 @@ public class GrapplingHook : MonoBehaviour
 		ropePositions.Clear();
 		LR.enabled = false;
 
-		body.AddForce(new Vector3(0, movements.jump_force, 0), ForceMode.Impulse);
+		if (!changeHook)
+			body.AddForce(new Vector3(0, movements.jump_force, 0), ForceMode.Impulse);
 
 		//rigidbodyCharacter.Grappling = false;
 
