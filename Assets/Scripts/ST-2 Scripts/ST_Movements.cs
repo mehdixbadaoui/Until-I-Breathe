@@ -19,8 +19,13 @@ public class ST_Movements : MonoBehaviour
     private Vector3 rotation_Sprite;
     public Sprite[] sprites;
 
+    public float dist_from_hook = 2f;
+
     void Start()
     {
+        // Automatically find player
+        Player = GameObject.FindGameObjectWithTag("uni").transform;
+
         // Stores the initial rotation of the sprite component
         rotation_Sprite = ChildGO_Sprite.transform.rotation.eulerAngles;
 
@@ -38,7 +43,7 @@ public class ST_Movements : MonoBehaviour
         followOffset = transform.position - Player.transform.position;
 
         // Fetches the script Hook_Detector from the Player GO
-        HookDetector = Player.GetComponent<hook_detector>();
+        HookDetector = Player.Find("hook_detector").GetComponent<hook_detector>();
     }
 
     private void Update()
@@ -51,7 +56,6 @@ public class ST_Movements : MonoBehaviour
     void LateUpdate()
     {
         // Allows ST-2 to follow the player
-        if (!HookDetector.nearHook && !HookDetector.nearDead && !HookDetector.nearHint)
         {
             // Resets expression
             ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[0];
@@ -74,7 +78,7 @@ public class ST_Movements : MonoBehaviour
             // Changes expression
             ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[1];
 
-            Vector3 desiredPosition = (HookDetector.nearest_hook.transform.position + (transform.position - HookDetector.nearest_hook.transform.position).normalized * 2f);
+            Vector3 desiredPosition = (HookDetector.nearest_hook.transform.position + (transform.position - HookDetector.nearest_hook.transform.position).normalized) * dist_from_hook;
             // Smoothes the path between the initial and desired position
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, followSharpness);
             transform.position = smoothedPosition;
