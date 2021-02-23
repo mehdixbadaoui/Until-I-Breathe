@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FixedDrones : MonoBehaviour
+public class PlayerDetection : MonoBehaviour
 {
-    // Params of rotation
-    [Range(0, 180)]
-    public float rotation;
-    [Range(0, 1)]
-    public float speed;
-
     // Params of patrolling
     [Range(5, 25)]
     public float viewRadius;
@@ -24,33 +18,17 @@ public class FixedDrones : MonoBehaviour
 
     // Params of light&detection
     public Light light;
-    bool detected = false;
+    [HideInInspector]
+    public bool detected;
+    [HideInInspector]
+    public bool canTurn = true; 
 
-    private void Start()
-    {
-        //keeps track of the coroutine created
-        IEnumerator coOR = ObjectRotate();
-        StartCoroutine(coOR);
-    }
-
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         //keeps track of the coroutine created
         IEnumerator coFT = FindTargetWithDelay();
         StartCoroutine(coFT);
-    }
-
-    IEnumerator ObjectRotate()
-    {
-        float timer = 0;
-        while (!detected)
-        {
-            float angle = Mathf.Sin(timer) * rotation;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
-
-            timer += Time.deltaTime * speed;
-            yield return null;
-        }
     }
 
     IEnumerator FindTargetWithDelay()
@@ -80,6 +58,7 @@ public class FixedDrones : MonoBehaviour
                 {
                     visibleTargets.Add(target); //keeps track of the visible target in an array
                     detected = true;
+                    canTurn = false;
                     light.color = Color.red;
                 }
             }
