@@ -73,16 +73,19 @@ public class LedgeLocator : MonoBehaviour
             securityRayForClimbing = new Vector3(0, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
             RaycastHit hit;
             RaycastHit hitSecurity;
-            if ((!Movement.isGrounded && !Movement.isGrapplin ) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, 0.5f))
+            if ((!Movement.isGrounded && !Movement.isGrapplin ) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, 0.5f) /*&& !hit.collider.isTrigger*/)
             {
-                if (hit.collider)
-                    //Debug.Log("exist");
-                ledge = hit.collider.gameObject;
-                if (col.bounds.max.y < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y > ledge.GetComponent<Collider>().bounds.center.y)
+                if (!hit.collider.isTrigger)
                 {
-                    grabbingLedge = true;
-                    anim.SetBool("LedgeHanging", true);
+                    ledge = hit.collider.gameObject;
+                    if (col.bounds.max.y + offsetLedgeClimbing < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y + offsetLedgeClimbing > ledge.GetComponent<Collider>().bounds.center.y)
+                    {
+                        grabbingLedge = true;
+                        anim.SetBool("LedgeHanging", true);
+                    }
                 }
+                    //Debug.Log("exist");
+                
             }
             
             if (ledge != null && grabbingLedge)
