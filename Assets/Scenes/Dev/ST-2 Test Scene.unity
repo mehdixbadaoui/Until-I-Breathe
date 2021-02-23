@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 405885367}
   - component: {fileID: 405885366}
   m_Layer: 8
-  m_Name: Hint (1)
+  m_Name: PlayerDecoy
   m_TagString: Hint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1261,8 +1261,9 @@ GameObject:
   - component: {fileID: 1370694402}
   - component: {fileID: 1370694401}
   - component: {fileID: 1370694405}
+  - component: {fileID: 1370694406}
   m_Layer: 0
-  m_Name: Drone
+  m_Name: Patrol Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1374,7 +1375,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75272e23b8be52a488f6b55398ae6bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 10
+  pointB: {fileID: 552190370}
+  timeItTakes: 3
+  pause: 1
+  rotSpeed: 10
+--- !u!114 &1370694406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370694399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f6ea33cc23cfc428f5ae2923710d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 8
   viewAngle: 80
   targetMask:
     serializedVersion: 2
@@ -1384,10 +1401,8 @@ MonoBehaviour:
     m_Bits: 512
   visibleTargets: []
   light: {fileID: 944901657}
-  pointB: {fileID: 552190370}
-  timeItTakes: 3
-  pause: 1
-  speed: 10
+  detected: 0
+  canTurn: 1
 --- !u!1 &1402503275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1638,7 @@ GameObject:
   - component: {fileID: 1510046786}
   - component: {fileID: 1510046790}
   - component: {fileID: 1510046791}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Hint
   m_TagString: Hint
   m_Icon: {fileID: 0}
@@ -1749,6 +1764,7 @@ GameObject:
   - component: {fileID: 1513468828}
   - component: {fileID: 1513468832}
   - component: {fileID: 1513468831}
+  - component: {fileID: 1513468833}
   m_Layer: 0
   m_Name: Fixed Drone
   m_TagString: Untagged
@@ -1847,16 +1863,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotation: 180
   speed: 0.5
-  viewRadius: 8
-  viewAngle: 80
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 256
-  obstacletMask:
-    serializedVersion: 2
-    m_Bits: 512
-  visibleTargets: []
-  light: {fileID: 1957672669}
 --- !u!54 &1513468832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1873,6 +1879,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 68
   m_CollisionDetection: 0
+--- !u!114 &1513468833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513468826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f6ea33cc23cfc428f5ae2923710d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 8
+  viewAngle: 80
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  obstacletMask:
+    serializedVersion: 2
+    m_Bits: 512
+  visibleTargets: []
+  light: {fileID: 1957672669}
+  detected: 0
+  canTurn: 1
 --- !u!1 &1655944686
 GameObject:
   m_ObjectHideFlags: 0
