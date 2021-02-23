@@ -29,10 +29,22 @@ public class hook_detector : MonoBehaviour
     {
         if (all_hooks.Count != 0)
         {
-            nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, player.transform.position)).ToList()[0];
+            //CHOOSE THE NEAREST HOOK TO THE PLAYER
+            //nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint((o.transform.position), Camera.main.WorldToScreenPoint(Input.mousePosition))).ToList()[0];
+
+            //CHOOSE THE NEAREST HOOK TO THE CURSOR
+            nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Input.mousePosition)).ToList()[0];
         }
         else
             nearest_hook = null;
+
+
+        //CHANGE THE APPEARANCE OF THE SELECTED HOOK
+        foreach(var h in all_hooks)
+        {
+            if(h == nearest_hook) h.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+            else h.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
+        }
     }
 
     public GameObject nh()
@@ -69,6 +81,7 @@ public class hook_detector : MonoBehaviour
         if (all_hooks.Contains(other.gameObject))
         {
             all_hooks.Remove(other.gameObject);
+            other.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
             nearHook = false;
         }
 
