@@ -10,8 +10,9 @@ public class Platforms : MonoBehaviour
     public float timeItTakes;
     public int pause;
 
-    public GameObject PlayerParent;
-    public GameObject Platform;
+    public GameObject playerParent;
+
+    bool playerOn = false;
 
     void Start()
     {
@@ -47,10 +48,19 @@ public class Platforms : MonoBehaviour
     // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
     {
-        PlayerParent.transform.parent = Platform.transform;
+        if (other.tag == "uni" && !playerOn)
+        {
+            playerOn = true;
+            playerParent.transform.parent = transform;
+        }
+
     }
     private void OnTriggerExit(Collider other)
     {
-        PlayerParent.transform.parent = null;
+        if (other.tag == "uni" & playerOn)
+        {
+            playerOn = false;
+            playerParent.transform.parent = null;
+        }
     }
 }
