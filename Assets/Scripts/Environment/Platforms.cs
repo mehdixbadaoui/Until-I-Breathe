@@ -10,6 +10,9 @@ public class Platforms : MonoBehaviour
     public float timeItTakes;
     public int pause;
 
+    public GameObject PlayerParent;
+    public GameObject Platform;
+
     void Start()
     {
         //initial position of the platform is the start
@@ -44,10 +47,10 @@ public class Platforms : MonoBehaviour
     // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.parent = transform;
+        PlayerParent.transform.parent = Platform.transform;
     }
     private void OnTriggerExit(Collider other)
     {
-        other.transform.parent = null;
+        PlayerParent.transform.parent = null;
     }
 }
