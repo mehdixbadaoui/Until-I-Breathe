@@ -26,7 +26,7 @@ public class PlayerDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //keeps track of the coroutine created
+        // keeps track of the coroutine instantiated
         IEnumerator coFT = FindTargetWithDelay();
         StartCoroutine(coFT);
     }

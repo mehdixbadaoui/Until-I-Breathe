@@ -224,6 +224,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UNI
       objectReference: {fileID: 0}
+    - target: {fileID: 2547859366268433739, guid: 8da1e62348aa2d94fa7525e691311013,
+        type: 3}
+      propertyPath: horizontalVelocityMax
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2604874160352336462, guid: 8da1e62348aa2d94fa7525e691311013,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1380,7 +1385,10 @@ MonoBehaviour:
   clip: {fileID: 0}
   offsetLedgeClimbing: -0.2
   securityOffsetLedgeClimbing: 0.51
+  animationTime: 0.5
   grabbingLedge: 0
+  climb_up: 0
+  let_go: 0
 --- !u!114 &729943623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3692,6 +3700,7 @@ GameObject:
   - component: {fileID: 1314472742}
   - component: {fileID: 1314472741}
   - component: {fileID: 1314472745}
+  - component: {fileID: 1314472746}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: ground
@@ -3791,6 +3800,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1314472746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314472740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e12a6b717438e4d8b13f2bbf5c2767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hangingHorizontalOffset: 0
+  hangingVerticalOffset: 0
 --- !u!1 &1323291389
 GameObject:
   m_ObjectHideFlags: 0
