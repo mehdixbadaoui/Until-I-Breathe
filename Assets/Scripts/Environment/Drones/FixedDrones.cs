@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FixedDrones : MonoBehaviour
 {
-    //PlayerDetection Script
+    // PlayerDetection Script
     PlayerDetection playerDetectionScript;
 
     // Params of rotation
@@ -15,10 +15,10 @@ public class FixedDrones : MonoBehaviour
 
     private void Start()
     {
-        //Ref to the PlayerDetection Script
+        // Ref to the PlayerDetection Script
         playerDetectionScript = GetComponent<PlayerDetection>();
 
-        //keeps track of the coroutine created
+        //keeps track of the coroutine instantiated
         IEnumerator coOR = ObjectRotate();
         StartCoroutine(coOR);
     }

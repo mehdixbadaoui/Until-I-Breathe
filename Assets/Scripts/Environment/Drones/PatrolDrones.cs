@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PatrolDrones : MonoBehaviour
 {
-    //PlayerDetection Script
+    // PlayerDetection Script
     PlayerDetection playerDetectionScript;
     
     // Params of moving
@@ -20,13 +20,13 @@ public class PatrolDrones : MonoBehaviour
 
     void Start()
     {
-        //Ref to the PlayerDetection Script
+        // Ref to the PlayerDetection Script
         playerDetectionScript = GetComponent<PlayerDetection>();
 
         //initial position of the drone is the starting point of patrol
         pointA = transform.position;
 
-        //keeps track of the coroutine created
+        //keeps track of the coroutine instantiated
         IEnumerator coDR = ChangeDir();
         StartCoroutine(coDR);
     }

@@ -113,12 +113,10 @@ public class LedgeLocator : MonoBehaviour
             if (transform.localScale.z > 0)
             {
                 StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z /*+ climbingHorizontalOffset*/), animationTime));
-                //transform.position = Vector3.Lerp(transform.position, new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + col.bounds.extents.y, transform.position.z), animationTime);
             }
             else
             {
                 StartCoroutine(ClimbingLedge(new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z /*- climbingHorizontalOffset*/), animationTime));
-                //transform.position = Vector3.Lerp(transform.position, new Vector3(0, ledge.GetComponent<Collider>().bounds.max.y + col.bounds.extents.y, transform.position.z), animationTime);
             }
         }
         if (grabbingLedge && Input.GetKey(let_go))
