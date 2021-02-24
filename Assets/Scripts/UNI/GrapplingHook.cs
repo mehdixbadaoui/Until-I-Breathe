@@ -59,6 +59,7 @@ public class GrapplingHook : MonoBehaviour
 
 	private bool hasChangedRope = false;
 	private bool changeHook = false;
+	private bool detachHook = false;
 
 
 	//Rope data
@@ -152,6 +153,9 @@ public class GrapplingHook : MonoBehaviour
 
 			DisplayRope();
 
+			if (Input.GetKeyDown(KeyCode.Space))
+				detachHook = true;
+
 		}
 
 
@@ -170,7 +174,7 @@ public class GrapplingHook : MonoBehaviour
     {
 
 		// Send Grapplin
-		if ((Input.GetKey(keyGrapplin) || changeHook) && isGrappling == false)
+		if ((Input.GetKey(keyGrapplin) || changeHook) && isGrappling == false && countGrapplin>10)
 		{
 
 			hookObject = hook_detector.GetComponent<hook_detector>().nearest_hook;
@@ -194,10 +198,11 @@ public class GrapplingHook : MonoBehaviour
 		changeHook = false;
 
 		// Retrait du grappin
-		if ((Input.GetKey(KeyCode.Space)) && isGrappling == true)
+		if ( detachHook && isGrappling == true)
 		{
 			CutRope();
 			movements.JumpAfterGrapplin();
+			detachHook = false;
 		}
 
 
@@ -211,7 +216,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 
-
+		//When you grab the hook, the first behaviour of the rope is not a rigid line, only when you reach the end of the rope
 		if (isGrappling && countGrapplin < 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
 		{
 			if (hookObject.tag == "hook")
@@ -292,6 +297,8 @@ public class GrapplingHook : MonoBehaviour
 		LR.enabled = true;
 
 
+
+
 	}
 
 	// Add a spring joint
@@ -370,7 +377,7 @@ public class GrapplingHook : MonoBehaviour
 		ropePositions.Clear();
 		LR.enabled = false;
 
-		if (!changeHook)
+		if (!changeHook /*&& body.velocity.y<1*/ && countGrapplin > 10 && !Movement.isGrounded)
 			body.AddForce(new Vector3(0, movements.jump_force, 0), ForceMode.Impulse);
 
 		//rigidbodyCharacter.Grappling = false;
