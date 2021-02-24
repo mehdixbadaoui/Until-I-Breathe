@@ -60,6 +60,7 @@ public class GrapplingHook : MonoBehaviour
 	private bool hasChangedRope = false;
 	private bool changeHook = false;
 	private bool detachHook = false;
+	private bool attachHook = false;
 
 
 	//Rope data
@@ -103,6 +104,8 @@ public class GrapplingHook : MonoBehaviour
 	void Update()
 	{
 
+		if (Input.GetKeyDown(keyGrapplin))
+			attachHook = true;
 
 		if (isGrappling)
 		{
@@ -174,9 +177,10 @@ public class GrapplingHook : MonoBehaviour
     {
 
 		// Send Grapplin
-		if ((Input.GetKey(keyGrapplin) || changeHook) && isGrappling == false && countGrapplin>10)
+		if ((attachHook || changeHook) && isGrappling == false && countGrapplin>10)
 		{
 
+			attachHook = false;
 			hookObject = hook_detector.GetComponent<hook_detector>().nearest_hook;
 
 			if (hookObject)
@@ -207,8 +211,9 @@ public class GrapplingHook : MonoBehaviour
 
 
 		// Retrait du grappin
-		if ((Input.GetKey(keyGrapplin)) && isGrappling == true && hookObject != hook_detector.GetComponent<hook_detector>().nearest_hook )
+		if (attachHook && isGrappling == true && hookObject != hook_detector.GetComponent<hook_detector>().nearest_hook )
 		{
+			attachHook = false;
 			changeHook = true;
 			CutRope();
 			//movements.JumpAfterGrapplin();
