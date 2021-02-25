@@ -71,7 +71,7 @@ public class LedgeLocator : MonoBehaviour
         if (!falling)
         {
            
-            topOfPlayer = new Vector3(0, col.bounds.max.y + offsetLedgeClimbing, transform.position.z);
+            topOfPlayer = new Vector3(transform.position.x, col.bounds.max.y + offsetLedgeClimbing, transform.position.z);
             securityRayForClimbing = new Vector3(0, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
             RaycastHit hit;
             RaycastHit hitSecurity;

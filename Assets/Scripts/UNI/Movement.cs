@@ -52,6 +52,8 @@ public class Movement : MonoBehaviour
 
     private bool collisionWithWall;
 
+    private GameMaster gm;
+
 
     public bool IsFlying 
     {
@@ -64,6 +66,8 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
+
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
 
         capsule_collider = GetComponent<CapsuleCollider>();
     }
@@ -81,6 +85,12 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && countGround > 5)
         {
             Jump();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.P) && isGrounded && countGround > 5)
+        {
+            gm.Die();
         }
 
 
