@@ -11,8 +11,6 @@ public class FiringDrones : MonoBehaviour
     public GameObject impactEffect;
     public float delay;
 
-    bool stop;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -22,32 +20,22 @@ public class FiringDrones : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {            
-        //keeps track of the coroutine instantiated
-        IEnumerator shoot = CallShoot();
-
+    {
         if (playerDetectionScript.detected)
         {
+            //keeps track of the coroutine instantiated
+            IEnumerator shoot = Shoot();
             StartCoroutine(shoot);
         }
-
-        if (stop)
-        {
-            StopCoroutine(shoot);
-        }
     }
 
-    IEnumerator CallShoot()
+    IEnumerator Shoot()
     {
         yield return new WaitForSeconds(delay);
-        Shoot();
-    }
 
-    void Shoot()
-    {
-        muzzleFlash.Play();
-        GameObject impactGO = Instantiate(impactEffect, playerDetectionScript.visibleTargets[0].transform.position, Quaternion.identity);
-        Destroy(impactGO, 1f);
-        stop = true;
+        Debug.Log(playerDetectionScript.visibleTargets[0].transform.name);
+
+        //muzzleFlash.Play();
+        //Instantiate(impactEffect, playerDetectionScript.visibleTargets[0].transform.position, Quaternion.identity);
     }
 }
