@@ -36,7 +36,7 @@ public class LedgeLocator : MonoBehaviour
 
     public KeyCode climb_up;
     public KeyCode let_go;
-
+    private KeyCode horizontalArrow; 
     private void Start()
     {
         col = GetComponent<Collider>();
@@ -107,17 +107,22 @@ public class LedgeLocator : MonoBehaviour
 
     protected virtual void LedgeHanging()
     {
-        if (grabbingLedge && Input.GetKey(climb_up))
+        if (transform.localScale.z > 0)
+        {
+            horizontalArrow = KeyCode.RightArrow;
+        }
+        else
+        {
+            horizontalArrow = KeyCode.LeftArrow;
+
+        }
+
+        if (grabbingLedge && ( Input.GetKey(climb_up) ||Input.GetKey(horizontalArrow) || Input.GetKeyDown(KeyCode.Space)) )
         {
             //anim.SetBool("LedgeHanging", false);
-            if (transform.localScale.z > 0)
-            {
-                StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z /*+ climbingHorizontalOffset*/), animationTime));
-            }
-            else
-            {
-                StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z /*- climbingHorizontalOffset*/), animationTime));
-            }
+            StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z /*+ climbingHorizontalOffset*/), animationTime));
+
+           
         }
         if (grabbingLedge && Input.GetKey(let_go))
         {
