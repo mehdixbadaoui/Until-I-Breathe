@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>C:\Users\mebadaoui\Documents\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\mebadaoui\Documents\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\mebadaoui\Documents\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\mebadaoui\Documents\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="2953616821">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1802970376" Language="SFX" Hash="663505226">
+			<ObjectPath>\SoundBanks\Default Work Unit\FS</ObjectPath>
+			<ShortName>FS</ShortName>
+			<Path>FS.bnk</Path>
+			<IncludedEvents>
+				<Event Id="518478193" Name="FS_Play" ObjectPath="\Events\Default Work Unit\FS_Play" DurationType="OneShot" DurationMin="0.234398" DurationMax="0.347182">
+					<IncludedMemoryFiles>
+						<File Id="140523612" Language="SFX">
+							<ShortName>FS_Bois_Uni_02.wav</ShortName>
+							<Path>SFX\FS_Bois_Uni_02_10C4C929.wem</Path>
+						</File>
+						<File Id="168447705" Language="SFX">
+							<ShortName>FS_Bois_Uni_03.wav</ShortName>
+							<Path>SFX\FS_Bois_Uni_03_10C4C929.wem</Path>
+						</File>
+						<File Id="190615534" Language="SFX">
+							<ShortName>FS_Beton_Uni_01.wav</ShortName>
+							<Path>SFX\FS_Beton_Uni_01_10C4C929.wem</Path>
+						</File>
+						<File Id="270914192" Language="SFX">
+							<ShortName>FS_Beton_Uni_02.wav</ShortName>
+							<Path>SFX\FS_Beton_Uni_02_10C4C929.wem</Path>
+						</File>
+						<File Id="589666755" Language="SFX">
+							<ShortName>FS_Beton_Uni_03.wav</ShortName>
+							<Path>SFX\FS_Beton_Uni_03_10C4C929.wem</Path>
+						</File>
+						<File Id="711297339" Language="SFX">
+							<ShortName>FS_Bois_Uni_01.wav</ShortName>
+							<Path>SFX\FS_Bois_Uni_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{D3BE3BE6-7056-48DD-802A-939893A17D1F}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{D3BE3BE6-7056-48DD-802A-939893A17D1F}">
+							<Media>
+								<File Id="190615534"/>
+								<File Id="270914192"/>
+								<File Id="589666755"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{72C1E8A3-63C5-47D4-9DE5-6C29F566BB80}">
+							<Media>
+								<File Id="140523612"/>
+								<File Id="168447705"/>
+								<File Id="711297339"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</IncludedEvents>
+			<SwitchGroups>
+				<SwitchGroup Id="2339323673" Name="FS_LocationMaterial" ObjectPath="\Switches\Default Work Unit\FS_LocationMaterial">
+					<Switches>
+						<Switch Id="386080821" Name="Beton" ObjectPath="\Switches\Default Work Unit\FS_LocationMaterial\Beton"/>
+						<Switch Id="1660835248" Name="Bois" ObjectPath="\Switches\Default Work Unit\FS_LocationMaterial\Bois"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
