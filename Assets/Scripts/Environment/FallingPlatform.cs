@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class falling_platform : MonoBehaviour
+public class FallingPlatform : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(other.tag == "uni")
+            gameObject.GetComponentInParent<Rigidbody>().isKinematic = false;
+        //gameObject.GetComponent<Rigidbody>().useGravity = true;
     }
 }

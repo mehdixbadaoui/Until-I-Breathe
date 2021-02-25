@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
 public class Movement : MonoBehaviour
 {
     public float speed = .2f;
@@ -66,6 +67,8 @@ public class Movement : MonoBehaviour
         facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
 
         capsule_collider = GetComponent<CapsuleCollider>();
+
+
     }
 
     // Update is called once per frame
@@ -215,6 +218,8 @@ public class Movement : MonoBehaviour
         
         if (horizontal_movement != 0)
         {
+
+            AkSoundEngine.PostEvent("FS_Play", gameObject);
 
             if (horizontal_movement > 0 && isFacingLeft)
             {
