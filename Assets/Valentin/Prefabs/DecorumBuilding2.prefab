@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 4095339193736312632}
   - component: {fileID: 3501714380785533456}
   - component: {fileID: 4598995310589821931}
-  - component: {fileID: 2863474437101274609}
   m_Layer: 0
   m_Name: DecorumBuilding2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9166884802347530342
 Transform:
@@ -317,20 +316,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323418745683765924}
   m_Mesh: {fileID: 0}
---- !u!64 &2863474437101274609
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323418745683765924}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1001 &458921077411028305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,6 +332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -493,7 +483,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &8490081921140066028 stripped
 Transform:
@@ -517,6 +508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -663,7 +659,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &9038798956417814187 stripped
 Transform:
@@ -687,6 +684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -833,7 +835,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &7221530633484549325 stripped
 Transform:
@@ -857,6 +860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -1003,7 +1011,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &6850404901442859110 stripped
 Transform:
@@ -1027,6 +1036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -1173,7 +1187,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &4774863106311812882 stripped
 Transform:
@@ -1197,6 +1212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -1343,7 +1363,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &5748777207776854561 stripped
 Transform:
@@ -1367,6 +1388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -1513,7 +1539,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &2541054489700464437 stripped
 Transform:
@@ -1537,6 +1564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -1683,7 +1715,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &2876193590882958401 stripped
 Transform:
@@ -1707,6 +1740,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -1853,7 +1891,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &2953584848602265840 stripped
 Transform:
@@ -1877,6 +1916,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -2023,7 +2067,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &3281094695720880884 stripped
 Transform:
@@ -2047,6 +2092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -2193,7 +2243,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &3224642173740738868 stripped
 Transform:
@@ -2217,6 +2268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -2363,7 +2419,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &1488420149559482283 stripped
 Transform:
@@ -2387,6 +2444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -2533,7 +2595,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &1992641082061654725 stripped
 Transform:
@@ -2557,6 +2620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -2703,7 +2771,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &147735089005881248 stripped
 Transform:
@@ -2727,6 +2796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -2873,7 +2947,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &416165439911992576 stripped
 Transform:
@@ -2897,6 +2972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -3043,7 +3123,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &854709751677360406 stripped
 Transform:
@@ -3067,6 +3148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -3213,7 +3299,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &1082337557492310302 stripped
 Transform:
@@ -3237,6 +3324,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Balcony1 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357536248900861407, guid: b038b2aadd9f2d64eb9203be948d35c9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3274288913244307807, guid: b038b2aadd9f2d64eb9203be948d35c9,
         type: 3}
@@ -3383,7 +3475,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8189690689780419921, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b038b2aadd9f2d64eb9203be948d35c9, type: 3}
 --- !u!4 &1048571344509085411 stripped
 Transform:
