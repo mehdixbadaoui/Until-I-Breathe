@@ -43,7 +43,10 @@ public class PlayerDetection : MonoBehaviour
     // Responsible for finding the target in view
     void FindVisibleTarget()
     {
-        visibleTargets.Clear();
+        detected = false;
+        canTurn = true;
+        light.color = Color.yellow;
+        //visibleTargets.Clear();
         Collider[] targetInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
         for (int i = 0; i < targetInViewRadius.Length; i++)
@@ -63,7 +66,6 @@ public class PlayerDetection : MonoBehaviour
                 }
             }
         }
-
     }
 
     // Does the conversion automatically and fetches a direction in degrees depending on the angle
