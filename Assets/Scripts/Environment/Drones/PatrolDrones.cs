@@ -18,9 +18,10 @@ public class PatrolDrones : MonoBehaviour
     [Range(0f, 1f)]
     public float rotSpeed;
 
-    private Transform destinationTarget, departTarget;
-    private float startTime;
-    private float journeyLength;
+    Transform destinationTarget, departTarget;
+    Quaternion desiredRot;
+    float startTime;
+    float journeyLength;
     bool isWaiting;
     bool playerOn = false;
 
@@ -55,10 +56,8 @@ public class PatrolDrones : MonoBehaviour
 
                 float fractionOfJourney = distCovered / journeyLength;
 
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRot, 10 * rotSpeed * Time.deltaTime);
                 transform.position = Vector3.Lerp(departTarget.position, destinationTarget.position, fractionOfJourney);
-
-                //var desiredRotQA = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
-                //transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotQA, 10 * rotSpeed * Time.deltaTime);
             }
             else
             {
@@ -74,12 +73,13 @@ public class PatrolDrones : MonoBehaviour
         {
             departTarget = startPoint;
             destinationTarget = endPoint;
-
+            desiredRot = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.z);
         }
         else
         {
             departTarget = endPoint;
             destinationTarget = startPoint;
+            desiredRot = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
         }
     }
 
