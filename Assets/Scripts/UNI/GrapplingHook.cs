@@ -146,7 +146,7 @@ public class GrapplingHook : MonoBehaviour
 
 				if (hit.transform != hookObject.transform && hit.transform != objectHanging && Vector3.Distance(hit.point, ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2]) > 0.2f)
 					AddRopeJoint();
-
+				 
 			}
 			/*            else
 						{
@@ -165,6 +165,35 @@ public class GrapplingHook : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Space))
 				detachHook = true;
 
+		}
+
+
+		//Comportements quand il y a un crochet détecté
+		if (hookObject != null)
+		{
+			// Retrait du grappin au bout d'un certain temps sur le levier
+			if (hookObject.tag == "lever" && countGrapplin > timeLever && isGrappling == true)
+			{
+				CutRope();
+			}
+
+
+			//When you grab the hook, the first behaviour of the rope is not a rigid line, only when you reach the end of the rope
+			if (hookObject.tag != "lever")
+			{
+				// Quand la corde est tendue on peut la retracter
+				if (isGrappling && countGrapplin > 15 && beginLengthMin < 0.5f)
+					moveUpAndDown = true;
+
+				if (isGrappling && countGrapplin > 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
+				{
+					if (hookObject.tag == "hook")
+					{
+						beginLengthMin = ropeLength - Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position);
+						hasChangedRope = true;
+					}
+				}
+			}
 		}
 
 
@@ -226,33 +255,6 @@ public class GrapplingHook : MonoBehaviour
 			//movements.JumpAfterGrapplin();
 		}
 
-		//Comportements quand il y a un crochet détecté
-		if (hookObject != null)
-		{
-			// Retrait du grappin au bout d'un certain temps sur le levier
-			if (hookObject.tag == "lever" && countGrapplin > timeLever && isGrappling == true)
-			{
-				CutRope();
-			}
-
-
-			//When you grab the hook, the first behaviour of the rope is not a rigid line, only when you reach the end of the rope
-			if (hookObject.tag != "lever")
-			{
-				// Quand la corde est tendue on peut la retracter
-				if (isGrappling && countGrapplin > 15 && beginLengthMin < 0.5f)
-					moveUpAndDown = true;
-
-				if (isGrappling && countGrapplin > 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
-				{
-					if (hookObject.tag == "hook")
-					{
-						beginLengthMin = ropeLength - Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position);
-						hasChangedRope = true;
-					}
-				}
-			}
-		}
 
 
 
