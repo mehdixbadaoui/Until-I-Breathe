@@ -18,6 +18,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 	public int timeLever;
+
 	private bool isGrappling;
 
 
