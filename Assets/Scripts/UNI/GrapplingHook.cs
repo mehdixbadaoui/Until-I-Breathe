@@ -17,6 +17,8 @@ public class GrapplingHook : MonoBehaviour
 	public GameObject springjoint_rb_pref;
 
 
+	public int timeLever;
+
 	private bool isGrappling;
 
 
