@@ -63,15 +63,17 @@ public class GrapplingHook : MonoBehaviour
 	private bool changeHook = false;
 	private bool detachHook = false;
 	private bool attachHook = false;
+	private bool moveUpAndDown = false;
 
 
 	//Rope data
 	private float ropeLength;
-	private float beginLengthMin = 2f;
+
+	//Beginning of the min length before the rope becomes a straight line (ropelengthmin = ropelength)
+	private float beginLengthMin = 1f;
 
 	//Mass of what the rope is carrying
 	private float loadMass = 7f;
-	private float originalMass;
 
 	private float dist_objects;
 
@@ -97,9 +99,6 @@ public class GrapplingHook : MonoBehaviour
 
 		//Get rigidbodyCharacter component
 		movements = GetComponent<Movement>();
-
-		//Original mass of the body
-		originalMass = body.mass;
 
 	}
 
@@ -235,10 +234,17 @@ public class GrapplingHook : MonoBehaviour
 			//When you grab the hook, the first behaviour of the rope is not a rigid line, only when you reach the end of the rope
 			if (hookObject.tag != "lever")
 			{
-				if (isGrappling && countGrapplin < 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
+				// Quand la corde est tendue on peut la retracter
+				if (isGrappling && countGrapplin > 15 && beginLengthMin < 0.5f)
+					moveUpAndDown = true;
+
+				if (isGrappling && countGrapplin > 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
 				{
 					if (hookObject.tag == "hook")
+					{
 						beginLengthMin = ropeLength - Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position);
+						hasChangedRope = true;
+					}
 				}
 			}
 		}
@@ -248,7 +254,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 		//Less rope
-		if (isGrappling
+		if (isGrappling && moveUpAndDown
 			&& ((Input.GetAxisRaw("Vertical")==1 || Input.GetKey(KeyCode.W)) && (ropeLength > lengthRopeMin || ( hookObject.tag == "movable_hook" || hookObject.tag == "lever") ))
 			&& ropeLength >= lengthRopeMin)
 		{
@@ -258,7 +264,7 @@ public class GrapplingHook : MonoBehaviour
 		}
 
 		//More rope
-		else if (isGrappling
+		else if (isGrappling && moveUpAndDown
 			&& ((Input.GetAxisRaw("Vertical") == -1 || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || (hookObject.tag == "movable_hook" || hookObject.tag == "lever" ) ))
 			&& ropeLength <= lengthRopeMax)
 		{
@@ -373,12 +379,7 @@ public class GrapplingHook : MonoBehaviour
 	public void MoveDown()
 	{
 		ropeLength += winchSpeed * Time.deltaTime;
-
-/*		// Quand on est trop proche la corde se decroche
-		if (Vector3.Distance(whatTheRopeIsConnectedTo.transform.position, whatIsHangingFromTheRope.position) < 1f)
-		{
-			CutRope();
-		}*/
+		beginLengthMin = 1;
 	}
 
 	// DÃ©placement du joueur vers le point touchÃ© par le grappin
@@ -391,6 +392,7 @@ public class GrapplingHook : MonoBehaviour
 	public void CutRope()
 	{
 		isGrappling = false;
+		moveUpAndDown = false;
 
 		Destroy(spring);
 		if (hookObject.tag == "hook")
