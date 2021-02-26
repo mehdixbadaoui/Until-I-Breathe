@@ -28,6 +28,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 	public float lengthRopeMax = 50;
+	private float currentLengthRopeMax;
 	public float lengthRopeMin = 2;
 
 
@@ -133,6 +134,10 @@ public class GrapplingHook : MonoBehaviour
 				}
 
 			}
+            else
+            {
+				currentLengthRopeMax = lengthRopeMax;
+			}
 
 
 			if (TheLineTouch(ropePositions[ropePositions.Count - 1].position + distToHitPoints[distToHitPoints.Count - 1], ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], ropePositions[ropePositions.Count - 2]))
@@ -166,7 +171,7 @@ public class GrapplingHook : MonoBehaviour
 		//The rope lenght changed
 		if (hasChangedRope)
 		{
-			ropeLength = Mathf.Clamp(ropeLength, 1, lengthRopeMax);
+			ropeLength = Mathf.Clamp(ropeLength, 1, currentLengthRopeMax);
 
 			//Need to recalculate the k-value because it depends on the length of the rope
 			UpdateRopePositions();
@@ -265,8 +270,8 @@ public class GrapplingHook : MonoBehaviour
 
 		//More rope
 		else if (isGrappling && moveUpAndDown
-			&& ((Input.GetAxisRaw("Vertical") == -1 || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || (hookObject.tag == "movable_hook" || hookObject.tag == "lever" ) ))
-			&& ropeLength <= lengthRopeMax)
+			&& ((Input.GetAxisRaw("Vertical") == -1 || Input.GetKey(KeyCode.W)) && ropeLength < currentLengthRopeMax && (Movement.isGrounded == false || (hookObject.tag == "movable_hook" || hookObject.tag == "lever" ) ))
+			&& ropeLength <= currentLengthRopeMax)
 		{
 			MoveDown();
 			hasChangedRope = true;
@@ -280,6 +285,7 @@ public class GrapplingHook : MonoBehaviour
 	public void Grapple()
 	{
 		beginLengthMin = 2f;
+		currentLengthRopeMax = lengthRopeMax;
 
 		isGrappling = true;
 
@@ -517,6 +523,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 		ropeLength -= Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], ropePositions[ropePositions.Count - 3].position + distToHitPoints[distToHitPoints.Count - 3]);
+		currentLengthRopeMax -= Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], ropePositions[ropePositions.Count - 3].position + distToHitPoints[distToHitPoints.Count - 3]);
 
 		//The new joint manage the rigidbody
 		//spring.connectedBody = hit.rigidbody;
@@ -549,6 +556,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 		ropeLength = Vector3.Distance( ropePositions[ropePositions.Count - 1].position + distToHitPoints[distToHitPoints.Count - 1], ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2]);
+		currentLengthRopeMax = Vector3.Distance(ropePositions[ropePositions.Count - 1].position + distToHitPoints[distToHitPoints.Count - 1], ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2]);
 
 		UpdateRopePositions();
 

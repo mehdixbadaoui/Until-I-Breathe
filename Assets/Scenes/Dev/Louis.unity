@@ -1052,6 +1052,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PorteRiche1
       objectReference: {fileID: 0}
+    - target: {fileID: 4342490109340500342, guid: fd99f8e48e582a040b315918bdcb9dad,
+        type: 3}
+      propertyPath: m_TagString
+      value: slidingDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 4342490109340500343, guid: fd99f8e48e582a040b315918bdcb9dad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1107,6 +1112,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4342490109420041474, guid: fd99f8e48e582a040b315918bdcb9dad,
+        type: 3}
+      propertyPath: meshDoor
+      value: 
+      objectReference: {fileID: 1294963688}
+    - target: {fileID: 4342490109420041477, guid: fd99f8e48e582a040b315918bdcb9dad,
+        type: 3}
+      propertyPath: m_TagString
+      value: slidingDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 4342490109420041478, guid: fd99f8e48e582a040b315918bdcb9dad,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1131,7 +1146,7 @@ GameObject:
   - component: {fileID: 642411685}
   - component: {fileID: 642411687}
   - component: {fileID: 642411686}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TriggerVentilator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1533,8 +1548,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701320991}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4150324, y: -8.203483, z: -7.6434593}
-  m_LocalScale: {x: 2.43, y: 0.79323745, z: 2.1507142}
+  m_LocalPosition: {x: 1.4150324, y: -6.28, z: -7.6434593}
+  m_LocalScale: {x: 2.43, y: 0.79323745, z: 1.4697034}
   m_Children: []
   m_Father: {fileID: 72970544}
   m_RootOrder: 1
@@ -3995,7 +4010,7 @@ GameObject:
   - component: {fileID: 1288314039}
   m_Layer: 0
   m_Name: Portes (1)
-  m_TagString: slidingDoor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4015,6 +4030,12 @@ Transform:
   m_Father: {fileID: 661183631}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1294963688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4216341911980343645, guid: fd99f8e48e582a040b315918bdcb9dad,
+    type: 3}
+  m_PrefabInstance: {fileID: 531629049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1314472740
 GameObject:
   m_ObjectHideFlags: 0
@@ -4539,6 +4560,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f846c9a38aaaf6742bb5195b54deb22d, type: 3}
+--- !u!1 &1521035107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4216341911980343645, guid: fd99f8e48e582a040b315918bdcb9dad,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880713675}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1524833556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5681,6 +5708,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4342490109420041474, guid: fd99f8e48e582a040b315918bdcb9dad,
+        type: 3}
+      propertyPath: meshDoor
+      value: 
+      objectReference: {fileID: 1521035107}
     - target: {fileID: 4342490109420041478, guid: fd99f8e48e582a040b315918bdcb9dad,
         type: 3}
       propertyPath: m_LocalPosition.y
