@@ -24,7 +24,7 @@ public class FiringDrones : MonoBehaviour
     void Update()
     {            
         //keeps track of the coroutine instantiated
-        IEnumerator shoot = CallShoot();
+        IEnumerator shoot = CallShootWithDelay();
 
         if (playerDetectionScript.detected)
         {
@@ -37,7 +37,7 @@ public class FiringDrones : MonoBehaviour
         }
     }
 
-    IEnumerator CallShoot()
+    IEnumerator CallShootWithDelay()
     {
         yield return new WaitForSeconds(delay);
         Shoot();
