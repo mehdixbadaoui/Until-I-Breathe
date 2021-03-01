@@ -27,7 +27,7 @@ public class FiringDrones : MonoBehaviour
         if (playerDetectionScript.detected)
         {
             //keeps track of the coroutine instantiated
-            IEnumerator shoot = Shoot();
+            //IEnumerator shoot = Shoot();
             StartCoroutine(shoot);
         }
     }
