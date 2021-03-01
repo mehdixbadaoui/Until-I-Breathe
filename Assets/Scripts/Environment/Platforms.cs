@@ -20,6 +20,7 @@ public class Platforms : MonoBehaviour
     private float startTime;
     private float journeyLength;
     bool playerOn = false;
+    bool firstTimeOn;
 
     [HideInInspector]
     public bool isWaiting;
@@ -29,6 +30,7 @@ public class Platforms : MonoBehaviour
         departTarget = startPoint;
         destinationTarget = endPoint;
 
+        firstTimeOn = true;
         isWaiting = true;
 
         //startTime = Time.time;
@@ -91,6 +93,7 @@ public class Platforms : MonoBehaviour
         {
             StartCoroutine(PlatformLaunch());
             playerOn = true;
+            firstTimeOn = false;
             playerParent.transform.parent = transform;
         }
     }
@@ -106,9 +109,13 @@ public class Platforms : MonoBehaviour
 
     IEnumerator PlatformLaunch()
     {
-        startTime = Time.time;
-        yield return new WaitForSeconds(delayToLaunch);
-        isWaiting = false;
+        if (firstTimeOn)
+        {
+            yield return new WaitForSeconds(delayToLaunch);
+            startTime = Time.time;
+            isWaiting = false;
+        }
+
     }
 
     //void Start()
