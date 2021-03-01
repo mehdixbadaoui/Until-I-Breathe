@@ -10,30 +10,30 @@ public class Platforms : MonoBehaviour
     //public float timeItTakes;
     //public int pause;
 
-    [SerializeField]
-    GameObject playerParent;
-
-    [SerializeField]
-    Transform startPoint, endPoint;
-
-    [SerializeField]
-    float speed;
-    [SerializeField]
-    float changeDirectionDelay;
-
+    public GameObject playerParent;
+    public Transform startPoint, endPoint;
+    public float speed;
+    public float changeDirectionDelay;
+    public float delayToLaunch;
 
     private Transform destinationTarget, departTarget;
     private float startTime;
     private float journeyLength;
-    bool isWaiting;
     bool playerOn = false;
+    bool firstTimeOn;
+
+    [HideInInspector]
+    public bool isWaiting;
 
     void Start()
     {
         departTarget = startPoint;
         destinationTarget = endPoint;
 
-        startTime = Time.time;
+        firstTimeOn = true;
+        isWaiting = true;
+
+        //startTime = Time.time;
         journeyLength = Vector3.Distance(departTarget.position, destinationTarget.position);
     }
 
@@ -91,7 +91,9 @@ public class Platforms : MonoBehaviour
     {
         if (other.tag == "uni" && !playerOn)
         {
+            StartCoroutine(PlatformLaunch());
             playerOn = true;
+            firstTimeOn = false;
             playerParent.transform.parent = transform;
         }
     }
@@ -102,6 +104,16 @@ public class Platforms : MonoBehaviour
         {
             playerOn = false;
             playerParent.transform.parent = null;
+        }
+    }
+
+    IEnumerator PlatformLaunch()
+    {
+        if (firstTimeOn)
+        {
+            yield return new WaitForSeconds(delayToLaunch);
+            startTime = Time.time;
+            isWaiting = false;
         }
     }
 

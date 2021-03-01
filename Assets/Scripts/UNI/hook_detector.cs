@@ -7,7 +7,7 @@ public class hook_detector : MonoBehaviour
 {
     public GameObject nearest_hook;
     public GameObject player;
-    private List<GameObject> all_hooks;
+    public List<GameObject> all_hooks;
 
     public bool nearHook = false;
 
