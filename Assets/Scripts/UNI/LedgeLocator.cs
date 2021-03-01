@@ -12,9 +12,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LedgeLocator : MonoBehaviour
 {
+    private Inputs inputs;
+
     public AnimationClip clip;
     //public float climbingHorizontalOffset;
     public float offsetLedgeClimbing = -0.2f;
@@ -36,7 +39,22 @@ public class LedgeLocator : MonoBehaviour
 
     public KeyCode climb_up;
     public KeyCode let_go;
-    private KeyCode horizontalArrow; 
+    private KeyCode horizontalArrow;
+
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
+
     private void Start()
     {
         col = GetComponent<Collider>();
@@ -117,14 +135,14 @@ public class LedgeLocator : MonoBehaviour
 
         }
 
-        if (grabbingLedge && ( Input.GetKey(climb_up) ||Input.GetKey(horizontalArrow) || Input.GetKeyDown(KeyCode.Space)) )
+        if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() != 0 || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>())) )
         {
             //anim.SetBool("LedgeHanging", false);
             StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z /*+ climbingHorizontalOffset*/), animationTime));
 
            
         }
-        if (grabbingLedge && Input.GetKey(let_go))
+        if (grabbingLedge && Convert.ToBoolean(inputs.Uni.Let_Go.ReadValue<float>()))
         {
             ledge = null;
             moved = false;

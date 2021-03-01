@@ -5,6 +5,8 @@ using System;
 
 public class Movement : MonoBehaviour
 {
+    private Inputs inputs;
+
     public float speed = .2f;
     public float grapplinSpeed = 1;
     float horizontal_movement;
@@ -19,6 +21,7 @@ public class Movement : MonoBehaviour
 
     private bool isFlying = false;
 
+    private bool isCrouching = false;
 
     float vertical_movement;
     private Vector3 lastInput;
@@ -59,6 +62,19 @@ public class Movement : MonoBehaviour
         set { isFlying = value; }  // set method
     }
 
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -66,30 +82,50 @@ public class Movement : MonoBehaviour
         facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
 
         capsule_collider = GetComponent<CapsuleCollider>();
+
+        //INPUTS
+        //inputs.Uni.Jump.performed += ctx => Jump();
+        //inputs.Uni.Crouch.performed += ctx => Crouch();
+    }
+
+
+    void Crouch()
+    {
+        if (!isCrouching)
+        {
+            capsule_collider.height = 1;
+            isCrouching = true;
+
+        }
+        else
+        {
+            capsule_collider.height = 1.5f;
+            isCrouching = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal_movement = Input.GetAxis("Horizontal");
-        vertical_movement = Input.GetAxisRaw("Vertical");
+        horizontal_movement = inputs.Uni.Walk.ReadValue<float>();
 
-
-        //horizontal_movement = Input.GetAxisRaw("Horizontal");
- 
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && countGround > 5)
+        //JUMPING
+        if (Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()) && isGrounded && countGround > 5)
         {
             Jump();
         }
 
+        //CROUCHING
+        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()))
+        {
+            capsule_collider.height = 1;
 
-        if (Input.GetKey(KeyCode.S))
-            GetComponent<CapsuleCollider>().height = 1;
+        }
         else
-            GetComponent<CapsuleCollider>().height = 1.5f;
+        {
+            capsule_collider.height = 1.5f;
 
-
+        }
     }
 
     private void FixedUpdate()
@@ -206,12 +242,6 @@ public class Movement : MonoBehaviour
             rb.AddForce( new Vector3(0f, 0f, rb.velocity.z *0.8f) * speed );
         }
 
-        //if(collisionWithWall)
-        //{
-        //    rb.velocity = new Vector3(0f, 0f, 0f);
-        //}
-
-            
         
         if (horizontal_movement != 0)
         {

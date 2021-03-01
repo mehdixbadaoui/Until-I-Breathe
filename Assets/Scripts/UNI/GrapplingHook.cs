@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using System;
 using UnityEngine;
 
 public class GrapplingHook : MonoBehaviour
 {
+	private Inputs inputs;
+
 	[Header("Components")]
 
 
@@ -81,6 +83,20 @@ public class GrapplingHook : MonoBehaviour
 	//How fast we can add more/less rope
 	float winchSpeed = 3f;
 
+	private void Awake()
+	{
+		inputs = new Inputs();
+	}
+
+	private void OnEnable()
+	{
+		inputs.Enable();
+	}
+	private void OnDisable()
+	{
+		inputs.Disable();
+	}
+
 	void Start()
 	{
 		mainChar = gameObject;
@@ -105,7 +121,7 @@ public class GrapplingHook : MonoBehaviour
 	void Update()
 	{
 
-		if (Input.GetKeyDown(keyGrapplin))
+		if (Convert.ToBoolean(inputs.Uni.Grapple.ReadValue<float>()))
 			attachHook = true;
 
 		if (isGrappling)
@@ -157,7 +173,7 @@ public class GrapplingHook : MonoBehaviour
 
 			DisplayRope();
 
-			if (Input.GetKeyDown(KeyCode.Space))
+			if (Convert.ToBoolean(inputs.Uni.Detach.ReadValue<float>()))
 				detachHook = true;
 
 		}
@@ -242,7 +258,7 @@ public class GrapplingHook : MonoBehaviour
 
 		//Less rope
 		if (isGrappling
-			&& ((Input.GetAxisRaw("Vertical")==1 || Input.GetKey(KeyCode.W)) && (ropeLength > lengthRopeMin || ( hookObject.tag == "movable_hook" || hookObject.tag == "lever") ))
+			&& (inputs.Uni.Grapple_Vert.ReadValue<float>() == 1 && (ropeLength > lengthRopeMin || ( hookObject.tag == "movable_hook" || hookObject.tag == "lever") ))
 			&& ropeLength >= lengthRopeMin)
 		{
 
@@ -252,7 +268,7 @@ public class GrapplingHook : MonoBehaviour
 
 		//More rope
 		else if (isGrappling
-			&& ((Input.GetAxisRaw("Vertical") == -1 || Input.GetKey(KeyCode.W)) && ropeLength < lengthRopeMax && (Movement.isGrounded == false || (hookObject.tag == "movable_hook" || hookObject.tag == "lever" ) ))
+			&& (inputs.Uni.Grapple_Vert.ReadValue<float>() == -1 && ropeLength < lengthRopeMax && (Movement.isGrounded == false || (hookObject.tag == "movable_hook" || hookObject.tag == "lever" ) ))
 			&& ropeLength <= lengthRopeMax)
 		{
 			MoveDown();
