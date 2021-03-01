@@ -16,7 +16,7 @@ using UnityEngine;
 public class LedgeLocator : MonoBehaviour
 {
     public AnimationClip clip;
-    //public float climbingHorizontalOffset;
+    public float climbingHorizontalOffset;
     public float offsetLedgeClimbing = -0.2f;
     public float securityOffsetLedgeClimbing = 0.51f; 
 
@@ -117,10 +117,20 @@ public class LedgeLocator : MonoBehaviour
 
         }
 
-        if (grabbingLedge && ( Input.GetKey(climb_up) ||Input.GetKey(horizontalArrow) || Input.GetKeyDown(KeyCode.Space)) )
+        if (grabbingLedge && ( Input.GetKey(climb_up) ||Input.GetKey(horizontalArrow) || Input.GetKeyDown(KeyCode.Space)) && ledge!= null)
         {
             //anim.SetBool("LedgeHanging", false);
-            StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z /*+ climbingHorizontalOffset*/), animationTime));
+            if(transform.localScale.z > 0)
+            {
+                StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z + climbingHorizontalOffset), animationTime));
+
+            }
+            else
+            {
+                StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z - climbingHorizontalOffset), animationTime));
+
+            }
+            //StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f,(transform.position.z + climbingHorizontalOffset) *  transform.TransformDirection(Vector3.forward * transform.localScale.z).z ), animationTime));
 
            
         }
@@ -140,13 +150,15 @@ public class LedgeLocator : MonoBehaviour
     {
         float time = 0;
         Vector3 startValue = transform.position;
-        while (time < duration)
-        {
-            //anim.SetBool("LedgeClimbing", true);
-            transform.position = Vector3.Lerp(startValue, topOfPlatform, time / duration);
-            time += Time.deltaTime;
-            yield return new WaitForFixedUpdate();
-        }
+        transform.position = topOfPlatform;
+        //while (time < duration)
+        //{
+        //    //anim.SetBool("LedgeClimbing", true);
+        //    transform.position = Vector3.Lerp(startValue, topOfPlatform, time / duration);
+        //    time += Time.deltaTime;
+        //    yield return new WaitForFixedUpdate();
+        //}
+        yield return null;
         ledge = null;
         moved = false;
         grabbingLedge = false;

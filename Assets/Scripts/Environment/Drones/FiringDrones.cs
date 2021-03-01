@@ -20,7 +20,10 @@ public class FiringDrones : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {            
+        //keeps track of the coroutine instantiated
+        IEnumerator shoot = CallShootWithDelay();
+
         if (playerDetectionScript.detected)
         {
             //keeps track of the coroutine instantiated
@@ -29,7 +32,7 @@ public class FiringDrones : MonoBehaviour
         }
     }
 
-    IEnumerator Shoot()
+    IEnumerator CallShootWithDelay()
     {
         yield return new WaitForSeconds(delay);
 
