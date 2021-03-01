@@ -115,7 +115,6 @@ public class Platforms : MonoBehaviour
             startTime = Time.time;
             isWaiting = false;
         }
-
     }
 
     //void Start()
