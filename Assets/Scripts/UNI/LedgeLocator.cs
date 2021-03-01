@@ -109,11 +109,11 @@ public class LedgeLocator : MonoBehaviour
     {
         if (transform.localScale.z > 0)
         {
-            horizontalArrow = KeyCode.RightArrow;
+            horizontalArrow = KeyCode.D;
         }
         else
         {
-            horizontalArrow = KeyCode.LeftArrow;
+            horizontalArrow = KeyCode.Q;
 
         }
 
@@ -150,15 +150,15 @@ public class LedgeLocator : MonoBehaviour
     {
         float time = 0;
         Vector3 startValue = transform.position;
-        transform.position = topOfPlatform;
-        //while (time < duration)
-        //{
-        //    //anim.SetBool("LedgeClimbing", true);
-        //    transform.position = Vector3.Lerp(startValue, topOfPlatform, time / duration);
-        //    time += Time.deltaTime;
-        //    yield return new WaitForFixedUpdate();
-        //}
-        yield return null;
+        //transform.position = topOfPlatform;
+        while (time < duration)
+        {
+            //anim.SetBool("LedgeClimbing", true);
+            transform.position = Vector3.Lerp(startValue, topOfPlatform, time / duration);
+            time += Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        //yield return null;
         ledge = null;
         moved = false;
         grabbingLedge = false;
