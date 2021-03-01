@@ -45,8 +45,6 @@ public class Platforms : MonoBehaviour
 
     private void Move()
     {
-
-
         if (!isWaiting)
         {
             if (Vector3.Distance(transform.position, destinationTarget.position) > 0.01f)
@@ -63,13 +61,10 @@ public class Platforms : MonoBehaviour
                 StartCoroutine(changeDelay());
             }
         }
-
-
     }
 
     void ChangeDestination()
     {
-
         if (departTarget == endPoint && destinationTarget == startPoint)
         {
             departTarget = startPoint;
@@ -80,7 +75,6 @@ public class Platforms : MonoBehaviour
             departTarget = endPoint;
             destinationTarget = startPoint;
         }
-
     }
 
     IEnumerator changeDelay()
@@ -100,8 +94,8 @@ public class Platforms : MonoBehaviour
             playerOn = true;
             playerParent.transform.parent = transform;
         }
-
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "uni" && playerOn)

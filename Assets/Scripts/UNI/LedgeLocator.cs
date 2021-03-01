@@ -19,7 +19,7 @@ public class LedgeLocator : MonoBehaviour
     private Inputs inputs;
 
     public AnimationClip clip;
-    //public float climbingHorizontalOffset;
+    public float climbingHorizontalOffset;
     public float offsetLedgeClimbing = -0.2f;
     public float securityOffsetLedgeClimbing = 0.51f; 
 
@@ -89,7 +89,7 @@ public class LedgeLocator : MonoBehaviour
         if (!falling)
         {
            
-            topOfPlayer = new Vector3(0, col.bounds.max.y + offsetLedgeClimbing, transform.position.z);
+            topOfPlayer = new Vector3(transform.position.x, col.bounds.max.y + offsetLedgeClimbing, transform.position.z);
             securityRayForClimbing = new Vector3(0, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
             RaycastHit hit;
             RaycastHit hitSecurity;
@@ -138,7 +138,17 @@ public class LedgeLocator : MonoBehaviour
         if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() != 0 || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>())) )
         {
             //anim.SetBool("LedgeHanging", false);
-            StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z /*+ climbingHorizontalOffset*/), animationTime));
+            if(transform.localScale.z > 0)
+            {
+                StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z + climbingHorizontalOffset), animationTime));
+
+            }
+            else
+            {
+                StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z - climbingHorizontalOffset), animationTime));
+
+            }
+            //StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f,(transform.position.z + climbingHorizontalOffset) *  transform.TransformDirection(Vector3.forward * transform.localScale.z).z ), animationTime));
 
            
         }
@@ -158,13 +168,15 @@ public class LedgeLocator : MonoBehaviour
     {
         float time = 0;
         Vector3 startValue = transform.position;
-        while (time < duration)
-        {
-            //anim.SetBool("LedgeClimbing", true);
-            transform.position = Vector3.Lerp(startValue, topOfPlatform, time / duration);
-            time += Time.deltaTime;
-            yield return new WaitForFixedUpdate();
-        }
+        transform.position = topOfPlatform;
+        //while (time < duration)
+        //{
+        //    //anim.SetBool("LedgeClimbing", true);
+        //    transform.position = Vector3.Lerp(startValue, topOfPlatform, time / duration);
+        //    time += Time.deltaTime;
+        //    yield return new WaitForFixedUpdate();
+        //}
+        yield return null;
         ledge = null;
         moved = false;
         grabbingLedge = false;
