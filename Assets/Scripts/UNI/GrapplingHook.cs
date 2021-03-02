@@ -179,11 +179,6 @@ public class GrapplingHook : MonoBehaviour
 		//Comportements quand il y a un crochet détecté
 		if (hookObject != null)
 		{
-			// Retrait du grappin au bout d'un certain temps sur le levier
-			if (hookObject.tag == "lever" && countGrapplin > timeLever && isGrappling == true)
-			{
-				CutRope();
-			}
 
 
 			//When you grab the hook, the first behaviour of the rope is not a rigid line, only when you reach the end of the rope
@@ -201,6 +196,13 @@ public class GrapplingHook : MonoBehaviour
 						hasChangedRope = true;
 					}
 				}
+			}
+
+
+			// Retrait du grappin au bout d'un certain temps sur le levier
+			if (hookObject.tag == "lever" && countGrapplin > timeLever && isGrappling == true)
+			{
+				CutRope();
 			}
 		}
 
