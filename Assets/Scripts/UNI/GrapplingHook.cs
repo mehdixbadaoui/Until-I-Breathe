@@ -125,13 +125,20 @@ public class GrapplingHook : MonoBehaviour
 		//Get rigidbodyCharacter component
 		movements = GetComponent<Movement>();
 
+		inputs.Uni.Grapple.performed += ctx => AttachHook();
+
+
 	}
 
+	void AttachHook()
+    {
+		attachHook = true;
+    }
 	void Update()
 	{
 
-        if (Convert.ToBoolean(inputs.Uni.Grapple.ReadValue<float>()))
-            attachHook = true;
+        //if (Convert.ToBoolean(inputs.Uni.Grapple.ReadValue<float>()))
+        //    attachHook = true;
 
         if (isGrappling)
 		{

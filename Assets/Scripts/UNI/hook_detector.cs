@@ -10,7 +10,7 @@ public class hook_detector : MonoBehaviour
 
     [HideInInspector] public GameObject nearest_hook;
     private GameObject player;
-    private List<GameObject> all_hooks;
+    public List<GameObject> all_hooks;
 
     [HideInInspector] public bool nearHook = false;
 
@@ -54,7 +54,7 @@ public class hook_detector : MonoBehaviour
         if (all_hooks.Count != 0)
         {
             //SELECT HOOK WITH GAMEPAD
-            if(gamepad)
+            if (gamepad)
                 nearest_hook = all_hooks[index];
 
             //CHOOSE THE NEAREST HOOK TO THE CURSOR
@@ -80,18 +80,20 @@ public class hook_detector : MonoBehaviour
 
     void NextIndex()
     {
-        if (index == all_hooks.Count - 1)
+        if (index >= all_hooks.Count - 1)
             index = 0;
-        else
-            index++;
+        //else
+        //    index++;
+        nearest_hook = all_hooks[all_hooks.IndexOf(nearest_hook) + 1];
     }
 
     void PrevIndex()
     {
-        if (index == 0)
-            index += all_hooks.Count - 1;
-        else
-            index--;
+        if (index <= 0)
+            index = all_hooks.Count - 2;
+        //else
+        //    index--;
+        nearest_hook = all_hooks[all_hooks.IndexOf(nearest_hook) - 1];
     }
 
     private void OnTriggerEnter(Collider other)

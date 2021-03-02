@@ -435,8 +435,8 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fed71884-8e61-4757-88b0-8717d43d4304"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
-                    ""interactions"": ""Press(pressPoint=1,behavior=1)"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": ""Press(pressPoint=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""NextHook"",
@@ -446,8 +446,8 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""216ce447-bb36-4555-9864-cb2668dbc66f"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
-                    ""interactions"": ""Press(pressPoint=1,behavior=1)"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Press(pressPoint=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PrevHook"",
@@ -479,7 +479,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""809b5315-b866-48aa-ac43-e57c2e9e6bd9"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
