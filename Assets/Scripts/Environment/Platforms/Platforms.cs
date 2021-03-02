@@ -14,11 +14,14 @@ public class Platforms : MonoBehaviour
     public Transform startPoint, endPoint;
     public float speed;
     public float changeDirectionDelay;
+
+    public GameObject PlatformLauncherGO;
     public float delayToLaunch;
 
-    private Transform destinationTarget, departTarget;
-    private float startTime;
-    private float journeyLength;
+    PlatformsLauncher PlatformLauncherScript;
+    Transform destinationTarget, departTarget;
+    float startTime;
+    float journeyLength;
     bool playerOn = false;
     bool firstTimeOn;
 
@@ -27,13 +30,14 @@ public class Platforms : MonoBehaviour
 
     void Start()
     {
+        PlatformLauncherScript = PlatformLauncherGO.GetComponent<PlatformsLauncher>();
+
         departTarget = startPoint;
         destinationTarget = endPoint;
 
         firstTimeOn = true;
         isWaiting = true;
 
-        //startTime = Time.time;
         journeyLength = Vector3.Distance(departTarget.position, destinationTarget.position);
     }
 
@@ -45,21 +49,28 @@ public class Platforms : MonoBehaviour
 
     private void Move()
     {
-        if (!isWaiting)
+        if (PlatformLauncherScript.activate)
         {
-            if (Vector3.Distance(transform.position, destinationTarget.position) > 0.01f)
-            {
-                float distCovered = (Time.time - startTime) * speed;
+            StartCoroutine(PlatformLaunch());
+            firstTimeOn = false;
 
-                float fractionOfJourney = distCovered / journeyLength;
-
-                transform.position = Vector3.Lerp(departTarget.position, destinationTarget.position, fractionOfJourney);
-            }
-            else
+            if (!isWaiting)
             {
-                isWaiting = true;
-                StartCoroutine(changeDelay());
+                if (Vector3.Distance(transform.position, destinationTarget.position) > 0.01f)
+                {
+                    float distCovered = (Time.time - startTime) * speed;
+
+                    float fractionOfJourney = distCovered / journeyLength;
+
+                    transform.position = Vector3.Lerp(departTarget.position, destinationTarget.position, fractionOfJourney);
+                }
+                else
+                {
+                    isWaiting = true;
+                    StartCoroutine(changeDelay());
+                }
             }
+
         }
     }
 
@@ -91,9 +102,7 @@ public class Platforms : MonoBehaviour
     {
         if (other.tag == "uni" && !playerOn)
         {
-            StartCoroutine(PlatformLaunch());
             playerOn = true;
-            firstTimeOn = false;
             playerParent.transform.parent = transform;
         }
     }
@@ -109,11 +118,11 @@ public class Platforms : MonoBehaviour
 
     IEnumerator PlatformLaunch()
     {
-        if (firstTimeOn)
+        if (firstTimeOn && PlatformLauncherScript.activate)
         {
             yield return new WaitForSeconds(delayToLaunch);
-            startTime = Time.time;
             isWaiting = false;
+            startTime = Time.time;
         }
     }
 
