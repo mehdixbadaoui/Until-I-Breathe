@@ -12,7 +12,7 @@ public class GrapplingHook : MonoBehaviour
 	public GameObject hook_detector;
 
 	//Objects that will interact with the rope
-	private GameObject hookObject;
+	public GameObject hookObject;
 	private Transform objectHanging;
 
 	// Spring joint prefab
@@ -21,7 +21,7 @@ public class GrapplingHook : MonoBehaviour
 
 	public int timeLever;
 
-	private bool isGrappling;
+	public bool isGrappling;
 
 
 	//public float speed = 10;
@@ -100,6 +100,14 @@ public class GrapplingHook : MonoBehaviour
 	{
 		inputs.Disable();
 	}
+
+
+	public bool DetachHook
+	{
+		get { return detachHook; }   // get method
+		set { detachHook = value; }  // set method
+	}
+
 
 	void Start()
 	{
@@ -195,13 +203,13 @@ public class GrapplingHook : MonoBehaviour
 
 
 			//When you grab the hook, the first behaviour of the rope is not a rigid line, only when you reach the end of the rope
-			if (hookObject.tag != "lever")
+			if (hookObject.tag != "lever" && isGrappling)
 			{
 				// Quand la corde est tendue on peut la retracter
-				if (isGrappling && countGrapplin > 15 && beginLengthMin < 0.5f)
+				if ( countGrapplin > 15 && beginLengthMin < 0.5f)
 					moveUpAndDown = true;
 
-				if (isGrappling && countGrapplin > 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
+				if ( countGrapplin > 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
 				{
 					if (hookObject.tag == "hook")
 					{
@@ -305,8 +313,6 @@ public class GrapplingHook : MonoBehaviour
 		beginLengthMin = 2f;
 		currentLengthRopeMax = lengthRopeMax;
 
-		isGrappling = true;
-
 		if (hookObject.tag == "hook")
 			Movement.isGrapplin = true;
 
@@ -352,6 +358,9 @@ public class GrapplingHook : MonoBehaviour
 		DisplayRope();
 
 		LR.enabled = true;
+
+
+		isGrappling = true;
 
 
 
@@ -435,6 +444,8 @@ public class GrapplingHook : MonoBehaviour
 
 		if (hookObject.tag == "lever")
 			hookObject.transform.Rotate(90, 0, 0);
+
+		hookObject = null;
 
 
 	}
