@@ -308,6 +308,7 @@ public class Movement : MonoBehaviour
                     || Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist)
                     || Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out middle, capsule_collider.height / 2 + ground_dist));
 
+
     }
 
     void SlopeCheck()

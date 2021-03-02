@@ -54,7 +54,7 @@ public class hook_detector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!all_hooks.Contains(other.gameObject) && (other.tag == "hook" || other.tag == "movable_hook") )
+        if (!all_hooks.Contains(other.gameObject) && (other.tag == "hook" || other.tag == "movable_hook" || other.tag == "lever") )
         {
             all_hooks.Add(other.gameObject);
             nearHook = true;
