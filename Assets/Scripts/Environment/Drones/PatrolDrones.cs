@@ -7,13 +7,9 @@ public class PatrolDrones : MonoBehaviour
     // PlayerDetection Script
     PlayerDetection playerDetectionScript;
 
-    [SerializeField]
-    Transform startPoint, endPoint;
-
-    [SerializeField]
-    float speed;
-    [SerializeField]
-    float changeDirectionDelay;
+    public Transform startPoint, endPoint;
+    public float speed;
+    public float changeDirectionDelay;
 
     [Range(0f, 1f)]
     public float rotSpeed;
@@ -23,7 +19,6 @@ public class PatrolDrones : MonoBehaviour
     float startTime;
     float journeyLength;
     bool isWaiting;
-    bool playerOn = false;
 
     void Start()
     {

@@ -18,7 +18,8 @@ public class LedgeLocator : MonoBehaviour
     public AnimationClip clip;
     public float climbingHorizontalOffset;
     public float offsetLedgeClimbing = -0.2f;
-    public float securityOffsetLedgeClimbing = 0.51f; 
+    public float securityOffsetLedgeClimbing = 0.51f;
+    public float ledgeDistance = 0.5f; 
 
     private Vector3 topOfPlayer;
     private Vector3 securityRayForClimbing; 
@@ -75,7 +76,7 @@ public class LedgeLocator : MonoBehaviour
             securityRayForClimbing = new Vector3(0, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
             RaycastHit hit;
             RaycastHit hitSecurity;
-            if ((!Movement.isGrounded && !Movement.isGrapplin ) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, 1f) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, 0.5f) /*&& !hit.collider.isTrigger*/)
+            if ((!Movement.isGrounded && !Movement.isGrapplin ) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistance) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistance) /*&& !hit.collider.isTrigger*/)
             {
                 if (!hit.collider.isTrigger)
                 {
@@ -109,11 +110,11 @@ public class LedgeLocator : MonoBehaviour
     {
         if (transform.localScale.z > 0)
         {
-            horizontalArrow = KeyCode.RightArrow;
+            horizontalArrow = KeyCode.D;
         }
         else
         {
-            horizontalArrow = KeyCode.LeftArrow;
+            horizontalArrow = KeyCode.Q;
 
         }
 
@@ -150,15 +151,15 @@ public class LedgeLocator : MonoBehaviour
     {
         float time = 0;
         Vector3 startValue = transform.position;
-        transform.position = topOfPlatform;
-        //while (time < duration)
-        //{
-        //    //anim.SetBool("LedgeClimbing", true);
-        //    transform.position = Vector3.Lerp(startValue, topOfPlatform, time / duration);
-        //    time += Time.deltaTime;
-        //    yield return new WaitForFixedUpdate();
-        //}
-        yield return null;
+        //transform.position = topOfPlatform;
+        while (time < duration)
+        {
+            //anim.SetBool("LedgeClimbing", true);
+            transform.position = Vector3.Lerp(startValue, topOfPlatform, time / duration);
+            time += Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        //yield return null;
         ledge = null;
         moved = false;
         grabbingLedge = false;
@@ -184,9 +185,9 @@ public class LedgeLocator : MonoBehaviour
     {
        
         Gizmos.color = Color.blue; 
-        Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(Vector3.forward * transform.localScale.z));
+        Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(new Vector3(0,0,ledgeDistance) * transform.localScale.z) );
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(Vector3.forward * transform.localScale.z));
+        Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistance) * transform.localScale.z));
     }
     protected virtual void NotFalling()
     {
