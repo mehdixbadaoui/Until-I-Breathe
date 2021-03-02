@@ -18,6 +18,7 @@ public class Breathing_mechanic : MonoBehaviour
 
     public bool can_breath = false;
     public bool hold;
+    public bool exhale;
 
     public KeyCode hold_breath_key;
     public KeyCode exhale_key;
@@ -47,6 +48,7 @@ public class Breathing_mechanic : MonoBehaviour
 
         if(Input.GetKey(hold_breath_key) && Input.GetKey(exhale_key) && breath >= (max_breath * min_pourc / 100f))
         {
+            exhale = true;
             current_exhale = exhale_speed;
             if(blowObj)
                 blowObj.GetComponent<ballon>().incAir(1 * Time.deltaTime);
@@ -55,6 +57,7 @@ public class Breathing_mechanic : MonoBehaviour
         }
         else
         {
+            exhale = false;
             current_exhale = 1;
         }
 
