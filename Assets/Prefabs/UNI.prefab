@@ -531,7 +531,6 @@ MonoBehaviour:
   hook_detector: {fileID: 2547859366550577163}
   springjoint_rb_pref: {fileID: 3691347259402888240, guid: bd4c4223b85434646a7b0d6e9ee53c20,
     type: 3}
-  timeLever: 0
   lengthRopeMax: 10
   lengthRopeMin: 2
   surfaces:
@@ -554,7 +553,7 @@ MonoBehaviour:
   grapplinSpeed: 1
   jump_force: 35
   jump_force_flat: 35
-  jump_force_slope_up: 35
+  jump_force_slope_up: 100
   jump_force_slope_down: 10
   direction: {x: 0, y: 0, z: 0}
   isFacingLeft: 0
@@ -605,7 +604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
-  climbingHorizontalOffset: 0
   offsetLedgeClimbing: -0.3
   securityOffsetLedgeClimbing: 0.51
   animationTime: 0.5
