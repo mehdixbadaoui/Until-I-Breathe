@@ -185,9 +185,9 @@ public class LedgeLocator : MonoBehaviour
     {
        
         Gizmos.color = Color.blue; 
-        Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(Vector3.forward * transform.localScale.z) );
+        Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(new Vector3(0,0,ledgeDistance) * transform.localScale.z) );
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(Vector3.forward * transform.localScale.z));
+        Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistance) * transform.localScale.z));
     }
     protected virtual void NotFalling()
     {
