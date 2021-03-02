@@ -22,6 +22,7 @@ public class enter_room : MonoBehaviour
     {
         if (col.tag == "uni")
         {
+            //FADE THE FRONT WALL
             if (facade)
             {
                 foreach (Renderer rend  in rends)
@@ -37,6 +38,7 @@ public class enter_room : MonoBehaviour
 
             }
 
+            //DISABLE AIR LOSS
             breathing_mechanic.breath = breathing_mechanic.max_breath;
             breathing_mechanic.can_breath = true;
 
