@@ -19,7 +19,7 @@ public class LedgeLocator : MonoBehaviour
     public float climbingHorizontalOffset;
     public float offsetLedgeClimbing = -0.2f;
     public float securityOffsetLedgeClimbing = 0.51f;
-    public float ledgeDistance = 0.2f; 
+    public float ledgeDistance = 0.5f; 
 
     private Vector3 topOfPlayer;
     private Vector3 securityRayForClimbing; 
