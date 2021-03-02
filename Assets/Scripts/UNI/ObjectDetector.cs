@@ -12,17 +12,14 @@ public class ObjectDetector : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
     private void OnTriggerEnter(Collider col)
     {
-        if (col.tag == ("blowable") || col.tag == ("button"))
+        if (col.tag == ("blowable") || col.tag == ("button") || col.tag == ("fan"))
         {
             FindObjectOfType<Breathing_mechanic>().setBlowObj(col.gameObject);
         }
+
+
 
     }
     void OnTriggerExit(Collider col)

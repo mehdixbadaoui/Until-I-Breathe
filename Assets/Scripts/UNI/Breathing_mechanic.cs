@@ -50,8 +50,15 @@ public class Breathing_mechanic : MonoBehaviour
         {
             exhale = true;
             current_exhale = exhale_speed;
-            if(blowObj)
-                blowObj.GetComponent<ballon>().incAir(1 * Time.deltaTime);
+            if (blowObj)
+            {
+                if (blowObj.tag == "blowable")
+                    blowObj.GetComponent<ballon>().incAir(1 * Time.deltaTime);
+                else if (blowObj.tag == "fan")
+                    blowObj.GetComponent<Fan>().incAir(1 * Time.deltaTime);
+
+            }
+
 
 
         }
