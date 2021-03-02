@@ -97,6 +97,30 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""NextHook"",
+                    ""type"": ""Button"",
+                    ""id"": ""17dfa0db-dbb0-4d1a-8921-5f7139a420ed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PrevHook"",
+                    ""type"": ""Button"",
+                    ""id"": ""e9ae0492-ce3c-4094-b04c-d4082e207a49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Die"",
+                    ""type"": ""Button"",
+                    ""id"": ""12bd2d93-e6ef-4209-a8a3-5ae629c9e58d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -407,6 +431,61 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""Exhale"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fed71884-8e61-4757-88b0-8717d43d4304"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": ""Press(pressPoint=1,behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextHook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""216ce447-bb36-4555-9864-cb2668dbc66f"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": ""Press(pressPoint=1,behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrevHook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""363389dd-5db5-4ed8-a5e2-bf696b0fce94"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Die"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""788452d5-6c38-4454-a386-07358b9c2172"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Die"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""809b5315-b866-48aa-ac43-e57c2e9e6bd9"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Die"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -425,6 +504,9 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Uni_Grapple_Vert = m_Uni.FindAction("Grapple_Vert", throwIfNotFound: true);
         m_Uni_HoldBreath = m_Uni.FindAction("HoldBreath", throwIfNotFound: true);
         m_Uni_Exhale = m_Uni.FindAction("Exhale", throwIfNotFound: true);
+        m_Uni_NextHook = m_Uni.FindAction("NextHook", throwIfNotFound: true);
+        m_Uni_PrevHook = m_Uni.FindAction("PrevHook", throwIfNotFound: true);
+        m_Uni_Die = m_Uni.FindAction("Die", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -484,6 +566,9 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Uni_Grapple_Vert;
     private readonly InputAction m_Uni_HoldBreath;
     private readonly InputAction m_Uni_Exhale;
+    private readonly InputAction m_Uni_NextHook;
+    private readonly InputAction m_Uni_PrevHook;
+    private readonly InputAction m_Uni_Die;
     public struct UniActions
     {
         private @Inputs m_Wrapper;
@@ -498,6 +583,9 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Grapple_Vert => m_Wrapper.m_Uni_Grapple_Vert;
         public InputAction @HoldBreath => m_Wrapper.m_Uni_HoldBreath;
         public InputAction @Exhale => m_Wrapper.m_Uni_Exhale;
+        public InputAction @NextHook => m_Wrapper.m_Uni_NextHook;
+        public InputAction @PrevHook => m_Wrapper.m_Uni_PrevHook;
+        public InputAction @Die => m_Wrapper.m_Uni_Die;
         public InputActionMap Get() { return m_Wrapper.m_Uni; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -537,6 +625,15 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Exhale.started -= m_Wrapper.m_UniActionsCallbackInterface.OnExhale;
                 @Exhale.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnExhale;
                 @Exhale.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnExhale;
+                @NextHook.started -= m_Wrapper.m_UniActionsCallbackInterface.OnNextHook;
+                @NextHook.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnNextHook;
+                @NextHook.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnNextHook;
+                @PrevHook.started -= m_Wrapper.m_UniActionsCallbackInterface.OnPrevHook;
+                @PrevHook.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnPrevHook;
+                @PrevHook.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnPrevHook;
+                @Die.started -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
+                @Die.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
+                @Die.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
             }
             m_Wrapper.m_UniActionsCallbackInterface = instance;
             if (instance != null)
@@ -571,6 +668,15 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Exhale.started += instance.OnExhale;
                 @Exhale.performed += instance.OnExhale;
                 @Exhale.canceled += instance.OnExhale;
+                @NextHook.started += instance.OnNextHook;
+                @NextHook.performed += instance.OnNextHook;
+                @NextHook.canceled += instance.OnNextHook;
+                @PrevHook.started += instance.OnPrevHook;
+                @PrevHook.performed += instance.OnPrevHook;
+                @PrevHook.canceled += instance.OnPrevHook;
+                @Die.started += instance.OnDie;
+                @Die.performed += instance.OnDie;
+                @Die.canceled += instance.OnDie;
             }
         }
     }
@@ -587,5 +693,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnGrapple_Vert(InputAction.CallbackContext context);
         void OnHoldBreath(InputAction.CallbackContext context);
         void OnExhale(InputAction.CallbackContext context);
+        void OnNextHook(InputAction.CallbackContext context);
+        void OnPrevHook(InputAction.CallbackContext context);
+        void OnDie(InputAction.CallbackContext context);
     }
 }

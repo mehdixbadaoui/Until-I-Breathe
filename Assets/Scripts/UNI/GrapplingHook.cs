@@ -122,10 +122,10 @@ public class GrapplingHook : MonoBehaviour
 	void Update()
 	{
 
-		if (Convert.ToBoolean(inputs.Uni.Grapple.ReadValue<float>()))
-			attachHook = true;
+        if (Convert.ToBoolean(inputs.Uni.Grapple.ReadValue<float>()))
+            attachHook = true;
 
-		if (isGrappling)
+        if (isGrappling)
 		{
 			Vector3 u_dir = (hookObject.transform.position - objectHanging.position) / dist_objects;
 

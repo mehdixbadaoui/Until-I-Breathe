@@ -84,6 +84,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "NextHook",
+                    "type": "Button",
+                    "id": "17dfa0db-dbb0-4d1a-8921-5f7139a420ed",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PrevHook",
+                    "type": "Button",
+                    "id": "e9ae0492-ce3c-4094-b04c-d4082e207a49",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Die",
+                    "type": "Button",
+                    "id": "12bd2d93-e6ef-4209-a8a3-5ae629c9e58d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -392,6 +416,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "Exhale",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fed71884-8e61-4757-88b0-8717d43d4304",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "Press(pressPoint=1,behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextHook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "216ce447-bb36-4555-9864-cb2668dbc66f",
+                    "path": "<Gamepad>/rightStick/left",
+                    "interactions": "Press(pressPoint=1,behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrevHook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "363389dd-5db5-4ed8-a5e2-bf696b0fce94",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Die",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "788452d5-6c38-4454-a386-07358b9c2172",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Die",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "809b5315-b866-48aa-ac43-e57c2e9e6bd9",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Die",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

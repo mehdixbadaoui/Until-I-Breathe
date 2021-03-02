@@ -90,6 +90,7 @@ public class Movement : MonoBehaviour
         //INPUTS
         //inputs.Uni.Jump.performed += ctx => Jump();
         //inputs.Uni.Crouch.performed += ctx => Crouch();
+        inputs.Uni.Die.performed += ctx => gm.Die();
     }
 
 
@@ -125,15 +126,16 @@ public class Movement : MonoBehaviour
             capsule_collider.height = 1;
 
         }
-        if (Input.GetKeyDown(KeyCode.P) && isGrounded && countGround > 5)
-        {
-            gm.Die();
-        }
         else
         {
             capsule_collider.height = 1.5f;
 
         }
+
+        //if (Input.GetKeyDown(KeyCode.P) && isGrounded && countGround > 5)
+        //{
+        //    gm.Die();
+        //}
     }
 
     private void FixedUpdate()
