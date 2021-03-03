@@ -12,6 +12,7 @@ public class Door : MonoBehaviour
     private float lengthDoor;
     private bool open = false;
     private bool close = false;
+    public bool locked = false;
 
     public Transform doorPivot;
     public GameObject meshDoor;
@@ -79,7 +80,7 @@ public class Door : MonoBehaviour
             close = false;
             this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 1.1f);
 
-            if (this.tag != "slidingDoor")
+            if (this.tag != "slidingDoor" && !locked)
             {
                 if (other.transform.position.z < this.transform.position.z)
                 {
@@ -105,7 +106,7 @@ public class Door : MonoBehaviour
             open = false;
             this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 1f);
 
-            if (this.tag != "slidingDoor")
+            if (this.tag != "slidingDoor" && !locked)
             {
                 if (angleDoor > 0)
                 {
