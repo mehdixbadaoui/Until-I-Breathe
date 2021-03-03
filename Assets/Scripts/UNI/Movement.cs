@@ -288,14 +288,14 @@ public class Movement : MonoBehaviour
     //}
     protected virtual void Flip()
     {
-/*        if (isFacingLeft)
+        if (isFacingLeft)
         {
             transform.localScale = facingLeft;
         }
         if (!isFacingLeft)
         {
             transform.localScale = new Vector3(1, transform.localScale.y, -transform.localScale.z);
-        }*/
+        }
     }
 
     void check_ground()
