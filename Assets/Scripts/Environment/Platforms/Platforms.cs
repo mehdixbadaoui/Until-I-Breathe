@@ -87,7 +87,7 @@ public class Platforms : MonoBehaviour
             destinationTarget = startPoint;
         }
     }
-
+    
     IEnumerator changeDelay()
     {
         yield return new WaitForSeconds(changeDirectionDelay);
@@ -100,7 +100,7 @@ public class Platforms : MonoBehaviour
     // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "uni" && !playerOn)
+        if ((other.tag == "uni" || other.tag == "ObjectDetector") && !playerOn)
         {
             playerOn = true;
             playerParent.transform.parent = transform;
@@ -109,7 +109,7 @@ public class Platforms : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "uni" && playerOn)
+        if ((other.tag == "uni" || other.tag == "ObjectDetector") && playerOn)
         {
             playerOn = false;
             playerParent.transform.parent = null;
