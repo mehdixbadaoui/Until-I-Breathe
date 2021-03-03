@@ -28,8 +28,8 @@ public class Fan : MonoBehaviour
     {
         if (air >= capacity)
         {
-            //MOVE DOOR
-            door.transform.position = Vector3.Lerp(door.transform.position, initial_door_pos + Vector3.up * slide_height, slide_speed);
+            //UNLOCK THE DOOR
+            door.GetComponentInChildren<Door>().locked = false;
 
             //TURN ON GENERATOR
             //NOTHING YET
@@ -39,7 +39,8 @@ public class Fan : MonoBehaviour
 
     public void incAir(float amount)
     {
-        air += amount;
+        if(air <= capacity)
+            air += amount;
 
     }
 }
