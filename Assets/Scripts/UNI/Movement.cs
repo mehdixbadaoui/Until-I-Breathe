@@ -185,8 +185,11 @@ public class Movement : MonoBehaviour
 
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
-            
-            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+            //ACTUAL MOVEMENT HERE
+            //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+            rb.velocity = new Vector3(0, 0, horizontal_movement) * speed;
+            //transform.forward = new Vector3(0, 0, horizontal_movement) * speed;
+
             isJumping = false;
             isJumpingAftergrapplin = false;
             lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
@@ -236,19 +239,25 @@ public class Movement : MonoBehaviour
 
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
             {
-                transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+                //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+                rb.velocity = new Vector3(0, 0, horizontal_movement) * speed / 2.5f;
+
 
 
             }
             else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
             {
-                transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+                //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+                rb.velocity = new Vector3(0, 0, horizontal_movement) * speed / 2.5f;
+
             }
         }
 
         if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0 )
         {
-            transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+            //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+            rb.velocity = new Vector3(0, 0, horizontal_movement) * speed / 2.5f;
+
             //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
 
