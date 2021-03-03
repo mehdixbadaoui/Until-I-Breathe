@@ -93,7 +93,7 @@ public class LedgeLocator : MonoBehaviour
             
             if (ledge != null && grabbingLedge)
             {
-                AdjustPlayerPosition();
+                AdjustPlayerPosition(new Vector3(transform.position.x, transform.position.y, transform.position.z + climbingHorizontalOffset),ledge.transform);
                 rb.velocity = Vector3.zero;
                 rb.useGravity = false; 
                 GetComponent<Movement>().enabled = false;
@@ -172,17 +172,20 @@ public class LedgeLocator : MonoBehaviour
         //anim.SetBool("LedgeClimbing", false);
     }
 
-    protected virtual void AdjustPlayerPosition()
+    protected virtual void AdjustPlayerPosition(Vector3 topOfPlatform, Transform topOfPlatformTransform)
     {
+        Vector3 localPosition = topOfPlatformTransform.InverseTransformPoint(topOfPlatform);
         if (!moved)
         {
             moved = true;
             if (transform.localScale.z > 0)
             {
+                //transform.position = topOfPlatformTransform.TransformPoint(localPosition);
                 transform.position = new Vector3(transform.position.x, (ledge.GetComponent<Collider>().bounds.max.y - col.bounds.extents.y - .5f) + ledge.GetComponent<Ledge>().hangingVerticalOffset, (ledge.GetComponent<Collider>().bounds.min.z - col.bounds.extents.z) + ledge.GetComponent<Ledge>().hangingHorizontalOffset);
             }
             else
             {
+                //transform.position = topOfPlatformTransform.TransformPoint(localPosition);
                 transform.position = new Vector3(transform.position.x, (ledge.GetComponent<Collider>().bounds.max.y - col.bounds.extents.y - .5f) + ledge.GetComponent<Ledge>().hangingVerticalOffset, (ledge.GetComponent<Collider>().bounds.max.z + col.bounds.extents.z) - ledge.GetComponent<Ledge>().hangingHorizontalOffset);
             }
         }
