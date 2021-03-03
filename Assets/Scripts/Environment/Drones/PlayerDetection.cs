@@ -60,6 +60,9 @@ public class PlayerDetection : MonoBehaviour
                     detected = true;
                     canTurn = false;
                     light.color = Color.red;
+
+                    //Add the function of dying in the GM
+
                 }
             }
         }

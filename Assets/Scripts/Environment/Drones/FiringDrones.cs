@@ -20,16 +20,19 @@ public class FiringDrones : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (playerDetectionScript.detected)
-        {
-            //keeps track of the coroutine instantiated
-            IEnumerator shoot = Shoot();
-            StartCoroutine(shoot);
-        }
+    {            
+        // //keeps track of the coroutine instantiated
+        // IEnumerator shoot = CallShootWithDelay();
+
+        // if (playerDetectionScript.detected)
+        // {
+        //     //keeps track of the coroutine instantiated
+        //     IEnumerator shoot = Shoot();
+        //     StartCoroutine(shoot);
+        // }
     }
 
-    IEnumerator Shoot()
+    IEnumerator CallShootWithDelay()
     {
         yield return new WaitForSeconds(delay);
 

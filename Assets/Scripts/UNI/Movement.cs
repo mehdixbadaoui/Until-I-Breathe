@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     public float jump_force_slope_up = .5f;
     public float jump_force_slope_down = .5f;
     public static bool isGrounded = false;
+    public bool isGroundedVerif; 
     public static bool isGrapplin = false;
     public static float distToHook;
 
@@ -35,6 +36,7 @@ public class Movement : MonoBehaviour
 
     RaycastHit ground_hit;
     CapsuleCollider capsule_collider;
+    private Vector3 colliderSize;
     public float ground_dist = .3f;
 
     public float slopeforce;
@@ -52,6 +54,8 @@ public class Movement : MonoBehaviour
 
     private bool collisionWithWall;
 
+    private GameMaster gm;
+
 
     public bool IsFlying 
     {
@@ -65,12 +69,14 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
 
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+
         capsule_collider = GetComponent<CapsuleCollider>();
     }
-
     // Update is called once per frame
     void Update()
     {
+        isGroundedVerif = isGrounded; 
         horizontal_movement = Input.GetAxis("Horizontal");
         vertical_movement = Input.GetAxisRaw("Vertical");
 
@@ -81,6 +87,12 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && countGround > 5)
         {
             Jump();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.P) && isGrounded && countGround > 5)
+        {
+            gm.Die();
         }
 
 
@@ -114,7 +126,7 @@ public class Movement : MonoBehaviour
             if (too_steep)
                 rb.drag = 0f;
             else if (isGrounded)
-                rb.drag = 100f;
+                rb.drag = 0.2f;
             else
                 rb.drag = .2f;
         }
@@ -126,6 +138,7 @@ public class Movement : MonoBehaviour
 
         if (isFlying && !isGrapplin)
         {
+             
             isGrounded = false;
             isJumping = false;
             isJumpingAftergrapplin = false;
@@ -136,6 +149,7 @@ public class Movement : MonoBehaviour
 
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
+            
             transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
             isJumping = false;
             isJumpingAftergrapplin = false;
@@ -182,6 +196,7 @@ public class Movement : MonoBehaviour
 
         if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying) )
         {
+            
 
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
             {
@@ -293,11 +308,11 @@ public class Movement : MonoBehaviour
                     || Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist)
                     || Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out middle, capsule_collider.height / 2 + ground_dist));
 
-
     }
 
     void SlopeCheck()
     {
+
         RaycastHit slope_ray_front;
         RaycastHit slope_ray_back;
 
@@ -307,11 +322,11 @@ public class Movement : MonoBehaviour
         on_slope_up = cast_front && slope_ray_front.normal != Vector3.up;
         on_slope_down = cast_back && slope_ray_back.normal != Vector3.up;
 
-        too_steep = (on_slope_up && Mathf.Abs(slope_ray_front.collider.transform.rotation.x) >= .3f) || (on_slope_down &&  Mathf.Abs(slope_ray_back.collider.transform.rotation.x) >= .3f);
-    
+        too_steep = (on_slope_up && Mathf.Abs(slope_ray_front.collider.transform.rotation.x) >= .3f) || (on_slope_down && Mathf.Abs(slope_ray_back.collider.transform.rotation.x) >= .3f);
+
 
         //IDK WHAT THIS DOUBLE IF DOES BUT IF YOU DELETE IT JUMPING IS WEIRD
-        if ((cast_front && on_slope_up ) || (cast_back && on_slope_down))
+        if ((cast_front && on_slope_up) || (cast_back && on_slope_down))
         {
             if (slope_norm != Vector3.up)
             {
@@ -322,6 +337,8 @@ public class Movement : MonoBehaviour
             }
         }
     }
+  
+
 
     //void OnDrawGizmos()
     //{
@@ -331,21 +348,16 @@ public class Movement : MonoBehaviour
     //    Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
     //}
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.rigidbody.isKinematic || collision.rigidbody == null)
-    //    {
-    //        collisionWithWall = true; 
-    //    }
-    //    else if (!collision.rigidbody.isKinematic)
-    //    {
-    //        collisionWithWall = false; 
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    collisionWithWall = false;
-    //}
+    private void OnCollisionStay(Collision collision)
+    {
+        foreach(ContactPoint p in collision.contacts)
+        {
+            Vector3 bottom = capsule_collider.bounds.center - (Vector3.up * capsule_collider.bounds.extents.y);
+            Vector3 curve = bottom + (Vector3.up * capsule_collider.radius);
+            Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
+            Vector3 dir = curve - p.point;
+            
+        }
+    }
 
 }
