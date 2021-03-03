@@ -30,6 +30,8 @@ public class ballon : MonoBehaviour
 
     public void incAir(float amount)
     {
-        air += amount;
+        if(air < capacity)
+            air += amount;
+
     }
 }
