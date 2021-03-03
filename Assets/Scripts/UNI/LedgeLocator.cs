@@ -95,12 +95,12 @@ public class LedgeLocator : MonoBehaviour
             {
                 AdjustPlayerPosition();
                 rb.velocity = Vector3.zero;
-                rb.isKinematic = true; 
+                rb.useGravity = false; 
                 GetComponent<Movement>().enabled = false;
             }
             else
             {
-                rb.isKinematic = false;
+                rb.useGravity = true;
                 GetComponent<Movement>().enabled = true;
             }
         }
@@ -139,9 +139,9 @@ public class LedgeLocator : MonoBehaviour
         {
             ledge = null;
             moved = false;
-            //anim.SetBool("LedgeHanging", false);
+            ////anim.SetBool("LedgeHanging", false);
             falling = true;
-            rb.isKinematic = false;
+            rb.useGravity = true;
             GetComponent<Movement>().enabled = true;
             Invoke("NotFalling", .5f);
         }
