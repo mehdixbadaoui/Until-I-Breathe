@@ -12,16 +12,17 @@ public class Door : MonoBehaviour
     private float lengthDoor;
     private bool open = false;
     private bool close = false;
+    public bool locked = false;
 
     public Transform doorPivot;
     public GameObject meshDoor;
 
     // Start is called before the first frame update
     void Start()
-    {
-        if (this.tag == "slidingDoor")
-        {
-            lengthDoor = meshDoor.GetComponent<MeshRenderer>().bounds.size.x;
+    {
+        if (this.tag == "slidingDoor")
+        {
+            lengthDoor = meshDoor.GetComponent<MeshRenderer>().bounds.size.x;
         }
     }
 
@@ -33,41 +34,41 @@ public class Door : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-        if (this.tag == "slidingDoor")
-        {
-            if ( open && Math.Abs(slideDoor) < lengthDoor )
-            {
-                slideDoor -= 0.1f ;
-                doorPivot.Translate(-0.1f, 0, 0);
-            }
-            else if (close && slideDoor < 0)
-            {
-                slideDoor += 0.1f;
-                doorPivot.Translate(0.1f, 0, 0);
-
-            }
-            else
-            {
-                open = false;
-                close = false;
-            }
+    {
+        if (this.tag == "slidingDoor")
+        {
+            if ( open && Math.Abs(slideDoor) < lengthDoor )
+            {
+                slideDoor -= 0.1f ;
+                doorPivot.Translate(-0.1f, 0, 0);
+            }
+            else if (close && slideDoor < 0)
+            {
+                slideDoor += 0.1f;
+                doorPivot.Translate(0.1f, 0, 0);
+
+            }
+            else
+            {
+                open = false;
+                close = false;
+            }
         }
 
-        else
-        {
-            if (moveDoor != 0
-                && ((open && Math.Abs(angleDoor + moveDoor) <= 90) || (close && angleDoor != 0)))
-            {
-                angleDoor += moveDoor * 10;
-                doorPivot.Rotate(0, moveDoor * 10, 0);
-            }
-            else
-            {
-                open = false;
-                close = false;
-                moveDoor = 0;
-            }
+        else
+        {
+            if (moveDoor != 0
+                && ((open && Math.Abs(angleDoor + moveDoor) <= 90) || (close && angleDoor != 0)))
+            {
+                angleDoor += moveDoor * 10;
+                doorPivot.Rotate(0, moveDoor * 10, 0);
+            }
+            else
+            {
+                open = false;
+                close = false;
+                moveDoor = 0;
+            }
         }
     }
 
@@ -79,7 +80,7 @@ public class Door : MonoBehaviour
             close = false;
             this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 1.1f);
 
-            if (this.tag != "slidingDoor")
+            if (this.tag != "slidingDoor" && !locked)
             {
                 if (other.transform.position.z < this.transform.position.z)
                 {
@@ -103,18 +104,18 @@ public class Door : MonoBehaviour
 
             close = true;
             open = false;
-            this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 1f);
-
-            if (this.tag != "slidingDoor")
+            this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 1f);
+
+            if (this.tag != "slidingDoor" && !locked)
             {
                 if (angleDoor > 0)
                 {
                     moveDoor = -1;
-                }
-
-                if (angleDoor < 0)
-                {
-                    moveDoor = +1;
+                }
+
+                if (angleDoor < 0)
+                {
+                    moveDoor = +1;
                 }
             }
 
