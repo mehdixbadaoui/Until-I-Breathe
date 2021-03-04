@@ -31,16 +31,19 @@ public class LedgeLocator : MonoBehaviour
 
     [HideInInspector]
     public bool grabbingLedge;
-    private Collider col;
+    private CapsuleCollider col;
     private Rigidbody rb;
     private Animator anim;
 
     public KeyCode climb_up;
     public KeyCode let_go;
-    private KeyCode horizontalArrow; 
+    private KeyCode horizontalArrow;
+
+  
     private void Start()
     {
-        col = GetComponent<Collider>();
+        
+        col = GetComponent<CapsuleCollider>();
         rb =  GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         if (clip != null)
@@ -93,13 +96,25 @@ public class LedgeLocator : MonoBehaviour
             
             if (ledge != null && grabbingLedge)
             {
+
+
+                // col.isTrigger = true;
+                if(ledge.GetComponent<Platforms>() != null)
+                {
+                    GameObject playerParent = ledge.GetComponent<Platforms>().playerParent;
+                    Transform platformTransform = ledge.GetComponent<Platforms>().transform;
+                    playerParent.transform.parent = platformTransform;
+                }
                 AdjustPlayerPosition(new Vector3(transform.position.x, transform.position.y, transform.position.z + climbingHorizontalOffset),ledge.transform);
                 rb.velocity = Vector3.zero;
                 rb.useGravity = false; 
                 GetComponent<Movement>().enabled = false;
+                
             }
             else
             {
+                //col.isTrigger = false; 
+               
                 rb.useGravity = true;
                 GetComponent<Movement>().enabled = true;
             }
