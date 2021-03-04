@@ -23,7 +23,8 @@ public class Movement : MonoBehaviour
 
     float vertical_movement;
     private Vector3 lastInput;
-    private Vector3 lastInputJumping; 
+    private Vector3 lastInputJumping;
+    private Vector3 lastVelocityJumping;
 
     public Vector3 direction;
 
@@ -110,7 +111,7 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-
+        // Slope check
         if (on_slope_up || on_slope_down)
         {
             if (on_slope_up)
@@ -119,7 +120,6 @@ public class Movement : MonoBehaviour
             }
             else if (on_slope_down)
             {
-                //slopeforce_val = slopeforce;
                 jump_force = jump_force_slope_down;
 
             }
@@ -136,6 +136,7 @@ public class Movement : MonoBehaviour
             jump_force = jump_force_flat;
         }
 
+        // Lors du passage sur le vent d'un ventilateur
         if (isFlying && !isGrapplin)
         {
              
@@ -143,21 +144,26 @@ public class Movement : MonoBehaviour
             isJumping = false;
             isJumpingAftergrapplin = false;
 
-            transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+            rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
+            //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
 
         }
 
+        // Walk on the ground
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
-            
-            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+
+            //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+            //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed*30);
+            rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce , Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
+
             isJumping = false;
             isJumpingAftergrapplin = false;
             lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
         }
 
 
-        //Add force if isgrapplin because Translate isnt workinbg with spring joint
+        // Add force if isgrapplin because Translate isnt workinbg with spring joint
         if (isGrapplin )
         {
             isJumping = false;
@@ -193,27 +199,31 @@ public class Movement : MonoBehaviour
             }
         }
 
-
+        // Lors d'un saut soit après grappin soit depuis le sol
         if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying) )
         {
-            
 
-            if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
+            // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
+            if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
             {
-                transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-
+                //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+                rb.velocity += new Vector3(0,0 , ( - Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z/ Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f );
 
             }
-            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
+            // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
+            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z!=0 && lastInputJumping.z != 0 )
             {
-                transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+                rb.velocity += new Vector3(0, 0, ( Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
+            }
+            else if ( (lastVelocityJumping.z == 0 || lastInputJumping.z == 0) )
+            {
+                rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
             }
         }
 
         if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0 )
         {
             transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-            //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
         }
 
         else if(isJumpingAftergrapplin)
@@ -257,6 +267,7 @@ public class Movement : MonoBehaviour
         isGrounded = false;
         isJumping = true;
         lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+        lastVelocityJumping = rb.velocity;
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
         
     }
