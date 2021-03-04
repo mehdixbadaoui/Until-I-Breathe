@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
     public float jump_force_slope_up = .5f;
     public float jump_force_slope_down = .5f;
     public static float distToHook;
+    public float velocityMaxJump = 3;
+    public float horizontalVelocityMax = 10;
 
     private bool isFlying = false;
 
@@ -30,12 +32,12 @@ public class Movement : MonoBehaviour
     [HideInInspector]
 
     // Bools
-    public static bool isGrounded = false;
     public bool isGroundedVerif;
+    public static bool isGrounded = false;
     public static bool isGrapplin = false;
     public static bool isGrabbing = false;
+    public static bool isJumping = false;
     public bool isFacingLeft;
-    public bool isJumping;
     private bool isJumpingAftergrapplin;
     public bool on_slope_up;
     public bool on_slope_down;
@@ -55,7 +57,6 @@ public class Movement : MonoBehaviour
     public float slope_check_dist;
 
     private Vector3 lastVelocity;
-    public float horizontalVelocityMax = 5;
 
     private int countGround = 0;
 
@@ -102,7 +103,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && !isGrapplin)
             GetComponent<CapsuleCollider>().height = 1;
         else
             GetComponent<CapsuleCollider>().height = 1.5f;
@@ -167,9 +168,22 @@ public class Movement : MonoBehaviour
             lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
         }
 
+        // Walk on the ground
+        if (isGrounded && isGrapplin /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+        {
+
+            //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+            //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed*30);
+            rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
+
+            isJumping = false;
+            isJumpingAftergrapplin = false;
+            lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+        }
+
 
         // Add force if isgrapplin because Translate isnt workinbg with spring joint
-        if (isGrapplin )
+        if (isGrapplin  && !isGrounded)
         {
             isJumping = false;
             isJumpingAftergrapplin = false;
@@ -286,10 +300,13 @@ public class Movement : MonoBehaviour
 
         // Debug.Log(rb.velocity.z);
         if (rb.velocity.z > horizontalVelocityMax)
-            rb.velocity = new Vector3(rb.velocity.x, 0, horizontalVelocityMax);
+            rb.velocity = new Vector3(0, rb.velocity.y, horizontalVelocityMax);
         if (rb.velocity.z < -horizontalVelocityMax)
-            rb.velocity = new Vector3(rb.velocity.x, 0, -horizontalVelocityMax);
+            rb.velocity = new Vector3(0, rb.velocity.y, -horizontalVelocityMax);
         // Debug.Log(rb.velocity.z);
+        
+        if (rb.velocity.y> velocityMaxJump)
+            rb.velocity = new Vector3(rb.velocity.x, velocityMaxJump, rb.velocity.z);
 
         lastInputJumping = new Vector3(0f, 0f, rb.velocity.z);
         //rb.AddForce(new Vector3(0, jump_force*3, 0), ForceMode.Impulse);

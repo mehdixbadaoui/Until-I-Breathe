@@ -70,7 +70,6 @@ public class MoveBox : MonoBehaviour
                 distToBox = box.transform.position - transform.position;
                 grabbing = true;
                 Movement.isGrabbing = true;
-                Debug.Log("grabbing");
                 box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
                 box.GetComponent<Rigidbody>().isKinematic = false;
             }

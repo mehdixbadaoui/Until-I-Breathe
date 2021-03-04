@@ -185,10 +185,15 @@ public class GrapplingHook : MonoBehaviour
 			if (hookObject.tag != "lever" && isGrappling)
 			{
 				// Quand la corde est tendue on peut la retracter
-				if ( countGrapplin > 15 && beginLengthMin < 0.5f)
+				if ( countGrapplin > 15 /*&& beginLengthMin < 0.5f*/)
 					moveUpAndDown = true;
 
-				if ( countGrapplin > 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
+				if (Movement.isGrounded || Movement.distToHook < 0.3)
+                {
+					beginLengthMin = ropeLength - Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) + 1;
+					hasChangedRope = true;
+				}
+				else if ( countGrapplin > 5 && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) > spring.minDistance && Vector3.Distance(ropePositions[ropePositions.Count - 2].position + distToHitPoints[distToHitPoints.Count - 2], objectHanging.position) < spring.maxDistance)
 				{
 					if (hookObject.tag == "hook")
 					{
@@ -290,6 +295,7 @@ public class GrapplingHook : MonoBehaviour
 		}
 
 		countGrapplin += 1;
+		attachHook = false;
 
 	}
 
@@ -422,9 +428,10 @@ public class GrapplingHook : MonoBehaviour
 
 		if (hookObject.tag == "hook")
         {
-			Movement.isGrapplin = false;
-			if (!changeHook /*&& body.velocity.y<1*/ && countGrapplin > 10 && !Movement.isGrounded)
+			spring.minDistance = 0;
+			if (!changeHook /*&& body.velocity.y<1*/ && countGrapplin > 10 && (!Movement.isGrounded && !Movement.isJumping) )
 				body.AddForce(new Vector3(0, movements.jump_force, 0), ForceMode.Impulse);
+			Movement.isGrapplin = false;
 		}
 
 

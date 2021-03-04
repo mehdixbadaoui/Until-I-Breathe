@@ -237,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 2547859366268433739, guid: 8da1e62348aa2d94fa7525e691311013,
         type: 3}
       propertyPath: horizontalVelocityMax
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2547859366268433739, guid: 8da1e62348aa2d94fa7525e691311013,
         type: 3}
@@ -269,6 +269,11 @@ PrefabInstance:
       propertyPath: on_slope_up
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2547859366268433739, guid: 8da1e62348aa2d94fa7525e691311013,
+        type: 3}
+      propertyPath: velocityMaxJump
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2547859366268433740, guid: 8da1e62348aa2d94fa7525e691311013,
         type: 3}
       propertyPath: m_Enabled
@@ -287,12 +292,12 @@ PrefabInstance:
     - target: {fileID: 2604874160352336462, guid: 8da1e62348aa2d94fa7525e691311013,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.37
+      value: 17.4
       objectReference: {fileID: 0}
     - target: {fileID: 2604874160352336462, guid: 8da1e62348aa2d94fa7525e691311013,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 101.09
+      value: 44.6
       objectReference: {fileID: 0}
     - target: {fileID: 2604874160352336462, guid: 8da1e62348aa2d94fa7525e691311013,
         type: 3}
@@ -2084,18 +2089,19 @@ MonoBehaviour:
   jump_force_flat: 35
   jump_force_slope_up: 50
   jump_force_slope_down: 10
-  isGroundedVerif: 0
+  velocityMaxJump: 0
+  horizontalVelocityMax: 5
   direction: {x: 0, y: 0, z: 0}
+  isGroundedVerif: 0
   isFacingLeft: 0
   isJumping: 0
-  ground_dist: 0.3
-  slopeforce: 0
-  slopeforce_val: 0
   on_slope_up: 0
   on_slope_down: 0
   too_steep: 0
+  ground_dist: 0.3
+  slopeforce: 0
+  slopeforce_val: 0
   slope_check_dist: 0
-  horizontalVelocityMax: 5
 --- !u!114 &729943624
 MonoBehaviour:
   m_ObjectHideFlags: 0
