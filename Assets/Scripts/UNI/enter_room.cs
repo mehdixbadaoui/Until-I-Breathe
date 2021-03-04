@@ -8,10 +8,13 @@ public class enter_room : MonoBehaviour
     public GameObject facade;
     Renderer[] rends;
 
+    Breathing_mechanic breathing_mechanic;
+
     private void Start()
     {
         if(facade)
             rends = facade.GetComponentsInChildren<Renderer>();
+
     }
     void OnTriggerStay(Collider col)
     {
@@ -33,7 +36,6 @@ public class enter_room : MonoBehaviour
 
             }
 
-
         }
         
     }
@@ -49,17 +51,16 @@ public class enter_room : MonoBehaviour
                     Vector4 source = rend.material.GetColor("_BaseColor");
                     Vector4 target = new Vector4(source.x, source.y, source.z, 1f);
 
-                    StartCoroutine(Fade(rend.material, source, target, .3f));
+                    StartCoroutine(fade(rend.material, source, target, .3f));
 
                 }
             }
         }
-
     }
 
 
 
-    IEnumerator Fade(Material material, Vector4 source, Vector4 target, float overTime)
+    IEnumerator fade(Material material, Vector4 source, Vector4 target, float overTime)
     {
         float startTime = Time.time;
         while (Time.time < startTime + overTime)
