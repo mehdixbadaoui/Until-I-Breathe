@@ -31,6 +31,9 @@ public class MoveBox : MonoBehaviour
     // Distance to the box
     private Vector3 distToBox;
 
+    // Rigidbody
+    private Rigidbody rig;
+
 
     void Start()
     {
@@ -40,6 +43,9 @@ public class MoveBox : MonoBehaviour
 
         // Get the collider of the player
         col = GetComponent<Collider>();
+
+        // Get the Rigidbody of the player
+        rig = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -47,7 +53,8 @@ public class MoveBox : MonoBehaviour
         CheckForLedge();
 
         if (grabbing)
-            box.transform.position = transform.position + distToBox;
+            box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y , transform.position.z + distToBox.z + distToBox.z*0.005f) ;
+            //box.GetComponent<Rigidbody>().velocity = rig.velocity;
     }
 
     protected virtual void CheckForLedge()
@@ -65,13 +72,12 @@ public class MoveBox : MonoBehaviour
                 Debug.Log("grabbing");
                 box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
             }
-            else
-            {
-                grabbing = false;
-                box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            }
 
-
+        }
+        if (grabbing && !Input.GetKey(keyGrabbing))
+        {
+            grabbing = false;
+            box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         }
     }
 
@@ -79,6 +85,8 @@ public class MoveBox : MonoBehaviour
     {
 
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(handsOfPlayer, handsOfPlayer + transform.TransformDirection(new Vector3(0, 0, grabbingDistance) * transform.localScale.z));
+        //Gizmos.DrawLine(handsOfPlayer, handsOfPlayer + transform.TransformDirection(new Vector3(0, 0, grabbingDistance) * transform.localScale.z));
+        if(box!=null)
+            Gizmos.DrawLine(box.transform.position, transform.position + distToBox + new Vector3(0, 0, distToBox.z * 0.1f));
     }
 }
