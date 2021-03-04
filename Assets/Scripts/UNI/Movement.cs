@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     [HideInInspector]
 
-    // Bools
+    // Bools 
     public bool isGroundedVerif;
     public static bool isGrounded = false;
     public static bool isGrapplin = false;
