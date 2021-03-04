@@ -8,19 +8,14 @@ public class enter_room : MonoBehaviour
     public GameObject facade;
     Renderer[] rends;
 
-    Breathing_mechanic breathing_mechanic;
-
     private void Start()
     {
         if(facade)
             rends = facade.GetComponentsInChildren<Renderer>();
-
-        breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
-
     }
     void OnTriggerStay(Collider col)
     {
-        if (col.tag == "uni")
+        if (col.CompareTag("uni"))
         {
             //FADE THE FRONT WALL
             if (facade)
@@ -38,9 +33,6 @@ public class enter_room : MonoBehaviour
 
             }
 
-            //DISABLE AIR LOSS
-            breathing_mechanic.breath = breathing_mechanic.max_breath;
-            breathing_mechanic.can_breath = true;
 
         }
         
@@ -48,7 +40,7 @@ public class enter_room : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == "uni")
+        if (col.CompareTag("uni"))
         {
             if (facade)
             {
@@ -57,18 +49,17 @@ public class enter_room : MonoBehaviour
                     Vector4 source = rend.material.GetColor("_BaseColor");
                     Vector4 target = new Vector4(source.x, source.y, source.z, 1f);
 
-                    StartCoroutine(fade(rend.material, source, target, .3f));
+                    StartCoroutine(Fade(rend.material, source, target, .3f));
 
                 }
             }
         }
 
-        breathing_mechanic.can_breath = false;
     }
 
 
 
-    IEnumerator fade(Material material, Vector4 source, Vector4 target, float overTime)
+    IEnumerator Fade(Material material, Vector4 source, Vector4 target, float overTime)
     {
         float startTime = Time.time;
         while (Time.time < startTime + overTime)
