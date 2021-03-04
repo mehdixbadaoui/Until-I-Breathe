@@ -9,13 +9,11 @@ public class Movement : MonoBehaviour
     public float grapplinSpeed = 1;
     float horizontal_movement;
 
+    // Jump and slope
     /*[HideInInspector]*/ public float jump_force = .5f;
     public float jump_force_flat = .5f;
     public float jump_force_slope_up = .5f;
     public float jump_force_slope_down = .5f;
-    public static bool isGrounded = false;
-    public bool isGroundedVerif; 
-    public static bool isGrapplin = false;
     public static float distToHook;
 
     private bool isFlying = false;
@@ -30,10 +28,21 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
     [HideInInspector]
+
+    // Bools
+    public static bool isGrounded = false;
+    public bool isGroundedVerif;
+    public static bool isGrapplin = false;
+    public static bool isGrabbing = false;
     public bool isFacingLeft;
-    private Vector3 facingLeft;
     public bool isJumping;
     private bool isJumpingAftergrapplin;
+    public bool on_slope_up;
+    public bool on_slope_down;
+    private bool collisionWithWall;
+    public bool too_steep;
+
+    private Vector3 facingLeft;
 
     RaycastHit ground_hit;
     CapsuleCollider capsule_collider;
@@ -42,10 +51,7 @@ public class Movement : MonoBehaviour
 
     public float slopeforce;
     [SerializeField] private float slopeforce_val;
-    public bool on_slope_up;
-    public bool on_slope_down;
     Vector3 slope_norm;
-    public bool too_steep;
     public float slope_check_dist;
 
     private Vector3 lastVelocity;
@@ -53,7 +59,6 @@ public class Movement : MonoBehaviour
 
     private int countGround = 0;
 
-    private bool collisionWithWall;
 
     private GameMaster gm;
 
@@ -199,7 +204,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        // Lors d'un saut soit après grappin soit depuis le sol
+        // Lors d'un saut depuis le sol
         if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying) )
         {
 
@@ -221,6 +226,7 @@ public class Movement : MonoBehaviour
             }
         }
 
+        // Lors d'un saut apres grappin
         if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0 )
         {
             transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
@@ -254,8 +260,6 @@ public class Movement : MonoBehaviour
         }
 
         lastVelocity = rb.velocity;
-
-        //Debug.Log(isJumping);
 
 
 
@@ -299,11 +303,11 @@ public class Movement : MonoBehaviour
     //}
     protected virtual void Flip()
     {
-        if (isFacingLeft)
+        if (isFacingLeft && !isGrabbing)
         {
             transform.localScale = facingLeft;
         }
-        if (!isFacingLeft)
+        if (!isFacingLeft && !isGrabbing)
         {
             transform.localScale = new Vector3(1, transform.localScale.y, -transform.localScale.z);
         }

@@ -53,7 +53,7 @@ public class MoveBox : MonoBehaviour
         CheckForLedge();
 
         if (grabbing)
-            box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y , transform.position.z + distToBox.z + distToBox.z*0.005f) ;
+            box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y , transform.position.z + distToBox.z) ;
             //box.GetComponent<Rigidbody>().velocity = rig.velocity;
     }
 
@@ -69,15 +69,19 @@ public class MoveBox : MonoBehaviour
                 box = hit.collider.gameObject;
                 distToBox = box.transform.position - transform.position;
                 grabbing = true;
+                Movement.isGrabbing = true;
                 Debug.Log("grabbing");
                 box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+                box.GetComponent<Rigidbody>().isKinematic = false;
             }
 
         }
-        if (grabbing && !Input.GetKey(keyGrabbing))
+        if (grabbing && (!Input.GetKey(keyGrabbing) || !Movement.isGrounded))
         {
             grabbing = false;
+            Movement.isGrabbing = true;
             box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            box.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 
