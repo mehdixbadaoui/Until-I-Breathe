@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class falling_platform : MonoBehaviour
+public class FallingPlatform : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float wait_time = 1f;
 
-    // Update is called once per frame
-    void Update()
+
+    private IEnumerator OnCollisionEnter(Collision col)
     {
-        
+        if (col.gameObject.tag == "uni")
+        {
+            yield return new WaitForSecondsRealtime(wait_time);
+
+            GetComponent<Rigidbody>().useGravity = true;
+            GetComponent<Rigidbody>().isKinematic = false;
+
+        }
+
     }
 }
