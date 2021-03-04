@@ -218,12 +218,21 @@ public class Movement : MonoBehaviour
             }
         }
 
+<<<<<<< Updated upstream
         // Lors d'un saut depuis le sol
         if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying) )
         {
 
             // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
+=======
+        //Code for Jumping
+        if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying) )
+        {
+            
+            // Air control when we jump 
+            if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
+>>>>>>> Stashed changes
             {
                 //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
                 rb.velocity += new Vector3(0,0 , ( - Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z/ Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f );
@@ -239,8 +248,12 @@ public class Movement : MonoBehaviour
                 rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
             }
         }
+<<<<<<< Updated upstream
 
         // Lors d'un saut apres grappin
+=======
+        //Code for jumping after grappling
+>>>>>>> Stashed changes
         if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0 )
         {
             transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
@@ -250,14 +263,7 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce( new Vector3(0f, 0f, rb.velocity.z *0.8f) * speed );
         }
-
-        //if(collisionWithWall)
-        //{
-        //    rb.velocity = new Vector3(0f, 0f, 0f);
-        //}
-
-            
-        
+        //Checking if we need to flip our character
         if (horizontal_movement != 0)
         {
 
@@ -274,9 +280,12 @@ public class Movement : MonoBehaviour
         }
 
         lastVelocity = rb.velocity;
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
     }
 
     void Jump()
@@ -296,28 +305,26 @@ public class Movement : MonoBehaviour
         isGrounded = false;
         isJumpingAftergrapplin = true;
 
-        // Debug.Log("jump after grapplin");
-
-        // Debug.Log(rb.velocity.z);
+        
         if (rb.velocity.z > horizontalVelocityMax)
             rb.velocity = new Vector3(0, rb.velocity.y, horizontalVelocityMax);
         if (rb.velocity.z < -horizontalVelocityMax)
+<<<<<<< Updated upstream
             rb.velocity = new Vector3(0, rb.velocity.y, -horizontalVelocityMax);
         // Debug.Log(rb.velocity.z);
         
         if (rb.velocity.y> velocityMaxJump)
             rb.velocity = new Vector3(rb.velocity.x, velocityMaxJump, rb.velocity.z);
 
+=======
+            rb.velocity = new Vector3(rb.velocity.x, 0, -horizontalVelocityMax);
+>>>>>>> Stashed changes
         lastInputJumping = new Vector3(0f, 0f, rb.velocity.z);
-        //rb.AddForce(new Vector3(0, jump_force*3, 0), ForceMode.Impulse);
+        
 
     }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.collider.tag == "ground")
-    //        can_jump = true;
-    //}
+    
     protected virtual void Flip()
     {
         if (isFacingLeft && !isGrabbing)
@@ -381,16 +388,6 @@ public class Movement : MonoBehaviour
     //    Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
     //}
 
-    private void OnCollisionStay(Collision collision)
-    {
-        foreach(ContactPoint p in collision.contacts)
-        {
-            Vector3 bottom = capsule_collider.bounds.center - (Vector3.up * capsule_collider.bounds.extents.y);
-            Vector3 curve = bottom + (Vector3.up * capsule_collider.radius);
-            Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
-            Vector3 dir = curve - p.point;
-            
-        }
-    }
+    
 
 }
