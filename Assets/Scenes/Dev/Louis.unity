@@ -339,6 +339,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4661180198934461992, guid: 8da1e62348aa2d94fa7525e691311013,
+        type: 3}
+      propertyPath: breath_speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6036930349275792285, guid: 8da1e62348aa2d94fa7525e691311013,
         type: 3}
       propertyPath: grabbingLedge
@@ -2063,11 +2068,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
+  animationTime: 0.5
   climbingHorizontalOffset: 0
   offsetLedgeClimbing: -0.2
   securityOffsetLedgeClimbing: 0.51
-  ledgeDistance: 0.5
-  animationTime: 0.5
+  ledgeDistanceDetection: 0.5
   grabbingLedge: 0
   climb_up: 0
   let_go: 0
@@ -2094,7 +2099,6 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   isGroundedVerif: 0
   isFacingLeft: 0
-  isJumping: 0
   on_slope_up: 0
   on_slope_down: 0
   too_steep: 0
@@ -2498,6 +2502,67 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &805097610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805097612}
+  - component: {fileID: 805097611}
+  - component: {fileID: 805097613}
+  m_Layer: 0
+  m_Name: Breathing_ambiant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &805097611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805097610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: f4c5ba088f9bc8440b193b779262de27, type: 2}
+--- !u!4 &805097612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805097610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &805097613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805097610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12510071bedebfc44b7f0b6af88456b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &818870441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3366,9 +3431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7623f9432140b4cb875babaacc66f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetGrabbing: 0.37
-  grabbingDistance: 0.96
-  keyGrabbing: 304
 --- !u!1 &931551248
 GameObject:
   m_ObjectHideFlags: 0
