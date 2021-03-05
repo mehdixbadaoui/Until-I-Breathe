@@ -16,9 +16,6 @@ public class FallingPlatform : MonoBehaviour
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<Rigidbody>().isKinematic = false;
 
-            yield return new WaitForSeconds(5);
-            Destroy(gameObject);
-
         }
 
     }
