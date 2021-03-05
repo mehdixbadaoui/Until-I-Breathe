@@ -9,30 +9,42 @@ public class Movement : MonoBehaviour
     public float grapplinSpeed = 1;
     float horizontal_movement;
 
+    // Jump and slope
     /*[HideInInspector]*/ public float jump_force = .5f;
     public float jump_force_flat = .5f;
     public float jump_force_slope_up = .5f;
     public float jump_force_slope_down = .5f;
-    public static bool isGrounded = false;
-    public bool isGroundedVerif; 
-    public static bool isGrapplin = false;
     public static float distToHook;
+    public float velocityMaxJump = 3;
+    public float horizontalVelocityMax = 10;
 
     private bool isFlying = false;
 
 
     float vertical_movement;
     private Vector3 lastInput;
-    private Vector3 lastInputJumping; 
+    private Vector3 lastInputJumping;
+    private Vector3 lastVelocityJumping;
 
     public Vector3 direction;
 
     Rigidbody rb;
     [HideInInspector]
+
+    // Bools 
+    public bool isGroundedVerif;
+    public static bool isGrounded = false;
+    public static bool isGrapplin = false;
+    public static bool isGrabbing = false;
+    public static bool isJumping = false;
     public bool isFacingLeft;
-    private Vector3 facingLeft;
-    public bool isJumping;
     private bool isJumpingAftergrapplin;
+    public bool on_slope_up;
+    public bool on_slope_down;
+    private bool collisionWithWall;
+    public bool too_steep;
+
+    private Vector3 facingLeft;
 
     RaycastHit ground_hit;
     CapsuleCollider capsule_collider;
@@ -41,18 +53,13 @@ public class Movement : MonoBehaviour
 
     public float slopeforce;
     [SerializeField] private float slopeforce_val;
-    public bool on_slope_up;
-    public bool on_slope_down;
     Vector3 slope_norm;
-    public bool too_steep;
     public float slope_check_dist;
 
     private Vector3 lastVelocity;
-    public float horizontalVelocityMax = 5;
 
     private int countGround = 0;
 
-    private bool collisionWithWall;
 
     private GameMaster gm;
 
@@ -96,7 +103,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && !isGrapplin)
             GetComponent<CapsuleCollider>().height = 1;
         else
             GetComponent<CapsuleCollider>().height = 1.5f;
@@ -110,7 +117,7 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-
+        // Slope check
         if (on_slope_up || on_slope_down)
         {
             if (on_slope_up)
@@ -119,7 +126,6 @@ public class Movement : MonoBehaviour
             }
             else if (on_slope_down)
             {
-                //slopeforce_val = slopeforce;
                 jump_force = jump_force_slope_down;
 
             }
@@ -136,29 +142,48 @@ public class Movement : MonoBehaviour
             jump_force = jump_force_flat;
         }
 
+        // Lors du passage sur le vent d'un ventilateur
         if (isFlying && !isGrapplin)
         {
-             
+
             isGrounded = false;
             isJumping = false;
             isJumpingAftergrapplin = false;
 
-            transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+            rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
+            //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
 
         }
 
+        // Walk on the ground
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
-            
-            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+
+            //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+            //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed*30);
+            rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
+
             isJumping = false;
             isJumpingAftergrapplin = false;
-            lastInputJumping = new Vector3(0f, 0f, horizontal_movement); 
+            lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+        }
+
+        // Walk on the ground
+        if (isGrounded && isGrapplin /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+        {
+
+            //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+            //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed*30);
+            rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
+
+            isJumping = false;
+            isJumpingAftergrapplin = false;
+            lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
         }
 
 
-        //Add force if isgrapplin because Translate isnt workinbg with spring joint
-        if (isGrapplin )
+        // Add force if isgrapplin because Translate isnt workinbg with spring joint
+        if (isGrapplin && !isGrounded)
         {
             isJumping = false;
             isJumpingAftergrapplin = false;
@@ -186,69 +211,70 @@ public class Movement : MonoBehaviour
                     }
                 }
                 //If we are pushing against the movement of the swing we slow the movement
-                else if ( rb.velocity.z * horizontal_movement < 0 )
+                else if (rb.velocity.z * horizontal_movement < 0)
                 {
-                    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f );
+                    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f);
                 }
             }
         }
 
-
-        if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying) )
+        // Lors d'un saut depuis le sol
+        if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
         {
-            
 
-            if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
+            // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
+            if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
+
+                //Code for Jumping
+                if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
+                {
+
+                    // Air control when we jump 
+                    if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
+                    {
+                        //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+                        rb.velocity += new Vector3(0, 0, (-Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
+
+                    }
+                    // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
+                    else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0)
+                    {
+                        rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
+                    }
+                    else if ((lastVelocityJumping.z == 0 || lastInputJumping.z == 0))
+                    {
+                        rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
+                    }
+                }
+
+            // Lors d'un saut apres grappin
+            if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0)
             {
                 transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-
-
             }
-            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized)
+
+            else if (isJumpingAftergrapplin)
             {
-                transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
+                rb.AddForce(new Vector3(0f, 0f, rb.velocity.z * 0.8f) * speed);
             }
-        }
-
-        if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0 )
-        {
-            transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-            //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
-        }
-
-        else if(isJumpingAftergrapplin)
-        {
-            rb.AddForce( new Vector3(0f, 0f, rb.velocity.z *0.8f) * speed );
-        }
-
-        //if(collisionWithWall)
-        //{
-        //    rb.velocity = new Vector3(0f, 0f, 0f);
-        //}
-
-            
-        
-        if (horizontal_movement != 0)
-        {
-
-            if (horizontal_movement > 0 && isFacingLeft)
+            //Checking if we need to flip our character
+            if (horizontal_movement != 0)
             {
-                isFacingLeft = false;
-                Flip();
+
+                if (horizontal_movement > 0 && isFacingLeft)
+                {
+                    isFacingLeft = false;
+                    Flip();
+                }
+                if (horizontal_movement < 0 && !isFacingLeft)
+                {
+                    isFacingLeft = true;
+                    Flip();
+                }
             }
-            if (horizontal_movement < 0 && !isFacingLeft)
-            {
-                isFacingLeft = true;
-                Flip();
-            }
+
+            lastVelocity = rb.velocity;
         }
-
-        lastVelocity = rb.velocity;
-
-        //Debug.Log(isJumping);
-
-
-
     }
 
     void Jump()
@@ -257,6 +283,7 @@ public class Movement : MonoBehaviour
         isGrounded = false;
         isJumping = true;
         lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+        lastVelocityJumping = rb.velocity;
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
         
     }
@@ -267,32 +294,27 @@ public class Movement : MonoBehaviour
         isGrounded = false;
         isJumpingAftergrapplin = true;
 
-        // Debug.Log("jump after grapplin");
-
-        // Debug.Log(rb.velocity.z);
+        
         if (rb.velocity.z > horizontalVelocityMax)
-            rb.velocity = new Vector3(rb.velocity.x, 0, horizontalVelocityMax);
+            rb.velocity = new Vector3(0, rb.velocity.y, horizontalVelocityMax);
         if (rb.velocity.z < -horizontalVelocityMax)
-            rb.velocity = new Vector3(rb.velocity.x, 0, -horizontalVelocityMax);
+            rb.velocity = new Vector3(0, rb.velocity.y, -horizontalVelocityMax);
         // Debug.Log(rb.velocity.z);
+        
+        if (rb.velocity.y> velocityMaxJump)
+            rb.velocity = new Vector3(rb.velocity.x, velocityMaxJump, rb.velocity.z);
 
         lastInputJumping = new Vector3(0f, 0f, rb.velocity.z);
-        //rb.AddForce(new Vector3(0, jump_force*3, 0), ForceMode.Impulse);
-
     }
 
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.collider.tag == "ground")
-    //        can_jump = true;
-    //}
+    
     protected virtual void Flip()
     {
-        if (isFacingLeft)
+        if (isFacingLeft && !isGrabbing)
         {
             transform.localScale = facingLeft;
         }
-        if (!isFacingLeft)
+        if (!isFacingLeft && !isGrabbing)
         {
             transform.localScale = new Vector3(1, transform.localScale.y, -transform.localScale.z);
         }
@@ -307,6 +329,7 @@ public class Movement : MonoBehaviour
         isGrounded = (Physics.Raycast(capsule_collider.bounds.center + transform.forward * .2f, Vector3.down, out front, capsule_collider.height / 2 + ground_dist)
                     || Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist)
                     || Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out middle, capsule_collider.height / 2 + ground_dist));
+
 
     }
 
@@ -348,16 +371,6 @@ public class Movement : MonoBehaviour
     //    Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
     //}
 
-    private void OnCollisionStay(Collision collision)
-    {
-        foreach(ContactPoint p in collision.contacts)
-        {
-            Vector3 bottom = capsule_collider.bounds.center - (Vector3.up * capsule_collider.bounds.extents.y);
-            Vector3 curve = bottom + (Vector3.up * capsule_collider.radius);
-            Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
-            Vector3 dir = curve - p.point;
-            
-        }
-    }
+    
 
 }

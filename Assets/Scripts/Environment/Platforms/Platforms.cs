@@ -24,14 +24,16 @@ public class Platforms : MonoBehaviour
     float journeyLength;
     bool playerOn = false;
     bool firstTimeOn;
+    private CapsuleCollider col; 
 
     [HideInInspector]
     public bool isWaiting;
 
     void Start()
     {
-        PlatformLauncherScript = PlatformLauncherGO.GetComponent<PlatformsLauncher>();
 
+        PlatformLauncherScript = PlatformLauncherGO.GetComponent<PlatformsLauncher>();
+        col = GetComponent<CapsuleCollider>();
         departTarget = startPoint;
         destinationTarget = endPoint;
 
@@ -87,7 +89,7 @@ public class Platforms : MonoBehaviour
             destinationTarget = startPoint;
         }
     }
-
+    
     IEnumerator changeDelay()
     {
         yield return new WaitForSeconds(changeDirectionDelay);
@@ -100,17 +102,20 @@ public class Platforms : MonoBehaviour
     // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "uni" && !playerOn)
+        if ((other.tag == "uni" ) && !playerOn )
         {
+            other.isTrigger = false; 
             playerOn = true;
             playerParent.transform.parent = transform;
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "uni" && playerOn)
+        if ((other.tag == "uni" ) && playerOn && !other.isTrigger)
         {
+            
             playerOn = false;
             playerParent.transform.parent = null;
         }

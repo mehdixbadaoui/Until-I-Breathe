@@ -15,13 +15,12 @@ public class enter_room : MonoBehaviour
         if(facade)
             rends = facade.GetComponentsInChildren<Renderer>();
 
-        breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
-
     }
     void OnTriggerStay(Collider col)
     {
-        if (col.tag == "uni")
+        if (col.CompareTag("uni"))
         {
+            //FADE THE FRONT WALL
             if (facade)
             {
                 foreach (Renderer rend  in rends)
@@ -37,16 +36,13 @@ public class enter_room : MonoBehaviour
 
             }
 
-            breathing_mechanic.breath = breathing_mechanic.max_breath;
-            breathing_mechanic.can_breath = true;
-
         }
         
     }
 
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == "uni")
+        if (col.CompareTag("uni"))
         {
             if (facade)
             {
@@ -60,8 +56,6 @@ public class enter_room : MonoBehaviour
                 }
             }
         }
-
-        breathing_mechanic.can_breath = false;
     }
 
 
