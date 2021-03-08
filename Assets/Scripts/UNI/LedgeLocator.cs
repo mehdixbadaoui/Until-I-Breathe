@@ -84,7 +84,7 @@ public class LedgeLocator : MonoBehaviour
         {
             // Initialisation of topOfPlayer Raycast and Security Raycast
             topOfPlayer = new Vector3(transform.position.x, col.bounds.max.y + offsetLedgeClimbing, transform.position.z);
-            securityRayForClimbing = new Vector3(0, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
+            securityRayForClimbing = new Vector3(transform.position.x, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
             RaycastHit hit;
             RaycastHit hitSecurity;
 
