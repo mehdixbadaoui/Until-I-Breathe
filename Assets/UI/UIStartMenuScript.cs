@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class UIStartMenuScript : MonoBehaviour
 {
-    public enum Enum { Continue, NewGame, Settings, Credits, Quit };
+    public enum StartButtons { Continue, NewGame, Settings, Credits, Quit };
     [Serializable]
     public struct ButtonAndEnum
     {
-        public Enum Enum;
+        public StartButtons Enum;
         public UnityEngine.UI.Button Button;
     }
-
     public List<ButtonAndEnum> Buttons;
 
     public Color BaseColor;
@@ -39,19 +38,19 @@ public class UIStartMenuScript : MonoBehaviour
         
     }
 
-    private UnityEngine.Events.UnityAction GetAction(Enum e)
+    private UnityEngine.Events.UnityAction GetAction(StartButtons e)
     {
         switch(e)
         {
-            case Enum.Continue:
+            case StartButtons.Continue:
                 return Continue;
-            case Enum.NewGame:
+            case StartButtons.NewGame:
                 return NewGame;
-            case Enum.Settings:
+            case StartButtons.Settings:
                 return Settings;
-            case Enum.Credits:
+            case StartButtons.Credits:
                 return Credits;
-            case Enum.Quit:
+            case StartButtons.Quit:
                 return Quit;
         }
 
@@ -72,23 +71,23 @@ public class UIStartMenuScript : MonoBehaviour
         highlightedGO = go;
     }
 
-    public void Continue()
+    private void Continue()
     {
         Debug.Log("Continue");
     }
-    public void NewGame()
+    private void NewGame()
     {
         Debug.Log("NewGame");
     }
-    public void Settings()
+    private void Settings()
     {
         Debug.Log("Settings");
     }
-    public void Credits()
+    private void Credits()
     {
         Debug.Log("Credits");
     }
-    public void Quit()
+    private void Quit()
     {
         Debug.Log("Quit");
     }
