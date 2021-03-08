@@ -435,7 +435,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fed71884-8e61-4757-88b0-8717d43d4304"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": ""Press(pressPoint=1)"",
                     ""processors"": """",
                     ""groups"": """",
@@ -445,9 +445,31 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""762e0665-6900-4a17-b621-244c51fc5310"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextHook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""216ce447-bb36-4555-9864-cb2668dbc66f"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": ""Press(pressPoint=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrevHook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f73f5e55-ad4e-4af5-89bc-5a5088275864"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PrevHook"",
