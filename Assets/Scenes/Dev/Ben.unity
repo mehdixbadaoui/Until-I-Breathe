@@ -2483,7 +2483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630465418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.9, y: 9.79, z: 0}
+  m_LocalPosition: {x: -30.9, y: 10.61, z: 0}
   m_LocalScale: {x: 10.656312, y: 0.63567, z: 4.06035}
   m_Children:
   - {fileID: 1832115704}
@@ -3128,11 +3128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
+  animationTime: 0.5
   climbingHorizontalOffset: 0.4
   offsetLedgeClimbing: -0.5
   securityOffsetLedgeClimbing: 0.51
-  ledgeDistance: 0.5
-  animationTime: 0.5
+  ledgeDistanceDetection: 0.5
   grabbingLedge: 0
   climb_up: 0
   let_go: 0
@@ -3865,7 +3865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370794146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 3.95, z: 14.89}
+  m_LocalPosition: {x: -0.3, y: 10.9, z: 65.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3932,6 +3932,52 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.12
   m_Center: {x: 0, y: 0.72, z: 0}
+--- !u!1 &1474460148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1874890932729001877, guid: 820b21734b2511e4081960f07f4de077,
+    type: 3}
+  m_PrefabInstance: {fileID: 1499552903}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1474460150}
+  - component: {fileID: 1474460149}
+  m_Layer: 0
+  m_Name: Game Master
+  m_TagString: GM
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1474460149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1874890932729001876, guid: 820b21734b2511e4081960f07f4de077,
+    type: 3}
+  m_PrefabInstance: {fileID: 1499552903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474460148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d6c886f11c21a438370c8ac849f3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1474460150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1874890932729001879, guid: 820b21734b2511e4081960f07f4de077,
+    type: 3}
+  m_PrefabInstance: {fileID: 1499552903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474460148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1499552903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4796,18 +4842,18 @@ MonoBehaviour:
   jump_force_flat: 0.5
   jump_force_slope_up: 0.5
   jump_force_slope_down: 0.5
-  isGroundedVerif: 0
+  velocityMaxJump: 3
+  horizontalVelocityMax: 5
   direction: {x: 0, y: 0, z: 0}
+  isGroundedVerif: 0
   isFacingLeft: 0
-  isJumping: 0
-  ground_dist: 0.3
-  slopeforce: 0
-  slopeforce_val: 0
   on_slope_up: 0
   on_slope_down: 0
   too_steep: 0
+  ground_dist: 0.3
+  slopeforce: 0
+  slopeforce_val: 0
   slope_check_dist: 0
-  horizontalVelocityMax: 5
 --- !u!114 &1702241120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4821,11 +4867,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
+  animationTime: 0.5
   climbingHorizontalOffset: 0
   offsetLedgeClimbing: -0.2
   securityOffsetLedgeClimbing: 0.51
-  ledgeDistance: 0.2
-  animationTime: 0.5
+  ledgeDistanceDetection: 0.5
   grabbingLedge: 0
   climb_up: 0
   let_go: 0
@@ -5390,11 +5436,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
+  animationTime: 0.5
   climbingHorizontalOffset: 0
   offsetLedgeClimbing: -0.2
   securityOffsetLedgeClimbing: 0.51
-  ledgeDistance: 0.2
-  animationTime: 0.5
+  ledgeDistanceDetection: 0.5
   grabbingLedge: 0
   climb_up: 0
   let_go: 0
@@ -5418,12 +5464,12 @@ PrefabInstance:
     - target: {fileID: 1721610905762890390, guid: 268f235992df17141b5d9319188e9fa3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.95
+      value: 10.9
       objectReference: {fileID: 0}
     - target: {fileID: 1721610905762890390, guid: 268f235992df17141b5d9319188e9fa3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.89
+      value: 65.2
       objectReference: {fileID: 0}
     - target: {fileID: 1721610905762890390, guid: 268f235992df17141b5d9319188e9fa3,
         type: 3}

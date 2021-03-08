@@ -18,7 +18,7 @@ public class BreathingColor : MonoBehaviour
     private ChromaticAberration chrom;
     private ColorAdjustments colorAdjust;
     private FilmGrain grain;
-    private ColorCurves colorCurve;
+    private WhiteBalance whitebalance;
 
     public int step1 = 75;
     public int step2 = 50;
@@ -66,10 +66,10 @@ public class BreathingColor : MonoBehaviour
             grain = tmpgrain;
         }
 
-        ColorCurves tmpcolorCurve;
-        if (vol.profile.TryGet<ColorCurves>(out tmpcolorCurve))
+        WhiteBalance tmpwhitebalance;
+        if (vol.profile.TryGet<WhiteBalance>(out tmpwhitebalance))
         {
-            colorCurve = tmpcolorCurve;
+            whitebalance = tmpwhitebalance;
         }
 
     }
@@ -79,28 +79,32 @@ public class BreathingColor : MonoBehaviour
     {
         if (bm.breath< step1 && bm.breath>=0)
         {
-            if (chrom)
-                chrom.intensity.value = Mathf.Abs(bm.breath - step1) / step1;
+            if (chrom && bm.breath > step2 - 10)
+                chrom.intensity.value = ( Mathf.Abs(bm.breath - step1) / step1 ) * 10;
 
             if (bm.breath < step2)
             {
 
-                if (vig)
-                    vig.intensity.value = (Mathf.Abs(bm.breath - step2) / step2) * 0.5f;
+                if (vig && bm.breath > step2 - 10)
+                    vig.intensity.value = (Mathf.Abs(bm.breath - step2) / step2) * 10 * 0.25f;
 
                 if (bm.breath < step3)
                 {
 
-                    if (colorAdjust)
-                        colorAdjust.saturation.value = (bm.breath*100/step3) - 100;
 
-                    if (grain)
-                        grain.intensity.value = Mathf.Abs(bm.breath - step3) / step3;
+                    if (grain && bm.breath > step3 - 10)
+                        grain.intensity.value = (Mathf.Abs(bm.breath - step3) / step3) * 10;
 
-                    if (bm.breath < step4)
+                    if (whitebalance && bm.breath > step3 - 10)
                     {
+                        whitebalance.temperature.value = ( Mathf.Abs(bm.breath - step3) / step3 ) * 100 * 10;
+                        whitebalance.tint.value = (Mathf.Abs(bm.breath - step3) / step3) * 100 * 10;
+                    }
 
-                        colorCurve.active = true;
+                    if (bm.breath < step4 )
+                    {
+                        if (colorAdjust)
+                            colorAdjust.saturation.value = (bm.breath * 100 / step4) - 100;
                     }
 
                 }
@@ -122,7 +126,11 @@ public class BreathingColor : MonoBehaviour
             if (grain)
                 grain.intensity.value = 0;
 
-            colorCurve.active = false;
+            if (whitebalance)
+            {
+                whitebalance.temperature.value = 0;
+                whitebalance.tint.value = 0;
+            }
         }
 
 

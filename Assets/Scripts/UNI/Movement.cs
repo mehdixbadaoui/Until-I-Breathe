@@ -104,9 +104,17 @@ public class Movement : MonoBehaviour
 
 
         if (Input.GetKey(KeyCode.S) && !isGrapplin)
-            GetComponent<CapsuleCollider>().height = 1;
+        {
+            capsule_collider.height = 1;
+            capsule_collider.center = new Vector3(0, 0.5f, 0.06f);   
+        }
+            
         else
-            GetComponent<CapsuleCollider>().height = 1.5f;
+        {
+            capsule_collider.height = 1.5f;
+            capsule_collider.center = new Vector3(0, 0.75f, 0.06f);
+        }
+            
 
 
     }
