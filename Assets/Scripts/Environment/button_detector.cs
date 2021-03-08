@@ -26,7 +26,6 @@ public class button_detector : MonoBehaviour
         detection_radius = sphereCollider.radius;
         if (Input.GetKeyDown(PushButtonKey) && isButtonActive)
         {
-            Debug.Log("ca touche ici");
             for(int i =0; i < rbCaisses.Length; i++)
             {
                 rbCaisses[i].isKinematic = false; 
@@ -40,12 +39,12 @@ public class button_detector : MonoBehaviour
         
         if (other.tag == "uni")
         {
-            //Debug.Log("c'est  uni brooooo");
+            
             isButtonActive = true; 
         }
         else
         {
-            //Debug.Log("c'est PAS uni brooooo");
+            //isButtonActive = false;
         }
     }
     private void OnTriggerExit(Collider other)
