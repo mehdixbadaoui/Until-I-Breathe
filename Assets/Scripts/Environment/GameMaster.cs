@@ -14,6 +14,11 @@ public class GameMaster : MonoBehaviour
     private List<string> letterList;
     private int indexForLetter;
 
+
+    // Beathing mecanic
+    private Breathing_mechanic bm;
+
+
     // Set and get of the last checkoint position
     public Vector3 LastCheckPointPos
     {
@@ -26,6 +31,7 @@ public class GameMaster : MonoBehaviour
     {
         //Initialization for the Uni's letter
         InitializationLetter();
+
         //To check if the gameMaster doesn't exist for the moment
         if (instance == null)
         {
@@ -37,17 +43,29 @@ public class GameMaster : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //Find the first character GameObject
+        // Find the first character GameObject
         uni = GameObject.FindGameObjectWithTag("uni");
 
-        
+        // Initialize the last checkpoint if she dies
+        lastCheckPointPos = uni.transform.position;
+
+        // Get uni Breathing Mecanic
+        bm = uni.GetComponent<Breathing_mechanic>();
+
+
+
+
     }
 
     // If Uni die
     public void Die()
     {
         uni.transform.position = lastCheckPointPos;
+        uni.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        bm.breath = 100;
     }
+
+
     void InitializationLetter()
     {
         //Initialization of a list (length = 9 because we have to find 9 letters) 
