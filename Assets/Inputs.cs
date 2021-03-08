@@ -121,6 +121,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PressButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""f9fabe22-2bd3-4166-b147-5814c136d516"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -508,6 +516,28 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""Die"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""826735e1-6b1a-4874-a8ab-cc33d4e88f5a"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PressButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ebdc5c42-c2b6-45c2-a32c-61ba997a04e6"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PressButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -529,6 +559,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Uni_NextHook = m_Uni.FindAction("NextHook", throwIfNotFound: true);
         m_Uni_PrevHook = m_Uni.FindAction("PrevHook", throwIfNotFound: true);
         m_Uni_Die = m_Uni.FindAction("Die", throwIfNotFound: true);
+        m_Uni_PressButton = m_Uni.FindAction("PressButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -591,6 +622,7 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Uni_NextHook;
     private readonly InputAction m_Uni_PrevHook;
     private readonly InputAction m_Uni_Die;
+    private readonly InputAction m_Uni_PressButton;
     public struct UniActions
     {
         private @Inputs m_Wrapper;
@@ -608,6 +640,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @NextHook => m_Wrapper.m_Uni_NextHook;
         public InputAction @PrevHook => m_Wrapper.m_Uni_PrevHook;
         public InputAction @Die => m_Wrapper.m_Uni_Die;
+        public InputAction @PressButton => m_Wrapper.m_Uni_PressButton;
         public InputActionMap Get() { return m_Wrapper.m_Uni; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -656,6 +689,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Die.started -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
                 @Die.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
                 @Die.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
+                @PressButton.started -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
+                @PressButton.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
+                @PressButton.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
             }
             m_Wrapper.m_UniActionsCallbackInterface = instance;
             if (instance != null)
@@ -699,6 +735,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Die.started += instance.OnDie;
                 @Die.performed += instance.OnDie;
                 @Die.canceled += instance.OnDie;
+                @PressButton.started += instance.OnPressButton;
+                @PressButton.performed += instance.OnPressButton;
+                @PressButton.canceled += instance.OnPressButton;
             }
         }
     }
@@ -718,5 +757,6 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnNextHook(InputAction.CallbackContext context);
         void OnPrevHook(InputAction.CallbackContext context);
         void OnDie(InputAction.CallbackContext context);
+        void OnPressButton(InputAction.CallbackContext context);
     }
 }
