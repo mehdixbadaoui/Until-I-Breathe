@@ -5,6 +5,8 @@ using System;
 
 public class Movement : MonoBehaviour
 {
+    private Inputs inputs;
+
     public float speed = .2f;
     public float grapplinSpeed = 1;
     float horizontal_movement;
@@ -20,6 +22,7 @@ public class Movement : MonoBehaviour
 
     private bool isFlying = false;
 
+    private bool isCrouching = false;
 
     float vertical_movement;
     private Vector3 lastInput;
@@ -70,6 +73,19 @@ public class Movement : MonoBehaviour
         set { isFlying = value; }  // set method
     }
 
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -79,36 +95,56 @@ public class Movement : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
 
         capsule_collider = GetComponent<CapsuleCollider>();
+
+        //INPUTS
+        //inputs.Uni.Jump.performed += ctx => Jump();
+        //inputs.Uni.Crouch.performed += ctx => Crouch();
+        inputs.Uni.Die.performed += ctx => gm.Die();
     }
+
+
+    void Crouch()
+    {
+        if (!isCrouching)
+        {
+            capsule_collider.height = 1;
+            isCrouching = true;
+
+        }
+        else
+        {
+            capsule_collider.height = 1.5f;
+            isCrouching = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        isGroundedVerif = isGrounded; 
-        horizontal_movement = Input.GetAxis("Horizontal");
-        vertical_movement = Input.GetAxisRaw("Vertical");
+        horizontal_movement = inputs.Uni.Walk.ReadValue<float>();
 
-
-        //horizontal_movement = Input.GetAxisRaw("Horizontal");
- 
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && countGround > 5)
+        //JUMPING
+        if (Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()) && isGrounded && countGround > 5)
         {
             Jump();
         }
 
-
-        if (Input.GetKeyDown(KeyCode.P) && isGrounded && countGround > 5)
+        //CROUCHING
+        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin)
         {
-            gm.Die();
+            capsule_collider.height = 1;
+
+        }
+        else
+        {
+            capsule_collider.height = 1.5f;
+
         }
 
-
-        if (Input.GetKey(KeyCode.S) && !isGrapplin)
-            GetComponent<CapsuleCollider>().height = 1;
-        else
-            GetComponent<CapsuleCollider>().height = 1.5f;
-
-
+        //if (Input.GetKeyDown(KeyCode.P) && isGrounded && countGround > 5)
+        //{
+        //    gm.Die();
+        //}
     }
 
     private void FixedUpdate()
@@ -218,63 +254,61 @@ public class Movement : MonoBehaviour
             }
         }
 
-        // Lors d'un saut depuis le sol
+        // // Lors d'un saut depuis le sol
+        // if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
+        // {
+
+        //     // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
+        //     if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
+
+        //Code for Jumping
         if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
         {
-
             // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
-
-                //Code for Jumping
-                if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
-                {
-
-                    // Air control when we jump 
-                    if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized /*&& isJumping*/)
-                    {
-                        //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-                        rb.velocity += new Vector3(0, 0, (-Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
-
-                    }
-                    // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
-                    else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0)
-                    {
-                        rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
-                    }
-                    else if ((lastVelocityJumping.z == 0 || lastInputJumping.z == 0))
-                    {
-                        rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
-                    }
-                }
-
-            // Lors d'un saut apres grappin
-            if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0)
             {
-                transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-            }
+                //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+                rb.velocity += new Vector3(0, 0, (-Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
 
-            else if (isJumpingAftergrapplin)
+            }
+            // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
+            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0)
             {
-                rb.AddForce(new Vector3(0f, 0f, rb.velocity.z * 0.8f) * speed);
+                rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
             }
-            //Checking if we need to flip our character
-            if (horizontal_movement != 0)
+            else if ((lastVelocityJumping.z == 0 || lastInputJumping.z == 0))
             {
-
-                if (horizontal_movement > 0 && isFacingLeft)
-                {
-                    isFacingLeft = false;
-                    Flip();
-                }
-                if (horizontal_movement < 0 && !isFacingLeft)
-                {
-                    isFacingLeft = true;
-                    Flip();
-                }
+                rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
             }
-
-            lastVelocity = rb.velocity;
         }
+
+        // Lors d'un saut apres grappin
+        if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0)
+        {
+            transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+        }
+
+        else if (isJumpingAftergrapplin)
+        {
+            rb.AddForce(new Vector3(0f, 0f, rb.velocity.z * 0.8f) * speed);
+        }
+        //Checking if we need to flip our character
+        if (horizontal_movement != 0)
+        {
+
+            if (horizontal_movement > 0 && isFacingLeft)
+            {
+                isFacingLeft = false;
+                Flip();
+            }
+            if (horizontal_movement < 0 && !isFacingLeft)
+            {
+                isFacingLeft = true;
+                Flip();
+            }
+        }
+
+        lastVelocity = rb.velocity;
     }
 
     void Jump()
