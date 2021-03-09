@@ -290,8 +290,8 @@ public class GrapplingHook : MonoBehaviour
 			attachHook = false;
 			changeHook = true;
 			CutRope();
-			//movements.JumpAfterGrapplin();
-		}
+            movements.JumpAfterGrapplin();
+        }
 
 
 
