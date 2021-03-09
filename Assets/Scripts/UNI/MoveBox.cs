@@ -78,7 +78,7 @@ public class MoveBox : MonoBehaviour
         if (grabbing && (!Input.GetKey(keyGrabbing) || !Movement.isGrounded))
         {
             grabbing = false;
-            Movement.isGrabbing = true;
+            Movement.isGrabbing = false;
             box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             box.GetComponent<Rigidbody>().isKinematic = true;
         }
