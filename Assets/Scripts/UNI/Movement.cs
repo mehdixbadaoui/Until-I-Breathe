@@ -46,6 +46,7 @@ public class Movement : MonoBehaviour
     public bool on_slope_down;
     private bool collisionWithWall;
     public bool too_steep;
+    private bool canJump;
 
     private Vector3 facingLeft;
 
@@ -62,7 +63,7 @@ public class Movement : MonoBehaviour
     private Vector3 lastVelocity;
 
     private int countGround = 0;
-
+    
 
     private GameMaster gm;
 
@@ -124,13 +125,18 @@ public class Movement : MonoBehaviour
         horizontal_movement = inputs.Uni.Walk.ReadValue<float>();
 
         //JUMPING
-        if (Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()) && isGrounded && countGround > 5)
+        if (inputs.Uni.Jump.ReadValue<float>() == 1 && isGrounded && countGround > 5 && canJump)
         {
+            canJump = false;
             Jump();
         }
+        else if (inputs.Uni.Jump.ReadValue<float>() == 0 )
+        {
+            canJump = true;
+        }
 
-        //CROUCHING
-        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin)
+            //CROUCHING
+            if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin)
         {
             capsule_collider.height = 1;
 
@@ -197,9 +203,8 @@ public class Movement : MonoBehaviour
         if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
 
-            //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
-            //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed*30);
-            rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
+            transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+            //rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
 
             isJumping = false;
             isJumpingAftergrapplin = false;

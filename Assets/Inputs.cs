@@ -24,7 +24,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""e3b81631-2f31-4094-8d5a-ddec16118a01"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
                 },
                 {
                     ""name"": ""Walk"",
