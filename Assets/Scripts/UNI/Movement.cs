@@ -276,6 +276,7 @@ public class Movement : MonoBehaviour
         {
             if (lastInputJumping == Vector3.zero)
             {
+                Debug.Log("lastInputJumping changed");
                 lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
                 lastVelocityJumping = rb.velocity;
             }
