@@ -12,10 +12,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LedgeLocator : MonoBehaviour
 {
-    //Animation
+    private Inputs inputs;
+
     public AnimationClip clip;
     public float animationTime = .5f;
     private Animator anim;
@@ -47,7 +49,20 @@ public class LedgeLocator : MonoBehaviour
     public KeyCode let_go;
     private KeyCode horizontalArrow;
 
-  
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
+
     private void Start()
     {
         
@@ -135,8 +150,8 @@ public class LedgeLocator : MonoBehaviour
         {
             horizontalArrow = KeyCode.Q;
         }
-        //Climb the ledge 
-        if (grabbingLedge && ( Input.GetKey(climb_up) ||Input.GetKey(horizontalArrow) || Input.GetKeyDown(KeyCode.Space)) && ledge!= null)
+
+        if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() != 0 || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()))  && ledge!= null)
         {
             //anim.SetBool("LedgeHanging", false);
             if(transform.localScale.z > 0)
@@ -153,8 +168,7 @@ public class LedgeLocator : MonoBehaviour
 
            
         }
-        //Let go the ledge 
-        if (grabbingLedge && Input.GetKey(let_go))
+        if (grabbingLedge && Convert.ToBoolean(inputs.Uni.Let_Go.ReadValue<float>()))
         {
             ledge = null;
             moved = false;

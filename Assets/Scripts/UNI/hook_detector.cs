@@ -2,26 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.InputSystem;
 
 public class hook_detector : MonoBehaviour
 {
-    public GameObject nearest_hook;
-    public GameObject player;
+    private Inputs inputs;
+
+    [HideInInspector] public GameObject nearest_hook;
+    private GameObject player;
     public List<GameObject> all_hooks;
 
-    public bool nearHook = false;
+    [HideInInspector] public bool nearHook = false;
 
     //HINTS & DEAD ROBOTS
-    public bool nearHint = false;
-    public bool nearDead = false;
-    public Transform hintPosition;
-    public Transform deadPosition;
+    [HideInInspector] public bool nearHint = false;
+    [HideInInspector] public bool nearDead = false;
+    [HideInInspector] public Transform hintPosition;
+    [HideInInspector] public Transform deadPosition;
+
+    [SerializeField] private int index = 0;
+
+    public bool gamepad = false;
+
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         all_hooks = new List<GameObject>();
         player = GameObject.FindGameObjectWithTag("uni");
+
+        inputs.Uni.NextHook.performed += ctx => NextIndex();
+        inputs.Uni.PrevHook.performed += ctx => PrevIndex();
     }
 
     // Update is called once per frame
@@ -29,11 +53,13 @@ public class hook_detector : MonoBehaviour
     {
         if (all_hooks.Count != 0)
         {
-            //CHOOSE THE NEAREST HOOK TO THE PLAYER
-            //nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint((o.transform.position), Camera.main.WorldToScreenPoint(Input.mousePosition))).ToList()[0];
+            //SELECT HOOK WITH GAMEPAD
+            if (gamepad)
+                nearest_hook = all_hooks[index % all_hooks.Count];
 
             //CHOOSE THE NEAREST HOOK TO THE CURSOR
-            nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Input.mousePosition)).ToList()[0];
+            else
+                nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList()[0];
         }
         else
             nearest_hook = null;
@@ -52,9 +78,27 @@ public class hook_detector : MonoBehaviour
         return nearest_hook;
     }
 
+    void NextIndex()
+    {
+        if (index == all_hooks.Count - 1)
+            index = 0;
+        else
+            index++;
+        //nearest_hook = all_hooks[all_hooks.IndexOf(nearest_hook) + 1];
+    }
+
+    void PrevIndex()
+    {
+        if (index == 0)
+            index += all_hooks.Count;
+        else
+            index--;
+        //nearest_hook = all_hooks[all_hooks.IndexOf(nearest_hook) - 1];
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (!all_hooks.Contains(other.gameObject) && (other.tag == "hook" || other.tag == "movable_hook") || (other.tag == "lever") )
+        if (!all_hooks.Contains(other.gameObject) && (other.tag == "hook" || other.tag == "movable_hook" || other.tag == "lever") )
         {
             all_hooks.Add(other.gameObject);
             nearHook = true;

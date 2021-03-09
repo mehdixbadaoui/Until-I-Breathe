@@ -5,9 +5,6 @@ using UnityEngine;
 public class DeadZone : MonoBehaviour
 {
 
-    // Beathing mecanic
-    private Breathing_mechanic bm;
-
     // Game Manager
     private GameMaster gm;
 
