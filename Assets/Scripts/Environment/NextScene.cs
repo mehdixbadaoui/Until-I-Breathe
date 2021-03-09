@@ -21,33 +21,18 @@ public class NextScene : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void LoadScenes(int s)
     {
-        if (!quit)
-        {
-            //SoundController.PlaySound(soundGame.ButtomClick);
-            //progressBars.gameObject.SetActive(true);
-            background.SetActive(true);
-            //text.gameObject.SetActive(true);
-
-            async = SceneManager.LoadSceneAsync(s);
-            async.allowSceneActivation = true;
-            StartCoroutine(DisplayLoadingScreen());
-        }
+        background.SetActive(true);
+        async = SceneManager.LoadSceneAsync(s);
+        async.allowSceneActivation = true;
+        StartCoroutine(DisplayLoadingScreen());
     }
     IEnumerator DisplayLoadingScreen()
     {
         while (!async.isDone)
         {
             loadProgress = (int)(async.progress * 100);
-            //text.text = "Loading Progress " + loadProgress + "%";
-            //progressBars.size = loadProgress;
             Debug.Log(loadProgress);
             yield return null;
         }

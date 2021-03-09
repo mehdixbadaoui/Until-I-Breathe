@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Breathing_mechanic : MonoBehaviour
 {
+    private Inputs inputs;
+
     public float max_breath;
     public float breath;
     public float breath_speed = 1f;
@@ -18,12 +20,26 @@ public class Breathing_mechanic : MonoBehaviour
 
     public bool can_breath = false;
     public bool hold;
+    public bool exhale;
 
     public KeyCode hold_breath_key;
     public KeyCode exhale_key;
 
     [SerializeField] private GameObject blowObj;
 
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +50,7 @@ public class Breathing_mechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(hold_breath_key))
+        if(inputs.Uni.HoldBreath.ReadValue<float>() != 0)
         {
             hold = true;
             current_hold = hold_speed;
@@ -45,16 +61,25 @@ public class Breathing_mechanic : MonoBehaviour
             current_hold = 1;
         }
 
-        if(Input.GetKey(hold_breath_key) && Input.GetKey(exhale_key) && breath >= (max_breath * min_pourc / 100f))
+        if(inputs.Uni.HoldBreath.ReadValue<float>() != 0 && inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
         {
+            exhale = true;
             current_exhale = exhale_speed;
-            if(blowObj)
-                blowObj.GetComponent<ballon>().incAir(1 * Time.deltaTime);
+            if (blowObj)
+            {
+                if (blowObj.tag == "blowable")
+                    blowObj.GetComponent<ballon>().incAir(1 * Time.deltaTime);
+                else if (blowObj.tag == "fan")
+                    blowObj.GetComponent<Fan>().incAir(1 * Time.deltaTime);
+
+            }
+
 
 
         }
         else
         {
+            exhale = false;
             current_exhale = 1;
         }
 
