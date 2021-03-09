@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 2547859366268433739}
   - component: {fileID: 4661180198934461992}
   - component: {fileID: 6036930349275792285}
+  - component: {fileID: 3794233372498681763}
   m_Layer: 2
   m_Name: UNI
   m_TagString: uni
@@ -618,6 +619,21 @@ MonoBehaviour:
   grabbingLedge: 0
   climb_up: 122
   let_go: 115
+--- !u!114 &3794233372498681763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332228656326764637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdba4736b12e574db8f4bec38c69950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetGrabbing: 0
+  grabbingDistance: 0.5
+  keyGrabbing: 304
 --- !u!1 &1391016007226692868
 GameObject:
   m_ObjectHideFlags: 0

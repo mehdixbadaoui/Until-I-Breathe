@@ -7,7 +7,9 @@ public class Breathing_mechanic : MonoBehaviour
 {
     private Inputs inputs;
 
+    [HideInInspector]
     public float max_breath;
+
     public float breath;
     public float breath_speed = 1f;
 

@@ -79,32 +79,32 @@ public class BreathingColor : MonoBehaviour
     {
         if (bm.breath< step1 && bm.breath>=0)
         {
-            if (chrom && bm.breath > step2 - 10)
-                chrom.intensity.value = ( Mathf.Abs(bm.breath - step1) / step1 ) * 10;
+            if (chrom && bm.breath > step2 - (bm.max_breath/10))
+                chrom.intensity.value = ( Mathf.Abs(bm.breath - step1) / step1 ) * (bm.max_breath / 10);
 
             if (bm.breath < step2)
             {
 
-                if (vig && bm.breath > step2 - 10)
-                    vig.intensity.value = (Mathf.Abs(bm.breath - step2) / step2) * 10 * 0.25f;
+                if (vig && bm.breath > step2 - (bm.max_breath / 10))
+                    vig.intensity.value = (Mathf.Abs(bm.breath - step2) / step2) * (bm.max_breath / (bm.max_breath / 10)) * 0.25f;
 
                 if (bm.breath < step3)
                 {
 
 
-                    if (grain && bm.breath > step3 - 10)
-                        grain.intensity.value = (Mathf.Abs(bm.breath - step3) / step3) * 10;
+                    if (grain && bm.breath > step3 - (bm.max_breath / 10))
+                        grain.intensity.value = (Mathf.Abs(bm.breath - step3) / step3) * (bm.max_breath / 10);
 
-                    if (whitebalance && bm.breath > step3 - 10)
+                    if (whitebalance && bm.breath > step3 - (bm.max_breath / 10))
                     {
-                        whitebalance.temperature.value = ( Mathf.Abs(bm.breath - step3) / step3 ) * 100 * 10;
-                        whitebalance.tint.value = (Mathf.Abs(bm.breath - step3) / step3) * 100 * 10;
+                        whitebalance.temperature.value = ( Mathf.Abs(bm.breath - step3) / step3 ) * bm.max_breath * (bm.max_breath / 10);
+                        whitebalance.tint.value = (Mathf.Abs(bm.breath - step3) / step3) * bm.max_breath * (bm.max_breath / (bm.max_breath / 10));
                     }
 
                     if (bm.breath < step4 )
                     {
                         if (colorAdjust)
-                            colorAdjust.saturation.value = (bm.breath * 100 / step4) - 100;
+                            colorAdjust.saturation.value = (bm.breath * bm.max_breath / step4) - bm.max_breath;
                     }
 
                 }

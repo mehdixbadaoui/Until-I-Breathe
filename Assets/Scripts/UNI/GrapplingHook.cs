@@ -290,8 +290,8 @@ public class GrapplingHook : MonoBehaviour
 			attachHook = false;
 			changeHook = true;
 			CutRope();
-			//movements.JumpAfterGrapplin();
-		}
+            movements.JumpAfterGrapplin();
+        }
 
 
 
@@ -447,6 +447,8 @@ public class GrapplingHook : MonoBehaviour
 			Destroy(springJointRB);
 		distToHitPoints.Clear();
 		ropePositions.Clear();
+		// Clear the line Renderer
+		LR.positionCount = 0;
 		LR.enabled = false;
 
 		if (hookObject.tag == "hook")
