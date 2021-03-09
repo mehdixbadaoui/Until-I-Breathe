@@ -29,7 +29,7 @@ public class LedgeLocator : MonoBehaviour
     public float ledgeDistanceDetection = 0.5f; 
 
     // Vector for ledge detection 
-    private Vector3 topOfPlayer;
+    [HideInInspector] public Vector3 topOfPlayer;
     private Vector3 securityRayForClimbing; 
     private GameObject ledge;
   
@@ -48,6 +48,10 @@ public class LedgeLocator : MonoBehaviour
     public KeyCode climb_up;
     public KeyCode let_go;
     private KeyCode horizontalArrow;
+
+    public RaycastHit hit;
+    public RaycastHit hitSecurity;
+
 
     private void Awake()
     {
@@ -100,8 +104,6 @@ public class LedgeLocator : MonoBehaviour
             // Initialisation of topOfPlayer Raycast and Security Raycast
             topOfPlayer = new Vector3(transform.position.x, col.bounds.max.y + offsetLedgeClimbing, transform.position.z);
             securityRayForClimbing = new Vector3(transform.position.x, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
-            RaycastHit hit;
-            RaycastHit hitSecurity;
 
             //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
             if ((!Movement.isGrounded && !Movement.isGrapplin ) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection) /*&& !hit.collider.isTrigger*/)
