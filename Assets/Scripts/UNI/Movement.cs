@@ -104,21 +104,6 @@ public class Movement : MonoBehaviour
     }
 
 
-    void Crouch()
-    {
-        if (!isCrouching)
-        {
-            capsule_collider.height = 1;
-            isCrouching = true;
-
-        }
-        else
-        {
-            capsule_collider.height = 1.5f;
-            isCrouching = false;
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -135,8 +120,8 @@ public class Movement : MonoBehaviour
             canJump = true;
         }
 
-            //CROUCHING
-            if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin)
+        //CROUCHING
+        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin)
         {
             capsule_collider.height = 1;
 
@@ -149,10 +134,7 @@ public class Movement : MonoBehaviour
 
         isGroundedVerif = isGrounded;
 
-        //if (Input.GetKeyDown(KeyCode.P) && isGrounded && countGround > 5)
-        //{
-        //    gm.Die();
-        //}
+
     }
 
     private void FixedUpdate()
@@ -161,7 +143,7 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-        // Slope check
+        #region Slope Behaviour
         if (on_slope_up || on_slope_down)
         {
             if (on_slope_up)
@@ -185,6 +167,9 @@ public class Movement : MonoBehaviour
             rb.drag = .2f;
             jump_force = jump_force_flat;
         }
+        #endregion
+
+        #region passage sur ventilo
 
         // Lors du passage sur le vent d'un ventilateur
         if (isFlying && !isGrapplin)
@@ -198,9 +183,10 @@ public class Movement : MonoBehaviour
             //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
 
         }
+        #endregion
 
         // Walk on the ground
-        if (isGrounded && !isGrapplin && countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+        if (isGrounded && !isGrapplin && canJump) //countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
 
             transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
@@ -217,19 +203,19 @@ public class Movement : MonoBehaviour
         {
 
             //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
-            //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed*30);
+            //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 30);
             rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
 
             isJumping = false;
             isJumpingAftergrapplin = false;
-            lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+            //lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
 
             lastInputJumping = Vector3.zero;
         }
 
 
         // Add force if isgrapplin because Translate isnt workinbg with spring joint
-        if (isGrapplin && !isGrounded)
+        else if (isGrapplin && !isGrounded)
         {
             isJumping = false;
             isJumpingAftergrapplin = false;
@@ -307,6 +293,7 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(new Vector3(0f, 0f, rb.velocity.z * 0.8f) * speed);
         }
+
         //Checking if we need to flip our character
         if (horizontal_movement != 0)
         {
