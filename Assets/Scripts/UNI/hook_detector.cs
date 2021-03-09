@@ -8,7 +8,7 @@ public class hook_detector : MonoBehaviour
 {
     private Inputs inputs;
 
-    [HideInInspector] public GameObject nearest_hook;
+    /*[HideInInspector] */public GameObject nearest_hook;
     private GameObject player;
     public List<GameObject> all_hooks;
 

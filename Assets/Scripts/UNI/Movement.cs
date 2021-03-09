@@ -258,14 +258,16 @@ public class Movement : MonoBehaviour
         //     if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
 
         //Code for Jumping
-        if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
+        if ( isJumping )
         {
-            if (lastInputJumping == Vector3.zero)
+            /*if (lastInputJumping == Vector3.zero)
             {
+                Debug.Log("lastInputJumping changed");
                 lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
                 lastVelocityJumping = rb.velocity;
-            }
-            // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
+            }*/
+
+            // Si on pousse dans le sens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
             {
                 //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
@@ -281,6 +283,10 @@ public class Movement : MonoBehaviour
             {
                 rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
             }
+        }
+        else if (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying)
+        {
+            rb.velocity += new Vector3(0, 0, horizontal_movement);
         }
 
         // Lors d'un saut apres grappin
