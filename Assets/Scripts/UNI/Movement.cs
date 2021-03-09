@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
     public Vector3 direction;
 
     Rigidbody rb;
-    [HideInInspector]
+    //[HideInInspector]
 
     // Bools 
     public bool isGroundedVerif;
@@ -141,6 +141,8 @@ public class Movement : MonoBehaviour
 
         }
 
+        isGroundedVerif = isGrounded;
+
         //if (Input.GetKeyDown(KeyCode.P) && isGrounded && countGround > 5)
         //{
         //    gm.Die();
@@ -201,7 +203,8 @@ public class Movement : MonoBehaviour
 
             isJumping = false;
             isJumpingAftergrapplin = false;
-            lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+
+            lastInputJumping = Vector3.zero;
         }
 
         // Walk on the ground
@@ -215,6 +218,8 @@ public class Movement : MonoBehaviour
             isJumping = false;
             isJumpingAftergrapplin = false;
             lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+
+            lastInputJumping = Vector3.zero;
         }
 
 
@@ -264,6 +269,11 @@ public class Movement : MonoBehaviour
         //Code for Jumping
         if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
         {
+            if (lastInputJumping == Vector3.zero)
+            {
+                lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+                lastVelocityJumping = rb.velocity;
+            }
             // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
             {
