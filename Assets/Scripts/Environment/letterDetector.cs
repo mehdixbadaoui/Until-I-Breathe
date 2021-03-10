@@ -5,7 +5,7 @@ using UnityEngine;
 public class letterDetector : MonoBehaviour
 {
     public SphereCollider sphereCollider;
-    public KeyCode GetLetterKey;
+    public KeyCode getLetterKey = KeyCode.E;
     
     private float detection_radius;
     private bool isLetter;
@@ -29,7 +29,7 @@ public class letterDetector : MonoBehaviour
     {
        
         detection_radius = sphereCollider.radius;
-        if (Input.GetKeyDown(GetLetterKey) && isLetter)
+        if (Input.GetKeyDown(getLetterKey) && isLetter)
         {
             gm.FindLetter();
             DestroyGameObject(); 
