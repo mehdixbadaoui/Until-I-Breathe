@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
     private Vector3 colliderSize;
     public float ground_dist = .3f;
 
+    public float wall_detector_dist = .1f;
     public float slopeforce;
     [SerializeField] private float slopeforce_val;
     Vector3 slope_norm;
@@ -68,6 +69,8 @@ public class Movement : MonoBehaviour
     private GameMaster gm;
 
     private LedgeLocator ledge_locator;
+
+    bool hit;
 
     public bool IsFlying 
     {
@@ -118,7 +121,7 @@ public class Movement : MonoBehaviour
             canJump = false;
             Jump();
         }
-        else if (inputs.Uni.Jump.ReadValue<float>() == 0 )
+        else if (inputs.Uni.Jump.ReadValue<float>() == 0)
         {
             canJump = true;
         }
@@ -137,8 +140,33 @@ public class Movement : MonoBehaviour
 
         isGroundedVerif = isGrounded;
 
-
     }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        ////Check if there has been a hit yet
+        //if (hitt)
+        //{
+        //    Gizmos.DrawSphere(hit.point, 1);
+        //    //Draw a Ray forward from GameObject toward the hit
+        //    Gizmos.DrawRay(capsule_collider.bounds.center, transform.TransformDirection(Vector3.forward * transform.localScale.z) * hit.distance);
+        //    //Draw a cube that extends to where the hit exists
+        //    Gizmos.DrawWireCube(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * hit.distance, transform.lossyScale / 2);
+        //}
+        ////If there hasn't been a hit yet, draw the ray at the maximum distance
+        //else
+        //{
+        //    //Draw a Ray forward from GameObject toward the maximum distance
+        //    Gizmos.DrawRay(capsule_collider.bounds.center, transform.TransformDirection(Vector3.forward * transform.localScale.z) * wall_detector_dist);
+        //    //Draw a cube at the maximum distance
+        //    Gizmos.DrawWireCube(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * wall_detector_dist, transform.lossyScale / 2);
+        //}
+
+        //Gizmos.DrawSphere(capsule_collider.bounds.center, .1f);
+    }
+    
 
     private void FixedUpdate()
     {
@@ -263,6 +291,8 @@ public class Movement : MonoBehaviour
         //Code for Jumping
         if ( isJumping )
         {
+            hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, capsule_collider.height / 2, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, wall_detector_dist);
+
             /*if (lastInputJumping == Vector3.zero)
             {
                 Debug.Log("lastInputJumping changed");
@@ -270,7 +300,6 @@ public class Movement : MonoBehaviour
                 lastVelocityJumping = rb.velocity;
             }*/
 
-            RaycastHit hit;
             // Si on pousse dans le sens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
             {
@@ -279,16 +308,15 @@ public class Movement : MonoBehaviour
 
             }
             // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
-            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0
-                && !Physics.Raycast(capsule_collider.center, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledge_locator.ledgeDistanceDetection))
-            {
-                rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
-            }
-            else if ((lastVelocityJumping.z == 0 || lastInputJumping.z == 0)
-                        && !Physics.Raycast(capsule_collider.center, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledge_locator.ledgeDistanceDetection))
-            {
-                rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
-            }
+            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && !hit)
+                 {
+                    rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
+                 }
+
+            else if (lastVelocityJumping.z == 0 || lastInputJumping.z == 0 && !hit)
+                 {
+                    rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
+                 }
         }
         // Si on tombe juste d'une plateforme
         else if (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying)
