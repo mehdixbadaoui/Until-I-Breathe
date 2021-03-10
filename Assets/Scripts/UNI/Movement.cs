@@ -174,6 +174,8 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
+        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, capsule_collider.height / 2, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, wall_detector_dist);
+
         #region Slope Behaviour
         if (on_slope_up || on_slope_down)
         {
@@ -217,7 +219,7 @@ public class Movement : MonoBehaviour
         #endregion
 
         // Walk on the ground
-        if (isGrounded && !isGrapplin && canJump) //countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+        if (isGrounded && !isGrapplin && canJump && !hit) //countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
 
             //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
@@ -230,7 +232,7 @@ public class Movement : MonoBehaviour
         }
 
         // Walk on the ground
-        if (isGrounded && isGrapplin /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+        if (isGrounded && isGrapplin && !hit/*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
         {
 
             //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
@@ -289,9 +291,8 @@ public class Movement : MonoBehaviour
         //     if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
 
         //Code for Jumping
-        if ( isJumping )
+        if ( isJumping && (!hit || horizontal_movement != transform.TransformDirection(Vector3.forward * transform.localScale.z).z))
         {
-            hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, capsule_collider.height / 2, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, wall_detector_dist);
 
             /*if (lastInputJumping == Vector3.zero)
             {
@@ -308,18 +309,23 @@ public class Movement : MonoBehaviour
 
             }
             // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
-            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && !hit)
+            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 )
                  {
                     rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
                  }
 
-            else if (lastVelocityJumping.z == 0 || lastInputJumping.z == 0 && !hit)
+            else if (lastVelocityJumping.z == 0 || lastInputJumping.z == 0 )
                  {
                     rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
                  }
         }
+        // Si on saute sur un mur la velocite en y reste la même mais pas celle en z
+        else if (hit)
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+        }
         // Si on tombe juste d'une plateforme
-        else if (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying)
+        else if (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying && (!hit || horizontal_movement != transform.TransformDirection(Vector3.forward * transform.localScale.z).z ))
         {
             rb.velocity = new Vector3(rb.velocity.x , rb.velocity.y, horizontal_movement * Math.Min(speed * 60 , Math.Abs(rb.velocity.z + horizontal_movement)));
         }
