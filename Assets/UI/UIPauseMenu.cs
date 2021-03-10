@@ -1,56 +1,125 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UIPauseMenu : MonoBehaviour
 {
-    public Enum Selection {
-        get => _selection;
-        set
-        {
-            if(value != _selection)
-            {
-                UnSelect(_selection);
-                _selection = value;
-                Select(_selection);
-            }
-        }
-    }
-    private Enum _selection;
-
     public enum Enum { Resume, Logs, Save, Settings, Quit }
-    [Serializable]
-    public struct ButtonAndEnum
-    {
-        public Enum Enum;
-        public GameObject GO;
-    }
-    public List<ButtonAndEnum> Buttons;
+    public UIButton ButtonResume;
+    public UIButton ButtonLogs;
+    public UIButton ButtonSave;
+    public UIButton ButtonSettings;
+    public UIButton ButtonQuit;
 
-    // Start is called before the first frame update
+    public KeyCode NextKeyCode;
+    public KeyCode PreviousKeyCode;
+    public KeyCode ValidateKeyCode;
+
+    public RectTransform SelectionTransform;
+
+    public UnityEngine.UI.Text Text;
+
+    // Currently selection button
+    private UIButton selected;
+    private Dictionary<UIButton, UnityAction> dict;
+
     void Start()
     {
+        ChangeSelection(null);
 
+        dict = new Dictionary<UIButton, UnityAction>()
+        {
+            { ButtonResume, Resume },
+            { ButtonLogs, Logs },
+            { ButtonSave, Save },
+            { ButtonSettings, Settings },
+            { ButtonQuit, Quit }
+        };
+
+        InitButtonDict(dict);
     }
 
-    private void Awake()
+    // Relative to button management
+    private void HighlightButton(UIButton button)
     {
+        button.Button.image.color = new Color(1, 0, 0, 1);
+    }
+    private void LowlightButton(UIButton button)
+    {
+        button.Button.image.color = new Color(1, 1, 1, 1);
+    }
+    private void ChangeSelection(UIButton button)
+    {
+        if(selected)
+        {
+            selected.Selected = false;
+            LowlightButton(selected);
+        }
 
+        selected = button;
+
+        if(button)
+        {
+            HighlightButton(button);
+            SelectionTransform.position = button.SelectionTarget.position;
+            Text.text = button.Text;
+        }
+    }
+    private void InitButton(UIButton button, UnityAction action)
+    {
+        button.OnSelection.AddListener(ChangeSelection);
+        button.OnValidation.AddListener(action);
+    }
+    private void InitButtonDict(Dictionary<UIButton, UnityAction> dict)
+    {
+        foreach(KeyValuePair<UIButton, UnityAction> kvp in dict)
+            InitButton(kvp.Key, kvp.Value);
+    }
+    public void SelectionNavigation(int direction)
+    {
+        List<UIButton> list = dict.Keys.ToList();
+        int index = (list.FindIndex(b => b == selected) + direction) % list.Count;
+        if (index < 0)
+            index += list.Count;
+
+        UIButton button = list[index];
+
+        button.Activate();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Set of methods "au hasard"
+    private void Resume()
     {
-        
+        Debug.Log("Resume");
+    }
+    private void Logs()
+    {
+        Debug.Log("Logs");
+    }
+    private void Save()
+    {
+        Debug.Log("Save");
+    }
+    private void Settings()
+    {
+        Debug.Log("Settings");
+    }
+    private void Quit()
+    {
+        Debug.Log("Quit");
     }
 
-    private void Select(Enum e)
+    // le reste
+    private void Update()
     {
-
-    }
-    private void UnSelect(Enum e)
-    {
-
+        if (Input.GetKeyDown(NextKeyCode))
+            SelectionNavigation(1);
+        if (Input.GetKeyDown(PreviousKeyCode))
+            SelectionNavigation(-1);
+        if (Input.GetKeyDown(ValidateKeyCode))
+            selected.Activate();
     }
 }
