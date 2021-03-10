@@ -14,7 +14,7 @@ public class ObjectDetector : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider col)
     {
-        if (col.tag == ("blowable") || col.tag == ("button") || col.tag == ("fan"))
+        if (col.CompareTag(("blowable")) || col.CompareTag(("button")) || col.CompareTag(("fan")))
         {
             FindObjectOfType<Breathing_mechanic>().setBlowObj(col.gameObject);
         }
@@ -24,7 +24,7 @@ public class ObjectDetector : MonoBehaviour
     }
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == ("blowable") || col.tag == ("button"))
+        if (col.CompareTag(("blowable")) || col.CompareTag(("button")) || col.CompareTag(("fan")))
         {
             FindObjectOfType<Breathing_mechanic>().setBlowObj(null);
         }
