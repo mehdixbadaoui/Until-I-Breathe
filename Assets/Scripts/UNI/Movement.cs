@@ -432,10 +432,10 @@ public class Movement : MonoBehaviour
         Gizmos.DrawLine(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
         Gizmos.color = Color.cyan;
         Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
-    */
+    *//*
         Gizmos.color = Color.yellow;
         Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y, transform.position.z);
-        Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(new Vector3(0, 0.5f, 0) * transform.localScale.y));
+        Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(new Vector3(0, 0.5f, 0) * transform.localScale.y));*/
 
 
     }
