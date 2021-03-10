@@ -67,6 +67,7 @@ public class Movement : MonoBehaviour
 
     private GameMaster gm;
 
+    private LedgeLocator ledge_locator;
 
     public bool IsFlying 
     {
@@ -94,6 +95,7 @@ public class Movement : MonoBehaviour
         facingLeft = new Vector3(1, transform.localScale.y, -transform.localScale.z);
 
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        ledge_locator = FindObjectOfType<LedgeLocator>();
 
         capsule_collider = GetComponent<CapsuleCollider>();
 
@@ -107,7 +109,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal_movement = inputs.Uni.Walk.ReadValue<float>();
+        //horizontal_movement = inputs.Uni.Walk.ReadValue<float>();
+        horizontal_movement = Input.GetAxis("Horizontal");
 
         //JUMPING
         if (inputs.Uni.Jump.ReadValue<float>() == 1 && isGrounded && countGround > 5 && canJump)
@@ -123,12 +126,25 @@ public class Movement : MonoBehaviour
         //CROUCHING
         if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin)
         {
-            capsule_collider.height = 1;
+            if (capsule_collider.height > 1)
+            {
+                capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1)/2, capsule_collider.center.z);
+                capsule_collider.height = 1;
+            }
 
         }
         else
         {
-            capsule_collider.height = 1.5f;
+            if (capsule_collider.height == 1 )
+            {
+                Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y , transform.position.z);
+                RaycastHit hit_top;
+                if ( !Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.5f))
+                {
+                    capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + 0.25f, capsule_collider.center.z);
+                    capsule_collider.height = 1.5f;
+                }
+            }
 
         }
 
@@ -252,7 +268,7 @@ public class Movement : MonoBehaviour
 
         // // Lors d'un saut depuis le sol
         // if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
-        // {
+        // {r
 
         //     // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
         //     if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
@@ -267,6 +283,7 @@ public class Movement : MonoBehaviour
                 lastVelocityJumping = rb.velocity;
             }*/
 
+            RaycastHit hit;
             // Si on pousse dans le sens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
             if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
             {
@@ -275,11 +292,13 @@ public class Movement : MonoBehaviour
 
             }
             // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
-            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0)
+            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0
+                && !Physics.Raycast(capsule_collider.center, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledge_locator.ledgeDistanceDetection))
             {
                 rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
             }
-            else if ((lastVelocityJumping.z == 0 || lastInputJumping.z == 0))
+            else if ((lastVelocityJumping.z == 0 || lastInputJumping.z == 0)
+                        && !Physics.Raycast(capsule_collider.center, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledge_locator.ledgeDistanceDetection))
             {
                 rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
             }
@@ -406,13 +425,20 @@ public class Movement : MonoBehaviour
   
 
 
-    //void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.magenta;
-    //    Gizmos.DrawLine(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
-    //    Gizmos.color = Color.cyan;
-    //    Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
-    //}
+    void OnDrawGizmos()
+    {
+/*
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawLine(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
+    */
+        Gizmos.color = Color.yellow;
+        Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y, transform.position.z);
+        Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(new Vector3(0, 0.5f, 0) * transform.localScale.y));
+
+
+    }
 
     
 
