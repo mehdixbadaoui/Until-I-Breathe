@@ -155,30 +155,30 @@ public class Movement : MonoBehaviour
 
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
+    // void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
 
-        ////Check if there has been a hit yet
-        //if (hitt)
-        //{
-        //    Gizmos.DrawSphere(hit.point, 1);
-        //    //Draw a Ray forward from GameObject toward the hit
-        //    Gizmos.DrawRay(capsule_collider.bounds.center, transform.TransformDirection(Vector3.forward * transform.localScale.z) * hit.distance);
-        //    //Draw a cube that extends to where the hit exists
-        //    Gizmos.DrawWireCube(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * hit.distance, transform.lossyScale / 2);
-        //}
-        ////If there hasn't been a hit yet, draw the ray at the maximum distance
-        //else
-        //{
-        //    //Draw a Ray forward from GameObject toward the maximum distance
-        //    Gizmos.DrawRay(capsule_collider.bounds.center, transform.TransformDirection(Vector3.forward * transform.localScale.z) * wall_detector_dist);
-        //    //Draw a cube at the maximum distance
-        //    Gizmos.DrawWireCube(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * wall_detector_dist, transform.lossyScale / 2);
-        //}
+    //     ////Check if there has been a hit yet
+    //     //if (hitt)
+    //     //{
+    //     //    Gizmos.DrawSphere(hit.point, 1);
+    //     //    //Draw a Ray forward from GameObject toward the hit
+    //     //    Gizmos.DrawRay(capsule_collider.bounds.center, transform.TransformDirection(Vector3.forward * transform.localScale.z) * hit.distance);
+    //     //    //Draw a cube that extends to where the hit exists
+    //     //    Gizmos.DrawWireCube(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * hit.distance, transform.lossyScale / 2);
+    //     //}
+    //     ////If there hasn't been a hit yet, draw the ray at the maximum distance
+    //     //else
+    //     //{
+    //     //    //Draw a Ray forward from GameObject toward the maximum distance
+    //     //    Gizmos.DrawRay(capsule_collider.bounds.center, transform.TransformDirection(Vector3.forward * transform.localScale.z) * wall_detector_dist);
+    //     //    //Draw a cube at the maximum distance
+    //     //    Gizmos.DrawWireCube(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * wall_detector_dist, transform.lossyScale / 2);
+    //     //}
 
-        //Gizmos.DrawSphere(capsule_collider.bounds.center, .1f);
-    }
+    //     //Gizmos.DrawSphere(capsule_collider.bounds.center, .1f);
+    // }
     
 
     private void FixedUpdate()
