@@ -34,6 +34,9 @@ public class MoveBox : MonoBehaviour
     // Rigidbody
     private Rigidbody rig;
 
+    //Previous constrains of the box
+    private RigidbodyConstraints previousContraints;
+
 
     void Start()
     {
@@ -70,7 +73,8 @@ public class MoveBox : MonoBehaviour
                 distToBox = box.transform.position - transform.position;
                 grabbing = true;
                 Movement.isGrabbing = true;
-                box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+                previousContraints = box.GetComponent<Rigidbody>().constraints;
+                box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 box.GetComponent<Rigidbody>().isKinematic = false;
             }
 
@@ -79,7 +83,7 @@ public class MoveBox : MonoBehaviour
         {
             grabbing = false;
             Movement.isGrabbing = false;
-            box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            box.GetComponent<Rigidbody>().constraints = previousContraints;
             box.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
