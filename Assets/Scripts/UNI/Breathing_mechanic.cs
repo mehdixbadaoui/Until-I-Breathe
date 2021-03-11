@@ -46,6 +46,7 @@ public class Breathing_mechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        max_breath = 100f;
         breath = max_breath;
     }
 
