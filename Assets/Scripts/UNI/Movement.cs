@@ -315,19 +315,19 @@ public class Movement : MonoBehaviour
             }*/
 
             // Si on pousse dans le sens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
-            if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
+            if (/*lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized*/ (lastInputJumping.z * horizontal_movement < 0) && lastVelocityJumping.z != 0 && Math.Abs(lastInputJumping.z) > 0.5f && Math.Abs(horizontal_movement) == 1)
             {
                 //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-                rb.velocity += new Vector3(0, 0, (-Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
+                rb.velocity += new Vector3(0, 0, ( Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * -(lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
 
             }
             // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
-            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 )
+            else if (/*lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/ (lastInputJumping.z * horizontal_movement > 0) && lastVelocityJumping.z != 0 && Math.Abs(lastInputJumping.z) > 0.5f )
                  {
-                    rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
+                    rb.velocity += new Vector3(0, 0, (Math.Min(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
                  }
 
-            else if (lastVelocityJumping.z == 0 || lastInputJumping.z == 0 )
+            else if (lastVelocityJumping.z == 0 || Math.Abs(lastInputJumping.z) <= 0.5f)
                  {
                     rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
                  }
@@ -382,6 +382,7 @@ public class Movement : MonoBehaviour
         lastVelocityJumping = rb.velocity;
         rb.transform.Translate(new Vector3(0 , 0.01f , 0));
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
+        Debug.Log(rb.velocity);
         
     }
 
