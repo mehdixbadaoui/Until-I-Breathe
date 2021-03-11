@@ -191,7 +191,8 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius*0.8f, capsule_collider.height / 2, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, capsule_collider.radius+0.01f);
+        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, capsule_collider.radius+0.01f);
+        //hit = false;
 
         #region Slope Behaviour
         if (on_slope_up || on_slope_down)
