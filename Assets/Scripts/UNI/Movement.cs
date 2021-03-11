@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
 {
     private Inputs inputs;
 
+    public Animator myAnimator;
+
     public float speed = .2f;
     public float grapplinSpeed = 1;
     float horizontal_movement;
@@ -101,6 +103,8 @@ public class Movement : MonoBehaviour
         ledge_locator = FindObjectOfType<LedgeLocator>();
 
         capsule_collider = GetComponent<CapsuleCollider>();
+        // Get the animator 
+        myAnimator = GetComponentInChildren<Animator>();
 
         //INPUTS
         //inputs.Uni.Jump.performed += ctx => Jump();
@@ -375,6 +379,7 @@ public class Movement : MonoBehaviour
 
     void Jump()
     {
+        myAnimator.Play("Unijump");
         countGround = 0;
         isGrounded = false;
         isJumping = true;
