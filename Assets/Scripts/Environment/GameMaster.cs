@@ -10,12 +10,13 @@ public class GameMaster : MonoBehaviour
 
     private GameObject uni;
 
-
+    //LetterForUni 
     private List<string> letterList;
     private int indexForLetter;
+    private string letterForUni; 
 
 
-    // Beathing mecanic
+    // Breathing mecanic
     private Breathing_mechanic bm;
 
 
@@ -151,7 +152,11 @@ public class GameMaster : MonoBehaviour
 
 
         for (int i = 0; i < 9; i++)
-            Debug.Log(letterList[i]);
+        {
+            letterForUni += letterList[i] + "\r\n"; 
+        }
+        Debug.Log(letterForUni);
+        letterForUni = ""; 
         indexForLetter += 1;
         Debug.Log(indexForLetter);
 

@@ -140,9 +140,9 @@ public class Movement : MonoBehaviour
         {
             if (capsule_collider.height == 1 )
             {
-                Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y , transform.position.z);
+                Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y -0.01f , transform.position.z);
                 RaycastHit hit_top;
-                if ( !Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.5f))
+                if ( !Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
                 {
                     capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + 0.25f, capsule_collider.center.z);
                     capsule_collider.height = 1.5f;
@@ -187,7 +187,7 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, capsule_collider.height / 2, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, wall_detector_dist);
+        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius*0.8f, capsule_collider.height / 2, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, capsule_collider.radius+0.01f);
 
         #region Slope Behaviour
         if (on_slope_up || on_slope_down)
@@ -288,7 +288,7 @@ public class Movement : MonoBehaviour
                         rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * grapplinSpeed, ForceMode.VelocityChange);
                     }
                 }
-                //If we are pushing against the movement of the swing we slow the movement
+                //If we are pushing the movement of the swing we slow the movement
                 else if (rb.velocity.z * horizontal_movement < 0)
                 {
                     rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f);
@@ -315,19 +315,19 @@ public class Movement : MonoBehaviour
             }*/
 
             // Si on pousse dans le sens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
-            if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
+            if (/*lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized*/ (lastInputJumping.z * horizontal_movement < 0) && lastVelocityJumping.z != 0 && Math.Abs(lastInputJumping.z) > 0.5f && Math.Abs(horizontal_movement) == 1)
             {
                 //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-                rb.velocity += new Vector3(0, 0, (-Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
+                rb.velocity += new Vector3(0, 0, ( Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * -(lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
 
             }
             // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
-            else if (lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 )
+            else if (/*lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/ (lastInputJumping.z * horizontal_movement > 0) && lastVelocityJumping.z != 0 && Math.Abs(lastInputJumping.z) > 0.5f )
                  {
-                    rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
+                    rb.velocity += new Vector3(0, 0, (Math.Min(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
                  }
 
-            else if (lastVelocityJumping.z == 0 || lastInputJumping.z == 0 )
+            else if (lastVelocityJumping.z == 0 || Math.Abs(lastInputJumping.z) <= 0.5f)
                  {
                     rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
                  }
@@ -380,7 +380,9 @@ public class Movement : MonoBehaviour
         isJumping = true;
         lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
         lastVelocityJumping = rb.velocity;
+        rb.transform.Translate(new Vector3(0 , 0.01f , 0));
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
+        Debug.Log(rb.velocity);
         
     }
 
@@ -426,7 +428,6 @@ public class Movement : MonoBehaviour
                     || Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist)
                     || Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out middle, capsule_collider.height / 2 + ground_dist));
 
-
     }
 
     void SlopeCheck()
@@ -461,17 +462,23 @@ public class Movement : MonoBehaviour
 
     void OnDrawGizmos()
     {
-/*
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
-    *//*
+        /*
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawLine(capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center + transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawLine(capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f, capsule_collider.bounds.center - transform.TransformDirection(Vector3.forward * transform.localScale.z) * .1f + Vector3.down * (capsule_collider.height / 2 + slope_check_dist));
+        */
+
+        /*      // For grabbing box
+                Gizmos.color = Color.yellow;
+                Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y, transform.position.z);
+                Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(new Vector3(0, 0.5f, 0) * transform.localScale.y));
+        */
+
+        
         Gizmos.color = Color.yellow;
-        Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y, transform.position.z);
-        Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(new Vector3(0, 0.5f, 0) * transform.localScale.y));*/
-
-
+        if (capsule_collider!= null)
+        Gizmos.DrawLine(capsule_collider.bounds.center, capsule_collider.bounds.center - transform.TransformDirection(new Vector3(0, capsule_collider.height / 2 + ground_dist, 0) * transform.localScale.y));
     }
 
     
