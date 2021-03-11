@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class animjump : MonoBehaviour {
  
-public Animator anim;
+private Animator anim;
 
 private Inputs inputs;
 

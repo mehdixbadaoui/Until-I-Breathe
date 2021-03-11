@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
 {
     private Inputs inputs;
 
+    public Animator myAnimator;
+
     public float speed = .2f;
     public float grapplinSpeed = 1;
     float horizontal_movement;
@@ -101,6 +103,8 @@ public class Movement : MonoBehaviour
         ledge_locator = FindObjectOfType<LedgeLocator>();
 
         capsule_collider = GetComponent<CapsuleCollider>();
+        // Get the animator 
+        myAnimator = GetComponentInChildren<Animator>();
 
         //INPUTS
         //inputs.Uni.Jump.performed += ctx => Jump();
@@ -187,7 +191,8 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius*0.8f, capsule_collider.height / 2, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, capsule_collider.radius+0.01f);
+        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, capsule_collider.radius+0.01f);
+        //hit = false;
 
         #region Slope Behaviour
         if (on_slope_up || on_slope_down)
@@ -306,6 +311,7 @@ public class Movement : MonoBehaviour
         //Code for Jumping
         if ( isJumping && (!hit || horizontal_movement != transform.TransformDirection(Vector3.forward * transform.localScale.z).z))
         {
+            
 
             /*if (lastInputJumping == Vector3.zero)
             {
@@ -375,6 +381,7 @@ public class Movement : MonoBehaviour
 
     void Jump()
     {
+        myAnimator.Play("Unijump");
         countGround = 0;
         isGrounded = false;
         isJumping = true;
