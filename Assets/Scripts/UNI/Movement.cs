@@ -310,6 +310,7 @@ public class Movement : MonoBehaviour
         //Code for Jumping
         if ( isJumping && (!hit || horizontal_movement != transform.TransformDirection(Vector3.forward * transform.localScale.z).z))
         {
+            
 
             /*if (lastInputJumping == Vector3.zero)
             {
