@@ -569,6 +569,7 @@ MonoBehaviour:
   on_slope_down: 0
   too_steep: 0
   ground_dist: 0.3
+  wall_detector_dist: 0.1
   slopeforce: 0.1
   slopeforce_val: 0
   slope_check_dist: 0
@@ -611,11 +612,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
-  animationTime: 0.5
-  climbingHorizontalOffset: 0
+  animationTime: 0.4
+  climbingHorizontalOffset: 0.5
   offsetLedgeClimbing: -0.3
   securityOffsetLedgeClimbing: 0.51
   ledgeDistanceDetection: 0.5
+  topOfPlayer: {x: 0, y: 0, z: 0}
   grabbingLedge: 0
   climb_up: 122
   let_go: 115
