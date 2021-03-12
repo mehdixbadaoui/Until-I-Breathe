@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
 
     private Vector3 lastVelocity;
 
-    private int countGround = 0;
+    public int countGround = 0;
     
 
     private GameMaster gm;
@@ -135,6 +135,8 @@ public class Movement : MonoBehaviour
         {
             if (capsule_collider.height > 1)
             {
+                myAnimator.GetComponent<anim>().isCrouching = true;
+                myAnimator.Play("stand2crouch");
                 capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1)/2, capsule_collider.center.z);
                 capsule_collider.height = 1;
             }
@@ -144,6 +146,8 @@ public class Movement : MonoBehaviour
         {
             if (capsule_collider.height == 1 )
             {
+                myAnimator.GetComponent<anim>().isCrouching = false;
+                myAnimator.Play("crouch2stand");
                 Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y -0.01f , transform.position.z);
                 RaycastHit hit_top;
                 if ( !Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
