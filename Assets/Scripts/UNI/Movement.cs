@@ -53,6 +53,8 @@ public class Movement : MonoBehaviour
     private Vector3 facingLeft;
 
     RaycastHit ground_hit;
+    RaycastHit hit_front;
+
     CapsuleCollider capsule_collider;
     private Vector3 colliderSize;
     public float ground_dist = .3f;
@@ -72,7 +74,7 @@ public class Movement : MonoBehaviour
 
     private LedgeLocator ledge_locator;
 
-    bool hit;
+    public bool hit;
 
     public bool IsFlying 
     {
@@ -195,8 +197,16 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, capsule_collider.radius+0.01f);
+        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit_front , Quaternion.identity, capsule_collider.radius+0.01f);
         //hit = false;
+        if(hit)
+        {
+            if (hit_front.collider.isTrigger || hit_front.transform.tag == "box")
+            {
+                Debug.Log(hit_front.transform.name);
+                hit = false;
+            }
+        }
 
         #region Slope Behaviour
         if (on_slope_up || on_slope_down)
