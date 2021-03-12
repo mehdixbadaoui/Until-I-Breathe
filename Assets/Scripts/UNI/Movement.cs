@@ -203,7 +203,6 @@ public class Movement : MonoBehaviour
         {
             if (hit_front.collider.isTrigger || hit_front.transform.tag == "box")
             {
-                Debug.Log(hit_front.transform.name);
                 hit = false;
             }
         }
@@ -403,7 +402,6 @@ public class Movement : MonoBehaviour
         lastVelocityJumping = rb.velocity;
         rb.transform.Translate(new Vector3(0 , 0.01f , 0));
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
-        Debug.Log(rb.velocity);
         
     }
 

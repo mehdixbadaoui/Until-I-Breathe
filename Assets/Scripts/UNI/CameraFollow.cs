@@ -23,6 +23,6 @@ public class CameraFollow : MonoBehaviour
 
         //player.position.y = camHeight;
 
-        transform.LookAt(player); 
+        //transform.LookAt(player);
     }
 }

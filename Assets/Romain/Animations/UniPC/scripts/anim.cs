@@ -42,8 +42,6 @@ public class anim : MonoBehaviour
 
         // Get the animator
         myAnimator = GetComponent<Animator>();
-        Debug.Log("MyAniConScript: start => Animator");
-
 
         // Get the movement script
         rb = GetComponentInParent<Rigidbody>();
