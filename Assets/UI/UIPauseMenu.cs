@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class UIPauseMenu : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class UIPauseMenu : MonoBehaviour
     public UIButton ButtonSave;
     public UIButton ButtonSettings;
     public UIButton ButtonQuit;
+
+    public Action ActionResume;
+    public Action ActionLogs;
+    public Action ActionSave;
+    public Action ActionSettings;
+    public Action ActionQuit;
 
     public KeyCode NextKeyCode;
     public KeyCode PreviousKeyCode;
@@ -81,13 +88,19 @@ public class UIPauseMenu : MonoBehaviour
     public void SelectionNavigation(int direction)
     {
         List<UIButton> list = dict.Keys.ToList();
-        int index = (list.FindIndex(b => b == selected) + direction) % list.Count;
+
+        int foundIndex = list.FindIndex(b => b == selected);
+        int index = 0;
+
+        if(foundIndex != -1)
+            index = (foundIndex + direction) % list.Count;
+
         if (index < 0)
             index += list.Count;
 
         UIButton button = list[index];
 
-        button.Activate();
+        button.Click();
     }
 
     // Set of methods "au hasard"
@@ -120,6 +133,6 @@ public class UIPauseMenu : MonoBehaviour
         if (Input.GetKeyDown(PreviousKeyCode))
             SelectionNavigation(-1);
         if (Input.GetKeyDown(ValidateKeyCode))
-            selected.Activate();
+            selected.Click();
     }
 }

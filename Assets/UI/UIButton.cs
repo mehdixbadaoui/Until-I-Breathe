@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(UnityEngine.UI.Button))]
 public class UIButton : MonoBehaviour
@@ -36,7 +37,6 @@ public class UIButton : MonoBehaviour
         Button = GetComponent<UnityEngine.UI.Button>();
 
         Button.onClick.AddListener(Activate);
-        Button.onClick.AddListener(Clicked);
     }
 
     public void Activate()
@@ -51,8 +51,8 @@ public class UIButton : MonoBehaviour
         }
     }
 
-    public void Clicked()
+    public void Click()
     {
-        Debug.Log("Clicked");
+        ExecuteEvents.Execute(gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
     }
 }
