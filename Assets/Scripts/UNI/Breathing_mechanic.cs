@@ -26,6 +26,7 @@ public class Breathing_mechanic : MonoBehaviour
 
     public KeyCode hold_breath_key;
     public KeyCode exhale_key;
+    public KeyCode interact;
 
     [SerializeField] private GameObject blowObj;
 
@@ -88,6 +89,12 @@ public class Breathing_mechanic : MonoBehaviour
 
         if(!can_breath)
             breath -= current_exhale * breath_speed/current_hold * Time.deltaTime;
+
+        if (Input.GetKeyDown(interact) && blowObj){
+
+            if (blowObj.CompareTag("lever"))
+                blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
+        }
 
         if (breath <= 0) Die();
     }
