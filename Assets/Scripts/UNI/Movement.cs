@@ -53,6 +53,8 @@ public class Movement : MonoBehaviour
     private Vector3 facingLeft;
 
     RaycastHit ground_hit;
+    RaycastHit hit_front;
+
     CapsuleCollider capsule_collider;
     private Vector3 colliderSize;
     public float ground_dist = .3f;
@@ -65,14 +67,14 @@ public class Movement : MonoBehaviour
 
     private Vector3 lastVelocity;
 
-    private int countGround = 0;
+    public int countGround = 0;
     
 
     private GameMaster gm;
 
     private LedgeLocator ledge_locator;
 
-    bool hit;
+    public bool hit;
 
     public bool IsFlying 
     {
@@ -135,6 +137,8 @@ public class Movement : MonoBehaviour
         {
             if (capsule_collider.height > 1)
             {
+                myAnimator.GetComponent<anim>().isCrouching = true;
+                myAnimator.Play("stand2crouch");
                 capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1)/2, capsule_collider.center.z);
                 capsule_collider.height = 1;
             }
@@ -144,6 +148,8 @@ public class Movement : MonoBehaviour
         {
             if (capsule_collider.height == 1 )
             {
+                myAnimator.GetComponent<anim>().isCrouching = false;
+                myAnimator.Play("crouch2stand");
                 Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y -0.01f , transform.position.z);
                 RaycastHit hit_top;
                 if ( !Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
@@ -191,8 +197,16 @@ public class Movement : MonoBehaviour
         countGround += 1;
         SlopeCheck();
 
-        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), Quaternion.identity, capsule_collider.radius+0.01f);
+        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit_front , Quaternion.identity, capsule_collider.radius+0.01f);
         //hit = false;
+        if(hit)
+        {
+            if (hit_front.collider.isTrigger || hit_front.transform.tag == "box")
+            {
+                Debug.Log(hit_front.transform.name);
+                hit = false;
+            }
+        }
 
         #region Slope Behaviour
         if (on_slope_up || on_slope_down)
