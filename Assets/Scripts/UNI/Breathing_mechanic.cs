@@ -28,8 +28,11 @@ public class Breathing_mechanic : MonoBehaviour
     public KeyCode hold_breath_key;
     public KeyCode exhale_key;
     public KeyCode interact;
+/*
+    [SerializeField] private GameObject blowObj;*/
 
-    [SerializeField] private GameObject blowObj;
+    //Object detector to get the list of objects
+    private ObjectDetector objectDetector;
 
     private void Awake()
     {
@@ -51,6 +54,9 @@ public class Breathing_mechanic : MonoBehaviour
         gm = FindObjectOfType<GameMaster>();
         max_breath = 100f;
         breath = max_breath;
+
+        // Get the object detector
+        objectDetector = GetComponentInChildren<ObjectDetector>();
     }
 
     // Update is called once per frame
@@ -71,13 +77,28 @@ public class Breathing_mechanic : MonoBehaviour
         {
             exhale = true;
             current_exhale = exhale_speed;
-            if (blowObj)
-            {
-                if (blowObj.CompareTag("blowable"))
-                    blowObj.GetComponent<ballon>().incAir(1 * Time.deltaTime);
-                else if (blowObj.CompareTag("fan"))
-                    blowObj.GetComponent<Fan>().incAir(1 * Time.deltaTime);
 
+            if (objectDetector.listObj !=  null)
+            {
+                for (int index = 0; index < objectDetector.listObj.Count; index++)
+                {
+                    if (objectDetector.listObj[index].tag == "blowable")
+                    {
+                        objectDetector.listObj[index].GetComponent<ballon>().incAir(1 * Time.deltaTime);
+                    }
+                    if (objectDetector.listObj[index].tag == "fan")
+                    {
+                        objectDetector.listObj[index].GetComponent<Fan>().incAir(1 * Time.deltaTime);
+                    }
+                    /*                if (blowObj)
+                                    {
+                                        if (blowObj.CompareTag("blowable"))
+                                            blowObj.GetComponent<ballon>().incAir(1 * Time.deltaTime);
+                                        else if (blowObj.CompareTag("fan"))
+                                            blowObj.GetComponent<Fan>().incAir(1 * Time.deltaTime);
+
+                                    }*/
+                }
             }
 
 
@@ -92,20 +113,21 @@ public class Breathing_mechanic : MonoBehaviour
         if(!can_breath)
             breath -= current_exhale * breath_speed/current_hold * Time.deltaTime;
 
-        if (Input.GetKeyDown(interact) && blowObj){
+/*        if (Input.GetKeyDown(interact) && blowObj){
 
             if (blowObj.CompareTag("lever"))
                 blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
-        }
+        }*/
 
         if (breath <= 0)
             gm.Die();
     }
 
-    public void setBlowObj(GameObject obj)
+/*    public void setBlowObj(GameObject obj)
     {
         blowObj = obj;
-    }
+    }*/
+
     void Die()
     {
 
