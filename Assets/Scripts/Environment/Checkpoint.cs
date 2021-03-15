@@ -16,7 +16,8 @@ public class Checkpoint : MonoBehaviour
         // Game master
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         // Plane to visualize the checkpoint
-        plane = transform.GetChild(0).gameObject;
+        if (transform.childCount != 0)
+            plane = transform.GetChild(0).gameObject;
     }
 
     void OnTriggerEnter(Collider other)
@@ -27,7 +28,8 @@ public class Checkpoint : MonoBehaviour
             alreadyChecked = true;
 
             // Change the color of the plane
-            plane.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
+            if (plane != null)
+                plane.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
         }
     }
 }

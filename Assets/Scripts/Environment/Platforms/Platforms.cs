@@ -46,7 +46,8 @@ public class Platforms : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        if (PlatformLauncherScript != null)
+            Move();
     }
 
     private void Move()
