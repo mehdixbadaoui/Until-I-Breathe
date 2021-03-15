@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{C40A6E13-3206-406B-9CAB-495017552967}" SchemaVersion="103">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{C40A6E13-3206-406B-9CAB-495017552967}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Alarme1" ID="{8636D753-AB84-4448-A72B-52A5A7FC73B3}" ShortID="656430766">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Alarme1" ID="{C3C7B903-578A-4437-957D-9AFD51FBAFF9}">
+							<Language>SFX</Language>
+							<AudioFile>Alarme1.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="44215017"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists/>
+					<ActiveSourceList>
+						<ActiveSource Name="Alarme1" ID="{C3C7B903-578A-4437-957D-9AFD51FBAFF9}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
