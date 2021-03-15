@@ -23,7 +23,8 @@ public class NextScene : MonoBehaviour
 
     public void LoadScenes(int s)
     {
-        background.SetActive(true);
+        if (background)
+            background.SetActive(true);
         async = SceneManager.LoadSceneAsync(s);
         async.allowSceneActivation = true;
         StartCoroutine(DisplayLoadingScreen());

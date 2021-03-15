@@ -363,7 +363,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 		if (hookObject.tag == "lever")
-			hookObject.transform.Rotate(-90,0,0);
+			hookObject.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
 
 		//Init the spring we use to approximate the rope from point a to b
 		UpdateRopePositions();
@@ -459,9 +459,10 @@ public class GrapplingHook : MonoBehaviour
 			Movement.isGrapplin = false;
 		}
 
-
+/*
 		if (hookObject.tag == "lever")
 			hookObject.transform.Rotate(90, 0, 0);
+*/
 
 		hookObject = null;
 
