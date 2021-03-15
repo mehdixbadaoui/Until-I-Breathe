@@ -494,10 +494,14 @@ public class Movement : MonoBehaviour
                 Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(new Vector3(0, 0.5f, 0) * transform.localScale.y));
         */
 
-        
+        /*
         Gizmos.color = Color.yellow;
         if (capsule_collider!= null)
-        Gizmos.DrawLine(capsule_collider.bounds.center, capsule_collider.bounds.center - transform.TransformDirection(new Vector3(0, capsule_collider.height / 2 + ground_dist, 0) * transform.localScale.y));
+        Gizmos.DrawLine(capsule_collider.bounds.center, capsule_collider.bounds.center - transform.TransformDirection(new Vector3(0, capsule_collider.height / 2 + ground_dist, 0) * transform.localScale.y));*/
+
+/*
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(rb.transform.position, rb.transform.position + transform.TransformDirection(new Vector3(0, 0, 1) * transform.localScale.z) ) ;*/
     }
 
     
