@@ -6,6 +6,7 @@ using UnityEngine;
 public class Breathing_mechanic : MonoBehaviour
 {
     private Inputs inputs;
+    private GameMaster gm;
 
     [HideInInspector]
     public float max_breath;
@@ -26,6 +27,7 @@ public class Breathing_mechanic : MonoBehaviour
 
     public KeyCode hold_breath_key;
     public KeyCode exhale_key;
+    public KeyCode interact;
 
     [SerializeField] private GameObject blowObj;
 
@@ -46,6 +48,7 @@ public class Breathing_mechanic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = FindObjectOfType<GameMaster>();
         max_breath = 100f;
         breath = max_breath;
     }
@@ -89,7 +92,14 @@ public class Breathing_mechanic : MonoBehaviour
         if(!can_breath)
             breath -= current_exhale * breath_speed/current_hold * Time.deltaTime;
 
-        if (breath <= 0) Die();
+        if (Input.GetKeyDown(interact) && blowObj){
+
+            if (blowObj.CompareTag("lever"))
+                blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
+        }
+
+        if (breath <= 0)
+            gm.Die();
     }
 
     public void setBlowObj(GameObject obj)

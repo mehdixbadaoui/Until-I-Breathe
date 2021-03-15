@@ -133,7 +133,7 @@ public class Movement : MonoBehaviour
         }
 
         //CROUCHING
-        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin)
+        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin && !isGrabbing)
         {
             if (capsule_collider.height > 1)
             {
@@ -203,7 +203,6 @@ public class Movement : MonoBehaviour
         {
             if (hit_front.collider.isTrigger || hit_front.transform.tag == "box")
             {
-                Debug.Log(hit_front.transform.name);
                 hit = false;
             }
         }
@@ -375,7 +374,7 @@ public class Movement : MonoBehaviour
         }
 
         //Checking if we need to flip our character
-        if (horizontal_movement != 0)
+        if (horizontal_movement != 0 && !isGrabbing)
         {
 
             if (horizontal_movement > 0 && isFacingLeft)
@@ -403,7 +402,6 @@ public class Movement : MonoBehaviour
         lastVelocityJumping = rb.velocity;
         rb.transform.Translate(new Vector3(0 , 0.01f , 0));
         rb.AddForce(new Vector3(0, jump_force, 0), ForceMode.Impulse);
-        Debug.Log(rb.velocity);
         
     }
 
@@ -496,10 +494,14 @@ public class Movement : MonoBehaviour
                 Gizmos.DrawLine(topOfPlayer, topOfPlayer + transform.TransformDirection(new Vector3(0, 0.5f, 0) * transform.localScale.y));
         */
 
-        
+        /*
         Gizmos.color = Color.yellow;
         if (capsule_collider!= null)
-        Gizmos.DrawLine(capsule_collider.bounds.center, capsule_collider.bounds.center - transform.TransformDirection(new Vector3(0, capsule_collider.height / 2 + ground_dist, 0) * transform.localScale.y));
+        Gizmos.DrawLine(capsule_collider.bounds.center, capsule_collider.bounds.center - transform.TransformDirection(new Vector3(0, capsule_collider.height / 2 + ground_dist, 0) * transform.localScale.y));*/
+
+/*
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(rb.transform.position, rb.transform.position + transform.TransformDirection(new Vector3(0, 0, 1) * transform.localScale.z) ) ;*/
     }
 
     

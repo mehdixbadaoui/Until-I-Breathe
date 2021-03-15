@@ -40,7 +40,7 @@ public class CameraZoom : MonoBehaviour
         float startTime = Time.time;
         while (Time.time < startTime + zoom_speed)
         {
-            camera_follow.zoom_offset = Vector3.Lerp(camera_follow.zoom_offset, Vector3.zero, (Time.time - startTime) / zoom_speed);
+            camera_follow.zoom_offset = Vector3.Lerp(camera_follow.zoom_offset, Vector3.zero,  2 * (Time.time - startTime) / zoom_speed);
             yield return null;
         }
         camera_follow.zoom_offset = Vector3.zero;

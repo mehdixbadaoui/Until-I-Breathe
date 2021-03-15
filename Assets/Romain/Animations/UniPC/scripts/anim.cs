@@ -42,8 +42,6 @@ public class anim : MonoBehaviour
 
         // Get the animator
         myAnimator = GetComponent<Animator>();
-        Debug.Log("MyAniConScript: start => Animator");
-
 
         // Get the movement script
         rb = GetComponentInParent<Rigidbody>();
@@ -91,14 +89,14 @@ public class anim : MonoBehaviour
             }
 
             // il push si son forward est dans le meme sens que son mouvement
-            if (vert * rb.transform.forward.z > 0)
+            if (vert * rb.transform.localScale.z > 0)
             {
                 myAnimator.SetBool("pull", false);
                 myAnimator.SetBool("push", true);
             }
 
             // il pull si son forward est dans le sens contraire que son mouvement
-            if (vert * rb.transform.forward.z < 0)
+            if (vert * rb.transform.localScale.z < 0)
             {
                 myAnimator.SetBool("pull", true);
                 myAnimator.SetBool("push", false);
@@ -124,6 +122,12 @@ public class anim : MonoBehaviour
             myAnimator.SetBool("180", false);
         }
 
+    }
+    void OnDrawGizmos()
+    {
+/*
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(rb.transform.position, rb.transform.position + rb.gameObject.transform.TransformDirection(new Vector3(0, 0, 1) * rb.transform.localScale.z));*/
     }
 
 }
