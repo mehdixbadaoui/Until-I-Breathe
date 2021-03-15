@@ -133,7 +133,7 @@ public class Movement : MonoBehaviour
         }
 
         //CROUCHING
-        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin)
+        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin && !isGrabbing)
         {
             if (capsule_collider.height > 1)
             {
@@ -374,7 +374,7 @@ public class Movement : MonoBehaviour
         }
 
         //Checking if we need to flip our character
-        if (horizontal_movement != 0)
+        if (horizontal_movement != 0 && !isGrabbing)
         {
 
             if (horizontal_movement > 0 && isFacingLeft)
