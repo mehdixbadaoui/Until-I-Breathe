@@ -5,12 +5,14 @@ using UnityEngine;
 public class ST_Movements : MonoBehaviour
 {
     public Transform Player;
-    public float followSharpness = 0.05f;
+    public float followSharpness = 2f;
     public float rotationSpeed = 5f;
 
-    Vector3 followOffset;
+    public Vector3 followOffset;
     Vector3 startOffset;
     Vector3 rotationMask;
+
+    public Vector3 rotationOffset;
 
     private hook_detector HookDetector;
 
@@ -36,11 +38,12 @@ public class ST_Movements : MonoBehaviour
 
         // Initiliaze the start position of ST-2
         Vector3 startOffset = new Vector3(-2.5f, 2f, 0.0f);
+
         // Initiliaze the position of ST-2 at the start of  the game
         transform.position = Player.position + startOffset;
 
         // Cache the initial offset at time of load/spawn
-        followOffset = transform.position - Player.transform.position;
+        //followOffset = transform.position - Player.transform.position;
 
         // Fetches the script Hook_Detector from the Player GO
         HookDetector = Player.Find("hook_detector").GetComponent<hook_detector>();
@@ -50,33 +53,44 @@ public class ST_Movements : MonoBehaviour
     {
         // Prevents the sprite from rotating on the Z axis
         rotation_Sprite.z = Mathf.Clamp(rotation_Sprite.z, 0f, 0f);
-        ChildGO_Sprite.transform.rotation = Quaternion.Euler(rotation_Sprite);
+        //ChildGO_Sprite.transform.rotation = Quaternion.Euler(rotation_Sprite);
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         // Allows ST-2 to follow the player
         {
             // Resets expression
-            ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[0];
+
+            //TO ALWAYS STAY BEHIND UNI
+            Vector3 _followOffset = Player.transform.TransformDirection(-Vector3.one * Player.transform.localScale.z);
+            _followOffset.x = followOffset.x;
+            _followOffset.y = followOffset.y;
+            _followOffset.z *= followOffset.z;
 
             // Apply that followOffset to get a target position
-            Vector3 targetPosition = Player.position + followOffset;
+            Vector3 targetPosition = Player.position + _followOffset;
 
-            // Smooth follow 
-            transform.position += (targetPosition - transform.position) * followSharpness;
+            // Smooth follow (Multiple Methods)
+            transform.position += (targetPosition - transform.position) * followSharpness * Time.deltaTime;
+            //transform.position = Vector3.MoveTowards(transform.position, Player.transform.position + followOffset, followSharpness);
+
 
             // Smooth rotation
             // get a rotation that points Z axis forward, and the Y axis towards the target
-            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, (Player.position - transform.position));
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, (Player.position - transform.position ));
             // rotate toward the target rotation, never rotating farther than "rotationSpeed" in one frame.
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
+
+
+            transform.LookAt(Player.Find("ST2 Follow"));
         }
 
         if (HookDetector.nearHook && !HookDetector.nearDead && !HookDetector.nearHint) // Allows ST-2 to show the nearest HOOK to the player
         {
             // Changes expression
-            ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[1];
 
             Vector3 desiredPosition = (HookDetector.nearest_hook.transform.position + (transform.position - HookDetector.nearest_hook.transform.position).normalized) * dist_from_hook;
             // Smoothes the path between the initial and desired position
@@ -109,7 +123,8 @@ public class ST_Movements : MonoBehaviour
             transform.position = smoothedPosition;
 
             // Add features relative to HUD of lore found on dead robots and change expression to something sad/confused??
-            ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[2];
+            //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[2];
         }
     }
+
 }
