@@ -6,7 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
 
     private GameMaster gm;
-    private bool alreadyChecked = false;
+    public bool alreadyChecked = false;
     private GameObject plane;
 
 
@@ -24,7 +24,9 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.tag == "uni" && !alreadyChecked )
         {
-            gm.LastCheckPointPos = transform.position;
+            Debug.Log(gm.LastCheckPointPos);
+            gm.LastCheckPointPos = new Vector3 ( other.transform.position.x , transform.position.y , transform.position.z );
+            Debug.Log(gm.LastCheckPointPos);
             alreadyChecked = true;
 
             // Change the color of the plane
