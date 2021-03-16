@@ -6,7 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
 
     private GameMaster gm;
-    private bool alreadyChecked = false;
+    public bool alreadyChecked = false;
     private GameObject plane;
 
 
@@ -16,18 +16,22 @@ public class Checkpoint : MonoBehaviour
         // Game master
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         // Plane to visualize the checkpoint
-        plane = transform.GetChild(0).gameObject;
+        if (transform.childCount != 0)
+            plane = transform.GetChild(0).gameObject;
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "uni" && !alreadyChecked )
         {
-            gm.LastCheckPointPos = transform.position;
+            Debug.Log(gm.LastCheckPointPos);
+            gm.LastCheckPointPos = new Vector3 ( other.transform.position.x , transform.position.y , transform.position.z );
+            Debug.Log(gm.LastCheckPointPos);
             alreadyChecked = true;
 
             // Change the color of the plane
-            plane.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
+            if (plane != null)
+                plane.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
         }
     }
 }

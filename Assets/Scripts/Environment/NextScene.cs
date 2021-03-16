@@ -23,7 +23,8 @@ public class NextScene : MonoBehaviour
 
     public void LoadScenes(int s)
     {
-        background.SetActive(true);
+        if (background)
+            background.SetActive(true);
         async = SceneManager.LoadSceneAsync(s);
         async.allowSceneActivation = true;
         StartCoroutine(DisplayLoadingScreen());
@@ -33,7 +34,7 @@ public class NextScene : MonoBehaviour
         while (!async.isDone)
         {
             loadProgress = (int)(async.progress * 100);
-            Debug.Log(loadProgress);
+            //Debug.Log(loadProgress);
             yield return null;
         }
         if (async.progress >= 0.9f)
