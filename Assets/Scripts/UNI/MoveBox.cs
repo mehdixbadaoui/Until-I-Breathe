@@ -37,6 +37,21 @@ public class MoveBox : MonoBehaviour
     //Previous constrains of the box
     private RigidbodyConstraints previousContraints;
 
+    private Inputs inputs;
+
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
 
     void Start()
     {
@@ -67,7 +82,7 @@ public class MoveBox : MonoBehaviour
         RaycastHit hitSecurity;
         if ((Movement.isGrounded && !Movement.isGrapplin) && Physics.Raycast(handsOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, grabbingDistance))
         {
-            if (!hit.collider.isTrigger && hit.collider.gameObject.tag == "box" && Input.GetKey(keyGrabbing))
+            if (!hit.collider.isTrigger && hit.collider.gameObject.tag == "box" && inputs.Uni.Move_Box.ReadValue<float>() > 0)
             {
                 box = hit.collider.gameObject;
                 distToBox = box.transform.position - transform.position;
@@ -79,7 +94,7 @@ public class MoveBox : MonoBehaviour
             }
 
         }
-        if (grabbing && (!Input.GetKey(keyGrabbing) || !Movement.isGrounded))
+        if (grabbing && (inputs.Uni.Move_Box.ReadValue<float>() == 0 || !Movement.isGrounded))
         {
             grabbing = false;
             Movement.isGrabbing = false;
