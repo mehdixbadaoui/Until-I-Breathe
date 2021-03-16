@@ -48,6 +48,16 @@ public class GameMaster : MonoBehaviour
         }
 
 
+        platforms = (FallingPlatform[])GameObject.FindObjectsOfType(typeof(FallingPlatform));
+
+        // Find the first character GameObject
+        uni = GameObject.FindGameObjectWithTag("uni");
+
+        // Initialize the last checkpoint if she dies
+        lastCheckPointPos = uni.transform.position;
+
+        // Get uni Breathing Mecanic
+        bm = uni.GetComponent<Breathing_mechanic>();
 
 
 
@@ -71,9 +81,13 @@ public class GameMaster : MonoBehaviour
     // If Uni die
     public void Die()
     {
-        for ( int i = 0; i < platforms.Length; ++i )
+        if (platforms != null)
         {
-            platforms[i].Respawn();
+            for (int i = 0; i < platforms.Length; ++i)
+            {
+                platforms[i].Respawn();
+            }
+
         }
 
         uni.transform.position = lastCheckPointPos;
