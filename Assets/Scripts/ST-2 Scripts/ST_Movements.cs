@@ -13,8 +13,6 @@ public class ST_Movements : MonoBehaviour
     Vector3 startOffset;
     Vector3 rotationMask;
 
-    public Vector3 rotationOffset;
-
     [Range(0.2f, 10f)]
     public float fixationSpeed;
     [Range(0.5f, 10f)]
@@ -22,14 +20,14 @@ public class ST_Movements : MonoBehaviour
     [Range(1f, 10f)]
     public float lookAtSpeed;
 
+    Vector3 rotationOffset; //optional, not used right now
+
     private hook_detector HookDetector;
 
     // To access the children components of ST-2 (sprite)
     //public GameObject ChildGO_Sprite;
     //private Vector3 rotation_Sprite;
     //public Sprite[] sprites;
-
-
 
     void Start()
     {
@@ -97,17 +95,20 @@ public class ST_Movements : MonoBehaviour
         {
             // Changes expression
             //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[1];
-            
-            Vector3 desiredPosition = HookDetector.nearest_hook.transform.position + (transform.position - HookDetector.nearest_hook.transform.position).normalized * distFromObj;
-            // Smooths the path between the initial and desired position
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, fixationSpeed * Time.deltaTime); //hard coded for test, not the best practice
-            transform.position = smoothedPosition;
 
-            if (Math.Abs(transform.position.z - desiredPosition.z) < 1.5f) //check if ST2 is near enough from the hook and if so look at player otherwise it means it's still heading there
+            if (HookDetector.nearest_hook != null)
             {
-                SmoothLookAt(Player.Find("ST2 Follow").transform.position);
-            }
+                Vector3 desiredPosition = HookDetector.nearest_hook.transform.position + ((transform.position - HookDetector.nearest_hook.transform.position).normalized * distFromObj);
+                // Smooths the path between the initial and desired position
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, fixationSpeed * Time.deltaTime);
+                transform.position = smoothedPosition;
 
+                if (Math.Abs(transform.position.z - desiredPosition.z) < 1.5f) //check if ST2 is near enough from the hook and if so look at player otherwise it means it's still heading there
+                {
+                    SmoothLookAt(Player.Find("ST2 Follow").transform.position);
+                }
+            }
+            
             // Rotates near the object of interest
             //transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.right, 180.0f * Time.deltaTime);
         }
@@ -120,7 +121,7 @@ public class ST_Movements : MonoBehaviour
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, fixationSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
 
-            if (Math.Abs(transform.position.z - desiredPosition.z) < 1f) //check if ST2 is near enough from the hook and if so look at player otherwise it means it's still heading there
+            if (Math.Abs(transform.position.z - desiredPosition.z) < 1f) //check if ST2 is near enough from the hint and if so look at player otherwise it means it's still heading there
             {
                 SmoothLookAt(Player.Find("ST2 Follow").transform.position);
             }
@@ -137,7 +138,7 @@ public class ST_Movements : MonoBehaviour
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, fixationSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
 
-            if (Math.Abs(transform.position.z - desiredPosition.z) < 1f) //check if ST2 is near enough from the hook and if so look at player otherwise it means it's still heading there
+            if (Math.Abs(transform.position.z - desiredPosition.z) < 1f) //check if ST2 is near enough from the dead robot and if so look at player otherwise it means it's still heading there
             {
                 SmoothLookAt(Player.Find("ST2 Follow").transform.position);
             }
@@ -155,5 +156,4 @@ public class ST_Movements : MonoBehaviour
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(newDirection - transform.position), lookAtSpeed * Time.deltaTime);
     }
-
 }
