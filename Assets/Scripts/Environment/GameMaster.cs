@@ -71,6 +71,11 @@ public class GameMaster : MonoBehaviour
     // If Uni die
     public void Die()
     {
+        for ( int i = 0; i < platforms.Length; ++i )
+        {
+            platforms[i].Respawn();
+        }
+
         uni.transform.position = lastCheckPointPos;
         uni.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         bm.breath = 100;
