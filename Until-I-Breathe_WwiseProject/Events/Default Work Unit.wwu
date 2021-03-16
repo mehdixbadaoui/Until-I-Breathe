@@ -3,12 +3,56 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{656102F9-0F9C-4252-81B2-60CE3E217D9C}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="test_event" ID="{37FE0A9F-2C31-42B4-A076-85C70DA68037}">
+				<Event Name="FS_Beton_event" ID="{5F8C41A3-F920-456B-AD9B-6145E0838538}">
 					<ChildrenList>
-						<Action Name="" ID="{C1B7138A-B284-4469-9EC9-70FF6E395F0E}" ShortID="493567324">
+						<Action Name="" ID="{47D314CD-1F71-4206-88C6-E31BE6EDD3C9}" ShortID="77413892">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Alarme1" ID="{8636D753-AB84-4448-A72B-52A5A7FC73B3}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+									<ObjectRef Name="FS_Beton_randomContainer" ID="{66C10BA8-C9F2-4FFB-AB3E-EAF9649F7070}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FS_Bois_event" ID="{A8DB1EF0-7D6F-4ECF-8E4F-D0D01219363A}">
+					<ChildrenList>
+						<Action Name="" ID="{41C30E46-F31C-479A-A9B8-7DF1EC0A8FEB}" ShortID="631764263">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_Bois_randomContainer" ID="{64EB3094-AFA4-41AE-BC47-EADB48284068}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Fs_Liquide_event" ID="{E63BE27D-DA24-4C23-8A2D-D857AD7E2824}">
+					<ChildrenList>
+						<Action Name="" ID="{393AA659-DDBD-4D29-B69E-6AC6FF31862D}" ShortID="442946078">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_Liquide_randomContainer" ID="{B8E6BCBE-71E6-40E4-976E-CB55FA3870D4}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FS_Metal_event" ID="{6A741A38-E01E-434D-AF8E-06E715992AC2}">
+					<ChildrenList>
+						<Action Name="" ID="{CC7BA9D8-9731-498A-AA8D-E245568FF3E7}" ShortID="790693651">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_Metal_randomContainer" ID="{470C04AD-A9E6-46F9-9FAC-3C27793E9B50}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FS_Ordure_event" ID="{7B5D3EC7-F7D5-4598-A142-65AEFA56EDA8}">
+					<ChildrenList>
+						<Action Name="" ID="{2C60622B-A334-4117-9E7D-C40E77111C35}" ShortID="89007309">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_Ordure_randomContainer" ID="{7A23C27F-7E78-4E95-9B67-72327335A8B9}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

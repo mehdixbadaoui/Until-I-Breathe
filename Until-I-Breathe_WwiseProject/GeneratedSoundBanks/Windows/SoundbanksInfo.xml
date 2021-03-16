@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -16,16 +16,88 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX" Hash="2446291228">
-			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
-			<ShortName>Main</ShortName>
-			<Path>Main.bnk</Path>
+		<SoundBank Id="2794814922" Language="SFX" Hash="2648636570">
+			<ObjectPath>\SoundBanks\Default Work Unit\FootStep_Uni_soundbank</ObjectPath>
+			<ShortName>FootStep_Uni_soundbank</ShortName>
+			<Path>FootStep_Uni_soundbank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="4258653052" Name="test_event" ObjectPath="\Events\Default Work Unit\test_event" DurationType="OneShot" DurationMin="9.000000" DurationMax="9.000000">
+				<Event Id="1592626750" Name="FS_Beton_event" ObjectPath="\Events\Default Work Unit\FS_Beton_event" DurationType="OneShot" DurationMin="0.300479" DurationMax="0.300499">
 					<IncludedMemoryFiles>
-						<File Id="44215017" Language="SFX">
-							<ShortName>Alarme1.wav</ShortName>
-							<Path>SFX\Alarme1_10C4C929.wem</Path>
+						<File Id="262888218" Language="SFX">
+							<ShortName>FS_Beton\FS_Beton_Uni_02.wav</ShortName>
+							<Path>SFX\FS_Beton\FS_Beton_Uni_02_10C4C929.wem</Path>
+						</File>
+						<File Id="290659568" Language="SFX">
+							<ShortName>FS_Beton\FS_Beton_Uni_01.wav</ShortName>
+							<Path>SFX\FS_Beton\FS_Beton_Uni_01_10C4C929.wem</Path>
+						</File>
+						<File Id="579287452" Language="SFX">
+							<ShortName>FS_Beton\FS_Beton_Uni_03.wav</ShortName>
+							<Path>SFX\FS_Beton\FS_Beton_Uni_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1460609399" Name="FS_Bois_event" ObjectPath="\Events\Default Work Unit\FS_Bois_event" DurationType="OneShot" DurationMin="0.270813" DurationMax="0.270813">
+					<IncludedMemoryFiles>
+						<File Id="100497621" Language="SFX">
+							<ShortName>Fs_Bois\FS_Bois_Uni_03.wav</ShortName>
+							<Path>SFX\Fs_Bois\FS_Bois_Uni_03_10C4C929.wem</Path>
+						</File>
+						<File Id="522250800" Language="SFX">
+							<ShortName>Fs_Bois\FS_Bois_Uni_01.wav</ShortName>
+							<Path>SFX\Fs_Bois\FS_Bois_Uni_01_10C4C929.wem</Path>
+						</File>
+						<File Id="605467755" Language="SFX">
+							<ShortName>Fs_Bois\FS_Bois_Uni_02.wav</ShortName>
+							<Path>SFX\Fs_Bois\FS_Bois_Uni_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1959957461" Name="Fs_Liquide_event" ObjectPath="\Events\Default Work Unit\Fs_Liquide_event" DurationType="OneShot" DurationMin="0.395854" DurationMax="0.395854">
+					<IncludedMemoryFiles>
+						<File Id="146550505" Language="SFX">
+							<ShortName>FS_Liquide\FS_Liquide_Uni_03.wav</ShortName>
+							<Path>SFX\FS_Liquide\FS_Liquide_Uni_03_10C4C929.wem</Path>
+						</File>
+						<File Id="711331583" Language="SFX">
+							<ShortName>FS_Liquide\FS_Liquide_Uni_02.wav</ShortName>
+							<Path>SFX\FS_Liquide\FS_Liquide_Uni_02_10C4C929.wem</Path>
+						</File>
+						<File Id="915525319" Language="SFX">
+							<ShortName>FS_Liquide\FS_Liquide_Uni_01.wav</ShortName>
+							<Path>SFX\FS_Liquide\FS_Liquide_Uni_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3109581025" Name="FS_Metal_event" ObjectPath="\Events\Default Work Unit\FS_Metal_event" DurationType="OneShot" DurationMin="0.695354" DurationMax="0.695354">
+					<IncludedMemoryFiles>
+						<File Id="275091503" Language="SFX">
+							<ShortName>FS_Metal\FS_Metal_Uni_03.wav</ShortName>
+							<Path>SFX\FS_Metal\FS_Metal_Uni_03_10C4C929.wem</Path>
+						</File>
+						<File Id="675717278" Language="SFX">
+							<ShortName>FS_Metal\FS_Metal_Uni_01.wav</ShortName>
+							<Path>SFX\FS_Metal\FS_Metal_Uni_01_10C4C929.wem</Path>
+						</File>
+						<File Id="1033435149" Language="SFX">
+							<ShortName>FS_Metal\FS_Metal_Uni_02.wav</ShortName>
+							<Path>SFX\FS_Metal\FS_Metal_Uni_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3378064531" Name="FS_Ordure_event" ObjectPath="\Events\Default Work Unit\FS_Ordure_event" DurationType="OneShot" DurationMin="0.528625" DurationMax="0.532290">
+					<IncludedMemoryFiles>
+						<File Id="77377138" Language="SFX">
+							<ShortName>FS_Ordure\FS_Ordure_Uni_02.wav</ShortName>
+							<Path>SFX\FS_Ordure\FS_Ordure_Uni_02_10C4C929.wem</Path>
+						</File>
+						<File Id="347412323" Language="SFX">
+							<ShortName>FS_Ordure\FS_Ordure_Uni_03.wav</ShortName>
+							<Path>SFX\FS_Ordure\FS_Ordure_Uni_03_10C4C929.wem</Path>
+						</File>
+						<File Id="781118095" Language="SFX">
+							<ShortName>FS_Ordure\FS_Ordure_Uni_01.wav</ShortName>
+							<Path>SFX\FS_Ordure\FS_Ordure_Uni_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

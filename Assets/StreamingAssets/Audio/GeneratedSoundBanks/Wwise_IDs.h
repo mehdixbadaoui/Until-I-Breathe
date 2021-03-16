@@ -13,13 +13,35 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID TEST_EVENT = 4258653052U;
+        static const AkUniqueID FS_BETON_EVENT = 1592626750U;
+        static const AkUniqueID FS_BOIS_EVENT = 1460609399U;
+        static const AkUniqueID FS_LIQUIDE_EVENT = 1959957461U;
+        static const AkUniqueID FS_METAL_EVENT = 3109581025U;
+        static const AkUniqueID FS_ORDURE_EVENT = 3378064531U;
     } // namespace EVENTS
+
+    namespace SWITCHES
+    {
+        namespace FOOTSTEPS
+        {
+            static const AkUniqueID GROUP = 2385628198U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID BETON = 386080821U;
+                static const AkUniqueID BOIS = 1660835248U;
+                static const AkUniqueID LIQUIDE = 1763382058U;
+                static const AkUniqueID METAL = 2473969246U;
+                static const AkUniqueID ORDURE = 757803524U;
+            } // namespace SWITCH
+        } // namespace FOOTSTEPS
+
+    } // namespace SWITCHES
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID MAIN = 3161908922U;
+        static const AkUniqueID FOOTSTEP_UNI_SOUNDBANK = 2794814922U;
     } // namespace BANKS
 
     namespace BUSSES

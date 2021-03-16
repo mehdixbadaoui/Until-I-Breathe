@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 51aabce36bd9084484d9d84337a24ddc
     GuidInternal: 
-    m_lastTime: -8585857982865143144
+    m_lastTime: -8585857209824168310
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 51825a5e24261e4b9d8cee98f3163d80
     GuidInternal: 
-    m_lastTime: -8585857982865223137
+    m_lastTime: -8585857209824588597
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,11 +66,11 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585857877824984430
+    m_lastTime: -8585857149893548469
     List:
-    - name: Main
-      guid: 6f2748fab9610f4582389beda478d1e8
-      id: 3161908922
+    - name: FootStep_Uni_soundbank
+      guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
+      id: 2794814922
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -78,10 +78,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: a75e6d5faae25b46af35e8674bc89a87
-      - ElementName: Main
+      - ElementName: FootStep_Uni_soundbank
         ObjectType: 7
-        guid: 6f2748fab9610f4582389beda478d1e8
-      Path: SoundBanks\Default Work Unit\Main
+        guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
+      Path: SoundBanks\Default Work Unit\FootStep_Uni_soundbank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -94,11 +94,11 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585857877824954436
+    m_lastTime: -8585857068970166228
     List:
-    - name: test_event
-      guid: 9f0afe37312cb442a07685c70da68037
-      id: 4258653052
+    - name: FS_Beton_event
+      guid: a3418c5f20f96b45ad9b6145e0838538
+      id: 1592626750
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -106,10 +106,78 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: test_event
+      - ElementName: FS_Beton_event
         ObjectType: 3
-        guid: 9f0afe37312cb442a07685c70da68037
-      Path: Events\Default Work Unit\test_event
+        guid: a3418c5f20f96b45ad9b6145e0838538
+      Path: Events\Default Work Unit\FS_Beton_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FS_Bois_event
+      guid: f01edba86f7dcf4e8e4fd0d01219363a
+      id: 1460609399
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS_Bois_event
+        ObjectType: 3
+        guid: f01edba86f7dcf4e8e4fd0d01219363a
+      Path: Events\Default Work Unit\FS_Bois_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Fs_Liquide_event
+      guid: 7de23be624da234c8a2dd857ad7e2824
+      id: 1959957461
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Fs_Liquide_event
+        ObjectType: 3
+        guid: 7de23be624da234c8a2dd857ad7e2824
+      Path: Events\Default Work Unit\Fs_Liquide_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FS_Metal_event
+      guid: 381a746a1ee04d43af8e06e715992ac2
+      id: 3109581025
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS_Metal_event
+        ObjectType: 3
+        guid: 381a746a1ee04d43af8e06e715992ac2
+      Path: Events\Default Work Unit\FS_Metal_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FS_Ordure_event
+      guid: c73e5d7bd5f79845a14265aefa56eda8
+      id: 3378064531
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS_Ordure_event
+        ObjectType: 3
+        guid: c73e5d7bd5f79845a14265aefa56eda8
+      Path: Events\Default Work Unit\FS_Ordure_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -125,7 +193,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585857982865523142
+    m_lastTime: -8585857209824902665
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -139,7 +207,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 6cd69aa556385a4980a194d531da01f9
     GuidInternal: 
-    m_lastTime: -8585857982866473139
+    m_lastTime: -8585857209824208603
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -153,8 +221,106 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 55f3b155ac5f824c966e186f8dbe0dc6
     GuidInternal: 
-    m_lastTime: -8585857982865183141
-    List: []
+    m_lastTime: -8585857028295488396
+    List:
+    - name: FootSteps
+      guid: e9b27687793928429459307ec8fff664
+      id: 2385628198
+      PathAndIcons:
+      - ElementName: Switches
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 55f3b155ac5f824c966e186f8dbe0dc6
+      - ElementName: FootSteps
+        ObjectType: 11
+        guid: e9b27687793928429459307ec8fff664
+      Path: Switches\Default Work Unit\FootSteps
+      values:
+      - name: Beton
+        guid: 77e04213913236448b446123edeb64b8
+        id: 386080821
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 55f3b155ac5f824c966e186f8dbe0dc6
+        - ElementName: FootSteps
+          ObjectType: 11
+          guid: e9b27687793928429459307ec8fff664
+        - ElementName: Beton
+          ObjectType: 10
+          guid: 77e04213913236448b446123edeb64b8
+      - name: Bois
+        guid: e7e41e80b53b4149b67a683733aa350b
+        id: 1660835248
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 55f3b155ac5f824c966e186f8dbe0dc6
+        - ElementName: FootSteps
+          ObjectType: 11
+          guid: e9b27687793928429459307ec8fff664
+        - ElementName: Bois
+          ObjectType: 10
+          guid: e7e41e80b53b4149b67a683733aa350b
+      - name: Liquide
+        guid: 827699db1273eb4f91735206475f49f5
+        id: 1763382058
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 55f3b155ac5f824c966e186f8dbe0dc6
+        - ElementName: FootSteps
+          ObjectType: 11
+          guid: e9b27687793928429459307ec8fff664
+        - ElementName: Liquide
+          ObjectType: 10
+          guid: 827699db1273eb4f91735206475f49f5
+      - name: Metal
+        guid: 522b76a706fcbc439aac0caf45793443
+        id: 2473969246
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 55f3b155ac5f824c966e186f8dbe0dc6
+        - ElementName: FootSteps
+          ObjectType: 11
+          guid: e9b27687793928429459307ec8fff664
+        - ElementName: Metal
+          ObjectType: 10
+          guid: 522b76a706fcbc439aac0caf45793443
+      - name: Ordure
+        guid: 8df644567f1d5541bcaa5558adc994ec
+        id: 757803524
+        PathAndIcons:
+        - ElementName: Switches
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: 55f3b155ac5f824c966e186f8dbe0dc6
+        - ElementName: FootSteps
+          ObjectType: 11
+          guid: e9b27687793928429459307ec8fff664
+        - ElementName: Ordure
+          ObjectType: 10
+          guid: 8df644567f1d5541bcaa5558adc994ec
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
     PathAndIcons:
@@ -167,10 +333,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 50ebb7989315ce43922b62fa3756eeb9
     GuidInternal: 
-    m_lastTime: -8585857982865253137
+    m_lastTime: -8585857209824198335
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 06000000070000000a0000000b000000
+  ExpandedWaapiItemIds: 030000000500000006000000070000000a0000000b0000000e0000000f00000010000000110000001200000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

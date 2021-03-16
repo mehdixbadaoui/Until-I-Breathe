@@ -261,6 +261,7 @@ public class Movement : MonoBehaviour
             isJumpingAftergrapplin = false;
 
             lastInputJumping = Vector3.zero;
+            
         }
 
         // Walk on the ground
@@ -395,6 +396,8 @@ public class Movement : MonoBehaviour
 
     void Jump()
     {
+        //AkSoundEngine.PostEvent("FS_Beton_Event", gameObject);
+
         myAnimator.Play("Unijump");
         countGround = 0;
         isGrounded = false;
