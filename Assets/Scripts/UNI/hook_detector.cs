@@ -120,6 +120,14 @@ public class hook_detector : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "hook" || other.tag == "movable_hook")
+        {
+            nearHook = true;
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (all_hooks.Contains(other.gameObject))
