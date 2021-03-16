@@ -19,6 +19,9 @@ public class GameMaster : MonoBehaviour
     // Breathing mecanic
     private Breathing_mechanic bm;
 
+    // Falling platform 
+    public FallingPlatform[] platforms;
+
 
     // Set and get of the last checkoint position
     public Vector3 LastCheckPointPos
@@ -44,6 +47,17 @@ public class GameMaster : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+
+
+
+    }
+
+    private void OnLevelWasLoaded()
+    {
+
+        platforms = (FallingPlatform[])GameObject.FindObjectsOfType(typeof(FallingPlatform));
+
         // Find the first character GameObject
         uni = GameObject.FindGameObjectWithTag("uni");
 
@@ -52,10 +66,6 @@ public class GameMaster : MonoBehaviour
 
         // Get uni Breathing Mecanic
         bm = uni.GetComponent<Breathing_mechanic>();
-
-
-
-
     }
 
     // If Uni die

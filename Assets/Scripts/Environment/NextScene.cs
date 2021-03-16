@@ -34,7 +34,7 @@ public class NextScene : MonoBehaviour
         while (!async.isDone)
         {
             loadProgress = (int)(async.progress * 100);
-            Debug.Log(loadProgress);
+            //Debug.Log(loadProgress);
             yield return null;
         }
         if (async.progress >= 0.9f)
