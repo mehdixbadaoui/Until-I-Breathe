@@ -119,6 +119,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         //horizontal_movement = inputs.Uni.Walk.ReadValue<float>();
+        //Debug.Log(inputs.Uni.Walk.ReadValue<float>());
         horizontal_movement = Input.GetAxis("Horizontal");
 
         //JUMPING
