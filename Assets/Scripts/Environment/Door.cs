@@ -17,6 +17,9 @@ public class Door : MonoBehaviour
     public Transform doorPivot;
     public GameObject meshDoor;
 
+    public float sizeTriggerIfEnter = 1.1f;
+    public float sizeTriggerIfExit = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +81,7 @@ public class Door : MonoBehaviour
         if(other.tag == "uni"){
             open = true;
             close = false;
-            this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 1.1f);
+            this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, sizeTriggerIfEnter);
 
             if (this.tag != "slidingDoor" && !locked)
             {
@@ -104,7 +107,7 @@ public class Door : MonoBehaviour
 
             close = true;
             open = false;
-            this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, 1f);
+            this.GetComponent<BoxCollider>().size = new Vector3(this.GetComponent<BoxCollider>().size.x, this.GetComponent<BoxCollider>().size.y, sizeTriggerIfExit);
 
             if (this.tag != "slidingDoor" && !locked)
             {
