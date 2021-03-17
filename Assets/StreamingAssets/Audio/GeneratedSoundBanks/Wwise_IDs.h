@@ -13,8 +13,14 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID CLOTHES_EVENT = 1884367558U;
         static const AkUniqueID FS_BETON_EVENT = 1592626750U;
         static const AkUniqueID FS_BOIS_EVENT = 1460609399U;
+        static const AkUniqueID FS_CROUCH_BETON_EVENT = 2323690083U;
+        static const AkUniqueID FS_CROUCH_BOIS_EVENT = 2838535636U;
+        static const AkUniqueID FS_CROUCH_LIQUIDE_EVENT = 1699126676U;
+        static const AkUniqueID FS_CROUCH_METAL_EVENT = 2296821368U;
+        static const AkUniqueID FS_CROUCH_ORDURE_EVENT = 3697862452U;
         static const AkUniqueID FS_LIQUIDE_EVENT = 1959957461U;
         static const AkUniqueID FS_METAL_EVENT = 3109581025U;
         static const AkUniqueID FS_ORDURE_EVENT = 3378064531U;

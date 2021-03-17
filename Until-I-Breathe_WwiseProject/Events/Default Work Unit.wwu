@@ -25,7 +25,7 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Fs_Liquide_event" ID="{E63BE27D-DA24-4C23-8A2D-D857AD7E2824}">
+				<Event Name="FS_Liquide_event" ID="{E63BE27D-DA24-4C23-8A2D-D857AD7E2824}">
 					<ChildrenList>
 						<Action Name="" ID="{393AA659-DDBD-4D29-B69E-6AC6FF31862D}" ShortID="442946078">
 							<ReferenceList>
@@ -53,6 +53,72 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="FS_Ordure_randomContainer" ID="{7A23C27F-7E78-4E95-9B67-72327335A8B9}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Clothes_event" ID="{883E92B4-56CB-4FB1-ACA3-CF0F7BA29ED8}">
+					<ChildrenList>
+						<Action Name="" ID="{FD14089F-EA7C-4928-9440-0807CD62CC78}" ShortID="494082960">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clothes" ID="{5BDE0345-B041-4554-871E-CEA3BEB4CC5B}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FS_crouch_Metal_event" ID="{47B84085-48A1-462B-9103-B5C84D0DA367}">
+					<ChildrenList>
+						<Action Name="" ID="{2F5E5671-A303-48B3-AD42-3DB561A8DB73}" ShortID="770990885">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_crouch_Metal" ID="{D680D13B-8F6A-47AA-9533-525776A49575}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FS_crouch_Beton_event" ID="{48748E50-39F9-4133-B999-25C0BD8007C5}">
+					<ChildrenList>
+						<Action Name="" ID="{7DAA1386-75A6-4EA6-8220-AB5304FDEE25}" ShortID="953687460">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_crouch_Beton" ID="{292F7C13-5D03-40B8-8B9A-FF9AE6CBEAF2}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FS_crouch_Ordure_event" ID="{5E29FEB6-B3EE-43C0-9F3F-6EC889DA219E}">
+					<ChildrenList>
+						<Action Name="" ID="{E18F2058-601D-468A-A21F-7FBCBC1F5FEA}" ShortID="806900104">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_crouch_Ordure" ID="{4DA130FE-3181-4925-BC7E-3BCACA9D9B87}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FS_crouch_Liquide_event" ID="{3DE180E7-A84A-4EA4-A96B-74E7470A4F13}">
+					<ChildrenList>
+						<Action Name="" ID="{A3A0A8C7-5250-4712-B40C-8AF3105FD6C7}" ShortID="245247681">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_crouch_Liquide" ID="{B2D3BC75-94C2-4E1C-BDA5-B5D51AA67F3E}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FS_crouch_Bois_event" ID="{830D1E12-4E51-4100-9261-37D3533DC58F}">
+					<ChildrenList>
+						<Action Name="" ID="{F68D70BE-1D3C-4F3B-8CC9-744E50B01210}" ShortID="939397826">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FS_crouch_Bois" ID="{D0691E2C-7829-4D61-8349-2026085E20D1}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

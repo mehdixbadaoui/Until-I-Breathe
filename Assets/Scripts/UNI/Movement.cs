@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     public float speed = .2f;
     public float grapplinSpeed = 1;
     float horizontal_movement;
-
+    public string typeOfGround = ""; 
     // Jump and slope
     /*[HideInInspector]*/ public float jump_force = .5f;
     public float jump_force_flat = .5f;
@@ -396,7 +396,7 @@ public class Movement : MonoBehaviour
 
     void Jump()
     {
-        //AkSoundEngine.PostEvent("FS_Beton_Event", gameObject);
+        
 
         myAnimator.Play("Unijump");
         countGround = 0;
@@ -447,10 +447,23 @@ public class Movement : MonoBehaviour
         RaycastHit front;
         RaycastHit middle;
         RaycastHit back;
+        bool frontRaycast = Physics.Raycast(capsule_collider.bounds.center + transform.forward * .2f, Vector3.down, out front, capsule_collider.height / 2 + ground_dist); 
+        bool backRaycast = Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist);
+        bool middleRaycast = Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out middle, capsule_collider.height / 2 + ground_dist); 
 
-        isGrounded = (Physics.Raycast(capsule_collider.bounds.center + transform.forward * .2f, Vector3.down, out front, capsule_collider.height / 2 + ground_dist)
-                    || Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist)
-                    || Physics.Raycast(capsule_collider.bounds.center, Vector3.down, out middle, capsule_collider.height / 2 + ground_dist));
+        isGrounded = (frontRaycast || middleRaycast || backRaycast);
+        if(isGrounded)
+        {
+            if (frontRaycast)
+                typeOfGround = front.collider.gameObject.tag;
+            else if (backRaycast)
+                typeOfGround = back.collider.gameObject.tag;
+            else if (middleRaycast)
+                typeOfGround = middle.collider.gameObject.tag;
+        }
+        
+    
+        
 
     }
 
