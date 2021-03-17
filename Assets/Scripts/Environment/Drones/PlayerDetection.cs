@@ -46,7 +46,7 @@ public class PlayerDetection : MonoBehaviour
         detected = false;
         canTurn = true;
         light.color = Color.yellow;
-        //visibleTargets.Clear();
+        visibleTargets.Clear();
         Collider[] targetInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
         for (int i = 0; i < targetInViewRadius.Length; i++)

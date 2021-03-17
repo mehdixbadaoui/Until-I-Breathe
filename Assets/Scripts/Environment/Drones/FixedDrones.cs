@@ -17,7 +17,10 @@ public class FixedDrones : MonoBehaviour
     {
         // Ref to the PlayerDetection Script
         playerDetectionScript = GetComponent<PlayerDetection>();
+    }
 
+    private void Update()
+    {
         //keeps track of the coroutine instantiated
         IEnumerator coOR = ObjectRotate();
         StartCoroutine(coOR);

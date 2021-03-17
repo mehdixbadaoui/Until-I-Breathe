@@ -116,6 +116,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Move_Box",
+                    "type": "Button",
+                    "id": "378d6280-d838-4f65-a38a-d1e3fcf955fb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -397,7 +405,7 @@
                 {
                     "name": "",
                     "id": "c17ca297-53d6-42d7-9069-07c7d7dd9736",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -523,6 +531,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a535213c-9353-4d37-990e-65e4011aecba",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move_Box",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cba125c7-0852-448b-935b-ab7a99dd78f0",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move_Box",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

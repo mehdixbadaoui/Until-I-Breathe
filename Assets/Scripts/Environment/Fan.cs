@@ -8,19 +8,14 @@ public class Fan : MonoBehaviour
     public float capacity;
 
     public GameObject door;
-    Vector3 initial_door_pos;
-    public float slide_height = 1f;
-    public float slide_speed = .5f;
-
     public GameObject generator;
+    public GameObject light;
 
 
     // Start is called before the first frame update
     void Start()
     {
         air = 0;
-        initial_door_pos = door.transform.position;
-
     }
 
     // Update is called once per frame
@@ -29,10 +24,15 @@ public class Fan : MonoBehaviour
         if (air >= capacity)
         {
             //UNLOCK THE DOOR
-            door.GetComponentInChildren<Door>().locked = false;
+            if(door)
+                door.GetComponentInChildren<Door>().locked = false;
 
             //TURN ON GENERATOR
             //NOTHING YET
+
+            //TURN LIGHT TO GREEN
+            if (light)
+                light.GetComponent<Light>().color = Color.green;
         }
 
     }

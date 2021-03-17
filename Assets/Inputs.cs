@@ -129,6 +129,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Move_Box"",
+                    ""type"": ""Button"",
+                    ""id"": ""378d6280-d838-4f65-a38a-d1e3fcf955fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -410,7 +418,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c17ca297-53d6-42d7-9069-07c7d7dd9736"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -421,7 +429,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8f9776d4-a4e2-406e-8a54-568f2991fd3a"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -538,6 +546,28 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""PressButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a535213c-9353-4d37-990e-65e4011aecba"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Box"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cba125c7-0852-448b-935b-ab7a99dd78f0"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move_Box"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -560,6 +590,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Uni_PrevHook = m_Uni.FindAction("PrevHook", throwIfNotFound: true);
         m_Uni_Die = m_Uni.FindAction("Die", throwIfNotFound: true);
         m_Uni_PressButton = m_Uni.FindAction("PressButton", throwIfNotFound: true);
+        m_Uni_Move_Box = m_Uni.FindAction("Move_Box", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -623,6 +654,7 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Uni_PrevHook;
     private readonly InputAction m_Uni_Die;
     private readonly InputAction m_Uni_PressButton;
+    private readonly InputAction m_Uni_Move_Box;
     public struct UniActions
     {
         private @Inputs m_Wrapper;
@@ -641,6 +673,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @PrevHook => m_Wrapper.m_Uni_PrevHook;
         public InputAction @Die => m_Wrapper.m_Uni_Die;
         public InputAction @PressButton => m_Wrapper.m_Uni_PressButton;
+        public InputAction @Move_Box => m_Wrapper.m_Uni_Move_Box;
         public InputActionMap Get() { return m_Wrapper.m_Uni; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -692,6 +725,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @PressButton.started -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
                 @PressButton.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
                 @PressButton.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
+                @Move_Box.started -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
+                @Move_Box.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
+                @Move_Box.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
             }
             m_Wrapper.m_UniActionsCallbackInterface = instance;
             if (instance != null)
@@ -738,6 +774,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @PressButton.started += instance.OnPressButton;
                 @PressButton.performed += instance.OnPressButton;
                 @PressButton.canceled += instance.OnPressButton;
+                @Move_Box.started += instance.OnMove_Box;
+                @Move_Box.performed += instance.OnMove_Box;
+                @Move_Box.canceled += instance.OnMove_Box;
             }
         }
     }
@@ -758,5 +797,6 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnPrevHook(InputAction.CallbackContext context);
         void OnDie(InputAction.CallbackContext context);
         void OnPressButton(InputAction.CallbackContext context);
+        void OnMove_Box(InputAction.CallbackContext context);
     }
 }
