@@ -64,6 +64,7 @@ public class anim : MonoBehaviour
         myAnimator.SetFloat("vertical", Mathf.Abs(vert));
         // Debug.Log("vertical = " + Mathf.Abs(Input.GetAxis("Vertical")));
 
+        myAnimator.SetBool("grapplinPush", movement.animPushing);
 
         myAnimator.SetBool("crouch", isCrouching);
 

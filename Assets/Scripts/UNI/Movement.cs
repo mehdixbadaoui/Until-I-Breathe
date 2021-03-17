@@ -13,12 +13,16 @@ public class Movement : MonoBehaviour
     public float grapplinSpeed = 1;
     float horizontal_movement;
 
+    //Grapplin 
+    [HideInInspector] public bool animPushing;
+
     // Jump and slope
     /*[HideInInspector]*/ public float jump_force = .5f;
     public float jump_force_flat = .5f;
     public float jump_force_slope_up = .5f;
     public float jump_force_slope_down = .5f;
-    public static float distToHook;
+    public static float distToHook; 
+    public static float angleHook;
     public float velocityMaxJump = 3;
     public float horizontalVelocityMax = 10;
 
@@ -105,6 +109,7 @@ public class Movement : MonoBehaviour
         ledge_locator = FindObjectOfType<LedgeLocator>();
 
         capsule_collider = GetComponent<CapsuleCollider>();
+
         // Get the animator 
         myAnimator = GetComponentInChildren<Animator>();
 
@@ -163,6 +168,14 @@ public class Movement : MonoBehaviour
 
         isGroundedVerif = isGrounded;
 
+        if (isGrapplin && !isGrounded)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(angleHook, 0 , 0) , .2f) ;
+        }
+        else
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(0, 0, 0), .1f);
+        }
     }
 
     // void OnDrawGizmos()
@@ -281,14 +294,18 @@ public class Movement : MonoBehaviour
         // Add force if isgrapplin because Translate isnt workinbg with spring joint
         else if (isGrapplin && !isGrounded)
         {
+
             isJumping = false;
             isJumpingAftergrapplin = false;
 
             Vector3 acceleration = (rb.velocity - lastVelocity) / Time.fixedDeltaTime;
 
+
             //If we are not too fast and if we are not upper than the hook we can apply a force
             if (distToHook > 0.3f && Math.Abs(rb.velocity.z) < 10f)
             {
+                //animPushing = false;
+
                 //if we are at the bottom of the rope without moving
                 if (distToHook > 0.95f && Math.Abs(rb.velocity.z) < 1)
                 {
@@ -297,6 +314,9 @@ public class Movement : MonoBehaviour
                 //if we are pushing in the same directiont than the swing
                 else if (rb.velocity.z * horizontal_movement >= 0 && rb.velocity.y <= 0)
                 {
+                    if (horizontal_movement != 0)
+                        animPushing = false;
+
                     if (Math.Abs(rb.velocity.z) >= 1)
                     {
                         rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * distToHook * grapplinSpeed * (1 / Math.Abs(rb.velocity.z)), ForceMode.VelocityChange);
@@ -312,6 +332,12 @@ public class Movement : MonoBehaviour
                     rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f);
                 }
             }
+            // Si on est trop a la fin du mouvement on lance l'animation du push
+            if (rb.velocity.y > 0 && acceleration.y < 0 && rb.velocity.z * transform.TransformDirection(Vector3.forward * transform.localScale.z).z >= 0 )
+            {
+                animPushing = true;
+            }
+
         }
 
         // // Lors d'un saut depuis le sol
@@ -407,6 +433,9 @@ public class Movement : MonoBehaviour
 
     public void JumpAfterGrapplin()
     {
+
+        myAnimator.Play("JumpAfterGrapplin");
+
         countGround = 0;
         isGrounded = false;
         isJumpingAftergrapplin = true;
@@ -427,6 +456,9 @@ public class Movement : MonoBehaviour
     
     protected virtual void Flip()
     {
+        if (isGrapplin)
+            animPushing = false;
+
         if (isFacingLeft && !isGrabbing)
         {
             transform.localScale = facingLeft;
