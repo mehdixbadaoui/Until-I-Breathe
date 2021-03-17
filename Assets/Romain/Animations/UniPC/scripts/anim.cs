@@ -66,6 +66,8 @@ public class anim : MonoBehaviour
 
         myAnimator.SetBool("grapplinPush", movement.animPushing);
 
+        myAnimator.SetBool("grapplinIdle", movement.animIdleAir);
+
         myAnimator.SetBool("crouch", isCrouching);
 
         myAnimator.SetBool("canWalk", !movement.hit);

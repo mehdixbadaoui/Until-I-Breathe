@@ -15,9 +15,11 @@ public class Movement : MonoBehaviour
 
     //Grapplin 
     [HideInInspector] public bool animPushing;
+    [HideInInspector] public bool animIdleAir;
 
     // Jump and slope
-    /*[HideInInspector]*/ public float jump_force = .5f;
+    /*[HideInInspector]*/
+    public float jump_force = .5f;
     public float jump_force_flat = .5f;
     public float jump_force_slope_up = .5f;
     public float jump_force_slope_down = .5f;
@@ -310,13 +312,17 @@ public class Movement : MonoBehaviour
                 //if we are at the bottom of the rope without moving
                 if (distToHook > 0.95f && Math.Abs(rb.velocity.z) < 1)
                 {
+                    animIdleAir = true;
                     rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * grapplinSpeed, ForceMode.Impulse);
                 }
                 //if we are pushing in the same directiont than the swing
                 else if (rb.velocity.z * horizontal_movement >= 0 && rb.velocity.y <= 0)
                 {
                     if (horizontal_movement != 0)
+                    {
+                        animIdleAir = false;
                         animPushing = false;
+                    }
 
                     if (Math.Abs(rb.velocity.z) >= 1)
                     {
@@ -334,8 +340,9 @@ public class Movement : MonoBehaviour
                 }
             }
             // Si on est trop a la fin du mouvement on lance l'animation du push
-            if (rb.velocity.y > 0 && acceleration.y < 0 && rb.velocity.z * transform.TransformDirection(Vector3.forward * transform.localScale.z).z >= 0 )
+            if (rb.velocity.y > 0 && acceleration.y < 0.5 && rb.velocity.z * transform.TransformDirection(Vector3.forward * transform.localScale.z).z >= 0 )
             {
+                animIdleAir = false;
                 animPushing = true;
             }
 
@@ -458,7 +465,11 @@ public class Movement : MonoBehaviour
     protected virtual void Flip()
     {
         if (isGrapplin)
+        {
+            animIdleAir = true;
             animPushing = false;
+        }
+        
 
         if (isFacingLeft && !isGrabbing)
         {
