@@ -10,12 +10,16 @@ public class Pressure : MonoBehaviour
     public float fill_speed = 0f;
 
     public GameObject Object;
+    public GameObject Light;
+
+    Color UnlockedColor;
 
     Breathing_mechanic bm;
     // Start is called before the first frame update
     void Start()
     {
         bm = FindObjectOfType<Breathing_mechanic>();
+        UnlockedColor = Light.GetComponent<Light>().color;
     }
 
     void OnTriggerStay(Collider col)
@@ -25,9 +29,13 @@ public class Pressure : MonoBehaviour
             if (bm.exhale && current_fill < max_capacity)
             {
                 current_fill += fill_speed * Time.deltaTime;
+                if(UnlockedColor.r > .0005f && UnlockedColor.g < .9995)
+                    UnlockedColor = new Color(.5f - .5f * current_fill / max_capacity, .25f + .75f * current_fill / max_capacity, UnlockedColor.b);
+                Light.GetComponent<Light>().color = UnlockedColor;
             }
 
-            if(current_fill >= max_capacity)
+
+            if(current_fill >= max_capacity && Object)
             {
                 Object.GetComponent<Rigidbody>().useGravity = true;
             }

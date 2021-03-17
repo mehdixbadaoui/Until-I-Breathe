@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Breathing_mechanic : MonoBehaviour
 {
-    private Inputs inputs;
     private GameMaster gm;
 
     [HideInInspector]
@@ -25,14 +24,16 @@ public class Breathing_mechanic : MonoBehaviour
     public bool hold;
     public bool exhale;
 
-    public KeyCode hold_breath_key;
-    public KeyCode exhale_key;
-    public KeyCode interact;
+    //public KeyCode hold_breath_key;
+    //public KeyCode exhale_key;
+    //public KeyCode interact;
 /*
     [SerializeField] private GameObject blowObj;*/
 
     //Object detector to get the list of objects
     private ObjectDetector objectDetector;
+
+    private Inputs inputs;
 
     private void Awake()
     {
@@ -62,7 +63,7 @@ public class Breathing_mechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(hold_breath_key))
+        if(inputs.Uni.HoldBreath.ReadValue<float>() != 0)
         {
             hold = true;
             current_hold = hold_speed;
@@ -73,7 +74,7 @@ public class Breathing_mechanic : MonoBehaviour
             current_hold = 1;
         }
 
-        if(Input.GetKey(hold_breath_key) && Input.GetKey(exhale_key) && breath >= (max_breath * min_pourc / 100f))
+        if(inputs.Uni.HoldBreath.ReadValue<float>() != 0 && inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
         {
             exhale = true;
             current_exhale = exhale_speed;

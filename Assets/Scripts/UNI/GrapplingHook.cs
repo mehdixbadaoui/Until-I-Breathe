@@ -87,6 +87,9 @@ public class GrapplingHook : MonoBehaviour
 	//How fast we can add more/less rope
 	float winchSpeed = 3f;
 
+	// Uni animator
+	public Animator myAnimator;
+
 	private void Awake()
 	{
 		inputs = new Inputs();
@@ -116,7 +119,9 @@ public class GrapplingHook : MonoBehaviour
 		//Init the line renderer we use to display the rope
 		LR = GetComponent<LineRenderer>();
 
-		//Get the object transform
+		// Get the object transform
+		// objectHanging = GameObject.FindGameObjectWithTag("GrapplinHand").transform ;
+		// if (objectHanging == null)
 		objectHanging = transform;
 
 		//Init the Rigidbody
@@ -125,6 +130,10 @@ public class GrapplingHook : MonoBehaviour
 		//Get rigidbodyCharacter component
 		movements = GetComponent<Movement>();
 
+		// Get the animator 
+		myAnimator = GetComponentInChildren<Animator>();
+
+		// Get the key to grapple
 		inputs.Uni.Grapple.performed += ctx => AttachHook();
 
 
@@ -142,8 +151,14 @@ public class GrapplingHook : MonoBehaviour
 
         if (isGrappling)
 		{
+
+			// Get the angle to rotate uni in Movement
+			Movement.angleHook = Vector3.Angle(Vector3.down, objectHanging.position - hookObject.transform.position ) * Math.Sign( (hookObject.transform.position - objectHanging.position).z ) ;
+
+			// Vecteur unitaire
 			Vector3 u_dir = (hookObject.transform.position - objectHanging.position) / dist_objects;
 
+			// Get the distance to the hook on y for the Movement
 			Movement.distToHook = (hookObject.transform.position.y - objectHanging.position.y ) / ropeLength ;
 
 
@@ -325,6 +340,10 @@ public class GrapplingHook : MonoBehaviour
 	// Envois du grappin
 	public void Grapple()
 	{
+
+		// Animation of the grapplin
+		myAnimator.Play("GroundGrapplin");
+
 		beginLengthMin = 2f;
 		currentLengthRopeMax = lengthRopeMax;
 
@@ -350,6 +369,7 @@ public class GrapplingHook : MonoBehaviour
 		// Add the distances from the rope nodes to the hit points
 		distToHitPoints.Add((objectHanging.transform.position - hookObject.transform.position).normalized * 0.2f /*whatTheRopeIsConnectedTo.GetComponent<SphereCollider>().radius*/ );
         //distToHitPoints.Add(Vector3.zero);
+
 		distToHitPoints.Add(Vector3.zero);
 
 
@@ -549,7 +569,9 @@ public class GrapplingHook : MonoBehaviour
 		//Add the positions to the line renderer
 		LR.positionCount = positions.Length;
 
-		positions[distToHitPoints.Count - 1] += new Vector3(0f, 1f, 0f);
+
+		positions[distToHitPoints.Count - 1] = GameObject.FindGameObjectWithTag("GrapplinHand").transform.position ;
+		// positions[distToHitPoints.Count - 1] += new Vector3(0f, 1f, 0f);
 
 		LR.SetPositions(positions);
 	}
