@@ -29,8 +29,8 @@ public class Pressure : MonoBehaviour
             if (bm.exhale && current_fill < max_capacity)
             {
                 current_fill += fill_speed * Time.deltaTime;
-                if(UnlockedColor.r > .005f && UnlockedColor.g < .095)
-                    UnlockedColor = new Color(.5f - .5f * current_fill / max_capacity, .5f +  .5f * current_fill / max_capacity, UnlockedColor.b);
+                if(UnlockedColor.r > .0005f && UnlockedColor.g < .9995)
+                    UnlockedColor = new Color(.5f - .5f * current_fill / max_capacity, .5f + .5f * current_fill / max_capacity, UnlockedColor.b);
                 Light.GetComponent<Light>().color = UnlockedColor;
             }
 
