@@ -3,6 +3,222 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{C40A6E13-3206-406B-9CAB-495017552967}" PersistMode="Standalone">
 			<ChildrenList>
+				<RandomSequenceContainer Name="Clothes" ID="{5BDE0345-B041-4554-871E-CEA3BEB4CC5B}" ShortID="1060452050">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Uni_Vetement_01" ID="{95678284-6892-4912-A20B-F117B97FD5DA}" ShortID="1066041342">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-29</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Uni_Vetement_01" ID="{3031F741-DD26-405B-82A0-82BA89AE9BF0}">
+									<Language>SFX</Language>
+									<AudioFile>Uni_Vetement_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="941610954"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Uni_Vetement_01" ID="{3031F741-DD26-405B-82A0-82BA89AE9BF0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Uni_Vetement_02" ID="{A055F8FD-1A4B-48A6-928E-95F23DC156E9}" ShortID="639233263">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-31</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Uni_Vetement_02" ID="{CE2DA358-5DC5-49F9-B19A-7E2A63C2C49B}">
+									<Language>SFX</Language>
+									<AudioFile>Uni_Vetement_02.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="397346526"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Uni_Vetement_02" ID="{CE2DA358-5DC5-49F9-B19A-7E2A63C2C49B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Uni_Vetement_03" ID="{C3F53F32-60FA-48EF-8C9F-193B33C2EA5B}" ShortID="874869562">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-29</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Uni_Vetement_03" ID="{4D92C8DE-7BD6-4057-A683-372DE03B5AFB}">
+									<Language>SFX</Language>
+									<AudioFile>Uni_Vetement_03.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="306998261"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Uni_Vetement_03" ID="{4D92C8DE-7BD6-4057-A683-372DE03B5AFB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists/>
+				</RandomSequenceContainer>
+				<Folder Name="Ambiant_music" ID="{5C87BF62-12B6-4436-8BB8-AB65E609BC3A}" ShortID="736829628">
+					<ChildrenList>
+						<BlendContainer Name="Ambient_music_1_1" ID="{70901066-52C4-47E6-B368-0E6F44B18AEB}" ShortID="1018909465">
+							<PropertyList>
+								<Property Name="BlendBehavior" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Until I Breathe lev 1-1" ID="{C4F98C27-F0E8-4454-8EF5-F03D4BDB7896}" ShortID="337638675">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Until I Breathe lev 1-1" ID="{3756BC80-8667-408B-AB02-BEE0A784AAC1}">
+											<Language>SFX</Language>
+											<AudioFile>Until I Breathe lev 1-1 .wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="783500248"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Until I Breathe lev 1-1" ID="{3756BC80-8667-408B-AB02-BEE0A784AAC1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</BlendContainer>
+						<BlendContainer Name="Ambient_music_1_2" ID="{2E8357A8-8AEA-4B80-8A05-AF8BF7F0A911}" ShortID="104045083">
+							<PropertyList>
+								<Property Name="BlendBehavior" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Until I Breathe 1-2" ID="{8F7506DC-1E10-4B00-9FD8-90290565B8F1}" ShortID="212202148">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ValueList>
+												<Value>0.2</Value>
+											</ValueList>
+										</Property>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-9</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Until I Breathe 1-2" ID="{5078F18B-F061-441E-8361-D235D026A6F7}">
+											<Language>SFX</Language>
+											<AudioFile>Until I Breathe 1-2 .wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="504357912"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Until I Breathe 1-2" ID="{5078F18B-F061-441E-8361-D235D026A6F7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</BlendContainer>
+					</ChildrenList>
+				</Folder>
 				<SwitchContainer Name="FootStep" ID="{C2D50C09-D907-4FDD-9C75-ED12BBF5837E}" ShortID="114003077">
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
@@ -1110,7 +1326,7 @@
 						</GroupingBehaviorList>
 					</GroupingInfo>
 				</SwitchContainer>
-				<RandomSequenceContainer Name="Clothes" ID="{5BDE0345-B041-4554-871E-CEA3BEB4CC5B}" ShortID="1060452050">
+				<RandomSequenceContainer Name="Jump" ID="{73ED988D-5179-4365-9E7F-30C4ADF6E9DA}" ShortID="108286219">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1120,11 +1336,11 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Uni_Vetement_01" ID="{95678284-6892-4912-A20B-F117B97FD5DA}" ShortID="1066041342">
+						<Sound Name="Uni_Saut_01" ID="{1F10A768-381B-44F6-A4A4-1F37EB24902A}" ShortID="600719480">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-40</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1137,24 +1353,24 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Uni_Vetement_01" ID="{3031F741-DD26-405B-82A0-82BA89AE9BF0}">
+								<AudioFileSource Name="Uni_Saut_01" ID="{BA6ED91B-7D5D-4153-BCF5-5F6852E617EB}">
 									<Language>SFX</Language>
-									<AudioFile>Uni_Vetement_01.wav</AudioFile>
+									<AudioFile>Uni_Saut_01.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="941610954"/>
+										<MediaID ID="1059932493"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Uni_Vetement_01" ID="{3031F741-DD26-405B-82A0-82BA89AE9BF0}" Platform="Linked"/>
+								<ActiveSource Name="Uni_Saut_01" ID="{BA6ED91B-7D5D-4153-BCF5-5F6852E617EB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Uni_Vetement_02" ID="{A055F8FD-1A4B-48A6-928E-95F23DC156E9}" ShortID="639233263">
+						<Sound Name="Uni_Saut_02" ID="{878B1A5A-14D6-4187-84C5-AD3370EF33C6}" ShortID="978874645">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-40</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1167,24 +1383,24 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Uni_Vetement_02" ID="{CE2DA358-5DC5-49F9-B19A-7E2A63C2C49B}">
+								<AudioFileSource Name="Uni_Saut_02" ID="{8CA28A5D-FFDB-424A-9E05-A7DB6B5FA76F}">
 									<Language>SFX</Language>
-									<AudioFile>Uni_Vetement_02.wav</AudioFile>
+									<AudioFile>Uni_Saut_02.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="397346526"/>
+										<MediaID ID="487160943"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Uni_Vetement_02" ID="{CE2DA358-5DC5-49F9-B19A-7E2A63C2C49B}" Platform="Linked"/>
+								<ActiveSource Name="Uni_Saut_02" ID="{8CA28A5D-FFDB-424A-9E05-A7DB6B5FA76F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Uni_Vetement_03" ID="{C3F53F32-60FA-48EF-8C9F-193B33C2EA5B}" ShortID="874869562">
+						<Sound Name="Uni_Saut_03" ID="{83C66FEC-3E2F-4736-906D-657C688F35C6}" ShortID="422277007">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-40</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1197,79 +1413,22 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Uni_Vetement_03" ID="{4D92C8DE-7BD6-4057-A683-372DE03B5AFB}">
+								<AudioFileSource Name="Uni_Saut_03" ID="{E3DE9E88-9A4C-4A82-A7A4-08810E250894}">
 									<Language>SFX</Language>
-									<AudioFile>Uni_Vetement_03.wav</AudioFile>
+									<AudioFile>Uni_Saut_03.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="306998261"/>
+										<MediaID ID="445305863"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Uni_Vetement_03" ID="{4D92C8DE-7BD6-4057-A683-372DE03B5AFB}" Platform="Linked"/>
+								<ActiveSource Name="Uni_Saut_03" ID="{E3DE9E88-9A4C-4A82-A7A4-08810E250894}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
 					<ObjectLists/>
 				</RandomSequenceContainer>
-				<BlendContainer Name="Ambient_music" ID="{70901066-52C4-47E6-B368-0E6F44B18AEB}" ShortID="1018909465">
-					<PropertyList>
-						<Property Name="BlendBehavior" Type="int16" Value="1"/>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-11</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="Until I Breathe lev 1-1" ID="{C4F98C27-F0E8-4454-8EF5-F03D4BDB7896}" ShortID="337638675">
-							<PropertyList>
-								<Property Name="InitialDelay" Type="Real64">
-									<ValueList>
-										<Value>0.5</Value>
-									</ValueList>
-								</Property>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-9</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Until I Breathe lev 1-1" ID="{3756BC80-8667-408B-AB02-BEE0A784AAC1}">
-									<Language>SFX</Language>
-									<AudioFile>Until I Breathe lev 1-1 .wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="783500248"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="Until I Breathe lev 1-1" ID="{3756BC80-8667-408B-AB02-BEE0A784AAC1}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-					<ObjectLists/>
-				</BlendContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

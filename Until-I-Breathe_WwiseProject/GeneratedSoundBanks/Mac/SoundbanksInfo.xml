@@ -16,7 +16,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="3938047540">
+		<SoundBank Id="2228651116" Language="SFX" Hash="1903905457">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -197,11 +197,35 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="623275868" Name="Jump_event" ObjectPath="\Events\Default Work Unit\Jump\Jump_event" DurationType="OneShot" DurationMin="0.312479" DurationMax="0.395813">
+					<IncludedMemoryFiles>
+						<File Id="445305863" Language="SFX">
+							<ShortName>Uni_Saut_03.wav</ShortName>
+							<Path>SFX\Uni_Saut_03_10C4C929.wem</Path>
+						</File>
+						<File Id="487160943" Language="SFX">
+							<ShortName>Uni_Saut_02.wav</ShortName>
+							<Path>SFX\Uni_Saut_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1059932493" Language="SFX">
+							<ShortName>Uni_Saut_01.wav</ShortName>
+							<Path>SFX\Uni_Saut_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1178261876" Name="Lvl_1_1_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_1_1_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="783500248" Language="SFX">
 							<ShortName>Until I Breathe lev 1-1 .wav</ShortName>
 							<Path>SFX\Until I Breathe lev 1-1 _D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1572269619" Name="Lvl_1_2_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_1_2_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="504357912" Language="SFX">
+							<ShortName>Until I Breathe 1-2 .wav</ShortName>
+							<Path>SFX\Until I Breathe 1-2 _D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

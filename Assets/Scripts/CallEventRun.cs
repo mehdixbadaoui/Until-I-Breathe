@@ -15,6 +15,10 @@ public class CallEvent : MonoBehaviour
     {
         typeOfGround = movement.typeOfGround;
     }
+    public void callEvent(string s)
+    {
+        AkSoundEngine.PostEvent(s, gameObject);
+    }
     public void callEventRun(string s)
     {
        if (movement.typeOfGround == "Ground_Beton")

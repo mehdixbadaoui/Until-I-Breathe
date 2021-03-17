@@ -24,7 +24,9 @@ namespace AK
         static const AkUniqueID FS_LIQUIDE_EVENT = 1959957461U;
         static const AkUniqueID FS_METAL_EVENT = 3109581025U;
         static const AkUniqueID FS_ORDURE_EVENT = 3378064531U;
+        static const AkUniqueID JUMP_EVENT = 623275868U;
         static const AkUniqueID LVL_1_1_EVENT = 1178261876U;
+        static const AkUniqueID LVL_1_2_EVENT = 1572269619U;
     } // namespace EVENTS
 
     namespace SWITCHES
