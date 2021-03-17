@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     public Animator myAnimator;
 
     public float speed = .2f;
+    private float previousSpeed ;
+
     public float grapplinSpeed = 1;
     float horizontal_movement;
 
@@ -149,6 +151,8 @@ public class Movement : MonoBehaviour
                 myAnimator.Play("stand2crouch");
                 capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1)/2, capsule_collider.center.z);
                 capsule_collider.height = 1;
+                previousSpeed = speed;
+                speed = speed * 0.5f;
             }
 
         }
@@ -156,14 +160,15 @@ public class Movement : MonoBehaviour
         {
             if (capsule_collider.height == 1 )
             {
-                myAnimator.GetComponent<anim>().isCrouching = false;
-                myAnimator.Play("crouch2stand");
                 Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y -0.01f , transform.position.z);
                 RaycastHit hit_top;
                 if ( !Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
                 {
                     capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + 0.25f, capsule_collider.center.z);
                     capsule_collider.height = 1.5f;
+                    speed = previousSpeed;
+                    myAnimator.GetComponent<anim>().isCrouching = false;
+                    myAnimator.Play("crouch2stand");
                 }
             }
 
