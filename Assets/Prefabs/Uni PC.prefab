@@ -1790,6 +1790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15fb75c2ea61a64eba2a5512c3d2e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listObj: []
 --- !u!1 &2244418531979063448
 GameObject:
   m_ObjectHideFlags: 0
@@ -7106,6 +7107,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   keyGrapplin: 323
+  myAnimator: {fileID: 0}
 --- !u!114 &3871756466737052885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7121,6 +7123,8 @@ MonoBehaviour:
   myAnimator: {fileID: 0}
   speed: 0.1
   grapplinSpeed: 1
+  animPushing: 0
+  animIdleAir: 0
   jump_force: 35
   jump_force_flat: 35
   jump_force_slope_up: 35
@@ -7163,9 +7167,6 @@ MonoBehaviour:
   can_breath: 0
   hold: 0
   exhale: 0
-  hold_breath_key: 304
-  exhale_key: 324
-  blowObj: {fileID: 0}
 --- !u!114 &2814327343651965441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8900,6 +8901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Uni_rigged_v2(1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677951707854719564, guid: 8bb32c09f78af334091c627521654380,
+        type: 3}
+      propertyPath: m_TagString
+      value: GrapplinHand
       objectReference: {fileID: 0}
     - target: {fileID: 3015351083268395537, guid: 8bb32c09f78af334091c627521654380,
         type: 3}
