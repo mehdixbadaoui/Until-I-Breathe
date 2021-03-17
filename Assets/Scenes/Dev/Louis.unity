@@ -2375,7 +2375,7 @@ PrefabInstance:
     - target: {fileID: 2341961622715393686, guid: 676859e34d748994dab62ac850f97b30,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.1
+      value: -9.4
       objectReference: {fileID: 0}
     - target: {fileID: 2341961622715393686, guid: 676859e34d748994dab62ac850f97b30,
         type: 3}
@@ -5291,6 +5291,41 @@ MonoBehaviour:
     positionOffset: {x: 0, y: 0, z: 0}
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
+--- !u!114 &1763840290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763840287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466a27a7a604336438df0019849568a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: cb6255a7cc088134aa1dc8d1b7714e7f,
+      type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
+  MultiPositionType: 1
+  multiPositionTypeLabel: 0
+  attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
+  LargeModePositions: []
+  multiPositionArray: []
 --- !u!1001 &1778513668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6885,7 +6920,7 @@ PrefabInstance:
     - target: {fileID: 3342543507973312566, guid: db08d4251c2919443bc2c09f107036ac,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 3342543507973312566, guid: db08d4251c2919443bc2c09f107036ac,
         type: 3}
@@ -6931,6 +6966,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NextLevelDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342543507973312567, guid: db08d4251c2919443bc2c09f107036ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db08d4251c2919443bc2c09f107036ac, type: 3}

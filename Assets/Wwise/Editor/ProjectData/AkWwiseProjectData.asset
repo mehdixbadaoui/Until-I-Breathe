@@ -66,11 +66,11 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585856251926796238
+    m_lastTime: -8585856206653115936
     List:
-    - name: FootStep_Uni_soundbank
+    - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
-      id: 2794814922
+      id: 2228651116
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
@@ -78,10 +78,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: a75e6d5faae25b46af35e8674bc89a87
-      - ElementName: FootStep_Uni_soundbank
+      - ElementName: Main_Soundbank
         ObjectType: 7
         guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
-      Path: SoundBanks\Default Work Unit\FootStep_Uni_soundbank
+      Path: SoundBanks\Default Work Unit\Main_Soundbank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585856251926896183
+    m_lastTime: -8585856195891592509
     List:
     - name: Clothes_event
       guid: b4923e88cb56b14faca3cf0f7ba29ed8
@@ -106,10 +106,30 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: Clothes_event
         ObjectType: 3
         guid: b4923e88cb56b14faca3cf0f7ba29ed8
-      Path: Events\Default Work Unit\Clothes_event
+      Path: Events\Default Work Unit\FS\Clothes_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FS
+      guid: 3fb923d3578a41488cf09474e945b822
+      id: 1802970376
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
+      Path: Events\Default Work Unit\FS
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -123,10 +143,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Beton_event
         ObjectType: 3
         guid: a3418c5f20f96b45ad9b6145e0838538
-      Path: Events\Default Work Unit\FS_Beton_event
+      Path: Events\Default Work Unit\FS\FS_Beton_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -140,10 +163,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Bois_event
         ObjectType: 3
         guid: f01edba86f7dcf4e8e4fd0d01219363a
-      Path: Events\Default Work Unit\FS_Bois_event
+      Path: Events\Default Work Unit\FS\FS_Bois_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -157,10 +183,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Beton_event
         ObjectType: 3
         guid: 508e7448f9393341b99925c0bd8007c5
-      Path: Events\Default Work Unit\FS_crouch_Beton_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Beton_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -174,10 +203,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Bois_event
         ObjectType: 3
         guid: 121e0d83514e0041926137d3533dc58f
-      Path: Events\Default Work Unit\FS_crouch_Bois_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Bois_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -191,10 +223,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Liquide_event
         ObjectType: 3
         guid: e780e13d4aa8a44ea96b74e7470a4f13
-      Path: Events\Default Work Unit\FS_crouch_Liquide_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Liquide_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -208,10 +243,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Metal_event
         ObjectType: 3
         guid: 8540b847a1482b469103b5c84d0da367
-      Path: Events\Default Work Unit\FS_crouch_Metal_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Metal_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -225,10 +263,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Ordure_event
         ObjectType: 3
         guid: b6fe295eeeb3c0439f3f6ec889da219e
-      Path: Events\Default Work Unit\FS_crouch_Ordure_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Ordure_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -242,10 +283,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Liquide_event
         ObjectType: 3
         guid: 7de23be624da234c8a2dd857ad7e2824
-      Path: Events\Default Work Unit\FS_Liquide_event
+      Path: Events\Default Work Unit\FS\FS_Liquide_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -259,10 +303,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Metal_event
         ObjectType: 3
         guid: 381a746a1ee04d43af8e06e715992ac2
-      Path: Events\Default Work Unit\FS_Metal_event
+      Path: Events\Default Work Unit\FS\FS_Metal_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -276,10 +323,50 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: FS
+        ObjectType: 4
+        guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Ordure_event
         ObjectType: 3
         guid: c73e5d7bd5f79845a14265aefa56eda8
-      Path: Events\Default Work Unit\FS_Ordure_event
+      Path: Events\Default Work Unit\FS\FS_Ordure_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Lvl_1_1_event
+      guid: 1e7df07d20d2b841a0b573529bb4c2a8
+      id: 1178261876
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Lvl_1_1_event
+        ObjectType: 3
+        guid: 1e7df07d20d2b841a0b573529bb4c2a8
+      Path: Events\Default Work Unit\Music_levels\Lvl_1_1_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Music_levels
+      guid: 83c154ea6ed22e4d99c862109a900c87
+      id: 2209143460
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      Path: Events\Default Work Unit\Music_levels
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -438,7 +525,7 @@ MonoBehaviour:
     m_lastTime: -8585857209824198335
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 030000000500000006000000070000000a0000000b0000000e0000000f00000010000000110000001200000015000000
+  ExpandedWaapiItemIds: 03000000050000000600000007000000080000000a0000000b0000000e0000000f00000010000000110000001200000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

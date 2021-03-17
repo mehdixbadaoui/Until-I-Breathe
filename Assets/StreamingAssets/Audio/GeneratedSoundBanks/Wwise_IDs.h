@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID FS_LIQUIDE_EVENT = 1959957461U;
         static const AkUniqueID FS_METAL_EVENT = 3109581025U;
         static const AkUniqueID FS_ORDURE_EVENT = 3378064531U;
+        static const AkUniqueID LVL_1_1_EVENT = 1178261876U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -47,7 +48,7 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID FOOTSTEP_UNI_SOUNDBANK = 2794814922U;
+        static const AkUniqueID MAIN_SOUNDBANK = 2228651116U;
     } // namespace BANKS
 
     namespace BUSSES
