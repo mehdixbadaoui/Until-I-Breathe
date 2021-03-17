@@ -71,7 +71,7 @@ Transform:
   m_GameObject: {fileID: 4291605138324912799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.75, y: 1.305, z: 5.442}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 6289490232617315474}
   - {fileID: 4782711552682083906}
@@ -140,6 +140,8 @@ MonoBehaviour:
   locked: 0
   doorPivot: {fileID: 6616801723308889410}
   meshDoor: {fileID: 6618285373709056983}
+  sizeTriggerIfEnter: 5
+  sizeTriggerIfExit: 5
 --- !u!114 &4183070292438008041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +157,8 @@ MonoBehaviour:
   locked: 0
   doorPivot: {fileID: 7449957795821096183}
   meshDoor: {fileID: 5312351860424851001}
+  sizeTriggerIfEnter: 5
+  sizeTriggerIfExit: 5
 --- !u!1 &5031255948643003308
 GameObject:
   m_ObjectHideFlags: 0
