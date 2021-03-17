@@ -429,7 +429,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8f9776d4-a4e2-406e-8a54-568f2991fd3a"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
