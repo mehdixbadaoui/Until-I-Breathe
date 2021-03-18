@@ -36,7 +36,7 @@ public class GrapplingHook : MonoBehaviour
 
 	[Header("Variables")]
 
-	public LayerMask surfaces;
+	public LayerMask surfaces; 
 
 	//Movement script
 	private Movement movements;

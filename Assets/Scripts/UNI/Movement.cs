@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
     private bool isFlying = false;
 
-    private bool isCrouching = false;
+    private bool isCrouching = false; 
 
     float vertical_movement;
     private Vector3 lastInput;
