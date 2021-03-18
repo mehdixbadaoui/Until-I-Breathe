@@ -179,7 +179,6 @@ public class Movement : MonoBehaviour
 
         if (isGrapplin && !isGrounded)
         {
-            Debug.Log(angleHook);
             transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(angleHook, 0 , 0) , .1f) ;
         }
         else
