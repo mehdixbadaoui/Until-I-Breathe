@@ -15,7 +15,7 @@ public class CanBreathe : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (col.CompareTag("uni"))
+        if (col.CompareTag("uni") && enabled)
         {
             //DISABLE AIR LOSS
             breathing_mechanic.breath = breathing_mechanic.max_breath;
@@ -26,7 +26,7 @@ public class CanBreathe : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.CompareTag("uni"))
+        if (col.CompareTag("uni") && enabled)
         {
             breathing_mechanic.can_breath = false;
         }
