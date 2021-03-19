@@ -8,16 +8,10 @@ public class CancelScript : MonoBehaviour
 {
     public KeyCode CancelKeyCode;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(CancelKeyCode))
+        if (Input.GetKeyDown(CancelKeyCode))
             ExecuteEvents.Execute(gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.cancelHandler);
     }
 }
