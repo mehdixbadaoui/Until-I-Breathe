@@ -16,7 +16,7 @@
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="1903905457">
+		<SoundBank Id="2228651116" Language="SFX" Hash="758634996">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -194,6 +194,86 @@
 						<File Id="781118095" Language="SFX">
 							<ShortName>FS_Ordure\FS_Ordure_Uni_01.wav</ShortName>
 							<Path>SFX\FS_Ordure\FS_Ordure_Uni_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3796971714" Name="Hook_accroche_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_accroche_event" DurationType="OneShot" DurationMin="0.250021" DurationMax="0.312500">
+					<IncludedMemoryFiles>
+						<File Id="78198669" Language="SFX">
+							<ShortName>Grappin_Accroche_Uni_01.wav</ShortName>
+							<Path>SFX\Grappin_Accroche_Uni_01_10C4C929.wem</Path>
+						</File>
+						<File Id="291852911" Language="SFX">
+							<ShortName>Grappin_Accroche_Uni_02.wav</ShortName>
+							<Path>SFX\Grappin_Accroche_Uni_02_10C4C929.wem</Path>
+						</File>
+						<File Id="621944333" Language="SFX">
+							<ShortName>Grappin_Accroche_Uni_03.wav</ShortName>
+							<Path>SFX\Grappin_Accroche_Uni_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2299808236" Name="Hook_balance_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_balance_event" DurationType="OneShot" DurationMin="0.469792" DurationMax="0.469792">
+					<IncludedMemoryFiles>
+						<File Id="65937578" Language="SFX">
+							<ShortName>Uni_Grappin_Balance_01.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Balance_01_10C4C929.wem</Path>
+						</File>
+						<File Id="603028309" Language="SFX">
+							<ShortName>Uni_Grappin_Balance_03.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Balance_03_10C4C929.wem</Path>
+						</File>
+						<File Id="637015698" Language="SFX">
+							<ShortName>Uni_Grappin_Balance_02.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Balance_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1635066019" Name="Hook_decroche_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_decroche_event" DurationType="OneShot" DurationMin="0.166688" DurationMax="0.229167">
+					<IncludedMemoryFiles>
+						<File Id="431791995" Language="SFX">
+							<ShortName>Grappin_Deccroche_Uni_01.wav</ShortName>
+							<Path>SFX\Grappin_Deccroche_Uni_01_10C4C929.wem</Path>
+						</File>
+						<File Id="718059844" Language="SFX">
+							<ShortName>Grappin_Deccroche_Uni_03.wav</ShortName>
+							<Path>SFX\Grappin_Deccroche_Uni_03_10C4C929.wem</Path>
+						</File>
+						<File Id="969994697" Language="SFX">
+							<ShortName>Grappin_Deccroche_Uni_02.wav</ShortName>
+							<Path>SFX\Grappin_Deccroche_Uni_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3869797606" Name="Hook_ralonge_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_ralonge_event" DurationType="OneShot" DurationMin="0.500000" DurationMax="0.500000">
+					<IncludedMemoryFiles>
+						<File Id="216791816" Language="SFX">
+							<ShortName>Uni_Grappin_Ralonge_Loop_03.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Ralonge_Loop_03_10C4C929.wem</Path>
+						</File>
+						<File Id="924626134" Language="SFX">
+							<ShortName>Uni_Grappin_Ralonge_Loop_01.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Ralonge_Loop_01_10C4C929.wem</Path>
+						</File>
+						<File Id="955761091" Language="SFX">
+							<ShortName>Uni_Grappin_Ralonge_Loop_02.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Ralonge_Loop_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1354796538" Name="Hook_retracte_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_retracte_event" DurationType="OneShot" DurationMin="0.875000" DurationMax="0.875000">
+					<IncludedMemoryFiles>
+						<File Id="167275356" Language="SFX">
+							<ShortName>Uni_Grappin_Retracte_Loop_03.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Retracte_Loop_03_10C4C929.wem</Path>
+						</File>
+						<File Id="424150525" Language="SFX">
+							<ShortName>Uni_Grappin_Retracte_Loop_02.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Retracte_Loop_02_10C4C929.wem</Path>
+						</File>
+						<File Id="529145638" Language="SFX">
+							<ShortName>Uni_Grappin_Retracte_Loop_01.wav</ShortName>
+							<Path>SFX\Uni_Grappin_Retracte_Loop_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
