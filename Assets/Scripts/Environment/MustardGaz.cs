@@ -17,8 +17,8 @@ public class MustardGaz : MonoBehaviour
             GetComponentInParent<CanBreathe>().enabled = false;
             other.GetComponent<Breathing_mechanic>().can_breath = false;
             //other.GetComponent<Breathing_mechanic>().breath_speed = initial_breath_speed * 10f;
-            if(other.GetComponent<Breathing_mechanic>().breath > 1)
-                other.GetComponent<Breathing_mechanic>().breath = 1;
+            if(other.GetComponent<Breathing_mechanic>().breath > 10)
+                other.GetComponent<Breathing_mechanic>().breath = 10;
         }
     }
 
