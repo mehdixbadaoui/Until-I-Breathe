@@ -344,14 +344,21 @@ public class GrapplingHook : MonoBehaviour
 	public void Grapple()
 	{
 
-		// Animation of the grapplin
-		myAnimator.Play("GroundGrapplin");
 
 		beginLengthMin = 2f;
 		currentLengthRopeMax = lengthRopeMax;
 
 		if (hookObject.tag == "hook")
+		{
 			Movement.isGrapplin = true;
+			// Animation of the grapplin
+			myAnimator.Play("GroundGrapplin");
+		}
+		else if (hookObject.tag == "lever" || hookObject.tag == "movable_hook")
+        {
+			// Animation of the grapplin lanched
+			myAnimator.Play("GroundGrapplinLever");
+		}
 
 		body.mass = loadMass;
 
