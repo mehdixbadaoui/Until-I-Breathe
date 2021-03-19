@@ -57,12 +57,14 @@ public class anim : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-
         vert = Input.GetAxis("Horizontal");
         // vert = inputs.Uni.Walk.ReadValue<float>();:
 
         myAnimator.SetFloat("vertical", Mathf.Abs(vert));
         // Debug.Log("vertical = " + Mathf.Abs(Input.GetAxis("Vertical")));
+
+        // random int for 2 different falls
+        myAnimator.SetInteger("randomFall", Random.Range(0, 2));
 
         myAnimator.SetBool("grapplinPush", movement.animPushing);
 
