@@ -51,7 +51,7 @@ public class ObjectDetector : MonoBehaviour
 
                 if (listObj[index].tag == "lever")
                 {
-                    listObj[index].GetComponent<Lever>().door.GetComponent<Door>().locked = false;
+                    listObj[index].GetComponent<Lever>().Unlock();
                 }
 
             }

@@ -344,14 +344,21 @@ public class GrapplingHook : MonoBehaviour
 	public void Grapple()
 	{
 
-		// Animation of the grapplin
-		myAnimator.Play("GroundGrapplin");
 
 		beginLengthMin = 2f;
 		currentLengthRopeMax = lengthRopeMax;
 
 		if (hookObject.tag == "hook")
+		{
 			Movement.isGrapplin = true;
+			// Animation of the grapplin
+			myAnimator.Play("GroundGrapplin");
+		}
+		else if (hookObject.tag == "lever" || hookObject.tag == "movable_hook")
+        {
+			// Animation of the grapplin lanched
+			myAnimator.Play("GroundGrapplinLever");
+		}
 
 		body.mass = loadMass;
 
@@ -386,7 +393,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 		if (hookObject.tag == "lever")
-			hookObject.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
+			hookObject.GetComponent<Lever>().Unlock();
 
 		//Init the spring we use to approximate the rope from point a to b
 		UpdateRopePositions();
@@ -457,6 +464,8 @@ public class GrapplingHook : MonoBehaviour
 	public void MoveUp()
 	{
 		ropeLength -= winchSpeed * Time.deltaTime;
+		//AkSoundEngine.PostEvent("Hook_ralonge_event", gameObject); 
+		//AkSoundEngine.Event
 	}
 
 	// Décrochage
