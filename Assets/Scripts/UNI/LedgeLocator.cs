@@ -74,7 +74,10 @@ public class LedgeLocator : MonoBehaviour
         
         col = GetComponent<CapsuleCollider>();
         rb =  GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+
+        // Get the animator 
+        myAnimator = GetComponentInChildren<Animator>();
+
         if (clip != null)
         {
             animationTime = clip.length;
