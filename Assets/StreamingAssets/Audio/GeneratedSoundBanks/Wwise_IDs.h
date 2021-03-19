@@ -24,6 +24,11 @@ namespace AK
         static const AkUniqueID FS_LIQUIDE_EVENT = 1959957461U;
         static const AkUniqueID FS_METAL_EVENT = 3109581025U;
         static const AkUniqueID FS_ORDURE_EVENT = 3378064531U;
+        static const AkUniqueID HOOK_ACCROCHE_EVENT = 3796971714U;
+        static const AkUniqueID HOOK_BALANCE_EVENT = 2299808236U;
+        static const AkUniqueID HOOK_DECROCHE_EVENT = 1635066019U;
+        static const AkUniqueID HOOK_RALONGE_EVENT = 3869797606U;
+        static const AkUniqueID HOOK_RETRACTE_EVENT = 1354796538U;
         static const AkUniqueID JUMP_EVENT = 623275868U;
         static const AkUniqueID LVL_1_1_EVENT = 1178261876U;
         static const AkUniqueID LVL_1_2_EVENT = 1572269619U;

@@ -464,6 +464,8 @@ public class GrapplingHook : MonoBehaviour
 	public void MoveUp()
 	{
 		ropeLength -= winchSpeed * Time.deltaTime;
+		//AkSoundEngine.PostEvent("Hook_ralonge_event", gameObject); 
+		//AkSoundEngine.Event
 	}
 
 	// Décrochage
