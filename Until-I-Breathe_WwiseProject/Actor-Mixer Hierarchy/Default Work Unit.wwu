@@ -204,6 +204,14 @@
 							<ObjectLists/>
 						</BlendContainer>
 						<BlendContainer Name="Ambient_music_2_1" ID="{37C4069E-8C10-41BE-8325-D3605AC29AFD}" ShortID="453586528">
+							<PropertyList>
+								<Property Name="BlendBehavior" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-30</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -212,6 +220,34 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="UntilIBreath 2-1" ID="{33CA4A20-36E7-4B8F-8E12-751E8A613C75}" ShortID="612598526">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UntilIBreath 2-1" ID="{AC16CE14-A35F-4E5B-A497-458B609C1985}">
+											<Language>SFX</Language>
+											<AudioFile>UntilIBreath 2-1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="412197094"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="UntilIBreath 2-1" ID="{AC16CE14-A35F-4E5B-A497-458B609C1985}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
 							<ObjectLists/>
 						</BlendContainer>
 					</ChildrenList>
@@ -1836,7 +1872,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Uni_Grappin_Retracte_Loop_01" ID="{5E857217-A950-4230-AED0-DD70D7678877}" ShortID="312144616">
+								<Sound Name="Uni_Grapin_Retracte_01" ID="{434B4806-D7B0-4C21-BCFA-3F7C07C6D45A}" ShortID="208928970">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1846,20 +1882,20 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Uni_Grappin_Retracte_Loop_01" ID="{CA8A2E25-92D6-4CB5-9A43-A50285E72427}">
+										<AudioFileSource Name="Uni_Grapin_Retracte_01" ID="{A01167F8-84D8-4DD5-8CAF-E7CB8A363974}">
 											<Language>SFX</Language>
-											<AudioFile>Uni_Grappin_Retracte_Loop_01.wav</AudioFile>
+											<AudioFile>Uni_Grapin_Retracte_01.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="529145638"/>
+												<MediaID ID="285335161"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Uni_Grappin_Retracte_Loop_01" ID="{CA8A2E25-92D6-4CB5-9A43-A50285E72427}" Platform="Linked"/>
+										<ActiveSource Name="Uni_Grapin_Retracte_01" ID="{A01167F8-84D8-4DD5-8CAF-E7CB8A363974}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Uni_Grappin_Retracte_Loop_02" ID="{367D917F-8F3A-45FD-A23E-7E4E9FAF0175}" ShortID="692047698">
+								<Sound Name="Uni_Grapin_Retracte_02" ID="{D87D05E0-A801-4242-B597-4530534B2012}" ShortID="595152408">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1869,20 +1905,20 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Uni_Grappin_Retracte_Loop_02" ID="{5F742104-5986-4B89-AE1E-9F76A4A51EB4}">
+										<AudioFileSource Name="Uni_Grapin_Retracte_02" ID="{ECB91895-A06C-43C1-9EEC-0C80A0BB7FCE}">
 											<Language>SFX</Language>
-											<AudioFile>Uni_Grappin_Retracte_Loop_02.wav</AudioFile>
+											<AudioFile>Uni_Grapin_Retracte_02.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="424150525"/>
+												<MediaID ID="354250736"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Uni_Grappin_Retracte_Loop_02" ID="{5F742104-5986-4B89-AE1E-9F76A4A51EB4}" Platform="Linked"/>
+										<ActiveSource Name="Uni_Grapin_Retracte_02" ID="{ECB91895-A06C-43C1-9EEC-0C80A0BB7FCE}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Uni_Grappin_Retracte_Loop_03" ID="{65F878C1-E822-49AA-A4E3-E3A8804BB5D1}" ShortID="894707159">
+								<Sound Name="Uni_Grapin_Retracte_03" ID="{42697AF4-C307-4589-BDAE-99F3A48D15F0}" ShortID="191978387">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1892,17 +1928,17 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Uni_Grappin_Retracte_Loop_03" ID="{27009573-0FAC-4C99-A654-6EDF0522012A}">
+										<AudioFileSource Name="Uni_Grapin_Retracte_03" ID="{53242443-E1C8-4D0B-9E73-6D9511B24EEA}">
 											<Language>SFX</Language>
-											<AudioFile>Uni_Grappin_Retracte_Loop_03.wav</AudioFile>
+											<AudioFile>Uni_Grapin_Retracte_03.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="167275356"/>
+												<MediaID ID="751274313"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Uni_Grappin_Retracte_Loop_03" ID="{27009573-0FAC-4C99-A654-6EDF0522012A}" Platform="Linked"/>
+										<ActiveSource Name="Uni_Grapin_Retracte_03" ID="{53242443-E1C8-4D0B-9E73-6D9511B24EEA}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
