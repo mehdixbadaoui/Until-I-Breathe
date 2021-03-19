@@ -5,6 +5,21 @@
 			<ChildrenList>
 				<RandomSequenceContainer Name="Clothes" ID="{5BDE0345-B041-4554-871E-CEA3BEB4CC5B}" ShortID="1060452050">
 					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>1200</Value>
+							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{E3AA5151-0E44-4B3E-B7B3-8670EE82E4E8}">
+										<PropertyList>
+											<Property Name="Max" Type="Real64" Value="3000"/>
+											<Property Name="Min" Type="Real64" Value="-3000"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-30</Value>
@@ -161,11 +176,6 @@
 							<ChildrenList>
 								<Sound Name="Until I Breathe 1-2" ID="{8F7506DC-1E10-4B00-9FD8-90290565B8F1}" ShortID="212202148">
 									<PropertyList>
-										<Property Name="InitialDelay" Type="Real64">
-											<ValueList>
-												<Value>0.2</Value>
-											</ValueList>
-										</Property>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
@@ -193,6 +203,17 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</BlendContainer>
+						<BlendContainer Name="Ambient_music_2_1" ID="{37C4069E-8C10-41BE-8325-D3605AC29AFD}" ShortID="453586528">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ObjectLists/>
+						</BlendContainer>
 					</ChildrenList>
 				</Folder>
 				<SwitchContainer Name="FootStep" ID="{C2D50C09-D907-4FDD-9C75-ED12BBF5837E}" ShortID="114003077">
@@ -214,6 +235,18 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="FS_Beton_randomContainer" ID="{66C10BA8-C9F2-4FFB-AB3E-EAF9649F7070}" ShortID="659241867">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{97420C08-F23D-4354-A11C-F6CA1768BA64}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-2000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="PlayMechanismInfiniteOrNumberOfLoops" Type="int16" Value="0"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoopCount" Type="int32" Value="1"/>
@@ -224,6 +257,16 @@
 									<ValueList>
 										<Value>-20</Value>
 									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{294B58A7-A4F3-4A2C-8846-B98701CD424F}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-30"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -330,6 +373,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_Bois_randomContainer" ID="{64EB3094-AFA4-41AE-BC47-EADB48284068}" ShortID="583321891">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{89C2DE50-9DD1-470C-8F66-0AB0E37E34B4}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-20</Value>
@@ -419,6 +474,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_Liquide_randomContainer" ID="{B8E6BCBE-71E6-40E4-976E-CB55FA3870D4}" ShortID="218181276">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{FC9F6699-FB66-4FED-903C-B21D724217F3}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-20</Value>
@@ -508,6 +575,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_Metal_randomContainer" ID="{470C04AD-A9E6-46F9-9FAC-3C27793E9B50}" ShortID="715391456">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{3DA5149A-F45E-4BA7-8D9C-3F18E448FCAC}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-15</Value>
@@ -597,6 +676,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_Ordure_randomContainer" ID="{7A23C27F-7E78-4E95-9B67-72327335A8B9}" ShortID="610551722">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{4AA4F2FA-5761-4DC3-AF7D-23EE08ABFF61}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-500"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-20</Value>
@@ -686,6 +777,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_crouch_Beton" ID="{292F7C13-5D03-40B8-8B9A-FF9AE6CBEAF2}" ShortID="714427856">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{C50FFF01-1C21-460F-9C60-C40D1662FDEC}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-2000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-25</Value>
@@ -775,6 +878,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_crouch_Bois" ID="{D0691E2C-7829-4D61-8349-2026085E20D1}" ShortID="959442977">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{111FFC5E-5E5D-445C-8BD4-81952D7D63C6}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-25</Value>
@@ -864,6 +979,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_crouch_Liquide" ID="{B2D3BC75-94C2-4E1C-BDA5-B5D51AA67F3E}" ShortID="403060707">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F484FA54-7A0F-4B4A-978D-A638B7CC89AF}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-25</Value>
@@ -953,6 +1080,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_crouch_Metal" ID="{D680D13B-8F6A-47AA-9533-525776A49575}" ShortID="47197978">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{82D16F88-41D8-4046-9F3A-7939A8EA3D09}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-20</Value>
@@ -1042,6 +1181,18 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="FS_crouch_Ordure" ID="{4DA130FE-3181-4925-BC7E-3BCACA9D9B87}" ShortID="936484866">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{1E941474-314A-45EA-893E-D264922CEBFE}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-500"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-25</Value>
@@ -1348,9 +1499,20 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Hook_accroche" ID="{D92B6513-9FCD-4D57-88F7-2AB2CD2F3B2A}" ShortID="432908063">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{5007FA3B-E8A2-4B8D-8D56-24957CBC35AC}">
+												<PropertyList>
+													<Property Name="Max" Type="Real64" Value="1000"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-15</Value>
+										<Value>-25</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1364,6 +1526,15 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Grappin_Accroche_Uni_01" ID="{B5ADDA1F-867E-4C3C-81B1-578C3F8C5FD3}" ShortID="72684001">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{21566D93-B77A-4588-B400-A0B1B3C18D9F}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1387,6 +1558,15 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Grappin_Accroche_Uni_02" ID="{E985E843-88E8-4975-8663-A5CAEADBA0C7}" ShortID="356291497">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{FE838856-AD95-4A5B-807B-9FAC9E92261C}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1410,6 +1590,18 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Grappin_Accroche_Uni_03" ID="{2997C48A-56C7-47A1-8A35-9EE25DFD433B}" ShortID="203577495">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>100</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{B9A9AACF-1215-41D8-B57D-B84BB4015CAB}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1437,9 +1629,16 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Hook_deccroche" ID="{D0560EE1-0F53-47D6-89F0-804B7A8DC000}" ShortID="429271672">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{B08B82D1-5491-48DB-8EEA-28BE4769491A}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-15</Value>
+										<Value>-25</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1528,7 +1727,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-31</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1615,9 +1814,16 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Hook_retracte" ID="{D1CB3084-2F24-40AD-AFBE-0F46B110A959}" ShortID="680624124">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{2B1DC8F7-D111-40DE-90CC-F9203A499243}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-30</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
