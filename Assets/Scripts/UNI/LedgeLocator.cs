@@ -52,6 +52,8 @@ public class LedgeLocator : MonoBehaviour
     public RaycastHit hit;
     public RaycastHit hitSecurity;
 
+    // Uni animator
+    public Animator myAnimator;
 
     private void Awake()
     {
@@ -72,7 +74,10 @@ public class LedgeLocator : MonoBehaviour
         
         col = GetComponent<CapsuleCollider>();
         rb =  GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+
+        // Get the animator 
+        myAnimator = GetComponentInChildren<Animator>();
+
         if (clip != null)
         {
             animationTime = clip.length;
@@ -114,7 +119,7 @@ public class LedgeLocator : MonoBehaviour
                     if (col.bounds.max.y + offsetLedgeClimbing < ledge.GetComponent<Collider>().bounds.max.y && col.bounds.max.y + offsetLedgeClimbing > ledge.GetComponent<Collider>().bounds.center.y)
                     {
                         grabbingLedge = true;
-                        //anim.SetBool("LedgeHanging", true);
+                        myAnimator.SetBool("LedgeHanging", true);
                     }
                 }
             }
@@ -155,7 +160,8 @@ public class LedgeLocator : MonoBehaviour
 
         if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() != 0 || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()))  && ledge!= null)
         {
-            //anim.SetBool("LedgeHanging", false);
+            // Start the animation of hanging
+            myAnimator.SetBool("LedgeHanging", false);
             if(transform.localScale.z > 0)
             {
                 StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z + climbingHorizontalOffset), animationTime, ledge.transform));
@@ -174,7 +180,8 @@ public class LedgeLocator : MonoBehaviour
         {
             ledge = null;
             moved = false;
-            ////anim.SetBool("LedgeHanging", false);
+            // Stop the animation of hanging
+            myAnimator.SetBool("LedgeHanging", false);
             falling = true;
             rb.useGravity = true;
             GetComponent<Movement>().enabled = true;
@@ -190,7 +197,9 @@ public class LedgeLocator : MonoBehaviour
         Vector3 startValue = transform.position;  
         while (time < duration)
         {
-            //anim.SetBool("LedgeClimbing", true);
+
+            // Start the animation of climbing
+            myAnimator.SetBool("LedgeClimbing", true);
             transform.position = Vector3.Lerp(startValue, topOfPlatformTransform.TransformPoint(localPosition), time / duration);
             time += Time.deltaTime;
             yield return new WaitForFixedUpdate();
@@ -198,7 +207,9 @@ public class LedgeLocator : MonoBehaviour
         ledge = null;
         moved = false;
         grabbingLedge = false;
-        //anim.SetBool("LedgeClimbing", false);
+
+        // Stop the animation of climbing
+        myAnimator.SetBool("LedgeClimbing", false);
     }
 
     protected virtual void AdjustPlayerPosition(Vector3 topOfPlatform, Transform topOfPlatformTransform)
