@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 8043960394238340495}
   - component: {fileID: 8043960394238340493}
   m_Layer: 0
-  m_Name: ST2_low
+  m_Name: ST2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,10 +794,9 @@ MonoBehaviour:
   followSharpness: 2
   rotationSpeed: 5
   followOffset: {x: -1, y: 2, z: 1}
-  rotationOffset: {x: 0, y: 0, z: 0}
-  ChildGO_Sprite: {fileID: 0}
-  sprites: []
-  dist_from_hook: 2
+  fixationSpeed: 0
+  distFromObj: 0
+  lookAtSpeed: 0
 --- !u!54 &8043960394238340495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -830,10 +829,9 @@ MonoBehaviour:
   followSharpness: 2
   rotationSpeed: 5
   followOffset: {x: -1, y: 2, z: 1}
-  rotationOffset: {x: 0, y: 0, z: 0}
-  ChildGO_Sprite: {fileID: 0}
-  sprites: []
-  dist_from_hook: 2
+  fixationSpeed: 5
+  distFromObj: 1
+  lookAtSpeed: 5
 --- !u!1 &6059592103730164757
 GameObject:
   m_ObjectHideFlags: 0
