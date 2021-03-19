@@ -55,6 +55,9 @@ public class hook_detector : MonoBehaviour
         
         if (all_hooks.Count != 0)
         {
+            if(!nearest_hook)
+                nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList()[0];
+
             //SELECT HOOK WITH GAMEPAD
             if (inputs.Uni.NextHook.ReadValue<float>() > 0.1f || inputs.Uni.PrevHook.ReadValue<float>() > 0.1f)
                 nearest_hook = all_hooks[index % all_hooks.Count];
