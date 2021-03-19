@@ -36,7 +36,7 @@ public class GrapplingHook : MonoBehaviour
 
 	[Header("Variables")]
 
-	public LayerMask surfaces;
+	public LayerMask surfaces; 
 
 	//Movement script
 	private Movement movements;
@@ -153,7 +153,10 @@ public class GrapplingHook : MonoBehaviour
 		{
 
 			// Get the angle to rotate uni in Movement
-			Movement.angleHook = Vector3.Angle(Vector3.down, objectHanging.position - hookObject.transform.position ) * Math.Sign( (hookObject.transform.position - objectHanging.position).z ) ;
+			if (Vector3.Angle(Vector3.down, objectHanging.position - hookObject.transform.position) - 10 > 0.5f)
+				Movement.angleHook = (Vector3.Angle(Vector3.down, objectHanging.position - hookObject.transform.position) - 10) * Math.Sign((hookObject.transform.position - objectHanging.position).z);
+			else
+				Movement.angleHook = 0;
 
 			// Vecteur unitaire
 			Vector3 u_dir = (hookObject.transform.position - objectHanging.position) / dist_objects;
