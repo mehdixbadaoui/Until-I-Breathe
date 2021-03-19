@@ -393,7 +393,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 		if (hookObject.tag == "lever")
-			hookObject.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
+			hookObject.GetComponent<Lever>().Unlock();
 
 		//Init the spring we use to approximate the rope from point a to b
 		UpdateRopePositions();
