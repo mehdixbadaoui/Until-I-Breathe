@@ -169,6 +169,65 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Hook" ID="{070FE827-51BF-49CA-AAE6-6271252FA17C}" ShortID="824012805">
+					<ChildrenList>
+						<Event Name="Hook_balance_event" ID="{1E55533C-202D-4468-BE26-30DB8D5E39CB}">
+							<ChildrenList>
+								<Action Name="" ID="{91358D56-5EA2-49C9-AE82-D8B7CA8FC986}" ShortID="252127875">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hook_balance" ID="{2527AB11-71E9-493A-B203-98F98E42A7FA}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Hook_accroche_event" ID="{EAAAD31A-7B39-457E-AE0C-2DD753FF3CC9}">
+							<ChildrenList>
+								<Action Name="" ID="{9774062B-A087-48E2-B3D5-01D66BC331FB}" ShortID="274811512">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hook_accroche" ID="{D92B6513-9FCD-4D57-88F7-2AB2CD2F3B2A}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Hook_decroche_event" ID="{231714A5-6F46-469D-AF91-DAFB949462C7}">
+							<ChildrenList>
+								<Action Name="" ID="{1D4D5360-E209-4D44-BA4D-39F2F7E3DA7F}" ShortID="764754313">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hook_deccroche" ID="{D0560EE1-0F53-47D6-89F0-804B7A8DC000}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Hook_ralonge_event" ID="{108A68A4-67B1-407F-B743-7961FA5E280B}">
+							<ChildrenList>
+								<Action Name="" ID="{2CD8A421-75F6-460B-971A-FF50FDAE2A63}" ShortID="898938783">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hook_ralonge" ID="{71F97FB1-6E06-481B-BDC1-9C52057CEDB1}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Hook_retracte_event" ID="{698B6258-EFBC-4DD8-9EAC-2DC426EF37AE}">
+							<ChildrenList>
+								<Action Name="" ID="{B3BA0800-BC41-4093-8675-8E240C105187}" ShortID="414812979">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hook_retracte" ID="{D1CB3084-2F24-40AD-AFBE-0F46B110A959}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
