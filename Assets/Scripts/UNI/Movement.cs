@@ -149,7 +149,8 @@ public class Movement : MonoBehaviour
             if (capsule_collider.height > 1)
             {
                 myAnimator.GetComponent<anim>().isCrouching = true;
-                myAnimator.Play("stand2crouch");
+                myAnimator.Play("stand2crouch", 1);
+                myAnimator.Play("stand2crouch", 2);
                 capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1)/2, capsule_collider.center.z);
                 capsule_collider.height = 1;
                 previousSpeed = speed;
@@ -169,7 +170,8 @@ public class Movement : MonoBehaviour
                     capsule_collider.height = 1.5f;
                     speed = previousSpeed;
                     myAnimator.GetComponent<anim>().isCrouching = false;
-                    myAnimator.Play("crouch2stand");
+                    myAnimator.Play("crouch2stand", 1);
+                    myAnimator.Play("crouch2stand" , 2) ;
                 }
             }
 
@@ -437,7 +439,8 @@ public class Movement : MonoBehaviour
     {
         
 
-        myAnimator.Play("Unijump");
+        myAnimator.Play("Unijump" , 1);
+        myAnimator.Play("Unijump", 2);
         countGround = 0;
         isGrounded = false;
         isJumping = true;
@@ -451,7 +454,8 @@ public class Movement : MonoBehaviour
     public void JumpAfterGrapplin()
     {
 
-        myAnimator.Play("JumpAfterGrapplin");
+        myAnimator.Play("JumpAfterGrapplin" , 1);
+        myAnimator.Play("JumpAfterGrapplin", 2);
 
         countGround = 0;
         isGrounded = false;

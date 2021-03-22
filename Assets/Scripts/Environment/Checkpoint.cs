@@ -24,9 +24,9 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.tag == "uni" && !alreadyChecked )
         {
-            Debug.Log(gm.LastCheckPointPos);
+            //Debug.Log(gm.LastCheckPointPos);
             gm.LastCheckPointPos = new Vector3 ( other.transform.position.x , transform.position.y , transform.position.z );
-            Debug.Log(gm.LastCheckPointPos);
+            //Debug.Log(gm.LastCheckPointPos);
             alreadyChecked = true;
 
             // Change the color of the plane
