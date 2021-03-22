@@ -73,16 +73,15 @@ public class hook_detector : MonoBehaviour
                 RaycastHit hit;
 
                 nearest_hook = all_hooks[i];
-                while (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized, out hit,
+                while ( i < all_hooks.Count - 1 && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
                     Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
-                    Physics.Raycast(all_hooks[i].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[i].transform.position).normalized, out hit,
-                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)))
+                    Physics.Raycast(all_hooks[i].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[i].transform.position).normalized,
+                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center))))
                 {
                     i++;
 
                 }
                 nearest_hook = all_hooks[i];
-
             }
         }
         else
