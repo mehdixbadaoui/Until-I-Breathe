@@ -51,6 +51,11 @@ public class PlatformsWithButton : MonoBehaviour
                 float fractionOfJourney = distCovered / journeyLength;
 
                 transform.position = Vector3.Lerp(currentPoint.position, goToPoint.position, fractionOfJourney);
+
+                if (Vector3.Distance(transform.position, goToPoint.position) < 0.01f) // insure that the platform is at the exact position of its destination
+                {
+                    transform.position = goToPoint.position;
+                }
             }
             else
             {

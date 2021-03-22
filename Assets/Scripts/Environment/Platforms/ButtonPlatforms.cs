@@ -16,17 +16,17 @@ public class ButtonPlatforms : MonoBehaviour
     {
         if (PlatformsWithButtonScript.fourPoints)
         {
-            if (0 <= PlatformsWithButtonScript.intDir && PlatformsWithButtonScript.intDir <= 4)
-                PlatformsWithButtonScript.intDir++; //Increment
-            else
-                PlatformsWithButtonScript.intDir = 0;
-        }
-        else
-        {
             if (0 <= PlatformsWithButtonScript.intDir && PlatformsWithButtonScript.intDir <= 3)
                 PlatformsWithButtonScript.intDir++; //Increment
             else
-                PlatformsWithButtonScript.intDir = 0;
+                PlatformsWithButtonScript.intDir = 1;
+        }
+        else
+        {
+            if (0 <= PlatformsWithButtonScript.intDir && PlatformsWithButtonScript.intDir <= 2)
+                PlatformsWithButtonScript.intDir++; //Increment
+            else
+                PlatformsWithButtonScript.intDir = 1;
         }
     }
 }

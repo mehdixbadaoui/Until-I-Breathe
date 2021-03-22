@@ -68,7 +68,7 @@ public class ObjectDetector : MonoBehaviour
     {
 
 
-        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") )
+        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform"))
         {
             listObj.Add(col.gameObject);
         }
@@ -94,7 +94,7 @@ public class ObjectDetector : MonoBehaviour
     void OnTriggerExit(Collider col)
     {
 
-        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever"))
+        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform"))
         {
             listObj.Remove(col.gameObject);
         }
