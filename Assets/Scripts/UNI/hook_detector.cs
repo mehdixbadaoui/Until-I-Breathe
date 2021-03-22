@@ -56,8 +56,8 @@ public class hook_detector : MonoBehaviour
         if (all_hooks.Count != 0)
         {
             all_hooks = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList();
-            if (!nearest_hook)
-                nearest_hook = all_hooks[0];
+            //if (!nearest_hook)
+            //    nearest_hook = all_hooks[0];
 
             //SELECT HOOK WITH GAMEPAD
             if (inputs.Uni.NextHook.ReadValue<float>() > 0.1f || inputs.Uni.PrevHook.ReadValue<float>() > 0.1f)
@@ -70,10 +70,9 @@ public class hook_detector : MonoBehaviour
                 //nearest_hook = all_hooks[0];
 
                 int i = 0;
-                RaycastHit hit;
 
                 nearest_hook = all_hooks[i];
-                while ( i < all_hooks.Count - 1 && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
+                while ( i < all_hooks.Count && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
                     Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
                     Physics.Raycast(all_hooks[i].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[i].transform.position).normalized,
                     Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center))))
@@ -81,7 +80,10 @@ public class hook_detector : MonoBehaviour
                     i++;
 
                 }
-                nearest_hook = all_hooks[i];
+                if (i >= all_hooks.Count)
+                    nearest_hook = null;
+                else
+                    nearest_hook = all_hooks[i];
             }
         }
         else
