@@ -55,8 +55,9 @@ public class hook_detector : MonoBehaviour
         
         if (all_hooks.Count != 0)
         {
-            if(!nearest_hook)
-                nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList()[0];
+            all_hooks = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList();
+            if (!nearest_hook)
+                nearest_hook = all_hooks[0];
 
             //SELECT HOOK WITH GAMEPAD
             if (inputs.Uni.NextHook.ReadValue<float>() > 0.1f || inputs.Uni.PrevHook.ReadValue<float>() > 0.1f)
@@ -64,7 +65,25 @@ public class hook_detector : MonoBehaviour
 
             //CHOOSE THE NEAREST HOOK TO THE CURSOR
             if (Vector3.Distance(Mouse.current.position.ReadValue(), LastPosition) > .1f)
-                nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList()[0];
+            {
+                //JUST PICK THE NEAREST ONE
+                //nearest_hook = all_hooks[0];
+
+                int i = 0;
+                RaycastHit hit;
+
+                nearest_hook = all_hooks[i];
+                while (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized, out hit,
+                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
+                    Physics.Raycast(all_hooks[i].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[i].transform.position).normalized, out hit,
+                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)))
+                {
+                    i++;
+
+                }
+                nearest_hook = all_hooks[i];
+
+            }
         }
         else
             nearest_hook = null;
