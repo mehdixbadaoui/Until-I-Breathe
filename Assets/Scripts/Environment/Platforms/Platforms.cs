@@ -116,7 +116,6 @@ public class Platforms : MonoBehaviour
     {
         if ((other.tag == "uni" ) && playerOn && !other.isTrigger)
         {
-            
             playerOn = false;
             playerParent.transform.parent = null;
         }
