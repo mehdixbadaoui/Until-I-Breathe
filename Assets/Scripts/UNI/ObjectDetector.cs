@@ -54,6 +54,10 @@ public class ObjectDetector : MonoBehaviour
                     listObj[index].GetComponent<Lever>().Unlock();
                 }
 
+                if (listObj[index].tag == "Button_Platform")
+                {
+                    listObj[index].GetComponent<ButtonPlatforms>().Increment();
+                }
             }
         }
 
