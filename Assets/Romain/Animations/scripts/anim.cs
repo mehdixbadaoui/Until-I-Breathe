@@ -74,6 +74,9 @@ public class anim : MonoBehaviour
         // random int for 2 different falls
         myAnimator.SetInteger("randomFall", Random.Range(0, 2));
 
+        // Timer after touching the ground
+        myAnimator.SetInteger("countGround", movement.countNotGround);
+
         // Grapplin bools
         myAnimator.SetBool("grapplinPush", movement.animPushing);
         myAnimator.SetBool("grapplinIdle", movement.animIdleAir);

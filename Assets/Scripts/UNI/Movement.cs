@@ -78,7 +78,8 @@ public class Movement : MonoBehaviour
     private Vector3 lastVelocity;
 
     public int countGround = 0;
-    
+    public int countNotGround = 0;
+
 
     private GameMaster gm;
 
@@ -225,6 +226,9 @@ public class Movement : MonoBehaviour
     {
         check_ground();
         countGround += 1;
+        countNotGround += 1;
+        if (isGrounded == true)
+            countNotGround = 0;
         SlopeCheck();
 
         hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit_front , Quaternion.identity, capsule_collider.radius+0.01f);
@@ -445,7 +449,7 @@ public class Movement : MonoBehaviour
     {
         
 
-        myAnimator.Play("Unijump" , 1);
+        //myAnimator.Play("Unijump" , 1);
         myAnimator.Play("Unijump", 2);
         countGround = 0;
         isGrounded = false;
@@ -460,7 +464,7 @@ public class Movement : MonoBehaviour
     public void JumpAfterGrapplin()
     {
 
-        myAnimator.Play("JumpAfterGrapplin" , 1);
+        //myAnimator.Play("JumpAfterGrapplin" , 1);
         myAnimator.Play("JumpAfterGrapplin", 2);
 
         countGround = 0;
