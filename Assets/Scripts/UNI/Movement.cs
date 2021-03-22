@@ -180,7 +180,7 @@ public class Movement : MonoBehaviour
 
         isGroundedVerif = isGrounded;
 
-        if (isGrapplin && !isGrounded)
+        if (isGrapplin && !isGrounded && countGround > 10 )
         {
             transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(angleHook, 0 , 0) , .1f) ;
         }
@@ -188,10 +188,11 @@ public class Movement : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(0, 0, 0), .1f);
         }
-        else if (middle.transform !=  null)
+        else
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .9f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .01f);
         }
+        /*(middle.transform !=  null)*/
     }
 
     // void OnDrawGizmos()
@@ -218,7 +219,7 @@ public class Movement : MonoBehaviour
 
     //     //Gizmos.DrawSphere(capsule_collider.bounds.center, .1f);
     // }
-    
+
 
     private void FixedUpdate()
     {
