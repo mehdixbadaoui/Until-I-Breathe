@@ -62,7 +62,7 @@ public class ST_Movements : MonoBehaviour
     void FixedUpdate()
     {
         // Allows ST-2 to follow the player
-        if (!HookDetector.nearHook && !HookDetector.nearDead && !HookDetector.nearHint)
+        if (!HookDetector.nearest_hook && !HookDetector.nearDead && !HookDetector.nearHint)
         {
             // Resets expression
             //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[0];
@@ -91,13 +91,13 @@ public class ST_Movements : MonoBehaviour
         }
         
         // Allows ST-2 to show the nearest HOOK to the player
-        if (HookDetector.nearHook && !HookDetector.nearDead && !HookDetector.nearHint) 
+        if (HookDetector.nearest_hook && !HookDetector.nearDead && !HookDetector.nearHint) 
         {
             // Changes expression
             //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[1];
 
-            if (HookDetector.nearest_hook != null)
-            {
+            //if (HookDetector.nearest_hook != null)
+            //{
                 Vector3 desiredPosition = HookDetector.nearest_hook.transform.position + ((transform.position - HookDetector.nearest_hook.transform.position).normalized * distFromObj);
                 // Smooths the path between the initial and desired position
                 Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, fixationSpeed * Time.deltaTime);
@@ -107,14 +107,14 @@ public class ST_Movements : MonoBehaviour
                 {
                     SmoothLookAt(Player.Find("ST2 Follow").transform.position);
                 }
-            }
+            //}
             
             // Rotates near the object of interest
             //transform.RotateAround(HookDetector.nearest_hook.transform.position, Vector3.right, 180.0f * Time.deltaTime);
         }
 
         // Allows ST-2 to show the nearest HINT to the player
-        if (!HookDetector.nearHook && !HookDetector.nearDead && HookDetector.nearHint)
+        if (!HookDetector.nearest_hook && !HookDetector.nearDead && HookDetector.nearHint)
         {
             Vector3 desiredPosition = (HookDetector.hintPosition.position + (transform.position - HookDetector.hintPosition.position).normalized * distFromObj);
             // Smooths the path between the initial and desired position
@@ -131,7 +131,7 @@ public class ST_Movements : MonoBehaviour
         }
 
         // Allows ST-2 to collect lore from dead robots nearby
-        if (!HookDetector.nearHook && !HookDetector.nearHint && HookDetector.nearDead)
+        if (!HookDetector.nearest_hook && !HookDetector.nearHint && HookDetector.nearDead)
         {
             Vector3 desiredPosition = (HookDetector.deadPosition.position + (transform.position - HookDetector.deadPosition.position).normalized * distFromObj);
             // Smooths the path between the initial and desired position
