@@ -85,7 +85,7 @@ public class Breathing_mechanic : MonoBehaviour
             exhale = true;
             current_exhale = exhale_speed;
 
-            Vfx.Play();
+            Vfx.Stop();
 
             if (objectDetector.listObj !=  null)
             {
@@ -118,7 +118,7 @@ public class Breathing_mechanic : MonoBehaviour
             exhale = false;
             current_exhale = 1;
 
-            //Vfx.Stop();
+            Vfx.Play();
         }
 
         if(!can_breath)
