@@ -56,8 +56,28 @@ public class hook_detector : MonoBehaviour
         if (all_hooks.Count != 0)
         {
             all_hooks = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList();
-            //if (!nearest_hook)
-            //    nearest_hook = all_hooks[0];
+            //nearest_hook = all_hooks[0];
+            if (!nearest_hook)
+            {
+
+                int i = 0;
+
+                nearest_hook = all_hooks[i];
+                while (i < all_hooks.Count && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
+                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
+                    Physics.Raycast(all_hooks[i].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[i].transform.position).normalized,
+                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center))))
+                {
+                    i++;
+
+                }
+                if (i >= all_hooks.Count)
+                    nearest_hook = null;
+                else
+                    nearest_hook = all_hooks[i];
+
+
+            }
 
             //SELECT HOOK WITH GAMEPAD
             if (inputs.Uni.NextHook.ReadValue<float>() > 0.1f || inputs.Uni.PrevHook.ReadValue<float>() > 0.1f)
@@ -69,6 +89,7 @@ public class hook_detector : MonoBehaviour
                 //JUST PICK THE NEAREST ONE
                 //nearest_hook = all_hooks[0];
 
+                //PICK THE NEAREST AVAILABLE HOOK
                 int i = 0;
 
                 nearest_hook = all_hooks[i];
@@ -89,6 +110,16 @@ public class hook_detector : MonoBehaviour
         else
             nearest_hook = null;
 
+        if (nearest_hook)
+        {
+            if(Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (nearest_hook.transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
+                        Vector3.Distance(nearest_hook.transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
+                        Physics.Raycast(nearest_hook.transform.position, (gameObject.GetComponent<Collider>().bounds.center - nearest_hook.transform.position).normalized,
+                        Vector3.Distance(nearest_hook.transform.position, gameObject.GetComponent<Collider>().bounds.center)))
+            {
+                nearest_hook = null;
+            }
+        }
 
         //CHANGE THE APPEARANCE OF THE SELECTED HOOK
         foreach(var h in all_hooks)
@@ -125,7 +156,7 @@ public class hook_detector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!all_hooks.Contains(other.gameObject) && (other.tag == "hook" || other.tag == "movable_hook" || other.tag == "lever") )
+        if (!all_hooks.Contains(other.gameObject) && (other.CompareTag("hook") || other.CompareTag("movable_hook") || other.CompareTag("lever")) )
         {
             all_hooks.Add(other.gameObject);
             nearHook = true;
@@ -149,7 +180,7 @@ public class hook_detector : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "hook" || other.tag == "movable_hook")
+        if (other.CompareTag("hook") || other.CompareTag("movable_hook"))
         {
             nearHook = true;
         }
@@ -157,6 +188,11 @@ public class hook_detector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if(other.gameObject == nearest_hook)
+        {
+            nearest_hook = null;
+        }
+
         if (all_hooks.Contains(other.gameObject))
         {
             all_hooks.Remove(other.gameObject);
@@ -165,13 +201,13 @@ public class hook_detector : MonoBehaviour
         }
 
         // HINTS
-        if (other.tag == "Hint")
+        if (other.CompareTag("Hint"))
         {
             nearHint = false;
         }
 
         //DEAD
-        if (other.tag == "Dead")
+        if (other.CompareTag("Dead"))
         {
             nearDead = false;
         }
