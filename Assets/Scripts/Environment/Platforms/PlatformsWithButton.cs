@@ -12,14 +12,15 @@ public class PlatformsWithButton : MonoBehaviour
     Transform currentPoint, goToPoint;
 
     float startTime;
-    bool isWaiting;
     bool playerOn;
+    bool isWaiting;
     bool launched;
     float journeyLength;
 
     [HideInInspector]
     public int intDir = 0;
-
+    [HideInInspector]
+    public bool readyToGo;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class PlatformsWithButton : MonoBehaviour
         journeyLength = Vector3.Distance(pointA.position, pointB.position);
 
         isWaiting = true;
+        readyToGo = true;
     }
 
 
@@ -36,13 +38,15 @@ public class PlatformsWithButton : MonoBehaviour
     {
         Launch();
         Move();
+        CheckIfReadyToGo();
     }
 
     private void Move()
     {
         if (!isWaiting)
         {
-            launched = true; 
+            launched = true;
+            readyToGo = false;
 
             if (Vector3.Distance(transform.position, goToPoint.position) > 0.01f)
             {
@@ -55,6 +59,7 @@ public class PlatformsWithButton : MonoBehaviour
                 if (Vector3.Distance(transform.position, goToPoint.position) < 0.01f) // insure that the platform is at the exact position of its destination
                 {
                     transform.position = goToPoint.position;
+
                 }
             }
             else
@@ -164,6 +169,12 @@ public class PlatformsWithButton : MonoBehaviour
         }
     }
 
+    void CheckIfReadyToGo()
+    {
+        if (transform.position == goToPoint.position)
+            readyToGo = true;
+    }
+
     // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
     {
@@ -172,7 +183,6 @@ public class PlatformsWithButton : MonoBehaviour
             other.isTrigger = false;
             playerOn = true;
             playerParent.transform.parent = transform;
-
         }
     }
 
