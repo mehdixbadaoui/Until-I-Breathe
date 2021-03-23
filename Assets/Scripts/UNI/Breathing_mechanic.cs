@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Breathing_mechanic : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Breathing_mechanic : MonoBehaviour
     public bool can_breath = false;
     public bool hold;
     public bool exhale;
+
+    public VisualEffect Vfx;
 
     //public KeyCode hold_breath_key;
     //public KeyCode exhale_key;
@@ -56,6 +59,9 @@ public class Breathing_mechanic : MonoBehaviour
         max_breath = 100f;
         breath = max_breath;
 
+        // Get the souffle effect
+        Vfx = GetComponentInChildren<VisualEffect>() ;
+
         // Get the object detector
         objectDetector = GetComponentInChildren<ObjectDetector>();
     }
@@ -74,10 +80,12 @@ public class Breathing_mechanic : MonoBehaviour
             current_hold = 1;
         }
 
-        if(/*inputs.Uni.HoldBreath.ReadValue<float>() != 0 && */inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
+        if(inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
         {
             exhale = true;
             current_exhale = exhale_speed;
+
+            Vfx.Stop();
 
             if (objectDetector.listObj !=  null)
             {
@@ -109,6 +117,8 @@ public class Breathing_mechanic : MonoBehaviour
         {
             exhale = false;
             current_exhale = 1;
+
+            Vfx.Play();
         }
 
         if(!can_breath)

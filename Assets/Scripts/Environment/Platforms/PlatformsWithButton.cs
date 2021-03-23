@@ -12,14 +12,15 @@ public class PlatformsWithButton : MonoBehaviour
     Transform currentPoint, goToPoint;
 
     float startTime;
-    bool isWaiting;
     bool playerOn;
+    bool isWaiting;
     bool launched;
     float journeyLength;
 
     [HideInInspector]
     public int intDir = 0;
-
+    [HideInInspector]
+    public bool readyToGo;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class PlatformsWithButton : MonoBehaviour
         journeyLength = Vector3.Distance(pointA.position, pointB.position);
 
         isWaiting = true;
+        readyToGo = true;
     }
 
 
@@ -36,13 +38,15 @@ public class PlatformsWithButton : MonoBehaviour
     {
         Launch();
         Move();
+        CheckIfReadyToGo();
     }
 
     private void Move()
     {
         if (!isWaiting)
         {
-            launched = true; 
+            launched = true;
+            readyToGo = false;
 
             if (Vector3.Distance(transform.position, goToPoint.position) > 0.01f)
             {
@@ -60,7 +64,7 @@ public class PlatformsWithButton : MonoBehaviour
             else
             {
                 isWaiting = true;
-                StartCoroutine(changeDelay());
+                StartCoroutine(ChangeDelay());
             }
         }
     }
@@ -110,7 +114,7 @@ public class PlatformsWithButton : MonoBehaviour
         }
     }
 
-    IEnumerator changeDelay()
+    IEnumerator ChangeDelay()
     {
         yield return new WaitForSeconds(0.1f);
         ChangeDestination();
@@ -164,152 +168,11 @@ public class PlatformsWithButton : MonoBehaviour
         }
     }
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    journeyLengthAB = Vector3.Distance(pointA.position, pointB.position);
-    //    journeyLengthBC = Vector3.Distance(pointB.position, pointC.position);
-    //    journeyLengthCD = Vector3.Distance(pointC.position, pointD.position);
-    //    journeyLengthCA = Vector3.Distance(pointC.position, pointA.position);
-    //    journeyLengthDA = Vector3.Distance(pointD.position, pointA.position);
-
-    //    isWaiting = true;
-    //}
-
-    //// Update is called once per frame
-    //void FixedUpdate()
-    //{
-    //    Debug.Log(goToPoint);
-    //    Move();
-    //}
-
-    //void Move()
-    //{
-    //    ChangeDestination();
-
-
-    //    if (!isWaiting)
-    //    {
-    //        if (goToPoint == pointB)
-    //        {
-    //            float distCovered = (Time.time - startTime) * speed;
-    //            float fractionOfJourney = distCovered / journeyLengthAB;
-
-    //            transform.position = Vector3.Lerp(currentPoint.position, goToPoint.position, fractionOfJourney);
-
-    //            if (transform.position == goToPoint.position)
-    //            {
-    //                isWaiting = true;
-    //            }
-    //        }
-
-    //        if (goToPoint == pointC)
-    //        {
-    //            float distCovered = (Time.time - startTime) * speed;
-    //            float fractionOfJourney = distCovered / journeyLengthBC;
-
-    //            transform.position = Vector3.Lerp(currentPoint.position, goToPoint.position, fractionOfJourney);
-
-    //            if (transform.position == goToPoint.position)
-    //            {
-    //                isWaiting = true;
-    //            }
-    //        }
-
-    //        if (goToPoint == pointD)
-    //        {
-    //            float distCovered = (Time.time - startTime) * speed;
-    //            float fractionOfJourney = distCovered / journeyLengthCD;
-
-    //            transform.position = Vector3.Lerp(currentPoint.position, goToPoint.position, fractionOfJourney);
-
-    //            if (transform.position == goToPoint.position)
-    //            {
-    //                isWaiting = true;
-    //            }
-    //        }
-
-    //        if (goToPoint == pointA && fourPoints)
-    //        {
-    //            float distCovered = (Time.time - startTime) * speed;
-    //            float fractionOfJourney = distCovered / journeyLengthDA;
-
-    //            transform.position = Vector3.Lerp(currentPoint.position, goToPoint.position, fractionOfJourney);
-
-    //            if (transform.position == goToPoint.position)
-    //            {
-    //                isWaiting = true;
-    //            }
-    //        }
-
-    //        if (goToPoint == pointA && !fourPoints)
-    //        {
-    //            float distCovered = (Time.time - startTime) * speed;
-    //            float fractionOfJourney = distCovered / journeyLengthCA;
-
-    //            transform.position = Vector3.Lerp(currentPoint.position, goToPoint.position, fractionOfJourney);
-
-    //            if (transform.position == goToPoint.position)
-    //            {
-    //                isWaiting = true;
-    //            }
-    //        }
-    //    }
-    //}
-
-    //void ChangeDestination()
-    //{
-    //    if (fourPoints) //if there's 4 points
-    //    {
-    //        if (intDir == 1)
-    //        {
-    //            startTime = Time.time;
-    //            currentPoint = pointA;
-    //            goToPoint = pointB;
-    //        }
-    //        else if (intDir == 2 && transform.position == pointB.position)
-    //        {
-    //            startTime = Time.time;
-    //            isWaiting = false;
-    //            currentPoint = pointB;
-    //            goToPoint = pointC;
-    //        }
-    //        else if (intDir == 3 && transform.position == pointC.position)
-    //        {
-    //            startTime = Time.time;
-    //            isWaiting = false;
-    //            currentPoint = pointC;
-    //            goToPoint = pointD;
-    //        }
-    //        else if (intDir == 4 && transform.position == pointD.position)
-    //        {
-    //            startTime = Time.time;
-    //            isWaiting = false;
-    //            currentPoint = pointD;
-    //            goToPoint = pointA;
-    //        }
-    //    }
-    //    else // if there's 3 points
-    //    {
-    //        if (intDir == 1)
-    //        {
-    //            isWaiting = false;
-    //            currentPoint = pointA;
-    //            goToPoint = pointB;
-    //        }
-    //        else if (intDir == 2 && transform.position == pointB.position)
-    //        {
-    //            currentPoint = pointB;
-    //            goToPoint = pointC;
-    //        }
-    //        else if (intDir == 3 && transform.position == pointC.position)
-    //        {
-    //            currentPoint = pointC;
-    //            goToPoint = pointA;
-    //        }
-    //    }
-    //}
-
+    void CheckIfReadyToGo()
+    {
+        if (transform.position == goToPoint.position)
+            readyToGo = true;
+    }
 
     // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
@@ -319,7 +182,6 @@ public class PlatformsWithButton : MonoBehaviour
             other.isTrigger = false;
             playerOn = true;
             playerParent.transform.parent = transform;
-
         }
     }
 
