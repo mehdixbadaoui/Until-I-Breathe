@@ -455,10 +455,10 @@ GameObject:
   - component: {fileID: 4988699105354455289}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4988699105354455294
 Transform:
@@ -691,7 +691,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0f641cd58ba8e3046bfb4626447520be, type: 2}
+  - {fileID: 2100000, guid: f3952c0a69f19324b9fb200a39f6d5a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -984,6 +984,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 4291605138324912799, guid: 250034678d3ec9c41b76161dd55dc723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291605138324912799, guid: 250034678d3ec9c41b76161dd55dc723,
+        type: 3}
+      propertyPath: m_TagString
+      value: ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 250034678d3ec9c41b76161dd55dc723, type: 3}
 --- !u!4 &2673001490748477116 stripped
@@ -1073,6 +1083,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BigDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291605138324912799, guid: 250034678d3ec9c41b76161dd55dc723,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291605138324912799, guid: 250034678d3ec9c41b76161dd55dc723,
+        type: 3}
+      propertyPath: m_TagString
+      value: ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 250034678d3ec9c41b76161dd55dc723, type: 3}

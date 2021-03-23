@@ -47,6 +47,7 @@ public class Movement : MonoBehaviour
 
     // Bools 
     public bool isGroundedVerif;
+    RaycastHit middle;
     public static bool isGrounded = false;
     public static bool isGrapplin = false;
     public static bool isGrabbing = false;
@@ -77,7 +78,8 @@ public class Movement : MonoBehaviour
     private Vector3 lastVelocity;
 
     public int countGround = 0;
-    
+    public int countNotGround = 0;
+
 
     private GameMaster gm;
 
@@ -149,7 +151,8 @@ public class Movement : MonoBehaviour
             if (capsule_collider.height > 1)
             {
                 myAnimator.GetComponent<anim>().isCrouching = true;
-                myAnimator.Play("stand2crouch");
+                myAnimator.Play("stand2crouch", 1);
+                myAnimator.Play("stand2crouch", 2);
                 capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1)/2, capsule_collider.center.z);
                 capsule_collider.height = 1;
                 previousSpeed = speed;
@@ -169,7 +172,8 @@ public class Movement : MonoBehaviour
                     capsule_collider.height = 1.5f;
                     speed = previousSpeed;
                     myAnimator.GetComponent<anim>().isCrouching = false;
-                    myAnimator.Play("crouch2stand");
+                    myAnimator.Play("crouch2stand", 1);
+                    myAnimator.Play("crouch2stand" , 2) ;
                 }
             }
 
@@ -177,14 +181,19 @@ public class Movement : MonoBehaviour
 
         isGroundedVerif = isGrounded;
 
-        if (isGrapplin && !isGrounded)
+        if (isGrapplin && !isGrounded && countGround > 10 )
         {
             transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(angleHook, 0 , 0) , .1f) ;
         }
-        else
+        else if (!isGrounded)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(0, 0, 0), .1f);
         }
+        else
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .01f);
+        }
+        /*(middle.transform !=  null)*/
     }
 
     // void OnDrawGizmos()
@@ -211,12 +220,15 @@ public class Movement : MonoBehaviour
 
     //     //Gizmos.DrawSphere(capsule_collider.bounds.center, .1f);
     // }
-    
+
 
     private void FixedUpdate()
     {
         check_ground();
         countGround += 1;
+        countNotGround += 1;
+        if (isGrounded == true)
+            countNotGround = 0;
         SlopeCheck();
 
         hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit_front , Quaternion.identity, capsule_collider.radius+0.01f);
@@ -437,7 +449,8 @@ public class Movement : MonoBehaviour
     {
         
 
-        myAnimator.Play("Unijump");
+        //myAnimator.Play("Unijump" , 1);
+        myAnimator.Play("Unijump", 2);
         countGround = 0;
         isGrounded = false;
         isJumping = true;
@@ -451,7 +464,8 @@ public class Movement : MonoBehaviour
     public void JumpAfterGrapplin()
     {
 
-        myAnimator.Play("JumpAfterGrapplin");
+        //myAnimator.Play("JumpAfterGrapplin" , 1);
+        myAnimator.Play("JumpAfterGrapplin", 2);
 
         countGround = 0;
         isGrounded = false;
@@ -493,7 +507,7 @@ public class Movement : MonoBehaviour
     void check_ground()
     {
         RaycastHit front;
-        RaycastHit middle;
+        //RaycastHit middle;
         RaycastHit back;
         bool frontRaycast = Physics.Raycast(capsule_collider.bounds.center + transform.forward * .2f, Vector3.down, out front, capsule_collider.height / 2 + ground_dist); 
         bool backRaycast = Physics.Raycast(capsule_collider.bounds.center - transform.forward * .2f, Vector3.down, out back, capsule_collider.height / 2 + ground_dist);
@@ -502,12 +516,12 @@ public class Movement : MonoBehaviour
         isGrounded = (frontRaycast || middleRaycast || backRaycast);
         if(isGrounded)
         {
-            if (frontRaycast)
+            if (middleRaycast)
+                typeOfGround = middle.collider.gameObject.tag;
+            else if (frontRaycast)
                 typeOfGround = front.collider.gameObject.tag;
             else if (backRaycast)
                 typeOfGround = back.collider.gameObject.tag;
-            else if (middleRaycast)
-                typeOfGround = middle.collider.gameObject.tag;
         }
         
     
