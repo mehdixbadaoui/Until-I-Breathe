@@ -61,7 +61,6 @@ public class anim : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-
         vert = Input.GetAxis("Horizontal");
         // vert = inputs.Uni.Walk.ReadValue<float>();:
 
