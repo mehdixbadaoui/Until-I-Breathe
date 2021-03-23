@@ -59,13 +59,12 @@ public class PlatformsWithButton : MonoBehaviour
                 if (Vector3.Distance(transform.position, goToPoint.position) < 0.01f) // insure that the platform is at the exact position of its destination
                 {
                     transform.position = goToPoint.position;
-
                 }
             }
             else
             {
                 isWaiting = true;
-                StartCoroutine(changeDelay());
+                StartCoroutine(ChangeDelay());
             }
         }
     }
@@ -115,7 +114,7 @@ public class PlatformsWithButton : MonoBehaviour
         }
     }
 
-    IEnumerator changeDelay()
+    IEnumerator ChangeDelay()
     {
         yield return new WaitForSeconds(0.1f);
         ChangeDestination();
