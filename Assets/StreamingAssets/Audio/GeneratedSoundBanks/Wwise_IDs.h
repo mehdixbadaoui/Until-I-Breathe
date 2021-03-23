@@ -68,7 +68,6 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID COLLISIONS = 824618274U;
         static const AkUniqueID ENVIRONMENTAL = 1973600711U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUSIC = 3991942870U;
