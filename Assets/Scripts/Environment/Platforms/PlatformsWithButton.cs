@@ -12,14 +12,15 @@ public class PlatformsWithButton : MonoBehaviour
     Transform currentPoint, goToPoint;
 
     float startTime;
-    bool isWaiting;
     bool playerOn;
+    bool isWaiting;
     bool launched;
     float journeyLength;
 
     [HideInInspector]
     public int intDir = 0;
-
+    [HideInInspector]
+    public bool readyToGo;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class PlatformsWithButton : MonoBehaviour
         journeyLength = Vector3.Distance(pointA.position, pointB.position);
 
         isWaiting = true;
+        readyToGo = true;
     }
 
 
@@ -36,13 +38,15 @@ public class PlatformsWithButton : MonoBehaviour
     {
         Launch();
         Move();
+        CheckIfReadyToGo();
     }
 
     private void Move()
     {
         if (!isWaiting)
         {
-            launched = true; 
+            launched = true;
+            readyToGo = false;
 
             if (Vector3.Distance(transform.position, goToPoint.position) > 0.01f)
             {
@@ -60,7 +64,7 @@ public class PlatformsWithButton : MonoBehaviour
             else
             {
                 isWaiting = true;
-                StartCoroutine(changeDelay());
+                StartCoroutine(ChangeDelay());
             }
         }
     }
@@ -110,7 +114,7 @@ public class PlatformsWithButton : MonoBehaviour
         }
     }
 
-    IEnumerator changeDelay()
+    IEnumerator ChangeDelay()
     {
         yield return new WaitForSeconds(0.1f);
         ChangeDestination();
@@ -164,6 +168,12 @@ public class PlatformsWithButton : MonoBehaviour
         }
     }
 
+    void CheckIfReadyToGo()
+    {
+        if (transform.position == goToPoint.position)
+            readyToGo = true;
+    }
+
     // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
     {
@@ -172,7 +182,6 @@ public class PlatformsWithButton : MonoBehaviour
             other.isTrigger = false;
             playerOn = true;
             playerParent.transform.parent = transform;
-
         }
     }
 
