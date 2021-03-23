@@ -74,7 +74,7 @@ public class Breathing_mechanic : MonoBehaviour
             current_hold = 1;
         }
 
-        if(inputs.Uni.HoldBreath.ReadValue<float>() != 0 && inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
+        if(/*inputs.Uni.HoldBreath.ReadValue<float>() != 0 && */inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
         {
             exhale = true;
             current_exhale = exhale_speed;

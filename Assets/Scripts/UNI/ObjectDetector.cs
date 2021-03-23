@@ -54,6 +54,10 @@ public class ObjectDetector : MonoBehaviour
                     listObj[index].GetComponent<Lever>().Unlock();
                 }
 
+                if (listObj[index].tag == "Button_Platform")
+                {
+                    listObj[index].GetComponent<ButtonPlatforms>().Increment();
+                }
             }
         }
 
@@ -64,7 +68,7 @@ public class ObjectDetector : MonoBehaviour
     {
 
 
-        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") )
+        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform"))
         {
             listObj.Add(col.gameObject);
         }
@@ -90,7 +94,7 @@ public class ObjectDetector : MonoBehaviour
     void OnTriggerExit(Collider col)
     {
 
-        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever"))
+        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform"))
         {
             listObj.Remove(col.gameObject);
         }

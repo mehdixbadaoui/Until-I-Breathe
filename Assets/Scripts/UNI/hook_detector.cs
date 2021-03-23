@@ -24,6 +24,7 @@ public class hook_detector : MonoBehaviour
 
     public bool gamepad = false;
 
+    Vector3 LastPosition;
     private void Awake()
     {
         inputs = new Inputs();
@@ -51,14 +52,18 @@ public class hook_detector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (all_hooks.Count != 0)
         {
+            if(!nearest_hook)
+                nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList()[0];
+
             //SELECT HOOK WITH GAMEPAD
-            if (gamepad)
+            if (inputs.Uni.NextHook.ReadValue<float>() > 0.1f || inputs.Uni.PrevHook.ReadValue<float>() > 0.1f)
                 nearest_hook = all_hooks[index % all_hooks.Count];
 
             //CHOOSE THE NEAREST HOOK TO THE CURSOR
-            else
+            if (Vector3.Distance(Mouse.current.position.ReadValue(), LastPosition) > .1f)
                 nearest_hook = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList()[0];
         }
         else
@@ -71,6 +76,8 @@ public class hook_detector : MonoBehaviour
             if(h == nearest_hook) h.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
             else h.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
         }
+
+        LastPosition = Mouse.current.position.ReadValue();
     }
 
     public GameObject nh()

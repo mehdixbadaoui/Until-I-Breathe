@@ -90,6 +90,7 @@ public class GrapplingHook : MonoBehaviour
 	// Uni animator
 	public Animator myAnimator;
 
+	private CheckLenghtSound checkLenghtSound; 
 	private void Awake()
 	{
 		inputs = new Inputs();
@@ -136,7 +137,7 @@ public class GrapplingHook : MonoBehaviour
 		// Get the key to grapple
 		inputs.Uni.Grapple.performed += ctx => AttachHook();
 
-
+		checkLenghtSound = GetComponent<CheckLenghtSound>(); 
 	}
 
 	void AttachHook()
@@ -458,13 +459,20 @@ public class GrapplingHook : MonoBehaviour
 	{
 		ropeLength += winchSpeed * Time.deltaTime;
 		beginLengthMin = 1;
+		bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Hook_ralonge_event", gameObject);
+		if (!isSoundFinished)
+			AkSoundEngine.PostEvent("Hook_ralonge_event", gameObject);
 	}
 
 	// DÃ©placement du joueur vers le point touchÃ© par le grappin
 	public void MoveUp()
 	{
 		ropeLength -= winchSpeed * Time.deltaTime;
-		//AkSoundEngine.PostEvent("Hook_ralonge_event", gameObject); 
+		
+		bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Hook_retracte_event", gameObject);
+		if (!isSoundFinished)
+			AkSoundEngine.PostEvent("Hook_retracte_event", gameObject); 
+
 		//AkSoundEngine.Event
 	}
 
