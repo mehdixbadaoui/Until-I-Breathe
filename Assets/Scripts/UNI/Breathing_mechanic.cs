@@ -76,16 +76,16 @@ public class Breathing_mechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inputs.Uni.HoldBreath.ReadValue<float>() != 0)
-        {
-            //hold = true;
-            current_hold = hold_speed;
-        }
-        else
-        {
-            //hold = false;
-            current_hold = 1;
-        }
+        //if (inputs.Uni.HoldBreath.ReadValue<float>() != 0)
+        //{
+        //    //hold = true;
+        //    current_hold = hold_speed;
+        //}
+        //else
+        //{
+        //    //hold = false;
+        //    current_hold = 1;
+        //}
 
         if (inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
         {
@@ -143,7 +143,7 @@ public class Breathing_mechanic : MonoBehaviour
         }
 
         if(!can_breath)
-            breath -= current_exhale * breath_speed/current_hold * Time.deltaTime;
+            breath -= current_exhale * breath_speed/ hold_speed * Time.deltaTime;
 
         /*        if (Input.GetKeyDown(interact) && blowObj){
 
