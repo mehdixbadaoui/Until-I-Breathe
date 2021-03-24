@@ -407,7 +407,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bc5224aa-e308-452f-9daa-f03073f40805"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -418,7 +418,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c17ca297-53d6-42d7-9069-07c7d7dd9736"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/t"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -528,7 +528,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""826735e1-6b1a-4874-a8ab-cc33d4e88f5a"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

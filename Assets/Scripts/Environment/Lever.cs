@@ -17,7 +17,7 @@ public class Lever : MonoBehaviour
     public void Unlock()
     {
         if(door)
-        {
+        {            
             door.GetComponent<Door>().locked = false;
             light.GetComponent<Light>().color = Color.green;
 
