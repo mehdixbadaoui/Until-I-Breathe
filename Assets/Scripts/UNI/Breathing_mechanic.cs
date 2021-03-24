@@ -8,6 +8,8 @@ public class Breathing_mechanic : MonoBehaviour
 {
     private GameMaster gm;
 
+    public Animator myAnimator;
+
     [HideInInspector]
     public float max_breath;
 
@@ -26,6 +28,7 @@ public class Breathing_mechanic : MonoBehaviour
     public bool exhale;
 
     public VisualEffect Vfx;
+    private bool breathVfx = false;
 
     //public KeyCode hold_breath_key;
     //public KeyCode exhale_key;
@@ -59,8 +62,12 @@ public class Breathing_mechanic : MonoBehaviour
         max_breath = 100f;
         breath = max_breath;
 
+        // Get the animator 
+        myAnimator = GetComponentInChildren<Animator>();
+
         // Get the souffle effect
         Vfx = GetComponentInChildren<VisualEffect>() ;
+        Vfx.Stop();
 
         // Get the object detector
         objectDetector = GetComponentInChildren<ObjectDetector>();
@@ -85,7 +92,11 @@ public class Breathing_mechanic : MonoBehaviour
             exhale = true;
             current_exhale = exhale_speed;
 
-            Vfx.Stop();
+            if ( breathVfx == false)
+            {
+                Vfx.Play();
+                breathVfx = true;
+            }
 
             if (objectDetector.listObj !=  null)
             {
@@ -97,6 +108,11 @@ public class Breathing_mechanic : MonoBehaviour
                     }
                     if (objectDetector.listObj[index].tag == "fan")
                     {
+                        //myAnimator.Play("JumpAfterGrapplin", 2);
+
+                        //TODO MEttre un canMove = false
+
+                        
                         objectDetector.listObj[index].GetComponent<Fan>().incAir(1 * Time.deltaTime);
                     }
                     /*                if (blowObj)
@@ -118,7 +134,11 @@ public class Breathing_mechanic : MonoBehaviour
             exhale = false;
             current_exhale = 1;
 
-            Vfx.Play();
+            if (breathVfx == true)
+            {
+                Vfx.Stop();
+                breathVfx = false;
+            }
         }
 
         if(!can_breath)

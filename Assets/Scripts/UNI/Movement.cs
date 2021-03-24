@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
 
     public Animator myAnimator;
 
+    private Breathing_mechanic breathing;
+
     public float speed = .2f;
     private float previousSpeed ;
 
@@ -119,6 +121,9 @@ public class Movement : MonoBehaviour
 
         // Get the animator 
         myAnimator = GetComponentInChildren<Animator>();
+
+        // Get the breathing script
+        breathing = GetComponent<Breathing_mechanic>();
 
         //INPUTS
         //inputs.Uni.Jump.performed += ctx => Jump();
@@ -448,8 +453,8 @@ public class Movement : MonoBehaviour
     void Jump()
     {
         
-
-        //myAnimator.Play("Unijump" , 1);
+        if (!breathing.hold)
+            myAnimator.Play("Unijump" , 1);
         myAnimator.Play("Unijump", 2);
         countGround = 0;
         isGrounded = false;
@@ -464,7 +469,8 @@ public class Movement : MonoBehaviour
     public void JumpAfterGrapplin()
     {
 
-        //myAnimator.Play("JumpAfterGrapplin" , 1);
+        if (!breathing.hold)
+            myAnimator.Play("JumpAfterGrapplin" , 1);
         myAnimator.Play("JumpAfterGrapplin", 2);
 
         countGround = 0;
