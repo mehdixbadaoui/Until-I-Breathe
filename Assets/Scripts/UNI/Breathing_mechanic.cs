@@ -153,6 +153,12 @@ public class Breathing_mechanic : MonoBehaviour
 
         if (breath <= 0)
         {
+            myAnimator.Play("BreathingDead", 2);
+            myAnimator.Play("BreathingDead" , 1);
+/*            while (!myAnimator.GetCurrentAnimatorStateInfo(1).IsName("BreathingDead"))
+            { }*/
+            while (myAnimator.GetCurrentAnimatorStateInfo(1).IsName("BreathingDead"))
+            { }
             //yield WaitForAnimation(animation );
             gm.Die();
         }
