@@ -108,7 +108,8 @@ public class Breathing_mechanic : MonoBehaviour
                     }
                     if (objectDetector.listObj[index].tag == "fan")
                     {
-                        //myAnimator.Play("JumpAfterGrapplin", 2);
+                        myAnimator.Play("BreathingFan", 1);
+                        myAnimator.Play("BreathingFan", 2);
 
                         //TODO MEttre un canMove = false
 
@@ -144,14 +145,17 @@ public class Breathing_mechanic : MonoBehaviour
         if(!can_breath)
             breath -= current_exhale * breath_speed/current_hold * Time.deltaTime;
 
-/*        if (Input.GetKeyDown(interact) && blowObj){
+        /*        if (Input.GetKeyDown(interact) && blowObj){
 
-            if (blowObj.CompareTag("lever"))
-                blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
-        }*/
+                    if (blowObj.CompareTag("lever"))
+                        blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
+                }*/
 
         if (breath <= 0)
+        {
+            //yield WaitForAnimation(animation );
             gm.Die();
+        }
     }
 
 /*    public void setBlowObj(GameObject obj)
