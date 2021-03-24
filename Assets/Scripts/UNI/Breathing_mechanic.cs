@@ -10,8 +10,12 @@ public class Breathing_mechanic : MonoBehaviour
 
     public Animator myAnimator;
 
+    private Movement movement;
+
     public bool respawn;
     private bool isDying = false;
+    public bool isBlowingFan = false;
+    
 
     [HideInInspector]
     public float max_breath;
@@ -73,6 +77,10 @@ public class Breathing_mechanic : MonoBehaviour
 
         // Get the object detector
         objectDetector = GetComponentInChildren<ObjectDetector>();
+
+
+        // Get the object detector
+        movement = GetComponentInChildren<Movement>();
     }
 
     // Update is called once per frame
@@ -113,7 +121,12 @@ public class Breathing_mechanic : MonoBehaviour
                         myAnimator.Play("BreathingFan", 1);
                         myAnimator.Play("BreathingFan", 2);
 
-                        //TODO MEttre un canMove = false
+                        if ( !isBlowingFan )
+                        {
+                            isBlowingFan = true;
+                            StartCoroutine(BlowFan());
+                        }
+                       // Movement.canMove = false;
 
                         
                         objectDetector.listObj[index].GetComponent<Fan>().incAir(1 * Time.deltaTime);
@@ -160,9 +173,25 @@ public class Breathing_mechanic : MonoBehaviour
         }
     }
 
+
+    private IEnumerator BlowFan()
+    {
+
+        Movement.canMove = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        yield return new WaitWhile(() => ! ( !exhale ) );
+
+        yield return new WaitWhile(() => !( !exhale ) );
+
+        Movement.canMove = true;
+        isBlowingFan = false;
+    }
+
     private IEnumerator BreathingDie( Animator myAnimator , GameMaster gm)
     {
         respawn = false;
+        Movement.canMove = false;
 
         myAnimator.Play("BreathingDead", 2);
         myAnimator.Play("BreathingDead", 1);
@@ -181,6 +210,8 @@ public class Breathing_mechanic : MonoBehaviour
         gm.Die();
 
         isDying = false;
+
+        Movement.canMove = true;
     }
  
 

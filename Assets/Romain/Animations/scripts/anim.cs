@@ -94,6 +94,9 @@ public class anim : MonoBehaviour
         // Did Uni respawned?
         myAnimator.SetBool("respawn", breathing.respawn);
 
+        // Is Uni blowing a fan?
+        myAnimator.SetBool("isBlowingFan", breathing.isBlowingFan);
+
         // Can Uni walk?
         myAnimator.SetBool("inhale", breathing.hold);
 

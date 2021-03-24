@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     private float previousSpeed ;
 
     public float grapplinSpeed = 1;
-    float horizontal_movement;
+    public float horizontal_movement;
 
     //Grapplin 
     [HideInInspector] public bool animPushing;
@@ -50,6 +50,7 @@ public class Movement : MonoBehaviour
     // Bools 
     public bool isGroundedVerif;
     RaycastHit middle;
+    public static bool canMove = true;
     public static bool isGrounded = false;
     public static bool isGrapplin = false;
     public static bool isGrabbing = false;
@@ -139,66 +140,69 @@ public class Movement : MonoBehaviour
         //Debug.Log(inputs.Uni.Walk.ReadValue<float>());
         horizontal_movement = Input.GetAxis("Horizontal");
 
-        //JUMPING
-        if (inputs.Uni.Jump.ReadValue<float>() == 1 && isGrounded && countGround > 5 && canJump)
+        if (canMove)
         {
-            canJump = false;
-            Jump();
-        }
-        else if (inputs.Uni.Jump.ReadValue<float>() == 0)
-        {
-            canJump = true;
-        }
-
-        //CROUCHING
-        if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin && !isGrabbing)
-        {
-            if (capsule_collider.height > 1)
+            //JUMPING
+            if (inputs.Uni.Jump.ReadValue<float>() == 1 && isGrounded && countGround > 5 && canJump)
             {
-                myAnimator.GetComponent<anim>().isCrouching = true;
-                myAnimator.Play("stand2crouch", 1);
-                myAnimator.Play("stand2crouch", 2);
-                capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1)/2, capsule_collider.center.z);
-                capsule_collider.height = 1;
-                previousSpeed = speed;
-                speed = speed * 0.5f;
+                canJump = false;
+                Jump();
+            }
+            else if (inputs.Uni.Jump.ReadValue<float>() == 0)
+            {
+                canJump = true;
             }
 
-        }
-        else
-        {
-            if (capsule_collider.height == 1 )
+            //CROUCHING
+            if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin && !isGrabbing)
             {
-                Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y -0.01f , transform.position.z);
-                RaycastHit hit_top;
-                if ( !Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
+                if (capsule_collider.height > 1)
                 {
-                    capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + 0.25f, capsule_collider.center.z);
-                    capsule_collider.height = 1.5f;
-                    speed = previousSpeed;
-                    myAnimator.GetComponent<anim>().isCrouching = false;
-                    myAnimator.Play("crouch2stand", 1);
-                    myAnimator.Play("crouch2stand" , 2) ;
+                    myAnimator.GetComponent<anim>().isCrouching = true;
+                    myAnimator.Play("stand2crouch", 1);
+                    myAnimator.Play("stand2crouch", 2);
+                    capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1) / 2, capsule_collider.center.z);
+                    capsule_collider.height = 1;
+                    previousSpeed = speed;
+                    speed = speed * 0.5f;
                 }
+
+            }
+            else
+            {
+                if (capsule_collider.height == 1)
+                {
+                    Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y - 0.01f, transform.position.z);
+                    RaycastHit hit_top;
+                    if (!Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
+                    {
+                        capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + 0.25f, capsule_collider.center.z);
+                        capsule_collider.height = 1.5f;
+                        speed = previousSpeed;
+                        myAnimator.GetComponent<anim>().isCrouching = false;
+                        myAnimator.Play("crouch2stand", 1);
+                        myAnimator.Play("crouch2stand", 2);
+                    }
+                }
+
             }
 
-        }
+            isGroundedVerif = isGrounded;
 
-        isGroundedVerif = isGrounded;
-
-        if (isGrapplin && !isGrounded && countGround > 10 )
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(angleHook, 0 , 0) , .1f) ;
+            if (isGrapplin && !isGrounded && countGround > 10)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleHook, 0, 0), .1f);
+            }
+            else if (!isGrounded)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .1f);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .01f);
+            }
+            /*(middle.transform !=  null)*/
         }
-        else if (!isGrounded)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation , Quaternion.Euler(0, 0, 0), .1f);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .01f);
-        }
-        /*(middle.transform !=  null)*/
     }
 
     // void OnDrawGizmos()
@@ -229,225 +233,229 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        check_ground();
-        countGround += 1;
-        countNotGround += 1;
-        if (isGrounded == true)
-            countNotGround = 0;
-        SlopeCheck();
-
-        hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit_front , Quaternion.identity, capsule_collider.radius+0.01f);
-        //hit = false;
-        if(hit)
+        if (canMove)
         {
-            if (hit_front.collider.isTrigger || hit_front.transform.tag == "box")
-            {
-                hit = false;
-            }
-        }
 
-        #region Slope Behaviour
-        if (on_slope_up || on_slope_down)
-        {
-            if (on_slope_up)
-            {
-                jump_force = jump_force_slope_up;
-            }
-            else if (on_slope_down)
-            {
-                jump_force = jump_force_slope_down;
+            check_ground();
+            countGround += 1;
+            countNotGround += 1;
+            if (isGrounded == true)
+                countNotGround = 0;
+            SlopeCheck();
 
+            hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit_front, Quaternion.identity, capsule_collider.radius + 0.01f);
+            //hit = false;
+            if (hit)
+            {
+                if (hit_front.collider.isTrigger || hit_front.transform.tag == "box")
+                {
+                    hit = false;
+                }
             }
-            if (too_steep)
-                rb.drag = 0f;
-            else if (isGrounded)
-                rb.drag = 0.2f;
+
+            #region Slope Behaviour
+            if (on_slope_up || on_slope_down)
+            {
+                if (on_slope_up)
+                {
+                    jump_force = jump_force_slope_up;
+                }
+                else if (on_slope_down)
+                {
+                    jump_force = jump_force_slope_down;
+
+                }
+                if (too_steep)
+                    rb.drag = 0f;
+                else if (isGrounded)
+                    rb.drag = 0.2f;
+                else
+                    rb.drag = .2f;
+            }
             else
+            {
                 rb.drag = .2f;
-        }
-        else
-        {
-            rb.drag = .2f;
-            jump_force = jump_force_flat;
-        }
-        #endregion
-
-        #region passage sur ventilo
-
-        // Lors du passage sur le vent d'un ventilateur
-        if (isFlying && !isGrapplin)
-        {
-
-            isGrounded = false;
-            isJumping = false;
-            isJumpingAftergrapplin = false;
-
-            rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
-            //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
-
-        }
-        #endregion
-
-        // Walk on the ground
-        if (isGrounded && !isGrapplin && canJump && !hit) //countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
-        {
-
-            //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
-            rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
-
-            isJumping = false;
-            isJumpingAftergrapplin = false;
-
-            lastInputJumping = Vector3.zero;
-            
-        }
-
-        // Walk on the ground
-        if (isGrounded && isGrapplin && !hit/*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
-        {
-
-            //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
-            //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 30);
-            rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
-
-            isJumping = false;
-            isJumpingAftergrapplin = false;
-            //lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
-
-            lastInputJumping = Vector3.zero;
-        }
-
-
-        // Add force if isgrapplin because Translate isnt workinbg with spring joint
-        else if (isGrapplin && !isGrounded)
-        {
-
-            isJumping = false;
-            isJumpingAftergrapplin = false;
-
-            Vector3 acceleration = (rb.velocity - lastVelocity) / Time.fixedDeltaTime;
-
-
-            //If we are not too fast and if we are not upper than the hook we can apply a force
-            if (distToHook > 0.3f && Math.Abs(rb.velocity.z) < 10f)
-            {
-                //animPushing = false;
-
-                //if we are at the bottom of the rope without moving
-                if (distToHook > 0.95f && Math.Abs(rb.velocity.z) < 1)
-                {
-                    animIdleAir = true;
-                    rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * grapplinSpeed, ForceMode.Impulse);
-                }
-                //if we are pushing in the same directiont than the swing
-                else if (rb.velocity.z * horizontal_movement >= 0 && rb.velocity.y <= 0)
-                {
-                    if (horizontal_movement != 0)
-                    {
-                        animIdleAir = false;
-                        animPushing = false;
-                    }
-
-                    if (Math.Abs(rb.velocity.z) >= 1)
-                    {
-                        rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * distToHook * grapplinSpeed * (1 / Math.Abs(rb.velocity.z)), ForceMode.VelocityChange);
-                    }
-                    else
-                    {
-                        rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * grapplinSpeed, ForceMode.VelocityChange);
-                    }
-                }
-                //If we are pushing the movement of the swing we slow the movement
-                else if (rb.velocity.z * horizontal_movement < 0)
-                {
-                    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f);
-                }
+                jump_force = jump_force_flat;
             }
-            // Si on est trop a la fin du mouvement on lance l'animation du push
-            if (rb.velocity.y > 0 && acceleration.y < 0.5 && rb.velocity.z * transform.TransformDirection(Vector3.forward * transform.localScale.z).z >= 0 )
+            #endregion
+
+            #region passage sur ventilo
+
+            // Lors du passage sur le vent d'un ventilateur
+            if (isFlying && !isGrapplin)
             {
-                animIdleAir = false;
-                animPushing = true;
-            }
 
-        }
+                isGrounded = false;
+                isJumping = false;
+                isJumpingAftergrapplin = false;
 
-        // // Lors d'un saut depuis le sol
-        // if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
-        // {r
-
-        //     // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
-        //     if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
-
-        //Code for Jumping
-        if ( isJumping && (!hit || horizontal_movement != transform.TransformDirection(Vector3.forward * transform.localScale.z).z))
-        {
-            
-
-            /*if (lastInputJumping == Vector3.zero)
-            {
-                Debug.Log("lastInputJumping changed");
-                lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
-                lastVelocityJumping = rb.velocity;
-            }*/
-
-            // Si on pousse dans le sens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
-            if (/*lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized*/ (lastInputJumping.z * horizontal_movement < 0) && lastVelocityJumping.z != 0 && Math.Abs(lastInputJumping.z) > 0.5f && Math.Abs(horizontal_movement) == 1)
-            {
-                //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-                rb.velocity += new Vector3(0, 0, ( Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * -(lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
+                rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
+                //transform.Translate(new Vector3(0f, 0f, horizontal_movement) * speed);
 
             }
-            // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
-            else if (/*lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/ (lastInputJumping.z * horizontal_movement > 0) && lastVelocityJumping.z != 0 && Math.Abs(lastInputJumping.z) > 0.5f )
-                 {
+            #endregion
+
+            // Walk on the ground
+            if (isGrounded && !isGrapplin && canJump && !hit) //countGround > 5 /*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+            {
+
+                //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+                rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
+
+                isJumping = false;
+                isJumpingAftergrapplin = false;
+
+                lastInputJumping = Vector3.zero;
+
+            }
+
+            // Walk on the ground
+            if (isGrounded && isGrapplin && !hit/*|| lastInput.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/)
+            {
+
+                //transform.Translate(new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed));
+                //rb.velocity = new Vector3(0f, -Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 30);
+                rb.velocity = new Vector3(0f, rb.velocity.y - Convert.ToInt32(on_slope_down && horizontal_movement != 0) * slopeforce, Convert.ToInt32(!too_steep) * horizontal_movement * speed * 60);
+
+                isJumping = false;
+                isJumpingAftergrapplin = false;
+                //lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+
+                lastInputJumping = Vector3.zero;
+            }
+
+
+            // Add force if isgrapplin because Translate isnt workinbg with spring joint
+            else if (isGrapplin && !isGrounded)
+            {
+
+                isJumping = false;
+                isJumpingAftergrapplin = false;
+
+                Vector3 acceleration = (rb.velocity - lastVelocity) / Time.fixedDeltaTime;
+
+
+                //If we are not too fast and if we are not upper than the hook we can apply a force
+                if (distToHook > 0.3f && Math.Abs(rb.velocity.z) < 10f)
+                {
+                    //animPushing = false;
+
+                    //if we are at the bottom of the rope without moving
+                    if (distToHook > 0.95f && Math.Abs(rb.velocity.z) < 1)
+                    {
+                        animIdleAir = true;
+                        rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * grapplinSpeed, ForceMode.Impulse);
+                    }
+                    //if we are pushing in the same directiont than the swing
+                    else if (rb.velocity.z * horizontal_movement >= 0 && rb.velocity.y <= 0)
+                    {
+                        if (horizontal_movement != 0)
+                        {
+                            animIdleAir = false;
+                            animPushing = false;
+                        }
+
+                        if (Math.Abs(rb.velocity.z) >= 1)
+                        {
+                            rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * distToHook * grapplinSpeed * (1 / Math.Abs(rb.velocity.z)), ForceMode.VelocityChange);
+                        }
+                        else
+                        {
+                            rb.AddForce(new Vector3(0f, 0f, horizontal_movement) * grapplinSpeed, ForceMode.VelocityChange);
+                        }
+                    }
+                    //If we are pushing the movement of the swing we slow the movement
+                    else if (rb.velocity.z * horizontal_movement < 0)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f);
+                    }
+                }
+                // Si on est trop a la fin du mouvement on lance l'animation du push
+                if (rb.velocity.y > 0 && acceleration.y < 0.5 && rb.velocity.z * transform.TransformDirection(Vector3.forward * transform.localScale.z).z >= 0)
+                {
+                    animIdleAir = false;
+                    animPushing = true;
+                }
+
+            }
+
+            // // Lors d'un saut depuis le sol
+            // if (isJumping || (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying))
+            // {r
+
+            //     // Si on pousse dans lesens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
+            //     if (lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized && lastVelocityJumping.z != 0 && lastInputJumping.z != 0 && horizontal_movement != 0)
+
+            //Code for Jumping
+            if (isJumping && (!hit || horizontal_movement != transform.TransformDirection(Vector3.forward * transform.localScale.z).z))
+            {
+
+
+                /*if (lastInputJumping == Vector3.zero)
+                {
+                    Debug.Log("lastInputJumping changed");
+                    lastInputJumping = new Vector3(0f, 0f, horizontal_movement);
+                    lastVelocityJumping = rb.velocity;
+                }*/
+
+                // Si on pousse dans le sens contraire dans les airs, on rejoint la vélocité d'avant le saut en négatif (ou speed*60 si elle etait trop faible)
+                if (/*lastInputJumping.normalized != new Vector3(0f, 0f, horizontal_movement).normalized*/ (lastInputJumping.z * horizontal_movement < 0) && lastVelocityJumping.z != 0 && Math.Abs(lastInputJumping.z) > 0.5f && Math.Abs(horizontal_movement) == 1)
+                {
+                    //transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+                    rb.velocity += new Vector3(0, 0, (Math.Max(speed * 60, Math.Abs(lastVelocityJumping.z)) * -(lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.1f);
+
+                }
+                // Si on pousse dans le même sens que la direction dans les airs, on rejoint la vélocité d'avant le saut (ou speed*60 si elle etait trop faible)
+                else if (/*lastInputJumping.normalized == new Vector3(0f, 0f, horizontal_movement).normalized*/ (lastInputJumping.z * horizontal_movement > 0) && lastVelocityJumping.z != 0 && Math.Abs(lastInputJumping.z) > 0.5f)
+                {
                     rb.velocity += new Vector3(0, 0, (Math.Min(speed * 60, Math.Abs(lastVelocityJumping.z)) * (lastVelocityJumping.z / Math.Abs(lastVelocityJumping.z)) - rb.velocity.z) * 0.5f);
-                 }
+                }
 
-            else if (lastVelocityJumping.z == 0 || Math.Abs(lastInputJumping.z) <= 0.5f)
-                 {
+                else if (lastVelocityJumping.z == 0 || Math.Abs(lastInputJumping.z) <= 0.5f)
+                {
                     rb.velocity += new Vector3(0, 0, (horizontal_movement * speed * 60 - rb.velocity.z) * 0.2f);
-                 }
-        }
-        // Si on saute sur un mur la velocite en y reste la même mais pas celle en z
-        else if (hit)
-        {
-            rb.velocity = new Vector3(0, rb.velocity.y, 0);
-        }
-        // Si on tombe juste d'une plateforme
-        else if (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying && (!hit || horizontal_movement != transform.TransformDirection(Vector3.forward * transform.localScale.z).z ))
-        {
-            rb.velocity = new Vector3(rb.velocity.x , rb.velocity.y, horizontal_movement * Math.Min(speed * 60 , Math.Abs(rb.velocity.z + horizontal_movement)));
-        }
-
-        // Lors d'un saut apres grappin
-        if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0)
-        {
-            transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
-        }
-
-        else if (isJumpingAftergrapplin)
-        {
-            rb.AddForce(new Vector3(0f, 0f, rb.velocity.z * 0.8f) * speed);
-        }
-
-        //Checking if we need to flip our character
-        if (horizontal_movement != 0 && !isGrabbing)
-        {
-
-            if (horizontal_movement > 0 && isFacingLeft)
-            {
-                isFacingLeft = false;
-                Flip();
+                }
             }
-            if (horizontal_movement < 0 && !isFacingLeft)
+            // Si on saute sur un mur la velocite en y reste la même mais pas celle en z
+            else if (hit)
             {
-                isFacingLeft = true;
-                Flip();
+                rb.velocity = new Vector3(0, rb.velocity.y, 0);
             }
-        }
+            // Si on tombe juste d'une plateforme
+            else if (!isGrounded && !isGrapplin && !isJumpingAftergrapplin && !isFlying && (!hit || horizontal_movement != transform.TransformDirection(Vector3.forward * transform.localScale.z).z))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, horizontal_movement * Math.Min(speed * 60, Math.Abs(rb.velocity.z + horizontal_movement)));
+            }
 
-        lastVelocity = rb.velocity;
+            // Lors d'un saut apres grappin
+            if (isJumpingAftergrapplin && rb.velocity.z * horizontal_movement < 0)
+            {
+                transform.Translate(new Vector3(0f, 0f, horizontal_movement / 2.5f) * speed);
+            }
+
+            else if (isJumpingAftergrapplin)
+            {
+                rb.AddForce(new Vector3(0f, 0f, rb.velocity.z * 0.8f) * speed);
+            }
+
+            //Checking if we need to flip our character
+            if (horizontal_movement != 0 && !isGrabbing)
+            {
+
+                if (horizontal_movement > 0 && isFacingLeft)
+                {
+                    isFacingLeft = false;
+                    Flip();
+                }
+                if (horizontal_movement < 0 && !isFacingLeft)
+                {
+                    isFacingLeft = true;
+                    Flip();
+                }
+            }
+
+            lastVelocity = rb.velocity;
+        }
     }
 
     void Jump()
