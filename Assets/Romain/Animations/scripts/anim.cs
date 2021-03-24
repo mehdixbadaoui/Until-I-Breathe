@@ -54,7 +54,7 @@ public class anim : MonoBehaviour
         // Get the ledge script
         ledge = GetComponentInParent<LedgeLocator>();
 
-        // Get the ledge script
+        // Get the breathing script
         breathing = GetComponentInParent<Breathing_mechanic>();
 
         // initiate the bool for 180 turn

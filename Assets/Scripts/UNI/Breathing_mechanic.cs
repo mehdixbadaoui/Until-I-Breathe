@@ -8,13 +8,14 @@ public class Breathing_mechanic : MonoBehaviour
 {
     private GameMaster gm;
 
+    public Animator myAnimator;
+
     [HideInInspector]
     public float max_breath;
 
     public float breath;
     public float breath_speed = 1f;
 
-    public float hold_speed = 2f;
     public float current_hold;
 
     public float exhale_speed = 4;
@@ -26,6 +27,7 @@ public class Breathing_mechanic : MonoBehaviour
     public bool exhale;
 
     public VisualEffect Vfx;
+    private bool breathVfx = false;
 
     //public KeyCode hold_breath_key;
     //public KeyCode exhale_key;
@@ -59,8 +61,12 @@ public class Breathing_mechanic : MonoBehaviour
         max_breath = 100f;
         breath = max_breath;
 
+        // Get the animator 
+        myAnimator = GetComponentInChildren<Animator>();
+
         // Get the souffle effect
         Vfx = GetComponentInChildren<VisualEffect>() ;
+        Vfx.Stop();
 
         // Get the object detector
         objectDetector = GetComponentInChildren<ObjectDetector>();
@@ -69,23 +75,27 @@ public class Breathing_mechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inputs.Uni.HoldBreath.ReadValue<float>() != 0)
-        {
-            hold = true;
-            current_hold = hold_speed;
-        }
-        else
-        {
-            hold = false;
-            current_hold = 1;
-        }
+        //if (inputs.Uni.HoldBreath.ReadValue<float>() != 0)
+        //{
+        //    //hold = true;
+        //    current_hold = hold_speed;
+        //}
+        //else
+        //{
+        //    //hold = false;
+        //    current_hold = 1;
+        //}
 
-        if(inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
+        if (inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f))
         {
             exhale = true;
             current_exhale = exhale_speed;
 
-            Vfx.Stop();
+            if ( breathVfx == false)
+            {
+                Vfx.Play();
+                breathVfx = true;
+            }
 
             if (objectDetector.listObj !=  null)
             {
@@ -97,6 +107,12 @@ public class Breathing_mechanic : MonoBehaviour
                     }
                     if (objectDetector.listObj[index].tag == "fan")
                     {
+                        myAnimator.Play("BreathingFan", 1);
+                        myAnimator.Play("BreathingFan", 2);
+
+                        //TODO MEttre un canMove = false
+
+                        
                         objectDetector.listObj[index].GetComponent<Fan>().incAir(1 * Time.deltaTime);
                     }
                     /*                if (blowObj)
@@ -118,20 +134,27 @@ public class Breathing_mechanic : MonoBehaviour
             exhale = false;
             current_exhale = 1;
 
-            Vfx.Play();
+            if (breathVfx == true)
+            {
+                Vfx.Stop();
+                breathVfx = false;
+            }
         }
 
         if(!can_breath)
-            breath -= current_exhale * breath_speed/current_hold * Time.deltaTime;
+            breath -= current_exhale * breath_speed * Time.deltaTime;
 
-/*        if (Input.GetKeyDown(interact) && blowObj){
+        /*        if (Input.GetKeyDown(interact) && blowObj){
 
-            if (blowObj.CompareTag("lever"))
-                blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
-        }*/
+                    if (blowObj.CompareTag("lever"))
+                        blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
+                }*/
 
         if (breath <= 0)
+        {
+            //yield WaitForAnimation(animation );
             gm.Die();
+        }
     }
 
 /*    public void setBlowObj(GameObject obj)
@@ -139,8 +162,4 @@ public class Breathing_mechanic : MonoBehaviour
         blowObj = obj;
     }*/
 
-    void Die()
-    {
-
-    }
 }

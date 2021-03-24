@@ -60,32 +60,32 @@ public class hook_detector : MonoBehaviour
             if (!nearest_hook)
             {
 
-                int i = 0;
+                int j = 0;
 
-                nearest_hook = all_hooks[i];
-                while (i < all_hooks.Count && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
-                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
-                    Physics.Raycast(all_hooks[i].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[i].transform.position).normalized,
-                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center))))
+                nearest_hook = all_hooks[j];
+                while (j < all_hooks.Count && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[j].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
+                    Vector3.Distance(all_hooks[j].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
+                    Physics.Raycast(all_hooks[j].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[j].transform.position).normalized,
+                    Vector3.Distance(all_hooks[j].transform.position, gameObject.GetComponent<Collider>().bounds.center))))
                 {
-                    i++;
+                    j++;
 
                 }
-                if (i >= all_hooks.Count)
+                if (j >= all_hooks.Count)
                     nearest_hook = null;
                 else
-                    nearest_hook = all_hooks[i];
+                    nearest_hook = all_hooks[j];
 
 
             }
 
             //SELECT HOOK WITH GAMEPAD
-            if (inputs.Uni.NextHook.ReadValue<float>() > 0.1f || inputs.Uni.PrevHook.ReadValue<float>() > 0.1f)
-                nearest_hook = all_hooks[index % all_hooks.Count];
+            //if (inputs.Uni.NextHook.ReadValue<float>() > 0.1f || inputs.Uni.PrevHook.ReadValue<float>() > 0.1f)
+            //    nearest_hook = all_hooks[index % all_hooks.Count];
 
             //CHOOSE THE NEAREST HOOK TO THE CURSOR
-            if (Vector3.Distance(Mouse.current.position.ReadValue(), LastPosition) > .1f)
-            {
+            //if (Vector3.Distance(Mouse.current.position.ReadValue(), LastPosition) > .1f)
+            //{
                 //JUST PICK THE NEAREST ONE
                 //nearest_hook = all_hooks[0];
 
@@ -105,7 +105,7 @@ public class hook_detector : MonoBehaviour
                     nearest_hook = null;
                 else
                     nearest_hook = all_hooks[i];
-            }
+            //}
         }
         else
             nearest_hook = null;
