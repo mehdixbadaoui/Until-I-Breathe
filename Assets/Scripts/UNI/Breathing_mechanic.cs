@@ -16,7 +16,6 @@ public class Breathing_mechanic : MonoBehaviour
     public float breath;
     public float breath_speed = 1f;
 
-    public float hold_speed = 2f;
     public float current_hold;
 
     public float exhale_speed = 4;
@@ -143,7 +142,7 @@ public class Breathing_mechanic : MonoBehaviour
         }
 
         if(!can_breath)
-            breath -= current_exhale * breath_speed/ hold_speed * Time.deltaTime;
+            breath -= current_exhale * breath_speed * Time.deltaTime;
 
         /*        if (Input.GetKeyDown(interact) && blowObj){
 
