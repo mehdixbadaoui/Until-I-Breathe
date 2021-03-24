@@ -20,6 +20,7 @@ public class CanBreathe : MonoBehaviour
             //DISABLE AIR LOSS
             breathing_mechanic.breath = breathing_mechanic.max_breath;
             breathing_mechanic.can_breath = true;
+            breathing_mechanic.hold = false;
         }
 
     }
