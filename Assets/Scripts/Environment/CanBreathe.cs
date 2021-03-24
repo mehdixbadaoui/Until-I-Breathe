@@ -29,6 +29,7 @@ public class CanBreathe : MonoBehaviour
         if (col.CompareTag("uni") && enabled)
         {
             breathing_mechanic.can_breath = false;
+            breathing_mechanic.hold = true;
         }
     }
 
