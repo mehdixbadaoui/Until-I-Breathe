@@ -10,6 +10,9 @@ public class Breathing_mechanic : MonoBehaviour
 
     public Animator myAnimator;
 
+    public bool respawn;
+    private bool isDying = false;
+
     [HideInInspector]
     public float max_breath;
 
@@ -151,18 +154,36 @@ public class Breathing_mechanic : MonoBehaviour
                         blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
                 }*/
 
-        if (breath <= 0)
+        if (breath <= 0 && !isDying)
         {
-            myAnimator.Play("BreathingDead", 2);
-            myAnimator.Play("BreathingDead" , 1);
-/*            while (!myAnimator.GetCurrentAnimatorStateInfo(1).IsName("BreathingDead"))
-            { }*/
-            while (myAnimator.GetCurrentAnimatorStateInfo(1).IsName("BreathingDead"))
-            { }
-            //yield WaitForAnimation(animation );
-            gm.Die();
+            isDying = true;
+            StartCoroutine(BreathingDie( myAnimator, gm));
         }
     }
+
+    private IEnumerator BreathingDie( Animator myAnimator , GameMaster gm)
+    {
+        respawn = false;
+
+        myAnimator.Play("BreathingDead", 2);
+        myAnimator.Play("BreathingDead", 1);
+
+
+        //Wait for the beginning of BreathingDead
+        yield return new WaitWhile( () => myAnimator.GetCurrentAnimatorStateInfo(1).IsName("BreathingDead") );
+
+        //new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length + myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime);
+
+        //Wait for the end of BreathingDead
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length /*+ myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime*/ );
+
+        respawn = true;
+
+        gm.Die();
+
+        isDying = false;
+    }
+ 
 
 /*    public void setBlowObj(GameObject obj)
     {
