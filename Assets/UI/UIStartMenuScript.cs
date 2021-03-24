@@ -81,6 +81,7 @@ public class UIStartMenuScript : MonoBehaviour
     }
     private void Settings()
     {
+       
         Debug.Log("Settings");
     }
     private void Credits()
