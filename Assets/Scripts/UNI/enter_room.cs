@@ -18,6 +18,8 @@ public class enter_room : MonoBehaviour
     public float ambiant_interior_volume;
     private BoxCollider room_inside_collider;
     public float dstUniFromDoor; 
+    public float musicVolume;
+    public float coeffAttenuation; 
     private void Start()
     {
         room_inside = this.gameObject;
@@ -57,7 +59,8 @@ public class enter_room : MonoBehaviour
             bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Ambiant_interior_event", room_inside);
             if(distanceEndRoomUniLeft <= dstUniFromDoor)
             {
-                ambiant_interior_volume = distanceEndRoomUniLeft * 100f / dstUniFromDoor; 
+                ambiant_interior_volume = distanceEndRoomUniLeft * 100f / dstUniFromDoor;
+                
             }
             else if(distanceEndRoomUniRight <= dstUniFromDoor)
             {
@@ -67,7 +70,9 @@ public class enter_room : MonoBehaviour
             {
                 ambiant_interior_volume = 100f; 
             }
+            musicVolume = 100f - ambiant_interior_volume / coeffAttenuation; 
             AkSoundEngine.SetRTPCValue("Ambiant_music_Sound", ambiant_interior_volume);
+            AkSoundEngine.SetRTPCValue("MusicVolume", musicVolume);
             if (!isSoundFinished)
                 AkSoundEngine.PostEvent("Ambiant_interior_event", room_inside);
 
