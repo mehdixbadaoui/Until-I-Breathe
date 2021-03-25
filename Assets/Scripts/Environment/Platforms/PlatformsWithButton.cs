@@ -9,7 +9,9 @@ public class PlatformsWithButton : MonoBehaviour
     public bool fourPoints;
     public float speed;
     
-    Transform currentPoint, goToPoint;
+    Transform goToPoint;
+    Vector3 currentPos;
+
 
     float startTime;
     bool playerOn;
@@ -22,12 +24,17 @@ public class PlatformsWithButton : MonoBehaviour
     [HideInInspector]
     public bool readyToGo;
 
+    private void Awake()
+    {
+        currentPos = transform.position;
+    }
+
     void Start()
     {
-        currentPoint = pointA;
+        //currentPoint = pointA;
         goToPoint = pointB;
 
-        journeyLength = Vector3.Distance(pointA.position, pointB.position);
+        journeyLength = Vector3.Distance(currentPos, pointB.position);
 
         isWaiting = true;
         readyToGo = true;
@@ -36,6 +43,7 @@ public class PlatformsWithButton : MonoBehaviour
 
     void FixedUpdate()
     {
+        FetchCurrentPosition();
         Launch();
         Move();
         CheckIfReadyToGo();
@@ -54,7 +62,7 @@ public class PlatformsWithButton : MonoBehaviour
 
                 float fractionOfJourney = distCovered / journeyLength;
 
-                transform.position = Vector3.Lerp(currentPoint.position, goToPoint.position, fractionOfJourney);
+                transform.position = Vector3.Lerp(currentPos, goToPoint.position, fractionOfJourney);
 
                 if (Vector3.Distance(transform.position, goToPoint.position) < 0.01f) // insure that the platform is at the exact position of its destination
                 {
@@ -75,22 +83,18 @@ public class PlatformsWithButton : MonoBehaviour
         {
             if (intDir == 1 && launched)
             {
-                currentPoint = pointA;
                 goToPoint = pointB;
             }
-            else if (intDir == 2 && transform.position == pointB.position)
+            else if (intDir == 2)
             {
-                currentPoint = pointB;
                 goToPoint = pointC;
             }
-            else if (intDir == 3 && transform.position == pointC.position)
+            else if (intDir == 3)
             {
-                currentPoint = pointC;
                 goToPoint = pointD;
             }
-            else if (intDir == 4 && transform.position == pointD.position)
+            else if (intDir == 4)
             {
-                currentPoint = pointD;
                 goToPoint = pointA;
             }
         }
@@ -98,17 +102,14 @@ public class PlatformsWithButton : MonoBehaviour
         {
             if (intDir == 1)
             {
-                currentPoint = pointA;
                 goToPoint = pointB;
             }
-            else if (intDir == 2 && transform.position == pointB.position)
+            else if (intDir == 2)
             {
-                currentPoint = pointB;
                 goToPoint = pointC;
             }
-            else if (intDir == 3 && transform.position == pointC.position)
+            else if (intDir == 3)
             {
-                currentPoint = pointC;
                 goToPoint = pointA;
             }
         }
@@ -124,19 +125,19 @@ public class PlatformsWithButton : MonoBehaviour
         {
             if (intDir == 1)
             {
-                journeyLength = Vector3.Distance(pointA.position, pointB.position);
+                journeyLength = Vector3.Distance(currentPos, pointB.position);
             }
             else if (intDir == 2)
             {
-                journeyLength = Vector3.Distance(pointB.position, pointC.position);
+                journeyLength = Vector3.Distance(currentPos, pointC.position);
             }
             else if (intDir == 3)
             {
-                journeyLength = Vector3.Distance(pointC.position, pointD.position);
+                journeyLength = Vector3.Distance(currentPos, pointD.position);
             }
             else if (intDir == 4)
             {
-                journeyLength = Vector3.Distance(pointD.position, pointA.position);
+                journeyLength = Vector3.Distance(currentPos, pointA.position);
             }
         }
 
@@ -144,15 +145,15 @@ public class PlatformsWithButton : MonoBehaviour
         {
             if (intDir == 1)
             {
-                journeyLength = Vector3.Distance(pointA.position, pointB.position);
+                journeyLength = Vector3.Distance(currentPos, pointB.position);
             }
             else if (intDir == 2)
             {
-                journeyLength = Vector3.Distance(pointB.position, pointC.position);
+                journeyLength = Vector3.Distance(currentPos, pointC.position);
             }
             else if (intDir == 3)
             {
-                journeyLength = Vector3.Distance(pointC.position, pointA.position);
+                journeyLength = Vector3.Distance(currentPos, pointA.position);
             }
         }
 
@@ -171,7 +172,15 @@ public class PlatformsWithButton : MonoBehaviour
     void CheckIfReadyToGo()
     {
         if (transform.position == goToPoint.position)
+        {
             readyToGo = true;
+        }
+    }
+
+    void FetchCurrentPosition()
+    {
+        if (readyToGo)
+            currentPos = transform.position;
     }
 
     // Allows the player and other objects to stick to the platform and move on it
