@@ -40,6 +40,23 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585850049924066404
     List:
+    - name: Environmental
+      guid: b25571ca98c79e47a4de9a05626a84a6
+      id: 1973600711
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 51825a5e24261e4b9d8cee98f3163d80
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Environmental
+        ObjectType: 2
+        guid: b25571ca98c79e47a4de9a05626a84a6
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environmental
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -54,6 +71,23 @@ MonoBehaviour:
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+    - name: Music
+      guid: 3e63a480918ff44f8b5475f23ee26dad
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 51825a5e24261e4b9d8cee98f3163d80
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Music
+        ObjectType: 2
+        guid: 3e63a480918ff44f8b5475f23ee26dad
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -598,6 +632,11 @@ MonoBehaviour:
     - name: VentilatorSound
       guid: 3953392902cae04b83ab6347ebd0e82f
       id: 1790702148
+    m_lastTime: -8585850999488271091
+    List:
+    - name: MasterVolume
+      guid: 1708362fcb81894480087028c3e8b1e7
+      id: 2918011349
       PathAndIcons:
       - ElementName: Game Parameters
         ObjectType: 5
@@ -609,6 +648,61 @@ MonoBehaviour:
         ObjectType: 13
         guid: 3953392902cae04b83ab6347ebd0e82f
       Path: Game Parameters\Default Work Unit\VentilatorSound
+      - ElementName: Volume
+        ObjectType: 4
+        guid: dbb83a78afcd4c41955c38c15d6942fe
+      - ElementName: MasterVolume
+        ObjectType: 13
+        guid: 1708362fcb81894480087028c3e8b1e7
+      Path: Game Parameters\Default Work Unit\Volume\MasterVolume
+    - name: MusicVolume
+      guid: a2be516391a848408f2ecd799a8929eb
+      id: 2346531308
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Volume
+        ObjectType: 4
+        guid: dbb83a78afcd4c41955c38c15d6942fe
+      - ElementName: MusicVolume
+        ObjectType: 13
+        guid: a2be516391a848408f2ecd799a8929eb
+      Path: Game Parameters\Default Work Unit\Volume\MusicVolume
+    - name: SFXVolume
+      guid: bbe6337368febf4abfdfa7bee60b9da1
+      id: 988953028
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Volume
+        ObjectType: 4
+        guid: dbb83a78afcd4c41955c38c15d6942fe
+      - ElementName: SFXVolume
+        ObjectType: 13
+        guid: bbe6337368febf4abfdfa7bee60b9da1
+      Path: Game Parameters\Default Work Unit\Volume\SFXVolume
+    - name: Volume
+      guid: dbb83a78afcd4c41955c38c15d6942fe
+      id: 2415836739
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Volume
+        ObjectType: 4
+        guid: dbb83a78afcd4c41955c38c15d6942fe
+      Path: Game Parameters\Default Work Unit\Volume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -751,6 +845,7 @@ MonoBehaviour:
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 0200000004000000070000000a0000000f00000010000000
+  ExpandedWaapiItemIds: 01000000020000000300000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000110000001400000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

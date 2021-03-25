@@ -31,7 +31,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+							<ObjectRef Name="Environmental" ID="{CA7155B2-C798-479E-A4DE-9A05626A84A6}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -123,20 +123,49 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Music" ID="{80A4633E-8F91-4FF4-8B54-75F23EE26DAD}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Until I Breathe lev 1-1" ID="{C4F98C27-F0E8-4454-8EF5-F03D4BDB7896}" ShortID="337638675">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<RTPCList>
+												<RTPC Name="" ID="{9269C787-B137-4CE3-9FE7-FFDB124A71BD}" ShortID="347779986">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="MusicVolume" ID="{6351BEA2-A891-4048-8F2E-CD799A8929EB}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{ED8AA28A-6200-49F2-A0FD-FDBFC83DFC97}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+											<ObjectRef Name="Music" ID="{80A4633E-8F91-4FF4-8B54-75F23EE26DAD}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -170,20 +199,49 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Music" ID="{80A4633E-8F91-4FF4-8B54-75F23EE26DAD}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Until I Breathe 1-2" ID="{8F7506DC-1E10-4B00-9FD8-90290565B8F1}" ShortID="212202148">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<RTPCList>
+												<RTPC Name="" ID="{F3447AF9-F48A-464A-9EE2-38C0BC1D0A56}" ShortID="484963771">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="MusicVolume" ID="{6351BEA2-A891-4048-8F2E-CD799A8929EB}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{D1BE2E16-1DC4-40D9-A486-40F98CA93F2E}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+											<ObjectRef Name="Music" ID="{80A4633E-8F91-4FF4-8B54-75F23EE26DAD}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -217,20 +275,49 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Music" ID="{80A4633E-8F91-4FF4-8B54-75F23EE26DAD}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="UntilIBreath 2-1" ID="{33CA4A20-36E7-4B8F-8E12-751E8A613C75}" ShortID="612598526">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<RTPCList>
+												<RTPC Name="" ID="{32FD4328-BF85-426C-963E-C480F9D253C6}" ShortID="758495782">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="MusicVolume" ID="{6351BEA2-A891-4048-8F2E-CD799A8929EB}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{D0A3549E-A698-45FF-B491-86692F3F8298}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+											<ObjectRef Name="Music" ID="{80A4633E-8F91-4FF4-8B54-75F23EE26DAD}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
@@ -265,7 +352,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+							<ObjectRef Name="Environmental" ID="{CA7155B2-C798-479E-A4DE-9A05626A84A6}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -1366,7 +1453,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+							<ObjectRef Name="Environmental" ID="{CA7155B2-C798-479E-A4DE-9A05626A84A6}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -1457,7 +1544,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environmental" ID="{CA7155B2-C798-479E-A4DE-9A05626A84A6}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1557,7 +1644,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environmental" ID="{CA7155B2-C798-479E-A4DE-9A05626A84A6}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1683,7 +1770,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environmental" ID="{CA7155B2-C798-479E-A4DE-9A05626A84A6}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1772,7 +1859,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environmental" ID="{CA7155B2-C798-479E-A4DE-9A05626A84A6}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1868,7 +1955,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environmental" ID="{CA7155B2-C798-479E-A4DE-9A05626A84A6}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
