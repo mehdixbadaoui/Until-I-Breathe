@@ -83,7 +83,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""HoldBreath"",
+                    ""name"": ""Inhale"",
                     ""type"": ""Button"",
                     ""id"": ""f2d47e32-bbff-40fc-b485-c3bac1ecd983"",
                     ""expectedControlType"": ""Button"",
@@ -411,7 +411,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HoldBreath"",
+                    ""action"": ""Inhale"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -422,7 +422,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HoldBreath"",
+                    ""action"": ""Inhale"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -584,7 +584,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Uni_Grapple = m_Uni.FindAction("Grapple", throwIfNotFound: true);
         m_Uni_Detach = m_Uni.FindAction("Detach", throwIfNotFound: true);
         m_Uni_Grapple_Vert = m_Uni.FindAction("Grapple_Vert", throwIfNotFound: true);
-        m_Uni_HoldBreath = m_Uni.FindAction("HoldBreath", throwIfNotFound: true);
+        m_Uni_Inhale = m_Uni.FindAction("Inhale", throwIfNotFound: true);
         m_Uni_Exhale = m_Uni.FindAction("Exhale", throwIfNotFound: true);
         m_Uni_NextHook = m_Uni.FindAction("NextHook", throwIfNotFound: true);
         m_Uni_PrevHook = m_Uni.FindAction("PrevHook", throwIfNotFound: true);
@@ -648,7 +648,7 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Uni_Grapple;
     private readonly InputAction m_Uni_Detach;
     private readonly InputAction m_Uni_Grapple_Vert;
-    private readonly InputAction m_Uni_HoldBreath;
+    private readonly InputAction m_Uni_Inhale;
     private readonly InputAction m_Uni_Exhale;
     private readonly InputAction m_Uni_NextHook;
     private readonly InputAction m_Uni_PrevHook;
@@ -667,7 +667,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Grapple => m_Wrapper.m_Uni_Grapple;
         public InputAction @Detach => m_Wrapper.m_Uni_Detach;
         public InputAction @Grapple_Vert => m_Wrapper.m_Uni_Grapple_Vert;
-        public InputAction @HoldBreath => m_Wrapper.m_Uni_HoldBreath;
+        public InputAction @Inhale => m_Wrapper.m_Uni_Inhale;
         public InputAction @Exhale => m_Wrapper.m_Uni_Exhale;
         public InputAction @NextHook => m_Wrapper.m_Uni_NextHook;
         public InputAction @PrevHook => m_Wrapper.m_Uni_PrevHook;
@@ -707,9 +707,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Grapple_Vert.started -= m_Wrapper.m_UniActionsCallbackInterface.OnGrapple_Vert;
                 @Grapple_Vert.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnGrapple_Vert;
                 @Grapple_Vert.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnGrapple_Vert;
-                @HoldBreath.started -= m_Wrapper.m_UniActionsCallbackInterface.OnHoldBreath;
-                @HoldBreath.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnHoldBreath;
-                @HoldBreath.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnHoldBreath;
+                @Inhale.started -= m_Wrapper.m_UniActionsCallbackInterface.OnInhale;
+                @Inhale.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnInhale;
+                @Inhale.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnInhale;
                 @Exhale.started -= m_Wrapper.m_UniActionsCallbackInterface.OnExhale;
                 @Exhale.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnExhale;
                 @Exhale.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnExhale;
@@ -756,9 +756,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Grapple_Vert.started += instance.OnGrapple_Vert;
                 @Grapple_Vert.performed += instance.OnGrapple_Vert;
                 @Grapple_Vert.canceled += instance.OnGrapple_Vert;
-                @HoldBreath.started += instance.OnHoldBreath;
-                @HoldBreath.performed += instance.OnHoldBreath;
-                @HoldBreath.canceled += instance.OnHoldBreath;
+                @Inhale.started += instance.OnInhale;
+                @Inhale.performed += instance.OnInhale;
+                @Inhale.canceled += instance.OnInhale;
                 @Exhale.started += instance.OnExhale;
                 @Exhale.performed += instance.OnExhale;
                 @Exhale.canceled += instance.OnExhale;
@@ -791,7 +791,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnGrapple(InputAction.CallbackContext context);
         void OnDetach(InputAction.CallbackContext context);
         void OnGrapple_Vert(InputAction.CallbackContext context);
-        void OnHoldBreath(InputAction.CallbackContext context);
+        void OnInhale(InputAction.CallbackContext context);
         void OnExhale(InputAction.CallbackContext context);
         void OnNextHook(InputAction.CallbackContext context);
         void OnPrevHook(InputAction.CallbackContext context);
