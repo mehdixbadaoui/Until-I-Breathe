@@ -745,8 +745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ventilator: {fileID: 0}
   distanceVentilatorUni: {x: 0, y: 0, z: 0}
-  distanceVentilatorUniNormalized: {x: 0, y: 0, z: 0}
-  distanceVentilatorUniNormalizedfoiscent: {x: 0, y: 0, z: 0}
+  maxDistanceFromVentilator: 15
   ventilatorVolume: 0
 --- !u!4 &345500834 stripped
 Transform:
@@ -1984,7 +1983,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-351530
+  m_Name: pb_Mesh-87342
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2599,13 +2598,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4130498939690518601, guid: 676859e34d748994dab62ac850f97b30,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7717717676530931590, guid: 676859e34d748994dab62ac850f97b30,
         type: 3}
       propertyPath: m_Name
       value: Uni PC
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5885238735071524177, guid: 676859e34d748994dab62ac850f97b30, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 676859e34d748994dab62ac850f97b30, type: 3}
 --- !u!1 &931551248
 GameObject:
@@ -5895,24 +5899,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 413944444}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1906808479 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2273122689755299691, guid: 676859e34d748994dab62ac850f97b30,
-    type: 3}
-  m_PrefabInstance: {fileID: 874478376}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1906808481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906808479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8370807accb39da4b8c30bad1f1c6c74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1919750475
 GameObject:
   m_ObjectHideFlags: 0

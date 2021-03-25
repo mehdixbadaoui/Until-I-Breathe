@@ -7,9 +7,9 @@ public class Fan : MonoBehaviour
     [SerializeField] private float air;
     public float capacity;
 
-    public GameObject door;
+    public List<GameObject> doors;
     public GameObject generator;
-    public GameObject light;
+    public List<GameObject> lights;
 
 
     // Start is called before the first frame update
@@ -23,15 +23,15 @@ public class Fan : MonoBehaviour
     {
         if (air >= capacity)
         {
-            //UNLOCK THE DOOR
-            if(door)
+            //UNLOCK THE DOORS
+            foreach (GameObject door in doors)
                 door.GetComponentInChildren<Door>().locked = false;
 
             //TURN ON GENERATOR
             //NOTHING YET
 
-            //TURN LIGHT TO GREEN
-            if (light)
+            //TURN LIGHTS TO GREEN
+            foreach(GameObject light in lights)
                 light.GetComponent<Light>().color = Color.green;
         }
 

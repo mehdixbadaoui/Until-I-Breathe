@@ -40,21 +40,24 @@ public class ObjectDetector : MonoBehaviour
         {
             for (int index = 0; index < listObj.Count; index++)
             {
-                if ( listObj[index].tag == "button")
+                if ( listObj[index].CompareTag("button"))
                 {
                     for (int i = 0; i < listObj[index].GetComponent<button_detector>().caisses.Length; i++)
                     {
                         listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>().isKinematic = false;
                         listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>().useGravity = true;
                     }
+
+                    foreach(GameObject light in listObj[index].GetComponent<button_detector>().lights)
+                        light.GetComponent<Light>().color = Color.green;
                 }
 
-                if (listObj[index].tag == "lever")
+                if (listObj[index].CompareTag("lever"))
                 {
                     listObj[index].GetComponent<Lever>().Unlock();
                 }
 
-                if (listObj[index].tag == "Button_Platform")
+                if (listObj[index].CompareTag("Button_Platform"))
                 {
                     listObj[index].GetComponent<ButtonPlatforms>().Increment();
                 }
