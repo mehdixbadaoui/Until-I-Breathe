@@ -33,6 +33,7 @@ namespace AK
         static const AkUniqueID LVL_1_1_EVENT = 1178261876U;
         static const AkUniqueID LVL_1_2_EVENT = 1572269619U;
         static const AkUniqueID LVL_2_1_EVENT = 3922198791U;
+        static const AkUniqueID VENTILATOR_EVENT = 3305372886U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -52,6 +53,11 @@ namespace AK
         } // namespace FOOTSTEPS
 
     } // namespace SWITCHES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID VENTILATORSOUND = 1790702148U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
