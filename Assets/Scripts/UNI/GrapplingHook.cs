@@ -353,12 +353,14 @@ public class GrapplingHook : MonoBehaviour
 		{
 			Movement.isGrapplin = true;
 			// Animation of the grapplin
-			myAnimator.Play("GroundGrapplin");
+			myAnimator.Play("GroundGrapplin" , 1);
+			myAnimator.Play("GroundGrapplin", 2);
 		}
 		else if (hookObject.tag == "lever" || hookObject.tag == "movable_hook")
         {
 			// Animation of the grapplin lanched
-			myAnimator.Play("GroundGrapplinLever");
+			myAnimator.Play("GroundGrapplinLever" , 1);
+			myAnimator.Play("GroundGrapplinLever", 2);
 		}
 
 		body.mass = loadMass;

@@ -16,6 +16,7 @@ public class anim : MonoBehaviour
     private Movement movement;
     private LedgeLocator ledge;
     private Rigidbody rb;
+    private Breathing_mechanic breathing;
 
     public bool isCrouching = false;
 
@@ -53,6 +54,9 @@ public class anim : MonoBehaviour
         // Get the ledge script
         ledge = GetComponentInParent<LedgeLocator>();
 
+        // Get the breathing script
+        breathing = GetComponentInParent<Breathing_mechanic>();
+
         // initiate the bool for 180 turn
         localFacingLeft = movement.isFacingLeft;
 
@@ -70,15 +74,25 @@ public class anim : MonoBehaviour
         // random int for 2 different falls
         myAnimator.SetInteger("randomFall", Random.Range(0, 2));
 
+        // Timer after touching the ground
+        myAnimator.SetInteger("countGround", movement.countNotGround);
+
         // Grapplin bools
         myAnimator.SetBool("grapplinPush", movement.animPushing);
         myAnimator.SetBool("grapplinIdle", movement.animIdleAir);
+        myAnimator.SetBool("isGrapplin", Movement.isGrapplin);
 
         // Crouch bool
         myAnimator.SetBool("crouch", isCrouching);
 
         // Can Uni walk?
         myAnimator.SetBool("canWalk", !movement.hit);
+
+        // Can Uni walk?
+        myAnimator.SetBool("exhale", breathing.exhale);
+
+        // Can Uni walk?
+        myAnimator.SetBool("inhale", breathing.hold);
 
         // Ledge bools (IN LEDGE CODE)
         /*myAnimator.SetBool("ledgehanging", ledge.);
