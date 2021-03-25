@@ -51,7 +51,7 @@
                     "id": "a9beec95-4220-447a-9ae2-248edc70385b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "Detach",
@@ -59,7 +59,7 @@
                     "id": "ccb05ed0-bbc9-4639-a1fb-82732755e8c7",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "Grapple_Vert",
@@ -296,7 +296,7 @@
                     "name": "",
                     "id": "3cf980a7-84c8-47db-80ae-4595605cf240",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Grapple",
@@ -318,7 +318,7 @@
                     "name": "",
                     "id": "0eb92af1-5698-4f9f-a17b-39512fa02bec",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Detach",
@@ -394,7 +394,7 @@
                 {
                     "name": "",
                     "id": "bc5224aa-e308-452f-9daa-f03073f40805",
-                    "path": "<Gamepad>/dpad/up",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -405,7 +405,7 @@
                 {
                     "name": "",
                     "id": "c17ca297-53d6-42d7-9069-07c7d7dd9736",
-                    "path": "<Keyboard>/t",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -515,7 +515,7 @@
                 {
                     "name": "",
                     "id": "826735e1-6b1a-4874-a8ab-cc33d4e88f5a",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -553,6 +553,33 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move_Box",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "d34c8792-218f-4c78-831c-1d83160a8105",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "a3ed67ff-c8bc-4978-86a1-0ada43aa5a55",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "486d4014-dbe9-4b38-8e38-8ec66746e2ec",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
