@@ -101,7 +101,7 @@ public class BreathingColor : MonoBehaviour
                         whitebalance.tint.value = (Mathf.Abs(bm.breath - step3) / step3) * bm.max_breath * (bm.max_breath / (bm.max_breath / 10));
                     }
 
-                    if (bm.breath < step4 )
+                    if (bm.breath < step4 ) 
                     {
                         if (colorAdjust)
                             colorAdjust.saturation.value = (bm.breath * bm.max_breath / step4) - bm.max_breath;
