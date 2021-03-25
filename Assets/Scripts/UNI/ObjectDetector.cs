@@ -52,12 +52,12 @@ public class ObjectDetector : MonoBehaviour
                         light.GetComponent<Light>().color = Color.green;
                 }
 
-                if (listObj[index].tag == "lever")
+                if (listObj[index].CompareTag("lever"))
                 {
                     listObj[index].GetComponent<Lever>().Unlock();
                 }
 
-                if (listObj[index].tag == "Button_Platform")
+                if (listObj[index].CompareTag("Button_Platform"))
                 {
                     listObj[index].GetComponent<ButtonPlatforms>().Increment();
                 }
