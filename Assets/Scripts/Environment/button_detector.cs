@@ -6,6 +6,7 @@ public class button_detector : MonoBehaviour
 {
 
     public GameObject[] caisses;
+    public List<GameObject> lights;
 
 
 
