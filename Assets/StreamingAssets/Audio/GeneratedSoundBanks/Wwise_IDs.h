@@ -33,6 +33,7 @@ namespace AK
         static const AkUniqueID LVL_1_1_EVENT = 1178261876U;
         static const AkUniqueID LVL_1_2_EVENT = 1572269619U;
         static const AkUniqueID LVL_2_1_EVENT = 3922198791U;
+        static const AkUniqueID VENTILATOR_EVENT = 3305372886U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -53,6 +54,14 @@ namespace AK
 
     } // namespace SWITCHES
 
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID MASTERVOLUME = 2918011349U;
+        static const AkUniqueID MUSICVOLUME = 2346531308U;
+        static const AkUniqueID SFXVOLUME = 988953028U;
+        static const AkUniqueID VENTILATORSOUND = 1790702148U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
@@ -61,7 +70,9 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID ENVIRONMENT = 1229948536U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC = 3991942870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES

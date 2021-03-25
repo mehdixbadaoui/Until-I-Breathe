@@ -78,6 +78,17 @@ public class GameMaster : MonoBehaviour
         bm = uni.GetComponent<Breathing_mechanic>();
     }
 
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+    }
+
     // If Uni die
     public void Die()
     {
