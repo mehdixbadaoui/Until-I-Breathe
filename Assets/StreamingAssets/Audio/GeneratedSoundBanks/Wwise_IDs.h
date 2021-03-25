@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID AMBIANT_INTERIOR_EVENT = 2961983739U;
         static const AkUniqueID CLOTHES_EVENT = 1884367558U;
         static const AkUniqueID FS_BETON_EVENT = 1592626750U;
         static const AkUniqueID FS_BOIS_EVENT = 1460609399U;
@@ -56,6 +57,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID AMBIANT_MUSIC_SOUND = 2979278319U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICVOLUME = 2346531308U;
         static const AkUniqueID SFXVOLUME = 988953028U;
