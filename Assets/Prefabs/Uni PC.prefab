@@ -441,6 +441,7 @@ MonoBehaviour:
   myAnimator: {fileID: 0}
   speed: 0.1
   grapplinSpeed: 1
+  horizontal_movement: 0
   animPushing: 0
   animIdleAir: 0
   typeOfGround: 
@@ -449,7 +450,7 @@ MonoBehaviour:
   jump_force_slope_up: 35
   jump_force_slope_down: 35
   velocityMaxJump: 3
-  horizontalVelocityMax: 100
+  horizontalVelocityMax: 10
   direction: {x: 0, y: 0, z: 0}
   isGroundedVerif: 1
   isFacingLeft: 0
@@ -476,10 +477,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad8c148afc8fea4cb2ea6f833ab7081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnimator: {fileID: 0}
+  respawn: 0
+  isBlowingFan: 0
   max_breath: 100
   breath: 100
   breath_speed: 2.3
-  hold_speed: 0
   current_hold: 0
   exhale_speed: 5
   current_exhale: 0

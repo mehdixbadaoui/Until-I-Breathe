@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3905241130944426923}
   m_Layer: 0
-  m_Name: DoorBasFond
+  m_Name: DoorBasFond 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,6 +143,8 @@ MonoBehaviour:
   locked: 0
   doorPivot: {fileID: 6503054218740999847}
   meshDoor: {fileID: 0}
+  sizeTriggerIfEnter: 1.1
+  sizeTriggerIfExit: 1
 --- !u!1 &7418956619294168629
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,11 +203,11 @@ Transform:
   m_LocalPosition: {x: -0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1996690412528995162}
+  - {fileID: 9097910420299446269}
   m_Father: {fileID: 5267628258045259419}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2035365504897871025
+--- !u!1001 &8775541150291890198
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -230,7 +232,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 990e9aa11beff3349b0112c0577114bb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 990e9aa11beff3349b0112c0577114bb,
         type: 3}
@@ -279,9 +281,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990e9aa11beff3349b0112c0577114bb, type: 3}
---- !u!4 &1996690412528995162 stripped
+--- !u!4 &9097910420299446269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 990e9aa11beff3349b0112c0577114bb,
     type: 3}
-  m_PrefabInstance: {fileID: 2035365504897871025}
+  m_PrefabInstance: {fileID: 8775541150291890198}
   m_PrefabAsset: {fileID: 0}
