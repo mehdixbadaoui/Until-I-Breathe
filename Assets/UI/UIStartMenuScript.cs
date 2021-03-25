@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UIStartMenuScript : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class UIStartMenuScript : MonoBehaviour
     public Color BaseColor;
     public Color HighlightedColor;
     private GameObject highlightedGO;
+
+    [SerializeField]
+    private InputActionAsset iaa;
 
     // Start is called before the first frame update
     void Start()
