@@ -57,9 +57,6 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID VENTILATORSOUND = 1790702148U;
-        static const AkUniqueID MASTERVOLUME = 2918011349U;
-        static const AkUniqueID MUSICVOLUME = 2346531308U;
-        static const AkUniqueID SFXVOLUME = 988953028U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
@@ -70,9 +67,7 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID ENVIRONMENTAL = 1973600711U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
-        static const AkUniqueID MUSIC = 3991942870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES

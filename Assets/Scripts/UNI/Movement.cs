@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
@@ -89,9 +88,6 @@ public class Movement : MonoBehaviour
     private LedgeLocator ledge_locator;
 
     public bool hit;
-
-    [SerializeField] private PlayerInput playerInput = null;
-    public PlayerInput PlayerInput => playerInput;
 
     public bool IsFlying 
     {
