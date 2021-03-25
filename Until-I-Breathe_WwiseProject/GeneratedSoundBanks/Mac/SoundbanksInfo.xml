@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2911327057">
+		<SoundBank Id="1355168291" Language="SFX" Hash="58268621">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,11 +21,19 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="1672269137">
+		<SoundBank Id="2228651116" Language="SFX" Hash="1100740871">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2961983739" Name="Ambiant_interior_event" ObjectPath="\Events\Default Work Unit\Music_levels\Ambiant_interior_event" DurationType="OneShot" DurationMin="60.000000" DurationMax="60.000000">
+					<IncludedMemoryFiles>
+						<File Id="175544168" Language="SFX">
+							<ShortName>AMB_Interieur_Doux.wav</ShortName>
+							<Path>SFX\AMB_Interieur_Doux_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1884367558" Name="Clothes_event" ObjectPath="\Events\Default Work Unit\FS\Clothes_event" DurationType="OneShot" DurationMin="0.281250" DurationMax="0.281250">
 					<IncludedMemoryFiles>
 						<File Id="306998261" Language="SFX">
@@ -282,7 +290,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="623275868" Name="Jump_event" ObjectPath="\Events\Default Work Unit\Jump\Jump_event" DurationType="OneShot" DurationMin="0.312479" DurationMax="0.395813">
+				<Event Id="623275868" Name="Jump_event" ObjectPath="\Events\Default Work Unit\Jump\Jump_event" DurationType="OneShot" DurationMin="0.328348" DurationMax="0.491410">
 					<IncludedMemoryFiles>
 						<File Id="445305863" Language="SFX">
 							<ShortName>Uni_Saut_03.wav</ShortName>
@@ -333,6 +341,7 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="1790702148" Name="VentilatorSound" ObjectPath="\Game Parameters\Default Work Unit\VentilatorSound"/>
+				<GameParameter Id="2979278319" Name="Ambiant_music_Sound" ObjectPath="\Game Parameters\Default Work Unit\Ambiant_music_Sound"/>
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
