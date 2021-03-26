@@ -120,6 +120,8 @@ public class LedgeLocator : MonoBehaviour
                     {
                         grabbingLedge = true;
                         myAnimator.SetBool("LedgeHanging", true);
+                        myAnimator.Play("Hangingidle", 1);
+                        myAnimator.Play("Hangingidle", 2);
                     }
                 }
             }
@@ -162,7 +164,8 @@ public class LedgeLocator : MonoBehaviour
         {
             // Start the animation of hanging
             myAnimator.SetBool("LedgeHanging", false);
-            if(transform.localScale.z > 0)
+
+            if (transform.localScale.z > 0)
             {
                 StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z + climbingHorizontalOffset), animationTime, ledge.transform));
 
@@ -193,23 +196,36 @@ public class LedgeLocator : MonoBehaviour
     {
         Vector3 localPosition = topOfPlatformTransform.InverseTransformPoint(topOfPlatform);
 
-        float time = 0;
-        Vector3 startValue = transform.position;  
-        while (time < duration)
-        {
+        myAnimator.SetBool("LedgeClimbing", true);
 
-            // Start the animation of climbing
-            myAnimator.SetBool("LedgeClimbing", true);
-            transform.position = Vector3.Lerp(startValue, topOfPlatformTransform.TransformPoint(localPosition), time / duration);
-            time += Time.deltaTime;
-            yield return new WaitForFixedUpdate();
-        }
+        //Wait for the beginning of LedgeClimb
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(1).IsName("LedgeClimb"));
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(2).IsName("LedgeClimb"));
+
+        //Wait for the end of LedgeClimb
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length );
+
+        transform.position = topOfPlatformTransform.TransformPoint(localPosition);
+
+        // Stop the animation of climbing
+        myAnimator.SetBool("LedgeClimbing", false);
+
+        /*        float time = 0;
+                Vector3 startValue = transform.position;  
+                while (time < duration)
+                {
+
+                    // Start the animation of climbing
+                    myAnimator.SetBool("LedgeClimbing", true);
+                    transform.position = Vector3.Lerp(startValue, topOfPlatformTransform.TransformPoint(localPosition), time / duration);
+                    time += Time.deltaTime;
+                    yield return new WaitForFixedUpdate();
+                }*/
+
         ledge = null;
         moved = false;
         grabbingLedge = false;
 
-        // Stop the animation of climbing
-        myAnimator.SetBool("LedgeClimbing", false);
     }
 
     protected virtual void AdjustPlayerPosition(Vector3 topOfPlatform, Transform topOfPlatformTransform)
