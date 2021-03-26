@@ -60,7 +60,6 @@ public class hook_detector : MonoBehaviour
         
         if (all_hooks.Count != 0)
         {
-            all_hooks = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList();
 
             //IF NO HOOK IS SELECTED 
             if (!nearest_hook)
@@ -92,6 +91,7 @@ public class hook_detector : MonoBehaviour
             //SELECT HOOK WITH MOUSE CURSOR
             else
             {
+                all_hooks = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList();
                 //CHOOSE THE NEAREST HOOK TO THE CURSOR
                 //if (Vector3.Distance(Mouse.current.position.ReadValue(), LastPosition) > .1f)
                 //{
