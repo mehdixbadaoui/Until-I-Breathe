@@ -11,6 +11,7 @@ public class hook_detector : MonoBehaviour
     /*[HideInInspector] */public GameObject nearest_hook;
     private GameObject player;
     public List<GameObject> all_hooks;
+    
 
     [HideInInspector] public bool nearHook = false;
 
@@ -43,6 +44,7 @@ public class hook_detector : MonoBehaviour
     void Start()
     {
         all_hooks = new List<GameObject>();
+        
         player = GameObject.FindGameObjectWithTag("uni");
 
         inputs.Uni.NextHook.performed += ctx => NextIndex();
@@ -161,6 +163,7 @@ public class hook_detector : MonoBehaviour
             all_hooks.Add(other.gameObject);
             nearHook = true;
         }
+        
         else
 
         // HINTS
@@ -176,6 +179,8 @@ public class hook_detector : MonoBehaviour
             deadPosition = other.gameObject.transform;
             nearDead = true;
         }
+
+       
     }
 
     private void OnTriggerStay(Collider other)
@@ -199,7 +204,7 @@ public class hook_detector : MonoBehaviour
             other.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
             nearHook = false;
         }
-
+       
         // HINTS
         if (other.CompareTag("Hint"))
         {
