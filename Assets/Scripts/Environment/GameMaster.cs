@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class GameMaster : MonoBehaviour
     // Falling platform 
     public FallingPlatform[] platforms;
 
+    //Controls
+    public bool gamepad = true;
 
     // Set and get of the last checkoint position
     public Vector3 LastCheckPointPos
@@ -204,5 +207,21 @@ public class GameMaster : MonoBehaviour
         
 
 
+    }
+
+    public void ChooseMouse()
+    {
+        gamepad = false;
+    }
+
+    public void ChooseGamepad()
+    {
+        gamepad = true;
+    }
+
+    //Just For Testing
+    public void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

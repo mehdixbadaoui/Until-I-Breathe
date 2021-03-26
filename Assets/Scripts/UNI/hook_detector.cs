@@ -23,6 +23,7 @@ public class hook_detector : MonoBehaviour
 
     [SerializeField] private int index = 0;
 
+    private GameMaster GM;
     public bool gamepad = false;
 
     Vector3 LastPosition;
@@ -47,6 +48,8 @@ public class hook_detector : MonoBehaviour
         
         player = GameObject.FindGameObjectWithTag("uni");
 
+        GM = FindObjectOfType<GameMaster>();
+
         inputs.Uni.NextHook.performed += ctx => NextIndex();
         inputs.Uni.PrevHook.performed += ctx => PrevIndex();
     }
@@ -58,7 +61,8 @@ public class hook_detector : MonoBehaviour
         if (all_hooks.Count != 0)
         {
             all_hooks = all_hooks.OrderBy(o => Vector3.Distance(Camera.main.WorldToScreenPoint(o.transform.position), Mouse.current.position.ReadValue())).ToList();
-            //nearest_hook = all_hooks[0];
+
+            //IF NO HOOK IS SELECTED 
             if (!nearest_hook)
             {
 
@@ -81,32 +85,38 @@ public class hook_detector : MonoBehaviour
 
             }
 
-            //SELECT HOOK WITH GAMEPAD
-            //if (inputs.Uni.NextHook.ReadValue<float>() > 0.1f || inputs.Uni.PrevHook.ReadValue<float>() > 0.1f)
-            //    nearest_hook = all_hooks[index % all_hooks.Count];
+            //SELECT UHOOK WITH GAMEPAD
+            if (GM.gamepad)
+                nearest_hook = all_hooks[index % all_hooks.Count];
 
-            //CHOOSE THE NEAREST HOOK TO THE CURSOR
-            //if (Vector3.Distance(Mouse.current.position.ReadValue(), LastPosition) > .1f)
-            //{
+            //SELECT HOOK WITH MOUSE CURSOR
+            else
+            {
+                //CHOOSE THE NEAREST HOOK TO THE CURSOR
+                //if (Vector3.Distance(Mouse.current.position.ReadValue(), LastPosition) > .1f)
+                //{
                 //JUST PICK THE NEAREST ONE
                 //nearest_hook = all_hooks[0];
 
                 //PICK THE NEAREST AVAILABLE HOOK
                 int i = 0;
 
-                nearest_hook = all_hooks[i];
-                while ( i < all_hooks.Count && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
-                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
-                    Physics.Raycast(all_hooks[i].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[i].transform.position).normalized,
-                    Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center))))
-                {
-                    i++;
-
-                }
-                if (i >= all_hooks.Count)
-                    nearest_hook = null;
-                else
                     nearest_hook = all_hooks[i];
+                    while ( i < all_hooks.Count && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[i].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
+                        Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
+                        Physics.Raycast(all_hooks[i].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[i].transform.position).normalized,
+                        Vector3.Distance(all_hooks[i].transform.position, gameObject.GetComponent<Collider>().bounds.center))))
+                    {
+                        i++;
+
+                    }
+                    if (i >= all_hooks.Count)
+                        nearest_hook = null;
+                    else
+                        nearest_hook = all_hooks[i];
+
+            }
+
             //}
         }
         else
