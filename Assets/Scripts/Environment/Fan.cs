@@ -30,7 +30,7 @@ public class Fan : MonoBehaviour
         if (air >= capacity)
         {
             fanAnim.SetBool("isrotating", true);
-            fanAnim.speed = Mathf.Lerp(0, 1, Time.deltaTime);
+            fanAnim.speed = 1;
             //UNLOCK THE DOOR
             foreach (GameObject door in doors)
                 door.GetComponentInChildren<Door>().locked = false;
@@ -40,7 +40,7 @@ public class Fan : MonoBehaviour
 
             //TURN LIGHTS TO GREEN
             foreach(GameObject light in lights)
-                light.GetComponent<Light>().color = Color.green;
+                light.GetComponentInChildren<Light>().color = Color.green;
         }
 
 
@@ -65,7 +65,7 @@ public class Fan : MonoBehaviour
         if (air <= capacity)
         {
             isIncAir = true;
-            air += amount;d
+            air += amount;
             fanAnim.SetBool("isrotating", true);
             fanAnim.speed = Mathf.Lerp(fanAnim.speed, air/2 , Time.deltaTime);
         }
