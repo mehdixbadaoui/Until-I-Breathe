@@ -17,11 +17,12 @@ public class enter_room : MonoBehaviour
     private float distanceEndRoomUniRight;
     public float ambiant_interior_volume;
     private BoxCollider room_inside_collider;
-    public float dstUniFromDoor; 
+    public float dstUniFromEndofRoom = 7f; 
     public float musicVolume;
     public float coefficientAttenuation = 1.5f; 
     private void Start()
     {
+        
         room_inside = this.gameObject;
         room_inside_collider = room_inside.GetComponent<BoxCollider>(); 
         uni = GameObject.FindGameObjectWithTag("uni");
@@ -56,15 +57,16 @@ public class enter_room : MonoBehaviour
             }
 
             //Ambiant music for interior
+            
             bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Ambiant_interior_event", room_inside);
-            if(distanceEndRoomUniLeft <= dstUniFromDoor)
+            if(distanceEndRoomUniLeft <= dstUniFromEndofRoom)
             {
-                ambiant_interior_volume = distanceEndRoomUniLeft * 100f / dstUniFromDoor;
+                ambiant_interior_volume = distanceEndRoomUniLeft * 100f / dstUniFromEndofRoom;
                 
             }
-            else if(distanceEndRoomUniRight <= dstUniFromDoor)
+            else if(distanceEndRoomUniRight <= dstUniFromEndofRoom)
             {
-                ambiant_interior_volume = distanceEndRoomUniRight * 100f / dstUniFromDoor;
+                ambiant_interior_volume = distanceEndRoomUniRight * 100f / dstUniFromEndofRoom;
             }
             else
             {
@@ -100,7 +102,8 @@ public class enter_room : MonoBehaviour
 
             distanceEndRoomUniLeft = 0f;
             distanceEndRoomUniRight = 0f;
-            ambiant_interior_volume = 0f; 
+            ambiant_interior_volume = 0f;
+            musicVolume = 100f; 
             AkSoundEngine.SetRTPCValue("Ambiant_music_Sound", ambiant_interior_volume);
         }
     }
