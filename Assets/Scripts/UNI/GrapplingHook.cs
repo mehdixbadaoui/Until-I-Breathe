@@ -135,8 +135,8 @@ public class GrapplingHook : MonoBehaviour
 		myAnimator = GetComponentInChildren<Animator>();
 
 		// Get the key to grapple
-		inputs.Uni.Grapple.performed += ctx => AttachHook();
-        inputs.Uni.Detach.performed += ctx => DttachHook();
+		//inputs.Uni.Grapple.performed += ctx => AttachHook();
+  //      inputs.Uni.Detach.performed += ctx => DttachHook();
 
         checkLenghtSound = GetComponent<CheckLenghtSound>(); 
 	}
@@ -145,8 +145,8 @@ public class GrapplingHook : MonoBehaviour
 	void Update()
 	{
 
-        //if (Convert.ToBoolean(inputs.Uni.Grapple.ReadValue<float>()))
-        //   attachHook = true;
+        if (Convert.ToBoolean(inputs.Uni.Grapple.ReadValue<float>()))
+            attachHook = true;
 
         if (isGrappling)
 		{
@@ -210,8 +210,8 @@ public class GrapplingHook : MonoBehaviour
 
 			DisplayRope();
 
-            //if (Convert.ToBoolean(inputs.Uni.Detach.ReadValue<float>()))
-            //    detachHook = true;
+            if (Convert.ToBoolean(inputs.Uni.Detach.ReadValue<float>()))
+                detachHook = true;
 
         }
 
