@@ -7,9 +7,9 @@ public class Fan : MonoBehaviour
     [SerializeField] private float air;
     public float capacity;
 
-    public GameObject door;
+    public List<GameObject> doors;
     public GameObject generator;
-    public GameObject light;
+    public List<GameObject> lights;
 
     private Animator fanAnim;
     private bool isIncAir = false;
@@ -32,14 +32,14 @@ public class Fan : MonoBehaviour
             fanAnim.SetBool("isrotating", true);
             fanAnim.speed = Mathf.Lerp(0, 1, Time.deltaTime);
             //UNLOCK THE DOOR
-            if (door)
+            foreach (GameObject door in doors)
                 door.GetComponentInChildren<Door>().locked = false;
 
             //TURN ON GENERATOR
             //NOTHING YET
 
-            //TURN LIGHT TO GREEN
-            if (light)
+            //TURN LIGHTS TO GREEN
+            foreach(GameObject light in lights)
                 light.GetComponent<Light>().color = Color.green;
         }
 

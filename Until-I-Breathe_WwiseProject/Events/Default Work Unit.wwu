@@ -163,6 +163,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Ambiant_interior_event" ID="{EFEFF7FE-A9CB-4327-9AFA-6AE15103F599}">
+							<ChildrenList>
+								<Action Name="" ID="{577EA19F-627B-416D-A329-CDA5DF16A769}" ShortID="1053150632">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_interior_music" ID="{E77EBFB3-2163-45BD-BC8E-2DE366E75946}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Jump" ID="{8BA3E3CB-5920-44DA-8A59-333AE195DE2C}" ShortID="1029937562">
@@ -239,12 +250,12 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Ventilator_event" ID="{64BCCAB4-0FD7-44A2-9109-D3712353D17B}">
+				<Event Name="Ventilator_event" ID="{F3C63282-5A5A-4E24-97A9-A56761555D96}">
 					<ChildrenList>
-						<Action Name="" ID="{ADBC7D96-526F-4910-ABDF-E28E28CAD1BE}" ShortID="864407991">
+						<Action Name="" ID="{D53E2021-38C2-460D-9CA6-6B9E41BDD515}" ShortID="934692986">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Ventilateur_Gros_Loop_01" ID="{09196222-15B0-4AAF-AA4E-4C40E59F5F9B}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+									<ObjectRef Name="VentilatorSound" ID="{CB8FB5EE-237A-4003-B19E-F4B02AF7FEA7}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

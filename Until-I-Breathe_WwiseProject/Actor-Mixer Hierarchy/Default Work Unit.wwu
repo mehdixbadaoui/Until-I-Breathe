@@ -31,7 +31,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+							<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -123,7 +123,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Music" ID="{6722D126-770E-440E-A0E0-3A6FF4E0AD03}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -170,7 +170,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Music" ID="{6722D126-770E-440E-A0E0-3A6FF4E0AD03}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -208,7 +208,7 @@
 								<Property Name="BlendBehavior" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-30</Value>
+										<Value>-15</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -217,7 +217,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Music" ID="{6722D126-770E-440E-A0E0-3A6FF4E0AD03}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -250,6 +250,72 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</BlendContainer>
+						<BlendContainer Name="Ambient_interior_music" ID="{E77EBFB3-2163-45BD-BC8E-2DE366E75946}" ShortID="399202451">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{AC3C0E9C-4CEB-4B66-ADB2-FA2D5717B55D}" ShortID="25972689">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Ambiant_music_Sound" ID="{A8BEC8DF-C534-4C5C-8C84-3E62B285DDF2}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{0007D565-52A7-462B-9F8D-6369D0B39899}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Music" ID="{6722D126-770E-440E-A0E0-3A6FF4E0AD03}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="AMB_Interieur_Doux" ID="{FC0B5C22-BAAA-4ADB-8C5C-A37AED541223}" ShortID="256179700">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="AMB_Interieur_Doux" ID="{7AC71F45-19F4-4917-A25C-9CE57E592A45}">
+											<Language>SFX</Language>
+											<AudioFile>AMB_Interieur_Doux.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="175544168"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="AMB_Interieur_Doux" ID="{7AC71F45-19F4-4917-A25C-9CE57E592A45}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</BlendContainer>
 					</ChildrenList>
 				</Folder>
 				<SwitchContainer Name="FootStep" ID="{C2D50C09-D907-4FDD-9C75-ED12BBF5837E}" ShortID="114003077">
@@ -265,7 +331,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+							<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -1355,9 +1421,25 @@
 				</SwitchContainer>
 				<RandomSequenceContainer Name="Jump" ID="{73ED988D-5179-4365-9E7F-30C4ADF6E9DA}" ShortID="108286219">
 					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>130</Value>
+							</ValueList>
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{098F9204-747C-4C58-8BCA-0A42DE68CFC2}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="100"/>
+											<Property Name="Min" Type="Real64" Value="-100"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-20</Value>
+								<Value>-30</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1366,11 +1448,11 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+							<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Uni_Saut_01" ID="{1F10A768-381B-44F6-A4A4-1F37EB24902A}" ShortID="600719480">
+						<Sound Name="Uni_Saut_01" ID="{07B43720-B61A-4F0E-A4A6-3616C8ECC9D9}" ShortID="567502625">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1380,7 +1462,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Uni_Saut_01" ID="{BA6ED91B-7D5D-4153-BCF5-5F6852E617EB}">
+								<AudioFileSource Name="Uni_Saut_01" ID="{21C6055E-05E4-47D3-B829-FE4873AAFB19}">
 									<Language>SFX</Language>
 									<AudioFile>Uni_Saut_01.wav</AudioFile>
 									<MediaIDList>
@@ -1390,10 +1472,10 @@
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Uni_Saut_01" ID="{BA6ED91B-7D5D-4153-BCF5-5F6852E617EB}" Platform="Linked"/>
+								<ActiveSource Name="Uni_Saut_01" ID="{21C6055E-05E4-47D3-B829-FE4873AAFB19}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Uni_Saut_02" ID="{878B1A5A-14D6-4187-84C5-AD3370EF33C6}" ShortID="978874645">
+						<Sound Name="Uni_Saut_02" ID="{4B2B2306-3B39-46EA-BDB7-84B668AF2B77}" ShortID="363426140">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1403,7 +1485,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Uni_Saut_02" ID="{8CA28A5D-FFDB-424A-9E05-A7DB6B5FA76F}">
+								<AudioFileSource Name="Uni_Saut_02" ID="{9F0782B8-2361-49C5-88ED-5B7EEC40A365}">
 									<Language>SFX</Language>
 									<AudioFile>Uni_Saut_02.wav</AudioFile>
 									<MediaIDList>
@@ -1413,10 +1495,10 @@
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Uni_Saut_02" ID="{8CA28A5D-FFDB-424A-9E05-A7DB6B5FA76F}" Platform="Linked"/>
+								<ActiveSource Name="Uni_Saut_02" ID="{9F0782B8-2361-49C5-88ED-5B7EEC40A365}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Uni_Saut_03" ID="{83C66FEC-3E2F-4736-906D-657C688F35C6}" ShortID="422277007">
+						<Sound Name="Uni_Saut_03" ID="{A864E670-C76B-4DCD-A7D5-96B14FB886C8}" ShortID="790496800">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1426,7 +1508,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Uni_Saut_03" ID="{E3DE9E88-9A4C-4A82-A7A4-08810E250894}">
+								<AudioFileSource Name="Uni_Saut_03" ID="{FA84F68D-D88F-479D-8E35-2437F3418503}">
 									<Language>SFX</Language>
 									<AudioFile>Uni_Saut_03.wav</AudioFile>
 									<MediaIDList>
@@ -1436,7 +1518,7 @@
 							</ChildrenList>
 							<ObjectLists/>
 							<ActiveSourceList>
-								<ActiveSource Name="Uni_Saut_03" ID="{E3DE9E88-9A4C-4A82-A7A4-08810E250894}" Platform="Linked"/>
+								<ActiveSource Name="Uni_Saut_03" ID="{FA84F68D-D88F-479D-8E35-2437F3418503}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -1457,7 +1539,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1557,7 +1639,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1683,7 +1765,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1772,7 +1854,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1868,7 +1950,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1946,7 +2028,40 @@
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
-				<SwitchContainer Name="VentilatorSound" ID="{50B2E23F-D354-468F-BAC2-0D2247094C93}" ShortID="432011951">
+				<Sound Name="VentilatorSound" ID="{CB8FB5EE-237A-4003-B19E-F4B02AF7FEA7}" ShortID="402531465">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+							<RTPCList>
+								<RTPC Name="" ID="{32FD1C5D-CCD9-48F2-9FD4-83BDAA9C8DD8}" ShortID="545746291">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="VentilatorSound" ID="{29395339-CA02-4BE0-83AB-6347EBD0E82F}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{BE58CED7-9111-44C0-8089-AE6F6105FFB8}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-200</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>0</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
@@ -1956,70 +2071,19 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Ventilateur_Gros_Loop_01" ID="{09196222-15B0-4AAF-AA4E-4C40E59F5F9B}" ShortID="629718908">
-							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<RTPCList>
-										<RTPC Name="" ID="{226BF316-BBF4-4D11-AB16-E6B3B8BAA756}" ShortID="627378584">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="VentilatorSound" ID="{29395339-CA02-4BE0-83AB-6347EBD0E82F}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{A734493B-0685-4C2D-83B7-D20CB86CADFA}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="3"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>-200</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>100</XPos>
-														<YPos>0</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Ventilateur_Gros_Loop_01" ID="{A2C84DE8-5249-4A4D-B4CA-7A4FEB6371F0}">
-									<Language>SFX</Language>
-									<AudioFile>Ventilateur_Gros_Loop_01.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="33660894"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ObjectLists/>
-							<ActiveSourceList>
-								<ActiveSource Name="Ventilateur_Gros_Loop_01" ID="{A2C84DE8-5249-4A4D-B4CA-7A4FEB6371F0}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
+						<AudioFileSource Name="Ventilateur_Gros_Loop_01" ID="{89EA5B05-6363-48AB-BB4E-8291F2AA0F3A}">
+							<Language>SFX</Language>
+							<AudioFile>Ventilateur_Gros_Loop_01.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="33660894"/>
+							</MediaIDList>
+						</AudioFileSource>
 					</ChildrenList>
 					<ObjectLists/>
-					<GroupingInfo>
-						<GroupingBehaviorList>
-							<GroupingBehavior>
-								<ItemRef Name="Ventilateur_Gros_Loop_01" ID="{09196222-15B0-4AAF-AA4E-4C40E59F5F9B}"/>
-							</GroupingBehavior>
-						</GroupingBehaviorList>
-					</GroupingInfo>
-				</SwitchContainer>
+					<ActiveSourceList>
+						<ActiveSource Name="Ventilateur_Gros_Loop_01" ID="{89EA5B05-6363-48AB-BB4E-8291F2AA0F3A}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

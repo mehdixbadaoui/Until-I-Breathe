@@ -40,27 +40,34 @@ public class ObjectDetector : MonoBehaviour
         {
             for (int index = 0; index < listObj.Count; index++)
             {
-                if ( listObj[index].tag == "button")
+                if ( listObj[index].CompareTag("button"))
                 {
                     for (int i = 0; i < listObj[index].GetComponent<button_detector>().caisses.Length; i++)
                     {
                         listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>().isKinematic = false;
                         listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>().useGravity = true;
                     }
+
+                    foreach(GameObject light in listObj[index].GetComponent<button_detector>().lights)
+                        light.GetComponent<Light>().color = Color.green;
                 }
 
-                if (listObj[index].tag == "lever")
+                if (listObj[index].CompareTag("lever"))
                 {
                     listObj[index].GetComponent<Lever>().Unlock();
                 }
 
-                if (listObj[index].tag == "Button_Platform")
+                if (listObj[index].CompareTag("Button_Platform"))
                 {
                     listObj[index].GetComponent<ButtonPlatforms>().Increment();
                 }
+
+                if (listObj[index].CompareTag("Lever_Platform"))
+                {
+                    listObj[index].GetComponent<LeverPlatforms>().GoTo();
+                }
             }
         }
-
      }
 
     // Update is called once per frame
@@ -68,7 +75,7 @@ public class ObjectDetector : MonoBehaviour
     {
 
 
-        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform"))
+        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform") || col.CompareTag("Lever_Platform"))
         {
             listObj.Add(col.gameObject);
         }
@@ -94,7 +101,7 @@ public class ObjectDetector : MonoBehaviour
     void OnTriggerExit(Collider col)
     {
 
-        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform"))
+        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform") || col.CompareTag("Lever_Platform"))
         {
             listObj.Remove(col.gameObject);
         }

@@ -13,6 +13,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2299808236	Hook_balance_event			\Default Work Unit\Hook\Hook_balance_event	
 	2323690083	FS_crouch_Beton_event			\Default Work Unit\FS\FS_crouch_Beton_event	
 	2838535636	FS_crouch_Bois_event			\Default Work Unit\FS\FS_crouch_Bois_event	
+	2961983739	Ambiant_interior_event			\Default Work Unit\Music_levels\Ambiant_interior_event	
 	3109581025	FS_Metal_event			\Default Work Unit\FS\FS_Metal_event	
 	3305372886	Ventilator_event			\Default Work Unit\Ventilator_event	
 	3378064531	FS_Ordure_event			\Default Work Unit\FS\FS_Ordure_event	
@@ -23,10 +24,11 @@ Event	ID	Name			Wwise Object Path	Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	1790702148	VentilatorSound			\Default Work Unit\VentilatorSound	
+	2979278319	Ambiant_music_Sound			\Default Work Unit\Ambiant_music_Sound	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	22230456	FS_Beton_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Beton_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_crouch_Beton\FS_Beton_Uni_03		57836
-	33660894	Ventilateur_Gros_Loop_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ventilateur_Gros_Loop_01_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\VentilatorSound\Ventilateur_Gros_Loop_01		1536144
+	33660894	VentilatorSound	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ventilateur_Gros_Loop_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\VentilatorSound		768144
 	65937578	Uni_Grappin_Balance_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Grappin_Balance_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hook\Hook_balance\Uni_Grappin_Balance_01		90344
 	77377138	FS_Ordure_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Ordure\FS_Ordure_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_Ordure_randomContainer\FS_Ordure_Uni_02		102340
 	78198669	Grappin_Accroche_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Accroche_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hook\Hook_accroche\Grappin_Accroche_Uni_01		50928
@@ -34,6 +36,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	146550505	FS_Liquide_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Liquide\FS_Liquide_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_Liquide_randomContainer\FS_Liquide_Uni_03		76132
 	153506774	FS_Liquide_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Liquide_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_crouch_Liquide\FS_Liquide_Uni_03		76132
 	155308429	FS_Bois_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Bois_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_crouch_Bois\FS_Bois_Uni_01		52140
+	175544168	AMB_Interieur_Doux	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\AMB_Interieur_Doux_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiant_music\Ambient_interior_music\AMB_Interieur_Doux		11520192
 	216791816	Uni_Grappin_Ralonge_Loop_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Grappin_Ralonge_Loop_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hook\Hook_ralonge\Uni_Grappin_Ralonge_Loop_03		96144
 	262888218	FS_Beton_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Beton\FS_Beton_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_Beton_randomContainer\FS_Beton_Uni_02		57836
 	269577661	FS_Ordure_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Ordure_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_crouch_Ordure\FS_Ordure_Uni_02		102340
@@ -48,9 +51,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	398402434	FS_Metal_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Metal_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_crouch_Metal\FS_Metal_Uni_03		133636
 	412197094	UntilIBreath 2-1	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\UntilIBreath 2-1_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiant_music\Ambient_music_2_1\UntilIBreath 2-1		11342956
 	431791995	Grappin_Deccroche_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Deccroche_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hook\Hook_deccroche\Grappin_Deccroche_Uni_01		39032
-	445305863	Uni_Saut_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Saut_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump\Uni_Saut_03		76140
+	445305863	Uni_Saut_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Saut_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump\Uni_Saut_03		72144
 	469198679	FS_Beton_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Beton_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_crouch_Beton\FS_Beton_Uni_02		57836
-	487160943	Uni_Saut_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Saut_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump\Uni_Saut_02		76140
+	487160943	Uni_Saut_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Saut_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump\Uni_Saut_02		96144
 	504357912	Until I Breathe 1-2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Until I Breathe 1-2 _D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiant_music\Ambient_music_1_2\Until I Breathe 1-2		13109108
 	522250800	FS_Bois_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Fs_Bois\FS_Bois_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_Bois_randomContainer\FS_Bois_Uni_01		52140
 	572681687	FS_Liquide_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Liquide_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_crouch_Liquide\FS_Liquide_Uni_01		76132
@@ -79,5 +82,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	969994697	Grappin_Deccroche_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Deccroche_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hook\Hook_deccroche\Grappin_Deccroche_Uni_02		44128
 	1033435149	FS_Metal_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Metal\FS_Metal_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_Metal_randomContainer\FS_Metal_Uni_02		133636
 	1055901604	FS_Ordure_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Ordure_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\FootStep\FS_crouch_Ordure\FS_Ordure_Uni_01		94040
-	1059932493	Uni_Saut_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Saut_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump\Uni_Saut_01		60140
+	1059932493	Uni_Saut_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Saut_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump\Uni_Saut_01		72144
 

@@ -4,12 +4,32 @@ using UnityEngine;
 
 public class CanBreathe : MonoBehaviour
 {
-    private Breathing_mechanic breathing_mechanic;
+    private Breathing_mechanic bm;
+    public float BreathSpeed = 1f;
+    public float InhaleSpeed = 1f;
+
+    private Inputs inputs;
+
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        breathing_mechanic = FindObjectOfType<Breathing_mechanic>();
+        bm = FindObjectOfType<Breathing_mechanic>();
+
+        inputs.Uni.Inhale.performed += ctx => StartCoroutine(Inhale());
 
     }
 
@@ -18,9 +38,16 @@ public class CanBreathe : MonoBehaviour
         if (col.CompareTag("uni") && enabled)
         {
             //DISABLE AIR LOSS
-            breathing_mechanic.breath = breathing_mechanic.max_breath;
-            breathing_mechanic.can_breath = true;
-            breathing_mechanic.hold = false;
+            bm.can_breath = true;
+            bm.hold = false;
+
+            if (bm.breath < bm.max_breath)
+                bm.breath += BreathSpeed * Time.deltaTime;
+
+            else if (bm.breath > bm.max_breath)
+                bm.breath = bm.max_breath;
+
+
         }
 
     }
@@ -29,10 +56,23 @@ public class CanBreathe : MonoBehaviour
     {
         if (col.CompareTag("uni") && enabled)
         {
-            breathing_mechanic.can_breath = false;
-            breathing_mechanic.hold = true;
+            bm.can_breath = false;
+            bm.hold = true;
         }
     }
 
+    IEnumerator Inhale()
+    {
+        float startTime = Time.time;
+        while(Time.time < startTime + InhaleSpeed && bm.breath < bm.max_breath)
+        {
+            bm.breath += (Time.time - startTime) / InhaleSpeed;
+            yield return null;
+        }
+
+        if (bm.breath > bm.max_breath)
+            bm.breath = bm.max_breath;
+
+    }
 
 }
