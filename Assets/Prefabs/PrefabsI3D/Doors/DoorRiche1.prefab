@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117304404872998721}
   m_Layer: 0
-  m_Name: DoorBasRichezy1
+  m_Name: DoorRiche1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,6 +145,19 @@ MonoBehaviour:
   meshDoor: {fileID: 0}
   sizeTriggerIfEnter: 1.1
   sizeTriggerIfExit: 1
+--- !u!65 &7347902854385842544
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799893249070181539}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5311152, y: 2.9519248, z: 0.17692661}
+  m_Center: {x: 0, y: 0, z: -0.0128932}
 --- !u!1 &5865910059857021663
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +304,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b6c43822c69fe4ea259a0b05445569, type: 3}
+--- !u!1 &5799893249070181539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b8b6c43822c69fe4ea259a0b05445569,
+    type: 3}
+  m_PrefabInstance: {fileID: 6682275319296987634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6572595199736018457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b8b6c43822c69fe4ea259a0b05445569,

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117304404872998721}
   m_Layer: 0
-  m_Name: DoorBasFactoryzy 2
+  m_Name: DoorFactory2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,6 +145,19 @@ MonoBehaviour:
   meshDoor: {fileID: 0}
   sizeTriggerIfEnter: 1.1
   sizeTriggerIfExit: 1
+--- !u!65 &1824062187418487050
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003470743794282938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5147539, y: 3.029275, z: 0.2303257}
+  m_Center: {x: -0, y: 0, z: 0.0013246536}
 --- !u!1 &5865910059857021663
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +304,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b43fc1eefc01b6f47b7ad8ef1fdc3178, type: 3}
+--- !u!1 &2003470743794282938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b43fc1eefc01b6f47b7ad8ef1fdc3178,
+    type: 3}
+  m_PrefabInstance: {fileID: 1660891303400164587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1190659674099067648 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b43fc1eefc01b6f47b7ad8ef1fdc3178,
