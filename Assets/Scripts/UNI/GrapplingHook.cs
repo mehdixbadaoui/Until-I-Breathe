@@ -89,6 +89,7 @@ public class GrapplingHook : MonoBehaviour
 
 	// Uni animator
 	public Animator myAnimator;
+	private Transform leftHarm;
 
 	private CheckLenghtSound checkLenghtSound; 
 	private void Awake()
@@ -133,6 +134,7 @@ public class GrapplingHook : MonoBehaviour
 
 		// Get the animator 
 		myAnimator = GetComponentInChildren<Animator>();
+		//leftHarm = myAnimator.GetBoneTransform(HumanBodyBones.LeftLowerArm);
 
 		// Get the key to grapple
 		//inputs.Uni.Grapple.performed += ctx => AttachHook();
@@ -156,6 +158,8 @@ public class GrapplingHook : MonoBehaviour
 				Movement.angleHook = (Vector3.Angle(Vector3.down, objectHanging.position - hookObject.transform.position) - 10) * Math.Sign((hookObject.transform.position - objectHanging.position).z);
 			else
 				Movement.angleHook = 0;
+
+			//leftHarm.LookAt(hookObject.transform.position);
 
 			// Vecteur unitaire
 			Vector3 u_dir = (hookObject.transform.position - objectHanging.position) / dist_objects;

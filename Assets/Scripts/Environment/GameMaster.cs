@@ -23,8 +23,11 @@ public class GameMaster : MonoBehaviour
     // Falling platform 
     public FallingPlatform[] platforms;
 
+    // Falling platform 
+    public GrapplingHook grapplin;
     //Controls
     public bool gamepad = true;
+
 
     // Set and get of the last checkoint position
     public Vector3 LastCheckPointPos
@@ -62,6 +65,9 @@ public class GameMaster : MonoBehaviour
         // Get uni Breathing Mecanic
         bm = uni.GetComponent<Breathing_mechanic>();
 
+        // Get uni Breathing Mecanic
+        grapplin = uni.GetComponent<GrapplingHook>();
+
 
 
     }
@@ -79,6 +85,9 @@ public class GameMaster : MonoBehaviour
 
         // Get uni Breathing Mecanic
         bm = uni.GetComponent<Breathing_mechanic>();
+
+        // Get uni Breathing Mecanic
+        grapplin = uni.GetComponent<GrapplingHook>();
     }
 
     public void Pause()
@@ -96,8 +105,15 @@ public class GameMaster : MonoBehaviour
     public void Die()
     {
 
+        if (grapplin.isGrappling)
+        {
+            grapplin.CutRope();
+        }
+
         uni.transform.position = lastCheckPointPos;
         uni.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+
         bm.breath = 100;
 
         if (platforms != null)
