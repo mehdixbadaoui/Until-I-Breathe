@@ -11,11 +11,17 @@ public class Fan : MonoBehaviour
     public GameObject generator;
     public GameObject light;
 
+    private Animator fanAnim;
+    private bool isIncAir = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         air = 0;
+
+        // Get the fan anim
+        fanAnim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -23,8 +29,10 @@ public class Fan : MonoBehaviour
     {
         if (air >= capacity)
         {
+            fanAnim.SetBool("isrotating", true);
+            fanAnim.speed = Mathf.Lerp(0, 1, Time.deltaTime);
             //UNLOCK THE DOOR
-            if(door)
+            if (door)
                 door.GetComponentInChildren<Door>().locked = false;
 
             //TURN ON GENERATOR
@@ -35,12 +43,32 @@ public class Fan : MonoBehaviour
                 light.GetComponent<Light>().color = Color.green;
         }
 
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isIncAir && air < capacity)
+        {
+            fanAnim.speed = Mathf.Lerp(fanAnim.speed, 0, Time.deltaTime);
+            if (fanAnim.speed < 0.1)
+                fanAnim.SetBool("isrotating", false);
+        }
+        else if (isIncAir)
+        {
+            isIncAir = false;
+        }
     }
 
     public void incAir(float amount)
     {
-        if(air <= capacity)
-            air += amount;
-
+        if (air <= capacity)
+        {
+            isIncAir = true;
+            air += amount;d
+            fanAnim.SetBool("isrotating", true);
+            fanAnim.speed = Mathf.Lerp(fanAnim.speed, air/2 , Time.deltaTime);
+        }
+        
     }
 }
