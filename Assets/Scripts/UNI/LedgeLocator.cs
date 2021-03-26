@@ -36,6 +36,7 @@ public class LedgeLocator : MonoBehaviour
     // Useful boolean 
     private bool falling;
     private bool moved;
+    private bool isclimbing = false;
 
 
     [HideInInspector]
@@ -54,6 +55,10 @@ public class LedgeLocator : MonoBehaviour
 
     // Uni animator
     public Animator myAnimator;
+
+    //Gizmos
+    Vector3 previousPos;
+    Vector3 newPos;
 
     private void Awake()
     {
@@ -160,8 +165,10 @@ public class LedgeLocator : MonoBehaviour
             horizontalArrow = KeyCode.Q;
         }
 
-        if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() != 0 || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()))  && ledge!= null)
+        if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() != 0 || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()))  && ledge!= null && !isclimbing)
         {
+            isclimbing = true;
+
             // Start the animation of hanging
             myAnimator.SetBool("LedgeHanging", false);
 
@@ -196,6 +203,9 @@ public class LedgeLocator : MonoBehaviour
     {
         Vector3 localPosition = topOfPlatformTransform.InverseTransformPoint(topOfPlatform);
 
+
+        previousPos = GameObject.FindGameObjectWithTag("rig").transform.position;
+
         myAnimator.SetBool("LedgeClimbing", true);
 
         //Wait for the beginning of LedgeClimb
@@ -205,10 +215,18 @@ public class LedgeLocator : MonoBehaviour
         //Wait for the end of LedgeClimb
         yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length );
 
-        transform.position = topOfPlatformTransform.TransformPoint(localPosition);
+        newPos = GameObject.FindGameObjectWithTag("rig").transform.position;
 
         // Stop the animation of climbing
         myAnimator.SetBool("LedgeClimbing", false);
+
+        Debug.Log("addPos");
+
+        transform.position +=  (newPos - previousPos); //topOfPlatformTransform.TransformPoint(localPosition);
+
+        myAnimator.Play("idle&run", 1);
+        myAnimator.Play("idle&run", 2);
+
 
         /*        float time = 0;
                 Vector3 startValue = transform.position;  
@@ -225,6 +243,7 @@ public class LedgeLocator : MonoBehaviour
         ledge = null;
         moved = false;
         grabbingLedge = false;
+        isclimbing = false;
 
     }
 
@@ -248,11 +267,19 @@ public class LedgeLocator : MonoBehaviour
     //Representing the topOfPlayer security Raycasts
     private void OnDrawGizmos()
     {
-       
-        Gizmos.color = Color.blue; 
-        Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(new Vector3(0,0,ledgeDistanceDetection) * transform.localScale.z) );
+        /*
+         Gizmos.color = Color.blue; 
+         Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(new Vector3(0,0,ledgeDistanceDetection) * transform.localScale.z) );
+         Gizmos.color = Color.red;
+         Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection) * transform.localScale.z));
+        */
+        /*
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(newPos, 0.2f);
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection) * transform.localScale.z));
+        Gizmos.DrawSphere(previousPos, 0.2f);
+        */
+
     }
     protected virtual void NotFalling()
     {
