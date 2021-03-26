@@ -19,7 +19,7 @@ public class enter_room : MonoBehaviour
     private BoxCollider room_inside_collider;
     public float dstUniFromDoor; 
     public float musicVolume;
-    public float coeffAttenuation; 
+    public float coefficientAttenuation = 1.5f; 
     private void Start()
     {
         room_inside = this.gameObject;
@@ -70,7 +70,7 @@ public class enter_room : MonoBehaviour
             {
                 ambiant_interior_volume = 100f; 
             }
-            musicVolume = 100f - ambiant_interior_volume / coeffAttenuation; 
+            musicVolume = 100f - ambiant_interior_volume / coefficientAttenuation; 
             AkSoundEngine.SetRTPCValue("Ambiant_music_Sound", ambiant_interior_volume);
             AkSoundEngine.SetRTPCValue("MusicVolume", musicVolume);
             if (!isSoundFinished)
