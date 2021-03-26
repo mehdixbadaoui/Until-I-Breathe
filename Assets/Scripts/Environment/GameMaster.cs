@@ -92,6 +92,11 @@ public class GameMaster : MonoBehaviour
     // If Uni die
     public void Die()
     {
+
+        uni.transform.position = lastCheckPointPos;
+        uni.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        bm.breath = 100;
+
         if (platforms != null)
         {
             for (int i = 0; i < platforms.Length; ++i)
@@ -100,10 +105,6 @@ public class GameMaster : MonoBehaviour
             }
 
         }
-
-        uni.transform.position = lastCheckPointPos;
-        uni.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        bm.breath = 100;
     }
 
 

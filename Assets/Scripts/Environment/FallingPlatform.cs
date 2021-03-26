@@ -7,6 +7,8 @@ public class FallingPlatform : MonoBehaviour
     public float wait_time = 1f;
 
     private Vector3 lastPos;
+    private Quaternion lastRot;
+    private Vector3 lastScale;
 
     void Start()
     {
@@ -14,14 +16,22 @@ public class FallingPlatform : MonoBehaviour
         //Initialize the last pos
         lastPos = transform.position;
 
+        //Initialize the last pos
+        lastRot = transform.rotation;
+
+        //Initialize the last pos
+        lastScale = transform.localScale;
+
 
     }
 
     public void Respawn()
     {
-        transform.position = lastPos;
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().isKinematic = true;
+        transform.position = lastPos;
+        transform.rotation = lastRot;
+        transform.localScale = lastScale;
         enabled = true;
     }
 
