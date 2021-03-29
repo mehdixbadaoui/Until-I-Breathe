@@ -228,11 +228,19 @@ public class GameMaster : MonoBehaviour
     public void ChooseMouse()
     {
         gamepad = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+
     }
 
     public void ChooseGamepad()
     {
         gamepad = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+
     }
 
     //Just For Testing
