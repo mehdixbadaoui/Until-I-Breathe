@@ -9,14 +9,20 @@ public class Dialogue : MonoBehaviour
     private bool first = true;
 
     public TMP_Text DialoguBox;
+    public Canvas canvas;
 
     private void Start()
     {
+
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("uni") && first)
         {
+            //THIS LAGS
+            //canvas.gameObject.SetActive(true);
+            canvas.gameObject.GetComponent<CanvasGroup>().alpha = 1;
+            //DialoguBox.gameObject.SetActive(true);
             DialoguBox.text = Text;
             first = false;
         } 
@@ -26,6 +32,8 @@ public class Dialogue : MonoBehaviour
     {
         if (other.CompareTag("uni"))
         {
+            //canvas.gameObject.SetActive(false);
+            canvas.gameObject.GetComponent<CanvasGroup>().alpha = 0;
             DialoguBox.text = "";
         }
 
