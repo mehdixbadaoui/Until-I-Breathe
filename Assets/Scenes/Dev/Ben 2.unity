@@ -431,6 +431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platforms: []
+  grapplin: {fileID: 0}
+  gamepad: 1
 --- !u!1001 &87975146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -521,7 +523,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 874478376}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &174859041
+--- !u!114 &174859040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -530,7 +532,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 174859039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c00d65405cc701c4bbc2aaeedc6a9160, type: 3}
+  m_Script: {fileID: 11500000, guid: 8370807accb39da4b8c30bad1f1c6c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &189876678
@@ -2458,9 +2460,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facade: {fileID: 1323291389}
   ambiant_interior_volume: 0
-  dstUniFromDoor: 0
+  dstUniFromEndofRoom: 7
   musicVolume: 0
-  coeffAttenuation: 0
+  coefficientAttenuation: 1.5
 --- !u!65 &818870444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2583,7 +2585,7 @@ PrefabInstance:
     - target: {fileID: 2341961622715393686, guid: 676859e34d748994dab62ac850f97b30,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.4
+      value: 98.7
       objectReference: {fileID: 0}
     - target: {fileID: 2341961622715393686, guid: 676859e34d748994dab62ac850f97b30,
         type: 3}
