@@ -4,36 +4,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public Text SelectionText;
 
-    public GameObject MainTab;
-    private GameObject currentTab;
-    private List<GameObject> previousTabs;
+    [Serializable]
+    public struct Tab
+    {
+        public GameObject Activable;
+        public Selectable Selection;
+    }
+
+    public Tab MainTab;
+    private Tab currentTab;
+    private List<Tab> previousTabs;
 
     [Serializable]
     public struct PauseMenuButtonData
     {
         public string Name;
         public RectTransform SelectionTransform;
-        public UnityEvent Event;
+
+        public UnityEvent OnSubmit;
+
+        public Tab Tab;
     }
     public List<PauseMenuButtonData> ButtonsData;
 
     private void Awake()
     {
-        previousTabs = new List<GameObject>();
+        previousTabs = new List<Tab>();
 
         currentTab = MainTab;
-        currentTab.SetActive(true);
+
+        currentTab.Activable.SetActive(true);
+
+        previousTabs.Add(currentTab);
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
             CloseCurrentTab();
     }
 
@@ -49,30 +63,39 @@ public class PauseMenu : MonoBehaviour
     }
     public void Submit(int i)
     {
-        ButtonsData[i].Event.Invoke();
+        ButtonsData[i].OnSubmit.Invoke();
+
+        if (ButtonsData[i].Tab.Activable)
+            OpenTab(i);
     }
 
-    public void OpenTab(GameObject tab)
+    public void OpenTab(int i)
     {
-        currentTab.SetActive(false);
+        Deselect(i);
 
         previousTabs.Add(currentTab);
-        currentTab = tab;
 
-        currentTab.SetActive(true);
+        currentTab.Activable.SetActive(false);
+
+        currentTab = ButtonsData[i].Tab;
+
+        currentTab.Activable.SetActive(true);
+        if(currentTab.Selection)
+            currentTab.Selection.Select();
     }
     public void CloseCurrentTab()
     {
-        if (previousTabs.Count == 0)
-            return;
-        else
+        if(previousTabs.Count > 0)
         {
-            currentTab.SetActive(false);
+            currentTab.Activable.SetActive(false);
 
-            currentTab = previousTabs[previousTabs.Count - 1];
             previousTabs.RemoveAt(previousTabs.Count - 1);
 
-            currentTab.SetActive(true);
+            currentTab = previousTabs[previousTabs.Count - 1];
+
+            currentTab.Activable.SetActive(true);
+            if (currentTab.Selection)
+                currentTab.Selection.Select();
         }
     }
 }
