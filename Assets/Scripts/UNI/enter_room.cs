@@ -24,7 +24,7 @@ public class enter_room : MonoBehaviour
     {
         
         room_inside = this.gameObject;
-        room_inside_collider = room_inside.GetComponent<BoxCollider>(); 
+        room_inside_collider = room_inside.GetComponent<BoxCollider>();
         uni = GameObject.FindGameObjectWithTag("uni");
         checkLenghtSound = uni.GetComponent<CheckLenghtSound>();
         if (facade)

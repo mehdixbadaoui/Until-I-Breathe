@@ -23,7 +23,7 @@ public class MoveBox : MonoBehaviour
     private bool grabbing = false;
 
     // Box to move
-    public GameObject box;
+    private GameObject box;
 
     // Key to grab the box
     public KeyCode keyGrabbing;

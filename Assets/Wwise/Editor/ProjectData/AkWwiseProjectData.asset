@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585845130878706735
+    m_lastTime: -8585845002795371375
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585845130880422484
+    m_lastTime: -8585845002795431359
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -223,10 +223,13 @@ MonoBehaviour:
       - ElementName: Environment_events
         ObjectType: 4
         guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Ventilator
+        ObjectType: 4
+        guid: 09dd01851908bc46b836725ffdd38bad
       - ElementName: Big_Ventilator_event
         ObjectType: 3
         guid: 8232c6f35a5a244e97a9a56761555d96
-      Path: Events\Default Work Unit\Environment_events\Big_Ventilator_event
+      Path: Events\Default Work Unit\Environment_events\Ventilator\Big_Ventilator_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -263,10 +266,33 @@ MonoBehaviour:
       - ElementName: Environment_events
         ObjectType: 4
         guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Caisses
+        ObjectType: 4
+        guid: 712f615b475d2d4da876fab30f96cbdb
       - ElementName: Caisse_frottement_event
         ObjectType: 3
         guid: 6eeb0c6d2d56f849b5a2557bbcd8295b
-      Path: Events\Default Work Unit\Environment_events\Caisse_frottement_event
+      Path: Events\Default Work Unit\Environment_events\Caisses\Caisse_frottement_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Caisses
+      guid: 712f615b475d2d4da876fab30f96cbdb
+      id: 2107312140
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Caisses
+        ObjectType: 4
+        guid: 712f615b475d2d4da876fab30f96cbdb
+      Path: Events\Default Work Unit\Environment_events\Caisses
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1023,10 +1049,13 @@ MonoBehaviour:
       - ElementName: Environment_events
         ObjectType: 4
         guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Ventilator
+        ObjectType: 4
+        guid: 09dd01851908bc46b836725ffdd38bad
       - ElementName: Little_Ventilator_event
         ObjectType: 3
         guid: 1436555add626d4a8bb3685a9562d8d3
-      Path: Events\Default Work Unit\Environment_events\Little_Ventilator_event
+      Path: Events\Default Work Unit\Environment_events\Ventilator\Little_Ventilator_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1338,10 +1367,36 @@ MonoBehaviour:
       - ElementName: Environment_events
         ObjectType: 4
         guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Caisses
+        ObjectType: 4
+        guid: 712f615b475d2d4da876fab30f96cbdb
       - ElementName: Stop_Caisse_frottement_event
         ObjectType: 3
         guid: be2bcf5e8cd736419f4bac35e152fa46
-      Path: Events\Default Work Unit\Environment_events\Stop_Caisse_frottement_event
+      Path: Events\Default Work Unit\Environment_events\Caisses\Stop_Caisse_frottement_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_Little_Ventilator_event
+      guid: ddcd0e1956940e4480216867deeb730b
+      id: 2239026864
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Ventilator
+        ObjectType: 4
+        guid: 09dd01851908bc46b836725ffdd38bad
+      - ElementName: Stop_Little_Ventilator_event
+        ObjectType: 3
+        guid: ddcd0e1956940e4480216867deeb730b
+      Path: Events\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1362,6 +1417,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Ventilator
+      guid: 09dd01851908bc46b836725ffdd38bad
+      id: 852397503
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Ventilator
+        ObjectType: 4
+        guid: 09dd01851908bc46b836725ffdd38bad
+      Path: Events\Default Work Unit\Environment_events\Ventilator
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -1374,7 +1449,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585845130880412514
+    m_lastTime: -8585845022866639271
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -1390,6 +1465,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: dfc8bea834c55c4c8c843e62b285ddf2
       Path: Game Parameters\Default Work Unit\Ambiant_music_Sound
+    - name: InspirationVolume
+      guid: 7cc9583e0e24334e9dae2f19fef3aafc
+      id: 2352147213
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: InspirationVolume
+        ObjectType: 13
+        guid: 7cc9583e0e24334e9dae2f19fef3aafc
+      Path: Game Parameters\Default Work Unit\InspirationVolume
     - name: MasterVolume
       guid: 51eda605ecd41840bf416c3c6ccca290
       id: 2918011349

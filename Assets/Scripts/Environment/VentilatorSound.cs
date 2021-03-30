@@ -9,6 +9,7 @@ public class VentilatorSound : MonoBehaviour
     public Vector3 distanceVentilatorUni;
     public float maxDistanceFromVentilator = 15f; 
     public float ventilatorVolume;
+    
    
 
     private CheckLenghtSound checkLenghtSound;
@@ -34,6 +35,7 @@ public class VentilatorSound : MonoBehaviour
     }
     private void RTPCVentilatorSound(Vector3 dstVentilatorUni)
     {
+        
         bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Big_Ventilator_event", ventilator);
         if (!isSoundFinished)
             AkSoundEngine.PostEvent("Big_Ventilator_event", ventilator);

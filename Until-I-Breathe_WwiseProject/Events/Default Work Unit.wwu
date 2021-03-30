@@ -278,17 +278,6 @@
 				</Folder>
 				<Folder Name="Environment_events" ID="{216B934E-6312-4A92-9793-8E866A179F9D}" ShortID="354338017">
 					<ChildrenList>
-						<Event Name="Big_Ventilator_event" ID="{F3C63282-5A5A-4E24-97A9-A56761555D96}">
-							<ChildrenList>
-								<Action Name="" ID="{1A860CFD-E751-4A3B-8D5F-576CC06777C5}" ShortID="447753056">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Big_Ventilator_Sound" ID="{E9801307-0622-48F4-90CB-A8BE4C4F7B9E}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="BrokenWindow_event" ID="{E831A924-3601-46E6-A7B0-4BFB1E79106D}">
 							<ChildrenList>
 								<Action Name="" ID="{D19F2E79-645C-4F41-B558-81CD0A7D1807}" ShortID="161185798">
@@ -311,34 +300,12 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Caisse_frottement_event" ID="{6D0CEB6E-562D-49F8-B5A2-557BBCD8295B}">
-							<ChildrenList>
-								<Action Name="" ID="{46EDF663-22D9-4714-86C8-1F2C2DD66941}" ShortID="167084401">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Caisse_frottement_noreverb" ID="{F2CAF0A5-2BA0-415C-807D-0932D07519FA}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Alarme_event" ID="{DD33C26A-2686-4AD6-B10F-AFD2CDC62B15}">
 							<ChildrenList>
 								<Action Name="" ID="{735F057A-BCED-4CD1-ACF9-C95ACC42A2D6}" ShortID="564378616">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Alarmes" ID="{748FEF9B-4264-44F3-A8E8-315531586852}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Little_Ventilator_event" ID="{5A553614-62DD-4A6D-8BB3-685A9562D8D3}">
-							<ChildrenList>
-								<Action Name="" ID="{DDCBE4D1-04A8-4860-A704-7D9D71A4E8DA}" ShortID="447828022">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Little_Ventilator_Sound" ID="{24C6A1A3-CD5B-4C14-8DE7-72B6EF1B1CE0}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -550,20 +517,75 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Stop_Caisse_frottement_event" ID="{5ECF2BBE-D78C-4136-9F4B-AC35E152FA46}">
+						<Folder Name="Caisses" ID="{5B612F71-5D47-4D2D-A876-FAB30F96CBDB}" ShortID="101094318">
 							<ChildrenList>
-								<Action Name="" ID="{E18DB5F8-406A-45FF-9532-035F2C2C4622}" ShortID="681478526">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Caisse_frottement_noreverb" ID="{F2CAF0A5-2BA0-415C-807D-0932D07519FA}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
+								<Event Name="Stop_Caisse_frottement_event" ID="{5ECF2BBE-D78C-4136-9F4B-AC35E152FA46}">
+									<ChildrenList>
+										<Action Name="" ID="{E18DB5F8-406A-45FF-9532-035F2C2C4622}" ShortID="681478526">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Caisse_frottement_noreverb" ID="{F2CAF0A5-2BA0-415C-807D-0932D07519FA}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Caisse_frottement_event" ID="{6D0CEB6E-562D-49F8-B5A2-557BBCD8295B}">
+									<ChildrenList>
+										<Action Name="" ID="{46EDF663-22D9-4714-86C8-1F2C2DD66941}" ShortID="167084401">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Caisse_frottement_noreverb" ID="{F2CAF0A5-2BA0-415C-807D-0932D07519FA}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
-						</Event>
+						</Folder>
+						<Folder Name="Ventilator" ID="{8501DD09-0819-46BC-B836-725FFDD38BAD}" ShortID="784801709">
+							<ChildrenList>
+								<Event Name="Big_Ventilator_event" ID="{F3C63282-5A5A-4E24-97A9-A56761555D96}">
+									<ChildrenList>
+										<Action Name="" ID="{1A860CFD-E751-4A3B-8D5F-576CC06777C5}" ShortID="447753056">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Big_Ventilator_Sound" ID="{E9801307-0622-48F4-90CB-A8BE4C4F7B9E}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Little_Ventilator_event" ID="{5A553614-62DD-4A6D-8BB3-685A9562D8D3}">
+									<ChildrenList>
+										<Action Name="" ID="{578E94E0-0984-40FE-808F-47C6E745326B}" ShortID="596060480">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Little_Ventilator_Sound" ID="{7DF5FCBA-5C30-47C2-8862-D86134D01F58}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Stop_Little_Ventilator_event" ID="{190ECDDD-9456-440E-8021-6867DEEB730B}">
+									<ChildrenList>
+										<Action Name="" ID="{F47C9784-0D9F-465B-BBD4-CC7D716FCE84}" ShortID="619431205">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Little_Ventilator_Sound" ID="{7DF5FCBA-5C30-47C2-8862-D86134D01F58}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST2_events" ID="{06E9A8D0-90E8-4BDD-9A08-3FFF794014E5}" ShortID="741954611">

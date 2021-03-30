@@ -10,7 +10,7 @@ public class CanBreathe : MonoBehaviour
 
     private Inputs inputs;
     private CheckLenghtSound checkLenghtSound;
-    private GameObject uni; 
+    private GameObject uni;
 
     private void Awake()
     {
@@ -72,6 +72,8 @@ public class CanBreathe : MonoBehaviour
         }
         else
         {
+           
+            AkSoundEngine.SetRTPCValue("InspirationVolume", 105 - bm.breath);
             bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Inspiration_event", uni);
             if (!isSoundFinished)
                 AkSoundEngine.PostEvent("Inspiration_event", uni);

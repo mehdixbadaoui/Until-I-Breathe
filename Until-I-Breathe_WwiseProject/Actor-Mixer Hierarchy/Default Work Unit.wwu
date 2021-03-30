@@ -656,12 +656,39 @@
 										<ActiveSource Name="Ventilateur_Gros_Loop" ID="{2AAE4F84-EEF1-41C4-9723-ED4EBF4E68BC}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Little_Ventilator_Sound" ID="{24C6A1A3-CD5B-4C14-8DE7-72B6EF1B1CE0}" ShortID="189736221">
+								<Sound Name="Little_Ventilator_Sound" ID="{7DF5FCBA-5C30-47C2-8862-D86134D01F58}" ShortID="697403199">
 									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-25</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{32D04C01-ACCE-47D3-BA06-23E3321311EC}" ShortID="471850906">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="VentilatorVolume" ID="{29395339-CA02-4BE0-83AB-6347EBD0E82F}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{0254CB95-F3D5-4D5C-BB94-ACEB80929CDE}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -673,17 +700,17 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Ventilateur_Petit_Loop_01" ID="{4EC248DE-5391-45FE-82E1-8F4D465DFDA7}">
+										<AudioFileSource Name="Ventilateur_Petit_Loop" ID="{71E205B5-14AA-488C-8866-E87F15D43B5A}">
 											<Language>SFX</Language>
-											<AudioFile>Ventilateur_Petit_Loop_01.wav</AudioFile>
+											<AudioFile>Ventilateur_Petit_Loop.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="962481820"/>
+												<MediaID ID="616477893"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Ventilateur_Petit_Loop_01" ID="{4EC248DE-5391-45FE-82E1-8F4D465DFDA7}" Platform="Linked"/>
+										<ActiveSource Name="Ventilateur_Petit_Loop" ID="{71E205B5-14AA-488C-8866-E87F15D43B5A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -4085,9 +4112,32 @@
 						<RandomSequenceContainer Name="Uni_inspiration" ID="{0DFF7C09-9443-4174-8A9E-88E55ECB6C5E}" ShortID="564275036">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-10</Value>
-									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{31289577-4B19-4A21-B847-ECE397F3C238}" ShortID="627157209">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="InspirationVolume" ID="{3E58C97C-240E-4E33-9DAE-2F19FEF3AAFC}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{0E2913AA-9858-4878-B5E3-A6E218FA46A2}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
