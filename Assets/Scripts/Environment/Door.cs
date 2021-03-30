@@ -16,13 +16,19 @@ public class Door : MonoBehaviour
 
     public Transform doorPivot;
     public GameObject meshDoor;
+    private DistanceUniFromObjects distanceUniFromObjects;
+    private GameObject uni;
 
     public float sizeTriggerIfEnter = 1.1f;
     public float sizeTriggerIfExit = 1f;
+    public Vector3 dstDoorUni;
+    public float maxDistance = 7f;
 
     // Start is called before the first frame update
     void Start()
     {
+        uni = GameObject.FindGameObjectWithTag("uni");
+        distanceUniFromObjects = uni.GetComponent<DistanceUniFromObjects>();
         if (this.tag == "slidingDoor")
         {
             lengthDoor = meshDoor.GetComponent<MeshRenderer>().bounds.size.x;
@@ -38,17 +44,23 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        dstDoorUni = distanceUniFromObjects.CalculateDistanceUniFromObject(this.gameObject.transform.position.z); 
         if (this.tag == "slidingDoor")
         {
+            
             if ( open && Math.Abs(slideDoor) < lengthDoor )
             {
                 slideDoor -= 0.1f ;
                 doorPivot.Translate(-0.1f, 0, 0);
+                distanceUniFromObjects.RTPCGameObjectValue(dstDoorUni, maxDistance, this.gameObject, "Porte_coulissante_ouverte_event", "DoorVolume"); 
+                
             }
             else if (close && slideDoor < 0)
             {
                 slideDoor += 0.1f;
                 doorPivot.Translate(0.1f, 0, 0);
+                distanceUniFromObjects.RTPCGameObjectValue(dstDoorUni, maxDistance, this.gameObject, "Porte_coulissante_fermee_event", "DoorVolume");
+                
 
             }
             else

@@ -19,13 +19,16 @@ public class enter_room : MonoBehaviour
     private BoxCollider room_inside_collider;
     public float dstUniFromEndofRoom = 7f; 
     public float musicVolume;
-    public float coefficientAttenuation = 1.5f; 
+    public float coefficientAttenuation = 1.5f;
+
+    private DistanceUniFromObjects distanceUniFromObjects; 
     private void Start()
     {
         
         room_inside = this.gameObject;
         room_inside_collider = room_inside.GetComponent<BoxCollider>();
         uni = GameObject.FindGameObjectWithTag("uni");
+        distanceUniFromObjects = uni.GetComponent<DistanceUniFromObjects>(); 
         checkLenghtSound = uni.GetComponent<CheckLenghtSound>();
         if (facade)
             rends = facade.GetComponentsInChildren<Renderer>();
@@ -37,8 +40,7 @@ public class enter_room : MonoBehaviour
         
         if (col.CompareTag("uni"))
         {
-            distanceEndRoomUniLeft = uni.transform.position.z - room_inside_collider.bounds.min.z;
-            distanceEndRoomUniRight = room_inside_collider.bounds.max.z - uni.transform.position.z; 
+            
 
             //FADE THE FRONT WALL
             if (facade)
@@ -57,26 +59,10 @@ public class enter_room : MonoBehaviour
             }
 
             //Ambiant music for interior
+            distanceEndRoomUniLeft = uni.transform.position.z - room_inside_collider.bounds.min.z;
+            distanceEndRoomUniRight = room_inside_collider.bounds.max.z - uni.transform.position.z;
+            distanceUniFromObjects.RTPCGameObjectValueEnterRoom(distanceEndRoomUniLeft, distanceEndRoomUniRight, dstUniFromEndofRoom, room_inside, "Ambiant_interior_event", "Ambiant_music_Sound", coefficientAttenuation); 
             
-            bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Ambiant_interior_event", room_inside);
-            if(distanceEndRoomUniLeft <= dstUniFromEndofRoom)
-            {
-                ambiant_interior_volume = distanceEndRoomUniLeft * 100f / dstUniFromEndofRoom;
-                
-            }
-            else if(distanceEndRoomUniRight <= dstUniFromEndofRoom)
-            {
-                ambiant_interior_volume = distanceEndRoomUniRight * 100f / dstUniFromEndofRoom;
-            }
-            else
-            {
-                ambiant_interior_volume = 100f; 
-            }
-            musicVolume = 100f - ambiant_interior_volume / coefficientAttenuation; 
-            AkSoundEngine.SetRTPCValue("Ambiant_music_Sound", ambiant_interior_volume);
-            AkSoundEngine.SetRTPCValue("MusicVolume", musicVolume);
-            if (!isSoundFinished)
-                AkSoundEngine.PostEvent("Ambiant_interior_event", room_inside);
 
         }
 

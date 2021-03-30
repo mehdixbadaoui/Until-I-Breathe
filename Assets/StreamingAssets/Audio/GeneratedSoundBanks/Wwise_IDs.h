@@ -86,6 +86,7 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID AMBIANT_MUSIC_SOUND = 2979278319U;
+        static const AkUniqueID DOORVOLUME = 2440552763U;
         static const AkUniqueID INSPIRATIONVOLUME = 2352147213U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICVOLUME = 2346531308U;
