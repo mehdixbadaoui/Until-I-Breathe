@@ -11,31 +11,30 @@ public class Dialogue : MonoBehaviour
     public TMP_Text DialoguBox;
     public Canvas canvas;
 
+
     private void Start()
     {
-
+        canvas.gameObject.GetComponent<CanvasGroup>().alpha = 0;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("uni") && first)
+        if (other.CompareTag("uni") /*&& first*/)
         {
+            //float alpha = canvas.gameObject.GetComponent<CanvasGroup>().alpha;
+
             //THIS LAGS
             //canvas.gameObject.SetActive(true);
-            canvas.gameObject.GetComponent<CanvasGroup>().alpha = 1;
-            //DialoguBox.gameObject.SetActive(true);
+
+            canvas.gameObject.GetComponent<CanvasGroup>().alpha = 1; //alpha == 0 ? 1 : 0;
             DialoguBox.text = Text;
-            first = false;
+            //first = false;
         } 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("uni"))
-        {
-            //canvas.gameObject.SetActive(false);
-            canvas.gameObject.GetComponent<CanvasGroup>().alpha = 0;
-            DialoguBox.text = "";
-        }
+        canvas.gameObject.GetComponent<CanvasGroup>().alpha = 0; //alpha == 0 ? 1 : 0;
+        DialoguBox.text = Text;
 
     }
 
