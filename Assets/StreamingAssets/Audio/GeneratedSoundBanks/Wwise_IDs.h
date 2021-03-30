@@ -13,8 +13,24 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ALARME_EVENT = 1721773124U;
         static const AkUniqueID AMBIANT_INTERIOR_EVENT = 2961983739U;
+        static const AkUniqueID ASCENSEUR_FERMEE_EVENT = 251064884U;
+        static const AkUniqueID ASCENSEUR_OUVERT_EVENT = 1844130327U;
+        static const AkUniqueID BIG_VENTILATOR_EVENT = 478883995U;
+        static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
+        static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;
+        static const AkUniqueID CAMERA_DETECTION_EVENT = 4200175161U;
+        static const AkUniqueID CARTEMAGNETIQUE_RAMASSE_EVENT = 2894782302U;
+        static const AkUniqueID CARTEMAGNETIQUE_UTILISER_EVENT = 4133994025U;
         static const AkUniqueID CLOTHES_EVENT = 1884367558U;
+        static const AkUniqueID DEPLACEMENTS_EVENT = 1743891381U;
+        static const AkUniqueID DRONE_ACCELERATION_EVENT = 239919669U;
+        static const AkUniqueID DRONE_DEPLACEMENT_EVENT = 3075378619U;
+        static const AkUniqueID DRONE_FIRESHOT_EVENT = 728004997U;
+        static const AkUniqueID DRONE_STATIONNAIRE_EVENT = 3298702202U;
+        static const AkUniqueID ENGRANAGE_TOURNE_EVENT = 2122763242U;
+        static const AkUniqueID ENGRENAGE_BLOQUER_EVENT = 480333909U;
         static const AkUniqueID FS_BETON_EVENT = 1592626750U;
         static const AkUniqueID FS_BOIS_EVENT = 1460609399U;
         static const AkUniqueID FS_CROUCH_BETON_EVENT = 2323690083U;
@@ -30,11 +46,22 @@ namespace AK
         static const AkUniqueID HOOK_DECROCHE_EVENT = 1635066019U;
         static const AkUniqueID HOOK_RALONGE_EVENT = 3869797606U;
         static const AkUniqueID HOOK_RETRACTE_EVENT = 1354796538U;
+        static const AkUniqueID INSPIRATION_EVENT = 703873446U;
         static const AkUniqueID JUMP_EVENT = 623275868U;
+        static const AkUniqueID LEVIER_EVENT = 5910555U;
+        static const AkUniqueID LITTLE_VENTILATOR_EVENT = 3010937615U;
         static const AkUniqueID LVL_1_1_EVENT = 1178261876U;
         static const AkUniqueID LVL_1_2_EVENT = 1572269619U;
         static const AkUniqueID LVL_2_1_EVENT = 3922198791U;
-        static const AkUniqueID VENTILATOR_EVENT = 3305372886U;
+        static const AkUniqueID LVL_2_2_EVENT = 3860896488U;
+        static const AkUniqueID PORTE_COULISSANTE_FERMEE_EVENT = 1197453168U;
+        static const AkUniqueID PORTE_COULISSANTE_OUVERTE_EVENT = 1772158906U;
+        static const AkUniqueID PORTE_DEVEROUILLEE_EVENT = 293930242U;
+        static const AkUniqueID PORTE_FERMEE_BOIS_EVENT = 2507411233U;
+        static const AkUniqueID PORTE_FERMEE_METAL_EVENT = 2193255299U;
+        static const AkUniqueID PORTE_OUVERTE_BOIS_EVENT = 2335575013U;
+        static const AkUniqueID PORTE_OUVERTE_METAL_EVENT = 756074935U;
+        static const AkUniqueID STOP_CAISSE_FROTTEMENT_EVENT = 707299762U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -61,7 +88,7 @@ namespace AK
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICVOLUME = 2346531308U;
         static const AkUniqueID SFXVOLUME = 988953028U;
-        static const AkUniqueID VENTILATORSOUND = 1790702148U;
+        static const AkUniqueID VENTILATORVOLUME = 1991624541U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

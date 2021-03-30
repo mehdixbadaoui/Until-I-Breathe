@@ -222,7 +222,7 @@ public class LedgeLocator : MonoBehaviour
 
         Debug.Log("addPos");
 
-        transform.position +=  (newPos - previousPos); //topOfPlatformTransform.TransformPoint(localPosition);
+        transform.position +=  new Vector3(0,newPos.y - previousPos.y, newPos.z - previousPos.z); //topOfPlatformTransform.TransformPoint(localPosition);
 
         myAnimator.Play("idle&run", 1);
         myAnimator.Play("idle&run", 2);

@@ -39,6 +39,9 @@ public class MoveBox : MonoBehaviour
 
     private Inputs inputs;
 
+    private CheckLenghtSound checkLenghtSound;
+
+
     private void Awake()
     {
         inputs = new Inputs();
@@ -55,7 +58,7 @@ public class MoveBox : MonoBehaviour
 
     void Start()
     {
-
+        
         //Get Movement component
         movements = GetComponent<Movement>();
 
@@ -64,6 +67,8 @@ public class MoveBox : MonoBehaviour
 
         // Get the Rigidbody of the player
         rig = GetComponent<Rigidbody>();
+      
+        checkLenghtSound = this.gameObject.GetComponent<CheckLenghtSound>();
     }
 
     void Update()
@@ -91,15 +96,22 @@ public class MoveBox : MonoBehaviour
                 previousContraints = box.GetComponent<Rigidbody>().constraints;
                 box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 box.GetComponent<Rigidbody>().isKinematic = false;
+                bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Caisse_frottement_event", box);
+                if (!isSoundFinished)
+                    AkSoundEngine.PostEvent("Caisse_frottement_event", box);
+
             }
 
         }
         if (grabbing && (inputs.Uni.Move_Box.ReadValue<float>() == 0 || !Movement.isGrounded))
         {
+            AkSoundEngine.PostEvent("Stop_Caisse_frottement_event", box); 
             grabbing = false;
             Movement.isGrabbing = false;
             box.GetComponent<Rigidbody>().constraints = previousContraints;
             box.GetComponent<Rigidbody>().isKinematic = true;
+            
+            
         }
     }
 
