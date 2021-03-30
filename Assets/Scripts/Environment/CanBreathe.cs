@@ -63,16 +63,24 @@ public class CanBreathe : MonoBehaviour
 
     IEnumerator Inhale()
     {
-        float startTime = Time.time;
-        while(Time.time < startTime + InhaleSpeed && bm.breath < bm.max_breath)
+        if (!bm.can_breath)
         {
-            bm.breath += (Time.time - startTime) / InhaleSpeed;
-            yield return null;
+            bm.breath -= 80 / 6;
         }
+        else
+        {
 
-        if (bm.breath > bm.max_breath)
-            bm.breath = bm.max_breath;
+            float startTime = Time.time;
+            while(Time.time < startTime + InhaleSpeed && bm.breath < bm.max_breath)
+            {
+                bm.breath += (Time.time - startTime) / InhaleSpeed;
+                yield return null;
+            }
 
+            if (bm.breath > bm.max_breath)
+                bm.breath = bm.max_breath;
+
+        }
     }
 
 }

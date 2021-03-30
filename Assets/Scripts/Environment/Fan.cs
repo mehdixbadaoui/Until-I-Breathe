@@ -36,7 +36,10 @@ public class Fan : MonoBehaviour
                 door.GetComponentInChildren<Door>().locked = false;
 
             //TURN ON GENERATOR
-            //NOTHING YET
+            if (generator)
+            {
+                generator.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(80000, 80000, 80000, 80000));
+            }
 
             //TURN LIGHTS TO GREEN
             foreach(GameObject light in lights)

@@ -88,7 +88,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""f2d47e32-bbff-40fc-b485-c3bac1ecd983"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Exhale"",

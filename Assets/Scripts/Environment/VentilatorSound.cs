@@ -9,6 +9,7 @@ public class VentilatorSound : MonoBehaviour
     public Vector3 distanceVentilatorUni;
     public float maxDistanceFromVentilator = 15f; 
     public float ventilatorVolume;
+   
 
     private CheckLenghtSound checkLenghtSound;
 
@@ -33,23 +34,23 @@ public class VentilatorSound : MonoBehaviour
     }
     private void RTPCVentilatorSound(Vector3 dstVentilatorUni)
     {
-        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Ventilator_event", ventilator);
+        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Big_Ventilator_event", ventilator);
         if (!isSoundFinished)
-            AkSoundEngine.PostEvent("Ventilator_event", ventilator);
+            AkSoundEngine.PostEvent("Big_Ventilator_event", ventilator);
         if (dstVentilatorUni.z <= maxDistanceFromVentilator && dstVentilatorUni.z > 0)
         {
             ventilatorVolume = Mathf.Abs(100 - distanceVentilatorUni.z * 100f / maxDistanceFromVentilator);
-            AkSoundEngine.SetRTPCValue("VentilatorSound", ventilatorVolume);
+            AkSoundEngine.SetRTPCValue("VentilatorVolume", ventilatorVolume);
         }
         else if (dstVentilatorUni.z >= -maxDistanceFromVentilator && dstVentilatorUni.z < 0)
         {
             ventilatorVolume = 100 - Mathf.Abs(distanceVentilatorUni.z * 100f / maxDistanceFromVentilator);
-            AkSoundEngine.SetRTPCValue("VentilatorSound", ventilatorVolume);
+            AkSoundEngine.SetRTPCValue("VentilatorVolume", ventilatorVolume);
         }
         else
         {
             ventilatorVolume = 0f; 
-            AkSoundEngine.SetRTPCValue("VentilatorSound", 0f);
+            AkSoundEngine.SetRTPCValue("VentilatorVolume", 0f);
         }
     }
 }
