@@ -477,8 +477,8 @@ public class Movement : MonoBehaviour
     public void JumpAfterGrapplin()
     {
 
-        if (!breathing.hold)
-            myAnimator.Play("JumpAfterGrapplin" , 1);
+        //if (!breathing.hold)
+        myAnimator.Play("JumpAfterGrapplin" , 1);
         myAnimator.Play("JumpAfterGrapplin", 2);
 
         countGround = 0;

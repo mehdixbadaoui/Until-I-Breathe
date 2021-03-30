@@ -64,7 +64,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""a9beec95-4220-447a-9ae2-248edc70385b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Detach"",
@@ -72,7 +72,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""ccb05ed0-bbc9-4639-a1fb-82732755e8c7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Grapple_Vert"",
@@ -88,7 +88,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""f2d47e32-bbff-40fc-b485-c3bac1ecd983"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Exhale"",
@@ -309,7 +309,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""3cf980a7-84c8-47db-80ae-4595605cf240"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Grapple"",
@@ -331,7 +331,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""0eb92af1-5698-4f9f-a17b-39512fa02bec"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Detach"",
@@ -407,7 +407,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bc5224aa-e308-452f-9daa-f03073f40805"",
-                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -418,7 +418,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c17ca297-53d6-42d7-9069-07c7d7dd9736"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -570,6 +570,33 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""d34c8792-218f-4c78-831c-1d83160a8105"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3ed67ff-c8bc-4978-86a1-0ada43aa5a55"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""486d4014-dbe9-4b38-8e38-8ec66746e2ec"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -591,6 +618,9 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Uni_Die = m_Uni.FindAction("Die", throwIfNotFound: true);
         m_Uni_PressButton = m_Uni.FindAction("PressButton", throwIfNotFound: true);
         m_Uni_Move_Box = m_Uni.FindAction("Move_Box", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Newaction = m_Menu.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -781,6 +811,39 @@ public class @Inputs : IInputActionCollection, IDisposable
         }
     }
     public UniActions @Uni => new UniActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Newaction;
+    public struct MenuActions
+    {
+        private @Inputs m_Wrapper;
+        public MenuActions(@Inputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Menu_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Newaction.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnNewaction;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     public interface IUniActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -798,5 +861,9 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnDie(InputAction.CallbackContext context);
         void OnPressButton(InputAction.CallbackContext context);
         void OnMove_Box(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

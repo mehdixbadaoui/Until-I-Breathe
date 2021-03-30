@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="58268621">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3657868345">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,11 +21,23 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="1100740871">
+		<SoundBank Id="2228651116" Language="SFX" Hash="3873645399">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="1721773124" Name="Alarme_event" ObjectPath="\Events\Default Work Unit\Environment_events\Alarme_event" DurationType="OneShot" DurationMin="6.400000" DurationMax="9.000000">
+					<IncludedMemoryFiles>
+						<File Id="235342702" Language="SFX">
+							<ShortName>Alarme2.wav</ShortName>
+							<Path>SFX\Alarme2_10C4C929.wem</Path>
+						</File>
+						<File Id="784183668" Language="SFX">
+							<ShortName>Alarme1.wav</ShortName>
+							<Path>SFX\Alarme1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2961983739" Name="Ambiant_interior_event" ObjectPath="\Events\Default Work Unit\Music_levels\Ambiant_interior_event" DurationType="OneShot" DurationMin="60.000000" DurationMax="60.000000">
 					<IncludedMemoryFiles>
 						<File Id="175544168" Language="SFX">
@@ -34,7 +46,127 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1884367558" Name="Clothes_event" ObjectPath="\Events\Default Work Unit\FS\Clothes_event" DurationType="OneShot" DurationMin="0.281250" DurationMax="0.281250">
+				<Event Id="251064884" Name="Ascenseur_fermee_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ascenseur_fermee_event" DurationType="OneShot" DurationMin="3.000000" DurationMax="3.000000">
+					<IncludedMemoryFiles>
+						<File Id="133016993" Language="SFX">
+							<ShortName>Ascenseur_Ferme_02.wav</ShortName>
+							<Path>SFX\Ascenseur_Ferme_02_10C4C929.wem</Path>
+						</File>
+						<File Id="640016092" Language="SFX">
+							<ShortName>Ascenseur_Ferme_01.wav</ShortName>
+							<Path>SFX\Ascenseur_Ferme_01_10C4C929.wem</Path>
+						</File>
+						<File Id="961642650" Language="SFX">
+							<ShortName>Ascenseur_Ferme_03.wav</ShortName>
+							<Path>SFX\Ascenseur_Ferme_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1844130327" Name="Ascenseur_ouvert_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ascenseur_ouvert_event" DurationType="OneShot" DurationMin="2.500000" DurationMax="2.500000">
+					<IncludedMemoryFiles>
+						<File Id="474393403" Language="SFX">
+							<ShortName>Ascenseur_Ouvre_01.wav</ShortName>
+							<Path>SFX\Ascenseur_Ouvre_01_10C4C929.wem</Path>
+						</File>
+						<File Id="656334989" Language="SFX">
+							<ShortName>Ascenseur_Ouvre_02.wav</ShortName>
+							<Path>SFX\Ascenseur_Ouvre_02_10C4C929.wem</Path>
+						</File>
+						<File Id="716231257" Language="SFX">
+							<ShortName>Ascenseur_Ouvre_03.wav</ShortName>
+							<Path>SFX\Ascenseur_Ouvre_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="478883995" Name="Big_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Big_Ventilator_event" DurationType="OneShot" DurationMin="3.238229" DurationMax="3.238229">
+					<IncludedMemoryFiles>
+						<File Id="661947063" Language="SFX">
+							<ShortName>Ventilateur_Gros_Loop.wav</ShortName>
+							<Path>SFX\Ventilateur_Gros_Loop_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="113833375" Name="BrokenWindow_event" ObjectPath="\Events\Default Work Unit\Environment_events\BrokenWindow_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.500000">
+					<IncludedMemoryFiles>
+						<File Id="395899910" Language="SFX">
+							<ShortName>Fene╠étre brise 3.wav</ShortName>
+							<Path>SFX\Fene╠étre brise 3_10C4C929.wem</Path>
+						</File>
+						<File Id="666599763" Language="SFX">
+							<ShortName>Fene╠étre brise 2.wav</ShortName>
+							<Path>SFX\Fene╠étre brise 2_10C4C929.wem</Path>
+						</File>
+						<File Id="767906228" Language="SFX">
+							<ShortName>Fene╠étre brise 1.wav</ShortName>
+							<Path>SFX\Fene╠étre brise 1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2529491121" Name="Caisse_frottement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Caisses\Caisse_frottement_event" DurationType="OneShot" DurationMin="0.858367" DurationMax="1.332834">
+					<IncludedMemoryFiles>
+						<File Id="184699236" Language="SFX">
+							<ShortName>Caisse_frotte_noreverb_loop 2.wav</ShortName>
+							<Path>SFX\Caisse_frotte_noreverb_loop 2_10C4C929.wem</Path>
+						</File>
+						<File Id="475263790" Language="SFX">
+							<ShortName>Caisse_frotte_noreverb_loop 1.wav</ShortName>
+							<Path>SFX\Caisse_frotte_noreverb_loop 1_10C4C929.wem</Path>
+						</File>
+						<File Id="722937640" Language="SFX">
+							<ShortName>Caisse_frotte_noreverb_loop 3.wav</ShortName>
+							<Path>SFX\Caisse_frotte_noreverb_loop 3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4200175161" Name="Camera_detection_event" ObjectPath="\Events\Default Work Unit\Environment_events\Camera_detection_event" DurationType="OneShot" DurationMin="2.062500" DurationMax="2.062500">
+					<IncludedMemoryFiles>
+						<File Id="255801158" Language="SFX">
+							<ShortName>Camera_Detection_02.wav</ShortName>
+							<Path>SFX\Camera_Detection_02_10C4C929.wem</Path>
+						</File>
+						<File Id="538582008" Language="SFX">
+							<ShortName>Camera_Detection_01.wav</ShortName>
+							<Path>SFX\Camera_Detection_01_10C4C929.wem</Path>
+						</File>
+						<File Id="744382959" Language="SFX">
+							<ShortName>Camera_Detection_03.wav</ShortName>
+							<Path>SFX\Camera_Detection_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2894782302" Name="CarteMagnetique_ramasse_event" ObjectPath="\Events\Default Work Unit\Environment_events\CarteMagnetique_ramasse_event" DurationType="OneShot" DurationMin="0.625000" DurationMax="0.625000">
+					<IncludedMemoryFiles>
+						<File Id="462077316" Language="SFX">
+							<ShortName>CarteMagnetique_Ramasser_02.wav</ShortName>
+							<Path>SFX\CarteMagnetique_Ramasser_02_10C4C929.wem</Path>
+						</File>
+						<File Id="483826686" Language="SFX">
+							<ShortName>CarteMagnetique_Ramasser_01.wav</ShortName>
+							<Path>SFX\CarteMagnetique_Ramasser_01_10C4C929.wem</Path>
+						</File>
+						<File Id="655372102" Language="SFX">
+							<ShortName>CarteMagnetique_Ramasser_03.wav</ShortName>
+							<Path>SFX\CarteMagnetique_Ramasser_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4133994025" Name="CarteMagnetique_utiliser_event" ObjectPath="\Events\Default Work Unit\Environment_events\CarteMagnetique_utiliser_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.000000">
+					<IncludedMemoryFiles>
+						<File Id="235359345" Language="SFX">
+							<ShortName>CarteMagnetique_Utiliser_02.wav</ShortName>
+							<Path>SFX\CarteMagnetique_Utiliser_02_10C4C929.wem</Path>
+						</File>
+						<File Id="356207489" Language="SFX">
+							<ShortName>CarteMagnetique_Utiliser_01.wav</ShortName>
+							<Path>SFX\CarteMagnetique_Utiliser_01_10C4C929.wem</Path>
+						</File>
+						<File Id="601386289" Language="SFX">
+							<ShortName>CarteMagnetique_Utiliser_03.wav</ShortName>
+							<Path>SFX\CarteMagnetique_Utiliser_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1884367558" Name="Clothes_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\Clothes_event" DurationType="OneShot" DurationMin="0.281250" DurationMax="0.281250">
 					<IncludedMemoryFiles>
 						<File Id="306998261" Language="SFX">
 							<ShortName>Uni_Vetement_03.wav</ShortName>
@@ -50,7 +182,111 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1592626750" Name="FS_Beton_event" ObjectPath="\Events\Default Work Unit\FS\FS_Beton_event" DurationType="OneShot" DurationMin="0.301348" DurationMax="0.956784">
+				<Event Id="1743891381" Name="Deplacements_event" ObjectPath="\Events\Default Work Unit\ST2_events\Deplacements_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
+					<IncludedMemoryFiles>
+						<File Id="127140982" Language="SFX">
+							<ShortName>ST2_De╠üplacement3.wav</ShortName>
+							<Path>SFX\ST2_De╠üplacement3_10C4C929.wem</Path>
+						</File>
+						<File Id="410378520" Language="SFX">
+							<ShortName>ST2_De╠üplacement1.wav</ShortName>
+							<Path>SFX\ST2_De╠üplacement1_10C4C929.wem</Path>
+						</File>
+						<File Id="1041551440" Language="SFX">
+							<ShortName>ST2_De╠üplacement2.wav</ShortName>
+							<Path>SFX\ST2_De╠üplacement2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="239919669" Name="Drone_acceleration_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_acceleration_event" DurationType="OneShot" DurationMin="0.687500" DurationMax="0.687500">
+					<IncludedMemoryFiles>
+						<File Id="403672902" Language="SFX">
+							<ShortName>Drone_Acceleration_02.wav</ShortName>
+							<Path>SFX\Drone_Acceleration_02_10C4C929.wem</Path>
+						</File>
+						<File Id="616338067" Language="SFX">
+							<ShortName>Drone_Acceleration_01.wav</ShortName>
+							<Path>SFX\Drone_Acceleration_01_10C4C929.wem</Path>
+						</File>
+						<File Id="663676960" Language="SFX">
+							<ShortName>Drone_Acceleration_03.wav</ShortName>
+							<Path>SFX\Drone_Acceleration_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3075378619" Name="Drone_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
+					<IncludedMemoryFiles>
+						<File Id="108235587" Language="SFX">
+							<ShortName>Drone_Deplacement_03.wav</ShortName>
+							<Path>SFX\Drone_Deplacement_03_10C4C929.wem</Path>
+						</File>
+						<File Id="120094188" Language="SFX">
+							<ShortName>Drone_Deplacement_01.wav</ShortName>
+							<Path>SFX\Drone_Deplacement_01_10C4C929.wem</Path>
+						</File>
+						<File Id="666477006" Language="SFX">
+							<ShortName>Drone_Deplacement_02.wav</ShortName>
+							<Path>SFX\Drone_Deplacement_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="728004997" Name="Drone_fireshot_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_fireshot_event" DurationType="OneShot" DurationMin="1.479167" DurationMax="1.500000">
+					<IncludedMemoryFiles>
+						<File Id="257210288" Language="SFX">
+							<ShortName>Drone_coup de feu_1.wav</ShortName>
+							<Path>SFX\Drone_coup de feu_1_10C4C929.wem</Path>
+						</File>
+						<File Id="818140893" Language="SFX">
+							<ShortName>Drone_coup de feu_2.wav</ShortName>
+							<Path>SFX\Drone_coup de feu_2_10C4C929.wem</Path>
+						</File>
+						<File Id="819594480" Language="SFX">
+							<ShortName>Drone_coup de feu_3.wav</ShortName>
+							<Path>SFX\Drone_coup de feu_3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3298702202" Name="Drone_stationnaire_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_stationnaire_event" DurationType="OneShot" DurationMin="2.000125" DurationMax="2.000125">
+					<IncludedMemoryFiles>
+						<File Id="407162132" Language="SFX">
+							<ShortName>Drone_Stationnaire_01.wav</ShortName>
+							<Path>SFX\Drone_Stationnaire_01_10C4C929.wem</Path>
+						</File>
+						<File Id="456303377" Language="SFX">
+							<ShortName>Drone_Stationnaire_02.wav</ShortName>
+							<Path>SFX\Drone_Stationnaire_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1065471822" Language="SFX">
+							<ShortName>Drone_Stationnaire_03.wav</ShortName>
+							<Path>SFX\Drone_Stationnaire_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2122763242" Name="Engranage_tourne_event" ObjectPath="\Events\Default Work Unit\Environment_events\Engranage_tourne_event" DurationType="OneShot" DurationMin="1.874979" DurationMax="1.874979">
+					<IncludedMemoryFiles>
+						<File Id="144952040" Language="SFX">
+							<ShortName>Engrenage_Tourne_Loop_02.wav</ShortName>
+							<Path>SFX\Engrenage_Tourne_Loop_02_10C4C929.wem</Path>
+						</File>
+						<File Id="687398414" Language="SFX">
+							<ShortName>Engrenage_Tourne_Loop_01.wav</ShortName>
+							<Path>SFX\Engrenage_Tourne_Loop_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="480333909" Name="Engrenage_bloquer_event" ObjectPath="\Events\Default Work Unit\Environment_events\Engrenage_bloquer_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="1.000000">
+					<IncludedMemoryFiles>
+						<File Id="12822707" Language="SFX">
+							<ShortName>Engrenage_Bloque_01.wav</ShortName>
+							<Path>SFX\Engrenage_Bloque_01_10C4C929.wem</Path>
+						</File>
+						<File Id="39962802" Language="SFX">
+							<ShortName>Engrenage_Bloquer_02.wav</ShortName>
+							<Path>SFX\Engrenage_Bloquer_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1592626750" Name="FS_Beton_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_Beton_event" DurationType="OneShot" DurationMin="0.301348" DurationMax="0.956784">
 					<IncludedMemoryFiles>
 						<File Id="262888218" Language="SFX">
 							<ShortName>FS_Beton\FS_Beton_Uni_02.wav</ShortName>
@@ -66,7 +302,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1460609399" Name="FS_Bois_event" ObjectPath="\Events\Default Work Unit\FS\FS_Bois_event" DurationType="OneShot" DurationMin="0.151988" DurationMax="0.270813">
+				<Event Id="1460609399" Name="FS_Bois_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_Bois_event" DurationType="OneShot" DurationMin="0.151988" DurationMax="0.270813">
 					<IncludedMemoryFiles>
 						<File Id="100497621" Language="SFX">
 							<ShortName>Fs_Bois\FS_Bois_Uni_03.wav</ShortName>
@@ -82,7 +318,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2323690083" Name="FS_crouch_Beton_event" ObjectPath="\Events\Default Work Unit\FS\FS_crouch_Beton_event" DurationType="OneShot" DurationMin="0.300479" DurationMax="0.954024">
+				<Event Id="2323690083" Name="FS_crouch_Beton_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_crouch_Beton_event" DurationType="OneShot" DurationMin="0.300479" DurationMax="0.954024">
 					<IncludedMemoryFiles>
 						<File Id="22230456" Language="SFX">
 							<ShortName>FS_Beton_Uni_03.wav</ShortName>
@@ -98,7 +334,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2838535636" Name="FS_crouch_Bois_event" ObjectPath="\Events\Default Work Unit\FS\FS_crouch_Bois_event" DurationType="OneShot" DurationMin="0.151988" DurationMax="0.270813">
+				<Event Id="2838535636" Name="FS_crouch_Bois_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_crouch_Bois_event" DurationType="OneShot" DurationMin="0.151988" DurationMax="0.270813">
 					<IncludedMemoryFiles>
 						<File Id="155308429" Language="SFX">
 							<ShortName>FS_Bois_Uni_01.wav</ShortName>
@@ -114,7 +350,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1699126676" Name="FS_crouch_Liquide_event" ObjectPath="\Events\Default Work Unit\FS\FS_crouch_Liquide_event" DurationType="OneShot" DurationMin="0.222166" DurationMax="0.395854">
+				<Event Id="1699126676" Name="FS_crouch_Liquide_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_crouch_Liquide_event" DurationType="OneShot" DurationMin="0.222166" DurationMax="0.395854">
 					<IncludedMemoryFiles>
 						<File Id="153506774" Language="SFX">
 							<ShortName>FS_Liquide_Uni_03.wav</ShortName>
@@ -130,7 +366,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2296821368" Name="FS_crouch_Metal_event" ObjectPath="\Events\Default Work Unit\FS\FS_crouch_Metal_event" DurationType="OneShot" DurationMin="0.390254" DurationMax="0.695354">
+				<Event Id="2296821368" Name="FS_crouch_Metal_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_crouch_Metal_event" DurationType="OneShot" DurationMin="0.390254" DurationMax="0.695354">
 					<IncludedMemoryFiles>
 						<File Id="398402434" Language="SFX">
 							<ShortName>FS_Metal_Uni_03.wav</ShortName>
@@ -146,7 +382,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3697862452" Name="FS_crouch_Ordure_event" ObjectPath="\Events\Default Work Unit\FS\FS_crouch_Ordure_event" DurationType="OneShot" DurationMin="0.528625" DurationMax="0.710522">
+				<Event Id="3697862452" Name="FS_crouch_Ordure_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_crouch_Ordure_event" DurationType="OneShot" DurationMin="0.528625" DurationMax="0.710522">
 					<IncludedMemoryFiles>
 						<File Id="269577661" Language="SFX">
 							<ShortName>FS_Ordure_Uni_02.wav</ShortName>
@@ -162,7 +398,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1959957461" Name="FS_Liquide_event" ObjectPath="\Events\Default Work Unit\FS\FS_Liquide_event" DurationType="OneShot" DurationMin="0.222166" DurationMax="0.395854">
+				<Event Id="1959957461" Name="FS_Liquide_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_Liquide_event" DurationType="OneShot" DurationMin="0.222166" DurationMax="0.395854">
 					<IncludedMemoryFiles>
 						<File Id="146550505" Language="SFX">
 							<ShortName>FS_Liquide\FS_Liquide_Uni_03.wav</ShortName>
@@ -178,7 +414,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3109581025" Name="FS_Metal_event" ObjectPath="\Events\Default Work Unit\FS\FS_Metal_event" DurationType="OneShot" DurationMin="0.390254" DurationMax="0.695354">
+				<Event Id="3109581025" Name="FS_Metal_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_Metal_event" DurationType="OneShot" DurationMin="0.390254" DurationMax="0.695354">
 					<IncludedMemoryFiles>
 						<File Id="275091503" Language="SFX">
 							<ShortName>FS_Metal\FS_Metal_Uni_03.wav</ShortName>
@@ -194,7 +430,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3378064531" Name="FS_Ordure_event" ObjectPath="\Events\Default Work Unit\FS\FS_Ordure_event" DurationType="OneShot" DurationMin="0.528625" DurationMax="0.710522">
+				<Event Id="3378064531" Name="FS_Ordure_event" ObjectPath="\Events\Default Work Unit\Uni_events\FS\FS_Ordure_event" DurationType="OneShot" DurationMin="0.528625" DurationMax="0.710522">
 					<IncludedMemoryFiles>
 						<File Id="77377138" Language="SFX">
 							<ShortName>FS_Ordure\FS_Ordure_Uni_02.wav</ShortName>
@@ -210,7 +446,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3796971714" Name="Hook_accroche_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_accroche_event" DurationType="OneShot" DurationMin="0.235988" DurationMax="0.312500">
+				<Event Id="3796971714" Name="Hook_accroche_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_accroche_event" DurationType="OneShot" DurationMin="0.235988" DurationMax="0.312500">
 					<IncludedMemoryFiles>
 						<File Id="78198669" Language="SFX">
 							<ShortName>Grappin_Accroche_Uni_01.wav</ShortName>
@@ -226,7 +462,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2299808236" Name="Hook_balance_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_balance_event" DurationType="OneShot" DurationMin="0.469792" DurationMax="0.469792">
+				<Event Id="2299808236" Name="Hook_balance_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_balance_event" DurationType="OneShot" DurationMin="0.469792" DurationMax="0.469792">
 					<IncludedMemoryFiles>
 						<File Id="65937578" Language="SFX">
 							<ShortName>Uni_Grappin_Balance_01.wav</ShortName>
@@ -242,7 +478,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1635066019" Name="Hook_decroche_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_decroche_event" DurationType="OneShot" DurationMin="0.166688" DurationMax="0.229167">
+				<Event Id="1635066019" Name="Hook_decroche_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_decroche_event" DurationType="OneShot" DurationMin="0.166688" DurationMax="0.229167">
 					<IncludedMemoryFiles>
 						<File Id="431791995" Language="SFX">
 							<ShortName>Grappin_Deccroche_Uni_01.wav</ShortName>
@@ -258,7 +494,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3869797606" Name="Hook_ralonge_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_ralonge_event" DurationType="OneShot" DurationMin="0.500000" DurationMax="0.500000">
+				<Event Id="3869797606" Name="Hook_ralonge_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_ralonge_event" DurationType="OneShot" DurationMin="0.500000" DurationMax="0.500000">
 					<IncludedMemoryFiles>
 						<File Id="216791816" Language="SFX">
 							<ShortName>Uni_Grappin_Ralonge_Loop_03.wav</ShortName>
@@ -274,7 +510,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1354796538" Name="Hook_retracte_event" ObjectPath="\Events\Default Work Unit\Hook\Hook_retracte_event" DurationType="OneShot" DurationMin="0.500042" DurationMax="0.500042">
+				<Event Id="1354796538" Name="Hook_retracte_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_retracte_event" DurationType="OneShot" DurationMin="0.500042" DurationMax="0.500042">
 					<IncludedMemoryFiles>
 						<File Id="285335161" Language="SFX">
 							<ShortName>Uni_Grapin_Retracte_01.wav</ShortName>
@@ -290,7 +526,23 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="623275868" Name="Jump_event" ObjectPath="\Events\Default Work Unit\Jump\Jump_event" DurationType="OneShot" DurationMin="0.328348" DurationMax="0.491410">
+				<Event Id="703873446" Name="Inspiration_event" ObjectPath="\Events\Default Work Unit\Uni_events\Inspiration_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
+					<IncludedMemoryFiles>
+						<File Id="301251776" Language="SFX">
+							<ShortName>Inspiration2.wav</ShortName>
+							<Path>SFX\Inspiration2_10C4C929.wem</Path>
+						</File>
+						<File Id="664387356" Language="SFX">
+							<ShortName>Inspiration1.wav</ShortName>
+							<Path>SFX\Inspiration1_10C4C929.wem</Path>
+						</File>
+						<File Id="795046867" Language="SFX">
+							<ShortName>Inspiration3.wav</ShortName>
+							<Path>SFX\Inspiration3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="623275868" Name="Jump_event" ObjectPath="\Events\Default Work Unit\Uni_events\Jump\Jump_event" DurationType="OneShot" DurationMin="0.328348" DurationMax="0.491410">
 					<IncludedMemoryFiles>
 						<File Id="445305863" Language="SFX">
 							<ShortName>Uni_Saut_03.wav</ShortName>
@@ -303,6 +555,30 @@
 						<File Id="1059932493" Language="SFX">
 							<ShortName>Uni_Saut_01.wav</ShortName>
 							<Path>SFX\Uni_Saut_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="5910555" Name="Levier_event" ObjectPath="\Events\Default Work Unit\Environment_events\Levier_event" DurationType="OneShot" DurationMin="0.500000" DurationMax="0.598435">
+					<IncludedMemoryFiles>
+						<File Id="545107227" Language="SFX">
+							<ShortName>Levier3.wav</ShortName>
+							<Path>SFX\Levier3_10C4C929.wem</Path>
+						</File>
+						<File Id="689089162" Language="SFX">
+							<ShortName>Levier1.wav</ShortName>
+							<Path>SFX\Levier1_10C4C929.wem</Path>
+						</File>
+						<File Id="944440388" Language="SFX">
+							<ShortName>Levier2.wav</ShortName>
+							<Path>SFX\Levier2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3010937615" Name="Little_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Little_Ventilator_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="616477893" Language="SFX">
+							<ShortName>Ventilateur_Petit_Loop.wav</ShortName>
+							<Path>SFX\Ventilateur_Petit_Loop_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -330,17 +606,133 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3305372886" Name="Ventilator_event" ObjectPath="\Events\Default Work Unit\Ventilator_event" DurationType="OneShot" DurationMin="4.000000" DurationMax="4.000000">
+				<Event Id="3860896488" Name="Lvl_2_2_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_2_2_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="33660894" Language="SFX">
-							<ShortName>Ventilateur_Gros_Loop_01.wav</ShortName>
-							<Path>SFX\Ventilateur_Gros_Loop_01_10C4C929.wem</Path>
+						<File Id="918410245" Language="SFX">
+							<ShortName>UntilIBreath 2-2.wav</ShortName>
+							<Path>SFX\UntilIBreath 2-2_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1197453168" Name="Porte_coulissante_fermee_event" ObjectPath="\Events\Default Work Unit\Environment_events\Portes\Porte_coulissante_fermee_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.000000">
+					<IncludedMemoryFiles>
+						<File Id="235026524" Language="SFX">
+							<ShortName>Porte_Coulissante_Ferme_03.wav</ShortName>
+							<Path>SFX\Porte_Coulissante_Ferme_03_10C4C929.wem</Path>
+						</File>
+						<File Id="965209919" Language="SFX">
+							<ShortName>Porte_Coulissante_Ferme_01.wav</ShortName>
+							<Path>SFX\Porte_Coulissante_Ferme_01_10C4C929.wem</Path>
+						</File>
+						<File Id="969395605" Language="SFX">
+							<ShortName>Porte_Coulissante_Ferme_02.wav</ShortName>
+							<Path>SFX\Porte_Coulissante_Ferme_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1772158906" Name="Porte_coulissante_ouverte_event" ObjectPath="\Events\Default Work Unit\Environment_events\Portes\Porte_coulissante_ouverte_event" DurationType="OneShot" DurationMin="3.000000" DurationMax="3.000000">
+					<IncludedMemoryFiles>
+						<File Id="427107952" Language="SFX">
+							<ShortName>Porte_Coulissante_Ouvert_03.wav</ShortName>
+							<Path>SFX\Porte_Coulissante_Ouvert_03_10C4C929.wem</Path>
+						</File>
+						<File Id="496166089" Language="SFX">
+							<ShortName>Porte_Coulissante_Ouvert_01.wav</ShortName>
+							<Path>SFX\Porte_Coulissante_Ouvert_01_10C4C929.wem</Path>
+						</File>
+						<File Id="497772703" Language="SFX">
+							<ShortName>Porte_Coulissante_Ouvert_02.wav</ShortName>
+							<Path>SFX\Porte_Coulissante_Ouvert_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="293930242" Name="Porte_Deverouillee_event" ObjectPath="\Events\Default Work Unit\Environment_events\Portes\Porte_Deverouillee_event" DurationType="OneShot" DurationMin="1.062500" DurationMax="2.250000">
+					<IncludedMemoryFiles>
+						<File Id="335623839" Language="SFX">
+							<ShortName>Porte_Deverouille_03.wav</ShortName>
+							<Path>SFX\Porte_Deverouille_03_10C4C929.wem</Path>
+						</File>
+						<File Id="717268910" Language="SFX">
+							<ShortName>Porte_Deverouille_01.wav</ShortName>
+							<Path>SFX\Porte_Deverouille_01_10C4C929.wem</Path>
+						</File>
+						<File Id="1064036411" Language="SFX">
+							<ShortName>Porte_Deverouille_02.wav</ShortName>
+							<Path>SFX\Porte_Deverouille_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2507411233" Name="Porte_fermee_bois_event" ObjectPath="\Events\Default Work Unit\Environment_events\Portes\Porte_fermee_bois_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
+					<IncludedMemoryFiles>
+						<File Id="118591292" Language="SFX">
+							<ShortName>Porte_Ferme_Bois_03.wav</ShortName>
+							<Path>SFX\Porte_Ferme_Bois_03_10C4C929.wem</Path>
+						</File>
+						<File Id="129212878" Language="SFX">
+							<ShortName>Porte_Ferme_Bois_01.wav</ShortName>
+							<Path>SFX\Porte_Ferme_Bois_01_10C4C929.wem</Path>
+						</File>
+						<File Id="888126657" Language="SFX">
+							<ShortName>Porte_Ferme_Bois_02.wav</ShortName>
+							<Path>SFX\Porte_Ferme_Bois_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2193255299" Name="Porte_fermee_metal_event" ObjectPath="\Events\Default Work Unit\Environment_events\Portes\Porte_fermee_metal_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
+					<IncludedMemoryFiles>
+						<File Id="187653033" Language="SFX">
+							<ShortName>Porte_Ferme_Metal_02.wav</ShortName>
+							<Path>SFX\Porte_Ferme_Metal_02_10C4C929.wem</Path>
+						</File>
+						<File Id="388984202" Language="SFX">
+							<ShortName>Porte_Ferme_Metal_01.wav</ShortName>
+							<Path>SFX\Porte_Ferme_Metal_01_10C4C929.wem</Path>
+						</File>
+						<File Id="882414551" Language="SFX">
+							<ShortName>Porte_Ferme_Metal_03.wav</ShortName>
+							<Path>SFX\Porte_Ferme_Metal_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2335575013" Name="Porte_ouverte_bois_event" ObjectPath="\Events\Default Work Unit\Environment_events\Portes\Porte_ouverte_bois_event" DurationType="OneShot" DurationMin="1.125000" DurationMax="1.125000">
+					<IncludedMemoryFiles>
+						<File Id="135645864" Language="SFX">
+							<ShortName>Porte_Ouvre_Bois_01.wav</ShortName>
+							<Path>SFX\Porte_Ouvre_Bois_01_10C4C929.wem</Path>
+						</File>
+						<File Id="695222196" Language="SFX">
+							<ShortName>Porte_Ouvre_Bois_03.wav</ShortName>
+							<Path>SFX\Porte_Ouvre_Bois_03_10C4C929.wem</Path>
+						</File>
+						<File Id="952119544" Language="SFX">
+							<ShortName>Porte_Ouvre_Bois_02.wav</ShortName>
+							<Path>SFX\Porte_Ouvre_Bois_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="756074935" Name="Porte_ouverte_metal_event" ObjectPath="\Events\Default Work Unit\Environment_events\Portes\Porte_ouverte_metal_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
+					<IncludedMemoryFiles>
+						<File Id="69852667" Language="SFX">
+							<ShortName>Porte_Ouvre_Metal_01.wav</ShortName>
+							<Path>SFX\Porte_Ouvre_Metal_01_10C4C929.wem</Path>
+						</File>
+						<File Id="329328510" Language="SFX">
+							<ShortName>Porte_Ouvre_Metal_02.wav</ShortName>
+							<Path>SFX\Porte_Ouvre_Metal_02_10C4C929.wem</Path>
+						</File>
+						<File Id="753064847" Language="SFX">
+							<ShortName>Porte_Ouvre_Metal_03.wav</ShortName>
+							<Path>SFX\Porte_Ouvre_Metal_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="707299762" Name="Stop_Caisse_frottement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Caisses\Stop_Caisse_frottement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2239026864" Name="Stop_Little_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
-				<GameParameter Id="1790702148" Name="VentilatorSound" ObjectPath="\Game Parameters\Default Work Unit\VentilatorSound"/>
+				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\Ventilator\VentilatorVolume"/>
+				<GameParameter Id="2352147213" Name="InspirationVolume" ObjectPath="\Game Parameters\Default Work Unit\InspirationVolume"/>
+				<GameParameter Id="2440552763" Name="DoorVolume" ObjectPath="\Game Parameters\Default Work Unit\DoorVolume"/>
 				<GameParameter Id="2979278319" Name="Ambiant_music_Sound" ObjectPath="\Game Parameters\Default Work Unit\Ambiant_music_Sound"/>
 			</GameParameters>
 		</SoundBank>

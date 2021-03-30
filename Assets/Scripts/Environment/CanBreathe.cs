@@ -9,6 +9,8 @@ public class CanBreathe : MonoBehaviour
     public float InhaleSpeed = 1f;
 
     private Inputs inputs;
+    private CheckLenghtSound checkLenghtSound;
+    private GameObject uni;
 
     private void Awake()
     {
@@ -28,7 +30,8 @@ public class CanBreathe : MonoBehaviour
     void Start()
     {
         bm = FindObjectOfType<Breathing_mechanic>();
-
+        uni = GameObject.FindGameObjectWithTag("uni");
+        checkLenghtSound = uni.GetComponent<CheckLenghtSound>();
         inputs.Uni.Inhale.performed += ctx => StartCoroutine(Inhale());
 
     }
@@ -63,16 +66,28 @@ public class CanBreathe : MonoBehaviour
 
     IEnumerator Inhale()
     {
-        float startTime = Time.time;
-        while(Time.time < startTime + InhaleSpeed && bm.breath < bm.max_breath)
+        if (!bm.can_breath)
         {
-            bm.breath += (Time.time - startTime) / InhaleSpeed;
-            yield return null;
+            bm.breath -= 80 / 6;
         }
+        else
+        {
+           
+            AkSoundEngine.SetRTPCValue("InspirationVolume", 105 - bm.breath);
+            bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Inspiration_event", uni);
+            if (!isSoundFinished)
+                AkSoundEngine.PostEvent("Inspiration_event", uni);
+            float startTime = Time.time;
+            while(Time.time < startTime + InhaleSpeed && bm.breath < bm.max_breath)
+            {
+                bm.breath += (Time.time - startTime) / InhaleSpeed;
+                yield return null;
+            }
 
-        if (bm.breath > bm.max_breath)
-            bm.breath = bm.max_breath;
+            if (bm.breath > bm.max_breath)
+                bm.breath = bm.max_breath;
 
+        }
     }
 
 }

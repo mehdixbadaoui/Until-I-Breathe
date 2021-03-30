@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 2814327343651965441}
   - component: {fileID: 1388933943922267946}
   - component: {fileID: 7087478452339250672}
+  - component: {fileID: -8475853286204965166}
   m_Layer: 2
   m_Name: Uni PC
   m_TagString: uni
@@ -510,6 +511,7 @@ MonoBehaviour:
   securityOffsetLedgeClimbing: 0.51
   ledgeDistanceDetection: 0.5
   topOfPlayer: {x: 0, y: 0, z: 0}
+  didClimb: 0
   grabbingLedge: 0
   climb_up: 122
   let_go: 115
@@ -528,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetGrabbing: 0
   grabbingDistance: 0.5
+  canGrab: 0
   keyGrabbing: 304
 --- !u!114 &7087478452339250672
 MonoBehaviour:
@@ -539,6 +542,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce742e752c06df443b7edb1509ed0439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8475853286204965166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717717676530931590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91abac52b9c972145a052b5ac1173f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1390109093845500474
@@ -602,6 +617,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -419044596433055000, guid: 18b2fab7d19905c43a9fb9002b2939f5,
+        type: 3}
+      propertyPath: m_TagString
+      value: rig
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 18b2fab7d19905c43a9fb9002b2939f5,
         type: 3}

@@ -3,11 +3,6 @@
 	<GameParameters>
 		<WorkUnit Name="Default Work Unit" ID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}" PersistMode="Standalone">
 			<ChildrenList>
-				<GameParameter Name="VentilatorSound" ID="{29395339-CA02-4BE0-83AB-6347EBD0E82F}">
-					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="75"/>
-					</PropertyList>
-				</GameParameter>
 				<GameParameter Name="MasterVolume" ID="{05A6ED51-D4EC-4018-BF41-6C3C6CCCA290}">
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="75"/>
@@ -24,6 +19,25 @@
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="Ambiant_music_Sound" ID="{A8BEC8DF-C534-4C5C-8C84-3E62B285DDF2}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="75"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="InspirationVolume" ID="{3E58C97C-240E-4E33-9DAE-2F19FEF3AAFC}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="75"/>
+					</PropertyList>
+				</GameParameter>
+				<Folder Name="Ventilator" ID="{BFA926D9-C43D-4489-A743-AFA9AD886B04}" ShortID="629655780">
+					<ChildrenList>
+						<GameParameter Name="VentilatorVolume" ID="{29395339-CA02-4BE0-83AB-6347EBD0E82F}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="75"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<GameParameter Name="DoorVolume" ID="{863C22F2-F94B-4471-B91A-5E569DAD8A92}">
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="75"/>
 					</PropertyList>

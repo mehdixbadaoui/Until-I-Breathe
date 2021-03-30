@@ -22,6 +22,9 @@ public class MoveBox : MonoBehaviour
     // If true, the box is following the player
     private bool grabbing = false;
 
+    // If true, impossible to grapple
+    public bool canGrab = false;
+
     // Box to move
     private GameObject box;
 
@@ -39,6 +42,9 @@ public class MoveBox : MonoBehaviour
 
     private Inputs inputs;
 
+   
+
+
     private void Awake()
     {
         inputs = new Inputs();
@@ -55,7 +61,7 @@ public class MoveBox : MonoBehaviour
 
     void Start()
     {
-
+        
         //Get Movement component
         movements = GetComponent<Movement>();
 
@@ -64,6 +70,8 @@ public class MoveBox : MonoBehaviour
 
         // Get the Rigidbody of the player
         rig = GetComponent<Rigidbody>();
+      
+        
     }
 
     void Update()
@@ -82,6 +90,7 @@ public class MoveBox : MonoBehaviour
         RaycastHit hitSecurity;
         if ((Movement.isGrounded && !Movement.isGrapplin) && Physics.Raycast(handsOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, grabbingDistance))
         {
+            canGrab = true;
             if (!hit.collider.isTrigger && hit.collider.gameObject.tag == "box" && inputs.Uni.Move_Box.ReadValue<float>() > 0)
             {
                 box = hit.collider.gameObject;
@@ -91,15 +100,24 @@ public class MoveBox : MonoBehaviour
                 previousContraints = box.GetComponent<Rigidbody>().constraints;
                 box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 box.GetComponent<Rigidbody>().isKinematic = false;
+                
+
             }
 
         }
+        else
+        {
+            canGrab = false;
+        }
         if (grabbing && (inputs.Uni.Move_Box.ReadValue<float>() == 0 || !Movement.isGrounded))
         {
+            
             grabbing = false;
             Movement.isGrabbing = false;
             box.GetComponent<Rigidbody>().constraints = previousContraints;
             box.GetComponent<Rigidbody>().isKinematic = true;
+            
+            
         }
     }
 
