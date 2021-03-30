@@ -40,9 +40,12 @@ public class PauseMenu : MonoBehaviour
 
         currentTab = MainTab;
 
-        currentTab.Activable.SetActive(true);
-
         previousTabs.Add(currentTab);
+    }
+
+    private void Start()
+    {
+        currentTab.Activable.SetActive(true);
     }
 
     private void Update()
