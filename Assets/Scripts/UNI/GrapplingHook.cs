@@ -11,7 +11,7 @@ public class GrapplingHook : MonoBehaviour
 
 	public GameObject hook_detector;
 
-	//Objects that will interact with the rope
+	// Objects that will interact with the rope
 	public GameObject hookObject;
 	private Transform objectHanging;
 
@@ -38,24 +38,21 @@ public class GrapplingHook : MonoBehaviour
 
 	public LayerMask surfaces; 
 
-	//Movement script
-	private Movement movements;
-
-	//Line renderer
+	// Line renderer
 	private LineRenderer LR;
 
 	private SpringJoint spring;
 
 	private GameObject springJointRB;
 
-	//A list with all rope sections
+	// List with all rope sections
 	private List<Vector3> distToHitPoints = new List<Vector3>();
 	private List<Transform> ropePositions = new List<Transform>();
 
-	//Hit point between the grapplin joint and the character
+	// Hit point between the grapplin joint and the character
 	private RaycastHit hit;
 
-	//Hit point where the grapplin is attached
+	// Hit point where the grapplin is attached
 	private RaycastHit hitAttachedToGrapplin;
 
 	public KeyCode keyGrapplin;
@@ -83,13 +80,14 @@ public class GrapplingHook : MonoBehaviour
 	// Main Character variables
 	private Rigidbody body;
 	private GameObject mainChar;
+	public Animator myAnimator; //Animator
+	private Transform leftHarm;
+	private Movement movements; //Movement script
+	private MoveBox moveBox;
 
 	//How fast we can add more/less rope
 	float winchSpeed = 3f;
 
-	// Uni animator
-	public Animator myAnimator;
-	private Transform leftHarm;
 
 	private CheckLenghtSound checkLenghtSound; 
 	private void Awake()
@@ -131,6 +129,9 @@ public class GrapplingHook : MonoBehaviour
 
 		//Get rigidbodyCharacter component
 		movements = GetComponent<Movement>();
+
+		//Get MoveBox component
+		moveBox = GetComponent<MoveBox>();
 
 		// Get the animator 
 		myAnimator = GetComponentInChildren<Animator>();
@@ -271,7 +272,7 @@ public class GrapplingHook : MonoBehaviour
     {
 
 		// Send Grapplin
-		if ((attachHook || changeHook) && isGrappling == false && countGrapplin>10 )
+		if ((attachHook || changeHook) && !isGrappling && countGrapplin>10 && !moveBox.canGrab )
 		{
 
 			attachHook = false;

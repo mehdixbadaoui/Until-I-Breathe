@@ -12,6 +12,8 @@ public class Breathing_mechanic : MonoBehaviour
 
     private Movement movement;
 
+    private GrapplingHook grapplin;
+
     public bool respawn;
     private bool isDying = false;
     public bool isBlowingFan = false;
@@ -78,6 +80,8 @@ public class Breathing_mechanic : MonoBehaviour
         // Get the object detector
         objectDetector = GetComponentInChildren<ObjectDetector>();
 
+        // Get uni Breathing Mecanic
+        grapplin = GetComponent<GrapplingHook>();
 
         // Get the object detector
         movement = GetComponentInChildren<Movement>();
@@ -192,6 +196,11 @@ public class Breathing_mechanic : MonoBehaviour
     {
         respawn = false;
         Movement.canMove = false;
+
+        if (grapplin.isGrappling)
+        {
+            grapplin.CutRope();
+        }
 
         myAnimator.Play("BreathingDead", 2);
         myAnimator.Play("BreathingDead", 1);

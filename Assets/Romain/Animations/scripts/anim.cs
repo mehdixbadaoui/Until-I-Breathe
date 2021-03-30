@@ -103,6 +103,8 @@ public class anim : MonoBehaviour
         // Ledge bools (IN LEDGE CODE)
         /*myAnimator.SetBool("ledgehanging", ledge.);
         myAnimator.SetBool("ledgeclimbing", !movement.hit);*/
+        myAnimator.SetBool("didClimb", ledge.didClimb);
+
 
         // Check the ground a little time after the jump
         if (Movement.isGrounded && movement.countGround > 5)
