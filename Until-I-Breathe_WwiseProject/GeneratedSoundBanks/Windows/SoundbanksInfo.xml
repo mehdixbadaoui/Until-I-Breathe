@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1579590535">
+		<SoundBank Id="1355168291" Language="SFX" Hash="543280391">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="1737389996">
+		<SoundBank Id="2228651116" Language="SFX" Hash="3873645399">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -78,7 +78,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="478883995" Name="Big_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Big_Ventilator_event" DurationType="OneShot" DurationMin="3.238229" DurationMax="3.238229">
+				<Event Id="478883995" Name="Big_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Big_Ventilator_event" DurationType="OneShot" DurationMin="3.238229" DurationMax="3.238229">
 					<IncludedMemoryFiles>
 						<File Id="661947063" Language="SFX">
 							<ShortName>Ventilateur_Gros_Loop.wav</ShortName>
@@ -102,7 +102,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2529491121" Name="Caisse_frottement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Caisse_frottement_event" DurationType="OneShot" DurationMin="0.858367" DurationMax="1.332834">
+				<Event Id="2529491121" Name="Caisse_frottement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Caisses\Caisse_frottement_event" DurationType="OneShot" DurationMin="0.858367" DurationMax="1.332834">
 					<IncludedMemoryFiles>
 						<File Id="184699236" Language="SFX">
 							<ShortName>Caisse_frotte_noreverb_loop 2.wav</ShortName>
@@ -574,11 +574,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3010937615" Name="Little_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Little_Ventilator_event" DurationType="OneShot" DurationMin="8.000000" DurationMax="8.000000">
+				<Event Id="3010937615" Name="Little_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Little_Ventilator_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="962481820" Language="SFX">
-							<ShortName>Ventilateur_Petit_Loop_01.wav</ShortName>
-							<Path>SFX\Ventilateur_Petit_Loop_01_10C4C929.wem</Path>
+						<File Id="616477893" Language="SFX">
+							<ShortName>Ventilateur_Petit_Loop.wav</ShortName>
+							<Path>SFX\Ventilateur_Petit_Loop_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -726,10 +726,13 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="707299762" Name="Stop_Caisse_frottement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Stop_Caisse_frottement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="707299762" Name="Stop_Caisse_frottement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Caisses\Stop_Caisse_frottement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2239026864" Name="Stop_Little_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
-				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>
+				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\Ventilator\VentilatorVolume"/>
+				<GameParameter Id="2352147213" Name="InspirationVolume" ObjectPath="\Game Parameters\Default Work Unit\InspirationVolume"/>
+				<GameParameter Id="2440552763" Name="DoorVolume" ObjectPath="\Game Parameters\Default Work Unit\DoorVolume"/>
 				<GameParameter Id="2979278319" Name="Ambiant_music_Sound" ObjectPath="\Game Parameters\Default Work Unit\Ambiant_music_Sound"/>
 			</GameParameters>
 		</SoundBank>

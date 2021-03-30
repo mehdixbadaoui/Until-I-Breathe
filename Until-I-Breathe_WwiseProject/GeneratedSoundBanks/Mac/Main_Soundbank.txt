@@ -4,11 +4,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	239919669	Drone_acceleration_event			\Default Work Unit\Environment_events\Drones\Drone_acceleration_event	
 	251064884	Ascenseur_fermee_event			\Default Work Unit\Environment_events\Ascenseur_fermee_event	
 	293930242	Porte_Deverouillee_event			\Default Work Unit\Environment_events\Portes\Porte_Deverouillee_event	
-	478883995	Big_Ventilator_event			\Default Work Unit\Environment_events\Big_Ventilator_event	
+	478883995	Big_Ventilator_event			\Default Work Unit\Environment_events\Ventilator\Big_Ventilator_event	
 	480333909	Engrenage_bloquer_event			\Default Work Unit\Environment_events\Engrenage_bloquer_event	
 	623275868	Jump_event			\Default Work Unit\Uni_events\Jump\Jump_event	
 	703873446	Inspiration_event			\Default Work Unit\Uni_events\Inspiration_event	
-	707299762	Stop_Caisse_frottement_event			\Default Work Unit\Environment_events\Stop_Caisse_frottement_event	
+	707299762	Stop_Caisse_frottement_event			\Default Work Unit\Environment_events\Caisses\Stop_Caisse_frottement_event	
 	728004997	Drone_fireshot_event			\Default Work Unit\Environment_events\Drones\Drone_fireshot_event	
 	756074935	Porte_ouverte_metal_event			\Default Work Unit\Environment_events\Portes\Porte_ouverte_metal_event	
 	1178261876	Lvl_1_1_event			\Default Work Unit\Music_levels\Lvl_1_1_event	
@@ -27,16 +27,17 @@ Event	ID	Name			Wwise Object Path	Notes
 	1959957461	FS_Liquide_event			\Default Work Unit\Uni_events\FS\FS_Liquide_event	
 	2122763242	Engranage_tourne_event			\Default Work Unit\Environment_events\Engranage_tourne_event	
 	2193255299	Porte_fermee_metal_event			\Default Work Unit\Environment_events\Portes\Porte_fermee_metal_event	
+	2239026864	Stop_Little_Ventilator_event			\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event	
 	2296821368	FS_crouch_Metal_event			\Default Work Unit\Uni_events\FS\FS_crouch_Metal_event	
 	2299808236	Hook_balance_event			\Default Work Unit\Uni_events\Hook\Hook_balance_event	
 	2323690083	FS_crouch_Beton_event			\Default Work Unit\Uni_events\FS\FS_crouch_Beton_event	
 	2335575013	Porte_ouverte_bois_event			\Default Work Unit\Environment_events\Portes\Porte_ouverte_bois_event	
 	2507411233	Porte_fermee_bois_event			\Default Work Unit\Environment_events\Portes\Porte_fermee_bois_event	
-	2529491121	Caisse_frottement_event			\Default Work Unit\Environment_events\Caisse_frottement_event	
+	2529491121	Caisse_frottement_event			\Default Work Unit\Environment_events\Caisses\Caisse_frottement_event	
 	2838535636	FS_crouch_Bois_event			\Default Work Unit\Uni_events\FS\FS_crouch_Bois_event	
 	2894782302	CarteMagnetique_ramasse_event			\Default Work Unit\Environment_events\CarteMagnetique_ramasse_event	
 	2961983739	Ambiant_interior_event			\Default Work Unit\Music_levels\Ambiant_interior_event	
-	3010937615	Little_Ventilator_event			\Default Work Unit\Environment_events\Little_Ventilator_event	
+	3010937615	Little_Ventilator_event			\Default Work Unit\Environment_events\Ventilator\Little_Ventilator_event	
 	3075378619	Drone_deplacement_event			\Default Work Unit\Environment_events\Drones\Drone_deplacement_event	
 	3109581025	FS_Metal_event			\Default Work Unit\Uni_events\FS\FS_Metal_event	
 	3298702202	Drone_stationnaire_event			\Default Work Unit\Environment_events\Drones\Drone_stationnaire_event	
@@ -50,7 +51,9 @@ Event	ID	Name			Wwise Object Path	Notes
 	4200175161	Camera_detection_event			\Default Work Unit\Environment_events\Camera_detection_event	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	1991624541	VentilatorVolume			\Default Work Unit\VentilatorVolume	
+	1991624541	VentilatorVolume			\Default Work Unit\Ventilator\VentilatorVolume	
+	2352147213	InspirationVolume			\Default Work Unit\InspirationVolume	
+	2440552763	DoorVolume			\Default Work Unit\DoorVolume	
 	2979278319	Ambiant_music_Sound			\Default Work Unit\Ambiant_music_Sound	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
@@ -125,6 +128,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	603028309	Uni_Grappin_Balance_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Grappin_Balance_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_balance\Uni_Grappin_Balance_03		90344
 	605467755	FS_Bois_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Fs_Bois\FS_Bois_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_Bois_randomContainer\FS_Bois_Uni_02		52140
 	616338067	Drone_Acceleration_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Drone_Acceleration_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Drones\Drones_acceleration\Drone_Acceleration_01		132144
+	616477893	Little_Ventilator_Sound	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ventilateur_Petit_Loop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Ventilator\Little_Ventilator_Sound		768144
 	621944333	Grappin_Accroche_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Accroche_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_accroche\Grappin_Accroche_Uni_03		48132
 	637015698	Uni_Grappin_Balance_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Grappin_Balance_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_balance\Uni_Grappin_Balance_02		90344
 	637844480	FS_Metal_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Metal_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_crouch_Metal\FS_Metal_Uni_01		133636
@@ -171,7 +175,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	952119544	Porte_Ouvre_Bois_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ouvre_Bois_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_ouverte_bois\Porte_Ouvre_Bois_02		216144
 	955761091	Uni_Grappin_Ralonge_Loop_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Grappin_Ralonge_Loop_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_ralonge\Uni_Grappin_Ralonge_Loop_02		96144
 	961642650	Ascenseur_Ferme_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ascenseur_Ferme_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Ascenseur\Ascenseur_fermee\Ascenseur_Ferme_03		576144
-	962481820	Little_Ventilator_Sound	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ventilateur_Petit_Loop_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Ventilator\Little_Ventilator_Sound		1536144
 	965209919	Porte_Coulissante_Ferme_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Coulissante_Ferme_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_coulissante_fermee\Porte_Coulissante_Ferme_01		192144
 	969395605	Porte_Coulissante_Ferme_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Coulissante_Ferme_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_coulissante_fermee\Porte_Coulissante_Ferme_02		192144
 	969994697	Grappin_Deccroche_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Deccroche_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_deccroche\Grappin_Deccroche_Uni_02		44128
