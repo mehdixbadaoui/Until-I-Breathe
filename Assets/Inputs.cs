@@ -115,14 +115,6 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Die"",
-                    ""type"": ""Button"",
-                    ""id"": ""12bd2d93-e6ef-4209-a8a3-5ae629c9e58d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""PressButton"",
                     ""type"": ""Button"",
                     ""id"": ""f9fabe22-2bd3-4166-b147-5814c136d516"",
@@ -137,6 +129,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Die"",
+                    ""type"": ""Button"",
+                    ""id"": ""356dd227-1d51-4cfc-8803-1cef4e5fa349"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -146,7 +146,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -157,7 +157,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -179,7 +179,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -190,7 +190,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -212,7 +212,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -223,7 +223,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -234,7 +234,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -245,7 +245,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -256,7 +256,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Climb_Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -267,7 +267,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Climb_Up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -278,7 +278,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Let_Go"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -289,7 +289,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Let_Go"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -300,7 +300,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Grapple"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -311,7 +311,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Grapple"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -322,7 +322,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Detach"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -333,7 +333,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Detach"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -355,7 +355,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Grapple_Vert"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -366,7 +366,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Grapple_Vert"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -388,7 +388,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Grapple_Vert"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -399,7 +399,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Grapple_Vert"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -410,7 +410,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""HoldBreath"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -421,7 +421,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""HoldBreath"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -432,7 +432,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Exhale"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -443,7 +443,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Exhale"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -454,7 +454,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": ""Press(pressPoint=1)"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""NextHook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -465,7 +465,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""NextHook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -476,7 +476,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": ""Press(pressPoint=1)"",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""PrevHook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -487,41 +487,8 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""PrevHook"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""363389dd-5db5-4ed8-a5e2-bf696b0fce94"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Die"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""788452d5-6c38-4454-a386-07358b9c2172"",
-                    ""path"": ""<Keyboard>/p"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Die"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""809b5315-b866-48aa-ac43-e57c2e9e6bd9"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Die"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -531,7 +498,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""PressButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -542,7 +509,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""PressButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -553,7 +520,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Move_Box"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -564,15 +531,49 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Move_Box"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c0b0249-6f8e-4d2a-9f6b-e6c33b15b9b0"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Die"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Uni
         m_Uni = asset.FindActionMap("Uni", throwIfNotFound: true);
@@ -588,9 +589,9 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Uni_Exhale = m_Uni.FindAction("Exhale", throwIfNotFound: true);
         m_Uni_NextHook = m_Uni.FindAction("NextHook", throwIfNotFound: true);
         m_Uni_PrevHook = m_Uni.FindAction("PrevHook", throwIfNotFound: true);
-        m_Uni_Die = m_Uni.FindAction("Die", throwIfNotFound: true);
         m_Uni_PressButton = m_Uni.FindAction("PressButton", throwIfNotFound: true);
         m_Uni_Move_Box = m_Uni.FindAction("Move_Box", throwIfNotFound: true);
+        m_Uni_Die = m_Uni.FindAction("Die", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -652,9 +653,9 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Uni_Exhale;
     private readonly InputAction m_Uni_NextHook;
     private readonly InputAction m_Uni_PrevHook;
-    private readonly InputAction m_Uni_Die;
     private readonly InputAction m_Uni_PressButton;
     private readonly InputAction m_Uni_Move_Box;
+    private readonly InputAction m_Uni_Die;
     public struct UniActions
     {
         private @Inputs m_Wrapper;
@@ -671,9 +672,9 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Exhale => m_Wrapper.m_Uni_Exhale;
         public InputAction @NextHook => m_Wrapper.m_Uni_NextHook;
         public InputAction @PrevHook => m_Wrapper.m_Uni_PrevHook;
-        public InputAction @Die => m_Wrapper.m_Uni_Die;
         public InputAction @PressButton => m_Wrapper.m_Uni_PressButton;
         public InputAction @Move_Box => m_Wrapper.m_Uni_Move_Box;
+        public InputAction @Die => m_Wrapper.m_Uni_Die;
         public InputActionMap Get() { return m_Wrapper.m_Uni; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -719,15 +720,15 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @PrevHook.started -= m_Wrapper.m_UniActionsCallbackInterface.OnPrevHook;
                 @PrevHook.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnPrevHook;
                 @PrevHook.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnPrevHook;
-                @Die.started -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
-                @Die.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
-                @Die.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
                 @PressButton.started -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
                 @PressButton.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
                 @PressButton.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnPressButton;
                 @Move_Box.started -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
                 @Move_Box.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
                 @Move_Box.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
+                @Die.started -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
+                @Die.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
+                @Die.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnDie;
             }
             m_Wrapper.m_UniActionsCallbackInterface = instance;
             if (instance != null)
@@ -768,19 +769,37 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @PrevHook.started += instance.OnPrevHook;
                 @PrevHook.performed += instance.OnPrevHook;
                 @PrevHook.canceled += instance.OnPrevHook;
-                @Die.started += instance.OnDie;
-                @Die.performed += instance.OnDie;
-                @Die.canceled += instance.OnDie;
                 @PressButton.started += instance.OnPressButton;
                 @PressButton.performed += instance.OnPressButton;
                 @PressButton.canceled += instance.OnPressButton;
                 @Move_Box.started += instance.OnMove_Box;
                 @Move_Box.performed += instance.OnMove_Box;
                 @Move_Box.canceled += instance.OnMove_Box;
+                @Die.started += instance.OnDie;
+                @Die.performed += instance.OnDie;
+                @Die.canceled += instance.OnDie;
             }
         }
     }
     public UniActions @Uni => new UniActions(this);
+    private int m_KeyboardSchemeIndex = -1;
+    public InputControlScheme KeyboardScheme
+    {
+        get
+        {
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
     public interface IUniActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -795,8 +814,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnExhale(InputAction.CallbackContext context);
         void OnNextHook(InputAction.CallbackContext context);
         void OnPrevHook(InputAction.CallbackContext context);
-        void OnDie(InputAction.CallbackContext context);
         void OnPressButton(InputAction.CallbackContext context);
         void OnMove_Box(InputAction.CallbackContext context);
+        void OnDie(InputAction.CallbackContext context);
     }
 }

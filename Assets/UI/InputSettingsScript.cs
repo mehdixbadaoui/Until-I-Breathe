@@ -7,41 +7,33 @@ using UnityEngine.UI;
 
 public class InputSettingsScript : MonoBehaviour
 {
-    public InputActionReference ActionToRebind;
+    private Inputs inputs;
+    private InputActionAsset iaa;
+
+    [SerializeField]
+    private Transform _container;
+    [SerializeField]
+    private InputCell defaultCell;
 
     private void Awake()
     {
-        ActionToRebind.action.performed += Action_performed;
-        ActionToRebind.action.Enable();
+        inputs = new Inputs();
+
+        inputs.Uni.Jump.performed += Action_performed;
+        inputs.Uni.Jump.Enable();
+
+        foreach(var iam in inputs.asset.actionMaps)
+            foreach(var ia in iam.actions)
+                foreach(var ib in ia.bindings)
+                {
+                    Debug.Log(ib.interactions);
+                    var cell = Instantiate(defaultCell, _container);
+                    cell.Initialize(ia, ib);
+                }
     }
 
     private void Action_performed(InputAction.CallbackContext obj)
     {
         Debug.Log("Action performed");
-    }
-
-    public void Rebind()
-    {
-        StartRebinding(ActionToRebind);
-    }
-
-    public void StartRebinding(InputAction action)
-    {
-        action.Disable();
-        action.PerformInteractiveRebinding()
-            .WithControlsExcluding("Mouse")
-            .OnMatchWaitForAnother(0.1f)
-            .OnComplete(BindingComplete)
-            .Start();
-    }
-
-    private void BindingComplete(InputActionRebindingExtensions.RebindingOperation obj)
-    {
-        obj.action.Enable();
-        obj.Dispose();
-    }
-
-    private void Update()
-    {
     }
 }
