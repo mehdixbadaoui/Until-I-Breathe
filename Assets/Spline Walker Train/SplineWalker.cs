@@ -10,7 +10,7 @@ public class SplineWalker : MonoBehaviour {
 
 	public SplineWalkerMode mode;
 
-	private float progress;
+	public float progress;
 	private bool goingForward = true;
 
 	private void Update () {
