@@ -421,7 +421,7 @@ MonoBehaviour:
   timeLever: 2
   isGrappling: 0
   lengthRopeMax: 10
-  lengthRopeMin: 2
+  lengthRopeMin: 2.5
   surfaces:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -506,12 +506,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 0}
   animationTime: 0.4
+  camChanged: 0
   climbingHorizontalOffset: 0.5
   offsetLedgeClimbing: -0.3
   securityOffsetLedgeClimbing: 0.51
   ledgeDistanceDetection: 0.5
   topOfPlayer: {x: 0, y: 0, z: 0}
   didClimb: 0
+  TimeAfterClimbing: 0
   grabbingLedge: 0
   climb_up: 122
   let_go: 115
