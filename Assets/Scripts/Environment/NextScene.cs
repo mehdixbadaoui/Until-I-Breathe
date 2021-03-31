@@ -9,7 +9,7 @@ public class NextScene : MonoBehaviour
     //public GameObject text;
     public GameObject background;
     //public GameObject progressBars;
-
+    private GameObject mainCamera; 
     private AsyncOperation async;
     private int loadProgress;
 
@@ -18,7 +18,7 @@ public class NextScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera"); 
     }
 
     public void LoadScenes(int s)
@@ -44,8 +44,10 @@ public class NextScene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        AkSoundEngine.PostEvent("Stop_music",mainCamera); 
         if (other.tag == "uni")
         {
+            
             LoadScenes( SceneManager.GetActiveScene().buildIndex + 1 );
         }
     }

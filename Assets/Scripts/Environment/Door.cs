@@ -10,19 +10,18 @@ public class Door : MonoBehaviour
     private int angleDoor = 0;
     private float slideDoor = 0;
     private float lengthDoor;
-    private bool open = false;
-    private bool close = false;
+    public bool open = false;
+    public bool close = false;
     public bool locked = false;
 
     public Transform doorPivot;
     public GameObject meshDoor;
     private DistanceUniFromObjects distanceUniFromObjects;
     private GameObject uni;
-
     public float sizeTriggerIfEnter = 1.1f;
     public float sizeTriggerIfExit = 1f;
     public Vector3 dstDoorUni;
-    public float maxDistance = 7f;
+    public float maxDistance = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -75,8 +74,24 @@ public class Door : MonoBehaviour
             if (moveDoor != 0
                 && ((open && Math.Abs(angleDoor + moveDoor) <= 90) || (close && angleDoor != 0)))
             {
+                if (this.tag == "Door_Wood")
+                {
+                    if(open)
+                        distanceUniFromObjects.RTPCGameObjectValue(dstDoorUni, maxDistance, this.gameObject, "Porte_ouverte_bois_event", "DoorVolume");
+                    else if(close)
+                        distanceUniFromObjects.RTPCGameObjectValue(dstDoorUni, maxDistance, this.gameObject, "Porte_fermee_bois_event", "DoorVolume");
+                }
+                else if (this.tag == "Door_Metal")
+                {
+                    if(open)
+                        distanceUniFromObjects.RTPCGameObjectValue(dstDoorUni, maxDistance, this.gameObject, "Porte_ouverte_metal_event", "DoorVolume");
+                    else if(close)
+                        distanceUniFromObjects.RTPCGameObjectValue(dstDoorUni, maxDistance, this.gameObject, "Porte_fermee_metal_event", "DoorVolume");
+                }
                 angleDoor += moveDoor * 10;
                 doorPivot.Rotate(0, moveDoor * 10, 0);
+                
+                
             }
             else
             {
