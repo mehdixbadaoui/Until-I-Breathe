@@ -43,7 +43,7 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        dstDoorUni = distanceUniFromObjects.CalculateDistanceUniFromObject(this.gameObject.transform.position.z); 
+        dstDoorUni = distanceUniFromObjects.CalculateDistanceUniFromObject(this.gameObject.transform.position); 
         if (this.tag == "slidingDoor")
         {
             

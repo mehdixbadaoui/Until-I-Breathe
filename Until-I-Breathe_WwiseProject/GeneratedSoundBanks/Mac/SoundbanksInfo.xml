@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3657868345">
+		<SoundBank Id="1355168291" Language="SFX" Hash="905710489">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<GameParameters>
-				<GameParameter Id="988953028" Name="SFXVolume" ObjectPath="\Game Parameters\Default Work Unit\SFXVolume"/>
-				<GameParameter Id="2346531308" Name="MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\MusicVolume"/>
-				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\MasterVolume"/>
+				<GameParameter Id="988953028" Name="SFXVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\SFXVolume"/>
+				<GameParameter Id="2346531308" Name="MusicVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MusicVolume"/>
+				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="1514844336">
+		<SoundBank Id="2228651116" Language="SFX" Hash="2389192928">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -182,7 +182,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1743891381" Name="Deplacements_event" ObjectPath="\Events\Default Work Unit\ST2_events\Deplacements_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
+				<Event Id="4060145565" Name="Deplacements_ST2_event" ObjectPath="\Events\Default Work Unit\ST2_events\Deplacements_ST2_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
 					<IncludedMemoryFiles>
 						<File Id="127140982" Language="SFX">
 							<ShortName>ST2_De╠üplacement3.wav</ShortName>
@@ -584,17 +584,17 @@
 				</Event>
 				<Event Id="1178261876" Name="Lvl_1_1_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_1_1_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="783500248" Language="SFX">
-							<ShortName>Until I Breathe lev 1-1 .wav</ShortName>
-							<Path>SFX\Until I Breathe lev 1-1 _D79FB2B7.wem</Path>
+						<File Id="263517263" Language="SFX">
+							<ShortName>Until I Breathe lev 1-1 LOOP.wav</ShortName>
+							<Path>SFX\Until I Breathe lev 1-1 LOOP_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1572269619" Name="Lvl_1_2_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_1_2_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="504357912" Language="SFX">
-							<ShortName>Until I Breathe 1-2 .wav</ShortName>
-							<Path>SFX\Until I Breathe 1-2 _D79FB2B7.wem</Path>
+						<File Id="586913076" Language="SFX">
+							<ShortName>Until I Breathe lev 1-2 LOOP.wav</ShortName>
+							<Path>SFX\Until I Breathe lev 1-2 LOOP_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -730,9 +730,11 @@
 				<Event Id="2239026864" Name="Stop_Little_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
-				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\Ventilator\VentilatorVolume"/>
+				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
+				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>
 				<GameParameter Id="2352147213" Name="InspirationVolume" ObjectPath="\Game Parameters\Default Work Unit\InspirationVolume"/>
 				<GameParameter Id="2440552763" Name="DoorVolume" ObjectPath="\Game Parameters\Default Work Unit\DoorVolume"/>
+				<GameParameter Id="2656500902" Name="FanVolume" ObjectPath="\Game Parameters\Default Work Unit\FanVolume"/>
 				<GameParameter Id="2979278319" Name="Ambiant_music_Sound" ObjectPath="\Game Parameters\Default Work Unit\Ambiant_music_Sound"/>
 			</GameParameters>
 		</SoundBank>

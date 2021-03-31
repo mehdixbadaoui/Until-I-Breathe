@@ -24,7 +24,7 @@ namespace AK
         static const AkUniqueID CARTEMAGNETIQUE_RAMASSE_EVENT = 2894782302U;
         static const AkUniqueID CARTEMAGNETIQUE_UTILISER_EVENT = 4133994025U;
         static const AkUniqueID CLOTHES_EVENT = 1884367558U;
-        static const AkUniqueID DEPLACEMENTS_EVENT = 1743891381U;
+        static const AkUniqueID DEPLACEMENTS_ST2_EVENT = 4060145565U;
         static const AkUniqueID DRONE_ACCELERATION_EVENT = 239919669U;
         static const AkUniqueID DRONE_DEPLACEMENT_EVENT = 3075378619U;
         static const AkUniqueID DRONE_FIRESHOT_EVENT = 728004997U;
@@ -86,7 +86,9 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID AMBIANT_MUSIC_SOUND = 2979278319U;
+        static const AkUniqueID DISTWITHUNIVOLUME = 1079181951U;
         static const AkUniqueID DOORVOLUME = 2440552763U;
+        static const AkUniqueID FANVOLUME = 2656500902U;
         static const AkUniqueID INSPIRATIONVOLUME = 2352147213U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICVOLUME = 2346531308U;
