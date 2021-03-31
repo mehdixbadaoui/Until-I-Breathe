@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlatformsWithButton : MonoBehaviour
 {
     public GameObject playerParent;
+    public GameObject st2;
+    public GameObject cam;
     public Transform pointA, pointB, pointC, pointD;
     public bool fourPoints;
     public float secondsItTakes;
@@ -206,6 +208,8 @@ public class PlatformsWithButton : MonoBehaviour
             other.isTrigger = false;
             playerOn = true;
             playerParent.transform.parent = transform;
+            st2.transform.parent = playerParent.transform;
+            cam.transform.parent = transform;
         }
     }
 
@@ -214,7 +218,9 @@ public class PlatformsWithButton : MonoBehaviour
         if ((other.tag == "uni") && playerOn && !other.isTrigger)
         {
             playerOn = false;
+            st2.transform.parent = null;
             playerParent.transform.parent = null;
+            cam.transform.parent = null;
         }
     }
 }
