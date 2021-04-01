@@ -19,10 +19,12 @@ public class ST_Movements : MonoBehaviour
     public float distFromObj;
     [Range(1f, 10f)]
     public float lookAtSpeed;
+    float maxDistance = 20f;
 
     Vector3 rotationOffset; //optional, not used right now
 
     private hook_detector HookDetector;
+    private DistanceUniFromObjects distanceUniFromObjects;
 
     // To access the children components of ST-2 (sprite)
     //public GameObject ChildGO_Sprite;
@@ -33,6 +35,7 @@ public class ST_Movements : MonoBehaviour
     {
         // Automatically find player
         Player = GameObject.FindGameObjectWithTag("uni").transform;
+        distanceUniFromObjects = Player.GetComponent<DistanceUniFromObjects>();
 
         // Stores the initial rotation of the sprite component
         //rotation_Sprite = ChildGO_Sprite.transform.rotation.eulerAngles;
@@ -98,6 +101,8 @@ public class ST_Movements : MonoBehaviour
 
             //if (HookDetector.nearest_hook != null)
             //{
+                Vector3 dstST2Uni = distanceUniFromObjects.CalculateDistanceUniFromObject(transform.position); 
+                distanceUniFromObjects.RTPCGameObjectValue(dstST2Uni, maxDistance, this.gameObject, "Deplacements_ST2_event", "DistWithUniVolume");
                 Vector3 desiredPosition = HookDetector.nearest_hook.transform.position + ((transform.position - HookDetector.nearest_hook.transform.position).normalized * distFromObj);
                 // Smooths the path between the initial and desired position
                 Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, fixationSpeed * Time.deltaTime);

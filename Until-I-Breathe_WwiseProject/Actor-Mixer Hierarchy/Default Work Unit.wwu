@@ -23,7 +23,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Until I Breathe lev 1-1" ID="{C4F98C27-F0E8-4454-8EF5-F03D4BDB7896}" ShortID="337638675">
+								<Sound Name="Until I Breathe lev 1-1 LOOP" ID="{9554E6C5-02DE-493A-A074-F09B67EFECF9}" ShortID="276593311">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 									</PropertyList>
@@ -36,17 +36,17 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Until I Breathe lev 1-1" ID="{3756BC80-8667-408B-AB02-BEE0A784AAC1}">
+										<AudioFileSource Name="Until I Breathe lev 1-1 LOOP" ID="{E9E1C5ED-169B-4FC2-9EDE-69CC5C45A92A}">
 											<Language>SFX</Language>
-											<AudioFile>Until I Breathe lev 1-1 .wav</AudioFile>
+											<AudioFile>Until I Breathe lev 1-1 LOOP.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="783500248"/>
+												<MediaID ID="263517263"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Until I Breathe lev 1-1" ID="{3756BC80-8667-408B-AB02-BEE0A784AAC1}" Platform="Linked"/>
+										<ActiveSource Name="Until I Breathe lev 1-1 LOOP" ID="{E9E1C5ED-169B-4FC2-9EDE-69CC5C45A92A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -57,7 +57,7 @@
 								<Property Name="BlendBehavior" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-25</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -70,7 +70,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Until I Breathe 1-2" ID="{8F7506DC-1E10-4B00-9FD8-90290565B8F1}" ShortID="212202148">
+								<Sound Name="Until I Breathe lev 1-2 LOOP" ID="{05C22F27-9239-4633-8011-74253CE36CCC}" ShortID="706355232">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 									</PropertyList>
@@ -83,17 +83,17 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Until I Breathe 1-2" ID="{5078F18B-F061-441E-8361-D235D026A6F7}">
+										<AudioFileSource Name="Until I Breathe lev 1-2 LOOP" ID="{9A8D228F-037A-4EB6-9AE1-1BA26D8F7FFB}">
 											<Language>SFX</Language>
-											<AudioFile>Until I Breathe 1-2 .wav</AudioFile>
+											<AudioFile>Until I Breathe lev 1-2 LOOP.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="504357912"/>
+												<MediaID ID="586913076"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Until I Breathe 1-2" ID="{5078F18B-F061-441E-8361-D235D026A6F7}" Platform="Linked"/>
+										<ActiveSource Name="Until I Breathe lev 1-2 LOOP" ID="{9A8D228F-037A-4EB6-9AE1-1BA26D8F7FFB}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -219,7 +219,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-25</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -447,7 +447,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-15</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -607,13 +607,13 @@
 												<Value>-10</Value>
 											</ValueList>
 											<RTPCList>
-												<RTPC Name="" ID="{4994329D-6879-4CAE-B968-0DBD4F4266D3}" ShortID="541520342">
+												<RTPC Name="" ID="{148E0FB0-5A87-4114-97BE-3661F6F75DB0}" ShortID="916886958">
 													<ReferenceList>
 														<Reference Name="ControlInput">
-															<ObjectRef Name="VentilatorVolume" ID="{29395339-CA02-4BE0-83AB-6347EBD0E82F}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+															<ObjectRef Name="VentilatorVolume" ID="{21C9890E-B5E5-4C0D-A0F4-05AC7873413F}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
 														</Reference>
 													</ReferenceList>
-													<Curve Name="" ID="{E9651DE2-D0F0-49FA-B10D-D06F4AC72D71}">
+													<Curve Name="" ID="{33D9367D-EA53-418D-9055-EF5AB095C5A6}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="3"/>
 														</PropertyList>
@@ -656,12 +656,39 @@
 										<ActiveSource Name="Ventilateur_Gros_Loop" ID="{2AAE4F84-EEF1-41C4-9723-ED4EBF4E68BC}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Little_Ventilator_Sound" ID="{24C6A1A3-CD5B-4C14-8DE7-72B6EF1B1CE0}" ShortID="189736221">
+								<Sound Name="Little_Ventilator_Sound" ID="{7DF5FCBA-5C30-47C2-8862-D86134D01F58}" ShortID="697403199">
 									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-25</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{32D04C01-ACCE-47D3-BA06-23E3321311EC}" ShortID="471850906">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="FanVolume" ID="{91DE5872-EBFD-4102-9812-7D1B718DAA69}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{0254CB95-F3D5-4D5C-BB94-ACEB80929CDE}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -673,17 +700,17 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Ventilateur_Petit_Loop_01" ID="{4EC248DE-5391-45FE-82E1-8F4D465DFDA7}">
+										<AudioFileSource Name="Ventilateur_Petit_Loop" ID="{71E205B5-14AA-488C-8866-E87F15D43B5A}">
 											<Language>SFX</Language>
-											<AudioFile>Ventilateur_Petit_Loop_01.wav</AudioFile>
+											<AudioFile>Ventilateur_Petit_Loop.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="962481820"/>
+												<MediaID ID="616477893"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Ventilateur_Petit_Loop_01" ID="{4EC248DE-5391-45FE-82E1-8F4D465DFDA7}" Platform="Linked"/>
+										<ActiveSource Name="Ventilateur_Petit_Loop" ID="{71E205B5-14AA-488C-8866-E87F15D43B5A}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -876,8 +903,34 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-20</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{D72F20C6-F036-4748-BA87-D47CC3858FA9}" ShortID="579802983">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DoorVolume" ID="{C22E8664-01BF-4E3B-98E8-A8B827147423}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{9439733B-7376-45E6-88C2-2307FA164141}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -965,8 +1018,34 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-20</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{D0582E4C-421C-4C2A-85E8-7F0FFF3ECAD7}" ShortID="585989995">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DoorVolume" ID="{C22E8664-01BF-4E3B-98E8-A8B827147423}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{36D6B623-6F60-4B02-B14B-54BD06FDB7BA}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -1145,6 +1224,32 @@
 											<ValueList>
 												<Value>-10</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{06E3508B-1661-43ED-8465-1A8D04240360}" ShortID="770291602">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DoorVolume" ID="{C22E8664-01BF-4E3B-98E8-A8B827147423}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{FEB662DE-3A0A-4BA1-90FE-F54332B5C7A2}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -1234,6 +1339,32 @@
 											<ValueList>
 												<Value>-10</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{4BF629FB-874C-4C76-8C51-89184BDB929A}" ShortID="1059169905">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DoorVolume" ID="{C22E8664-01BF-4E3B-98E8-A8B827147423}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{E127268E-A2FC-4575-9C34-6F4689D21ECE}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -1323,6 +1454,32 @@
 											<ValueList>
 												<Value>-10</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{533E85E0-74C0-44E5-8B6F-B9C869ACB268}" ShortID="541935920">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DoorVolume" ID="{C22E8664-01BF-4E3B-98E8-A8B827147423}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{7080B003-7D14-4F3F-8F5E-4EE8FFF53F87}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -1412,6 +1569,32 @@
 											<ValueList>
 												<Value>-10</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{33F99174-9171-4A3A-9238-1A49A2808136}" ShortID="574378775">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DoorVolume" ID="{C22E8664-01BF-4E3B-98E8-A8B827147423}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{DB13C133-8091-42D3-83B1-25BA23F22B10}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -2264,6 +2447,111 @@
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</Folder>
+						<RandomSequenceContainer Name="Vent_normal" ID="{4A19DD20-4188-440E-B32D-CE513F62CA27}" ShortID="360704370">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{B759B31E-00EC-4DA3-84C8-3935A8036A23}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="66"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RestartBeginningOrBackward" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Vent_Random_01" ID="{7F572D48-1054-4BE8-BBAD-33034E0062C5}" ShortID="399741088">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Vent_Random_01" ID="{B321853B-4B63-4AAE-B278-73628E39B200}">
+											<Language>SFX</Language>
+											<AudioFile>Vent_Random_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="330718545"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Vent_Random_01" ID="{B321853B-4B63-4AAE-B278-73628E39B200}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Vent_Random_02" ID="{1F622FB9-AF6D-4686-82F3-293B66BAA8BD}" ShortID="675517742">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Vent_Random_02" ID="{82858072-AC50-4D8A-A846-78B0A5A2DE23}">
+											<Language>SFX</Language>
+											<AudioFile>Vent_Random_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="611500078"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Vent_Random_02" ID="{82858072-AC50-4D8A-A846-78B0A5A2DE23}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Vent_Random_03" ID="{5473CA1E-342B-4D1F-97B8-7C338E74AD1D}" ShortID="44740486">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Vent_Random_03" ID="{8C4D7226-5B70-4630-A21D-C84A20682D27}">
+											<Language>SFX</Language>
+											<AudioFile>Vent_Random_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="324778096"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Vent_Random_03" ID="{8C4D7226-5B70-4630-A21D-C84A20682D27}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UniSounds" ID="{3842463C-B6F3-43C6-B468-8FD42FE3352B}" ShortID="493599068">
@@ -4085,9 +4373,32 @@
 						<RandomSequenceContainer Name="Uni_inspiration" ID="{0DFF7C09-9443-4174-8A9E-88E55ECB6C5E}" ShortID="564275036">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-10</Value>
-									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{31289577-4B19-4A21-B847-ECE397F3C238}" ShortID="627157209">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="InspirationVolume" ID="{3E58C97C-240E-4E33-9DAE-2F19FEF3AAFC}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{0E2913AA-9858-4878-B5E3-A6E218FA46A2}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -4181,6 +4492,32 @@
 									<ValueList>
 										<Value>-10</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{6326329C-5DE5-47B4-8584-9C2A9A61EBA4}" ShortID="128855599">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="DistWithUniVolume" ID="{E6FC620E-F36B-4B3D-A3E9-5801A1CCB240}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{8A98D896-9230-4E65-8B36-CD499F2E0BF7}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>

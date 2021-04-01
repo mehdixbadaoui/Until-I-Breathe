@@ -159,8 +159,8 @@ public class Movement : MonoBehaviour
                 if (capsule_collider.height > 1)
                 {
                     myAnimator.GetComponent<anim>().isCrouching = true;
+                    myAnimator.Play("stand2crouch", 0);
                     myAnimator.Play("stand2crouch", 1);
-                    myAnimator.Play("stand2crouch", 2);
                     capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1) / 2, capsule_collider.center.z);
                     capsule_collider.height = 1;
                     previousSpeed = speed;
@@ -180,8 +180,8 @@ public class Movement : MonoBehaviour
                         capsule_collider.height = 1.5f;
                         speed = previousSpeed;
                         myAnimator.GetComponent<anim>().isCrouching = false;
+                        myAnimator.Play("crouch2stand", 0);
                         myAnimator.Play("crouch2stand", 1);
-                        myAnimator.Play("crouch2stand", 2);
                     }
                 }
 
@@ -189,9 +189,15 @@ public class Movement : MonoBehaviour
 
             isGroundedVerif = isGrounded;
 
-            if (isGrapplin && !isGrounded && countGround > 10)
+            // Si on est accroche et que l'on a un angle avec le crochet 
+            if (isGrapplin && !isGrounded && countGround > 10 && Quaternion.Angle(transform.rotation, Quaternion.Euler(angleHook, 0, 0)) < 15 )
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleHook, 0, 0), .1f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleHook, 0, 0), .2f);
+            }
+            // si on est trop eloigne de l'angle cela ne fait pas une transition rapide sinon pb 
+            else if (isGrapplin && !isGrounded && countGround > 10 && Quaternion.Angle(transform.rotation, Quaternion.Euler(angleHook, 0, 0)) >= 15)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleHook, 0, 0), .01f);
             }
             else if (!isGrounded)
             {
@@ -199,7 +205,7 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .01f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .05f);
             }
             /*(middle.transform !=  null)*/
         }
@@ -463,7 +469,7 @@ public class Movement : MonoBehaviour
         
         if (!breathing.hold)
             myAnimator.Play("Unijump" , 1);
-        myAnimator.Play("Unijump", 2);
+        myAnimator.Play("Unijump", 0);
         countGround = 0;
         isGrounded = false;
         isJumping = true;
@@ -478,8 +484,8 @@ public class Movement : MonoBehaviour
     {
 
         //if (!breathing.hold)
-        myAnimator.Play("JumpAfterGrapplin" , 1);
-        myAnimator.Play("JumpAfterGrapplin", 2);
+        myAnimator.Play("JumpAfterGrapplin" , 0);
+        //myAnimator.Play("JumpAfterGrapplin", 1);
 
         countGround = 0;
         isGrounded = false;

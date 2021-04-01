@@ -111,6 +111,7 @@ public class GameMaster : MonoBehaviour
         }
 
         uni.transform.position = lastCheckPointPos;
+        uni.transform.rotation = Quaternion.Euler(0, 0, 0);
         uni.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 

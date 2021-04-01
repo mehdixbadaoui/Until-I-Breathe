@@ -11,6 +11,7 @@ public class ObjectDetector : MonoBehaviour
     public List<GameObject> listObj = new List<GameObject>();
 
     SphereCollider sphere_collider;
+    private GameObject uni; 
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class ObjectDetector : MonoBehaviour
     void Start()
     {
         sphere_collider = GetComponent<SphereCollider>();
-
+        uni = GameObject.FindGameObjectWithTag("uni");
         inputs.Uni.PressButton.performed += ctx => Interact();
     }
 
@@ -40,6 +41,7 @@ public class ObjectDetector : MonoBehaviour
         {
             for (int index = 0; index < listObj.Count; index++)
             {
+                AkSoundEngine.PostEvent("Levier_event", uni);
                 if ( listObj[index].CompareTag("button"))
                 {
                     for (int i = 0; i < listObj[index].GetComponent<button_detector>().caisses.Length; i++)
@@ -55,6 +57,7 @@ public class ObjectDetector : MonoBehaviour
                 if (listObj[index].CompareTag("lever"))
                 {
                     listObj[index].GetComponent<Lever>().Unlock();
+                    
                 }
 
                 if (listObj[index].CompareTag("Button_Platform"))
@@ -65,6 +68,7 @@ public class ObjectDetector : MonoBehaviour
                 if (listObj[index].CompareTag("Lever_Platform"))
                 {
                     listObj[index].GetComponent<LeverPlatforms>().GoTo();
+                    
                 }
             }
         }

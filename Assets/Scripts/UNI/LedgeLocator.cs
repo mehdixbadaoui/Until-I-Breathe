@@ -22,6 +22,13 @@ public class LedgeLocator : MonoBehaviour
     public float animationTime = .5f;
     private Animator anim;
 
+    // For the smooth cam when climbing
+    private GameObject camFollow;
+    private Vector3 previousCamPos;
+    private bool changeCam;
+    private GameObject camera;
+    public bool camChanged = false;
+
     // Offsets and distance detection for ledge Climbing
     public float climbingHorizontalOffset;
     public float offsetLedgeClimbing = -0.2f;
@@ -37,6 +44,10 @@ public class LedgeLocator : MonoBehaviour
     private bool falling;
     private bool moved;
     private bool isclimbing = false;
+    public bool didClimb = false;
+
+    //Iterator to check after climbing
+    public int TimeAfterClimbing;
 
 
     [HideInInspector]
@@ -80,6 +91,16 @@ public class LedgeLocator : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         rb =  GetComponent<Rigidbody>();
 
+        //camFollow = GameObject.Find("Camera Follow");
+
+        //Initialize the cam components
+        camera = GameObject.FindGameObjectWithTag("MainCamera");
+        if (camera.GetComponent<CameraFollow>().player != null)
+        {
+            camFollow = camera.GetComponent<CameraFollow>().player.gameObject;
+            previousCamPos = camFollow.transform.position;
+        }
+
         // Get the animator 
         myAnimator = GetComponentInChildren<Animator>();
 
@@ -88,23 +109,54 @@ public class LedgeLocator : MonoBehaviour
             animationTime = clip.length;
         }
 
-        
+        TimeAfterClimbing = 0;
+
+
+
     }
 
+    private void Update()
+    {
+        if (camera.GetComponent<CameraFollow>().player != null && camFollow == null)
+        {
+            camFollow = camera.GetComponent<CameraFollow>().player.gameObject;
+        }
+        if (camFollow != camera.GetComponent<CameraFollow>().player.gameObject)
+        {
+            camFollow = camera.GetComponent<CameraFollow>().player.gameObject;
+            previousCamPos = camFollow.transform.localPosition;
+        }
 
-    //protected override void Initializtion()
-    //{
-    //    base.Initializtion();
-    //    //if(clip != null)
-    //    //{
-    //    //    animationTime = clip.length;
-    //    //}
-    //}
-
+        // On deplace la camera pendant le climbing 
+        if (changeCam)
+        {
+            camChanged = true;
+            camFollow.transform.position = Vector3.Lerp(camFollow.transform.position
+                , new Vector3(camFollow.transform.position.x, GameObject.FindGameObjectWithTag("rig").transform.position.y + previousCamPos.y, GameObject.FindGameObjectWithTag("rig").transform.position.z + previousCamPos.z)
+                , 0.1f ) ;
+        }
+        else if (camChanged)
+        {
+            camFollow.transform.localPosition = Vector3.Lerp(camFollow.transform.localPosition , previousCamPos , 0.1f);
+            if (Vector3.Distance(camFollow.transform.localPosition , previousCamPos )<0.2f )
+            {
+                camFollow.transform.localPosition = previousCamPos;
+                camChanged = false;
+            }
+        }
+    }
     protected virtual void FixedUpdate()
     {
         CheckForLedge();
         LedgeHanging();
+        if (Movement.isGrounded)
+            didClimb = false;
+        if (didClimb && isclimbing == false)
+        {
+            TimeAfterClimbing += 1;
+            myAnimator.SetInteger("timeafterclimb", TimeAfterClimbing);
+        }
+
     }
 
     protected virtual void CheckForLedge()
@@ -116,7 +168,7 @@ public class LedgeLocator : MonoBehaviour
             securityRayForClimbing = new Vector3(transform.position.x, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
 
             //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
-            if ((!Movement.isGrounded && !Movement.isGrapplin ) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection) /*&& !hit.collider.isTrigger*/)
+            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection) /*&& !hit.collider.isTrigger*/)
             {
                 if (!hit.collider.isTrigger)
                 {
@@ -125,8 +177,8 @@ public class LedgeLocator : MonoBehaviour
                     {
                         grabbingLedge = true;
                         myAnimator.SetBool("LedgeHanging", true);
-                        myAnimator.Play("Hangingidle", 1);
-                        myAnimator.Play("Hangingidle", 2);
+                        myAnimator.Play("Hangingidle", 0);
+                        //myAnimator.Play("Hangingidle", 2);
                     }
                 }
             }
@@ -142,90 +194,94 @@ public class LedgeLocator : MonoBehaviour
                 }
                 AdjustPlayerPosition(new Vector3(transform.position.x, transform.position.y, transform.position.z + climbingHorizontalOffset),ledge.transform);
                 rb.velocity = Vector3.zero;
-                rb.useGravity = false; 
-                GetComponent<Movement>().enabled = false;
+                rb.useGravity = false;
+                Movement.canMove = false;
+                //GetComponent<Movement>().enabled = false;
             }
             else
             {               
                 rb.useGravity = true;
-                GetComponent<Movement>().enabled = true;
+                //Movement.canMove = true;
+                //GetComponent<Movement>().enabled = true;
             }
         }
     }
 
     protected virtual void LedgeHanging()
     {
-        //Check the localscale for having the easiest way to climb 
-        if (transform.localScale.z > 0)
-        {
-            horizontalArrow = KeyCode.D;
-        }
-        else
-        {
-            horizontalArrow = KeyCode.Q;
-        }
 
-        if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() != 0 || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()))  && ledge!= null && !isclimbing)
+        // if uni attached to a ledge and whant to climb
+        if (grabbingLedge && 
+            (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() * transform.localScale.z > 0 )  
+            && ledge!= null && !isclimbing)
         {
+            didClimb = true;
+            TimeAfterClimbing = 0;
             isclimbing = true;
 
             // Start the animation of hanging
             myAnimator.SetBool("LedgeHanging", false);
-
-            if (transform.localScale.z > 0)
-            {
-                StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z + climbingHorizontalOffset), animationTime, ledge.transform));
-
-            }
-            else
-            {
-                StartCoroutine(ClimbingLedge(new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y + .2f, transform.position.z - climbingHorizontalOffset), animationTime, ledge.transform));
-
-            }
             
+            StartCoroutine(ClimbingLedge());
 
-           
+
         }
-        if (grabbingLedge && Convert.ToBoolean(inputs.Uni.Let_Go.ReadValue<float>()))
+        // if uni attached but want to let the ledge out
+        if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Let_Go.ReadValue<float>() ) || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() * transform.localScale.z < 0)
+            && ledge != null && !isclimbing)
         {
+
+            didClimb = true;
+            TimeAfterClimbing = 0;
             ledge = null;
             moved = false;
             // Stop the animation of hanging
             myAnimator.SetBool("LedgeHanging", false);
             falling = true;
             rb.useGravity = true;
-            GetComponent<Movement>().enabled = true;
+            Movement.canMove = true;
+            //GetComponent<Movement>().enabled = true;
             Invoke("NotFalling", .5f);
+
         }
     }
 
-    protected virtual IEnumerator ClimbingLedge(Vector3 topOfPlatform, float duration, Transform topOfPlatformTransform)
+    protected virtual IEnumerator ClimbingLedge()
     {
-        Vector3 localPosition = topOfPlatformTransform.InverseTransformPoint(topOfPlatform);
-
-
         previousPos = GameObject.FindGameObjectWithTag("rig").transform.position;
 
         myAnimator.SetBool("LedgeClimbing", true);
 
+        // In Update, camfollow will follow the animation
+        previousCamPos = camFollow.transform.localPosition;
+        changeCam = true;
+
         //Wait for the beginning of LedgeClimb
-        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(1).IsName("LedgeClimb"));
-        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(2).IsName("LedgeClimb"));
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("LedgeClimb"));
+        //yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(2).IsName("LedgeClimb"));
 
         //Wait for the end of LedgeClimb
-        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length );
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length / 2 );
 
         newPos = GameObject.FindGameObjectWithTag("rig").transform.position;
+
+
+        myAnimator.Play("idle&run", 0);
+        //myAnimator.Play("idle&run", 2);
+
+        Vector3 previousCamGlobalPos = camFollow.transform.position;
+        transform.position +=  new Vector3(0,newPos.y - previousPos.y + 0.5f, newPos.z - previousPos.z); //topOfPlatformTransform.TransformPoint(localPosition);
+        camFollow.transform.position = previousCamGlobalPos;
 
         // Stop the animation of climbing
         myAnimator.SetBool("LedgeClimbing", false);
 
-        Debug.Log("addPos");
+        Movement.canMove = true;
+        rb.useGravity = true;
 
-        transform.position +=  new Vector3(0,newPos.y - previousPos.y, newPos.z - previousPos.z); //topOfPlatformTransform.TransformPoint(localPosition);
+        // Camfollow recupere sa position de depart
+        changeCam = false;
 
-        myAnimator.Play("idle&run", 1);
-        myAnimator.Play("idle&run", 2);
 
 
         /*        float time = 0;
