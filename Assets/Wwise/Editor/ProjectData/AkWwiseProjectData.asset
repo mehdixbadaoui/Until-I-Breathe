@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 51825a5e24261e4b9d8cee98f3163d80
     GuidInternal: 
-    m_lastTime: -8585848542324455743
+    m_lastTime: -8585844077236836210
     List:
     - name: Environment
       guid: 9462943f00bc66409fa4e3bc35c1a358
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585844898846529341
+    m_lastTime: -8585844079186672615
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585844898847456864
+    m_lastTime: -8585844079186582343
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -379,9 +379,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Deplacements_event
+    - name: Deplacements_ST2_event
       guid: 9ca2a3d889baec4ebe76f12a6c6faea9
-      id: 1743891381
+      id: 4060145565
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -392,10 +392,10 @@ MonoBehaviour:
       - ElementName: ST2_events
         ObjectType: 4
         guid: d0a8e906e890dd4b9a083fff794014e5
-      - ElementName: Deplacements_event
+      - ElementName: Deplacements_ST2_event
         ObjectType: 3
         guid: 9ca2a3d889baec4ebe76f12a6c6faea9
-      Path: Events\Default Work Unit\ST2_events\Deplacements_event
+      Path: Events\Default Work Unit\ST2_events\Deplacements_ST2_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1400,6 +1400,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Stop_music
+      guid: 10e1328e021e8f4397060182decfa8c9
+      id: 2837384057
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Stop_music
+        ObjectType: 3
+        guid: 10e1328e021e8f4397060182decfa8c9
+      Path: Events\Default Work Unit\Music_levels\Stop_music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Uni_events
       guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       id: 2211272183
@@ -1449,7 +1469,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585844898847446892
+    m_lastTime: -8585844075449764462
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -1465,9 +1485,9 @@ MonoBehaviour:
         ObjectType: 13
         guid: dfc8bea834c55c4c8c843e62b285ddf2
       Path: Game Parameters\Default Work Unit\Ambiant_music_Sound
-    - name: DoorVolume
-      guid: f2223c864bf97144b91a5e569dad8a92
-      id: 2440552763
+    - name: DistWithUniVolume
+      guid: 0e62fce66bf33d4ba3e95801a1ccb240
+      id: 1079181951
       PathAndIcons:
       - ElementName: Game Parameters
         ObjectType: 5
@@ -1475,10 +1495,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: DoorVolume
+      - ElementName: DistWithUniVolume
         ObjectType: 13
-        guid: f2223c864bf97144b91a5e569dad8a92
-      Path: Game Parameters\Default Work Unit\DoorVolume
+        guid: 0e62fce66bf33d4ba3e95801a1ccb240
+      Path: Game Parameters\Default Work Unit\DistWithUniVolume
     - name: InspirationVolume
       guid: 7cc9583e0e24334e9dae2f19fef3aafc
       id: 2352147213
@@ -1503,10 +1523,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Settings
+        ObjectType: 4
+        guid: b9acc3fa3438d14e9aeff7d4a414b364
       - ElementName: MasterVolume
         ObjectType: 13
         guid: 51eda605ecd41840bf416c3c6ccca290
-      Path: Game Parameters\Default Work Unit\MasterVolume
+      Path: Game Parameters\Default Work Unit\Settings\MasterVolume
     - name: MusicVolume
       guid: 7b51f4fad297ff46ae242b64a2067da9
       id: 2346531308
@@ -1517,10 +1540,27 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Settings
+        ObjectType: 4
+        guid: b9acc3fa3438d14e9aeff7d4a414b364
       - ElementName: MusicVolume
         ObjectType: 13
         guid: 7b51f4fad297ff46ae242b64a2067da9
-      Path: Game Parameters\Default Work Unit\MusicVolume
+      Path: Game Parameters\Default Work Unit\Settings\MusicVolume
+    - name: Settings
+      guid: b9acc3fa3438d14e9aeff7d4a414b364
+      id: 2910527622
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Settings
+        ObjectType: 4
+        guid: b9acc3fa3438d14e9aeff7d4a414b364
+      Path: Game Parameters\Default Work Unit\Settings
     - name: SFXVolume
       guid: fe2537c946948b4da62bc0b29a6ed0bc
       id: 988953028
@@ -1531,41 +1571,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Settings
+        ObjectType: 4
+        guid: b9acc3fa3438d14e9aeff7d4a414b364
       - ElementName: SFXVolume
         ObjectType: 13
         guid: fe2537c946948b4da62bc0b29a6ed0bc
-      Path: Game Parameters\Default Work Unit\SFXVolume
-    - name: Ventilator
-      guid: d926a9bf3dc48944a743afa9ad886b04
-      id: 852397503
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: Ventilator
-        ObjectType: 4
-        guid: d926a9bf3dc48944a743afa9ad886b04
-      Path: Game Parameters\Default Work Unit\Ventilator
-    - name: VentilatorVolume
-      guid: 3953392902cae04b83ab6347ebd0e82f
-      id: 1991624541
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: Ventilator
-        ObjectType: 4
-        guid: d926a9bf3dc48944a743afa9ad886b04
-      - ElementName: VentilatorVolume
-        ObjectType: 13
-        guid: 3953392902cae04b83ab6347ebd0e82f
-      Path: Game Parameters\Default Work Unit\Ventilator\VentilatorVolume
+      Path: Game Parameters\Default Work Unit\Settings\SFXVolume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -1707,7 +1719,7 @@ MonoBehaviour:
     m_lastTime: -8585851179603260115
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000000b0000000c0000000e0000000f000000110000001200000018000000
+  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000000b0000000c0000000e0000000f00000010000000110000001200000018000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

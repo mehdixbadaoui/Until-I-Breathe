@@ -20,27 +20,24 @@ public class DistanceUniFromObjects : MonoBehaviour
     {
         
     }
-    public void RTPCGameObjectValue(Vector3 distUniFromObject, float maxDistance, GameObject gameObject, string nameOfEvent, string nameOfRTPC)
+    public void RTPCGameObjectValue(Vector3 distUniFromObject, float maxDistance, GameObject gameObject, string nameOfEvent, string nameOfRTPC, float coeffSpeed = 1)
     {
 
-        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
-        if (!isSoundFinished)
-            AkSoundEngine.PostEvent(nameOfEvent, gameObject);
-        if (distUniFromObject.z <= maxDistance && distUniFromObject.z > 0)
+        
+        if (((distUniFromObject.z <= maxDistance && distUniFromObject.z > 0 ) || (distUniFromObject.z >= -maxDistance && distUniFromObject.z < 0) )/*|| (distUniFromObject.y <= maxDistance)*/)
         {
-            volume = Mathf.Abs(100 - distUniFromObject.z * 100f / maxDistance);
+            volume = (100 - Mathf.Abs(distUniFromObject.z * 100f / maxDistance) )* coeffSpeed;
             AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
         }
-        else if (distUniFromObject.z >= -maxDistance && distUniFromObject.z < 0)
-        {
-            volume = 100 - Mathf.Abs(distUniFromObject.z * 100f / maxDistance);
-            AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
-        }
+        
         else
         {
             volume = 0f;
             AkSoundEngine.SetRTPCValue(nameOfRTPC, 0f);
         }
+        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
+        if (!isSoundFinished)
+            AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
     public void RTPCGameObjectValueEnterRoom(float distUniFromObjectLeft, float distUniFromObjectRight, float maxDistance, GameObject gameObject, string nameOfEvent, string nameOfRTPC, float coeffAttenuation )
     {
@@ -64,10 +61,11 @@ public class DistanceUniFromObjects : MonoBehaviour
         if (!isSoundFinished)
             AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
+    
 
-    public Vector3 CalculateDistanceUniFromObject(float positionOfGameObject)
+    public Vector3 CalculateDistanceUniFromObject(Vector3 positionOfGameObject)
     {
-        Vector3 distanceGameObjectFromUni = new Vector3(0, 0, positionOfGameObject - uni.transform.position.z);
+        Vector3 distanceGameObjectFromUni = positionOfGameObject - uni.transform.position;
         return distanceGameObjectFromUni; 
     }
 }

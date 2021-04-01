@@ -30,7 +30,7 @@ public class VentilatorSound : MonoBehaviour
     void Update()
     {
         
-        distanceVentilatorUni = distanceUniFromObjects.CalculateDistanceUniFromObject(ventilator.transform.position.z); 
+        distanceVentilatorUni = distanceUniFromObjects.CalculateDistanceUniFromObject(ventilator.transform.position); 
         distanceUniFromObjects.RTPCGameObjectValue(distanceVentilatorUni, maxDistanceFromVentilator, ventilator, "Big_Ventilator_event", "VentilatorVolume"); 
         
          
