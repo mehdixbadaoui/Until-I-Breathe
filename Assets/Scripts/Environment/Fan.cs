@@ -6,6 +6,7 @@ public class Fan : MonoBehaviour
 {
     [SerializeField] private float air;
     public float capacity;
+    public bool isOn = false;
 
     public List<GameObject> doors;
     public GameObject generator;
@@ -37,25 +38,29 @@ public class Fan : MonoBehaviour
         distFanFromUni = distanceUniFromObjects.CalculateDistanceUniFromObject(this.gameObject.transform.position);
         if (air >= capacity)
         {
-            fanAnim.SetBool("isrotating", true);
             
-            distanceUniFromObjects.RTPCGameObjectValue(distFanFromUni, maxDistanceFromVentilator,this.gameObject, "Little_Ventilator_event", "FanVolume", fanAnim.speed); 
-            
-            fanAnim.speed = 1;
-            
-            //UNLOCK THE DOOR
-            foreach (GameObject door in doors)
-                door.GetComponentInChildren<Door>().locked = false;
+            distanceUniFromObjects.RTPCGameObjectValue(distFanFromUni, maxDistanceFromVentilator,this.gameObject, "Little_Ventilator_event", "FanVolume", fanAnim.speed);
 
-            //TURN ON GENERATOR
-            if (generator)
+            if (!isOn)
             {
-                generator.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(80000, 80000, 80000, 80000));
-            }
+                isOn = true;
+                fanAnim.SetBool("isrotating", true);
+                fanAnim.speed = 1;
 
-            //TURN LIGHTS TO GREEN
-            foreach(GameObject light in lights)
-                light.GetComponentInChildren<Light>().color = Color.green;
+                //UNLOCK THE DOOR
+                foreach (GameObject door in doors)
+                    door.GetComponentInChildren<Door>().locked = false;
+
+                //TURN ON GENERATOR
+                if (generator)
+                {
+                    generator.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(80000, 80000, 80000, 80000));
+                }
+
+                //TURN LIGHTS TO GREEN
+                foreach (GameObject light in lights)
+                    light.GetComponentInChildren<Light>().color = Color.green;
+            }
         }
         
 
