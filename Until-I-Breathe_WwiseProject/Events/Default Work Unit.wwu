@@ -7,7 +7,7 @@
 					<ChildrenList>
 						<Event Name="Lvl_1_1_event" ID="{7DF07D1E-D220-41B8-A0B5-73529BB4C2A8}">
 							<ChildrenList>
-								<Action Name="" ID="{A3DA36A8-C69F-47B6-A7B7-BC581AF8BE5D}" ShortID="362110890">
+								<Action Name="" ID="{29BEC1C2-F8E8-4CF4-8114-547C93D8B698}" ShortID="681473941">
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Ambient_music_1_1" ID="{70901066-52C4-47E6-B368-0E6F44B18AEB}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
@@ -18,10 +18,10 @@
 						</Event>
 						<Event Name="Lvl_1_2_event" ID="{C5A02B28-9964-450A-8157-7EEEA15D1DC7}">
 							<ChildrenList>
-								<Action Name="" ID="{0815BC0A-186E-4C85-A81C-8322C7E04A16}" ShortID="174781554">
+								<Action Name="" ID="{43AA7FFF-9D43-4B7D-A142-2FE1F011ED83}" ShortID="517067977">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Until I Breathe 1-2" ID="{8F7506DC-1E10-4B00-9FD8-90290565B8F1}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+											<ObjectRef Name="Ambient_music_1_2" ID="{2E8357A8-8AEA-4B80-8A05-AF8BF7F0A911}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -55,6 +55,20 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Ambient_music_2_2" ID="{FFF1041F-FB36-4771-B3AB-C93AF00EED68}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_music_event" ID="{8E32E110-1E02-438F-9706-0182DECFA8C9}">
+							<ChildrenList>
+								<Action Name="" ID="{A5508650-1A09-4E9A-87C1-4CCB0958673C}" ShortID="840617676">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="4"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_music_1_1" ID="{70901066-52C4-47E6-B368-0E6F44B18AEB}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -586,11 +600,22 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Vent_event" ID="{DCE1A2BD-52C0-42A9-8EDB-976AA8E34E5A}">
+							<ChildrenList>
+								<Action Name="" ID="{A2883524-F430-4B9C-9975-63389D256CBD}" ShortID="444928781">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Vent_normal" ID="{4A19DD20-4188-440E-B32D-CE513F62CA27}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST2_events" ID="{06E9A8D0-90E8-4BDD-9A08-3FFF794014E5}" ShortID="741954611">
 					<ChildrenList>
-						<Event Name="Deplacements_event" ID="{D8A3A29C-BA89-4EEC-BE76-F12A6C6FAEA9}">
+						<Event Name="Deplacements_ST2_event" ID="{D8A3A29C-BA89-4EEC-BE76-F12A6C6FAEA9}">
 							<ChildrenList>
 								<Action Name="" ID="{1D6F3B8E-70AD-4425-A593-AE521C4ABA51}" ShortID="447443451">
 									<ReferenceList>

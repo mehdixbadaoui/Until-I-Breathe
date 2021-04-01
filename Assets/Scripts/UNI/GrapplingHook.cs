@@ -367,14 +367,14 @@ public class GrapplingHook : MonoBehaviour
 		{
 			Movement.isGrapplin = true;
 			// Animation of the grapplin
-			myAnimator.Play("GroundGrapplin" , 1);
-			myAnimator.Play("GroundGrapplin", 2);
+			myAnimator.Play("GroundGrapplin" , 0);
+			myAnimator.Play("GroundGrapplin", 1);
 		}
 		else if (hookObject.CompareTag("lever") || hookObject.CompareTag("movable_hook"))
         {
 			// Animation of the grapplin lanched
-			myAnimator.Play("GroundGrapplinLever" , 1);
-			myAnimator.Play("GroundGrapplinLever", 2);
+			myAnimator.Play("GroundGrapplinLever" , 0);
+			myAnimator.Play("GroundGrapplinLever", 1);
 		}
 
 		body.mass = loadMass;
@@ -681,7 +681,7 @@ public class GrapplingHook : MonoBehaviour
 
 		Vector3 dir = hook_pos - player;
 
-		float ray_obj = Vector3.Distance(hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.max, hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.min) / 2;
+		//float ray_obj = Vector3.Distance(hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.max, hook.gameObject.GetComponent<MeshFilter>().sharedMesh.bounds.min) / 2;
 		raycastHits = Physics.Raycast(player, dir, out hit, dir.magnitude  /*- ray_obj * 1.5f*/);
 
 

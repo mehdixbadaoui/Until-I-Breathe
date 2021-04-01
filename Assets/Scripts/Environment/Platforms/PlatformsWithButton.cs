@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlatformsWithButton : MonoBehaviour
 {
     public GameObject playerParent;
+    public GameObject st2;
+    public GameObject cam;
     public Transform pointA, pointB, pointC, pointD;
     public bool fourPoints;
-    public float speed;
-    
+    public float secondsItTakes;
+
     Transform goToPoint;
     Vector3 currentPos;
 
@@ -58,11 +60,13 @@ public class PlatformsWithButton : MonoBehaviour
 
             if (Vector3.Distance(transform.position, goToPoint.position) > 0.01f)
             {
-                float distCovered = (Time.time - startTime) * speed;
+                //float distCovered = (Time.time - startTime) * speed;
 
-                float fractionOfJourney = distCovered / journeyLength;
+                //float fractionOfJourney = distCovered / journeyLength;
 
-                transform.position = Vector3.Lerp(currentPos, goToPoint.position, fractionOfJourney);
+                //transform.position = Vector3.Lerp(currentPos, goToPoint.position, fractionOfJourney);
+
+                StartCoroutine(Move_Routine(currentPos, goToPoint.position));
 
                 if (Vector3.Distance(transform.position, goToPoint.position) < 0.01f) // insure that the platform is at the exact position of its destination
                 {
@@ -75,6 +79,19 @@ public class PlatformsWithButton : MonoBehaviour
                 StartCoroutine(ChangeDelay());
             }
         }
+    }
+
+    private IEnumerator Move_Routine(Vector3 from, Vector3 to)
+    {
+        float t = 0f;
+        while (t < 1f && !isWaiting)
+        {
+            t += Time.smoothDeltaTime / secondsItTakes;
+            transform.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0f, 1f, Mathf.SmoothStep(0f, 1f, t)));
+            yield return null;
+        }
+
+        transform.position = to;
     }
 
     void ChangeDestination()
@@ -191,6 +208,8 @@ public class PlatformsWithButton : MonoBehaviour
             other.isTrigger = false;
             playerOn = true;
             playerParent.transform.parent = transform;
+            st2.transform.parent = playerParent.transform;
+            cam.transform.parent = transform;
         }
     }
 
@@ -199,7 +218,9 @@ public class PlatformsWithButton : MonoBehaviour
         if ((other.tag == "uni") && playerOn && !other.isTrigger)
         {
             playerOn = false;
+            st2.transform.parent = null;
             playerParent.transform.parent = null;
+            cam.transform.parent = null;
         }
     }
 }

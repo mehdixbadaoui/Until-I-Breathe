@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 117304404872998721}
   m_Layer: 0
   m_Name: DoorFactory2
-  m_TagString: Untagged
+  m_TagString: Door_Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 117304404960910132}
   m_Layer: 2
   m_Name: TriggerPorte
-  m_TagString: Untagged
+  m_TagString: Door_Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,11 +140,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c536a1f83349a429009221ea2cf35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  open: 0
+  close: 0
   locked: 0
   doorPivot: {fileID: 7903244471554112077}
   meshDoor: {fileID: 0}
   sizeTriggerIfEnter: 1.1
   sizeTriggerIfExit: 1
+  dstDoorUni: {x: 0, y: 0, z: 0}
+  maxDistance: 10
 --- !u!65 &1824062187418487050
 BoxCollider:
   m_ObjectHideFlags: 0

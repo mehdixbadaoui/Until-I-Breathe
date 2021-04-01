@@ -122,18 +122,21 @@ public class Breathing_mechanic : MonoBehaviour
                     }
                     if (objectDetector.listObj[index].tag == "fan")
                     {
-                        myAnimator.Play("BreathingFan", 1);
-                        myAnimator.Play("BreathingFan", 2);
-
-                        if ( !isBlowingFan )
+                        if (!objectDetector.listObj[index].GetComponent<Fan>().isOn)
                         {
-                            isBlowingFan = true;
-                            StartCoroutine(BlowFan());
-                        }
-                       // Movement.canMove = false;
+                            myAnimator.Play("BreathingFan", 0);
+                            myAnimator.Play("BreathingFan", 1);
 
-                        
-                        objectDetector.listObj[index].GetComponent<Fan>().incAir(1 * Time.deltaTime);
+                            if (!isBlowingFan)
+                            {
+                                isBlowingFan = true;
+                                StartCoroutine(BlowFan());
+                            }
+                            // Movement.canMove = false;
+
+
+                            objectDetector.listObj[index].GetComponent<Fan>().incAir(1 * Time.deltaTime);
+                        }
                     }
                     /*                if (blowObj)
                                     {

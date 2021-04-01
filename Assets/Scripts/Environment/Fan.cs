@@ -6,19 +6,19 @@ public class Fan : MonoBehaviour
 {
     [SerializeField] private float air;
     public float capacity;
+    public bool isOn = false;
 
     public List<GameObject> doors;
     public GameObject generator;
     public List<GameObject> lights;
 
     private Animator fanAnim;
-    private CheckLenghtSound checkLenghtSound;
+    private DistanceUniFromObjects distanceUniFromObjects;
+    
     private GameObject uni; 
     private bool isIncAir = false;
-    public Vector3 distanceVentilatorUni;
     public float maxDistanceFromVentilator = 7f;
-    private float ventilatorVolume;
-   
+    private Vector3 distFanFromUni; 
 
 
     // Start is called before the first frame update
@@ -26,7 +26,8 @@ public class Fan : MonoBehaviour
     {
         air = 0;
         uni = GameObject.FindGameObjectWithTag("uni");
-        checkLenghtSound = uni.GetComponent<CheckLenghtSound>();
+        distanceUniFromObjects = uni.GetComponent<DistanceUniFromObjects>();
+        
         // Get the fan anim
         fanAnim = GetComponentInChildren<Animator>();
     }
@@ -34,58 +35,44 @@ public class Fan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        distFanFromUni = distanceUniFromObjects.CalculateDistanceUniFromObject(this.gameObject.transform.position);
         if (air >= capacity)
         {
-            fanAnim.SetBool("isrotating", true);
-            bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Little_Ventilator_event", this.gameObject);
-            if (!isSoundFinished)
-                AkSoundEngine.PostEvent("Little_Ventilator_event", this.gameObject);
-            fanAnim.speed = 1;
             
-            //UNLOCK THE DOOR
-            foreach (GameObject door in doors)
-                door.GetComponentInChildren<Door>().locked = false;
+            distanceUniFromObjects.RTPCGameObjectValue(distFanFromUni, maxDistanceFromVentilator,this.gameObject, "Little_Ventilator_event", "FanVolume", fanAnim.speed);
 
-            //TURN ON GENERATOR
-            if (generator)
+            if (!isOn)
             {
-                generator.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(80000, 80000, 80000, 80000));
+                isOn = true;
+                fanAnim.SetBool("isrotating", true);
+                fanAnim.speed = 1;
+
+                //UNLOCK THE DOOR
+                foreach (GameObject door in doors)
+                    door.GetComponentInChildren<Door>().locked = false;
+
+                //TURN ON GENERATOR
+                if (generator)
+                {
+                    generator.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(80000, 80000, 80000, 80000));
+                }
+
+                //TURN LIGHTS TO GREEN
+                foreach (GameObject light in lights)
+                    light.GetComponentInChildren<Light>().color = Color.green;
             }
-
-            //TURN LIGHTS TO GREEN
-            foreach(GameObject light in lights)
-                light.GetComponentInChildren<Light>().color = Color.green;
         }
-        distanceVentilatorUni = new Vector3(0, 0, this.gameObject.transform.position.z - uni.transform.position.z);
-        RTPCVentilatorSound(distanceVentilatorUni);
-
-
-    }
-    private void RTPCVentilatorSound(Vector3 dstVentilatorUni)
-    {
-
         
-        if (dstVentilatorUni.z <= maxDistanceFromVentilator && dstVentilatorUni.z > 0)
-        {
-            ventilatorVolume = Mathf.Abs(100 - distanceVentilatorUni.z * 100f / maxDistanceFromVentilator) * fanAnim.speed;
-            AkSoundEngine.SetRTPCValue("VentilatorVolume", ventilatorVolume);
-        }
-        else if (dstVentilatorUni.z >= -maxDistanceFromVentilator && dstVentilatorUni.z < 0)
-        {
-            ventilatorVolume = (100 - Mathf.Abs(distanceVentilatorUni.z * 100f / maxDistanceFromVentilator)) * fanAnim.speed;
-            AkSoundEngine.SetRTPCValue("VentilatorVolume",  ventilatorVolume);
-        }
-        else
-        {
-            ventilatorVolume = 0f;
-            AkSoundEngine.SetRTPCValue("VentilatorVolume", 0f);
-        }
+
+
     }
+   
 
     private void FixedUpdate()
     {
         if (!isIncAir && air < capacity)
         {
+            distanceUniFromObjects.RTPCGameObjectValue(distFanFromUni, maxDistanceFromVentilator, this.gameObject, "Little_Ventilator_event", "FanVolume", fanAnim.speed);
             fanAnim.speed = Mathf.Lerp(fanAnim.speed, 0, Time.deltaTime);
             if (fanAnim.speed < 0.1)
             {
@@ -105,10 +92,7 @@ public class Fan : MonoBehaviour
     {
         if (air <= capacity)
         {
-            bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Little_Ventilator_event", this.gameObject);
-            AkSoundEngine.SetRTPCValue("VentilatorVolume", ventilatorVolume);
-            if (!isSoundFinished)
-                AkSoundEngine.PostEvent("Little_Ventilator_event", this.gameObject);
+            
 
             isIncAir = true;
             air += amount;
