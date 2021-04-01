@@ -132,7 +132,7 @@ public class LedgeLocator : MonoBehaviour
         {
             camChanged = true;
             camFollow.transform.position = Vector3.Lerp(camFollow.transform.position
-                , new Vector3(camFollow.transform.localPosition.x, GameObject.FindGameObjectWithTag("rig").transform.position.y + previousCamPos.y, GameObject.FindGameObjectWithTag("rig").transform.position.z + previousCamPos.z)
+                , new Vector3(camFollow.transform.position.x, GameObject.FindGameObjectWithTag("rig").transform.position.y + previousCamPos.y, GameObject.FindGameObjectWithTag("rig").transform.position.z + previousCamPos.z)
                 , 0.1f ) ;
         }
         else if (camChanged)
@@ -177,8 +177,8 @@ public class LedgeLocator : MonoBehaviour
                     {
                         grabbingLedge = true;
                         myAnimator.SetBool("LedgeHanging", true);
-                        myAnimator.Play("Hangingidle", 1);
-                        myAnimator.Play("Hangingidle", 2);
+                        myAnimator.Play("Hangingidle", 0);
+                        //myAnimator.Play("Hangingidle", 2);
                     }
                 }
             }
@@ -257,17 +257,17 @@ public class LedgeLocator : MonoBehaviour
         changeCam = true;
 
         //Wait for the beginning of LedgeClimb
-        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(1).IsName("LedgeClimb"));
-        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(2).IsName("LedgeClimb"));
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("LedgeClimb"));
+        //yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(2).IsName("LedgeClimb"));
 
         //Wait for the end of LedgeClimb
-        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length / 2 );
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length / 2 );
 
         newPos = GameObject.FindGameObjectWithTag("rig").transform.position;
 
 
-        myAnimator.Play("idle&run", 1);
-        myAnimator.Play("idle&run", 2);
+        myAnimator.Play("idle&run", 0);
+        //myAnimator.Play("idle&run", 2);
 
         Vector3 previousCamGlobalPos = camFollow.transform.position;
         transform.position +=  new Vector3(0,newPos.y - previousPos.y + 0.5f, newPos.z - previousPos.z); //topOfPlatformTransform.TransformPoint(localPosition);

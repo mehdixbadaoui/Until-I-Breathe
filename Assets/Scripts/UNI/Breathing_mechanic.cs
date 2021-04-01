@@ -122,8 +122,8 @@ public class Breathing_mechanic : MonoBehaviour
                     }
                     if (objectDetector.listObj[index].tag == "fan")
                     {
+                        myAnimator.Play("BreathingFan", 0);
                         myAnimator.Play("BreathingFan", 1);
-                        myAnimator.Play("BreathingFan", 2);
 
                         if ( !isBlowingFan )
                         {

@@ -8,6 +8,7 @@ public class NextScene : MonoBehaviour
 
     //public GameObject text;
     public GameObject background;
+    public GameObject Uni;
     //public GameObject progressBars;
 
     private AsyncOperation async;
@@ -46,6 +47,7 @@ public class NextScene : MonoBehaviour
     {
         if (other.tag == "uni")
         {
+            Uni = other.gameObject;
             LoadScenes( SceneManager.GetActiveScene().buildIndex + 1 );
         }
     }
