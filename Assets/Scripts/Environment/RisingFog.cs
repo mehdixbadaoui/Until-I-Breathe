@@ -10,7 +10,7 @@ public class RisingFog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(new Vector3(0, Mathf.Lerp(0, 1, .5f), 0) * RiseSpeed / 10);
+        transform.Translate(new Vector3(0, Mathf.Lerp(0, 1, .5f), 0) * RiseSpeed / 10);
     }
 
     private void OnTriggerStay(Collider other)
