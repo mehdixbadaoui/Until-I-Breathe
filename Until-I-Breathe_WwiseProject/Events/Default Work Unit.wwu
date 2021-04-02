@@ -62,13 +62,53 @@
 						</Event>
 						<Event Name="Stop_music_event" ID="{8E32E110-1E02-438F-9706-0182DECFA8C9}">
 							<ChildrenList>
-								<Action Name="" ID="{A5508650-1A09-4E9A-87C1-4CCB0958673C}" ShortID="840617676">
+								<Action Name="" ID="{9BD2A605-5E78-433E-B799-04714CCC8BDB}" ShortID="412839319">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="4"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_music_1_2" ID="{2E8357A8-8AEA-4B80-8A05-AF8BF7F0A911}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F1D24B54-3014-47F6-9C0A-79B8AEE735C8}" ShortID="604760988">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_interior_music" ID="{E77EBFB3-2163-45BD-BC8E-2DE366E75946}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{DF702D3F-F519-4CEF-99A5-04A7EA27A7AF}" ShortID="340994081">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Ambient_music_1_1" ID="{70901066-52C4-47E6-B368-0E6F44B18AEB}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{63EA7810-956B-4D85-83A3-C2C44EEF71B1}" ShortID="146178026">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_music_2_1" ID="{37C4069E-8C10-41BE-8325-D3605AC29AFD}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4C0A8430-D0C7-444D-9FB3-6EA0532ACA56}" ShortID="185445211">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_music_2_2" ID="{FFF1041F-FB36-4771-B3AB-C93AF00EED68}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -277,17 +317,46 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
-						<Event Name="Inspiration_event" ID="{94404228-0110-4FC2-A086-947DDA2E54AD}">
+						<Folder Name="Uni_respiration" ID="{816012FA-4C90-4313-9D3C-5733842858CB}" ShortID="534115783">
 							<ChildrenList>
-								<Action Name="" ID="{002F939E-F14C-4DC9-860A-0B4E54A6C27B}" ShortID="9568972">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Uni_inspiration" ID="{0DFF7C09-9443-4174-8A9E-88E55ECB6C5E}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
+								<Event Name="Inspiration_event" ID="{94404228-0110-4FC2-A086-947DDA2E54AD}">
+									<ChildrenList>
+										<Action Name="" ID="{002F939E-F14C-4DC9-860A-0B4E54A6C27B}" ShortID="9568972">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Uni_inspiration" ID="{0DFF7C09-9443-4174-8A9E-88E55ECB6C5E}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Stop_UniSouffle_event" ID="{673E7ACD-69D5-4C03-9CAA-2A7537AFD852}">
+									<ChildrenList>
+										<Action Name="" ID="{F7021CAA-EDEE-43D4-9144-36425372B740}" ShortID="223121609">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniSouffle" ID="{01CFC759-24DD-40D8-956A-44DBD9A27667}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="UniSouffle_event" ID="{624ED977-F2D6-41C9-90D2-825A6C8E9810}">
+									<ChildrenList>
+										<Action Name="" ID="{F0851865-ABA3-4950-8BA3-18A1B8BEA3AB}" ShortID="801008488">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniSouffle" ID="{01CFC759-24DD-40D8-956A-44DBD9A27667}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
-						</Event>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment_events" ID="{216B934E-6312-4A92-9793-8E866A179F9D}" ShortID="354338017">
@@ -611,6 +680,32 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Folder Name="Ballon" ID="{E1433033-3C0D-4536-85AE-EF07142E1DB5}" ShortID="848367506">
+							<ChildrenList>
+								<Event Name="Ballon_explosion_event" ID="{53DB0127-42B7-4FB6-BFC0-B51ABCE34137}">
+									<ChildrenList>
+										<Action Name="" ID="{26BBE057-6A24-4D0A-9FB2-D4BE38752668}" ShortID="993633474">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ballon_explosion" ID="{0FB0AE29-F496-4AFD-A166-6FC98203D9F6}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Ballon_souffle_event" ID="{1C20D0B6-4597-4579-A4F8-79B83D99DD1B}">
+									<ChildrenList>
+										<Action Name="" ID="{AC301972-7D10-4EDB-BB4A-D182568D73DA}" ShortID="328633169">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ballon" ID="{B8F1BBB1-E9B8-4C7A-99E1-5E0C68579386}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST2_events" ID="{06E9A8D0-90E8-4BDD-9A08-3FFF794014E5}" ShortID="741954611">

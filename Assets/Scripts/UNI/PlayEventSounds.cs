@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DistanceUniFromObjects : MonoBehaviour
+public class PlayEventSounds : MonoBehaviour
 {
     private GameObject uni;
     private CheckLenghtSound checkLenghtSound;
@@ -20,7 +20,7 @@ public class DistanceUniFromObjects : MonoBehaviour
     {
         
     }
-    public void RTPCGameObjectValue(Vector3 distUniFromObject, float maxDistance, GameObject gameObject, string nameOfEvent, string nameOfRTPC, float coeffSpeed = 1)
+    public void RTPCGameObjectValue(Vector3 distUniFromObject, float maxDistance, GameObject gameObject, string nameOfEvent, string nameOfRTPC = "", float coeffSpeed = 1)
     {
 
         
@@ -61,11 +61,27 @@ public class DistanceUniFromObjects : MonoBehaviour
         if (!isSoundFinished)
             AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
-    
+    public void UniRespiration(string nameOfEvent, GameObject gameObject, float breathOfUni, string nameOfRTPC)
+    {
+        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
+        
+            
+        AkSoundEngine.SetRTPCValue(nameOfRTPC,110 - breathOfUni);
+        if (!isSoundFinished)
+            AkSoundEngine.PostEvent(nameOfEvent, uni);
+       
+        
+    }
 
     public Vector3 CalculateDistanceUniFromObject(Vector3 positionOfGameObject)
     {
         Vector3 distanceGameObjectFromUni = positionOfGameObject - uni.transform.position;
         return distanceGameObjectFromUni; 
+    }
+    public void PlayEventWithoutRTPC(string nameOfEvent, GameObject gameObject)
+    {
+        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
+        if (!isSoundFinished)
+            AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
 }

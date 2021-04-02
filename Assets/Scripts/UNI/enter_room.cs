@@ -21,14 +21,14 @@ public class enter_room : MonoBehaviour
     public float musicVolume;
     public float coefficientAttenuation = 1.5f;
 
-    private DistanceUniFromObjects distanceUniFromObjects; 
+    private PlayEventSounds distanceUniFromObjects; 
     private void Start()
     {
         
         room_inside = this.gameObject;
         room_inside_collider = room_inside.GetComponent<BoxCollider>();
         uni = GameObject.FindGameObjectWithTag("uni");
-        distanceUniFromObjects = uni.GetComponent<DistanceUniFromObjects>(); 
+        distanceUniFromObjects = uni.GetComponent<PlayEventSounds>(); 
         checkLenghtSound = uni.GetComponent<CheckLenghtSound>();
         if (facade)
             rends = facade.GetComponentsInChildren<Renderer>();
