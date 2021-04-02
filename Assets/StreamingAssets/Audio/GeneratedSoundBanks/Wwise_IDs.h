@@ -63,6 +63,9 @@ namespace AK
         static const AkUniqueID PORTE_OUVERTE_METAL_EVENT = 756074935U;
         static const AkUniqueID STOP_CAISSE_FROTTEMENT_EVENT = 707299762U;
         static const AkUniqueID STOP_LITTLE_VENTILATOR_EVENT = 2239026864U;
+        static const AkUniqueID STOP_MUSIC_EVENT = 3935460844U;
+        static const AkUniqueID STOP_UNISOUFFLE_EVENT = 3140239569U;
+        static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
     } // namespace EVENTS
 
     namespace SWITCHES

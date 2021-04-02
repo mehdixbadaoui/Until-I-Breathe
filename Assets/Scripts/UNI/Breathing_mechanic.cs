@@ -37,7 +37,7 @@ public class Breathing_mechanic : MonoBehaviour
 
     public VisualEffect Vfx;
     private bool breathVfx = false;
-
+    
     //public KeyCode hold_breath_key;
     //public KeyCode exhale_key;
     //public KeyCode interact;
@@ -48,6 +48,7 @@ public class Breathing_mechanic : MonoBehaviour
     private ObjectDetector objectDetector;
 
     private Inputs inputs;
+    private PlayEventSounds playEvent; 
 
     private void Awake()
     {
@@ -82,9 +83,12 @@ public class Breathing_mechanic : MonoBehaviour
 
         // Get uni Breathing Mecanic
         grapplin = GetComponent<GrapplingHook>();
-
+        
         // Get the object detector
         movement = GetComponentInChildren<Movement>();
+
+        //PlaySounds
+        playEvent = this.gameObject.GetComponent<PlayEventSounds>(); 
     }
 
     // Update is called once per frame
@@ -105,7 +109,7 @@ public class Breathing_mechanic : MonoBehaviour
         {
             exhale = true;
             current_exhale = exhale_speed;
-
+            playEvent.PlayEventWithoutRTPC("UniSouffle_event", this.gameObject);
             if ( breathVfx == false)
             {
                 Vfx.Play();
@@ -156,7 +160,7 @@ public class Breathing_mechanic : MonoBehaviour
         {
             exhale = false;
             current_exhale = 1;
-
+            playEvent.PlayEventWithoutRTPC("Stop_UniSouffle_event", this.gameObject);
             if (breathVfx == true)
             {
                 Vfx.Stop();
@@ -192,6 +196,7 @@ public class Breathing_mechanic : MonoBehaviour
         yield return new WaitWhile(() => !( !exhale ) );
 
         Movement.canMove = true;
+        
         isBlowingFan = false;
     }
 

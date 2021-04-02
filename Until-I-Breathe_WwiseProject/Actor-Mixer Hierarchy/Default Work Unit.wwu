@@ -4482,6 +4482,95 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="UniSouffle" ID="{01CFC759-24DD-40D8-956A-44DBD9A27667}" ShortID="851850786">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-50</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Uni_souffle 1" ID="{5803DADE-E522-4BEC-8084-BF5F1A61B8F3}" ShortID="432262103">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_souffle 1" ID="{1A48F9CA-D3BC-4C74-8098-01FB1D888AB4}">
+											<Language>SFX</Language>
+											<AudioFile>Uni_souffle 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="169853502"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_souffle 1" ID="{1A48F9CA-D3BC-4C74-8098-01FB1D888AB4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_souffle 2" ID="{73F6ECBE-9A3B-4B3D-88DB-76AF000CA4DC}" ShortID="395172230">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_souffle 2" ID="{799E870A-6330-4DB7-B5FD-898D549CBE87}">
+											<Language>SFX</Language>
+											<AudioFile>Uni_souffle 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="246352052"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_souffle 2" ID="{799E870A-6330-4DB7-B5FD-898D549CBE87}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_souffle 3" ID="{24BE7495-BCDF-4AFA-AEE3-9759823822A2}" ShortID="477319799">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_souffle 3" ID="{1F3D98A1-4816-4E30-9D72-BC17A886D617}">
+											<Language>SFX</Language>
+											<AudioFile>Uni_souffle 3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="271850952"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_souffle 3" ID="{1F3D98A1-4816-4E30-9D72-BC17A886D617}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST-2Sounds" ID="{96482C6A-84E8-4DC6-8CA0-91C03ACD358D}" ShortID="683412825">

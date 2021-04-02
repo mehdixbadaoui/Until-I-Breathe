@@ -45,8 +45,8 @@ public class NextScene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //AkSoundEngine.PostEvent("Stop_music_event", maincamera);
-        maincamera.GetComponent<AkAmbient>().Stop(10);  
+        AkSoundEngine.PostEvent("Stop_music_event", maincamera);
+        //maincamera.GetComponent<AkAmbient>().Stop(10);  
         if (other.tag == "uni")
         {
             Uni = other.gameObject;
