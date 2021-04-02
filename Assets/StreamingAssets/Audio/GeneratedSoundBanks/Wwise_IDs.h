@@ -17,6 +17,8 @@ namespace AK
         static const AkUniqueID AMBIANT_INTERIOR_EVENT = 2961983739U;
         static const AkUniqueID ASCENSEUR_FERMEE_EVENT = 251064884U;
         static const AkUniqueID ASCENSEUR_OUVERT_EVENT = 1844130327U;
+        static const AkUniqueID BALLON_EXPLOSION_EVENT = 2564548868U;
+        static const AkUniqueID BALLON_SOUFFLE_EVENT = 3952828675U;
         static const AkUniqueID BIG_VENTILATOR_EVENT = 478883995U;
         static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
         static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;

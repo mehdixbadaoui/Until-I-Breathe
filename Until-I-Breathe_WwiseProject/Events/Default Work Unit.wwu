@@ -680,6 +680,32 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Folder Name="Ballon" ID="{E1433033-3C0D-4536-85AE-EF07142E1DB5}" ShortID="848367506">
+							<ChildrenList>
+								<Event Name="Ballon_explosion_event" ID="{53DB0127-42B7-4FB6-BFC0-B51ABCE34137}">
+									<ChildrenList>
+										<Action Name="" ID="{26BBE057-6A24-4D0A-9FB2-D4BE38752668}" ShortID="993633474">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ballon_explosion" ID="{0FB0AE29-F496-4AFD-A166-6FC98203D9F6}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Ballon_souffle_event" ID="{1C20D0B6-4597-4579-A4F8-79B83D99DD1B}">
+									<ChildrenList>
+										<Action Name="" ID="{AC301972-7D10-4EDB-BB4A-D182568D73DA}" ShortID="328633169">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Ballon" ID="{B8F1BBB1-E9B8-4C7A-99E1-5E0C68579386}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST2_events" ID="{06E9A8D0-90E8-4BDD-9A08-3FFF794014E5}" ShortID="741954611">

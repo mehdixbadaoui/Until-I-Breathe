@@ -61,7 +61,17 @@ public class PlayEventSounds : MonoBehaviour
         if (!isSoundFinished)
             AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
-    
+    public void UniRespiration(string nameOfEvent, GameObject gameObject, float breathOfUni, string nameOfRTPC)
+    {
+        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
+        
+            
+        AkSoundEngine.SetRTPCValue(nameOfRTPC,110 - breathOfUni);
+        if (!isSoundFinished)
+            AkSoundEngine.PostEvent(nameOfEvent, uni);
+       
+        
+    }
 
     public Vector3 CalculateDistanceUniFromObject(Vector3 positionOfGameObject)
     {

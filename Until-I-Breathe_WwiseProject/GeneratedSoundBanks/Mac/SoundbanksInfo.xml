@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="3239873397">
+		<SoundBank Id="2228651116" Language="SFX" Hash="577608307">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -75,6 +75,38 @@
 						<File Id="716231257" Language="SFX">
 							<ShortName>Ascenseur_Ouvre_03.wav</ShortName>
 							<Path>SFX\Ascenseur_Ouvre_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2564548868" Name="Ballon_explosion_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ballon\Ballon_explosion_event" DurationType="OneShot" DurationMin="2.203900" DurationMax="2.368730">
+					<IncludedMemoryFiles>
+						<File Id="265883135" Language="SFX">
+							<ShortName>Ballon_explosion 2.wav</ShortName>
+							<Path>SFX\Ballon_explosion 2_10C4C929.wem</Path>
+						</File>
+						<File Id="270275988" Language="SFX">
+							<ShortName>Ballon_explosion 1.wav</ShortName>
+							<Path>SFX\Ballon_explosion 1_10C4C929.wem</Path>
+						</File>
+						<File Id="951175833" Language="SFX">
+							<ShortName>Ballon_explosion 3.wav</ShortName>
+							<Path>SFX\Ballon_explosion 3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3952828675" Name="Ballon_souffle_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ballon\Ballon_souffle_event" DurationType="OneShot" DurationMin="3.088549" DurationMax="3.464127">
+					<IncludedMemoryFiles>
+						<File Id="526418152" Language="SFX">
+							<ShortName>Ballon 3.wav</ShortName>
+							<Path>SFX\Ballon 3_10C4C929.wem</Path>
+						</File>
+						<File Id="799718434" Language="SFX">
+							<ShortName>Ballon 2.wav</ShortName>
+							<Path>SFX\Ballon 2_10C4C929.wem</Path>
+						</File>
+						<File Id="1043927290" Language="SFX">
+							<ShortName>Ballon 1.wav</ShortName>
+							<Path>SFX\Ballon 1_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
