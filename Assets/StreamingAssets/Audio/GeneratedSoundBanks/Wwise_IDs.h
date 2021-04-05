@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID BALLON_EXPLOSION_EVENT = 2564548868U;
         static const AkUniqueID BALLON_SOUFFLE_EVENT = 3952828675U;
         static const AkUniqueID BIG_VENTILATOR_EVENT = 478883995U;
+        static const AkUniqueID BREAK_UNTILIBREATHE_LEVEL2_3_RUN_LOOP_EVENT = 4014938746U;
         static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
         static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;
         static const AkUniqueID CAMERA_DETECTION_EVENT = 4200175161U;
@@ -56,6 +57,7 @@ namespace AK
         static const AkUniqueID LVL_1_2_EVENT = 1572269619U;
         static const AkUniqueID LVL_2_1_EVENT = 3922198791U;
         static const AkUniqueID LVL_2_2_EVENT = 3860896488U;
+        static const AkUniqueID PLAY_LEVEL2_3_EVENT = 3795112257U;
         static const AkUniqueID PORTE_COULISSANTE_FERMEE_EVENT = 1197453168U;
         static const AkUniqueID PORTE_COULISSANTE_OUVERTE_EVENT = 1772158906U;
         static const AkUniqueID PORTE_DEVEROUILLEE_EVENT = 293930242U;

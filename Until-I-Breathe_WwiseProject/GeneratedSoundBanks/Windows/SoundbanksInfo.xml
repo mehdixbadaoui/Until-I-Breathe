@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="577608307">
+		<SoundBank Id="2228651116" Language="SFX" Hash="2706228625">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -118,6 +118,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="4014938746" Name="Break_UntilIBreathe_Level2_3_Run_Loop_event" ObjectPath="\Events\Default Work Unit\Break_UntilIBreathe_Level2_3_Run_Loop_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="113833375" Name="BrokenWindow_event" ObjectPath="\Events\Default Work Unit\Environment_events\BrokenWindow_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.500000">
 					<IncludedMemoryFiles>
 						<File Id="395899910" Language="SFX">
@@ -643,6 +644,22 @@
 						<File Id="918410245" Language="SFX">
 							<ShortName>UntilIBreath 2-2.wav</ShortName>
 							<Path>SFX\UntilIBreath 2-2_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3795112257" Name="Play_Level2_3_event" ObjectPath="\Events\Default Work Unit\Play_Level2_3_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="65055988" Language="SFX">
+							<ShortName>UntilIBreathe_Level2-3_Run_Loop.wav</ShortName>
+							<Path>SFX\UntilIBreathe_Level2-3_Run_Loop_D79FB2B7.wem</Path>
+						</File>
+						<File Id="244515755" Language="SFX">
+							<ShortName>UntilIBreathe_Level2-3_Start_01.wav</ShortName>
+							<Path>SFX\UntilIBreathe_Level2-3_Start_01_10C4C929.wem</Path>
+						</File>
+						<File Id="733056892" Language="SFX">
+							<ShortName>UntilIBreathe_Level2-3_End_01.wav</ShortName>
+							<Path>SFX\UntilIBreathe_Level2-3_End_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

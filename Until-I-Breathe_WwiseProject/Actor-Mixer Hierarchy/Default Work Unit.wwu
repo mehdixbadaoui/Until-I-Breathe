@@ -261,6 +261,105 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</BlendContainer>
+						<RandomSequenceContainer Name="Level2_3" ID="{4F0B9386-430A-47A3-B285-0555A0A1B655}" ShortID="494372843">
+							<PropertyList>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Music" ID="{6722D126-770E-440E-A0E0-3A6FF4E0AD03}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="UntilIBreathe_Level2-3_End_01" ID="{6704E811-6B5D-4B2C-9B5F-583893C04D7B}" ShortID="957391492">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UntilIBreathe_Level2-3_End_01" ID="{84AF187D-95D9-4E40-8442-2413AED98CCC}">
+											<Language>SFX</Language>
+											<AudioFile>UntilIBreathe_Level2-3_End_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="733056892"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="UntilIBreathe_Level2-3_End_01" ID="{84AF187D-95D9-4E40-8442-2413AED98CCC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UntilIBreathe_Level2-3_Run_Loop" ID="{40E1D24E-1772-44C4-8B3F-FA09684C7324}" ShortID="696771179">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UntilIBreathe_Level2-3_Run_Loop" ID="{EF66D5A3-BC0B-4715-B5F4-9FFAB183324D}">
+											<Language>SFX</Language>
+											<AudioFile>UntilIBreathe_Level2-3_Run_Loop.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="65055988"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="UntilIBreathe_Level2-3_Run_Loop" ID="{EF66D5A3-BC0B-4715-B5F4-9FFAB183324D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="UntilIBreathe_Level2-3_Start_01" ID="{3EFB6D74-90E1-4B02-818C-58B963763949}" ShortID="119027204">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UntilIBreathe_Level2-3_Start_01" ID="{53E9DC32-3F53-4BBE-892A-57E9DCC38ACA}">
+											<Language>SFX</Language>
+											<AudioFile>UntilIBreathe_Level2-3_Start_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="244515755"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="UntilIBreathe_Level2-3_Start_01" ID="{53E9DC32-3F53-4BBE-892A-57E9DCC38ACA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+							<Playlist>
+								<ItemRef Name="UntilIBreathe_Level2-3_Start_01" ID="{3EFB6D74-90E1-4B02-818C-58B963763949}"/>
+								<ItemRef Name="UntilIBreathe_Level2-3_Run_Loop" ID="{40E1D24E-1772-44C4-8B3F-FA09684C7324}"/>
+								<ItemRef Name="UntilIBreathe_Level2-3_End_01" ID="{6704E811-6B5D-4B2C-9B5F-583893C04D7B}"/>
+							</Playlist>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{F147F5F0-1EF6-4350-B203-5ED1A3166AE8}" ShortID="676180417">
@@ -2467,7 +2566,7 @@
 								<Property Name="RestartBeginningOrBackward" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-15</Value>
+										<Value>-10</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
