@@ -54,18 +54,24 @@ public class ObjectDetector : MonoBehaviour
                         light.GetComponent<Light>().color = Color.green;
                 }
 
-                if (listObj[index].CompareTag("lever"))
+                else if (listObj[index].CompareTag("lever"))
                 {
                     listObj[index].GetComponent<Lever>().Unlock();
                     
                 }
 
-                if (listObj[index].CompareTag("Button_Platform"))
+                else if (listObj[index].CompareTag("RisingFogLever"))
+                {
+                    listObj[index].GetComponent<RisingFogLever>().LaunchGaz();
+                    
+                }
+
+                else if (listObj[index].CompareTag("Button_Platform"))
                 {
                     listObj[index].GetComponent<ButtonPlatforms>().Increment();
                 }
 
-                if (listObj[index].CompareTag("Lever_Platform"))
+                else if (listObj[index].CompareTag("Lever_Platform"))
                 {
                     listObj[index].GetComponent<LeverPlatforms>().GoTo();
                     
@@ -79,7 +85,10 @@ public class ObjectDetector : MonoBehaviour
     {
 
 
-        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform") || col.CompareTag("Lever_Platform"))
+        if (col.CompareTag("blowable") || col.CompareTag("fan")
+            || col.CompareTag("button") || col.CompareTag("lever")
+            || col.CompareTag("Button_Platform") || col.CompareTag("Lever_Platform")
+            || col.CompareTag("RisingFogLever"))
         {
             listObj.Add(col.gameObject);
         }

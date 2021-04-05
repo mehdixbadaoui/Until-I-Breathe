@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 51aabce36bd9084484d9d84337a24ddc
     GuidInternal: 
-    m_lastTime: -8585851179603220221
+    m_lastTime: -8585842492453421966
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 51825a5e24261e4b9d8cee98f3163d80
     GuidInternal: 
-    m_lastTime: -8585844077236836210
+    m_lastTime: -8585842492518915765
     List:
     - name: Environment
       guid: 9462943f00bc66409fa4e3bc35c1a358
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585842486076171435
+    m_lastTime: -8585842097682192335
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585842483890231838
+    m_lastTime: -8585842097683309355
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -207,6 +207,72 @@ MonoBehaviour:
         ObjectType: 3
         guid: 830018bcf4356a4586e593523c14a040
       Path: Events\Default Work Unit\Environment_events\Ascenseur_ouvert_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Ballon
+      guid: 333043e10d3c364585aeef07142e1db5
+      id: 3306003129
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Ballon
+        ObjectType: 4
+        guid: 333043e10d3c364585aeef07142e1db5
+      Path: Events\Default Work Unit\Environment_events\Ballon
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Ballon_explosion_event
+      guid: 2701db53b742b64fbfc0b51abce34137
+      id: 2564548868
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Ballon
+        ObjectType: 4
+        guid: 333043e10d3c364585aeef07142e1db5
+      - ElementName: Ballon_explosion_event
+        ObjectType: 3
+        guid: 2701db53b742b64fbfc0b51abce34137
+      Path: Events\Default Work Unit\Environment_events\Ballon\Ballon_explosion_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Ballon_souffle_event
+      guid: b6d0201c97457945a4f879b83d99dd1b
+      id: 3952828675
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Ballon
+        ObjectType: 4
+        guid: 333043e10d3c364585aeef07142e1db5
+      - ElementName: Ballon_souffle_event
+        ObjectType: 3
+        guid: b6d0201c97457945a4f879b83d99dd1b
+      Path: Events\Default Work Unit\Environment_events\Ballon\Ballon_souffle_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1558,7 +1624,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585843187588724061
+    m_lastTime: -8585842492529280346
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -1721,7 +1787,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 6cd69aa556385a4980a194d531da01f9
     GuidInternal: 
-    m_lastTime: -8585851179603270088
+    m_lastTime: -8585842492453761097
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -1735,7 +1801,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 55f3b155ac5f824c966e186f8dbe0dc6
     GuidInternal: 
-    m_lastTime: -8585851179603270088
+    m_lastTime: -8585842492453750917
     List:
     - name: FootSteps
       guid: e9b27687793928429459307ec8fff664
@@ -1847,7 +1913,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 50ebb7989315ce43922b62fa3756eeb9
     GuidInternal: 
-    m_lastTime: -8585851179603260115
+    m_lastTime: -8585842492453731140
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000000b0000000c0000000e0000000f00000010000000110000001200000018000000
