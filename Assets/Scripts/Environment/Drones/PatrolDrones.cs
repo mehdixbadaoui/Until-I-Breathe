@@ -4,155 +4,248 @@ using UnityEngine;
 
 public class PatrolDrones : MonoBehaviour
 {
-    // PlayerDetection Script
-    PlayerDetection playerDetectionScript;
+    public Transform player;
 
-    public Transform startPoint, endPoint;
-    public float speed;
-    public float changeDirectionDelay;
+    public float timeToSpotPlayer = .5f;
+    public Light spotlight;
+    public LayerMask viewMask;
 
-    [Range(0f, 1f)]
-    public float rotSpeed;
+    public Transform pathHolder;
+    public float speed = 5;
+    public float waitTime = .3f;
+    public float turnSpeed = 90;
 
-    Transform destinationTarget, departTarget;
-    Quaternion desiredRot;
     float startTime;
     float journeyLength;
-    bool isWaiting;
+    Vector3 velocity = Vector3.zero;
+
+    float playerVisibleTimer;
+    bool detected;
+
+    Color originalSpotlightColour;
+    GameMaster GM;
 
     void Start()
     {
-        // Ref to the PlayerDetection Script
-        playerDetectionScript = GetComponent<PlayerDetection>();
+        GM = FindObjectOfType<GameMaster>();
+        originalSpotlightColour = spotlight.color;
 
-        departTarget = startPoint;
-        destinationTarget = endPoint;
-
-        startTime = Time.time;
-        journeyLength = Vector3.Distance(departTarget.position, destinationTarget.position);
-    }
-
-
-    void FixedUpdate()
-    {
-        if (playerDetectionScript.detected == false)
+        Vector3[] waypoints = new Vector3[pathHolder.childCount];
+        for (int i = 0; i < waypoints.Length; i++)
         {
-            Move();
+            waypoints[i] = pathHolder.GetChild(i).position;
+            waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
         }
+        
+        StartCoroutine(FollowPath(waypoints));
+
     }
 
-    private void Move()
+    void Update()
     {
-        if (!isWaiting)
+        if (detected)
         {
-            if (Vector3.Distance(transform.position, destinationTarget.position) > 0.01f)
-            {
-                float distCovered = (Time.time - startTime) * speed;
-
-                float fractionOfJourney = distCovered / journeyLength;
-
-                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRot, 10 * rotSpeed * Time.deltaTime);
-                transform.position = Vector3.Lerp(departTarget.position, destinationTarget.position, fractionOfJourney);
-            }
-            else
-            {
-                isWaiting = true;
-                StartCoroutine(changeDelay());
-            }
-        }
-    }
-
-    void ChangeDestination()
-    {
-        if (departTarget == endPoint && destinationTarget == startPoint)
-        {
-            departTarget = startPoint;
-            destinationTarget = endPoint;
-            desiredRot = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.z);
+            playerVisibleTimer += Time.deltaTime;
         }
         else
         {
-            departTarget = endPoint;
-            destinationTarget = startPoint;
-            desiredRot = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
+            playerVisibleTimer -= Time.deltaTime;
+        }
+        playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
+        spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
+
+        if (playerVisibleTimer >= timeToSpotPlayer)
+        {
+            GM.Die();
         }
     }
 
-    IEnumerator changeDelay()
+
+    IEnumerator FollowPath(Vector3[] waypoints)
     {
-        yield return new WaitForSeconds(changeDirectionDelay);
-        ChangeDestination();
-        startTime = Time.time;
-        journeyLength = Vector3.Distance(departTarget.position, destinationTarget.position);
-        isWaiting = false;
+        transform.position = waypoints[0];
+
+        int targetWaypointIndex = 1;
+        Vector3 targetWaypoint = waypoints[targetWaypointIndex];
+        transform.LookAt(targetWaypoint);
+
+        while (true)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.smoothDeltaTime);
+
+            if (transform.position == targetWaypoint)
+            {
+                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+                targetWaypoint = waypoints[targetWaypointIndex];
+                yield return new WaitForSeconds(waitTime);
+                yield return StartCoroutine(TurnToFace(targetWaypoint));
+            }
+            yield return null;
+        }
     }
 
+    IEnumerator TurnToFace(Vector3 lookTarget)
+    {
+        Vector3 dirToLookTarget = (lookTarget - transform.position).normalized;
+        float targetAngle = 90 - Mathf.Atan2(dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;
 
+        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f)
+        {
+            float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
+            transform.eulerAngles = Vector3.up * angle;
+            yield return null;
+        }
+    }
 
-    //// Params of moving
-    //public Transform pointB;
-    //Vector3 pointA;
-    //public float timeItTakes;
-    //public int pause;
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("uni"))
+        {
+            Debug.DrawLine(transform.position, player.position);
+            if (!Physics.Linecast(transform.position, player.position, viewMask))
+            {
+                detected = true;
+            }
+            else
+            {
+                detected = false;
+            }
+        }
+    }
 
-
-
-    //private float timeCount = 0.0f;
-
-    //void Start()
-    //{
-    //    // Ref to the PlayerDetection Script
-    //    playerDetectionScript = GetComponent<PlayerDetection>();
-
-    //    //initial position of the drone is the starting point of patrol
-    //    pointA = transform.position;
-
-    //    //keeps track of the coroutine instantiated
-    //    IEnumerator coDR = ChangeDir();
-    //    StartCoroutine(coDR);
-    //}
-
-    //void Update()
-    //{
-    //    timeCount = timeCount + Time.deltaTime;
-    //}
-
-    //// Calls the moving function to patrol between point A and B
-    //IEnumerator ChangeDir()
-    //{
-    //    while(true)
-    //    {
-    //        // From pA -> pB
-    //        yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
-    //        if (playerDetectionScript.canTurn) //if player detected cant turn
-    //        {
-    //            var desiredRotQA = Quaternion.Euler(transform.eulerAngles.x, 270, transform.eulerAngles.z);
-    //            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQA, timeCount * rotSpeed);
-    //            yield return new WaitForSeconds(pause);
-    //        }
-
-
-    //        // From pB -> pA
-    //        yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
-    //        if (playerDetectionScript.canTurn) //if player detected cant turn
-    //        {
-    //            var desiredRotQB = Quaternion.Euler(transform.eulerAngles.x, 90, transform.eulerAngles.z);
-    //            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotQB, timeCount * rotSpeed);
-    //            yield return new WaitForSeconds(pause);
-    //        }
-    //    }
-    //}
-
-    //// Actually responsible for moving the drone
-    //IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
-    //{
-    //    var i = 0.0f;
-    //    var rate = 1.0f / time;
-    //    while (i < 1.0f && playerDetectionScript.detected == false)
-    //    {
-    //        i += Time.deltaTime * rate;
-    //        thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-    //        yield return null;
-    //    }
-    //}
+    private void OnTriggerExit(Collider other)
+    {
+        detected = false;
+    }
 }
+
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+
+//public class PatrolDrones : MonoBehaviour
+//{
+//    public Transform player;
+
+//    public float timeToSpotPlayer = .5f;
+//    public Light spotlight;
+//    public LayerMask viewMask;
+
+//    public Transform pathHolder;
+//    public float speed = 5;
+//    public float waitTime = .3f;
+//    public float turnSpeed = 90;
+
+//    float startTime;
+//    float journeyLength;
+
+//    float playerVisibleTimer;
+//    bool detected;
+
+//    Color originalSpotlightColour;
+//    GameMaster GM;
+
+//    void Start()
+//    {
+//        GM = FindObjectOfType<GameMaster>();
+//        originalSpotlightColour = spotlight.color;
+
+//        Vector3[] waypoints = new Vector3[pathHolder.childCount];
+//        for (int i = 0; i < waypoints.Length; i++)
+//        {
+//            waypoints[i] = pathHolder.GetChild(i).position;
+//            waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
+//        }
+
+//        startTime = Time.time;
+//        StartCoroutine(FollowPath(waypoints));
+
+//    }
+
+//    void Update()
+//    {
+//        if (detected)
+//        {
+//            playerVisibleTimer += Time.deltaTime;
+//        }
+//        else
+//        {
+//            playerVisibleTimer -= Time.deltaTime;
+//        }
+//        playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
+//        spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
+
+//        if (playerVisibleTimer >= timeToSpotPlayer)
+//        {
+//            GM.Die();
+//        }
+//    }
+
+
+//    IEnumerator FollowPath(Vector3[] waypoints)
+//    {
+//        transform.position = waypoints[0];
+
+//        int targetWaypointIndex = 1;
+//        Vector3 targetWaypoint = waypoints[targetWaypointIndex];
+//        transform.LookAt(targetWaypoint);
+//        journeyLength = Vector3.Distance(transform.position, targetWaypoint);
+
+//        while(true)
+//        {
+//            float distCovered = (Time.time - startTime) * (speed/10);
+
+//            float fractionOfJourney = distCovered / journeyLength;
+
+//            transform.position = Vector3.Lerp(transform.position, targetWaypoint, fractionOfJourney);
+
+//            if (Vector3.Distance(transform.position, targetWaypoint) < 0.1f)
+//                transform.position = targetWaypoint;
+
+//            if (transform.position == targetWaypoint)
+//            {
+//                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+//                targetWaypoint = waypoints[targetWaypointIndex];
+//                startTime = Time.time;
+//                journeyLength = Vector3.Distance(transform.position, targetWaypoint);
+//                yield return new WaitForSeconds(waitTime);
+//                yield return StartCoroutine(TurnToFace(targetWaypoint));
+//            }
+//            yield return null;
+//        }
+//    }
+
+//    IEnumerator TurnToFace(Vector3 lookTarget)
+//    {
+//        Vector3 dirToLookTarget = (lookTarget - transform.position).normalized;
+//        float targetAngle = 90 - Mathf.Atan2(dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;
+
+//        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f)
+//        {
+//            float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
+//            transform.eulerAngles = Vector3.up * angle;
+//            yield return null;
+//        }
+//    }
+
+//    private void OnTriggerStay(Collider other)
+//    {
+//        if (other.CompareTag("uni"))
+//        {
+//            Debug.DrawLine(transform.position, player.position);
+//            if (!Physics.Linecast(transform.position, player.position, viewMask))
+//            {
+//                detected = true;
+//            }
+//            else
+//            {
+//                detected = false;
+//            }
+//        }
+//    }
+
+//    private void OnTriggerExit(Collider other)
+//    {
+//        detected = false;
+//    }
+//}
