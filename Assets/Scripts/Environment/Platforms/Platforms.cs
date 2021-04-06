@@ -26,6 +26,8 @@ public class Platforms : MonoBehaviour
 
     [HideInInspector]
     public bool isWaiting;
+    private GameObject uni;
+    private PlayEventSounds playEvent; 
 
     void Start()
     {
@@ -33,7 +35,8 @@ public class Platforms : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         departTarget = startPoint;
         destinationTarget = endPoint;
-
+        uni = GameObject.FindGameObjectWithTag("uni");
+        playEvent = uni.GetComponent<PlayEventSounds>(); 
         firstTimeOn = true;
         isWaiting = true;
 
@@ -44,6 +47,7 @@ public class Platforms : MonoBehaviour
     {
         if (PlatformLauncherScript != null)
         {
+            playEvent.PlayEventWithoutRTPC("Nacelle_depart_event", uni);
             Move();
         }
     }
@@ -52,6 +56,7 @@ public class Platforms : MonoBehaviour
     {
         if (PlatformLauncherScript.activate)
         {
+            playEvent.PlayEventWithoutRTPC("Nacelle_loop_event", uni); 
             StartCoroutine(PlatformLaunch());
             firstTimeOn = false;
 

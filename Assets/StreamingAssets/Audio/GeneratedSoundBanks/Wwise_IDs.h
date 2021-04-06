@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID BALLON_EXPLOSION_EVENT = 2564548868U;
         static const AkUniqueID BALLON_SOUFFLE_EVENT = 3952828675U;
         static const AkUniqueID BIG_VENTILATOR_EVENT = 478883995U;
+        static const AkUniqueID BREAK_DRONES_STATIONNAIRE_EVENT = 2580519433U;
         static const AkUniqueID BREAK_UNTILIBREATHE_LEVEL2_3_RUN_LOOP_EVENT = 4014938746U;
         static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
         static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;
@@ -34,6 +35,8 @@ namespace AK
         static const AkUniqueID DRONE_STATIONNAIRE_EVENT = 3298702202U;
         static const AkUniqueID ENGRANAGE_TOURNE_EVENT = 2122763242U;
         static const AkUniqueID ENGRENAGE_BLOQUER_EVENT = 480333909U;
+        static const AkUniqueID FOULE_LOOP_EVENT = 2985396484U;
+        static const AkUniqueID FOULE_WOW_EVENT = 2519954033U;
         static const AkUniqueID FS_BETON_EVENT = 1592626750U;
         static const AkUniqueID FS_BOIS_EVENT = 1460609399U;
         static const AkUniqueID FS_CROUCH_BETON_EVENT = 2323690083U;
@@ -57,6 +60,15 @@ namespace AK
         static const AkUniqueID LVL_1_2_EVENT = 1572269619U;
         static const AkUniqueID LVL_2_1_EVENT = 3922198791U;
         static const AkUniqueID LVL_2_2_EVENT = 3860896488U;
+        static const AkUniqueID MESSAGE_ST2_BRANCHEMENT_EVENT = 3024873643U;
+        static const AkUniqueID MESSAGE_ST2_DECRYPTE_EVENT = 3095867336U;
+        static const AkUniqueID NACELLE_DEPART_EVENT = 4251687649U;
+        static const AkUniqueID NACELLE_DETRUITE_EVENT = 3435722515U;
+        static const AkUniqueID NACELLE_FIN_EVENT = 410758684U;
+        static const AkUniqueID NACELLE_LOOP_EVENT = 2283719349U;
+        static const AkUniqueID PLATEFORME_CASSE_BLACON_BETON_EVENT = 695806192U;
+        static const AkUniqueID PLATEFORME_CASSE_GOUTIERE_METAL_EVENT = 3013755494U;
+        static const AkUniqueID PLATEFORME_CASSE_PASSERELLE_METAL_EVENT = 2517494722U;
         static const AkUniqueID PLAY_LEVEL2_3_EVENT = 3795112257U;
         static const AkUniqueID PORTE_COULISSANTE_FERMEE_EVENT = 1197453168U;
         static const AkUniqueID PORTE_COULISSANTE_OUVERTE_EVENT = 1772158906U;
@@ -69,7 +81,12 @@ namespace AK
         static const AkUniqueID STOP_LITTLE_VENTILATOR_EVENT = 2239026864U;
         static const AkUniqueID STOP_MUSIC_EVENT = 3935460844U;
         static const AkUniqueID STOP_UNISOUFFLE_EVENT = 3140239569U;
+        static const AkUniqueID TRAIN_ARRET_EVENT = 3009703055U;
+        static const AkUniqueID TRAIN_DEPART_EVENT = 3951010251U;
+        static const AkUniqueID TRAIN_EXTERIEUR_EVENT = 1127840350U;
+        static const AkUniqueID TRAIN_INTERIEUR_EVENT = 2137224780U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
+        static const AkUniqueID VENT_EVENT = 4165311893U;
     } // namespace EVENTS
 
     namespace SWITCHES
