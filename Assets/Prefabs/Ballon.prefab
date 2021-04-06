@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2609825444696140603}
   - component: {fileID: 2609825444696140602}
   - component: {fileID: 2609825444696140601}
-  - component: {fileID: 2609825444696140606}
+  - component: {fileID: 5766153512526001475}
   m_Layer: 2
   m_Name: Ballon
   m_TagString: blowable
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c8066f06fd6991c46b01f2015fe9caa9, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 2
   m_CollisionDetection: 0
---- !u!114 &2609825444696140606
+--- !u!114 &5766153512526001475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,10 +122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2609825444696140600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b767b0a8171207a48afac7e836343015, type: 3}
+  m_Script: {fileID: 11500000, guid: 18c9707680ba19d49b534889e76a0425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   air: 0
-  capacity: 2
-  travel_dist: 5
-  travel_speed: 0.01
+  capacity: 0
+  travel_dist: 0
+  travel_speed: 0
