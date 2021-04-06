@@ -13,7 +13,7 @@ public class Fan : MonoBehaviour
     public List<GameObject> lights;
 
     private Animator fanAnim;
-    private DistanceUniFromObjects distanceUniFromObjects;
+    private PlayEventSounds playEventWithRTPCSound;
     
     private GameObject uni; 
     private bool isIncAir = false;
@@ -26,7 +26,7 @@ public class Fan : MonoBehaviour
     {
         air = 0;
         uni = GameObject.FindGameObjectWithTag("uni");
-        distanceUniFromObjects = uni.GetComponent<DistanceUniFromObjects>();
+        playEventWithRTPCSound = uni.GetComponent<PlayEventSounds>();
         
         // Get the fan anim
         fanAnim = GetComponentInChildren<Animator>();
@@ -35,11 +35,11 @@ public class Fan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distFanFromUni = distanceUniFromObjects.CalculateDistanceUniFromObject(this.gameObject.transform.position);
+        distFanFromUni = playEventWithRTPCSound.CalculateDistanceUniFromObject(this.gameObject.transform.position);
         if (air >= capacity)
         {
             
-            distanceUniFromObjects.RTPCGameObjectValue(distFanFromUni, maxDistanceFromVentilator,this.gameObject, "Little_Ventilator_event", "FanVolume", fanAnim.speed);
+            playEventWithRTPCSound.RTPCGameObjectValue(distFanFromUni, maxDistanceFromVentilator,this.gameObject, "Little_Ventilator_event", "FanVolume", fanAnim.speed);
 
             if (!isOn)
             {
@@ -72,7 +72,7 @@ public class Fan : MonoBehaviour
     {
         if (!isIncAir && air < capacity)
         {
-            distanceUniFromObjects.RTPCGameObjectValue(distFanFromUni, maxDistanceFromVentilator, this.gameObject, "Little_Ventilator_event", "FanVolume", fanAnim.speed);
+            playEventWithRTPCSound.RTPCGameObjectValue(distFanFromUni, maxDistanceFromVentilator, this.gameObject, "Little_Ventilator_event", "FanVolume", fanAnim.speed);
             fanAnim.speed = Mathf.Lerp(fanAnim.speed, 0, Time.deltaTime);
             if (fanAnim.speed < 0.1)
             {

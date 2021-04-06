@@ -4,38 +4,83 @@ using UnityEngine;
 
 public class FixedDrones : MonoBehaviour
 {
-    // PlayerDetection Script
-    PlayerDetection playerDetectionScript;
+    public Transform player;
 
-    // Params of rotation
-    [Range(0, 180)]
-    public float rotation;
-    [Range(0, 1)]
-    public float speed;
+    public float timeToSpotPlayer = .5f;
+    public Light spotlight;
+    public LayerMask obsMask;
 
-    private void Start()
+    public float timeToKillPlayer = .5f;
+    public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
+
+    float playerVisibleTimer;
+    bool detected;
+    bool dead;
+
+    Color originalSpotlightColour;
+    GameMaster GM;
+
+    void Start()
     {
-        // Ref to the PlayerDetection Script
-        playerDetectionScript = GetComponent<PlayerDetection>();
+        GM = FindObjectOfType<GameMaster>();
+        originalSpotlightColour = spotlight.color;
     }
 
-    private void Update()
+    void Update()
     {
-        //keeps track of the coroutine instantiated
-        IEnumerator coOR = ObjectRotate();
-        StartCoroutine(coOR);
-    }
+        Kill();
 
-    IEnumerator ObjectRotate()
-    {
-        float timer = 0;
-        while (playerDetectionScript.detected == false)
+        if (detected)
         {
-            float angle = Mathf.Sin(timer) * rotation;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
-
-            timer += Time.deltaTime * speed;
-            yield return null;
+            playerVisibleTimer += Time.deltaTime;
         }
+        else
+        {
+            playerVisibleTimer -= Time.deltaTime;
+        }
+        playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
+        spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
+
+        if (playerVisibleTimer >= timeToSpotPlayer)
+        {
+            StartCoroutine(CallShootWithDelay());
+        }
+    }
+
+    IEnumerator CallShootWithDelay()
+    {
+        muzzleFlash.Play();
+        GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
+        Destroy(impactGO, 1f);
+        yield return new WaitForSeconds(timeToKillPlayer);
+        dead = true;
+    }
+
+    void Kill()
+    {
+        if (dead)
+            GM.Die();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("uni"))
+        {
+            Debug.DrawLine(transform.position, player.position);
+            if (!Physics.Linecast(transform.position, player.position, obsMask))
+            {
+                detected = true;
+            }
+            else
+            {
+                detected = false;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        detected = false;
     }
 }

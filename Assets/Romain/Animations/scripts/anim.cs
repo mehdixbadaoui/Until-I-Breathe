@@ -17,7 +17,7 @@ public class anim : MonoBehaviour
     private LedgeLocator ledge;
     private Rigidbody rb;
     private Breathing_mechanic breathing;
-    private CheckLenghtSound checkLenghtSound;
+    private PlayEventSounds playEvent; 
     private GameObject uni; 
   
 
@@ -66,8 +66,9 @@ public class anim : MonoBehaviour
         localFacingLeft = movement.isFacingLeft;
 
         
-        uni = GameObject.FindGameObjectWithTag("uni"); 
-        checkLenghtSound = GetComponentInParent<CheckLenghtSound>();
+        uni = GameObject.FindGameObjectWithTag("uni");
+        playEvent = uni.GetComponent<PlayEventSounds>();
+        
 
     }
 	
@@ -139,10 +140,9 @@ public class anim : MonoBehaviour
             {
                 myAnimator.SetBool("pull", false);
                 myAnimator.SetBool("push", true);
+
+                playEvent.PlayEventWithoutRTPC("Caisse_frottement_event", uni); 
                
-                bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Caisse_frottement_event", uni);
-                if (!isSoundFinished)
-                    AkSoundEngine.PostEvent("Caisse_frottement_event", uni);
             }
 
             // il pull si son forward est dans le sens contraire que son mouvement
@@ -150,10 +150,9 @@ public class anim : MonoBehaviour
             {
                 myAnimator.SetBool("pull", true);
                 myAnimator.SetBool("push", false);
+
+                playEvent.PlayEventWithoutRTPC("Caisse_frottement_event", uni);
                 
-                bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject("Caisse_frottement_event", uni);
-                if (!isSoundFinished)
-                    AkSoundEngine.PostEvent("Caisse_frottement_event", uni);
             }
         }
         else

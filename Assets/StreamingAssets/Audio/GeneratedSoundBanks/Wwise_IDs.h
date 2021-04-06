@@ -17,7 +17,10 @@ namespace AK
         static const AkUniqueID AMBIANT_INTERIOR_EVENT = 2961983739U;
         static const AkUniqueID ASCENSEUR_FERMEE_EVENT = 251064884U;
         static const AkUniqueID ASCENSEUR_OUVERT_EVENT = 1844130327U;
+        static const AkUniqueID BALLON_EXPLOSION_EVENT = 2564548868U;
+        static const AkUniqueID BALLON_SOUFFLE_EVENT = 3952828675U;
         static const AkUniqueID BIG_VENTILATOR_EVENT = 478883995U;
+        static const AkUniqueID BREAK_UNTILIBREATHE_LEVEL2_3_RUN_LOOP_EVENT = 4014938746U;
         static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
         static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;
         static const AkUniqueID CAMERA_DETECTION_EVENT = 4200175161U;
@@ -54,6 +57,7 @@ namespace AK
         static const AkUniqueID LVL_1_2_EVENT = 1572269619U;
         static const AkUniqueID LVL_2_1_EVENT = 3922198791U;
         static const AkUniqueID LVL_2_2_EVENT = 3860896488U;
+        static const AkUniqueID PLAY_LEVEL2_3_EVENT = 3795112257U;
         static const AkUniqueID PORTE_COULISSANTE_FERMEE_EVENT = 1197453168U;
         static const AkUniqueID PORTE_COULISSANTE_OUVERTE_EVENT = 1772158906U;
         static const AkUniqueID PORTE_DEVEROUILLEE_EVENT = 293930242U;
@@ -63,6 +67,9 @@ namespace AK
         static const AkUniqueID PORTE_OUVERTE_METAL_EVENT = 756074935U;
         static const AkUniqueID STOP_CAISSE_FROTTEMENT_EVENT = 707299762U;
         static const AkUniqueID STOP_LITTLE_VENTILATOR_EVENT = 2239026864U;
+        static const AkUniqueID STOP_MUSIC_EVENT = 3935460844U;
+        static const AkUniqueID STOP_UNISOUFFLE_EVENT = 3140239569U;
+        static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
     } // namespace EVENTS
 
     namespace SWITCHES
