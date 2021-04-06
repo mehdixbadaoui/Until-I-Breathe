@@ -30,7 +30,6 @@ public class PatrolDrones : MonoBehaviour
     void Start()
     {
         GM = FindObjectOfType<GameMaster>();
-        notDead = true;
         originalSpotlightColour = spotlight.color;
 
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
@@ -39,8 +38,8 @@ public class PatrolDrones : MonoBehaviour
             waypoints[i] = pathHolder.GetChild(i).position;
             waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
         }
-        
-        StartCoroutine(FollowPath(waypoints))
+
+        StartCoroutine(FollowPath(waypoints));
     }
 
     void Update()
