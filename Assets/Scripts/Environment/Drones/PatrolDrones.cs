@@ -11,13 +11,15 @@ public class PatrolDrones : MonoBehaviour
     public LayerMask viewMask;
     public float viewDistance;
 
-
     public bool canTurn;
     public Transform pathHolder;
     public float speed = 5;
     public float waitTime = .3f;
     public float turnSpeed = 90;
 
+    public float timeToKillPlayer = .5f;
+    public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
 
     float playerVisibleTimer;
     bool detected;
@@ -28,6 +30,7 @@ public class PatrolDrones : MonoBehaviour
     void Start()
     {
         GM = FindObjectOfType<GameMaster>();
+        notDead = true;
         originalSpotlightColour = spotlight.color;
 
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
@@ -37,8 +40,7 @@ public class PatrolDrones : MonoBehaviour
             waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
         }
         
-        StartCoroutine(FollowPath(waypoints));
-
+        StartCoroutine(FollowPath(waypoints))
     }
 
     void Update()
@@ -56,7 +58,7 @@ public class PatrolDrones : MonoBehaviour
 
         if (playerVisibleTimer >= timeToSpotPlayer)
         {
-            GM.Die();
+            StartCoroutine(CallShootWithDelay());
         }
     }
 
@@ -79,7 +81,7 @@ public class PatrolDrones : MonoBehaviour
                 targetWaypoint = waypoints[targetWaypointIndex];
                 yield return new WaitForSeconds(waitTime);
                 if (canTurn)
-                yield return StartCoroutine(TurnToFace(targetWaypoint));
+                    yield return StartCoroutine(TurnToFace(targetWaypoint));
             }
             yield return null;
         }
@@ -96,6 +98,15 @@ public class PatrolDrones : MonoBehaviour
             transform.eulerAngles = Vector3.up * angle;
             yield return null;
         }
+    }
+
+    IEnumerator CallShootWithDelay()
+    {
+        muzzleFlash.Play();
+        GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
+        Destroy(impactGO, 1f);
+        yield return new WaitForSeconds(timeToKillPlayer);
+        GM.Die();
     }
 
     private void OnTriggerStay(Collider other)
