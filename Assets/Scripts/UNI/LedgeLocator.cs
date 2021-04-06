@@ -128,12 +128,21 @@ public class LedgeLocator : MonoBehaviour
         }
 
         // On deplace la camera pendant le climbing 
-        if (changeCam)
+        if (changeCam && camFollow.transform.parent != null && camFollow.transform.parent.tag == "uni")
         {
+            Debug.Log("uni");
             camChanged = true;
             camFollow.transform.position = Vector3.Lerp(camFollow.transform.position
                 , new Vector3(camFollow.transform.position.x, GameObject.FindGameObjectWithTag("rig").transform.position.y + previousCamPos.y, GameObject.FindGameObjectWithTag("rig").transform.position.z + previousCamPos.z)
                 , 0.1f ) ;
+        }
+        else if (changeCam)
+        {
+            Debug.Log("pas uni");
+            camChanged = true;
+            camFollow.transform.position = Vector3.Lerp(camFollow.transform.position
+                , new Vector3(camFollow.transform.position.x, camFollow.transform.position.y, GameObject.FindGameObjectWithTag("rig").transform.position.z)
+                , 0.3f);
         }
         else if (camChanged)
         {
