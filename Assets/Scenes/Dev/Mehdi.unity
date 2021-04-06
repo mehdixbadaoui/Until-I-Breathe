@@ -6298,10 +6298,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3871756466737052885, guid: 676859e34d748994dab62ac850f97b30,
+        type: 3}
+      propertyPath: on_slope_up
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871756466737052885, guid: 676859e34d748994dab62ac850f97b30,
+        type: 3}
+      propertyPath: ObjectDetector
+      value: 
+      objectReference: {fileID: 2060432291}
     - target: {fileID: 4225845222432566300, guid: 676859e34d748994dab62ac850f97b30,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.325
       objectReference: {fileID: 0}
     - target: {fileID: 7717717676530931590, guid: 676859e34d748994dab62ac850f97b30,
         type: 3}
@@ -13116,7 +13126,7 @@ PrefabInstance:
     - target: {fileID: 5766153512526001475, guid: 068c9dd8a27f5ec4582a3d6d516fab9f,
         type: 3}
       propertyPath: force
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2609825444696140606, guid: 068c9dd8a27f5ec4582a3d6d516fab9f, type: 3}
@@ -15557,6 +15567,12 @@ Transform:
   m_Father: {fileID: 1659318314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2060432291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2229079150811903312, guid: 676859e34d748994dab62ac850f97b30,
+    type: 3}
+  m_PrefabInstance: {fileID: 762986179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2061335709
 GameObject:
   m_ObjectHideFlags: 1
