@@ -9,7 +9,7 @@ public class VentilatorSound : MonoBehaviour
     public Vector3 distanceVentilatorUni;
     public float maxDistanceFromVentilator = 15f; 
     public float ventilatorVolume;
-    private DistanceUniFromObjects distanceUniFromObjects;
+    private PlayEventSounds playEventWithRTPCSound;
     
    
 
@@ -21,7 +21,7 @@ public class VentilatorSound : MonoBehaviour
     void Start()
     {
         uni = GameObject.FindGameObjectWithTag("uni");
-        distanceUniFromObjects = uni.GetComponent<DistanceUniFromObjects>(); 
+        playEventWithRTPCSound = uni.GetComponent<PlayEventSounds>(); 
        
         ventilator = this.gameObject; 
     }
@@ -30,8 +30,8 @@ public class VentilatorSound : MonoBehaviour
     void Update()
     {
         
-        distanceVentilatorUni = distanceUniFromObjects.CalculateDistanceUniFromObject(ventilator.transform.position); 
-        distanceUniFromObjects.RTPCGameObjectValue(distanceVentilatorUni, maxDistanceFromVentilator, ventilator, "Big_Ventilator_event", "VentilatorVolume"); 
+        distanceVentilatorUni = playEventWithRTPCSound.CalculateDistanceUniFromObject(ventilator.transform.position); 
+        playEventWithRTPCSound.RTPCGameObjectValue(distanceVentilatorUni, maxDistanceFromVentilator, ventilator, "Big_Ventilator_event", "VentilatorVolume"); 
         
          
     }

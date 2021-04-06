@@ -26,7 +26,7 @@ public class CameraZoom : MonoBehaviour
     {
         if (other.CompareTag("uni"))
         {
-            if(transform.Find("Camera Zoom") && !other.GetComponent<LedgeLocator>().camChanged)
+            if(transform.Find("Camera Zoom") /*&& !other.GetComponent<LedgeLocator>().camChanged*/)
             {
                 cameraFollow.zoom_offset = Vector3.Lerp(cameraFollow.zoom_offset, zoom, zoom_speed);
                 cameraZoom.position = Vector3.Lerp(cameraZoom.position, new Vector3(cameraFollow_obj.transform.position.x, cameraZoom.position.y, cameraFollow_obj.transform.position.z) + cameraFollow.zoom_offset, 1f);
