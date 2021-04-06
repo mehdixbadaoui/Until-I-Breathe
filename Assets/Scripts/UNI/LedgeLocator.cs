@@ -138,7 +138,8 @@ public class LedgeLocator : MonoBehaviour
         }
         else if (changeCam)
         {
-            Debug.Log("pas uni");
+            //Debug.Log("pas uni");
+            Debug.Log(myAnimator.GetCurrentAnimatorStateInfo(0).IsName("LedgeClimb"));
             camChanged = true;
             camFollow.transform.position = Vector3.Lerp(camFollow.transform.position
                 , new Vector3(camFollow.transform.position.x, camFollow.transform.position.y, GameObject.FindGameObjectWithTag("rig").transform.position.z)
@@ -266,11 +267,15 @@ public class LedgeLocator : MonoBehaviour
         changeCam = true;
 
         //Wait for the beginning of LedgeClimb
+        float transitionlength = myAnimator.GetAnimatorTransitionInfo(0).duration;
         yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("LedgeClimb"));
+        //yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorClipInfo(0)[1].clip;
         //yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(2).IsName("LedgeClimb"));
 
         //Wait for the end of LedgeClimb
-        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length / 2 );
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).length / 2 > myAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        //yield return new WaitForSeconds( (myAnimator.GetCurrentAnimatorStateInfo(0).length / 2) - transitionlength );
+        //yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorClipInfo(0)[1].clip.length / 2 );
 
         newPos = GameObject.FindGameObjectWithTag("rig").transform.position;
 

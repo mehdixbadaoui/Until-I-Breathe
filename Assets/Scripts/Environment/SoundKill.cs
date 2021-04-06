@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SoundKill : MonoBehaviour
 {
+    //Set this in unity
+    public float ForceOndeBefore;
+    public float ForceOndeAfter;
 
     private GameMaster gm;
     private List<GameObject> all_hooks;
@@ -46,60 +49,78 @@ public class SoundKill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isOn && killUni)
-        {
-            killUni = false;
-            gm.Die();
-        }
-
         // Si l'encinte s'allume
-        if (isOn && all_hooks != null && !haschanged)
+        if (isOn)
         {
-            for (int hookId = 0; hookId < all_hooks.Count ; ++hookId)
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, 0.1f)*/ ForceOndeAfter) ;
+            Debug.Log(transform.parent.GetComponentInChildren<MeshRenderer>().material.GetFloat("Vector1_641F3F66")) ;
+
+            if (killUni)
             {
-                // Si Uni est accrochée au hook, alors on la détache
-                if ( Movement.isGrapplin && grapplin.hookObject == all_hooks[hookId])
-                {
-                    grapplin.CutRope();
-                    movements.JumpAfterGrapplin();
-                }
-
-                //Le tag du hook disparait
-                all_hooks[hookId].tag = "Untagged";
-
-                //Si le hook était dékà dans la liste du hook_detector on le supprime
-                if (grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Contains(all_hooks[hookId]))
-                {
-                    grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Remove(all_hooks[hookId]);
-                    all_hooks[hookId].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
-
-                }
-
+                killUni = false;
+                gm.Die();
             }
-            haschanged = true;
-        }
 
+
+            if (all_hooks != null && !haschanged)
+            {
+                for (int hookId = 0; hookId < all_hooks.Count; ++hookId)
+                {
+                    // Si Uni est accrochée au hook, alors on la détache
+                    if (Movement.isGrapplin && grapplin.hookObject == all_hooks[hookId])
+                    {
+                        grapplin.CutRope();
+                        movements.JumpAfterGrapplin();
+                    }
+
+                    //Le tag du hook disparait
+                    all_hooks[hookId].tag = "Untagged";
+
+                    //Si le hook était dékà dans la liste du hook_detector on le supprime
+                    if (grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Contains(all_hooks[hookId]))
+                    {
+                        grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Remove(all_hooks[hookId]);
+                        all_hooks[hookId].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
+
+                    }
+
+
+                }
+                haschanged = true;
+            }
+        }
         // Si l'encinte s'eteint
-        if (!isOn && all_hooks != null && haschanged)
+        else
         {
-            haschanged = false;
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeAfter, ForceOndeBefore, 0.1f)*/ ForceOndeBefore);
 
-            for (int hookId = 0; hookId < all_hooks.Count; ++hookId)
+
+            if (all_hooks != null && haschanged)
             {
-                // On rend le tag au hook
-                all_hooks[hookId].tag = all_hooks_tags[hookId];
+                haschanged = false;
 
-
-                //Si le hook était dékà dans la liste du hook_detector on le supprime
-                if (grapplin.hook_detector.GetComponent<Collider>().bounds.Intersects(all_hooks[hookId].GetComponent<Collider>().bounds))
+                for (int hookId = 0; hookId < all_hooks.Count; ++hookId)
                 {
-                    grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Add(all_hooks[hookId]);
+                    // On rend le tag au hook
+                    all_hooks[hookId].tag = all_hooks_tags[hookId];
+
+
+                    //Si le hook était dékà dans la liste du hook_detector on le supprime
+                    if (grapplin.hook_detector.GetComponent<Collider>().bounds.Intersects(all_hooks[hookId].GetComponent<Collider>().bounds))
+                    {
+                        grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Add(all_hooks[hookId]);
+                    }
                 }
+
+
+
             }
-
-
-
         }
+
+
+
+
+
 
     }
     private void FixedUpdate()
