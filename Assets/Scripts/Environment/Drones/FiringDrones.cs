@@ -4,50 +4,76 @@ using UnityEngine;
 
 public class FiringDrones : MonoBehaviour
 {
-    // PlayerDetection Script
-    PlayerDetection playerDetectionScript;
+    public Transform player;
 
+    public float timeToSpotPlayer = .5f;
+    public Light spotlight;
+    public LayerMask obsMask;
+
+    public float timeToKillPlayer = .5f;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
-    public float delay;
 
-    bool stop;
+    float playerVisibleTimer;
+    bool detected;
+    bool dead;
 
-    // Start is called before the first frame update
+    Color originalSpotlightColour;
+    GameMaster GM;
+
     void Start()
     {
-        // Ref to the PlayerDetection Script
-        playerDetectionScript = GetComponent<PlayerDetection>();
+        GM = FindObjectOfType<GameMaster>();
+        originalSpotlightColour = spotlight.color;
     }
 
-    // Update is called once per frame
     void Update()
-    {            
-        //keeps track of the coroutine instantiated
-        IEnumerator shoot = CallShootWithDelay();
-
-        if (playerDetectionScript.detected)
+    {
+        if (detected)
         {
-            StartCoroutine(shoot);
+            playerVisibleTimer += Time.deltaTime;
         }
-
-        if (stop)
+        else
         {
-            StopCoroutine(shoot);
+            playerVisibleTimer -= Time.deltaTime;
+        }
+        playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
+        spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
+
+        if (playerVisibleTimer >= timeToSpotPlayer)
+        {
+            StartCoroutine(CallShootWithDelay());
         }
     }
 
     IEnumerator CallShootWithDelay()
     {
-        yield return new WaitForSeconds(delay);
-        Shoot();
+        muzzleFlash.Play();
+        GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
+        Destroy(impactGO, 1f);
+        yield return new WaitForSeconds(timeToKillPlayer);
+        GM.Die();
+        dead = true;
     }
 
-    void Shoot()
+    private void OnTriggerStay(Collider other)
     {
-        muzzleFlash.Play();
-        GameObject impactGO = Instantiate(impactEffect, playerDetectionScript.visibleTargets[0].transform.position, Quaternion.identity);
-        Destroy(impactGO, 1f);
-        stop = true;
+        if (other.CompareTag("uni"))
+        {
+            Debug.DrawLine(transform.position, player.position);
+            if (!Physics.Linecast(transform.position, player.position, obsMask))
+            {
+                detected = true;
+            }
+            else
+            {
+                detected = false;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        detected = false;
     }
 }

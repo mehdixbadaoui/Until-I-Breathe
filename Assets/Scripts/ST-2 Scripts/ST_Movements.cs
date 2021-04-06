@@ -24,7 +24,7 @@ public class ST_Movements : MonoBehaviour
     Vector3 rotationOffset; //optional, not used right now
 
     private hook_detector HookDetector;
-    private DistanceUniFromObjects distanceUniFromObjects;
+    private PlayEventSounds distanceUniFromObjects;
 
     // To access the children components of ST-2 (sprite)
     //public GameObject ChildGO_Sprite;
@@ -35,7 +35,7 @@ public class ST_Movements : MonoBehaviour
     {
         // Automatically find player
         Player = GameObject.FindGameObjectWithTag("uni").transform;
-        distanceUniFromObjects = Player.GetComponent<DistanceUniFromObjects>();
+        distanceUniFromObjects = Player.GetComponent<PlayEventSounds>();
 
         // Stores the initial rotation of the sprite component
         //rotation_Sprite = ChildGO_Sprite.transform.rotation.eulerAngles;
