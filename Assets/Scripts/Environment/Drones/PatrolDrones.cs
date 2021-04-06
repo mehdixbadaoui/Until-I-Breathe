@@ -24,12 +24,16 @@ public class PatrolDrones : MonoBehaviour
 
     Color originalSpotlightColour;
     GameMaster GM;
+    private GameObject uni;
+    private PlayEventSounds playEvent;
+    private Vector3 distWithUni; 
 
     void Start()
     {
         GM = FindObjectOfType<GameMaster>();
         originalSpotlightColour = spotlight.color;
-
+        uni = GameObject.FindGameObjectWithTag("uni");
+        playEvent = uni.GetComponent<PlayEventSounds>(); 
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
         {
@@ -43,6 +47,7 @@ public class PatrolDrones : MonoBehaviour
 
     void Update()
     {
+        distWithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position); 
         if (detected)
         {
             playerVisibleTimer += Time.deltaTime;
@@ -56,6 +61,7 @@ public class PatrolDrones : MonoBehaviour
 
         if (playerVisibleTimer >= timeToSpotPlayer)
         {
+            playEvent.PlayEventWithoutRTPC("Drone_fireshot_event", uni); 
             GM.Die();
         }
     }
@@ -75,11 +81,14 @@ public class PatrolDrones : MonoBehaviour
 
             if (transform.position == targetWaypoint)
             {
+                playEvent.PlayEventWithoutRTPC("Drone_stationnaire_event", uni);
                 targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
                 targetWaypoint = waypoints[targetWaypointIndex];
                 yield return new WaitForSeconds(waitTime);
                 yield return StartCoroutine(TurnToFace(targetWaypoint));
             }
+            else
+                playEvent.PlayEventWithoutRTPC("Break_Drones_stationnaire_event", uni);
             yield return null;
         }
     }
@@ -104,7 +113,9 @@ public class PatrolDrones : MonoBehaviour
             Debug.DrawLine(transform.position, player.position);
             if (!Physics.Linecast(transform.position, player.position, viewMask))
             {
+                
                 detected = true;
+
             }
             else
             {
