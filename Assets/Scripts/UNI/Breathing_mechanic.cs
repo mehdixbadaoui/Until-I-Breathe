@@ -210,8 +210,8 @@ public class Breathing_mechanic : MonoBehaviour
             grapplin.CutRope();
         }
 
-        myAnimator.Play("BreathingDead", 2);
-        myAnimator.Play("BreathingDead", 1);
+        myAnimator.Play("BreathingDead", 0);
+        //myAnimator.Play("BreathingDead", 1);
 
 
         //Wait for the beginning of BreathingDead
