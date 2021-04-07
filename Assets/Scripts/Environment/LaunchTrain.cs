@@ -6,6 +6,9 @@ public class LaunchTrain : MonoBehaviour
 {
     public GameObject Locomotive;
     public GameObject Track;
+    public float speed = 20f;
+    public float time = 3f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("uni"))
@@ -13,6 +16,8 @@ public class LaunchTrain : MonoBehaviour
             BezierSpline track_bz = Track.GetComponent<BezierSpline>();
             Locomotive.GetComponent<SplineWalker>().spline = track_bz;
             Locomotive.GetComponent<SplineWalker>().progress = 0;
+            //Locomotive.GetComponent<SplineWalker>().speed = speed;
+
             Locomotive.GetComponent<SplineWalker>().speed = 0;
             StartCoroutine(SlowStart());
 
@@ -25,18 +30,17 @@ public class LaunchTrain : MonoBehaviour
 
     IEnumerator SlowStart()
     {
-        float speed = Locomotive.GetComponent<SplineWalker>().speed;
+        float current_speed = Locomotive.GetComponent<SplineWalker>().speed;
 
-        float time = 0;
-        float waitTime = 3f;
+        float t = 0;
 
-        while (time < waitTime && Locomotive.GetComponent<SplineWalker>().speed < 20)
+        while (t < time && current_speed < speed)
         {
-            Locomotive.GetComponent<SplineWalker>().speed = Mathf.Lerp(0/*Locomotive.GetComponent<SplineWalker>().speed*/, 20, time / waitTime);
-            time += Time.deltaTime;
+            Locomotive.GetComponent<SplineWalker>().speed = Mathf.Lerp(0/*Locomotive.GetComponent<SplineWalker>().speed*/, speed, t / time);
+            t += Time.deltaTime;
             yield return null;
         }
-        Locomotive.GetComponent<SplineWalker>().speed = 20;
+        Locomotive.GetComponent<SplineWalker>().speed = speed;
         yield return null;
 
 
