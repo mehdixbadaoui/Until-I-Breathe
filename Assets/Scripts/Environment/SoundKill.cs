@@ -7,6 +7,7 @@ public class SoundKill : MonoBehaviour
     //Set this in unity
     public float ForceOndeBefore;
     public float ForceOndeAfter;
+    private Color previousColor;
 
     private GameMaster gm;
     private List<GameObject> all_hooks;
@@ -17,17 +18,20 @@ public class SoundKill : MonoBehaviour
     private Movement movements;
 
     private bool killUni = false;
-    public bool isOn = false;
+    public bool isPlaying = false;
     private bool haschanged = false;
 
     // Timers
     public float timeOnePeriode;
     public float soundlength;
     private float timerSound = 0;
+    private float timerPlay = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        previousColor = transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.GetColor("Color_EDC6F8A5");
+
         //List of hooks and tags
         all_hooks = new List<GameObject>();
         all_hooks_tags = new List<string>();
@@ -50,10 +54,8 @@ public class SoundKill : MonoBehaviour
     void Update()
     {
         // Si l'encinte s'allume
-        if (isOn)
+        if (isPlaying)
         {
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, 0.1f)*/ ForceOndeAfter) ;
-            Debug.Log(transform.parent.GetComponentInChildren<MeshRenderer>().material.GetFloat("Vector1_641F3F66")) ;
 
             if (killUni)
             {
@@ -92,7 +94,6 @@ public class SoundKill : MonoBehaviour
         // Si l'encinte s'eteint
         else
         {
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeAfter, ForceOndeBefore, 0.1f)*/ ForceOndeBefore);
 
 
             if (all_hooks != null && haschanged)
@@ -126,19 +127,33 @@ public class SoundKill : MonoBehaviour
     private void FixedUpdate()
     {
         timerSound += Time.deltaTime;
-        if (timerSound> timeOnePeriode && !isOn)
+        if (timerSound > timeOnePeriode)
         {
-            isOn = true;
-        }
-        if (timerSound > timeOnePeriode+soundlength && isOn)
-        {
-            isOn = false;
+            if (isPlaying)
+                Debug.LogError("The soundlength is too long");
+
+            isPlaying = true;
             timerSound = 0;
         }
-        if (timerSound > timeOnePeriode+soundlength && !isOn)
+
+        if (isPlaying)
         {
-            Debug.LogError("The soundLength is too short");
+            timerPlay += Time.deltaTime;
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", Color.red * 30);
+
+            if (timerPlay > soundlength)
+            {
+                isPlaying = false;
+                timerPlay = 0;
+            }
         }
+        else
+        {
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", previousColor);
+        }
+
     }
 
 
