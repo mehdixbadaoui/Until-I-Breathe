@@ -33,6 +33,7 @@ public class ballon : MonoBehaviour
             GetComponent<Rigidbody>().velocity = new Vector3(0, travel_speed, 0);
         }
 
+
     }
 
     public void incAir(float amount)
@@ -53,9 +54,18 @@ public class ballon : MonoBehaviour
         {
             Breathing_mechanic bm = other.GetComponent<Breathing_mechanic>();
 
-            if (inputs.Uni.Exhale.ReadValue<float>() != 0 && bm.breath >= (bm.max_breath * bm.min_pourc / 100f))
+            Vector3 direction = transform.position - other.transform.position;
+
+            //Debug.Log("dir" + direction.normalized);
+            Debug.Log("fwd" + other.transform.TransformDirection(Vector3.forward * other.transform.localScale.z));
+
+            bool can_pfff = (Mathf.Sign(other.transform.TransformDirection(Vector3.forward * other.transform.localScale.z).z) == Mathf.Sign(direction.z));
+
+            if (inputs.Uni.Exhale.ReadValue<float>() != 0 && bm.breath >= (bm.max_breath * bm.min_pourc / 100f) && can_pfff)
             {
-                GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, force), ForceMode.Acceleration);
+                //GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -100), ForceMode.Acceleration);
+                transform.Translate(new Vector3(0, 0, direction.z) * force * Time.deltaTime);
+
             }
 
         }
