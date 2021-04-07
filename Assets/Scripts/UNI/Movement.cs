@@ -152,7 +152,7 @@ public class Movement : MonoBehaviour
             {
                 canJump = true;
             }
-
+              
             //CROUCHING
             if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin && !isGrabbing)
             {
