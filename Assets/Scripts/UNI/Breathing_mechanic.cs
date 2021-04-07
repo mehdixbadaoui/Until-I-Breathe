@@ -17,7 +17,7 @@ public class Breathing_mechanic : MonoBehaviour
     public bool respawn;
     private bool isDying = false;
     public bool isBlowingFan = false;
-    
+
 
     [HideInInspector]
     public float max_breath;
@@ -37,18 +37,18 @@ public class Breathing_mechanic : MonoBehaviour
 
     public VisualEffect Vfx;
     private bool breathVfx = false;
-    
+
     //public KeyCode hold_breath_key;
     //public KeyCode exhale_key;
     //public KeyCode interact;
-/*
-    [SerializeField] private GameObject blowObj;*/
+    /*
+        [SerializeField] private GameObject blowObj;*/
 
     //Object detector to get the list of objects
     private ObjectDetector objectDetector;
 
     private Inputs inputs;
-    private PlayEventSounds playEvent; 
+    private PlayEventSounds playEvent;
 
     private void Awake()
     {
@@ -75,7 +75,7 @@ public class Breathing_mechanic : MonoBehaviour
         myAnimator = GetComponentInChildren<Animator>();
 
         // Get the souffle effect
-        Vfx = GetComponentInChildren<VisualEffect>() ;
+        Vfx = GetComponentInChildren<VisualEffect>();
         Vfx.Stop();
 
         // Get the object detector
@@ -83,12 +83,12 @@ public class Breathing_mechanic : MonoBehaviour
 
         // Get uni Breathing Mecanic
         grapplin = GetComponent<GrapplingHook>();
-        
+
         // Get the object detector
         movement = GetComponentInChildren<Movement>();
 
         //PlaySounds
-        playEvent = this.gameObject.GetComponent<PlayEventSounds>(); 
+        playEvent = this.gameObject.GetComponent<PlayEventSounds>();
     }
 
     // Update is called once per frame
@@ -110,21 +110,25 @@ public class Breathing_mechanic : MonoBehaviour
             exhale = true;
             current_exhale = exhale_speed;
             playEvent.PlayEventWithoutRTPC("UniSouffle_event", this.gameObject);
-            if ( breathVfx == false)
+            if (breathVfx == false)
             {
                 Vfx.Play();
                 breathVfx = true;
             }
 
-            if (objectDetector.listObj !=  null)
+            if (objectDetector.listObj != null)
             {
                 for (int index = 0; index < objectDetector.listObj.Count; index++)
                 {
                     if (objectDetector.listObj[index].tag == "blowable")
                     {
-                        objectDetector.listObj[index].GetComponent<ballon>().incAir(1 * Time.deltaTime);
+                        if (objectDetector.listObj[index].GetComponent<ballon>().air < objectDetector.listObj[index].GetComponent<ballon>().capacity)
+                            objectDetector.listObj[index].GetComponent<ballon>().incAir(1 * Time.deltaTime);
+                        else
+                            //objectDetector.listObj[index].GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward * transform.localScale.z) * objectDetector.listObj[index].GetComponent<ballon>().force, ForceMode.Impulse);
+                            objectDetector.listObj[index].GetComponent<ballon>().Push();
                     }
-                    if (objectDetector.listObj[index].tag == "fan")
+                    else if (objectDetector.listObj[index].tag == "fan")
                     {
                         if (!objectDetector.listObj[index].GetComponent<Fan>().isOn)
                         {
@@ -168,7 +172,7 @@ public class Breathing_mechanic : MonoBehaviour
             }
         }
 
-        if(!can_breath)
+        if (!can_breath)
             breath -= current_exhale * breath_speed * Time.deltaTime;
 
         /*        if (Input.GetKeyDown(interact) && blowObj){
@@ -180,7 +184,7 @@ public class Breathing_mechanic : MonoBehaviour
         if (breath <= 0 && !isDying)
         {
             isDying = true;
-            StartCoroutine(BreathingDie( myAnimator, gm));
+            StartCoroutine(BreathingDie(myAnimator, gm));
         }
     }
 
@@ -191,16 +195,16 @@ public class Breathing_mechanic : MonoBehaviour
         Movement.canMove = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
 
-        yield return new WaitWhile(() => ! ( !exhale ) );
+        yield return new WaitWhile(() => !(!exhale));
 
-        yield return new WaitWhile(() => !( !exhale ) );
+        yield return new WaitWhile(() => !(!exhale));
 
         Movement.canMove = true;
-        
+
         isBlowingFan = false;
     }
 
-    private IEnumerator BreathingDie( Animator myAnimator , GameMaster gm)
+    private IEnumerator BreathingDie(Animator myAnimator, GameMaster gm)
     {
         respawn = false;
         Movement.canMove = false;
@@ -215,7 +219,7 @@ public class Breathing_mechanic : MonoBehaviour
 
 
         //Wait for the beginning of BreathingDead
-        yield return new WaitWhile( () => myAnimator.GetCurrentAnimatorStateInfo(1).IsName("BreathingDead") );
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(1).IsName("BreathingDead"));
 
         //new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length + myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime);
 
@@ -230,11 +234,11 @@ public class Breathing_mechanic : MonoBehaviour
 
         Movement.canMove = true;
     }
- 
 
-/*    public void setBlowObj(GameObject obj)
-    {
-        blowObj = obj;
-    }*/
+
+    /*    public void setBlowObj(GameObject obj)
+        {
+            blowObj = obj;
+        }*/
 
 }
