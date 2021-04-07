@@ -92,6 +92,8 @@ public class Movement : MonoBehaviour
 
     private LedgeLocator ledge_locator;
 
+    public GameObject ObjectDetector;
+
     public bool hit;
 
     public bool IsFlying 
@@ -158,7 +160,7 @@ public class Movement : MonoBehaviour
             {
                 canJump = true;
             }
-
+              
             //CROUCHING
             if (Convert.ToBoolean(inputs.Uni.Crouch.ReadValue<float>()) && !isGrapplin && !isGrabbing)
             {
@@ -169,6 +171,7 @@ public class Movement : MonoBehaviour
                     myAnimator.Play("stand2crouch", 1);
                     capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y - (capsule_collider.height - 1) / 2, capsule_collider.center.z);
                     capsule_collider.height = 1;
+                    ObjectDetector.GetComponent<SphereCollider>().center -= Vector3.up * .9f;
                     previousSpeed = speed;
                     speed = speed * 0.5f;
                     isPlayerCrouching = true;
@@ -186,6 +189,7 @@ public class Movement : MonoBehaviour
                     {
                         capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + 0.25f, capsule_collider.center.z);
                         capsule_collider.height = 1.5f;
+                        ObjectDetector.GetComponent<SphereCollider>().center += Vector3.up * .9f;
                         speed = previousSpeed;
                         myAnimator.GetComponent<anim>().isCrouching = false;
                         myAnimator.Play("crouch2stand", 0);
