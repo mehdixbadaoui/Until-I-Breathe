@@ -112,11 +112,13 @@ namespace AK
         static const AkUniqueID AMBIANT_MUSIC_SOUND = 2979278319U;
         static const AkUniqueID DISTWITHUNIVOLUME = 1079181951U;
         static const AkUniqueID DOORVOLUME = 2440552763U;
+        static const AkUniqueID FALLINGPLATEFORMEVOLUME = 1003961143U;
         static const AkUniqueID FANVOLUME = 2656500902U;
         static const AkUniqueID INSPIRATIONVOLUME = 2352147213U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICVOLUME = 2346531308U;
         static const AkUniqueID SFXVOLUME = 988953028U;
+        static const AkUniqueID TRAINDEPARTVOLUME = 58362009U;
         static const AkUniqueID VENTILATORVOLUME = 1991624541U;
     } // namespace GAME_PARAMETERS
 
