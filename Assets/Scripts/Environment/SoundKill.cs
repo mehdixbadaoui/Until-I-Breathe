@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SoundKill : MonoBehaviour
 {
+    //Set this in unity
+    public float ForceOndeBefore;
+    public float ForceOndeAfter;
+    private Color previousColor;
 
     private GameMaster gm;
     private List<GameObject> all_hooks;
@@ -14,17 +18,20 @@ public class SoundKill : MonoBehaviour
     private Movement movements;
 
     private bool killUni = false;
-    public bool isOn = false;
+    public bool isPlaying = false;
     private bool haschanged = false;
 
     // Timers
     public float timeOnePeriode;
     public float soundlength;
     private float timerSound = 0;
+    private float timerPlay = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        previousColor = transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.GetColor("Color_EDC6F8A5");
+
         //List of hooks and tags
         all_hooks = new List<GameObject>();
         all_hooks_tags = new List<string>();
@@ -46,78 +53,107 @@ public class SoundKill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isOn && killUni)
-        {
-            killUni = false;
-            gm.Die();
-        }
-
         // Si l'encinte s'allume
-        if (isOn && all_hooks != null && !haschanged)
+        if (isPlaying)
         {
-            for (int hookId = 0; hookId < all_hooks.Count ; ++hookId)
+
+            if (killUni)
             {
-                // Si Uni est accrochée au hook, alors on la détache
-                if ( Movement.isGrapplin && grapplin.hookObject == all_hooks[hookId])
-                {
-                    grapplin.CutRope();
-                    movements.JumpAfterGrapplin();
-                }
-
-                //Le tag du hook disparait
-                all_hooks[hookId].tag = "Untagged";
-
-                //Si le hook était dékà dans la liste du hook_detector on le supprime
-                if (grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Contains(all_hooks[hookId]))
-                {
-                    grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Remove(all_hooks[hookId]);
-                    all_hooks[hookId].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
-
-                }
-
+                killUni = false;
+                gm.Die();
             }
-            haschanged = true;
-        }
 
+
+            if (all_hooks != null && !haschanged)
+            {
+                for (int hookId = 0; hookId < all_hooks.Count; ++hookId)
+                {
+                    // Si Uni est accrochée au hook, alors on la détache
+                    if (Movement.isGrapplin && grapplin.hookObject == all_hooks[hookId])
+                    {
+                        grapplin.CutRope();
+                        movements.JumpAfterGrapplin();
+                    }
+
+                    //Le tag du hook disparait
+                    all_hooks[hookId].tag = "Untagged";
+
+                    //Si le hook était dékà dans la liste du hook_detector on le supprime
+                    if (grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Contains(all_hooks[hookId]))
+                    {
+                        grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Remove(all_hooks[hookId]);
+                        all_hooks[hookId].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
+
+                    }
+
+
+                }
+                haschanged = true;
+            }
+        }
         // Si l'encinte s'eteint
-        if (!isOn && all_hooks != null && haschanged)
+        else
         {
-            haschanged = false;
 
-            for (int hookId = 0; hookId < all_hooks.Count; ++hookId)
+
+            if (all_hooks != null && haschanged)
             {
-                // On rend le tag au hook
-                all_hooks[hookId].tag = all_hooks_tags[hookId];
+                haschanged = false;
 
-
-                //Si le hook était dékà dans la liste du hook_detector on le supprime
-                if (grapplin.hook_detector.GetComponent<Collider>().bounds.Intersects(all_hooks[hookId].GetComponent<Collider>().bounds))
+                for (int hookId = 0; hookId < all_hooks.Count; ++hookId)
                 {
-                    grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Add(all_hooks[hookId]);
+                    // On rend le tag au hook
+                    all_hooks[hookId].tag = all_hooks_tags[hookId];
+
+
+                    //Si le hook était dékà dans la liste du hook_detector on le supprime
+                    if (grapplin.hook_detector.GetComponent<Collider>().bounds.Intersects(all_hooks[hookId].GetComponent<Collider>().bounds))
+                    {
+                        grapplin.hook_detector.GetComponent<hook_detector>().all_hooks.Add(all_hooks[hookId]);
+                    }
                 }
+
+
+
             }
-
-
-
         }
+
+
+
+
+
 
     }
     private void FixedUpdate()
     {
         timerSound += Time.deltaTime;
-        if (timerSound> timeOnePeriode && !isOn)
+        if (timerSound > timeOnePeriode)
         {
-            isOn = true;
-        }
-        if (timerSound > timeOnePeriode+soundlength && isOn)
-        {
-            isOn = false;
+            if (isPlaying)
+                Debug.LogError("The soundlength is too long");
+
+            isPlaying = true;
             timerSound = 0;
         }
-        if (timerSound > timeOnePeriode+soundlength && !isOn)
+
+        if (isPlaying)
         {
-            Debug.LogError("The soundLength is too short");
+            timerPlay += Time.deltaTime;
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", Color.red * 30);
+
+            if (timerPlay > soundlength)
+            {
+                isPlaying = false;
+                timerPlay = 0;
+            }
         }
+        else
+        {
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", previousColor);
+        }
+
     }
 
 

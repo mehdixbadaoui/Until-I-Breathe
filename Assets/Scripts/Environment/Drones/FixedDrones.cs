@@ -65,7 +65,7 @@ public class FixedDrones : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("uni"))
+        if (other.CompareTag("Player"))
         {
             Debug.DrawLine(transform.position, player.position);
             if (!Physics.Linecast(transform.position, player.position, obsMask))

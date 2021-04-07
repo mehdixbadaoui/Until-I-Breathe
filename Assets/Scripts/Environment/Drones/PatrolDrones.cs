@@ -9,15 +9,17 @@ public class PatrolDrones : MonoBehaviour
     public float timeToSpotPlayer = .5f;
     public Light spotlight;
     public LayerMask viewMask;
+    public float viewDistance;
 
+    public bool canTurn;
     public Transform pathHolder;
     public float speed = 5;
     public float waitTime = .3f;
     public float turnSpeed = 90;
 
-    float startTime;
-    float journeyLength;
-    Vector3 velocity = Vector3.zero;
+    public float timeToKillPlayer = .5f;
+    public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
 
     float playerVisibleTimer;
     bool detected;
@@ -36,9 +38,8 @@ public class PatrolDrones : MonoBehaviour
             waypoints[i] = pathHolder.GetChild(i).position;
             waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
         }
-        
-        StartCoroutine(FollowPath(waypoints));
 
+        StartCoroutine(FollowPath(waypoints));
     }
 
     void Update()
@@ -56,7 +57,7 @@ public class PatrolDrones : MonoBehaviour
 
         if (playerVisibleTimer >= timeToSpotPlayer)
         {
-            GM.Die();
+            StartCoroutine(CallShootWithDelay());
         }
     }
 
@@ -78,7 +79,8 @@ public class PatrolDrones : MonoBehaviour
                 targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
                 targetWaypoint = waypoints[targetWaypointIndex];
                 yield return new WaitForSeconds(waitTime);
-                yield return StartCoroutine(TurnToFace(targetWaypoint));
+                if (canTurn)
+                    yield return StartCoroutine(TurnToFace(targetWaypoint));
             }
             yield return null;
         }
@@ -97,9 +99,18 @@ public class PatrolDrones : MonoBehaviour
         }
     }
 
+    IEnumerator CallShootWithDelay()
+    {
+        muzzleFlash.Play();
+        GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
+        Destroy(impactGO, 1f);
+        yield return new WaitForSeconds(timeToKillPlayer);
+        GM.Die();
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("uni"))
+        if (other.CompareTag("Player"))
         {
             Debug.DrawLine(transform.position, player.position);
             if (!Physics.Linecast(transform.position, player.position, viewMask))
