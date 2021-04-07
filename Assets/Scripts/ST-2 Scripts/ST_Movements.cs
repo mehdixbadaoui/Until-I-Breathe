@@ -10,6 +10,8 @@ public class ST_Movements : MonoBehaviour
     public float rotationSpeed = 5f;
 
     public Vector3 followOffset;
+    [Range(0f, 2f)]
+    public float crouch = 0.3f;
     Vector3 startOffset;
     Vector3 rotationMask;
 
@@ -25,6 +27,9 @@ public class ST_Movements : MonoBehaviour
 
     private hook_detector HookDetector;
     private PlayEventSounds distanceUniFromObjects;
+
+    private Movement PlayerMovement;
+    private float currentFollowOffsetY;
 
     // To access the children components of ST-2 (sprite)
     //public GameObject ChildGO_Sprite;
@@ -45,6 +50,7 @@ public class ST_Movements : MonoBehaviour
         // Initialize the start position of ST-2
         Vector3 startOffset = new Vector3(-2.5f, 2f, 0.0f);
 
+        currentFollowOffsetY = followOffset.y;
         // Initialize the position of ST-2 at the start of  the game
         transform.position = Player.position + startOffset;
 
@@ -53,6 +59,7 @@ public class ST_Movements : MonoBehaviour
 
         // Fetches the script Hook_Detector from the Player GO
         HookDetector = Player.Find("hook_detector").GetComponent<hook_detector>();
+        PlayerMovement = Player.GetComponent<Movement>();
     }
 
     private void Update()
@@ -91,6 +98,15 @@ public class ST_Movements : MonoBehaviour
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
 
             transform.LookAt(Player.Find("ST2 Follow"));
+
+            if (PlayerMovement.isPlayerCrouching)
+            {
+                followOffset.y = crouch;
+            }
+            else
+            {
+                followOffset.y = currentFollowOffsetY;
+            }
         }
         
         // Allows ST-2 to show the nearest HOOK to the player
