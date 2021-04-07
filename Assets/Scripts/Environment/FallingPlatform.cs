@@ -9,6 +9,8 @@ public class FallingPlatform : MonoBehaviour
     private Vector3 lastPos;
     private Quaternion lastRot;
     private Vector3 lastScale;
+    private GameObject uni;
+    private PlayEventSounds playEvent; 
 
     void Start()
     {
@@ -21,7 +23,8 @@ public class FallingPlatform : MonoBehaviour
 
         //Initialize the last pos
         lastScale = transform.localScale;
-
+        uni = GameObject.FindGameObjectWithTag("uni");
+        playEvent = uni.GetComponent<PlayEventSounds>(); 
 
     }
 
@@ -40,7 +43,8 @@ public class FallingPlatform : MonoBehaviour
         if (col.gameObject.tag == "uni")
         {
             yield return new WaitForSecondsRealtime(wait_time);
-
+            Vector3 distwithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
+            playEvent.RTPCGameObjectValue(distwithUni, 15, this.gameObject, "Plateforme_casse_goutiere_metal_event", "FallingPlateformeVolume");
             GetComponent<Rigidbody>().useGravity = true;
             GetComponent<Rigidbody>().isKinematic = false;
 

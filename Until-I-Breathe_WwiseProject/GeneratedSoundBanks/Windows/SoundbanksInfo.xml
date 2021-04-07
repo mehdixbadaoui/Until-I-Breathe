@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1033110631">
+		<SoundBank Id="1355168291" Language="SFX" Hash="266324228">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="2929580736">
+		<SoundBank Id="2228651116" Language="SFX" Hash="789101015">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -732,7 +732,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="695806192" Name="Plateforme_casse_blacon_beton_event" ObjectPath="\Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_blacon_beton_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.562479">
+				<Event Id="695806192" Name="Plateforme_casse_blacon_beton_event" ObjectPath="\Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_blacon_beton_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="596895697" Language="SFX">
 							<ShortName>Plateforme_Casse_Balcon_Beton_02.wav</ShortName>
@@ -744,7 +744,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3013755494" Name="Plateforme_casse_goutiere_metal_event" ObjectPath="\Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_goutiere_metal_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.000000">
+				<Event Id="3013755494" Name="Plateforme_casse_goutiere_metal_event" ObjectPath="\Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_goutiere_metal_event" DurationType="OneShot" DurationMin="1.122462" DurationMax="1.122462">
 					<IncludedMemoryFiles>
 						<File Id="266166256" Language="SFX">
 							<ShortName>Plateforme_Casse_Goutiere_Metal_01.wav</ShortName>
@@ -982,6 +982,8 @@
 				</Event>
 			</IncludedEvents>
 			<GameParameters>
+				<GameParameter Id="58362009" Name="TrainDepartVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainDepartVolume"/>
+				<GameParameter Id="1003961143" Name="FallingPlateformeVolume" ObjectPath="\Game Parameters\Default Work Unit\FallingPlateformeVolume"/>
 				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
 				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>
 				<GameParameter Id="2352147213" Name="InspirationVolume" ObjectPath="\Game Parameters\Default Work Unit\InspirationVolume"/>

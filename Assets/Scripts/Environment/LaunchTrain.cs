@@ -6,10 +6,13 @@ public class LaunchTrain : MonoBehaviour
 {
     public GameObject Locomotive;
     public GameObject Track;
+    
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("uni"))
         {
+            
             BezierSpline track_bz = Track.GetComponent<BezierSpline>();
             Locomotive.GetComponent<SplineWalker>().spline = track_bz;
             Locomotive.GetComponent<SplineWalker>().progress = 0;
