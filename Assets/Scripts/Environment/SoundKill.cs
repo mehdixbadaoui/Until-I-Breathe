@@ -7,7 +7,13 @@ public class SoundKill : MonoBehaviour
     //Set this in unity
     public float ForceOndeBefore;
     public float ForceOndeAfter;
+
+    // Previous color
     private Color previousColor;
+    [Range(0.0f, 1.0f)]  public float previousColor_H = 0.5f;
+    public float previousColor_H_notuseful;
+    private float previousColor_S;
+    private float previousColor_V;
 
     private GameMaster gm;
     private List<GameObject> all_hooks;
@@ -31,6 +37,7 @@ public class SoundKill : MonoBehaviour
     void Start()
     {
         previousColor = transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.GetColor("Color_EDC6F8A5");
+        Color.RGBToHSV(previousColor , out previousColor_H_notuseful, out previousColor_S , out previousColor_V );
 
         //List of hooks and tags
         all_hooks = new List<GameObject>();
@@ -140,7 +147,7 @@ public class SoundKill : MonoBehaviour
         {
             timerPlay += Time.deltaTime;
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", Color.red * 30);
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", Color.HSVToRGB( Mathf.Lerp(previousColor_H , 0 , timerPlay * 6.0f ) , previousColor_S , previousColor_V ) );
 
             if (timerPlay > soundlength)
             {
@@ -151,7 +158,7 @@ public class SoundKill : MonoBehaviour
         else
         {
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", previousColor);
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", Color.HSVToRGB(Mathf.Lerp(0, previousColor_H, (timerSound - soundlength) * 6 ), previousColor_S, previousColor_V) );
         }
 
     }

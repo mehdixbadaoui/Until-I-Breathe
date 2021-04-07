@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOn: 0
-  timeOnePeriode: 150000
-  soundlength: 0.0001
+  timeOnePeriode: 0.1
+  soundlength: 0.1
 --- !u!1001 &8861528782284185391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -169,6 +169,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d4498c0e028847344bfa3d9c93417608,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d341fae34ae39f24f9bed40085ad1d41, type: 2}
     - target: {fileID: 919132149155446097, guid: d4498c0e028847344bfa3d9c93417608,
         type: 3}
       propertyPath: m_Name
