@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585839055150243675
+    m_lastTime: -8585838104495145090
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585838908383585814
+    m_lastTime: -8585838104504670114
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -296,6 +296,29 @@ MonoBehaviour:
         ObjectType: 3
         guid: 8232c6f35a5a244e97a9a56761555d96
       Path: Events\Default Work Unit\Environment_events\Ventilator\Big_Ventilator_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Break_Drones_stationnaire_event
+      guid: ea79686c67211d4785e6107707a0fa7e
+      id: 2580519433
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Drones
+        ObjectType: 4
+        guid: 1327498392a15548873c9c6fad1a49d7
+      - ElementName: Break_Drones_stationnaire_event
+        ObjectType: 3
+        guid: ea79686c67211d4785e6107707a0fa7e
+      Path: Events\Default Work Unit\Environment_events\Drones\Break_Drones_stationnaire_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -654,6 +677,72 @@ MonoBehaviour:
         ObjectType: 4
         guid: 4e936b211263924a97938e866a179f9d
       Path: Events\Default Work Unit\Environment_events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Foule
+      guid: f02e4aa84eec514b90b30379def08574
+      id: 4222617504
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Foule
+        ObjectType: 4
+        guid: f02e4aa84eec514b90b30379def08574
+      Path: Events\Default Work Unit\Environment_events\Foule
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Foule_loop_event
+      guid: f3429ac42a67fb4cb04c696fa9fa9c64
+      id: 2985396484
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Foule
+        ObjectType: 4
+        guid: f02e4aa84eec514b90b30379def08574
+      - ElementName: Foule_loop_event
+        ObjectType: 3
+        guid: f3429ac42a67fb4cb04c696fa9fa9c64
+      Path: Events\Default Work Unit\Environment_events\Foule\Foule_loop_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Foule_wow_event
+      guid: 2b92c9e88fbb2c458ac85ab7721953d3
+      id: 2519954033
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Foule
+        ObjectType: 4
+        guid: f02e4aa84eec514b90b30379def08574
+      - ElementName: Foule_wow_event
+        ObjectType: 3
+        guid: 2b92c9e88fbb2c458ac85ab7721953d3
+      Path: Events\Default Work Unit\Environment_events\Foule\Foule_wow_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1251,6 +1340,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Message_ST2_Branchement_event
+      guid: 1ee7439b9fa8c246bf8959447d7f0087
+      id: 3024873643
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: ST2_events
+        ObjectType: 4
+        guid: d0a8e906e890dd4b9a083fff794014e5
+      - ElementName: Message_ST2_Branchement_event
+        ObjectType: 3
+        guid: 1ee7439b9fa8c246bf8959447d7f0087
+      Path: Events\Default Work Unit\ST2_events\Message_ST2_Branchement_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Message_ST2_decrypte_event
+      guid: 666a1e2fe31e264f8d83dcfd79bc349d
+      id: 3095867336
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: ST2_events
+        ObjectType: 4
+        guid: d0a8e906e890dd4b9a083fff794014e5
+      - ElementName: Message_ST2_decrypte_event
+        ObjectType: 3
+        guid: 666a1e2fe31e264f8d83dcfd79bc349d
+      Path: Events\Default Work Unit\ST2_events\Message_ST2_decrypte_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Music_levels
       guid: 83c154ea6ed22e4d99c862109a900c87
       id: 2209143460
@@ -1265,6 +1394,207 @@ MonoBehaviour:
         ObjectType: 4
         guid: 83c154ea6ed22e4d99c862109a900c87
       Path: Events\Default Work Unit\Music_levels
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Nacelle_depart_event
+      guid: d4bb8cc30f14c846bccade92a2c3a354
+      id: 4251687649
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Nacelles
+        ObjectType: 4
+        guid: aa4dda3d5c5de245867eadda22810449
+      - ElementName: Nacelle_depart_event
+        ObjectType: 3
+        guid: d4bb8cc30f14c846bccade92a2c3a354
+      Path: Events\Default Work Unit\Environment_events\Nacelles\Nacelle_depart_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Nacelle_detruite_event
+      guid: f8f85269afce744d80997fc70b10f21e
+      id: 3435722515
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Nacelles
+        ObjectType: 4
+        guid: aa4dda3d5c5de245867eadda22810449
+      - ElementName: Nacelle_detruite_event
+        ObjectType: 3
+        guid: f8f85269afce744d80997fc70b10f21e
+      Path: Events\Default Work Unit\Environment_events\Nacelles\Nacelle_detruite_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Nacelle_fin_event
+      guid: f1e80f5906280349a7d10696b061baef
+      id: 410758684
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Nacelles
+        ObjectType: 4
+        guid: aa4dda3d5c5de245867eadda22810449
+      - ElementName: Nacelle_fin_event
+        ObjectType: 3
+        guid: f1e80f5906280349a7d10696b061baef
+      Path: Events\Default Work Unit\Environment_events\Nacelles\Nacelle_fin_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Nacelle_loop_event
+      guid: 4e854ec4bbe60e44a33acdeefde6ef40
+      id: 2283719349
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Nacelles
+        ObjectType: 4
+        guid: aa4dda3d5c5de245867eadda22810449
+      - ElementName: Nacelle_loop_event
+        ObjectType: 3
+        guid: 4e854ec4bbe60e44a33acdeefde6ef40
+      Path: Events\Default Work Unit\Environment_events\Nacelles\Nacelle_loop_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Nacelles
+      guid: aa4dda3d5c5de245867eadda22810449
+      id: 2836423634
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Nacelles
+        ObjectType: 4
+        guid: aa4dda3d5c5de245867eadda22810449
+      Path: Events\Default Work Unit\Environment_events\Nacelles
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Plateforme
+      guid: 1bed420fad38d44db6e8187e9d53be94
+      id: 1736513622
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Plateforme
+        ObjectType: 4
+        guid: 1bed420fad38d44db6e8187e9d53be94
+      Path: Events\Default Work Unit\Environment_events\Plateforme
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Plateforme_casse_blacon_beton_event
+      guid: 139cb34c581ae841a59867b56d498e9f
+      id: 695806192
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Plateforme
+        ObjectType: 4
+        guid: 1bed420fad38d44db6e8187e9d53be94
+      - ElementName: Plateforme_casse_blacon_beton_event
+        ObjectType: 3
+        guid: 139cb34c581ae841a59867b56d498e9f
+      Path: Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_blacon_beton_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Plateforme_casse_goutiere_metal_event
+      guid: 47635ddadf8e824c8c433beee60194f8
+      id: 3013755494
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Plateforme
+        ObjectType: 4
+        guid: 1bed420fad38d44db6e8187e9d53be94
+      - ElementName: Plateforme_casse_goutiere_metal_event
+        ObjectType: 3
+        guid: 47635ddadf8e824c8c433beee60194f8
+      Path: Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_goutiere_metal_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Plateforme_casse_passerelle_metal_event
+      guid: fefb7d560cf4e448966bcf4407c91bca
+      id: 2517494722
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Plateforme
+        ObjectType: 4
+        guid: 1bed420fad38d44db6e8187e9d53be94
+      - ElementName: Plateforme_casse_passerelle_metal_event
+        ObjectType: 3
+        guid: fefb7d560cf4e448966bcf4407c91bca
+      Path: Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_passerelle_metal_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1575,6 +1905,118 @@ MonoBehaviour:
         ObjectType: 3
         guid: cd7a3e67d569034c9caa2a7537afd852
       Path: Events\Default Work Unit\Uni_events\Uni_respiration\Stop_UniSouffle_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Train
+      guid: 000782575951474298c1830daa35c124
+      id: 3412057565
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Train
+        ObjectType: 4
+        guid: 000782575951474298c1830daa35c124
+      Path: Events\Default Work Unit\Environment_events\Train
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Train_arret_event
+      guid: 4406c7b9413e89468bfeb74e01501ff4
+      id: 3009703055
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Train
+        ObjectType: 4
+        guid: 000782575951474298c1830daa35c124
+      - ElementName: Train_arret_event
+        ObjectType: 3
+        guid: 4406c7b9413e89468bfeb74e01501ff4
+      Path: Events\Default Work Unit\Environment_events\Train\Train_arret_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Train_depart_event
+      guid: b9af6b63493fc6418c2a2e4307b186ad
+      id: 3951010251
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Train
+        ObjectType: 4
+        guid: 000782575951474298c1830daa35c124
+      - ElementName: Train_depart_event
+        ObjectType: 3
+        guid: b9af6b63493fc6418c2a2e4307b186ad
+      Path: Events\Default Work Unit\Environment_events\Train\Train_depart_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Train_exterieur_event
+      guid: ee9a73482bd53046840d8ce69f2bcc29
+      id: 1127840350
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Train
+        ObjectType: 4
+        guid: 000782575951474298c1830daa35c124
+      - ElementName: Train_exterieur_event
+        ObjectType: 3
+        guid: ee9a73482bd53046840d8ce69f2bcc29
+      Path: Events\Default Work Unit\Environment_events\Train\Train_exterieur_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Train_Interieur_event
+      guid: 86952e1d77ef81419e77b4058ea6041a
+      id: 2137224780
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Train
+        ObjectType: 4
+        guid: 000782575951474298c1830daa35c124
+      - ElementName: Train_Interieur_event
+        ObjectType: 3
+        guid: 86952e1d77ef81419e77b4058ea6041a
+      Path: Events\Default Work Unit\Environment_events\Train\Train_Interieur_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1

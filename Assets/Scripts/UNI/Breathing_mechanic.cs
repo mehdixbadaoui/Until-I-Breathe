@@ -126,7 +126,7 @@ public class Breathing_mechanic : MonoBehaviour
                             objectDetector.listObj[index].GetComponent<ballon>().incAir(1 * Time.deltaTime);
                         else
                             //objectDetector.listObj[index].GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward * transform.localScale.z) * objectDetector.listObj[index].GetComponent<ballon>().force, ForceMode.Impulse);
-                            objectDetector.listObj[index].transform.Translate(transform.TransformDirection(Vector3.forward * transform.localScale.z) * objectDetector.listObj[index].GetComponent<ballon>().force);
+                            objectDetector.listObj[index].GetComponent<ballon>().Push();
                     }
                     else if (objectDetector.listObj[index].tag == "fan")
                     {
