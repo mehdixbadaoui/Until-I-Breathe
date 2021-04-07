@@ -605,6 +605,20 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Break_Drones_stationnaire_event" ID="{6C6879EA-2167-471D-85E6-107707A0FA7E}">
+									<ChildrenList>
+										<Action Name="" ID="{75D6B7E3-B124-4082-A422-3A1F22C518C6}" ShortID="200610554">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="34"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Drones_stationnaire" ID="{3B92AE36-5334-4CAA-B472-7514DC4C158C}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="Engrenage_bloquer_event" ID="{3C25E1FC-0E5F-4810-A637-EDB009A10F83}">
@@ -735,6 +749,165 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Folder Name="Train" ID="{57820700-5159-4247-98C1-830DAA35C124}" ShortID="798755221">
+							<ChildrenList>
+								<Event Name="Train_arret_event" ID="{B9C70644-3E41-4689-8BFE-B74E01501FF4}">
+									<ChildrenList>
+										<Action Name="" ID="{3F2B0E6C-256B-4E30-BD06-2F6F40EF1FA6}" ShortID="438718090">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Train_arret" ID="{1BBF111B-5F24-4229-A893-6893415D8AD5}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Train_depart_event" ID="{636BAFB9-3F49-41C6-8C2A-2E4307B186AD}">
+									<ChildrenList>
+										<Action Name="" ID="{1BE01BE2-0773-4EB1-9DB4-0DFAAB78C71F}" ShortID="664395584">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Train_depart" ID="{3D0970CC-0BE7-472E-8965-D7F2A6402F8C}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Train_Interieur_event" ID="{1D2E9586-EF77-4181-9E77-B4058EA6041A}">
+									<ChildrenList>
+										<Action Name="" ID="{BC13B51B-659E-4C23-B534-E158AC31906F}" ShortID="699251025">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Train_Marche_Interieur_Loop_01" ID="{6026F439-6F1A-4326-8919-E05840CF36EE}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Train_exterieur_event" ID="{48739AEE-D52B-4630-840D-8CE69F2BCC29}">
+									<ChildrenList>
+										<Action Name="" ID="{B2B26472-856A-4181-96E1-768D310562E3}" ShortID="342332498">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Train_Marche_Exterieur_Loop_01" ID="{E5A03468-1F46-4928-888D-688E61F3DA4F}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Plateforme" ID="{0F42ED1B-38AD-4DD4-B6E8-187E9D53BE94}" ShortID="177578091">
+							<ChildrenList>
+								<Event Name="Plateforme_casse_blacon_beton_event" ID="{4CB39C13-1A58-41E8-A598-67B56D498E9F}">
+									<ChildrenList>
+										<Action Name="" ID="{3D69379D-6EFA-43F4-8ADD-3112E25EE145}" ShortID="1013746265">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Plateforme_casse_Balcon_Beton" ID="{F70EEB63-D7C0-4950-B530-5A14DCAA6D5A}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Plateforme_casse_goutiere_metal_event" ID="{DA5D6347-8EDF-4C82-8C43-3BEEE60194F8}">
+									<ChildrenList>
+										<Action Name="" ID="{BA1DC6C9-A04B-4C4F-B042-59C4BC6C916D}" ShortID="574237130">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Plateforme_casse_goutiere_metal" ID="{F804FBE9-9273-4C39-ADDE-A0E3D6011798}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Plateforme_casse_passerelle_metal_event" ID="{567DFBFE-F40C-48E4-966B-CF4407C91BCA}">
+									<ChildrenList>
+										<Action Name="" ID="{C97EB641-FD1D-49CF-A165-7C1D7E8393B9}" ShortID="148417876">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Plateforme_casse_Passerelle_Metal" ID="{49B28B0D-EA2F-48B2-874D-B9604958E008}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Nacelles" ID="{3DDA4DAA-5D5C-45E2-867E-ADDA22810449}" ShortID="351073510">
+							<ChildrenList>
+								<Event Name="Nacelle_depart_event" ID="{C38CBBD4-140F-46C8-BCCA-DE92A2C3A354}">
+									<ChildrenList>
+										<Action Name="" ID="{48D24D21-E904-47D7-8E2B-1D2E8EE3CAC8}" ShortID="1064694808">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Nacelle_Depart_01" ID="{AA8556F3-C9F9-4B41-B9E0-5BCEFBFD3914}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Nacelle_fin_event" ID="{590FE8F1-2806-4903-A7D1-0696B061BAEF}">
+									<ChildrenList>
+										<Action Name="" ID="{953E7E17-60FA-4A5E-A3E9-9278191B6232}" ShortID="918888934">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Nacelle_Fin_01" ID="{0D1F7267-19E6-4B07-9643-5A162993728C}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Nacelle_detruite_event" ID="{6952F8F8-CEAF-4D74-8099-7FC70B10F21E}">
+									<ChildrenList>
+										<Action Name="" ID="{6881687F-8C1F-424E-9FDD-F89DE678283E}" ShortID="66392398">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Nacelle_detruit" ID="{6420363D-968E-482C-9E66-9DB277DFDAB1}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Nacelle_loop_event" ID="{C44E854E-E6BB-440E-A33A-CDEEFDE6EF40}">
+									<ChildrenList>
+										<Action Name="" ID="{9C4F9898-B7B4-424B-A885-19A456636C9E}" ShortID="36534821">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Nacelle_Mouvement_Loop" ID="{1372340F-7F26-4B38-9277-BD8DAB622F54}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Foule" ID="{A84A2EF0-EC4E-4B51-90B3-0379DEF08574}" ShortID="696402309">
+							<ChildrenList>
+								<Event Name="Foule_wow_event" ID="{E8C9922B-BB8F-452C-8AC8-5AB7721953D3}">
+									<ChildrenList>
+										<Action Name="" ID="{2FF779D6-83F0-4CDB-B85A-8DB02912D135}" ShortID="198679608">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Foule_Wow" ID="{24126343-876F-4F3F-BE2B-45FCA3CE3CBC}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Foule_loop_event" ID="{C49A42F3-672A-4CFB-B04C-696FA9FA9C64}">
+									<ChildrenList>
+										<Action Name="" ID="{36A12EF9-A8F6-40DA-89C8-CAB96B00650A}" ShortID="738890873">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Foule_Loop_01" ID="{B7DCD99D-5440-4B9F-8391-CD0C4DE56C32}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST2_events" ID="{06E9A8D0-90E8-4BDD-9A08-3FFF794014E5}" ShortID="741954611">
@@ -745,6 +918,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="ST2_deplacements" ID="{F40F6B3A-0BD1-4E9E-BDCE-3771E4AB40B8}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Message_ST2_decrypte_event" ID="{2F1E6A66-1EE3-4F26-8D83-DCFD79BC349D}">
+							<ChildrenList>
+								<Action Name="" ID="{A9A8A82B-C8C9-49C3-BF5B-A899AE6E1151}" ShortID="362493808">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Message_Decrypte" ID="{FE960202-FFB6-4A32-B97C-F1B567ED2818}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Message_ST2_Branchement_event" ID="{9B43E71E-A89F-46C2-BF89-59447D7F0087}">
+							<ChildrenList>
+								<Action Name="" ID="{CF33910A-FC9D-4890-BA43-F8CD39696535}" ShortID="64305164">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Message_Branchement" ID="{614E58F2-7BA4-4BC1-9863-9504E5FA67C2}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

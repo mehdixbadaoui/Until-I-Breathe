@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="2320236707">
+		<SoundBank Id="2228651116" Language="SFX" Hash="2929580736">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -118,7 +118,8 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4014938746" Name="Break_UntilIBreathe_Level2_3_Run_Loop_event" ObjectPath="\Events\Default Work Unit\Break_UntilIBreathe_Level2_3_Run_Loop_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2580519433" Name="Break_Drones_stationnaire_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_stationnaire_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4014938746" Name="Break_UntilIBreathe_Level2_3_Run_Loop_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_2_3\Break_UntilIBreathe_Level2_3_Run_Loop_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="113833375" Name="BrokenWindow_event" ObjectPath="\Events\Default Work Unit\Environment_events\BrokenWindow_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.500000">
 					<IncludedMemoryFiles>
 						<File Id="395899910" Language="SFX">
@@ -231,7 +232,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="239919669" Name="Drone_acceleration_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_acceleration_event" DurationType="OneShot" DurationMin="0.687500" DurationMax="0.687500">
+				<Event Id="239919669" Name="Drone_acceleration_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_acceleration_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="403672902" Language="SFX">
 							<ShortName>Drone_Acceleration_02.wav</ShortName>
@@ -247,7 +248,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3075378619" Name="Drone_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
+				<Event Id="3075378619" Name="Drone_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="108235587" Language="SFX">
 							<ShortName>Drone_Deplacement_03.wav</ShortName>
@@ -263,7 +264,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="728004997" Name="Drone_fireshot_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_fireshot_event" DurationType="OneShot" DurationMin="1.479167" DurationMax="1.500000">
+				<Event Id="728004997" Name="Drone_fireshot_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_fireshot_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="257210288" Language="SFX">
 							<ShortName>Drone_coup de feu_1.wav</ShortName>
@@ -279,7 +280,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3298702202" Name="Drone_stationnaire_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_stationnaire_event" DurationType="OneShot" DurationMin="2.000125" DurationMax="2.000125">
+				<Event Id="3298702202" Name="Drone_stationnaire_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_stationnaire_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="407162132" Language="SFX">
 							<ShortName>Drone_Stationnaire_01.wav</ShortName>
@@ -316,6 +317,26 @@
 						<File Id="39962802" Language="SFX">
 							<ShortName>Engrenage_Bloquer_02.wav</ShortName>
 							<Path>SFX\Engrenage_Bloquer_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2985396484" Name="Foule_loop_event" ObjectPath="\Events\Default Work Unit\Environment_events\Foule\Foule_loop_event" DurationType="OneShot" DurationMin="20.000000" DurationMax="20.000000">
+					<IncludedMemoryFiles>
+						<File Id="746466881" Language="SFX">
+							<ShortName>Foule_Loop_01.wav</ShortName>
+							<Path>SFX\Foule_Loop_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2519954033" Name="Foule_wow_event" ObjectPath="\Events\Default Work Unit\Environment_events\Foule\Foule_wow_event" DurationType="OneShot" DurationMin="2.562479" DurationMax="4.000000">
+					<IncludedMemoryFiles>
+						<File Id="398808905" Language="SFX">
+							<ShortName>Foule_Wow_02.wav</ShortName>
+							<Path>SFX\Foule_Wow_02_10C4C929.wem</Path>
+						</File>
+						<File Id="563100162" Language="SFX">
+							<ShortName>Foule_Wow_01.wav</ShortName>
+							<Path>SFX\Foule_Wow_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -647,7 +668,107 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3795112257" Name="Play_Level2_3_event" ObjectPath="\Events\Default Work Unit\Play_Level2_3_event" DurationType="Infinite">
+				<Event Id="3024873643" Name="Message_ST2_Branchement_event" ObjectPath="\Events\Default Work Unit\ST2_events\Message_ST2_Branchement_event" DurationType="OneShot" DurationMin="1.500000" DurationMax="1.500000">
+					<IncludedMemoryFiles>
+						<File Id="638510207" Language="SFX">
+							<ShortName>Message_ST2_Branchement_02.wav</ShortName>
+							<Path>SFX\Message_ST2_Branchement_02_10C4C929.wem</Path>
+						</File>
+						<File Id="1018370728" Language="SFX">
+							<ShortName>Message_ST2_Branchement_01.wav</ShortName>
+							<Path>SFX\Message_ST2_Branchement_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3095867336" Name="Message_ST2_decrypte_event" ObjectPath="\Events\Default Work Unit\ST2_events\Message_ST2_decrypte_event" DurationType="OneShot" DurationMin="4.000000" DurationMax="4.000000">
+					<IncludedMemoryFiles>
+						<File Id="177874080" Language="SFX">
+							<ShortName>Message_ST2_Decrypte_01.wav</ShortName>
+							<Path>SFX\Message_ST2_Decrypte_01_10C4C929.wem</Path>
+						</File>
+						<File Id="990445670" Language="SFX">
+							<ShortName>Message_ST2_Decrypte_02.wav</ShortName>
+							<Path>SFX\Message_ST2_Decrypte_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4251687649" Name="Nacelle_depart_event" ObjectPath="\Events\Default Work Unit\Environment_events\Nacelles\Nacelle_depart_event" DurationType="OneShot" DurationMin="1.375000" DurationMax="1.375000">
+					<IncludedMemoryFiles>
+						<File Id="222777660" Language="SFX">
+							<ShortName>Nacelle_Depart_01.wav</ShortName>
+							<Path>SFX\Nacelle_Depart_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3435722515" Name="Nacelle_detruite_event" ObjectPath="\Events\Default Work Unit\Environment_events\Nacelles\Nacelle_detruite_event" DurationType="OneShot" DurationMin="1.916667" DurationMax="1.916667">
+					<IncludedMemoryFiles>
+						<File Id="304933479" Language="SFX">
+							<ShortName>Nacelle_Detruit_01.wav</ShortName>
+							<Path>SFX\Nacelle_Detruit_01_10C4C929.wem</Path>
+						</File>
+						<File Id="391843586" Language="SFX">
+							<ShortName>Nacelle_Detruit_03.wav</ShortName>
+							<Path>SFX\Nacelle_Detruit_03_10C4C929.wem</Path>
+						</File>
+						<File Id="793718198" Language="SFX">
+							<ShortName>Nacelle_Detruit_02.wav</ShortName>
+							<Path>SFX\Nacelle_Detruit_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="410758684" Name="Nacelle_fin_event" ObjectPath="\Events\Default Work Unit\Environment_events\Nacelles\Nacelle_fin_event" DurationType="OneShot" DurationMin="1.625000" DurationMax="1.625000">
+					<IncludedMemoryFiles>
+						<File Id="728790962" Language="SFX">
+							<ShortName>Nacelle_Fin_01.wav</ShortName>
+							<Path>SFX\Nacelle_Fin_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2283719349" Name="Nacelle_loop_event" ObjectPath="\Events\Default Work Unit\Environment_events\Nacelles\Nacelle_loop_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="715980784" Language="SFX">
+							<ShortName>Nacelle_Mouvement_Loop.wav</ShortName>
+							<Path>SFX\Nacelle_Mouvement_Loop_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="695806192" Name="Plateforme_casse_blacon_beton_event" ObjectPath="\Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_blacon_beton_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.562479">
+					<IncludedMemoryFiles>
+						<File Id="596895697" Language="SFX">
+							<ShortName>Plateforme_Casse_Balcon_Beton_02.wav</ShortName>
+							<Path>SFX\Plateforme_Casse_Balcon_Beton_02_10C4C929.wem</Path>
+						</File>
+						<File Id="840368173" Language="SFX">
+							<ShortName>Plateforme_Casse_Balcon_Beton_01.wav</ShortName>
+							<Path>SFX\Plateforme_Casse_Balcon_Beton_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3013755494" Name="Plateforme_casse_goutiere_metal_event" ObjectPath="\Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_goutiere_metal_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.000000">
+					<IncludedMemoryFiles>
+						<File Id="266166256" Language="SFX">
+							<ShortName>Plateforme_Casse_Goutiere_Metal_01.wav</ShortName>
+							<Path>SFX\Plateforme_Casse_Goutiere_Metal_01_10C4C929.wem</Path>
+						</File>
+						<File Id="515587837" Language="SFX">
+							<ShortName>Plateforme_Casse_Goutiere_Metal_02.wav</ShortName>
+							<Path>SFX\Plateforme_Casse_Goutiere_Metal_02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2517494722" Name="Plateforme_casse_passerelle_metal_event" ObjectPath="\Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_passerelle_metal_event" DurationType="OneShot" DurationMin="1.037479" DurationMax="1.078104">
+					<IncludedMemoryFiles>
+						<File Id="212799008" Language="SFX">
+							<ShortName>Plateforme_Casse_Passerelle_Metal_02.wav</ShortName>
+							<Path>SFX\Plateforme_Casse_Passerelle_Metal_02_10C4C929.wem</Path>
+						</File>
+						<File Id="641460236" Language="SFX">
+							<ShortName>Plateforme_Casse_Passerelle_Metal_01.wav</ShortName>
+							<Path>SFX\Plateforme_Casse_Passerelle_Metal_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3795112257" Name="Play_Level2_3_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_2_3\Play_Level2_3_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="65055988" Language="SFX">
 							<ShortName>UntilIBreathe_Level2-3_Run_Loop.wav</ShortName>
@@ -779,6 +900,54 @@
 				<Event Id="2239026864" Name="Stop_Little_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3935460844" Name="Stop_music_event" ObjectPath="\Events\Default Work Unit\Music_levels\Stop_music_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3140239569" Name="Stop_UniSouffle_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_respiration\Stop_UniSouffle_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3009703055" Name="Train_arret_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_arret_event" DurationType="OneShot" DurationMin="5.000000" DurationMax="5.000000">
+					<IncludedMemoryFiles>
+						<File Id="160031440" Language="SFX">
+							<ShortName>Train_Arret_03.wav</ShortName>
+							<Path>SFX\Train_Arret_03_10C4C929.wem</Path>
+						</File>
+						<File Id="583213913" Language="SFX">
+							<ShortName>Train_Arret_02.wav</ShortName>
+							<Path>SFX\Train_Arret_02_10C4C929.wem</Path>
+						</File>
+						<File Id="997543404" Language="SFX">
+							<ShortName>Train_Arret_01.wav</ShortName>
+							<Path>SFX\Train_Arret_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3951010251" Name="Train_depart_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_depart_event" DurationType="OneShot" DurationMin="3.000000" DurationMax="3.000000">
+					<IncludedMemoryFiles>
+						<File Id="314046825" Language="SFX">
+							<ShortName>Train_Depart_01.wav</ShortName>
+							<Path>SFX\Train_Depart_01_10C4C929.wem</Path>
+						</File>
+						<File Id="381284664" Language="SFX">
+							<ShortName>Train_Depart_02.wav</ShortName>
+							<Path>SFX\Train_Depart_02_10C4C929.wem</Path>
+						</File>
+						<File Id="435869392" Language="SFX">
+							<ShortName>Train_Depart_03.wav</ShortName>
+							<Path>SFX\Train_Depart_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1127840350" Name="Train_exterieur_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_exterieur_event" DurationType="OneShot" DurationMin="7.250000" DurationMax="7.250000">
+					<IncludedMemoryFiles>
+						<File Id="582645094" Language="SFX">
+							<ShortName>Train_Marche_Exterieur_Loop_01.wav</ShortName>
+							<Path>SFX\Train_Marche_Exterieur_Loop_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2137224780" Name="Train_Interieur_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_Interieur_event" DurationType="OneShot" DurationMin="7.250000" DurationMax="7.250000">
+					<IncludedMemoryFiles>
+						<File Id="124747176" Language="SFX">
+							<ShortName>Train_Marche_Interieur_Loop_01.wav</ShortName>
+							<Path>SFX\Train_Marche_Interieur_Loop_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="980828296" Name="UniSouffle_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_respiration\UniSouffle_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
 					<IncludedMemoryFiles>
 						<File Id="169853502" Language="SFX">
@@ -792,6 +961,22 @@
 						<File Id="271850952" Language="SFX">
 							<ShortName>Uni_souffle 3.wav</ShortName>
 							<Path>SFX\Uni_souffle 3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4165311893" Name="Vent_event" ObjectPath="\Events\Default Work Unit\Environment_events\Vent_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="324778096" Language="SFX">
+							<ShortName>Vent_Random_03.wav</ShortName>
+							<Path>SFX\Vent_Random_03_10C4C929.wem</Path>
+						</File>
+						<File Id="330718545" Language="SFX">
+							<ShortName>Vent_Random_01.wav</ShortName>
+							<Path>SFX\Vent_Random_01_10C4C929.wem</Path>
+						</File>
+						<File Id="611500078" Language="SFX">
+							<ShortName>Vent_Random_02.wav</ShortName>
+							<Path>SFX\Vent_Random_02_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
