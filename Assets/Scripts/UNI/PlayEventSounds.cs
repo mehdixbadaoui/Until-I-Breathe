@@ -6,6 +6,8 @@ public class PlayEventSounds : MonoBehaviour
 {
     private GameObject uni;
     private CheckLenghtSound checkLenghtSound;
+    private float volumeZ;
+    private float volumeY;
     private float volume; 
 
     // Start is called before the first frame update
@@ -26,7 +28,13 @@ public class PlayEventSounds : MonoBehaviour
         
         if (((distUniFromObject.z <= maxDistance && distUniFromObject.z > 0 ) || (distUniFromObject.z >= -maxDistance && distUniFromObject.z < 0) )/*|| (distUniFromObject.y <= maxDistance)*/)
         {
-            volume = (100 - Mathf.Abs(distUniFromObject.z * 100f / maxDistance) )* coeffSpeed;
+            volumeZ = (100 - Mathf.Abs(distUniFromObject.z * 100f / maxDistance) )* coeffSpeed;
+           
+            if((distUniFromObject.y <= maxDistance && distUniFromObject.y > 0) || (distUniFromObject.y >= -maxDistance && distUniFromObject.y < 0))
+            {
+                volumeY = (100 - Mathf.Abs(distUniFromObject.y * 100f / maxDistance)) * coeffSpeed;
+            }
+            volume = Mathf.Min(volumeZ, volumeY); 
             AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
         }
         

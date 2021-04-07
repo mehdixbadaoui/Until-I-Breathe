@@ -13,6 +13,7 @@ public class LaunchTrain : MonoBehaviour
     {
         if (other.CompareTag("uni"))
         {
+            
             BezierSpline track_bz = Track.GetComponent<BezierSpline>();
             Locomotive.GetComponent<SplineWalker>().spline = track_bz;
             Locomotive.GetComponent<SplineWalker>().progress = 0;

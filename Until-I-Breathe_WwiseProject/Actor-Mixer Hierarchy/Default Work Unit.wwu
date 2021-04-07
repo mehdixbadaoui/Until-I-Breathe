@@ -2945,6 +2945,32 @@
 											<ValueList>
 												<Value>-10</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{B9592A79-7C92-45B0-A004-B6FAE5901297}" ShortID="960077709">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="TrainDepartVolume" ID="{9A68C05B-9075-47FF-BB3E-19907EA47309}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{B0D8C6DC-27F4-451E-AFE3-CFC79A9CBE7A}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -3094,6 +3120,8 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Plateforme_casse_Balcon_Beton" ID="{F70EEB63-D7C0-4950-B530-5A14DCAA6D5A}" ShortID="488630922">
 									<PropertyList>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-10</Value>
@@ -3160,10 +3188,42 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Plateforme_casse_goutiere_metal" ID="{F804FBE9-9273-4C39-ADDE-A0E3D6011798}" ShortID="166242369">
 									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>-200</Value>
+											</ValueList>
+										</Property>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-17</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{F26F80DC-5EB3-44CD-AF65-8DF36C05F47B}" ShortID="121994208">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="FallingPlateformeVolume" ID="{5B8FAD35-7DD2-4D7F-BC0F-E2DAFC0ED74D}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{C44DEC0A-5AB2-470A-994D-B91F53838A07}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>

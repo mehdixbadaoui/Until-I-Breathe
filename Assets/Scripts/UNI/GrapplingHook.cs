@@ -176,7 +176,7 @@ public class GrapplingHook : MonoBehaviour
 				//TODO Toujours un pb avec les coins de rectangles ca se colle un peu, a regler a cause du *1.00001f qui est fait pour les surfaces incurvees type sphere
 				for (int ropeId = 2; ropeId < ropePositions.Count; ropeId++)
 				{
-					if (!TheLineTouch(ropePositions[ropeId].position + distToHitPoints[ropeId] * 1.0001f, ropePositions[ropeId - 2].position + distToHitPoints[ropeId - 2], ropePositions[ropeId - 2]))
+					if (!TheLineTouch(ropePositions[ropeId].position + distToHitPoints[ropeId] /** 1.0001f*/, ropePositions[ropeId - 2].position + distToHitPoints[ropeId - 2], ropePositions[ropeId - 2]))
 					{
 						if (hit.transform != hookObject.transform && hit.transform != objectHanging)
 						{
@@ -390,6 +390,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 		// Add the Transforms to the list of rope positions
+
 		ropePositions.Add(hookObject.transform);
 		ropePositions.Add(objectHanging.transform);
 
@@ -457,17 +458,25 @@ public class GrapplingHook : MonoBehaviour
 		mainChar.AddComponent<SpringJoint>();
 		spring = GetComponent<SpringJoint>();
 
-		spring.connectedBody = hookObject.GetComponent<Rigidbody>();
+		if (hookObject.transform.parent.GetComponent<Rigidbody>() != null)
+		{
+			spring.connectedBody = hookObject.transform.parent.GetComponent<Rigidbody>();
+			Debug.Log(hookObject.GetComponentInParent<Rigidbody>().name);
+		}
+		else
+			spring.connectedBody = hookObject.GetComponent<Rigidbody>();
+
+		//spring.connectedBody = hookObject.GetComponent<Rigidbody>();
 		spring.autoConfigureConnectedAnchor = false;
 		spring.anchor = Vector3.zero;
 		spring.connectedAnchor = Vector3.zero;
 
 		//Add the value to the spring
 		//spring.tolerance = 0.01f;
-		spring.spring = 1000f;
+		spring.spring = 1000000000000f;
 		spring.damper = 70f;
 
-		spring.enableCollision = true;
+		spring.enableCollision = false;
 	}
 
 	// Deplacement du joueur vers le point touche par le grappin
@@ -540,7 +549,7 @@ public class GrapplingHook : MonoBehaviour
 		if (hookObject.CompareTag("movable_hook"))
 		{
 			//Update length of the rope
-			spring.maxDistance = ropeLength;
+			spring.maxDistance = ropeLength + 3;
 			spring.minDistance = 1f;
 		}
 
