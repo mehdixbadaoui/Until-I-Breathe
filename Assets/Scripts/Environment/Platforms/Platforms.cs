@@ -51,7 +51,7 @@ public class Platforms : MonoBehaviour
     {
         if (PlatformLauncherScript != null)
         {
-            playEvent.PlayEventWithoutRTPC("Nacelle_depart_event", uni);
+            //playEvent.PlayEventWithoutRTPC("Nacelle_depart_event", uni);
             Move();
         }
     }
@@ -60,7 +60,7 @@ public class Platforms : MonoBehaviour
     {
         if (PlatformLauncherScript.activate)
         {
-            playEvent.PlayEventWithoutRTPC("Nacelle_loop_event", uni);
+            //playEvent.PlayEventWithoutRTPC("Nacelle_loop_event", uni);
             StartCoroutine(PlatformLaunch());
             firstTimeOn = false;
 
