@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8629398899749800758}
   - component: {fileID: 8629398899749800744}
-  - component: {fileID: 8629398899749800759}
+  - component: {fileID: 4064217155556874791}
   m_Layer: 2
   m_Name: ColliderEnceinte
   m_TagString: Untagged
@@ -77,7 +77,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.283251, y: 2.4758515, z: 1.6847838}
   m_Center: {x: 1.0234301, y: -0.12524198, z: 0}
---- !u!114 &8629398899749800759
+--- !u!114 &4064217155556874791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,12 +86,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8629398899749800757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca048e3830d3b4346867e83cfac38907, type: 3}
+  m_Script: {fileID: 11500000, guid: 7439fbb062722d04293e1b522cc797b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
+  ForceOndeBefore: 0.05
+  ForceOndeAfter: 0.5
+  previousColor_H: 0.5
+  previousColor_H_notuseful: 0
+  isPlaying: 0
   timeOnePeriode: 4
-  soundlength: 0.1
+  soundlength: 0.5
+  timerSound: 0.5
 --- !u!1001 &8861528782284185391
 PrefabInstance:
   m_ObjectHideFlags: 0

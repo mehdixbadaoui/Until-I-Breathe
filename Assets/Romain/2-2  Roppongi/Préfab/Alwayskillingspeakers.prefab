@@ -89,9 +89,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca048e3830d3b4346867e83cfac38907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
-  timeOnePeriode: 0.1
-  soundlength: 0.1
+  ForceOndeBefore: 0.05
+  ForceOndeAfter: 0.5
+  previousColor_H: 0.5
+  previousColor_H_notuseful: 0
+  isPlaying: 0
+  timeOnePeriode: 4
+  soundlength: 0.5
+  timerSound: 0.5
 --- !u!1001 &8861528782284185391
 PrefabInstance:
   m_ObjectHideFlags: 0
