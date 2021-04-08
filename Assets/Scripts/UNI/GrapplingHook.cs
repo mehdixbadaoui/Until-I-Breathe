@@ -461,7 +461,7 @@ public class GrapplingHook : MonoBehaviour
 		if (hookObject.transform.parent.GetComponent<Rigidbody>() != null)
 		{
 			spring.connectedBody = hookObject.transform.parent.GetComponent<Rigidbody>();
-			Debug.Log(hookObject.GetComponentInParent<Rigidbody>().name);
+			//Debug.Log(hookObject.GetComponentInParent<Rigidbody>().name);
 		}
 		else
 			spring.connectedBody = hookObject.GetComponent<Rigidbody>();
