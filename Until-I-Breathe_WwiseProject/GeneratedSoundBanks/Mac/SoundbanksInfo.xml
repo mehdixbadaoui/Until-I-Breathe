@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="21284638">
+		<SoundBank Id="2228651116" Language="SFX" Hash="4078522266">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -250,17 +250,9 @@
 				</Event>
 				<Event Id="3075378619" Name="Drone_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="108235587" Language="SFX">
-							<ShortName>Drone_Deplacement_03.wav</ShortName>
-							<Path>SFX\Drone_Deplacement_03_10C4C929.wem</Path>
-						</File>
-						<File Id="120094188" Language="SFX">
+						<File Id="434924597" Language="SFX">
 							<ShortName>Drone_Deplacement_01.wav</ShortName>
-							<Path>SFX\Drone_Deplacement_01_10C4C929.wem</Path>
-						</File>
-						<File Id="666477006" Language="SFX">
-							<ShortName>Drone_Deplacement_02.wav</ShortName>
-							<Path>SFX\Drone_Deplacement_02_10C4C929.wem</Path>
+							<Path>SFX\Drone_Deplacement_01_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -652,6 +644,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1150871578" Name="Lvl_1_3_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_1_3_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="291685533" Language="SFX">
+							<ShortName>Until I Breathe lev 1-3 LOOP .wav</ShortName>
+							<Path>SFX\Until I Breathe lev 1-3 LOOP _D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3922198791" Name="Lvl_2_1_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_2_1_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="412197094" Language="SFX">
@@ -665,6 +665,14 @@
 						<File Id="918410245" Language="SFX">
 							<ShortName>UntilIBreath 2-2.wav</ShortName>
 							<Path>SFX\UntilIBreath 2-2_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1157007206" Name="Lvl_3_1_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_3_1_event" DurationType="OneShot" DurationMin="47.213104" DurationMax="47.213104">
+					<IncludedMemoryFiles>
+						<File Id="154559318" Language="SFX">
+							<ShortName>Level 3-1_loop.wav</ShortName>
+							<Path>SFX\Level 3-1_loop_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

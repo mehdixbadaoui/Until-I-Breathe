@@ -64,7 +64,7 @@
 							<ChildrenList>
 								<Action Name="" ID="{9BD2A605-5E78-433E-B799-04714CCC8BDB}" ShortID="412839319">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="34"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -74,7 +74,7 @@
 								</Action>
 								<Action Name="" ID="{F1D24B54-3014-47F6-9C0A-79B8AEE735C8}" ShortID="604760988">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="34"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -84,7 +84,7 @@
 								</Action>
 								<Action Name="" ID="{DF702D3F-F519-4CEF-99A5-04A7EA27A7AF}" ShortID="340994081">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="34"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -94,7 +94,7 @@
 								</Action>
 								<Action Name="" ID="{63EA7810-956B-4D85-83A3-C2C44EEF71B1}" ShortID="146178026">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="34"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -104,11 +104,31 @@
 								</Action>
 								<Action Name="" ID="{4C0A8430-D0C7-444D-9FB3-6EA0532ACA56}" ShortID="185445211">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="ActionType" Type="int16" Value="34"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Ambient_music_2_2" ID="{FFF1041F-FB36-4771-B3AB-C93AF00EED68}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{BCD4E4AE-7122-43B0-B1FF-A0D0886BCB52}" ShortID="158809608">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="34"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_music_1_3" ID="{E1F26009-EFC9-4DD9-ADDD-6515D902AE78}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D1F89EB4-8FF9-4811-80DA-FD8D83E76C5B}" ShortID="254699873">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="34"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_music_3_1" ID="{D8011BF7-5D4B-4DAD-A7AC-47A0C3FFD655}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -143,6 +163,28 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Lvl_1_3_event" ID="{3BA81557-1309-4028-BD6B-0CC2767D328A}">
+							<ChildrenList>
+								<Action Name="" ID="{4CF5762A-6B10-404D-9370-90F244E3962D}" ShortID="293416307">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_music_1_3" ID="{E1F26009-EFC9-4DD9-ADDD-6515D902AE78}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Lvl_3_1_event" ID="{E86263BD-BA59-4CF5-AA00-818FAD8324C2}">
+							<ChildrenList>
+								<Action Name="" ID="{77E71CA3-42C7-4E92-BEFF-28D3D9D084DE}" ShortID="919882468">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_music_3_1" ID="{D8011BF7-5D4B-4DAD-A7AC-47A0C3FFD655}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Uni_events" ID="{18EAD4E5-E3FB-44DD-90C9-DADDC37CE0B2}" ShortID="566197033">
@@ -585,10 +627,10 @@
 								</Event>
 								<Event Name="Drone_deplacement_event" ID="{FAB66B73-0E36-47DA-816A-BF7270FBCE63}">
 									<ChildrenList>
-										<Action Name="" ID="{38870005-03DD-41CF-80A0-595BA823FBD6}" ShortID="427290695">
+										<Action Name="" ID="{C2F943F4-53CA-43DA-8714-6D40EE3AF436}" ShortID="792890400">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Drones_deplacement" ID="{F7C21635-0459-4EDD-A7E1-BDC193E5500A}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+													<ObjectRef Name="Drone_Deplacement_01" ID="{FBD49475-F9CA-471B-8480-9320C2565E74}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

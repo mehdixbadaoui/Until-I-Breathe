@@ -360,6 +360,95 @@
 								<ItemRef Name="UntilIBreathe_Level2-3_End_Direct" ID="{8E40DCDD-B5CA-427B-BA22-10F9D1F8DD3E}"/>
 							</Playlist>
 						</RandomSequenceContainer>
+						<BlendContainer Name="Ambient_music_1_3" ID="{E1F26009-EFC9-4DD9-ADDD-6515D902AE78}" ShortID="698960881">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Music" ID="{6722D126-770E-440E-A0E0-3A6FF4E0AD03}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Until I Breathe lev 1-3 LOOP" ID="{49010F4B-707A-40B1-B224-E7B9B49D21E6}" ShortID="301539389">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Until I Breathe lev 1-3 LOOP" ID="{2FC28C0A-DE36-406C-9711-7795C6C857C1}">
+											<Language>SFX</Language>
+											<AudioFile>Until I Breathe lev 1-3 LOOP .wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="291685533"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Until I Breathe lev 1-3 LOOP" ID="{2FC28C0A-DE36-406C-9711-7795C6C857C1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</BlendContainer>
+						<BlendContainer Name="Ambient_music_3_1" ID="{D8011BF7-5D4B-4DAD-A7AC-47A0C3FFD655}" ShortID="1044855725">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Music" ID="{6722D126-770E-440E-A0E0-3A6FF4E0AD03}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Level 3-1_loop" ID="{970406B5-86B4-4A95-BA39-F3DE18BC4593}" ShortID="830035261">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Level 3-1_loop" ID="{610EE498-3F89-46C3-81CE-DA37553409CA}">
+											<Language>SFX</Language>
+											<AudioFile>Level 3-1_loop.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="154559318"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Level 3-1_loop" ID="{610EE498-3F89-46C3-81CE-DA37553409CA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</BlendContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{F147F5F0-1EF6-4350-B203-5ED1A3166AE8}" ShortID="676180417">
@@ -2234,99 +2323,6 @@
 									</ChildrenList>
 									<ObjectLists/>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Drones_deplacement" ID="{F7C21635-0459-4EDD-A7E1-BDC193E5500A}" ShortID="858603829">
-									<PropertyList>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Drone_Deplacement_01" ID="{A074A0F3-55EB-46FD-B8F6-DE5635535A4E}" ShortID="547905880">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Drone_Deplacement_01" ID="{D4AE8222-6D61-4BC2-A28A-B29C76C31434}">
-													<Language>SFX</Language>
-													<AudioFile>Drone_Deplacement_01.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="120094188"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Drone_Deplacement_01" ID="{D4AE8222-6D61-4BC2-A28A-B29C76C31434}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Drone_Deplacement_02" ID="{1EFA7A15-1A0A-45E1-B7DF-86F0D7D346B2}" ShortID="1059198369">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Drone_Deplacement_02" ID="{B00D74C2-6912-4571-8A2E-D2A51A72351E}">
-													<Language>SFX</Language>
-													<AudioFile>Drone_Deplacement_02.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="666477006"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Drone_Deplacement_02" ID="{B00D74C2-6912-4571-8A2E-D2A51A72351E}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Drone_Deplacement_03" ID="{7C363B75-15AD-4488-B411-E7E62744D3E7}" ShortID="169559139">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Drone_Deplacement_03" ID="{2DACB0C6-8930-434C-8FC7-C3981C584A35}">
-													<Language>SFX</Language>
-													<AudioFile>Drone_Deplacement_03.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="108235587"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Drone_Deplacement_03" ID="{2DACB0C6-8930-434C-8FC7-C3981C584A35}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<ObjectLists/>
-								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Drones_stationnaire" ID="{3B92AE36-5334-4CAA-B472-7514DC4C158C}" ShortID="23438968">
 									<PropertyList>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
@@ -2420,6 +2416,63 @@
 									</ChildrenList>
 									<ObjectLists/>
 								</RandomSequenceContainer>
+								<Sound Name="Drone_Deplacement_01" ID="{FBD49475-F9CA-471B-8480-9320C2565E74}" ShortID="343658079">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{AE6AFA27-5859-4C18-A84C-EAAB5691C10B}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="3"/>
+															<Property Name="Min" Type="Real64" Value="-7"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{A7E4419B-EA2B-46EF-A583-04E7CCBF53E2}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Drone_Deplacement_01" ID="{EBFCA1D3-8C6D-4AAC-8274-28AD4B8E3C45}">
+											<Language>SFX</Language>
+											<AudioFile>Drone_Deplacement_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="434924597"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Drone_Deplacement_01" ID="{EBFCA1D3-8C6D-4AAC-8274-28AD4B8E3C45}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Engrenage" ID="{BA3D8EDB-0816-40EC-8765-95F86B52B93A}" ShortID="901018251">
