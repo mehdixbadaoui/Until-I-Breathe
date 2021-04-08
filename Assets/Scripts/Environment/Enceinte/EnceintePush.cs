@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnceintePush : MonoBehaviour
 {
     public GameObject boxToPush;
-    public Lever lever;
+    public LeverEnceinte lever;
 
     private LineRenderer LR;
 
@@ -43,7 +43,7 @@ public class EnceintePush : MonoBehaviour
             Debug.Log("AddForce");
             if(lever)
             {
-                //lever.
+                lever.isOn = true;
             }
         }
     }

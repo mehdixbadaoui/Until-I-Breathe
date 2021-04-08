@@ -23,7 +23,7 @@ public class SoundKill : MonoBehaviour
     //Movement script
     private Movement movements;
 
-    private bool killUni = false;
+    //private bool killUni = false;
     public bool isPlaying = false;
     private bool haschanged = false;
 
@@ -67,11 +67,6 @@ public class SoundKill : MonoBehaviour
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( 0 , previousColor_S , previousColor_V ) );
 
-            if (killUni)
-            {
-                killUni = false;
-                gm.Die();
-            }
 
 
             if (all_hooks != null && !haschanged)
@@ -150,9 +145,14 @@ public class SoundKill : MonoBehaviour
             all_hooks.Add(other.gameObject);
             all_hooks_tags.Add(other.gameObject.tag);
         }
-        else if (other.tag == "uni")
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        
+        if (other.tag == "uni")
         {
-            killUni = true;
+            gm.Die();
         }
     }
 
@@ -163,12 +163,6 @@ public class SoundKill : MonoBehaviour
         if (all_hooks.Contains(other.gameObject))
         {
             all_hooks.Remove(other.gameObject);
-        }
-
-
-        else if (other.tag == "uni")
-        {
-            killUni = false;
         }
 
     }
