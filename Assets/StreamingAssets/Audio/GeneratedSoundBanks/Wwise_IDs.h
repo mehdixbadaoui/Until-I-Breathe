@@ -58,8 +58,10 @@ namespace AK
         static const AkUniqueID LITTLE_VENTILATOR_EVENT = 3010937615U;
         static const AkUniqueID LVL_1_1_EVENT = 1178261876U;
         static const AkUniqueID LVL_1_2_EVENT = 1572269619U;
+        static const AkUniqueID LVL_1_3_EVENT = 1150871578U;
         static const AkUniqueID LVL_2_1_EVENT = 3922198791U;
         static const AkUniqueID LVL_2_2_EVENT = 3860896488U;
+        static const AkUniqueID LVL_3_1_EVENT = 1157007206U;
         static const AkUniqueID MESSAGE_ST2_BRANCHEMENT_EVENT = 3024873643U;
         static const AkUniqueID MESSAGE_ST2_DECRYPTE_EVENT = 3095867336U;
         static const AkUniqueID NACELLE_DEPART_EVENT = 4251687649U;
