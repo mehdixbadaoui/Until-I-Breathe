@@ -24,12 +24,12 @@ public class Platforms : MonoBehaviour
     float journeyLength;
     bool playerOn = false;
     bool firstTimeOn;
-    private CapsuleCollider col; 
+    private CapsuleCollider col;
 
     [HideInInspector]
     public bool isWaiting;
     private GameObject uni;
-    private PlayEventSounds playEvent; 
+    private PlayEventSounds playEvent;
 
     void Start()
     {
@@ -39,7 +39,7 @@ public class Platforms : MonoBehaviour
         departTarget = startPoint;
         destinationTarget = endPoint;
         uni = GameObject.FindGameObjectWithTag("uni");
-        playEvent = uni.GetComponent<PlayEventSounds>(); 
+        playEvent = uni.GetComponent<PlayEventSounds>();
         firstTimeOn = true;
         isWaiting = true;
 
@@ -50,19 +50,17 @@ public class Platforms : MonoBehaviour
     void FixedUpdate()
     {
         if (PlatformLauncherScript != null)
-<<<<<<< HEAD
         {
             playEvent.PlayEventWithoutRTPC("Nacelle_depart_event", uni);
-=======
->>>>>>> parent of 6da677c9 (Platforms Smoothed Movement)
             Move();
+        }
     }
 
     private void Move()
     {
         if (PlatformLauncherScript.activate)
         {
-            playEvent.PlayEventWithoutRTPC("Nacelle_loop_event", uni); 
+            playEvent.PlayEventWithoutRTPC("Nacelle_loop_event", uni);
             StartCoroutine(PlatformLaunch());
             firstTimeOn = false;
 
@@ -99,7 +97,7 @@ public class Platforms : MonoBehaviour
             destinationTarget = startPoint;
         }
     }
-    
+
     IEnumerator changeDelay()
     {
         yield return new WaitForSeconds(changeDirectionDelay);
@@ -109,66 +107,68 @@ public class Platforms : MonoBehaviour
         isWaiting = false;
     }
 
-    // Allows the player and other objects to stick to the platform and move on it
-    private void OnTriggerEnter(Collider other)
-    {
-        if ((other.tag == "uni" ) && !playerOn )
+        // Allows the player and other objects to stick to the platform and move on it
+        private void OnTriggerEnter(Collider other)
         {
-            other.isTrigger = false; 
-            playerOn = true;
-            playerParent.transform.parent = transform;
+            if ((other.tag == "uni") && !playerOn)
+            {
+                other.isTrigger = false;
+                playerOn = true;
+                playerParent.transform.parent = transform;
 
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if ((other.tag == "uni" ) && playerOn && !other.isTrigger)
+        private void OnTriggerExit(Collider other)
         {
-            playerOn = false;
-            playerParent.transform.parent = null;
+            if ((other.tag == "uni") && playerOn && !other.isTrigger)
+            {
+                playerOn = false;
+                playerParent.transform.parent = null;
+            }
         }
-    }
 
-    IEnumerator PlatformLaunch()
-    {
-        if (firstTimeOn && PlatformLauncherScript.activate)
+        IEnumerator PlatformLaunch()
         {
-            yield return new WaitForSeconds(delayToLaunch);
-            isWaiting = false;
-            startTime = Time.time;
+            if (firstTimeOn && PlatformLauncherScript.activate)
+            {
+                yield return new WaitForSeconds(delayToLaunch);
+                isWaiting = false;
+                startTime = Time.time;
+            }
         }
-    }
 
-    //void Start()
-    //{
-    //    //initial position of the platform is the start
-    //    pointA = transform.position;
-    //    StartCoroutine(ChangeDir());
-    //}
 
-    //IEnumerator ChangeDir()
-    //{
-    //    //infinite loop
-    //    while (true)
-    //    {
-    //        yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
-    //        yield return new WaitForSeconds(pause);
-    //        yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
-    //        yield return new WaitForSeconds(pause);
-    //    }
-    //}
+        //void Start()
+        //{
+        //    //initial position of the platform is the start
+        //    pointA = transform.position;
+        //    StartCoroutine(ChangeDir());
+        //}
 
-    //IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
-    //{
-    //    var i = 0.0f;
-    //    var rate = 1.0f / time;
-    //    while (i < 1.0f)
-    //    {
-    //        i += Time.deltaTime * rate;
-    //        //thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-    //        thisTransform.position = Vector3.MoveTowards(startPos, endPos, timeItTakes * Time.deltaTime);
-    //        yield return null;
-    //    }
-    //}
+        //IEnumerator ChangeDir()
+        //{
+        //    //infinite loop
+        //    while (true)
+        //    {
+        //        yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
+        //        yield return new WaitForSeconds(pause);
+        //        yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
+        //        yield return new WaitForSeconds(pause);
+        //    }
+        //}
+
+        //IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
+        //{
+        //    var i = 0.0f;
+        //    var rate = 1.0f / time;
+        //    while (i < 1.0f)
+        //    {
+        //        i += Time.deltaTime * rate;
+        //        //thisTransform.position = Vector3.Lerp(startPos, endPos, i);
+        //        thisTransform.position = Vector3.MoveTowards(startPos, endPos, timeItTakes * Time.deltaTime);
+        //        yield return null;
+        //    }
+        //}
+    
 }
