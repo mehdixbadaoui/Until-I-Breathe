@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class Platforms : MonoBehaviour
 {
+    //public Transform pointB;
+    //Vector3 pointA;
+    //public float timeItTakes;
+    //public int pause;
+
     public GameObject playerParent;
-    public GameObject st2;
-    public GameObject cam;
     public Transform startPoint, endPoint;
-    public float secondsItTakes;
-    //public float speed;
+    public float speed;
     public float changeDirectionDelay;
 
     public GameObject PlatformLauncherGO;
@@ -22,7 +24,7 @@ public class Platforms : MonoBehaviour
     float journeyLength;
     bool playerOn = false;
     bool firstTimeOn;
-    private CapsuleCollider col;
+    private CapsuleCollider col; 
 
     [HideInInspector]
     public bool isWaiting;
@@ -31,6 +33,7 @@ public class Platforms : MonoBehaviour
 
     void Start()
     {
+
         PlatformLauncherScript = PlatformLauncherGO.GetComponent<PlatformsLauncher>();
         col = GetComponent<CapsuleCollider>();
         departTarget = startPoint;
@@ -43,13 +46,16 @@ public class Platforms : MonoBehaviour
         journeyLength = Vector3.Distance(departTarget.position, destinationTarget.position);
     }
 
+
     void FixedUpdate()
     {
         if (PlatformLauncherScript != null)
+<<<<<<< HEAD
         {
             playEvent.PlayEventWithoutRTPC("Nacelle_depart_event", uni);
+=======
+>>>>>>> parent of 6da677c9 (Platforms Smoothed Movement)
             Move();
-        }
     }
 
     private void Move()
@@ -63,16 +69,12 @@ public class Platforms : MonoBehaviour
             if (!isWaiting)
             {
                 if (Vector3.Distance(transform.position, destinationTarget.position) > 0.01f)
-                {   
-                    //float distCovered = (Time.time - startTime) * speed;
+                {
+                    float distCovered = (Time.time - startTime) * speed;
 
-                    //float fractionOfJourney = distCovered / journeyLength;
+                    float fractionOfJourney = distCovered / journeyLength;
 
-                    //transform.position = Vector3.Lerp(departTarget.position, destinationTarget.position, fractionOfJourney);
-
-                    //transform.position = Vector3.MoveTowards(departTarget.position, destinationTarget.position, currentSpeed * Time.deltaTime);
-
-                    StartCoroutine(Move_Routine(departTarget.position, destinationTarget.position));
+                    transform.position = Vector3.Lerp(departTarget.position, destinationTarget.position, fractionOfJourney);
                 }
                 else
                 {
@@ -82,19 +84,6 @@ public class Platforms : MonoBehaviour
             }
 
         }
-    }
-
-    private IEnumerator Move_Routine( Vector3 from, Vector3 to)
-    {
-        float t = 0f;
-        while (t < 1f && !isWaiting)
-        {
-            t += Time.smoothDeltaTime / secondsItTakes;
-            transform.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0f, 1f, Mathf.SmoothStep(0f, 1f, t)));
-            yield return null;
-        }
-
-        transform.position = to;
     }
 
     void ChangeDestination()
@@ -120,7 +109,7 @@ public class Platforms : MonoBehaviour
         isWaiting = false;
     }
 
-    // Allows the player, ST2 & the camera to stick to the platform and move on it
+    // Allows the player and other objects to stick to the platform and move on it
     private void OnTriggerEnter(Collider other)
     {
         if ((other.tag == "uni" ) && !playerOn )
@@ -128,8 +117,7 @@ public class Platforms : MonoBehaviour
             other.isTrigger = false; 
             playerOn = true;
             playerParent.transform.parent = transform;
-            st2.transform.parent = playerParent.transform;
-            cam.transform.parent = transform;
+
         }
     }
 
@@ -138,9 +126,7 @@ public class Platforms : MonoBehaviour
         if ((other.tag == "uni" ) && playerOn && !other.isTrigger)
         {
             playerOn = false;
-            st2.transform.parent = null;
             playerParent.transform.parent = null;
-            cam.transform.parent = null;
         }
     }
 
@@ -153,4 +139,36 @@ public class Platforms : MonoBehaviour
             startTime = Time.time;
         }
     }
+
+    //void Start()
+    //{
+    //    //initial position of the platform is the start
+    //    pointA = transform.position;
+    //    StartCoroutine(ChangeDir());
+    //}
+
+    //IEnumerator ChangeDir()
+    //{
+    //    //infinite loop
+    //    while (true)
+    //    {
+    //        yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
+    //        yield return new WaitForSeconds(pause);
+    //        yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
+    //        yield return new WaitForSeconds(pause);
+    //    }
+    //}
+
+    //IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
+    //{
+    //    var i = 0.0f;
+    //    var rate = 1.0f / time;
+    //    while (i < 1.0f)
+    //    {
+    //        i += Time.deltaTime * rate;
+    //        //thisTransform.position = Vector3.Lerp(startPos, endPos, i);
+    //        thisTransform.position = Vector3.MoveTowards(startPos, endPos, timeItTakes * Time.deltaTime);
+    //        yield return null;
+    //    }
+    //}
 }
