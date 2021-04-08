@@ -7,6 +7,7 @@ public class Nacelle : MonoBehaviour
     public float distance;
     public float WaitTime;
     public float speed;
+    public GameObject sol;
 
     float target; 
     float time;
@@ -30,6 +31,8 @@ public class Nacelle : MonoBehaviour
             //StartCoroutine(GoUp());
             if (transform.position.y < distance && time >= WaitTime)
                 transform.position += Vector3.up * speed * Time.deltaTime;
+            else if (transform.position.y >= distance && time >= WaitTime)
+                sol.GetComponent<BoxCollider>().enabled = false;
 
         }
 
