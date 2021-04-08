@@ -27,16 +27,16 @@ public class SoundKill : MonoBehaviour
     public bool isPlaying = false;
     private bool haschanged = false;
 
-    // Timers
-    public float timeOnePeriode;
-    public float soundlength;
-    private float timerSound = 0;
-    private float timerPlay = 0;
+    // // Timers
+    // public float timeOnePeriode;
+    // public float soundlength;
+    // public float timerSound = 0;
+    // private float timerPlay = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        previousColor = transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.GetColor("Color_EDC6F8A5");
+        previousColor = transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.GetColor("AlwaysKillingColor");
         Color.RGBToHSV(previousColor , out previousColor_H_notuseful, out previousColor_S , out previousColor_V );
 
         //List of hooks and tags
@@ -63,6 +63,9 @@ public class SoundKill : MonoBehaviour
         // Si l'encinte s'allume
         if (isPlaying)
         {
+
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( 0 , previousColor_S , previousColor_V ) );
 
             if (killUni)
             {
@@ -102,6 +105,8 @@ public class SoundKill : MonoBehaviour
         else
         {
 
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( previousColor_H, previousColor_S, previousColor_V) );
 
             if (all_hooks != null && haschanged)
             {
@@ -133,33 +138,6 @@ public class SoundKill : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        timerSound += Time.deltaTime;
-        if (timerSound > timeOnePeriode)
-        {
-            if (isPlaying)
-                Debug.LogError("The soundlength is too long");
-
-            isPlaying = true;
-            timerSound = 0;
-        }
-
-        if (isPlaying)
-        {
-            timerPlay += Time.deltaTime;
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", Color.HSVToRGB( Mathf.Lerp(previousColor_H , 0 , timerPlay * 6.0f ) , previousColor_S , previousColor_V ) );
-
-            if (timerPlay > soundlength)
-            {
-                isPlaying = false;
-                timerPlay = 0;
-            }
-        }
-        else
-        {
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("Vector1_641F3F66", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("Color_EDC6F8A5", Color.HSVToRGB(Mathf.Lerp(0, previousColor_H, (timerSound - soundlength) * 6 ), previousColor_S, previousColor_V) );
-        }
 
     }
 
