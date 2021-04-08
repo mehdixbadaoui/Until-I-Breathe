@@ -137,6 +137,22 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""GetLetter"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7d0038a-838b-4c03-980f-fe6dbbeb7d25"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwitchOffLight"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca787971-7875-4624-835d-90a05cf9cd69"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -568,6 +584,50 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""Move_Box"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c897d84-1a2e-459c-af29-d4bd81af4c35"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetLetter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c0252d4-e15e-43af-b132-061e2a733ba8"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetLetter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""07bc999c-4c7c-46b9-a3b5-d37ced03efcb"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchOffLight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2fcc27a-818e-4df7-9d6e-893bf2be0d9b"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchOffLight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -618,6 +678,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Uni_Die = m_Uni.FindAction("Die", throwIfNotFound: true);
         m_Uni_PressButton = m_Uni.FindAction("PressButton", throwIfNotFound: true);
         m_Uni_Move_Box = m_Uni.FindAction("Move_Box", throwIfNotFound: true);
+        m_Uni_GetLetter = m_Uni.FindAction("GetLetter", throwIfNotFound: true);
+        m_Uni_SwitchOffLight = m_Uni.FindAction("SwitchOffLight", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Newaction = m_Menu.FindAction("New action", throwIfNotFound: true);
@@ -685,6 +747,8 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Uni_Die;
     private readonly InputAction m_Uni_PressButton;
     private readonly InputAction m_Uni_Move_Box;
+    private readonly InputAction m_Uni_GetLetter;
+    private readonly InputAction m_Uni_SwitchOffLight;
     public struct UniActions
     {
         private @Inputs m_Wrapper;
@@ -704,6 +768,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Die => m_Wrapper.m_Uni_Die;
         public InputAction @PressButton => m_Wrapper.m_Uni_PressButton;
         public InputAction @Move_Box => m_Wrapper.m_Uni_Move_Box;
+        public InputAction @GetLetter => m_Wrapper.m_Uni_GetLetter;
+        public InputAction @SwitchOffLight => m_Wrapper.m_Uni_SwitchOffLight;
         public InputActionMap Get() { return m_Wrapper.m_Uni; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -758,6 +824,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Move_Box.started -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
                 @Move_Box.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
                 @Move_Box.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnMove_Box;
+                @GetLetter.started -= m_Wrapper.m_UniActionsCallbackInterface.OnGetLetter;
+                @GetLetter.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnGetLetter;
+                @GetLetter.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnGetLetter;
+                @SwitchOffLight.started -= m_Wrapper.m_UniActionsCallbackInterface.OnSwitchOffLight;
+                @SwitchOffLight.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnSwitchOffLight;
+                @SwitchOffLight.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnSwitchOffLight;
             }
             m_Wrapper.m_UniActionsCallbackInterface = instance;
             if (instance != null)
@@ -807,6 +879,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Move_Box.started += instance.OnMove_Box;
                 @Move_Box.performed += instance.OnMove_Box;
                 @Move_Box.canceled += instance.OnMove_Box;
+                @GetLetter.started += instance.OnGetLetter;
+                @GetLetter.performed += instance.OnGetLetter;
+                @GetLetter.canceled += instance.OnGetLetter;
+                @SwitchOffLight.started += instance.OnSwitchOffLight;
+                @SwitchOffLight.performed += instance.OnSwitchOffLight;
+                @SwitchOffLight.canceled += instance.OnSwitchOffLight;
             }
         }
     }
@@ -861,6 +939,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnDie(InputAction.CallbackContext context);
         void OnPressButton(InputAction.CallbackContext context);
         void OnMove_Box(InputAction.CallbackContext context);
+        void OnGetLetter(InputAction.CallbackContext context);
+        void OnSwitchOffLight(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
