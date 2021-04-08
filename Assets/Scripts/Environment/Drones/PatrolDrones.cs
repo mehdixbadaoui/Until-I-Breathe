@@ -115,7 +115,7 @@ public class PatrolDrones : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("uni"))
+        if (other.CompareTag("uni"))
         {
             Debug.DrawLine(transform.position, player.position);
             if (!Physics.Linecast(transform.position, player.position, viewMask))
