@@ -151,7 +151,7 @@ public class Movement : MonoBehaviour
         if (canMove)
         {
             //JUMPING
-            if (inputs.Uni.Jump.ReadValue<float>() == 1 && isGrounded && countGround > 5 && canJump)
+            if (inputs.Uni.Jump.ReadValue<float>() == 1 && isGrounded && countGround > 5 && canJump && !myAnimator.GetComponent<anim>().isCrouching )
             {
                 canJump = false;
                 Jump();
