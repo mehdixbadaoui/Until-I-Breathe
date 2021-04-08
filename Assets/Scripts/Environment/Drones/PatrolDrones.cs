@@ -72,7 +72,12 @@ public class PatrolDrones : MonoBehaviour
 
         int targetWaypointIndex = 1;
         Vector3 targetWaypoint = waypoints[targetWaypointIndex];
-        transform.LookAt(targetWaypoint);
+
+        if(canTurn)
+        {
+            transform.LookAt(targetWaypoint);
+        }
+            
 
         while (true)
         {
@@ -110,16 +115,16 @@ public class PatrolDrones : MonoBehaviour
 
     IEnumerator CallShootWithDelay()
     {
-        muzzleFlash.Play();
-        GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
-        Destroy(impactGO, 1f);
+        //muzzleFlash.Play();
+        //GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
+        //Destroy(impactGO, 1f);
         yield return new WaitForSeconds(timeToKillPlayer);
         GM.Die();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("uni"))
         {
             Debug.DrawLine(transform.position, player.position);
             if (!Physics.Linecast(transform.position, player.position, viewMask))
