@@ -9,38 +9,43 @@ public class Nacelle : MonoBehaviour
     public float speed;
     public GameObject sol;
 
-    float target; 
+    public List<Transform> targets; 
     float time;
+    int index;
+    public bool move = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("uni"))
         {
-            //StartCoroutine(GoUp());
-            target = transform.position.y + distance;
             time = 0;
+            index = 0;
+            move = true;
+            other.transform.SetParent(transform);
         }
+
     }
 
-    private void OnTriggerStay(Collider other)
+
+
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("uni"))
         {
-            if (time < WaitTime)
-                time += Time.deltaTime;
-            //StartCoroutine(GoUp());
-            if (transform.position.y < distance && time >= WaitTime)
-                transform.position += Vector3.up * speed * Time.deltaTime;
-            else if (transform.position.y >= distance && time >= WaitTime)
-                sol.GetComponent<BoxCollider>().enabled = false;
-
+            other.transform.SetParent(null);
         }
 
     }
 
-    //IEnumerator GoUp()
-    //{
-    //    yield return new WaitForSeconds(WaitTime);
-    //    transform.position = Vector3.MoveTowards(transform.position, target.position, travelTime);
-    //}
+
+    private void FixedUpdate()
+    {
+        if (move && index < targets.Count)
+        {
+            if (transform.position != targets[index].position)
+                transform.position = Vector3.MoveTowards(transform.position, targets[index].position, speed);
+            else
+                index++;
+        }
+    }
 }
