@@ -4,26 +4,46 @@ using UnityEngine;
 
 public class SwitchOffLights : MonoBehaviour
 {
+    private Inputs inputs;
     private GameObject[] lights;
     public SphereCollider sphereCollider;
     public KeyCode getSwitchingOffLights = KeyCode.E;
 
     private bool isSwitchingOffLight;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
     void Start()
     {
         lights = GameObject.FindGameObjectsWithTag("LightOff");
         sphereCollider = GetComponent<SphereCollider>();
+        inputs.Uni.SwitchOffLight.performed += ctx => SwitchingOffLights();
     }
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(getSwitchingOffLights) && isSwitchingOffLight)
+        
+    }
+    private void SwitchingOffLights()
+    {
+        if(isSwitchingOffLight)
         {
             for (int i = 0; i < lights.Length; i++)
             {
-                lights[i].SetActive(false); 
+                lights[i].SetActive(false);
             }
         }
+        
     }
     private void OnTriggerEnter(Collider other)
     {

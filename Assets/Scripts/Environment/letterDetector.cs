@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class letterDetector : MonoBehaviour
 {
+    private Inputs inputs;
+
     public SphereCollider sphereCollider;
-    public KeyCode getLetterKey = KeyCode.E;
+    
     
     private float detection_radius;
     private bool isLetter;
@@ -16,24 +18,44 @@ public class letterDetector : MonoBehaviour
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
 
     // Start is called before the first frame update
+   
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
+
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
-
+        inputs.Uni.GetLetter.performed += ctx => GetLetter();
         sphereCollider = GetComponent<SphereCollider>();
     }
-    
 
     // Update is called once per frame
     void Update()
     {
        
         detection_radius = sphereCollider.radius;
-        if (Input.GetKeyDown(getLetterKey) && isLetter)
+        
+    }
+
+    private void GetLetter()
+    {
+        if(isLetter)
         {
             gm.FindLetter();
-            DestroyGameObject(); 
+            DestroyGameObject();
         }
+        
     }
     private void OnTriggerEnter(Collider other)
     {

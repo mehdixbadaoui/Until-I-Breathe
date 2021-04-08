@@ -36,6 +36,10 @@ public class Movement : MonoBehaviour
     private bool isFlying = false;
 
     private bool isCrouching = false; 
+    [HideInInspector] public bool isPlayerCrouching = false; //so ST2 knows when uni is crouching
+    Transform STFollow; //to retrieve where ST2 is supposed to look
+    [Range(0f, 2f)] //to lower where ST2 is supposed to look
+    public float STFollowY = 1f;
 
     float vertical_movement;
     private Vector3 lastInput;
@@ -132,6 +136,8 @@ public class Movement : MonoBehaviour
         //inputs.Uni.Jump.performed += ctx => Jump();
         //inputs.Uni.Crouch.performed += ctx => Crouch();
         inputs.Uni.Die.performed += ctx => gm.Die();
+
+        STFollow = transform.Find("ST2 Follow");
     }
 
 
@@ -168,6 +174,8 @@ public class Movement : MonoBehaviour
                     ObjectDetector.GetComponent<SphereCollider>().center -= Vector3.up * .9f;
                     previousSpeed = speed;
                     speed = speed * 0.5f;
+                    isPlayerCrouching = true;
+                    STFollow.position = new Vector3(STFollow.position.x, (STFollow.position.y - STFollowY), STFollow.position.z);
                 }
 
             }
@@ -186,6 +194,8 @@ public class Movement : MonoBehaviour
                         myAnimator.GetComponent<anim>().isCrouching = false;
                         myAnimator.Play("crouch2stand", 0);
                         myAnimator.Play("crouch2stand", 1);
+                        isPlayerCrouching = false;
+                        STFollow.position = new Vector3(STFollow.position.x, (STFollow.position.y + STFollowY), STFollow.position.z);
                     }
                 }
 
