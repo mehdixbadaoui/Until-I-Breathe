@@ -11,7 +11,8 @@ public class ObjectDetector : MonoBehaviour
     public List<GameObject> listObj = new List<GameObject>();
 
     SphereCollider sphere_collider;
-    private GameObject uni; 
+    private GameObject uni;
+    private PlayEventSounds playEvent;
 
     private void Awake()
     {
@@ -30,8 +31,10 @@ public class ObjectDetector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         sphere_collider = GetComponent<SphereCollider>();
         uni = GameObject.FindGameObjectWithTag("uni");
+        playEvent = uni.GetComponent<PlayEventSounds>(); 
         inputs.Uni.PressButton.performed += ctx => Interact();
     }
 
@@ -53,17 +56,15 @@ public class ObjectDetector : MonoBehaviour
                     foreach(GameObject light in listObj[index].GetComponent<button_detector>().lights)
                         light.GetComponent<Light>().color = Color.green;
                 }
-
+                else if(listObj[index].CompareTag("Levier_Level_1_3"))
+                {
+                    playEvent.PlayEventWithoutRTPC("Lvl_1_3_event", GameObject.FindGameObjectWithTag("MainCamera"));
+                    playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("MainCamera")); 
+                }
                 else if (listObj[index].CompareTag("lever"))
                 {
                     listObj[index].GetComponent<Lever>().Unlock();
-
-                }
-
-                else if (listObj[index].GetComponent<LeverEnceinte>())
-                {
-                    listObj[index].GetComponent<LeverEnceinte>().isOn = true;
-
+                    
                 }
 
                 else if (listObj[index].CompareTag("RisingFogLever"))
@@ -94,7 +95,7 @@ public class ObjectDetector : MonoBehaviour
         if (col.CompareTag("blowable") || col.CompareTag("fan")
             || col.CompareTag("button") || col.CompareTag("lever")
             || col.CompareTag("Button_Platform") || col.CompareTag("Lever_Platform")
-            || col.CompareTag("RisingFogLever") || col.GetComponent<LeverEnceinte>())
+            || col.CompareTag("RisingFogLever") || col.CompareTag("Levier_Level_1_3"))
         {
             listObj.Add(col.gameObject);
         }
@@ -120,7 +121,7 @@ public class ObjectDetector : MonoBehaviour
     void OnTriggerExit(Collider col)
     {
 
-        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform") || col.CompareTag("Lever_Platform"))
+        if (col.CompareTag("blowable") || col.CompareTag("fan") || col.CompareTag("button") || col.CompareTag("lever") || col.CompareTag("Button_Platform") || col.CompareTag("Lever_Platform") || col.CompareTag("Levier_Level_1_3"))
         {
             listObj.Remove(col.gameObject);
         }

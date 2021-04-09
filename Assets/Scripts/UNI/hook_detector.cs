@@ -168,7 +168,7 @@ public class hook_detector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!all_hooks.Contains(other.gameObject) && (other.CompareTag("hook") || other.CompareTag("movable_hook") || other.CompareTag("lever")) )
+        if (!all_hooks.Contains(other.gameObject) && (other.CompareTag("hook") || other.CompareTag("movable_hook") || other.CompareTag("boxhook")) )
         {
             all_hooks.Add(other.gameObject);
             nearHook = true;
@@ -195,7 +195,7 @@ public class hook_detector : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("hook") || other.CompareTag("movable_hook"))
+        if (other.CompareTag("hook") || other.CompareTag("movable_hook") || other.CompareTag("boxhook"))
         {
             nearHook = true;
         }
