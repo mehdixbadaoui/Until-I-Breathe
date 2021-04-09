@@ -120,6 +120,7 @@ namespace AK
         static const AkUniqueID FANVOLUME = 2656500902U;
         static const AkUniqueID INSPIRATIONVOLUME = 2352147213U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
+        static const AkUniqueID MUSICLEVELSVOLUME = 956757313U;
         static const AkUniqueID MUSICVOLUME = 2346531308U;
         static const AkUniqueID SFXVOLUME = 988953028U;
         static const AkUniqueID TRAINDEPARTVOLUME = 58362009U;
