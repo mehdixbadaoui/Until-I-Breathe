@@ -66,6 +66,10 @@ public class ObjectDetector : MonoBehaviour
                     listObj[index].GetComponent<Lever>().Unlock();
                     
                 }
+                else if (listObj[index].GetComponent<LeverEnceinte>())
+                {
+                    listObj[index].GetComponent<LeverEnceinte>().isOn = true;
+                }
 
                 else if (listObj[index].CompareTag("RisingFogLever"))
                 {
@@ -95,7 +99,7 @@ public class ObjectDetector : MonoBehaviour
         if (col.CompareTag("blowable") || col.CompareTag("fan")
             || col.CompareTag("button") || col.CompareTag("lever")
             || col.CompareTag("Button_Platform") || col.CompareTag("Lever_Platform")
-            || col.CompareTag("RisingFogLever") || col.CompareTag("Levier_Level_1_3"))
+            || col.CompareTag("RisingFogLever") || col.CompareTag("Levier_Level_1_3") || col.GetComponent<LeverEnceinte>() )
         {
             listObj.Add(col.gameObject);
         }

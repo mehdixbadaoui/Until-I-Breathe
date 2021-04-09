@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585837151280275436
+    m_lastTime: -8585836268853059920
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585836466844402692
+    m_lastTime: -8585836268853134792
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -342,6 +342,26 @@ MonoBehaviour:
         ObjectType: 3
         guid: ea79686c67211d4785e6107707a0fa7e
       Path: Events\Default Work Unit\Environment_events\Drones\Break_Drones_stationnaire_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Break_Uni_Etouffement_event
+      guid: 10c85d2f37472e4a83de444821868432
+      id: 3902829861
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: Break_Uni_Etouffement_event
+        ObjectType: 3
+        guid: 10c85d2f37472e4a83de444821868432
+      Path: Events\Default Work Unit\Uni_events\Break_Uni_Etouffement_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2083,6 +2103,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Uni_Etouffement_event
+      guid: ecf77b0264eabe4aac37b566e6a0704d
+      id: 1109845805
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: Uni_Etouffement_event
+        ObjectType: 3
+        guid: ecf77b0264eabe4aac37b566e6a0704d
+      Path: Events\Default Work Unit\Uni_events\Uni_Etouffement_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Uni_events
       guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       id: 2211272183
@@ -2195,7 +2235,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585836373550876206
+    m_lastTime: -8585836268853039970
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2388,6 +2428,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 5bc0689a7590ff47bb3e19907ea47309
       Path: Game Parameters\Default Work Unit\TrainDepartVolume
+    - name: Uni_etouffementsVolume
+      guid: 07714bee9687b440af067db501f237ea
+      id: 2719740865
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Uni_etouffementsVolume
+        ObjectType: 13
+        guid: 07714bee9687b440af067db501f237ea
+      Path: Game Parameters\Default Work Unit\Uni_etouffementsVolume
     - name: VentilatorVolume
       guid: 0e89c921e5b50d4ca0f405ac7873413f
       id: 1991624541
