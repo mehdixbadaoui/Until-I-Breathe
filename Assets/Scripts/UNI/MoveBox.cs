@@ -99,8 +99,8 @@ public class MoveBox : MonoBehaviour
                 Movement.isGrabbing = true;
                 previousContraints = box.GetComponent<Rigidbody>().constraints;
                 box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-                //box.GetComponent<Rigidbody>().isKinematic = false;
-                box.GetComponent<Rigidbody>().mass = 1;
+                box.GetComponent<Rigidbody>().isKinematic = false;
+                //box.GetComponent<Rigidbody>().mass = 1;
 
 
             }
@@ -116,8 +116,9 @@ public class MoveBox : MonoBehaviour
             grabbing = false;
             Movement.isGrabbing = false;
             box.GetComponent<Rigidbody>().constraints = previousContraints;
-            //box.GetComponent<Rigidbody>().isKinematic = true;
-            box.GetComponent<Rigidbody>().mass = 10000;
+            box.GetComponent<Rigidbody>().isKinematic = true;
+            //box.GetComponent<Rigidbody>().mass = 10000;
+            //box.GetComponent<Rigidbody>().velocity = new Vector3(0, box.GetComponent<Rigidbody>().velocity.y, 0);
 
 
 
