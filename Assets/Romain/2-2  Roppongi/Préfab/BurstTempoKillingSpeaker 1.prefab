@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4011399917839487547}
   - component: {fileID: 322561634907687159}
   m_Layer: 0
-  m_Name: TempoKillingSpeaker 1
+  m_Name: BurstTempoKillingSpeaker 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8629398899749800758}
   - component: {fileID: 8629398899749800744}
-  - component: {fileID: 8629398899749800759}
+  - component: {fileID: 2248589698483793051}
   m_Layer: 2
   m_Name: ColliderEnceinte
   m_TagString: Untagged
@@ -91,7 +91,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.6137285, y: 3.227498, z: 1.5947568}
   m_Center: {x: -0.14180899, y: 0.25058126, z: 0.03298962}
---- !u!114 &8629398899749800759
+--- !u!114 &2248589698483793051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,12 +100,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8629398899749800757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca048e3830d3b4346867e83cfac38907, type: 3}
+  m_Script: {fileID: 11500000, guid: 7439fbb062722d04293e1b522cc797b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
+  ForceOndeBefore: 0.05
+  ForceOndeAfter: 0.5
+  previousColor_H: 0.5
+  previousColor_H_notuseful: 0
+  isPlaying: 0
   timeOnePeriode: 4
-  soundlength: 0.1
+  soundlength: 0.5
+  timerSound: 0.5
 --- !u!1001 &8861528782284185391
 PrefabInstance:
   m_ObjectHideFlags: 0
