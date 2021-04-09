@@ -11,7 +11,7 @@ public class Platforms : MonoBehaviour
     [HideInInspector] public GameObject playerParent; //for ledgeLocator ref
 
     public Transform startPoint, endPoint;
-    public float speed;
+    public float secondsItTakes;
     public float changeDirectionDelay;
 
     public GameObject PlatformLauncherGO;
@@ -88,7 +88,7 @@ public class Platforms : MonoBehaviour
         float t = 0f;
         while (t < 1f && !isWaiting)
         {
-            t += Time.smoothDeltaTime / speed;
+            t += Time.smoothDeltaTime / secondsItTakes;
             transform.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0f, 1f, Mathf.SmoothStep(0f, 1f, t)));
             yield return null;
         }
