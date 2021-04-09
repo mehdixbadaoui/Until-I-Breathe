@@ -24,6 +24,7 @@ public class BreathingColor : MonoBehaviour
     public int step2 = 50;
     public int step3 = 25;
     public int step4 = 10;
+    private PlayEventSounds playEvent; 
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class BreathingColor : MonoBehaviour
 
         // Get uni
         uni = GameObject.FindGameObjectWithTag("uni");
-
+        playEvent = uni.GetComponent<PlayEventSounds>(); 
         // Get uni
         bm = uni.GetComponent<Breathing_mechanic>();
 
@@ -79,19 +80,20 @@ public class BreathingColor : MonoBehaviour
     {
         if (bm.breath< step1 && bm.breath>=0)
         {
+            AkSoundEngine.PostEvent("Break_Uni_Etouffement_event", uni); 
             if (chrom && bm.breath > step2 - (bm.max_breath/10))
                 chrom.intensity.value = ( Mathf.Abs(bm.breath - step1) / step1 ) * (bm.max_breath / 10);
 
             if (bm.breath < step2)
             {
-
+                playEvent.UniSuffoc("Uni_Etouffement_event", uni, 20f, "Uni_etouffementsVolume");
                 if (vig && bm.breath > step2 - (bm.max_breath / 10))
                     vig.intensity.value = (Mathf.Abs(bm.breath - step2) / step2) * (bm.max_breath / (bm.max_breath / 10)) * 0.25f;
 
                 if (bm.breath < step3)
                 {
 
-
+                    playEvent.UniSuffoc("Uni_Etouffement_event", uni, 70f, "Uni_etouffementsVolume");
                     if (grain && bm.breath > step3 - (bm.max_breath / 10))
                         grain.intensity.value = (Mathf.Abs(bm.breath - step3) / step3) * (bm.max_breath / 10);
 
@@ -103,6 +105,7 @@ public class BreathingColor : MonoBehaviour
 
                     if (bm.breath < step4 ) 
                     {
+                        playEvent.UniSuffoc("Uni_Etouffement_event", uni, 90f, "Uni_etouffementsVolume");
                         if (colorAdjust)
                             colorAdjust.saturation.value = (bm.breath * bm.max_breath / step4) - bm.max_breath;
                     }

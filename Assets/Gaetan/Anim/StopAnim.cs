@@ -24,7 +24,7 @@ public class StopAnim : MonoBehaviour
         if (myTr.inside == true)
         {
             if(animName == "MoveNacelle")
-                playEvent.PlayEventWithoutRTPC("Nacelle_loop_event", uni);
+                //playEvent.PlayEventWithoutRTPC("Nacelle_loop_event", uni);
             
             anim.Play(animName);
         }

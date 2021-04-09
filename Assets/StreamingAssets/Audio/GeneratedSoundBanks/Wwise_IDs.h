@@ -22,6 +22,7 @@ namespace AK
         static const AkUniqueID BIG_VENTILATOR_EVENT = 478883995U;
         static const AkUniqueID BREAK_DRONES_DEPLACEMENT_EVENT = 3707020222U;
         static const AkUniqueID BREAK_DRONES_STATIONNAIRE_EVENT = 2580519433U;
+        static const AkUniqueID BREAK_UNI_ETOUFFEMENT_EVENT = 3902829861U;
         static const AkUniqueID BREAK_UNTILIBREATHE_LEVEL2_3_RUN_LOOP_EVENT = 4014938746U;
         static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
         static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;
@@ -88,6 +89,7 @@ namespace AK
         static const AkUniqueID TRAIN_DEPART_EVENT = 3951010251U;
         static const AkUniqueID TRAIN_EXTERIEUR_EVENT = 1127840350U;
         static const AkUniqueID TRAIN_INTERIEUR_EVENT = 2137224780U;
+        static const AkUniqueID UNI_ETOUFFEMENT_EVENT = 1109845805U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
         static const AkUniqueID VENT_EVENT = 4165311893U;
     } // namespace EVENTS
@@ -124,6 +126,7 @@ namespace AK
         static const AkUniqueID MUSICVOLUME = 2346531308U;
         static const AkUniqueID SFXVOLUME = 988953028U;
         static const AkUniqueID TRAINDEPARTVOLUME = 58362009U;
+        static const AkUniqueID UNI_ETOUFFEMENTSVOLUME = 2719740865U;
         static const AkUniqueID VENTILATORVOLUME = 1991624541U;
     } // namespace GAME_PARAMETERS
 
