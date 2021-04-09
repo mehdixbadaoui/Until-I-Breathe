@@ -86,7 +86,7 @@ public class BreathingColor : MonoBehaviour
 
             if (bm.breath < step2)
             {
-                playEvent.UniSuffoc("Uni_Etouffement_event", uni, 20f, "Uni_etouffementsVolume");
+                playEvent.UniSuffoc("Uni_Etouffement_event", uni, 10f, "Uni_etouffementsVolume");
                 if (vig && bm.breath > step2 - (bm.max_breath / 10))
                     vig.intensity.value = (Mathf.Abs(bm.breath - step2) / step2) * (bm.max_breath / (bm.max_breath / 10)) * 0.25f;
 
@@ -105,7 +105,7 @@ public class BreathingColor : MonoBehaviour
 
                     if (bm.breath < step4 ) 
                     {
-                        playEvent.UniSuffoc("Uni_Etouffement_event", uni, 90f, "Uni_etouffementsVolume");
+                        playEvent.UniSuffoc("Uni_Etouffement_event", uni, 100f, "Uni_etouffementsVolume");
                         if (colorAdjust)
                             colorAdjust.saturation.value = (bm.breath * bm.max_breath / step4) - bm.max_breath;
                     }
