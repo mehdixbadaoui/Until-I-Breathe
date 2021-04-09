@@ -738,12 +738,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4985481720783156705}
-  - component: {fileID: 7479608403859639604}
   - component: {fileID: 8043960394238340495}
   - component: {fileID: 8043960394238340493}
   m_Layer: 0
   m_Name: ST2
-  m_TagString: Untagged
+  m_TagString: ST2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -755,7 +754,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5648689969457000283}
-  m_LocalRotation: {x: 0.10258434, y: 0.38032737, z: -0.04249318, w: 0.9181622}
+  m_LocalRotation: {x: 0.102582864, y: 0.3803251, z: -0.04249226, w: 0.9181634}
   m_LocalPosition: {x: -0.9782536, y: 1.9938295, z: 58.30163}
   m_LocalScale: {x: -1, y: 1, z: -1}
   m_Children:
@@ -777,26 +776,7 @@ Transform:
   - {fileID: 1180942289614550480}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &7479608403859639604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5648689969457000283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb8c3e8bad80f24b911ff20e0237201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  followSharpness: 2
-  rotationSpeed: 5
-  followOffset: {x: -1, y: 2, z: 1}
-  fixationSpeed: 0
-  distFromObj: 0
-  lookAtSpeed: 0
+  m_LocalEulerAnglesHint: {x: 12.75, y: 45.001, z: 0}
 --- !u!54 &8043960394238340495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -829,9 +809,10 @@ MonoBehaviour:
   followSharpness: 2
   rotationSpeed: 5
   followOffset: {x: -1, y: 2, z: 1}
-  fixationSpeed: 5
-  distFromObj: 1
-  lookAtSpeed: 5
+  crouch: 1.1
+  fixationSpeed: 1.5
+  distFromObj: 2
+  lookAtSpeed: 3
 --- !u!1 &6059592103730164757
 GameObject:
   m_ObjectHideFlags: 0
