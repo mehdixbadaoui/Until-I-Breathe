@@ -370,6 +370,8 @@ public class GrapplingHook : MonoBehaviour
 			myAnimator.Play("GroundGrapplin" , 0);
 			myAnimator.Play("GroundGrapplin", 1);
 		}
+
+			
 		//else if (hookObject.CompareTag("lever") || hookObject.CompareTag("movable_hook"))
   //      {
 		//	// Animation of the grapplin lanched
@@ -409,9 +411,22 @@ public class GrapplingHook : MonoBehaviour
 			// Add the first spring joint
 			AddMovableSpringJoint();
 
+		else if (hookObject.CompareTag("boxhook"))
+        {
+			hookObject.GetComponent<PullBox>().Pull();
+            CutRope();
+        }
+
+
+		/*		else if (hookObject.CompareTag("boxhook"))
+				{
+					hookObject.GetComponent<PullBox>().enabled = true;
+					CutRope();
+				}
+		*/
 
 		//if (hookObject.CompareTag("lever"))
-		//	hookObject.GetComponent<Lever>().Unlock();
+		//    hookObject.GetComponent<Lever>().Unlock();
 
 		//Init the spring we use to approximate the rope from point a to b
 		UpdateRopePositions();
