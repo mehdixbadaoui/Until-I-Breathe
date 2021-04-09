@@ -88,8 +88,7 @@ public class PatrolDrones : MonoBehaviour
             
             if (transform.position == targetWaypoint)
             {
-                AkSoundEngine.PostEvent("Break_Drones_deplacement_event", this.gameObject);
-                playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_stationnaire_event"/*, "DronesDeplacementVolume"*/);
+                
                 targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
                 targetWaypoint = waypoints[targetWaypointIndex];
                 yield return new WaitForSeconds(waitTime);
@@ -102,6 +101,8 @@ public class PatrolDrones : MonoBehaviour
 
     IEnumerator TurnToFace(Vector3 lookTarget)
     {
+        AkSoundEngine.PostEvent("Break_Drones_deplacement_event", this.gameObject);
+        playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_stationnaire_event", "DronesDeplacementVolume");
         Vector3 dirToLookTarget = (lookTarget - transform.position).normalized;
         float targetAngle = 90 - Mathf.Atan2(dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;
 
@@ -119,6 +120,7 @@ public class PatrolDrones : MonoBehaviour
         //GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
         //Destroy(impactGO, 1f);
         yield return new WaitForSeconds(timeToKillPlayer);
+        playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_fireshot_event", "DronesDeplacementVolume");
         GM.Die();
     }
 
