@@ -2143,8 +2143,6 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Drones_fireshot" ID="{53D0D467-AB1F-4135-8111-ED9EBA38EBD0}" ShortID="664773290">
 									<PropertyList>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-15</Value>
@@ -2468,47 +2466,20 @@
 									</ChildrenList>
 									<ObjectLists/>
 								</RandomSequenceContainer>
-								<Sound Name="Drone_Deplacement_01" ID="{FBD49475-F9CA-471B-8480-9320C2565E74}" ShortID="343658079">
+								<Sound Name="Drone_Deplacement_01" ID="{4F6D3B80-ECBF-4DFE-859F-CA367EBA09C9}" ShortID="289554228">
 									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{AE6AFA27-5859-4C18-A84C-EAAB5691C10B}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="3"/>
-															<Property Name="Min" Type="Real64" Value="-7"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Pitch" Type="int32">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{A7E4419B-EA2B-46EF-A583-04E7CCBF53E2}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="100"/>
-															<Property Name="Min" Type="Real64" Value="-100"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-20</Value>
 											</ValueList>
 											<RTPCList>
-												<RTPC Name="" ID="{BA36FCCB-AC08-4236-B72E-EB8EA8BBCB95}" ShortID="880661140">
+												<RTPC Name="" ID="{A1D1BABF-F39D-4CDA-8B4C-9E354A9BB1B8}" ShortID="725607906">
 													<ReferenceList>
 														<Reference Name="ControlInput">
 															<ObjectRef Name="DronesDeplacementVolume" ID="{C4B9B455-BDD4-495C-A811-CB97C5EBD004}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
 														</Reference>
 													</ReferenceList>
-													<Curve Name="" ID="{35ABE276-3D02-4358-83FF-E5D0C26B2EEA}">
+													<Curve Name="" ID="{8F208C9C-4F7B-434F-8C38-491CBCB8977A}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="3"/>
 														</PropertyList>
@@ -2538,7 +2509,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Drone_Deplacement_01" ID="{EBFCA1D3-8C6D-4AAC-8274-28AD4B8E3C45}">
+										<AudioFileSource Name="Drone_Deplacement_01" ID="{6FF2F214-5381-4DC2-8D98-88A127809B03}">
 											<Language>SFX</Language>
 											<AudioFile>Drone_Deplacement_01.wav</AudioFile>
 											<MediaIDList>
@@ -2548,7 +2519,7 @@
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Drone_Deplacement_01" ID="{EBFCA1D3-8C6D-4AAC-8274-28AD4B8E3C45}" Platform="Linked"/>
+										<ActiveSource Name="Drone_Deplacement_01" ID="{6FF2F214-5381-4DC2-8D98-88A127809B03}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
