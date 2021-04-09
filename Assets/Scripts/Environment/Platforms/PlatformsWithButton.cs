@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlatformsWithButton : MonoBehaviour
 {
-    public GameObject playerParent;
-    public GameObject st2;
-    public GameObject cam;
+    public GameObject Uni;
+    public GameObject St2;
+    public GameObject Cam;
+    [HideInInspector] public GameObject playerParent; //for ledgeLocator ref
+
     public Transform pointA, pointB, pointC, pointD;
     public bool fourPoints;
     public float secondsItTakes;
@@ -206,10 +208,14 @@ public class PlatformsWithButton : MonoBehaviour
         if ((other.tag == "uni") && !playerOn)
         {
             other.isTrigger = false;
+
+            playerParent = new GameObject("PlayerParentGO");
+
             playerOn = true;
             playerParent.transform.parent = transform;
-            st2.transform.parent = playerParent.transform;
-            cam.transform.parent = transform;
+            Uni.transform.parent = playerParent.transform;
+            St2.transform.parent = playerParent.transform;
+            Cam.transform.parent = transform;
         }
     }
 
@@ -218,9 +224,10 @@ public class PlatformsWithButton : MonoBehaviour
         if ((other.tag == "uni") && playerOn && !other.isTrigger)
         {
             playerOn = false;
-            st2.transform.parent = null;
-            playerParent.transform.parent = null;
-            cam.transform.parent = null;
+            St2.transform.parent = null;
+            Uni.transform.parent = null;
+            Cam.transform.parent = null;
+            Destroy(GameObject.Find("PlayerParentGO"));
         }
     }
 }

@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class Platforms : MonoBehaviour
 {
-    //public Transform pointB;
-    //Vector3 pointA;
-    //public float timeItTakes;
-    //public int pause;
+    public GameObject Uni;
+    public GameObject St2;
+    public GameObject Cam;
+    [HideInInspector] public GameObject playerParent; //for ledgeLocator ref
 
-    public GameObject playerParent;
     public Transform startPoint, endPoint;
     public float speed;
     public float changeDirectionDelay;
@@ -24,22 +23,20 @@ public class Platforms : MonoBehaviour
     float journeyLength;
     bool playerOn = false;
     bool firstTimeOn;
-    private CapsuleCollider col;
 
     [HideInInspector]
     public bool isWaiting;
-    private GameObject uni;
+    //private GameObject uni;
     private PlayEventSounds playEvent;
 
     void Start()
     {
 
         PlatformLauncherScript = PlatformLauncherGO.GetComponent<PlatformsLauncher>();
-        col = GetComponent<CapsuleCollider>();
         departTarget = startPoint;
         destinationTarget = endPoint;
-        uni = GameObject.FindGameObjectWithTag("uni");
-        playEvent = uni.GetComponent<PlayEventSounds>();
+        //uni = GameObject.FindGameObjectWithTag("uni");
+        playEvent = Uni.GetComponent<PlayEventSounds>();
         firstTimeOn = true;
         isWaiting = true;
 
@@ -68,20 +65,35 @@ public class Platforms : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, destinationTarget.position) > 0.01f)
                 {
-                    float distCovered = (Time.time - startTime) * speed;
+                    StartCoroutine(Move_Routine(transform.position, destinationTarget.position));
 
-                    float fractionOfJourney = distCovered / journeyLength;
+                    if (Vector3.Distance(transform.position, destinationTarget.position) < 0.01f) // insure that the platform is at the exact position of its destination
+                    {
+                        transform.position = destinationTarget.position;
+                    }
 
-                    transform.position = Vector3.Lerp(departTarget.position, destinationTarget.position, fractionOfJourney);
                 }
                 else
                 {
                     isWaiting = true;
-                    StartCoroutine(changeDelay());
+                    StartCoroutine(ChangeDelay());
                 }
             }
 
         }
+    }
+
+    private IEnumerator Move_Routine(Vector3 from, Vector3 to)
+    {
+        float t = 0f;
+        while (t < 1f && !isWaiting)
+        {
+            t += Time.smoothDeltaTime / speed;
+            transform.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0f, 1f, Mathf.SmoothStep(0f, 1f, t)));
+            yield return null;
+        }
+
+        transform.position = to;
     }
 
     void ChangeDestination()
@@ -98,7 +110,7 @@ public class Platforms : MonoBehaviour
         }
     }
 
-    IEnumerator changeDelay()
+    IEnumerator ChangeDelay()
     {
         yield return new WaitForSeconds(changeDirectionDelay);
         ChangeDestination();
@@ -107,68 +119,42 @@ public class Platforms : MonoBehaviour
         isWaiting = false;
     }
 
-        // Allows the player and other objects to stick to the platform and move on it
-        private void OnTriggerEnter(Collider other)
+    // Allows the player and other objects to stick to the platform and move on it
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.tag == "uni") && !playerOn)
         {
-            if ((other.tag == "uni") && !playerOn)
-            {
-                other.isTrigger = false;
-                playerOn = true;
-                playerParent.transform.parent = transform;
+            other.isTrigger = false;
 
-            }
+            playerParent = new GameObject("PlayerParentGO");
+
+            playerOn = true;
+            playerParent.transform.parent = transform;
+            Uni.transform.parent = playerParent.transform;
+            St2.transform.parent = playerParent.transform;
+            Cam.transform.parent = transform;
         }
+    }
 
-        private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.tag == "uni") && playerOn && !other.isTrigger)
         {
-            if ((other.tag == "uni") && playerOn && !other.isTrigger)
-            {
-                playerOn = false;
-                playerParent.transform.parent = null;
-            }
+            playerOn = false;
+            St2.transform.parent = null;
+            Uni.transform.parent = null;
+            Cam.transform.parent = null;
+            Destroy(GameObject.Find("PlayerParentGO"));
         }
+    }
 
-        IEnumerator PlatformLaunch()
+    IEnumerator PlatformLaunch()
+    {
+        if (firstTimeOn && PlatformLauncherScript.activate)
         {
-            if (firstTimeOn && PlatformLauncherScript.activate)
-            {
-                yield return new WaitForSeconds(delayToLaunch);
-                isWaiting = false;
-                startTime = Time.time;
-            }
+            yield return new WaitForSeconds(delayToLaunch);
+            isWaiting = false;
+            startTime = Time.time;
         }
-
-
-        //void Start()
-        //{
-        //    //initial position of the platform is the start
-        //    pointA = transform.position;
-        //    StartCoroutine(ChangeDir());
-        //}
-
-        //IEnumerator ChangeDir()
-        //{
-        //    //infinite loop
-        //    while (true)
-        //    {
-        //        yield return StartCoroutine(MoveObject(transform, pointA, pointB.position, timeItTakes));
-        //        yield return new WaitForSeconds(pause);
-        //        yield return StartCoroutine(MoveObject(transform, pointB.position, pointA, timeItTakes));
-        //        yield return new WaitForSeconds(pause);
-        //    }
-        //}
-
-        //IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
-        //{
-        //    var i = 0.0f;
-        //    var rate = 1.0f / time;
-        //    while (i < 1.0f)
-        //    {
-        //        i += Time.deltaTime * rate;
-        //        //thisTransform.position = Vector3.Lerp(startPos, endPos, i);
-        //        thisTransform.position = Vector3.MoveTowards(startPos, endPos, timeItTakes * Time.deltaTime);
-        //        yield return null;
-        //    }
-        //}
-    
+    }
 }
