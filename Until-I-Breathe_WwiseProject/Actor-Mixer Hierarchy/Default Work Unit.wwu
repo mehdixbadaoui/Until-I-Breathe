@@ -2143,8 +2143,6 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Drones_fireshot" ID="{53D0D467-AB1F-4135-8111-ED9EBA38EBD0}" ShortID="664773290">
 									<PropertyList>
-										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-15</Value>
@@ -2240,6 +2238,32 @@
 											<ValueList>
 												<Value>-10</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{9EDDBFFB-0F62-417D-829D-C30D95BD27C5}" ShortID="919774980">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DronesDeplacementVolume" ID="{C4B9B455-BDD4-495C-A811-CB97C5EBD004}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{FD2069A0-13D7-4770-A3B1-0AD0FB994CF9}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -2333,6 +2357,32 @@
 											<ValueList>
 												<Value>-10</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{FD711F3D-D8B0-4120-8BA1-6C468E32286A}" ShortID="697510439">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DronesDeplacementVolume" ID="{C4B9B455-BDD4-495C-A811-CB97C5EBD004}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{CFCF755D-C182-43B2-814B-412AED9D59C3}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -2416,39 +2466,38 @@
 									</ChildrenList>
 									<ObjectLists/>
 								</RandomSequenceContainer>
-								<Sound Name="Drone_Deplacement_01" ID="{FBD49475-F9CA-471B-8480-9320C2565E74}" ShortID="343658079">
+								<Sound Name="Drone_Deplacement_01" ID="{4F6D3B80-ECBF-4DFE-859F-CA367EBA09C9}" ShortID="289554228">
 									<PropertyList>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="MakeUpGain" Type="Real64">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{AE6AFA27-5859-4C18-A84C-EAAB5691C10B}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="3"/>
-															<Property Name="Min" Type="Real64" Value="-7"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
-										<Property Name="Pitch" Type="int32">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{A7E4419B-EA2B-46EF-A583-04E7CCBF53E2}">
-														<PropertyList>
-															<Property Name="Enabled" Type="bool" Value="True"/>
-															<Property Name="Max" Type="Real64" Value="100"/>
-															<Property Name="Min" Type="Real64" Value="-100"/>
-														</PropertyList>
-													</Modifier>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-10</Value>
+												<Value>-20</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{A1D1BABF-F39D-4CDA-8B4C-9E354A9BB1B8}" ShortID="725607906">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="DronesDeplacementVolume" ID="{C4B9B455-BDD4-495C-A811-CB97C5EBD004}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{8F208C9C-4F7B-434F-8C38-491CBCB8977A}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -2460,7 +2509,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Drone_Deplacement_01" ID="{EBFCA1D3-8C6D-4AAC-8274-28AD4B8E3C45}">
+										<AudioFileSource Name="Drone_Deplacement_01" ID="{6FF2F214-5381-4DC2-8D98-88A127809B03}">
 											<Language>SFX</Language>
 											<AudioFile>Drone_Deplacement_01.wav</AudioFile>
 											<MediaIDList>
@@ -2470,7 +2519,7 @@
 									</ChildrenList>
 									<ObjectLists/>
 									<ActiveSourceList>
-										<ActiveSource Name="Drone_Deplacement_01" ID="{EBFCA1D3-8C6D-4AAC-8274-28AD4B8E3C45}" Platform="Linked"/>
+										<ActiveSource Name="Drone_Deplacement_01" ID="{6FF2F214-5381-4DC2-8D98-88A127809B03}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

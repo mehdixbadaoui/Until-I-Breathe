@@ -100,7 +100,8 @@ public class MoveBox : MonoBehaviour
                 previousContraints = box.GetComponent<Rigidbody>().constraints;
                 box.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 box.GetComponent<Rigidbody>().isKinematic = false;
-                
+                //box.GetComponent<Rigidbody>().mass = 1;
+
 
             }
 
@@ -116,17 +117,20 @@ public class MoveBox : MonoBehaviour
             Movement.isGrabbing = false;
             box.GetComponent<Rigidbody>().constraints = previousContraints;
             box.GetComponent<Rigidbody>().isKinematic = true;
-            
-            
+            //box.GetComponent<Rigidbody>().mass = 10000;
+            //box.GetComponent<Rigidbody>().velocity = new Vector3(0, box.GetComponent<Rigidbody>().velocity.y, 0);
+
+
+
         }
     }
 
-    private void OnDrawGizmos()
-    {
+    //private void OnDrawGizmos()
+    //{
 
-        Gizmos.color = Color.green;
-        //Gizmos.DrawLine(handsOfPlayer, handsOfPlayer + transform.TransformDirection(new Vector3(0, 0, grabbingDistance) * transform.localScale.z));
-        if(box!=null)
-            Gizmos.DrawLine(box.transform.position, transform.position + distToBox + new Vector3(0, 0, distToBox.z * 0.1f));
-    }
+    //    Gizmos.color = Color.green;
+    //    //Gizmos.DrawLine(handsOfPlayer, handsOfPlayer + transform.TransformDirection(new Vector3(0, 0, grabbingDistance) * transform.localScale.z));
+    //    if(box!=null)
+    //        Gizmos.DrawLine(box.transform.position, transform.position + distToBox + new Vector3(0, 0, distToBox.z * 0.1f));
+    //}
 }

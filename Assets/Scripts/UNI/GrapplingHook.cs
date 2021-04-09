@@ -370,12 +370,12 @@ public class GrapplingHook : MonoBehaviour
 			myAnimator.Play("GroundGrapplin" , 0);
 			myAnimator.Play("GroundGrapplin", 1);
 		}
-		else if (hookObject.CompareTag("lever") || hookObject.CompareTag("movable_hook"))
-        {
-			// Animation of the grapplin lanched
-			myAnimator.Play("GroundGrapplinLever" , 0);
-			myAnimator.Play("GroundGrapplinLever", 1);
-		}
+		//else if (hookObject.CompareTag("lever") || hookObject.CompareTag("movable_hook"))
+  //      {
+		//	// Animation of the grapplin lanched
+		//	myAnimator.Play("GroundGrapplinLever" , 0);
+		//	myAnimator.Play("GroundGrapplinLever", 1);
+		//}
 
 		body.mass = loadMass;
 
@@ -405,16 +405,22 @@ public class GrapplingHook : MonoBehaviour
 			// Add the first spring joint
 			AddSpringJoint();
 
-		if (hookObject.CompareTag("movable_hook"))
+		else if (hookObject.CompareTag("movable_hook"))
 			// Add the first spring joint
 			AddMovableSpringJoint();
 
+/*		else if (hookObject.CompareTag("boxhook"))
+        {
+			hookObject.GetComponent<PullBox>().enabled = true;
+			CutRope();
+        }
+*/
 
-		if (hookObject.CompareTag("lever"))
-			hookObject.GetComponent<Lever>().Unlock();
+        //if (hookObject.CompareTag("lever"))
+        //    hookObject.GetComponent<Lever>().Unlock();
 
-		//Init the spring we use to approximate the rope from point a to b
-		UpdateRopePositions();
+        //Init the spring we use to approximate the rope from point a to b
+        UpdateRopePositions();
 
 
 		//Display the rope

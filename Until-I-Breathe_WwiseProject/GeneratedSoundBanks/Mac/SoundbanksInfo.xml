@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>C:\Users\vvalentin\Documents\Cours\Until I Breath\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\vvalentin\Documents\Cours\Until I Breath\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\vvalentin\Documents\Cours\Until I Breath\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\vvalentin\Documents\Cours\Until I Breath\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3547685862">
+		<SoundBank Id="1355168291" Language="SFX" Hash="982120471">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="1948951674">
+		<SoundBank Id="2228651116" Language="SFX" Hash="1794652963">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -118,6 +118,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3707020222" Name="Break_Drones_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_deplacement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2580519433" Name="Break_Drones_stationnaire_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_stationnaire_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4014938746" Name="Break_UntilIBreathe_Level2_3_Run_Loop_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_2_3\Break_UntilIBreathe_Level2_3_Run_Loop_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="113833375" Name="BrokenWindow_event" ObjectPath="\Events\Default Work Unit\Environment_events\BrokenWindow_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.500000">
@@ -248,15 +249,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3075378619" Name="Drone_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event" DurationType="Infinite">
+				<Event Id="3075378619" Name="Drone_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event" DurationType="OneShot" DurationMin="3.500000" DurationMax="3.500000">
 					<IncludedMemoryFiles>
 						<File Id="434924597" Language="SFX">
 							<ShortName>Drone_Deplacement_01.wav</ShortName>
-							<Path>SFX\Drone_Deplacement_01_D79FB2B7.wem</Path>
+							<Path>SFX\Drone_Deplacement_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="728004997" Name="Drone_fireshot_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_fireshot_event" DurationType="Infinite">
+				<Event Id="728004997" Name="Drone_fireshot_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_fireshot_event" DurationType="OneShot" DurationMin="1.479167" DurationMax="1.500000">
 					<IncludedMemoryFiles>
 						<File Id="257210288" Language="SFX">
 							<ShortName>Drone_coup de feu_1.wav</ShortName>
@@ -991,6 +992,7 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="58362009" Name="TrainDepartVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainDepartVolume"/>
+				<GameParameter Id="808486924" Name="DronesDeplacementVolume" ObjectPath="\Game Parameters\Default Work Unit\DronesDeplacementVolume"/>
 				<GameParameter Id="1003961143" Name="FallingPlateformeVolume" ObjectPath="\Game Parameters\Default Work Unit\FallingPlateformeVolume"/>
 				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
 				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>
