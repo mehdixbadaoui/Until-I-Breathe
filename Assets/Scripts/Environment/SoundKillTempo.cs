@@ -20,6 +20,11 @@ public class SoundKillTempo : MonoBehaviour
     private List<string> all_hooks_tags;
     private GameObject player;
     private GrapplingHook grapplin;
+
+    // For the kill
+    private Animator myAnimator;
+    private bool isDying = false;
+
     //Movement script
     private Movement movements;
 
@@ -45,6 +50,9 @@ public class SoundKillTempo : MonoBehaviour
 
         // Game manager
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+
+        // Uni Animator
+        myAnimator = GameObject.FindGameObjectWithTag("uni").GetComponentInChildren<Animator>();
 
         // Uni
         player = GameObject.FindGameObjectWithTag("uni");
@@ -81,6 +89,7 @@ public class SoundKillTempo : MonoBehaviour
                         grapplin.CutRope();
                         movements.JumpAfterGrapplin();
                     }
+
 
                     //Le tag du hook disparait
                     all_hooks[hookId].tag = "Untagged";
@@ -194,4 +203,44 @@ public class SoundKillTempo : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.tag == "uni" && isPlaying && !isDying)
+        {
+            isDying = true;
+            StartCoroutine(Kill());
+        }
+
+    }
+
+    private IEnumerator Kill()
+    {
+        Movement.canMove = false;
+
+        if (grapplin.isGrappling)
+        {
+            grapplin.CutRope();
+        }
+
+        myAnimator.Play("DeathImpact", 0);
+        //myAnimator.Play("BreathingDead", 1);
+
+
+        //Wait for the beginning of BreathingDead
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("DeathImpact"));
+
+        //new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length + myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime);
+
+        //Wait for the end of BreathingDead
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length /*+ myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime*/ );
+
+
+        gm.Die();
+
+        isDying = false;
+
+        Movement.canMove = true;
+    }
+
 }
