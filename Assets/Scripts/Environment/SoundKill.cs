@@ -16,6 +16,7 @@ public class SoundKill : MonoBehaviour
     private float previousColor_V;
 
     private GameMaster gm;
+    private Animator myAnimator;
     private List<GameObject> all_hooks;
     private List<string> all_hooks_tags;
     private GameObject player;
@@ -26,6 +27,7 @@ public class SoundKill : MonoBehaviour
     //private bool killUni = false;
     public bool isPlaying = false;
     private bool haschanged = false;
+    private bool isDying = false;
 
     // // Timers
     // public float timeOnePeriode;
@@ -46,6 +48,9 @@ public class SoundKill : MonoBehaviour
         // Game manager
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
 
+        // Uni Animator
+        myAnimator = GameObject.FindGameObjectWithTag("uni").GetComponentInChildren<Animator>();
+
         // Uni
         player = GameObject.FindGameObjectWithTag("uni");
 
@@ -65,7 +70,7 @@ public class SoundKill : MonoBehaviour
         {
 
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( 0 , previousColor_S , previousColor_V ) );
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( 0 , 100000 , 100000 ) );
 
 
 
@@ -101,7 +106,7 @@ public class SoundKill : MonoBehaviour
         {
 
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( previousColor_H, previousColor_S, previousColor_V) );
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( previousColor_H, previousColor_S, 0) );
 
             if (all_hooks != null && haschanged)
             {
@@ -147,15 +152,6 @@ public class SoundKill : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        
-        if (other.tag == "uni")
-        {
-            gm.Die();
-        }
-    }
-
 
     private void OnTriggerExit(Collider other)
 
@@ -166,4 +162,44 @@ public class SoundKill : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.tag == "uni" && isPlaying && !isDying)
+        {
+            isDying = true;
+            StartCoroutine(Kill());
+        }
+
+    }
+
+    private IEnumerator Kill()
+    {
+        Movement.canMove = false;
+
+        if (grapplin.isGrappling)
+        {
+            grapplin.CutRope();
+        }
+
+        myAnimator.Play("DeathImpact", 0);
+        //myAnimator.Play("BreathingDead", 1);
+
+
+        //Wait for the beginning of BreathingDead
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("DeathImpact"));
+
+        //new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length + myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime);
+
+        //Wait for the end of BreathingDead
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length /*+ myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime*/ );
+
+
+        gm.Die();
+
+        isDying = false;
+
+        Movement.canMove = true;
+    }
+
 }
