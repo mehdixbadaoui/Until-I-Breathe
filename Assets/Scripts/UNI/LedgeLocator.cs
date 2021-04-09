@@ -202,7 +202,7 @@ public class LedgeLocator : MonoBehaviour
                     Transform platformTransform = ledge.GetComponent<Platforms>().transform;
                     playerParent.transform.parent = platformTransform;
                 }
-                AdjustPlayerPosition(new Vector3(transform.position.x, transform.position.y, transform.position.z + climbingHorizontalOffset),ledge.transform);
+                //AdjustPlayerPosition(new Vector3(transform.position.x, transform.position.y, transform.position.z + climbingHorizontalOffset),ledge.transform);
                 rb.velocity = Vector3.zero;
                 rb.useGravity = false;
                 Movement.canMove = false;
@@ -258,7 +258,10 @@ public class LedgeLocator : MonoBehaviour
 
     protected virtual IEnumerator ClimbingLedge()
     {
-        previousPos = GameObject.FindGameObjectWithTag("rig").transform.position;
+        if (ledge.GetComponentInParent<Platforms>())
+            previousPos = transform.InverseTransformPoint(GameObject.FindGameObjectWithTag("rig").transform.position);
+        else
+            previousPos = GameObject.FindGameObjectWithTag("rig").transform.position;
 
         myAnimator.SetBool("LedgeClimbing", true);
 
@@ -277,8 +280,10 @@ public class LedgeLocator : MonoBehaviour
         //yield return new WaitForSeconds( (myAnimator.GetCurrentAnimatorStateInfo(0).length / 2) - transitionlength );
         //yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorClipInfo(0)[1].clip.length / 2 );
 
-        newPos = GameObject.FindGameObjectWithTag("rig").transform.position;
-
+        if (ledge.GetComponentInParent<Platforms>())
+            newPos = transform.InverseTransformPoint(GameObject.FindGameObjectWithTag("rig").transform.position);
+        else
+            newPos = GameObject.FindGameObjectWithTag("rig").transform.position;
 
         myAnimator.Play("idle&run", 0);
         //myAnimator.Play("idle&run", 2);

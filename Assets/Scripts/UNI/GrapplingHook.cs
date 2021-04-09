@@ -409,12 +409,18 @@ public class GrapplingHook : MonoBehaviour
 			// Add the first spring joint
 			AddMovableSpringJoint();
 
+/*		else if (hookObject.CompareTag("boxhook"))
+        {
+			hookObject.GetComponent<PullBox>().enabled = true;
+			CutRope();
+        }
+*/
 
-		//if (hookObject.CompareTag("lever"))
-		//	hookObject.GetComponent<Lever>().Unlock();
+        //if (hookObject.CompareTag("lever"))
+        //    hookObject.GetComponent<Lever>().Unlock();
 
-		//Init the spring we use to approximate the rope from point a to b
-		UpdateRopePositions();
+        //Init the spring we use to approximate the rope from point a to b
+        UpdateRopePositions();
 
 
 		//Display the rope

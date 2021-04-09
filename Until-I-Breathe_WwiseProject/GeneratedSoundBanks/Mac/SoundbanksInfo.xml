@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="2393986402">
+		<SoundBank Id="2228651116" Language="SFX" Hash="1794652963">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -249,15 +249,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3075378619" Name="Drone_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event" DurationType="Infinite">
+				<Event Id="3075378619" Name="Drone_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event" DurationType="OneShot" DurationMin="3.500000" DurationMax="3.500000">
 					<IncludedMemoryFiles>
 						<File Id="434924597" Language="SFX">
 							<ShortName>Drone_Deplacement_01.wav</ShortName>
-							<Path>SFX\Drone_Deplacement_01_D79FB2B7.wem</Path>
+							<Path>SFX\Drone_Deplacement_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="728004997" Name="Drone_fireshot_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_fireshot_event" DurationType="Infinite">
+				<Event Id="728004997" Name="Drone_fireshot_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Drone_fireshot_event" DurationType="OneShot" DurationMin="1.479167" DurationMax="1.500000">
 					<IncludedMemoryFiles>
 						<File Id="257210288" Language="SFX">
 							<ShortName>Drone_coup de feu_1.wav</ShortName>
