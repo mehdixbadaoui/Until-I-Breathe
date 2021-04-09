@@ -70,7 +70,7 @@ public class SoundKill : MonoBehaviour
         {
 
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( 0 , previousColor_S , previousColor_V ) );
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( 0 , 100000 , 100000 ) );
 
 
 
@@ -106,7 +106,7 @@ public class SoundKill : MonoBehaviour
         {
 
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
-            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( previousColor_H, previousColor_S, previousColor_V) );
+            transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( previousColor_H, previousColor_S, 0) );
 
             if (all_hooks != null && haschanged)
             {
