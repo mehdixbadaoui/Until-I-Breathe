@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585837324229955598
+    m_lastTime: -8585837151280275436
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585837324302150113
+    m_lastTime: -8585837151355938476
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -296,6 +296,29 @@ MonoBehaviour:
         ObjectType: 3
         guid: 8232c6f35a5a244e97a9a56761555d96
       Path: Events\Default Work Unit\Environment_events\Ventilator\Big_Ventilator_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Break_Drones_deplacement_event
+      guid: 2e809d645dad2843a1ab73da3623806d
+      id: 3707020222
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Drones
+        ObjectType: 4
+        guid: 1327498392a15548873c9c6fad1a49d7
+      - ElementName: Break_Drones_deplacement_event
+        ObjectType: 3
+        guid: 2e809d645dad2843a1ab73da3623806d
+      Path: Events\Default Work Unit\Environment_events\Drones\Break_Drones_deplacement_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1280,6 +1303,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Lvl_1_3_event
+      guid: 5715a83b09132840bd6b0cc2767d328a
+      id: 1150871578
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Lvl_1_3_event
+        ObjectType: 3
+        guid: 5715a83b09132840bd6b0cc2767d328a
+      Path: Events\Default Work Unit\Music_levels\Lvl_1_3_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Lvl_2_1_event
       guid: c3961dac7eb85c45bee153533aeab276
       id: 3922198791
@@ -1337,6 +1380,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 3ef2ede1668b9a4c99671ccb1f6aaf64
       Path: Events\Default Work Unit\Music_levels\Lvl_2_3
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Lvl_3_1_event
+      guid: bd6362e859baf54caa00818fad8324c2
+      id: 1157007206
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Lvl_3_1_event
+        ObjectType: 3
+        guid: bd6362e859baf54caa00818fad8324c2
+      Path: Events\Default Work Unit\Music_levels\Lvl_3_1_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2132,7 +2195,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585837324302137160
+    m_lastTime: -8585837151750011339
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2176,6 +2239,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 64862ec2bf013b4e98e8a8b827147423
       Path: Game Parameters\Default Work Unit\DoorVolume
+    - name: DronesDeplacementVolume
+      guid: 55b4b9c4d4bd5c49a811cb97c5ebd004
+      id: 808486924
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: DronesDeplacementVolume
+        ObjectType: 13
+        guid: 55b4b9c4d4bd5c49a811cb97c5ebd004
+      Path: Game Parameters\Default Work Unit\DronesDeplacementVolume
     - name: FallingPlateformeVolume
       guid: 35ad8f5bd27d7f4dbc0fe2dafc0ed74d
       id: 1003961143
@@ -2452,7 +2529,7 @@ MonoBehaviour:
     m_lastTime: -8585837324220877528
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 020000000500000006000000080000000d0000000e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

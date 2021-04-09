@@ -661,6 +661,20 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Break_Drones_deplacement_event" ID="{649D802E-AD5D-4328-A1AB-73DA3623806D}">
+									<ChildrenList>
+										<Action Name="" ID="{2FE23383-A3CF-4F86-855D-DB92D561397F}" ShortID="580214977">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="34"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Drone_Deplacement_01" ID="{FBD49475-F9CA-471B-8480-9320C2565E74}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="Engrenage_bloquer_event" ID="{3C25E1FC-0E5F-4810-A637-EDB009A10F83}">

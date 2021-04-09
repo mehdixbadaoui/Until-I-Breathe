@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="266324228">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1981137473">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="4078522266">
+		<SoundBank Id="2228651116" Language="SFX" Hash="2393986402">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -118,6 +118,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3707020222" Name="Break_Drones_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_deplacement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2580519433" Name="Break_Drones_stationnaire_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_stationnaire_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4014938746" Name="Break_UntilIBreathe_Level2_3_Run_Loop_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_2_3\Break_UntilIBreathe_Level2_3_Run_Loop_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="113833375" Name="BrokenWindow_event" ObjectPath="\Events\Default Work Unit\Environment_events\BrokenWindow_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.500000">
@@ -991,6 +992,7 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="58362009" Name="TrainDepartVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainDepartVolume"/>
+				<GameParameter Id="808486924" Name="DronesDeplacementVolume" ObjectPath="\Game Parameters\Default Work Unit\DronesDeplacementVolume"/>
 				<GameParameter Id="1003961143" Name="FallingPlateformeVolume" ObjectPath="\Game Parameters\Default Work Unit\FallingPlateformeVolume"/>
 				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
 				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>

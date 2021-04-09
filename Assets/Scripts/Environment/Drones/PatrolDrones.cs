@@ -26,12 +26,15 @@ public class PatrolDrones : MonoBehaviour
 
     Color originalSpotlightColour;
     GameMaster GM;
+    private PlayEventSounds playEvent;
+    private Vector3 distWithUni;
+    public float maxDistance = 15f; 
 
     void Start()
     {
         GM = FindObjectOfType<GameMaster>();
         originalSpotlightColour = spotlight.color;
-
+        playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>(); 
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
         {
@@ -44,6 +47,7 @@ public class PatrolDrones : MonoBehaviour
 
     void Update()
     {
+        distWithUni = playEvent.CalculateDistanceUniFromObject(gameObject.transform.position); 
         if (detected)
         {
             playerVisibleTimer += Time.deltaTime;
@@ -77,10 +81,15 @@ public class PatrolDrones : MonoBehaviour
 
         while (true)
         {
+            
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.smoothDeltaTime);
-
+            AkSoundEngine.PostEvent("Break_Drones_stationnaire_event", this.gameObject);
+            playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_deplacement_event", "DronesDeplacementVolume");
+            
             if (transform.position == targetWaypoint)
             {
+                AkSoundEngine.PostEvent("Break_Drones_deplacement_event", this.gameObject);
+                playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_stationnaire_event"/*, "DronesDeplacementVolume"*/);
                 targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
                 targetWaypoint = waypoints[targetWaypointIndex];
                 yield return new WaitForSeconds(waitTime);
