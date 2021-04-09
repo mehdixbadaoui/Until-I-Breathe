@@ -30,6 +30,7 @@ public class ST_Movements : MonoBehaviour
 
     private Movement PlayerMovement;
     private float currentFollowOffsetY;
+    private float currentFollowOffsetX;
 
     // To access the children components of ST-2 (sprite)
     //public GameObject ChildGO_Sprite;
@@ -51,6 +52,7 @@ public class ST_Movements : MonoBehaviour
         Vector3 startOffset = new Vector3(-2.5f, 2f, 0.0f);
 
         currentFollowOffsetY = followOffset.y;
+        currentFollowOffsetX = followOffset.x;
         // Initialize the position of ST-2 at the start of  the game
         transform.position = Player.position + startOffset;
 
@@ -102,10 +104,12 @@ public class ST_Movements : MonoBehaviour
             if (PlayerMovement.isPlayerCrouching)
             {
                 followOffset.y = crouch;
+                followOffset.x = 0f;
             }
             else
             {
                 followOffset.y = currentFollowOffsetY;
+                followOffset.x = currentFollowOffsetX;
             }
         }
         

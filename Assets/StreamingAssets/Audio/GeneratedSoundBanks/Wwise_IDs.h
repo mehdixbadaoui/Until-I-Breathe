@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID BALLON_EXPLOSION_EVENT = 2564548868U;
         static const AkUniqueID BALLON_SOUFFLE_EVENT = 3952828675U;
         static const AkUniqueID BIG_VENTILATOR_EVENT = 478883995U;
+        static const AkUniqueID BREAK_DRONES_DEPLACEMENT_EVENT = 3707020222U;
         static const AkUniqueID BREAK_DRONES_STATIONNAIRE_EVENT = 2580519433U;
         static const AkUniqueID BREAK_UNTILIBREATHE_LEVEL2_3_RUN_LOOP_EVENT = 4014938746U;
         static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
@@ -114,6 +115,7 @@ namespace AK
         static const AkUniqueID AMBIANT_MUSIC_SOUND = 2979278319U;
         static const AkUniqueID DISTWITHUNIVOLUME = 1079181951U;
         static const AkUniqueID DOORVOLUME = 2440552763U;
+        static const AkUniqueID DRONESDEPLACEMENTVOLUME = 808486924U;
         static const AkUniqueID FALLINGPLATEFORMEVOLUME = 1003961143U;
         static const AkUniqueID FANVOLUME = 2656500902U;
         static const AkUniqueID INSPIRATIONVOLUME = 2352147213U;
