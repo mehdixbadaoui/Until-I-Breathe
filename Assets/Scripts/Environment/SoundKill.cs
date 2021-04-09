@@ -170,6 +170,7 @@ public class SoundKill : MonoBehaviour
             isDying = true;
             StartCoroutine(Kill());
         }
+
     }
 
     private IEnumerator Kill()
