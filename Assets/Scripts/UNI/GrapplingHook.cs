@@ -418,13 +418,6 @@ public class GrapplingHook : MonoBehaviour
         }
 
 
-		/*		else if (hookObject.CompareTag("boxhook"))
-				{
-					hookObject.GetComponent<PullBox>().enabled = true;
-					CutRope();
-				}
-		*/
-
 		//if (hookObject.CompareTag("lever"))
 		//    hookObject.GetComponent<Lever>().Unlock();
 
