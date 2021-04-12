@@ -290,15 +290,15 @@ public class LedgeLocator : MonoBehaviour
 
     protected virtual IEnumerator MidLedge()
     {
-        if (ledge.GetComponentInParent<Platforms>())
+/*        if (ledge.GetComponentInParent<Platforms>())
             previousPos = transform.InverseTransformPoint(GameObject.FindGameObjectWithTag("rig").transform.position);
         else
-            previousPos = GameObject.FindGameObjectWithTag("rig").transform.position;
+            previousPos = GameObject.FindGameObjectWithTag("rig").transform.position;*/
 
         myAnimator.SetBool("MidClimbing", true);
 
         // In Update, camfollow will follow the animation
-        previousCamPos = camFollow.transform.localPosition;
+        //previousCamPos = camFollow.transform.localPosition;
 
         //Wait for the beginning of LedgeClimb
         float transitionlength = myAnimator.GetAnimatorTransitionInfo(0).duration;

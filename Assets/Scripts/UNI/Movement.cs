@@ -359,7 +359,7 @@ public class Movement : MonoBehaviour
 
 
             // Add force if isgrapplin because Translate isnt workinbg with spring joint
-            else if (isGrapplin && !isGrounded)
+            else if (isGrapplin && !isGrounded && !hit)
             {
 
                 isJumping = false;
@@ -402,6 +402,11 @@ public class Movement : MonoBehaviour
                     {
                         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z * 0.99f);
                     }
+                }
+                // Si on est trop haut sur le grappin
+                if (distToHook <= 0.1f && rb.velocity.y > 0 )
+                {
+                    rb.velocity = Vector3.Lerp( rb.velocity , new Vector3(rb.velocity.x, 0, rb.velocity.z ), 0.3f);
                 }
                 // Si on est trop a la fin du mouvement on lance l'animation du push
                 if (rb.velocity.y > 0 && acceleration.y < 0.5 && rb.velocity.z * transform.TransformDirection(Vector3.forward * transform.localScale.z).z >= 0)
