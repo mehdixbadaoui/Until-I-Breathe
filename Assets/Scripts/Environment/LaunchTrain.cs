@@ -9,9 +9,21 @@ public class LaunchTrain : MonoBehaviour
     public float speed = 20f;
     public float time = 3f;
 
+    [HideInInspector] public bool canstart;
+    public List<Transform> TrainCars;
+    public Dictionary<Transform, Transform> TrainCarsDick;
+
+
+    private void Start()
+    {
+        canstart = true;
+        foreach (Transform car in TrainCars)
+            TrainCarsDick.Add(car, car);
+
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("uni"))
+        if (other.CompareTag("uni") && canstart)
         {
             
             BezierSpline track_bz = Track.GetComponent<BezierSpline>();
@@ -22,6 +34,7 @@ public class LaunchTrain : MonoBehaviour
             Locomotive.GetComponent<SplineWalker>().speed = 0;
             StartCoroutine(SlowStart());
 
+            canstart = false;
             //if (Locomotive.GetComponent<SplineWalker>().lookForward)
             //{
             //    transform.LookAt(Locomotive.transform.localPosition + track_bz.GetDirection(Locomotive.GetComponent<SplineWalker>().progress));
