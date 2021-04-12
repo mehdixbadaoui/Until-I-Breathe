@@ -26,13 +26,21 @@ public class PatrolDrones : MonoBehaviour
 
     Color originalSpotlightColour;
     GameMaster GM;
+    private Animator myAnimator;
+    private bool isKilling = false;
+
     private PlayEventSounds playEvent;
     private Vector3 distWithUni;
     public float maxDistance = 15f; 
 
     void Start()
     {
+        //game master
         GM = FindObjectOfType<GameMaster>();
+
+        // Get the animator 
+        myAnimator = GameObject.FindGameObjectWithTag("uni").GetComponentInChildren<Animator>();
+
         originalSpotlightColour = spotlight.color;
         playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>(); 
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
@@ -59,8 +67,9 @@ public class PatrolDrones : MonoBehaviour
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
-        if (playerVisibleTimer >= timeToSpotPlayer)
+        if (playerVisibleTimer >= timeToSpotPlayer && !isKilling)
         {
+            isKilling = true;
             StartCoroutine(CallShootWithDelay());
         }
     }
@@ -119,9 +128,21 @@ public class PatrolDrones : MonoBehaviour
         //muzzleFlash.Play();
         //GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
         //Destroy(impactGO, 1f);
+        Movement.canMove = false;
         yield return new WaitForSeconds(timeToKillPlayer);
         playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_fireshot_event", "DronesDeplacementVolume");
+        myAnimator.Play("DeathBullet");
+
+        //Wait for the beginning of BreathingDead
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("DeathBullet"));
+
+        //Wait for the end of BreathingDead
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length * 1.5f );
+
+        myAnimator.Play("idle&run");
         GM.Die();
+        Movement.canMove = true;
+        isKilling = false;
     }
 
     private void OnTriggerStay(Collider other)
