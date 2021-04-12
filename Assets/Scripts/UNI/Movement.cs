@@ -210,11 +210,11 @@ public class Movement : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleHook, 0, 0), .2f);
             }
             // si on est trop eloigne de l'angle cela ne fait pas une transition rapide sinon pb 
-            else if (isGrapplin && !isGrounded && countGround > 10 && Quaternion.Angle(transform.rotation, Quaternion.Euler(angleHook, 0, 0)) >= 15)
+            else if (isGrapplin && !isGrounded && countGround > 10 && Quaternion.Angle(transform.rotation, Quaternion.Euler(angleHook, 0, 0)) >= 15 && distToHook > 0.1f)
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(angleHook, 0, 0), .01f);
             }
-            else if (!isGrounded)
+            else if (!isGrounded )
             {
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .1f);
             }
