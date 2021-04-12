@@ -79,7 +79,7 @@ public class MoveBox : MonoBehaviour
         CheckForLedge();
 
         if (grabbing)
-            box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y , transform.position.z + distToBox.z) ;
+            box.transform.position = new Vector3(box.transform.position.x, box.transform.position.y, transform.position.z + distToBox.z) ;
             //box.GetComponent<Rigidbody>().velocity = rig.velocity;
     }
 
