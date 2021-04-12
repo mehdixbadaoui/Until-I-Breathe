@@ -66,6 +66,7 @@ public class Movement : MonoBehaviour
     private bool collisionWithWall;
     public bool too_steep;
     private bool canJump;
+    private bool didGrab = false;
 
     private Vector3 facingLeft;
 
@@ -222,6 +223,18 @@ public class Movement : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), .05f);
             }
             /*(middle.transform !=  null)*/
+
+            if (isGrabbing && !didGrab)
+            {
+                didGrab = true;
+                previousSpeed = speed;
+                speed = speed * 0.3f;
+            }
+            else if (didGrab)
+            {
+                speed = previousSpeed;
+                didGrab = false;
+            }
         }
     }
 
