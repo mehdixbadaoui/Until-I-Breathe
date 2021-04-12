@@ -41,11 +41,29 @@ public class PlayEventSounds : MonoBehaviour
         else
         {
             volume = 0f;
-            AkSoundEngine.SetRTPCValue(nameOfRTPC, 0f);
+            AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
         }
         bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
         if (!isSoundFinished)
             AkSoundEngine.PostEvent(nameOfEvent, gameObject);
+    }
+    public void LaunchSoundsonLevels(Vector3 distUniFromTrigger, float maxDistance, string nameOfRTPC = "", GameObject gameObject = null, string nameOfEvent = "")
+    {
+        if ((distUniFromTrigger.z <= maxDistance && distUniFromTrigger.z > 0))
+        {
+            volume = (100 - Mathf.Abs(distUniFromTrigger.z * 100f / maxDistance));
+            AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
+        }
+        else if(distUniFromTrigger.z < 0)
+        {
+            volume = 100f;
+            AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
+        }
+        else
+        {
+            volume = 0f;
+            AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
+        }
     }
     public void RTPCGameObjectValueEnterRoom(float distUniFromObjectLeft, float distUniFromObjectRight, float maxDistance, GameObject gameObject, string nameOfEvent, string nameOfRTPC, float coeffAttenuation )
     {
@@ -72,13 +90,16 @@ public class PlayEventSounds : MonoBehaviour
     public void UniRespiration(string nameOfEvent, GameObject gameObject, float breathOfUni, string nameOfRTPC)
     {
         bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
-        
-            
-        AkSoundEngine.SetRTPCValue(nameOfRTPC,110 - breathOfUni);
+        AkSoundEngine.SetRTPCValue(nameOfRTPC, 110 - breathOfUni);
         if (!isSoundFinished)
-            AkSoundEngine.PostEvent(nameOfEvent, uni);
-       
-        
+            AkSoundEngine.PostEvent(nameOfEvent, gameObject);
+    }
+    public void UniSuffoc(string nameOfEvent, GameObject gameObject, float ValueOfRTPC, string nameOfRTPC)
+    {
+        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
+        AkSoundEngine.SetRTPCValue(nameOfRTPC, ValueOfRTPC);
+        if (!isSoundFinished)
+            AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
 
     public Vector3 CalculateDistanceUniFromObject(Vector3 positionOfGameObject)

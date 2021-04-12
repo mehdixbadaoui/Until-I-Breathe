@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="982120471">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2166237455">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,20 +21,16 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="2329409967">
+		<SoundBank Id="2228651116" Language="SFX" Hash="3327711152">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="1721773124" Name="Alarme_event" ObjectPath="\Events\Default Work Unit\Environment_events\Alarme_event" DurationType="OneShot" DurationMin="6.400000" DurationMax="9.000000">
+				<Event Id="1721773124" Name="Alarme_event" ObjectPath="\Events\Default Work Unit\Environment_events\Alarme_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="235342702" Language="SFX">
 							<ShortName>Alarme2.wav</ShortName>
 							<Path>SFX\Alarme2_10C4C929.wem</Path>
-						</File>
-						<File Id="784183668" Language="SFX">
-							<ShortName>Alarme1.wav</ShortName>
-							<Path>SFX\Alarme1_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -120,6 +116,7 @@
 				</Event>
 				<Event Id="3707020222" Name="Break_Drones_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_deplacement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2580519433" Name="Break_Drones_stationnaire_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_stationnaire_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3902829861" Name="Break_Uni_Etouffement_event" ObjectPath="\Events\Default Work Unit\Uni_events\Break_Uni_Etouffement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4014938746" Name="Break_UntilIBreathe_Level2_3_Run_Loop_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_2_3\Break_UntilIBreathe_Level2_3_Run_Loop_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="113833375" Name="BrokenWindow_event" ObjectPath="\Events\Default Work Unit\Environment_events\BrokenWindow_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.500000">
 					<IncludedMemoryFiles>
@@ -957,6 +954,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1109845805" Name="Uni_Etouffement_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_Etouffement_event" DurationType="OneShot" DurationMin="3.750000" DurationMax="3.875000">
+					<IncludedMemoryFiles>
+						<File Id="190915537" Language="SFX">
+							<ShortName>Uni - e╠ütouffement1.wav</ShortName>
+							<Path>SFX\Uni - e╠ütouffement1_10C4C929.wem</Path>
+						</File>
+						<File Id="362407695" Language="SFX">
+							<ShortName>Uni - e╠ütouffement2.wav</ShortName>
+							<Path>SFX\Uni - e╠ütouffement2_10C4C929.wem</Path>
+						</File>
+						<File Id="468701614" Language="SFX">
+							<ShortName>Uni - e╠ütouffement3.wav</ShortName>
+							<Path>SFX\Uni - e╠ütouffement3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="980828296" Name="UniSouffle_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_respiration\UniSouffle_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
 					<IncludedMemoryFiles>
 						<File Id="169853502" Language="SFX">
@@ -993,12 +1006,14 @@
 			<GameParameters>
 				<GameParameter Id="58362009" Name="TrainDepartVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainDepartVolume"/>
 				<GameParameter Id="808486924" Name="DronesDeplacementVolume" ObjectPath="\Game Parameters\Default Work Unit\DronesDeplacementVolume"/>
+				<GameParameter Id="956757313" Name="MusicLevelsVolume" ObjectPath="\Game Parameters\Default Work Unit\MusicLevelsVolume"/>
 				<GameParameter Id="1003961143" Name="FallingPlateformeVolume" ObjectPath="\Game Parameters\Default Work Unit\FallingPlateformeVolume"/>
 				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
 				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>
 				<GameParameter Id="2352147213" Name="InspirationVolume" ObjectPath="\Game Parameters\Default Work Unit\InspirationVolume"/>
 				<GameParameter Id="2440552763" Name="DoorVolume" ObjectPath="\Game Parameters\Default Work Unit\DoorVolume"/>
 				<GameParameter Id="2656500902" Name="FanVolume" ObjectPath="\Game Parameters\Default Work Unit\FanVolume"/>
+				<GameParameter Id="2719740865" Name="Uni_etouffementsVolume" ObjectPath="\Game Parameters\Default Work Unit\Uni_etouffementsVolume"/>
 				<GameParameter Id="2979278319" Name="Ambiant_music_Sound" ObjectPath="\Game Parameters\Default Work Unit\Ambiant_music_Sound"/>
 			</GameParameters>
 		</SoundBank>
