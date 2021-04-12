@@ -63,8 +63,12 @@ public class ObjectDetector : MonoBehaviour
                 }
                 else if (listObj[index].CompareTag("lever"))
                 {
-                    listObj[index].GetComponent<Lever>().Unlock();
-                    
+                    if (listObj[index].GetComponent<Lever>())
+                        listObj[index].GetComponent<Lever>().Unlock();
+                    else if (listObj[index].GetComponent<Blackout>())
+                        listObj[index].GetComponent<Blackout>().BO();
+
+
                 }
                 else if (listObj[index].GetComponent<LeverEnceinte>())
                 {

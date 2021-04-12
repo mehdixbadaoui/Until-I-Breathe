@@ -25,8 +25,12 @@ public class GameMaster : MonoBehaviour
 
     // Falling platform 
     public GrapplingHook grapplin;
+
     //Controls
     public bool gamepad = true;
+
+    //Train
+    LaunchTrain LT;
 
 
     // Set and get of the last checkoint position
@@ -88,6 +92,9 @@ public class GameMaster : MonoBehaviour
 
         // Get uni Breathing Mecanic
         grapplin = uni.GetComponent<GrapplingHook>();
+
+        //Train
+        LT = FindObjectOfType<LaunchTrain>();
     }
 
     public void Pause()
@@ -117,6 +124,7 @@ public class GameMaster : MonoBehaviour
 
         bm.breath = 100;
 
+        //RESET PLATFORM POSITIONS
         if (platforms != null)
         {
             for (int i = 0; i < platforms.Length; ++i)
@@ -125,6 +133,9 @@ public class GameMaster : MonoBehaviour
             }
 
         }
+
+        //RESET TRAIN
+        LT.canstart = true;
     }
 
 
