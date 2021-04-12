@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class Blackout : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<GameObject> Lights;
+    public GameObject Camera;
+    public Transform door1, door2;
+    public float doorDist;
+    public Transform NextLevelPos;
+    public GameObject NExtLevelPrefab;
 
-    // Update is called once per frame
-    void Update()
+    public void BO()
     {
-        
+        //TURN OFF LIGHTS
+        foreach (GameObject light in Lights)
+            light.GetComponent<Light>().intensity = 0;
+
+        //DISABLE CAMERA
+        Camera.GetComponent<PatrolDrones>().enabled = false;
+        Camera.GetComponent<BoxDamage>().LightsOut();
+
+        //MOVE DOORS
+        door1.transform.position += Vector3.forward * doorDist;
+        door2.transform.position += Vector3.back * doorDist;
+
+        //CREATE NEXT LEVEL TRIGGERBOX
+        Instantiate(NExtLevelPrefab, NextLevelPos);
     }
 }

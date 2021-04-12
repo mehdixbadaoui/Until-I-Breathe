@@ -11,16 +11,28 @@ public class BoxDamage : MonoBehaviour
     {
         if (collision.collider.CompareTag("box"))
         {
-            GetComponent<Rigidbody>().isKinematic = false;
-            foreach(Light light in Lights)
-            {
-                light.intensity = 0;
-            }
-
-            foreach (GameObject spot in SpotsGeants)
-            {
-                spot.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(0, 0, 0, 0));
-            }
+            Fall();
+            LightsOut();
         }
+    }
+
+    public void Fall()
+    {
+        GetComponent<Rigidbody>().isKinematic = false;
+
+    }
+
+    public void LightsOut()
+    {
+        foreach (Light light in Lights)
+        {
+            light.intensity = 0;
+        }
+
+        foreach (GameObject spot in SpotsGeants)
+        {
+            spot.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(0, 0, 0, 0));
+        }
+
     }
 }
