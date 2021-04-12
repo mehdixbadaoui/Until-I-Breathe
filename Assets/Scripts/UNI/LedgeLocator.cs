@@ -33,11 +33,14 @@ public class LedgeLocator : MonoBehaviour
     public float climbingHorizontalOffset;
     public float offsetLedgeClimbing = -0.2f;
     public float securityOffsetLedgeClimbing = 0.51f;
+    public float securityOffsetMidClimbing = 0f;
     public float ledgeDistanceDetection = 0.5f; 
 
     // Vector for ledge detection 
     [HideInInspector] public Vector3 topOfPlayer;
-    private Vector3 securityRayForClimbing; 
+    private Vector3 securityRayForClimbing;
+    private Vector3 bottomOfPlayer;
+    private Vector3 middleOfPlayer;
     private GameObject ledge;
   
     // Useful boolean 
@@ -45,6 +48,7 @@ public class LedgeLocator : MonoBehaviour
     private bool moved;
     private bool isclimbing = false;
     public bool didClimb = false;
+    private bool midLedge = false;
 
     //Iterator to check after climbing
     public int TimeAfterClimbing;
@@ -176,9 +180,11 @@ public class LedgeLocator : MonoBehaviour
             // Initialisation of topOfPlayer Raycast and Security Raycast
             topOfPlayer = new Vector3(transform.position.x, col.bounds.max.y + offsetLedgeClimbing, transform.position.z);
             securityRayForClimbing = new Vector3(transform.position.x, col.bounds.max.y + securityOffsetLedgeClimbing, transform.position.z);
+            middleOfPlayer = new Vector3(transform.position.x, col.bounds.center.y, transform.position.z);
+            bottomOfPlayer = new Vector3(transform.position.x, col.bounds.min.y + securityOffsetMidClimbing, transform.position.z);
 
             //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
-            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection) /*&& !hit.collider.isTrigger*/)
+            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2) /*&& !hit.collider.isTrigger*/)
             {
                 if (!hit.collider.isTrigger)
                 {
@@ -192,8 +198,34 @@ public class LedgeLocator : MonoBehaviour
                     }
                 }
             }
-            
-            if (ledge != null && grabbingLedge)
+
+            //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
+            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb) && Physics.Raycast(bottomOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && !Physics.Raycast(middleOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2) /*&& !hit.collider.isTrigger*/)
+            {
+                Debug.Log("MidClimb");
+                if (!hit.collider.isTrigger)
+                {
+                    ledge = hit.collider.gameObject;
+                    midLedge = true;
+                    StartCoroutine(MidLedge());
+                }
+            }
+
+            if (ledge != null && midLedge)
+            {
+                //Check if the ledge is a moving platform or not 
+                if (ledge.GetComponent<Platforms>() != null)
+                {
+                    GameObject playerParent = ledge.GetComponent<Platforms>().playerParent;
+                    Transform platformTransform = ledge.GetComponent<Platforms>().transform;
+                    playerParent.transform.parent = platformTransform;
+                }
+                AdjustPlayerMidLedge(new Vector3(transform.position.x, transform.position.y, transform.position.z + climbingHorizontalOffset),ledge.transform);
+                rb.velocity = Vector3.zero;
+                rb.useGravity = false;
+                Movement.canMove = false;
+            }
+            else if (ledge != null && grabbingLedge)
             {
                 //Check if the ledge is a moving platform or not 
                 if(ledge.GetComponent<Platforms>() != null)
@@ -254,6 +286,38 @@ public class LedgeLocator : MonoBehaviour
             Invoke("NotFalling", .5f);
 
         }
+    }
+
+    protected virtual IEnumerator MidLedge()
+    {
+/*        if (ledge.GetComponentInParent<Platforms>())
+            previousPos = transform.InverseTransformPoint(GameObject.FindGameObjectWithTag("rig").transform.position);
+        else
+            previousPos = GameObject.FindGameObjectWithTag("rig").transform.position;*/
+
+        myAnimator.SetBool("MidClimbing", true);
+
+        // In Update, camfollow will follow the animation
+        //previousCamPos = camFollow.transform.localPosition;
+
+        //Wait for the beginning of LedgeClimb
+        float transitionlength = myAnimator.GetAnimatorTransitionInfo(0).duration;
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("MidLedge"));
+
+        //Wait for the end of LedgeClimb
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).length / 2 > myAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+
+        // Stop the animation of climbing
+        myAnimator.SetBool("MidClimbing", false);
+
+        Movement.canMove = true;
+        rb.useGravity = true;
+
+        ledge = null;
+        moved = false;
+        midLedge = false;
+        isclimbing = false;
+
     }
 
     protected virtual IEnumerator ClimbingLedge()
@@ -322,32 +386,47 @@ public class LedgeLocator : MonoBehaviour
 
     }
 
-    protected virtual void AdjustPlayerPosition(Vector3 topOfPlatform, Transform topOfPlatformTransform)
+    protected virtual void AdjustPlayerMidLedge(Vector3 topOfPlatform, Transform topOfPlatformTransform)
     {
         Vector3 localPosition = topOfPlatformTransform.InverseTransformPoint(topOfPlatform);
-        if (!moved)
+        // Si on est vers la droite
+        if (transform.localScale.z > 0)
         {
-            moved = true;
-            if (transform.localScale.z > 0)
-            {
-                transform.position = new Vector3(transform.position.x, (ledge.GetComponent<Collider>().bounds.max.y - col.bounds.extents.y - .5f) + ledge.GetComponent<Ledge>().hangingVerticalOffset, (ledge.GetComponent<Collider>().bounds.min.z - col.bounds.extents.z) + ledge.GetComponent<Ledge>().hangingHorizontalOffset);
-            }
-            else
-            {
-                transform.position = new Vector3(transform.position.x, (ledge.GetComponent<Collider>().bounds.max.y - col.bounds.extents.y - .5f) + ledge.GetComponent<Ledge>().hangingVerticalOffset, (ledge.GetComponent<Collider>().bounds.max.z + col.bounds.extents.z) - ledge.GetComponent<Ledge>().hangingHorizontalOffset);
-            }
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y, ledge.GetComponent<Collider>().bounds.min.z + ledge.GetComponent<Ledge>().hangingHorizontalOffset) , 0.3f);
         }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, ledge.GetComponent<Collider>().bounds.max.y, ledge.GetComponent<Collider>().bounds.max.z - ledge.GetComponent<Ledge>().hangingHorizontalOffset), 0.3f);
+        }
+
+        /*        if (!moved)
+                {
+                    moved = true;
+                    if (transform.localScale.z > 0)
+                    {
+                        transform.position = new Vector3(transform.position.x, (ledge.GetComponent<Collider>().bounds.max.y - col.bounds.extents.y - .5f) + ledge.GetComponent<Ledge>().hangingVerticalOffset, (ledge.GetComponent<Collider>().bounds.min.z - col.bounds.extents.z) + ledge.GetComponent<Ledge>().hangingHorizontalOffset);
+                    }
+                    else
+                    {
+                        transform.position = new Vector3(transform.position.x, (ledge.GetComponent<Collider>().bounds.max.y - col.bounds.extents.y - .5f) + ledge.GetComponent<Ledge>().hangingVerticalOffset, (ledge.GetComponent<Collider>().bounds.max.z + col.bounds.extents.z) - ledge.GetComponent<Ledge>().hangingHorizontalOffset);
+                    }
+                }
+        */
     }
 
     //Representing the topOfPlayer security Raycasts
     private void OnDrawGizmos()
     {
-        /*
+        
          Gizmos.color = Color.blue; 
          Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(new Vector3(0,0,ledgeDistanceDetection) * transform.localScale.z) );
          Gizmos.color = Color.red;
-         Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection) * transform.localScale.z));
-        */
+         Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection * 2) * transform.localScale.z));
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(bottomOfPlayer, bottomOfPlayer + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection) * transform.localScale.z));
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(middleOfPlayer, middleOfPlayer + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection) * transform.localScale.z));
+
         /*
         Gizmos.color = Color.blue;
         Gizmos.DrawSphere(newPos, 0.2f);
