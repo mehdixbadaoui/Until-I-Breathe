@@ -14,9 +14,7 @@ public class PullBox : MonoBehaviour
 
     public void Pull()
     {
-        Debug.Log("puuuuulllll");
         GetComponent<Rigidbody>().isKinematic = false;
         box.GetComponent<Rigidbody>().AddForce(force, 0, 0);
-
     }
 }
