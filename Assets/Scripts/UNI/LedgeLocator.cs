@@ -134,7 +134,6 @@ public class LedgeLocator : MonoBehaviour
         // On deplace la camera pendant le climbing 
         if (changeCam && camFollow.transform.parent != null && camFollow.transform.parent.tag == "uni")
         {
-            Debug.Log("uni");
             camChanged = true;
             camFollow.transform.position = Vector3.Lerp(camFollow.transform.position
                 , new Vector3(camFollow.transform.position.x, GameObject.FindGameObjectWithTag("rig").transform.position.y + previousCamPos.y, GameObject.FindGameObjectWithTag("rig").transform.position.z + previousCamPos.z)
