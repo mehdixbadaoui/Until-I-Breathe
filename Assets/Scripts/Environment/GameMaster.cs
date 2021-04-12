@@ -136,14 +136,6 @@ public class GameMaster : MonoBehaviour
 
         //RESET TRAIN
         LT.canstart = true;
-        foreach (Transform car in LT.TrainCars)
-        {
-            car.position = LT.TrainCarsDick[car].position;
-            car.rotation = LT.TrainCarsDick[car].rotation;
-            car.localScale = LT.TrainCarsDick[car].localScale;
-
-        }
-
     }
 
 

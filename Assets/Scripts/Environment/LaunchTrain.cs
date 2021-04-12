@@ -9,23 +9,24 @@ public class LaunchTrain : MonoBehaviour
     public float speed = 20f;
     public float time = 3f;
 
-    [HideInInspector] public bool canstart;
+    /*[HideInInspector]*/ public bool canstart;
     public List<Transform> TrainCars;
-    public Dictionary<Transform, Transform> TrainCarsDick;
-
+    public List<Transform> TrainCarsPosition;
 
     private void Start()
     {
         canstart = true;
-        foreach (Transform car in TrainCars)
-            TrainCarsDick.Add(car, car);
 
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("uni") && canstart)
+        if (other.CompareTag("uni") /*&& canstart*/)
         {
-            
+            //for (int i = 0; i < TrainCars.Count; i++)
+            //{
+            //    TrainCars[i].position = TrainCarsPosition[i].position;
+            //}
+
             BezierSpline track_bz = Track.GetComponent<BezierSpline>();
             Locomotive.GetComponent<SplineWalker>().spline = track_bz;
             Locomotive.GetComponent<SplineWalker>().progress = 0;
