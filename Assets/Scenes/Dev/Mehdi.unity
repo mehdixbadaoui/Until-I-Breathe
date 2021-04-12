@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3371, g: 325.05005, b: 430.21954, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -293,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 758869069408583370, guid: f87283c346044d14cacf45381854e669,
         type: 3}
       propertyPath: m_Mass
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 758869069408583371, guid: f87283c346044d14cacf45381854e669,
         type: 3}
@@ -675,6 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lights: []
+  SpotGeant: {fileID: 0}
 --- !u!1 &54601351
 GameObject:
   m_ObjectHideFlags: 0
@@ -4608,7 +4609,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-528336
+  m_Name: pb_Mesh-1244
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8025,6 +8026,12 @@ Transform:
   m_Father: {fileID: 579707550}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &924837748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7162686633075084309, guid: 520bab55515b98a4d94ffd4bede84e07,
+    type: 3}
+  m_PrefabInstance: {fileID: 784421574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926430914
 GameObject:
   m_ObjectHideFlags: 0
@@ -11771,7 +11778,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-528376
+  m_Name: pb_Mesh-1284
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12597,7 +12604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 1315057166}
-  force: 25
+  force: 20
 --- !u!1 &1474673338
 GameObject:
   m_ObjectHideFlags: 0
@@ -13939,6 +13946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lights:
   - {fileID: 1898310701}
+  SpotGeant: {fileID: 924837748}
 --- !u!135 &1680406107
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15525,7 +15533,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-528338
+  m_Name: pb_Mesh-1246
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
