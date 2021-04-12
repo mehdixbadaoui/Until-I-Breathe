@@ -342,12 +342,12 @@ public class LedgeLocator : MonoBehaviour
     //Representing the topOfPlayer security Raycasts
     private void OnDrawGizmos()
     {
-        /*
+        
          Gizmos.color = Color.blue; 
          Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(new Vector3(0,0,ledgeDistanceDetection) * transform.localScale.z) );
          Gizmos.color = Color.red;
          Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection) * transform.localScale.z));
-        */
+        
         /*
         Gizmos.color = Color.blue;
         Gizmos.DrawSphere(newPos, 0.2f);
