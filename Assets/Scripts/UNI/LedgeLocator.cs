@@ -184,7 +184,9 @@ public class LedgeLocator : MonoBehaviour
             bottomOfPlayer = new Vector3(transform.position.x, col.bounds.min.y + securityOffsetMidClimbing, transform.position.z);
 
             //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
-            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb) && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>() && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2) /*&& !hit.collider.isTrigger*/)
+            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb && ledge == null) 
+                && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>() 
+                && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2))
             {
                 if (!hit.collider.isTrigger)
                 {
@@ -200,9 +202,10 @@ public class LedgeLocator : MonoBehaviour
             }
 
             //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
-            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb) && Physics.Raycast(bottomOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && !Physics.Raycast(middleOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2) /*&& !hit.collider.isTrigger*/)
+            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb && ledge == null) 
+                && Physics.Raycast(bottomOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) 
+                && !Physics.Raycast(middleOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2))
             {
-                Debug.Log("MidClimb");
                 if (!hit.collider.isTrigger)
                 {
                     ledge = hit.collider.gameObject;
