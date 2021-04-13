@@ -34,5 +34,7 @@ public class BoxDamage : MonoBehaviour
             spot.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(0, 0, 0, 0));
         }
 
+        GetComponent<PatrolDrones>().enabled = false;
+
     }
 }
