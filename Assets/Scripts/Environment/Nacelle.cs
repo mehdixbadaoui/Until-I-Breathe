@@ -45,6 +45,8 @@ public class Nacelle : MonoBehaviour
             else
                 index++;
         }
+        if (index == targets.Count && sol)
+            sol.GetComponent<BoxCollider>().enabled = false;
     }
 
     IEnumerator StartMoving(float time)
