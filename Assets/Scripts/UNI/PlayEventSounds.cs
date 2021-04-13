@@ -26,17 +26,15 @@ public class PlayEventSounds : MonoBehaviour
     {
 
         
-        if (((distUniFromObject.z <= maxDistance && distUniFromObject.z > 0 ) || (distUniFromObject.z >= -maxDistance && distUniFromObject.z < 0) )/*|| (distUniFromObject.y <= maxDistance)*/)
+        if (((distUniFromObject.z <= maxDistance && distUniFromObject.z > 0 ) || (distUniFromObject.z >= -maxDistance && distUniFromObject.z < 0)) || (distUniFromObject.y <= maxDistance && distUniFromObject.y > 0) || (distUniFromObject.y >= -maxDistance && distUniFromObject.y < 0)/*|| (distUniFromObject.y <= maxDistance)*/)
         {
             volumeZ = (100 - Mathf.Abs(distUniFromObject.z * 100f / maxDistance) )* coeffSpeed;
-           
-            if((distUniFromObject.y <= maxDistance && distUniFromObject.y > 0) || (distUniFromObject.y >= -maxDistance && distUniFromObject.y < 0))
-            {
-                volumeY = (100 - Mathf.Abs(distUniFromObject.y * 100f / maxDistance)) * coeffSpeed;
-            }
+            volumeY = (100 - Mathf.Abs(distUniFromObject.y * 100f / maxDistance)) * coeffSpeed;
             volume = Mathf.Min(volumeZ, volumeY); 
             AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
         }
+        
+        
         
         else
         {
