@@ -43,13 +43,11 @@ public class ballon : MonoBehaviour
 
     }
 
-    //public void Push()
-    //{
-    //    if (air >= capacity)
-    //        Debug.Log("can push");
-    //    GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, force), ForceMode.Acceleration);
-    //}
 
+    private void OnCollisionStay(Collision collision)
+    {
+        travel_speed = 2f;
+    }
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("uni"))
