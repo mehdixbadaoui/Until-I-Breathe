@@ -420,10 +420,10 @@ public class LedgeLocator : MonoBehaviour
     private void OnDrawGizmos()
     {
         
-         Gizmos.color = Color.blue; 
-         Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(new Vector3(0,0,ledgeDistanceDetection) * transform.localScale.z) );
-         Gizmos.color = Color.red;
-         Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection * 2) * transform.localScale.z));
+        Gizmos.color = Color.blue; 
+        Gizmos.DrawLine(topOfPlayer , topOfPlayer + transform.TransformDirection(new Vector3(0,0,ledgeDistanceDetection) * transform.localScale.z) );
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(securityRayForClimbing, securityRayForClimbing + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection * 2) * transform.localScale.z));
         Gizmos.color = Color.green;
         Gizmos.DrawLine(bottomOfPlayer, bottomOfPlayer + transform.TransformDirection(new Vector3(0, 0, ledgeDistanceDetection) * transform.localScale.z));
         Gizmos.color = Color.yellow;
