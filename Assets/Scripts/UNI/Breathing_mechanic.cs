@@ -120,13 +120,13 @@ public class Breathing_mechanic : MonoBehaviour
             {
                 for (int index = 0; index < objectDetector.listObj.Count; index++)
                 {
-                    if (objectDetector.listObj[index].tag == "blowable")
+                    if (objectDetector.listObj[index].CompareTag("blowable"))
                     {
                         if (objectDetector.listObj[index].GetComponent<ballon>().air < objectDetector.listObj[index].GetComponent<ballon>().capacity)
                             objectDetector.listObj[index].GetComponent<ballon>().incAir(1 * Time.deltaTime);
-                        else
+                        //else
                             //objectDetector.listObj[index].GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward * transform.localScale.z) * objectDetector.listObj[index].GetComponent<ballon>().force, ForceMode.Impulse);
-                            objectDetector.listObj[index].GetComponent<ballon>().Push();
+                            //objectDetector.listObj[index].GetComponent<ballon>().Push();
                     }
                     else if (objectDetector.listObj[index].tag == "fan")
                     {
