@@ -25,7 +25,7 @@ public class PatrolDrones : MonoBehaviour
     bool detected;
 
     Color originalSpotlightColour;
-    GameMaster GM;
+    private GameMaster GM;
     private Animator myAnimator;
     private bool isKilling = false;
 

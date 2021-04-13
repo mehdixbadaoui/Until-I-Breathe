@@ -9,6 +9,8 @@ public class ballon : MonoBehaviour
     public float force = 1f;
     public float travel_speed;
 
+    private Vector3 startPosition;
+
     private Inputs inputs;
 
     private void Awake()
@@ -23,6 +25,11 @@ public class ballon : MonoBehaviour
     private void OnDisable()
     {
         inputs.Disable();
+    }
+
+    private void Start()
+    {
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -43,11 +50,18 @@ public class ballon : MonoBehaviour
 
     }
 
-    public void Push()
-    {
-        GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, force), ForceMode.Acceleration);
-    }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("pop"))
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            transform.position = startPosition;
+            air = 0;
+        }
+        else
+            travel_speed = 2f;
+    }
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("uni"))
@@ -56,14 +70,10 @@ public class ballon : MonoBehaviour
 
             Vector3 direction = transform.position - other.transform.position;
 
-            //Debug.Log("dir" + direction.normalized);
-            Debug.Log("fwd" + other.transform.TransformDirection(Vector3.forward * other.transform.localScale.z));
-
             bool can_pfff = (Mathf.Sign(other.transform.TransformDirection(Vector3.forward * other.transform.localScale.z).z) == Mathf.Sign(direction.z));
 
-            if (inputs.Uni.Exhale.ReadValue<float>() != 0 && bm.breath >= (bm.max_breath * bm.min_pourc / 100f) && can_pfff)
+            if (inputs.Uni.Exhale.ReadValue<float>() != 0 && bm.breath >= (bm.max_breath * bm.min_pourc / 100f) && can_pfff && air >= capacity   )
             {
-                //GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, -100), ForceMode.Acceleration);
                 transform.Translate(new Vector3(0, 0, direction.z) * force * Time.deltaTime);
 
             }

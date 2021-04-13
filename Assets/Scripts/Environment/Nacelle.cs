@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Nacelle : MonoBehaviour
 {
-    public float distance;
     public float WaitTime;
     public float speed;
     public GameObject sol;
@@ -18,9 +17,7 @@ public class Nacelle : MonoBehaviour
     {
         if (other.CompareTag("uni"))
         {
-            time = 0;
-            index = 0;
-            move = true;
+            StartCoroutine(StartMoving(WaitTime));
             other.transform.SetParent(transform);
         }
 
@@ -42,10 +39,21 @@ public class Nacelle : MonoBehaviour
     {
         if (move && index < targets.Count)
         {
+            Vector3 initialPos = transform.position;
             if (transform.position != targets[index].position)
                 transform.position = Vector3.MoveTowards(transform.position, targets[index].position, speed);
             else
                 index++;
         }
+        if (index == targets.Count && sol)
+            sol.GetComponent<BoxCollider>().enabled = false;
+    }
+
+    IEnumerator StartMoving(float time)
+    {
+        yield return new WaitForSeconds(time);
+        index = 0;
+        move = true;
+        yield return null;
     }
 }
