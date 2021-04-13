@@ -62,6 +62,7 @@ public class GrapplingHook : MonoBehaviour
 	private bool hasChangedRope = false;
 	private bool changeHook = false;
 	private bool detachHook = false;
+	private bool canDetach = false;
 	private bool attachHook = false;
 	private bool moveUpAndDown = false;
 
@@ -216,10 +217,18 @@ public class GrapplingHook : MonoBehaviour
 			DisplayRope();
 
 			// On detache si on appuie sur une touche qui decroche
-            if (Convert.ToBoolean(inputs.Uni.Detach.ReadValue<float>()) && countGrapplin > 10)
-                detachHook = true;
+            if (Convert.ToBoolean(inputs.Uni.Detach.ReadValue<float>()) && countGrapplin > 20 && canDetach)
+			{
+				detachHook = true;
+				canDetach = false;
+			}
 
-        }
+
+			// On detache si on appuie sur une touche qui decroche
+			if (!Convert.ToBoolean(inputs.Uni.Detach.ReadValue<float>()))
+				canDetach = true;
+
+		}
 
 
 		//Comportements quand il y a un crochet détecté
@@ -289,6 +298,7 @@ public class GrapplingHook : MonoBehaviour
 				{
 					Grapple();
 					countGrapplin = 0;
+					canDetach = false;
 					dist_objects = Vector3.Distance(hookObject.transform.position, objectHanging.position);
 				}
 
