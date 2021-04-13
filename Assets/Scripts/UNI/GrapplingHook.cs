@@ -215,7 +215,8 @@ public class GrapplingHook : MonoBehaviour
 
 			DisplayRope();
 
-            if (Convert.ToBoolean(inputs.Uni.Detach.ReadValue<float>()))
+			// On detache si on appuie sur une touche qui decroche
+            if (Convert.ToBoolean(inputs.Uni.Detach.ReadValue<float>()) && countGrapplin > 10)
                 detachHook = true;
 
         }
