@@ -140,9 +140,9 @@ public class PatrolDrones : MonoBehaviour
         yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length * 1.5f );
 
         myAnimator.Play("idle&run");
+        GM.Die();
         Movement.canMove = true;
         isKilling = false;
-        GM.Die();
     }
 
     private void OnTriggerStay(Collider other)
