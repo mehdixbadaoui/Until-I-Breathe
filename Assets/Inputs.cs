@@ -334,6 +334,17 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""21837a0e-b01a-410f-9009-409bee293c72"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grapple"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""6d1f3065-eaca-444c-8ddd-d43f2e65f941"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -423,7 +434,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bc5224aa-e308-452f-9daa-f03073f40805"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -456,7 +467,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d091513a-aa3c-4eb1-8207-ef2e5a382aa1"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -555,7 +566,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ebdc5c42-c2b6-45c2-a32c-61ba997a04e6"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
