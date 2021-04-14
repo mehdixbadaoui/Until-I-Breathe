@@ -9,6 +9,8 @@ public class ballon : MonoBehaviour
     public float force = 1f;
     public float travel_speed;
 
+    private Vector3 startPosition;
+
     private Inputs inputs;
 
     private void Awake()
@@ -23,6 +25,11 @@ public class ballon : MonoBehaviour
     private void OnDisable()
     {
         inputs.Disable();
+    }
+
+    private void Start()
+    {
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -43,13 +50,18 @@ public class ballon : MonoBehaviour
 
     }
 
-    //public void Push()
-    //{
-    //    if (air >= capacity)
-    //        Debug.Log("can push");
-    //    GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, force), ForceMode.Acceleration);
-    //}
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("pop"))
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            transform.position = startPosition;
+            air = 0;
+        }
+        else
+            travel_speed = 2f;
+    }
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("uni"))
