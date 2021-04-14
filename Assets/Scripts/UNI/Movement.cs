@@ -187,11 +187,13 @@ public class Movement : MonoBehaviour
             {
                 if (capsule_collider.height == 1)
                 {
-                    Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y - 0.01f, transform.position.z);
+                    Vector3 topOfPlayerForward = new Vector3(transform.position.x, capsule_collider.bounds.max.y - 0.01f, capsule_collider.bounds.max.z);
+                    Vector3 topOfPlayerBackward = new Vector3(transform.position.x, capsule_collider.bounds.max.y - 0.01f, capsule_collider.bounds.min.z);
                     RaycastHit hit_top;
-                    if (!Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
+                    if (!Physics.Raycast(topOfPlayerForward , transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f)
+                        && !Physics.Raycast(topOfPlayerBackward, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
                     {
-                        capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + 0.25f, capsule_collider.center.z);
+                        capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + (firstHeightColliderUni - 1) / 2, capsule_collider.center.z);
                         capsule_collider.height = firstHeightColliderUni;
                         ObjectDetector.GetComponent<SphereCollider>().center += Vector3.up * .9f;
                         speed = previousSpeed;
