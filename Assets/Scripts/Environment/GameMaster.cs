@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class GameMaster : MonoBehaviour
 {
@@ -72,8 +74,19 @@ public class GameMaster : MonoBehaviour
         // Get uni Breathing Mecanic
         grapplin = uni.GetComponent<GrapplingHook>();
 
+        if (GameObject.FindGameObjectWithTag("CinematicBeginning"))
+        {
+            StartCoroutine(Cinematic(GameObject.FindGameObjectWithTag("CinematicBeginning").GetComponent<PlayableDirector>()));
+        }
 
 
+
+
+    }
+
+    private void FixedUpdate()
+    {
+        Debug.Log( GameObject.FindGameObjectWithTag("CinematicBeginning").GetComponent<PlayableDirector>().state );
     }
 
     private void OnLevelWasLoaded()
@@ -149,6 +162,29 @@ public class GameMaster : MonoBehaviour
         }
         indexForLetter = 0;
     }
+
+    private IEnumerator Cinematic(PlayableDirector playable)
+    {
+        Movement.canMove = false;
+
+        playable.Play();
+
+
+        //Wait for the beginning of BreathingDead
+        /*        yield return new WaitWhile(() => playable.state == PlayState.Playing );
+                Debug.Log("While");
+
+                yield return new WaitWhile(() => playable.state != PlayState.Playing );
+                Debug.Log("End");
+        */
+        yield return new WaitForSeconds( (float)playable.duration );
+
+        playable.Stop();
+
+
+        Movement.canMove = true;
+    }
+
 
     //Each time we find a letter it will update the text of the uni's letter
     public void FindLetter()
