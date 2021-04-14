@@ -75,6 +75,7 @@ public class Movement : MonoBehaviour
 
     CapsuleCollider capsule_collider;
     private Vector3 colliderSize;
+    private float firstHeightColliderUni;
     public float ground_dist = .3f;
 
     public float wall_detector_dist = .1f;
@@ -138,6 +139,8 @@ public class Movement : MonoBehaviour
         //inputs.Uni.Crouch.performed += ctx => Crouch();
         inputs.Uni.Die.performed += ctx => gm.Die();
 
+        firstHeightColliderUni = capsule_collider.height;
+
         STFollow = transform.Find("ST2 Follow");
     }
 
@@ -184,12 +187,14 @@ public class Movement : MonoBehaviour
             {
                 if (capsule_collider.height == 1)
                 {
-                    Vector3 topOfPlayer = new Vector3(transform.position.x, capsule_collider.bounds.max.y - 0.01f, transform.position.z);
+                    Vector3 topOfPlayerForward = new Vector3(transform.position.x, capsule_collider.bounds.max.y - 0.01f, capsule_collider.bounds.max.z);
+                    Vector3 topOfPlayerBackward = new Vector3(transform.position.x, capsule_collider.bounds.max.y - 0.01f, capsule_collider.bounds.min.z);
                     RaycastHit hit_top;
-                    if (!Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
+                    if (!Physics.Raycast(topOfPlayerForward , transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f)
+                        && !Physics.Raycast(topOfPlayerBackward, transform.TransformDirection(Vector3.up * transform.localScale.y), out hit_top, 0.51f))
                     {
-                        capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + 0.25f, capsule_collider.center.z);
-                        capsule_collider.height = 1.5f;
+                        capsule_collider.center = new Vector3(capsule_collider.center.x, capsule_collider.center.y + (firstHeightColliderUni - 1) / 2, capsule_collider.center.z);
+                        capsule_collider.height = firstHeightColliderUni;
                         ObjectDetector.GetComponent<SphereCollider>().center += Vector3.up * .9f;
                         speed = previousSpeed;
                         myAnimator.GetComponent<anim>().isCrouching = false;
