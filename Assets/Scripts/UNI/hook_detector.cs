@@ -26,6 +26,10 @@ public class hook_detector : MonoBehaviour
     private GameMaster GM;
     public bool gamepad = false;
 
+    public List<GameObject> hooks_up;
+    public List<GameObject> hooks_down;
+    public List<GameObject> hooks_right;
+    public List<GameObject> hooks_left;
     Vector3 LastPosition;
     private void Awake()
     {
@@ -45,15 +49,74 @@ public class hook_detector : MonoBehaviour
     void Start()
     {
         all_hooks = new List<GameObject>();
+        hooks_up = new List<GameObject>();
+        hooks_down = new List<GameObject>();
+        hooks_right = new List<GameObject>();
+        hooks_left = new List<GameObject>();
         
         player = GameObject.FindGameObjectWithTag("uni");
 
         GM = FindObjectOfType<GameMaster>();
 
-        inputs.Uni.NextHook.performed += ctx => NextIndex();
-        inputs.Uni.PrevHook.performed += ctx => PrevIndex();
+        //inputs.Uni.NextHook.performed += ctx => NextIndex();
+        //inputs.Uni.PrevHook.performed += ctx => PrevIndex();
+
+        inputs.Uni.rightup.performed += ctx => up();
+        inputs.Uni.rightdown.performed += ctx => down();
+        inputs.Uni.rightright.performed += ctx => right();
+        inputs.Uni.rightleft.performed += ctx => left();
     }
 
+    void right()
+    {
+        nearest_hook = hooks_right[index];
+        UpdateLists();
+        Debug.Log("moved");
+    }
+
+    void left()
+    {
+        nearest_hook = hooks_left[index];
+        UpdateLists();
+        Debug.Log("moved");
+    }
+
+    void up()
+    {
+        nearest_hook = hooks_up[index];
+        UpdateLists();
+        Debug.Log("moved");
+    }
+
+    void down()
+    {
+        nearest_hook = hooks_down[index];
+        UpdateLists();
+        Debug.Log("moved");
+    }
+
+    void UpdateLists()
+    {
+        all_hooks = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, transform.position)).ToList();
+        //nearest_hook = all_hooks[index % all_hooks.Count];
+        hooks_up.Clear();
+        hooks_down.Clear();
+        hooks_right.Clear();
+        hooks_left.Clear();
+        foreach (GameObject h in all_hooks)
+        {
+            if (h.transform.position.y > nearest_hook.transform.position.y && !hooks_up.Contains(h))
+                hooks_up.Add(h);
+            else if (h.transform.position.y < nearest_hook.transform.position.y && !hooks_down.Contains(h))
+                hooks_down.Add(h);
+
+            if (h.transform.position.z > nearest_hook.transform.position.z && !hooks_right.Contains(h))
+                hooks_right.Add(h);
+            else if (h.transform.position.z < nearest_hook.transform.position.z && !hooks_left.Contains(h))
+                hooks_left.Add(h);
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -68,6 +131,7 @@ public class hook_detector : MonoBehaviour
                 int j = 0;
 
                 nearest_hook = all_hooks[j];
+                UpdateLists();
                 while (j < all_hooks.Count && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[j].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
                     Vector3.Distance(all_hooks[j].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
                     Physics.Raycast(all_hooks[j].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[j].transform.position).normalized,
@@ -77,16 +141,25 @@ public class hook_detector : MonoBehaviour
 
                 }
                 if (j >= all_hooks.Count)
+                {
                     nearest_hook = null;
+                    UpdateLists();
+                }
+
                 else
+                {
                     nearest_hook = all_hooks[j];
+                    UpdateLists();
+                }
 
 
             }
 
             //SELECT UHOOK WITH GAMEPAD
             if (GM.gamepad)
-                nearest_hook = all_hooks[index % all_hooks.Count];
+            {
+            }
+                
 
             //SELECT HOOK WITH MOUSE CURSOR
             else
@@ -115,23 +188,29 @@ public class hook_detector : MonoBehaviour
                     else
                         nearest_hook = all_hooks[i];
 
+                //IF OBSTACLE BETWEEN UNI AND HOOK
+                if (nearest_hook)
+                {
+                    if (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (nearest_hook.transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
+                                Vector3.Distance(nearest_hook.transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
+                                Physics.Raycast(nearest_hook.transform.position, (gameObject.GetComponent<Collider>().bounds.center - nearest_hook.transform.position).normalized,
+                                Vector3.Distance(nearest_hook.transform.position, gameObject.GetComponent<Collider>().bounds.center)))
+                    {
+                        nearest_hook = null;
+                        UpdateLists();
+                    }
+                }
+
             }
 
             //}
         }
         else
-            nearest_hook = null;
-
-        if (nearest_hook)
         {
-            if(Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (nearest_hook.transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
-                        Vector3.Distance(nearest_hook.transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
-                        Physics.Raycast(nearest_hook.transform.position, (gameObject.GetComponent<Collider>().bounds.center - nearest_hook.transform.position).normalized,
-                        Vector3.Distance(nearest_hook.transform.position, gameObject.GetComponent<Collider>().bounds.center)))
-            {
-                nearest_hook = null;
-            }
+            nearest_hook = null;
+            UpdateLists();
         }
+
 
         //CHANGE THE APPEARANCE OF THE SELECTED HOOK
         foreach(var h in all_hooks)
@@ -140,7 +219,6 @@ public class hook_detector : MonoBehaviour
             else h.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
         }
 
-        LastPosition = Mouse.current.position.ReadValue();
     }
 
     public GameObject nh()
@@ -148,23 +226,25 @@ public class hook_detector : MonoBehaviour
         return nearest_hook;
     }
 
-    void NextIndex()
-    {
-        if (index == all_hooks.Count - 1)
-            index = 0;
-        else
-            index++;
-        //nearest_hook = all_hooks[all_hooks.IndexOf(nearest_hook) + 1];
-    }
+    //void NextIndex()
+    //{
+    //    Debug.Log(inputs.Uni.NextHook.ReadValue<Vector2>());
+    //    if (index == all_hooks.Count - 1)
+    //        index = 0;
+    //    else
+    //        index++;
+    //    //nearest_hook = all_hooks[all_hooks.IndexOf(nearest_hook) + 1];
+    //}
 
-    void PrevIndex()
-    {
-        if (index == 0)
-            index += all_hooks.Count;
-        else
-            index--;
-        //nearest_hook = all_hooks[all_hooks.IndexOf(nearest_hook) - 1];
-    }
+    //void PrevIndex()
+    //{
+    //    Debug.Log(inputs.Uni.NextHook.ReadValue<Vector2>());
+    //    if (index == 0)
+    //        index += all_hooks.Count;
+    //    else
+    //        index--;
+    //    //nearest_hook = all_hooks[all_hooks.IndexOf(nearest_hook) - 1];
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
