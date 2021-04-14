@@ -8,6 +8,8 @@ public class Nacelle : MonoBehaviour
     public float speed;
     public GameObject sol;
 
+    public Transform leftDoor, rightDoor;
+
     public List<Transform> targets; 
     float time;
     int index;
@@ -17,6 +19,7 @@ public class Nacelle : MonoBehaviour
     {
         if (other.CompareTag("uni"))
         {
+            StartCoroutine(MoveDoor(leftDoor, Vector3.right));
             StartCoroutine(StartMoving(WaitTime));
             other.transform.SetParent(transform);
         }
@@ -46,7 +49,10 @@ public class Nacelle : MonoBehaviour
                 index++;
         }
         if (index == targets.Count && sol)
+        {
             sol.GetComponent<BoxCollider>().enabled = false;
+            rightDoor.position -= Vector3.right * Time.deltaTime * .5f;
+        }
     }
 
     IEnumerator StartMoving(float time)
@@ -54,6 +60,17 @@ public class Nacelle : MonoBehaviour
         yield return new WaitForSeconds(time);
         index = 0;
         move = true;
+        yield return null;
+    }
+
+    IEnumerator MoveDoor(Transform door, Vector3 direction)
+    {
+        float time = Time.time;
+
+        while (Time.time < time + .5f)
+        {
+            door.position += direction / (Time.time - time);
+        }
         yield return null;
     }
 }
