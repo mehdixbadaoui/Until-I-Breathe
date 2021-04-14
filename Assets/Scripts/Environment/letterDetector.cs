@@ -13,12 +13,17 @@ public class letterDetector : MonoBehaviour
     private bool isLetter;
     private List<string> letterList;
     private int indexForLetter;
-    public GameMaster gm; 
-    
+    public GameMaster gm;
+    private PlayEventSounds playEvent;
+    public float maxDistance = 7f;
+    private Vector3 dstwithUni;
+    public Vector3 offsetDeadRobotRotation;
+    public Vector3 offsetDeadRobotTranslation;
+
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
 
     // Start is called before the first frame update
-   
+
     private void Awake()
     {
         inputs = new Inputs();
@@ -35,6 +40,7 @@ public class letterDetector : MonoBehaviour
 
     void Start()
     {
+        playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>();
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         inputs.Uni.GetLetter.performed += ctx => GetLetter();
         sphereCollider = GetComponent<SphereCollider>();
@@ -45,15 +51,18 @@ public class letterDetector : MonoBehaviour
     {
        
         detection_radius = sphereCollider.radius;
-        
+        dstwithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
+
     }
 
     private void GetLetter()
     {
+         
         if(isLetter)
         {
+            playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
             gm.FindLetter();
-            DestroyGameObject();
+            //DestroyGameObject();
         }
         
     }
@@ -64,6 +73,7 @@ public class letterDetector : MonoBehaviour
         {
 
             isLetter = true;
+            playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, GameObject.FindGameObjectWithTag("ST2"), "Message_ST2_decrypte_event", "DistWithUniVolume");
         }
         else
         {
