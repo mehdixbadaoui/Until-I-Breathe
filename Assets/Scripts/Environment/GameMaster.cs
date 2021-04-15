@@ -136,6 +136,8 @@ public class GameMaster : MonoBehaviour
 
         //RESET TRAIN
         //LT.canstart = true;
+
+        //PullBox.can_pull = true;
     }
 
 
