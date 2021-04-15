@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BoxDamage : MonoBehaviour
 {
@@ -24,16 +25,21 @@ public class BoxDamage : MonoBehaviour
 
     public void LightsOut()
     {
-        foreach (Light light in Lights)
+        if (Lights.Any())
         {
-            light.intensity = 0;
+            foreach (Light light in Lights)
+            {
+                light.intensity = 0;
+            }
         }
 
-        foreach (GameObject spot in SpotsGeants)
+        if (SpotsGeants.Any())
         {
-            spot.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(0, 0, 0, 0));
+            foreach (GameObject spot in SpotsGeants)
+            {
+                spot.GetComponent<Renderer>().material.SetColor("_EmissiveColor", new Color(0, 0, 0, 0));
+            }
         }
-
         GetComponent<PatrolDrones>().enabled = false;
 
     }
