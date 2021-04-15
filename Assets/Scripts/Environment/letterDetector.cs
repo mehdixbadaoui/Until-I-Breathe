@@ -45,7 +45,7 @@ public class letterDetector : MonoBehaviour
         playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>();
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         inputs.Uni.GetLetter.performed += ctx => GetLetter();
-        sphereCollider = GetComponent<SphereCollider>();
+        sphereCollider = transform.parent.GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
