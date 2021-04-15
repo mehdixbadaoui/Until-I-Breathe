@@ -9,6 +9,7 @@ public class GameMaster : MonoBehaviour
 {
     //Position of the last checkpoint
     private Vector3 lastCheckPointPos;
+    public Checkpoint lastCheckpoint;
     private static GameMaster instance;
 
     private GameObject uni;
@@ -23,7 +24,7 @@ public class GameMaster : MonoBehaviour
     private Breathing_mechanic bm;
 
     // Falling platform 
-    public FallingPlatform[] platforms;
+    private FallingPlatform[] fallingPlatforms;
 
     // Falling platform 
     public GrapplingHook grapplin;
@@ -60,7 +61,7 @@ public class GameMaster : MonoBehaviour
         }
 
 
-        platforms = (FallingPlatform[])GameObject.FindObjectsOfType(typeof(FallingPlatform));
+        fallingPlatforms = (FallingPlatform[])GameObject.FindObjectsOfType(typeof(FallingPlatform));
 
         // Find the first character GameObject
         uni = GameObject.FindGameObjectWithTag("uni");
@@ -92,13 +93,14 @@ public class GameMaster : MonoBehaviour
     private void OnLevelWasLoaded()
     {
 
-        platforms = (FallingPlatform[])GameObject.FindObjectsOfType(typeof(FallingPlatform));
+        fallingPlatforms = (FallingPlatform[])GameObject.FindObjectsOfType(typeof(FallingPlatform));
 
         // Find the first character GameObject
         uni = GameObject.FindGameObjectWithTag("uni");
 
         // Initialize the last checkpoint if she dies
         lastCheckPointPos = uni.transform.position;
+        lastCheckpoint = null;
 
         // Get uni Breathing Mecanic
         bm = uni.GetComponent<Breathing_mechanic>();
@@ -138,11 +140,22 @@ public class GameMaster : MonoBehaviour
         bm.breath = 100;
 
         //RESET PLATFORM POSITIONS
-        if (platforms != null)
+        if (fallingPlatforms != null)
         {
-            for (int i = 0; i < platforms.Length; ++i)
+            for (int i = 0; i < fallingPlatforms.Length; ++i)
             {
-                platforms[i].Respawn();
+                fallingPlatforms[i].Respawn();
+            }
+
+        }
+
+
+        //RESET PLATFORM POSITIONS
+        if (lastCheckpoint.platformsToReset != null)
+        {
+            for (int i = 0; i < lastCheckpoint.platformsToReset.Length; ++i)
+            {
+                lastCheckpoint.platformsToReset[i].Respawn();
             }
 
         }

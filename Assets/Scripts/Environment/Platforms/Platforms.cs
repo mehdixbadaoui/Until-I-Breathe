@@ -53,6 +53,14 @@ public class Platforms : MonoBehaviour
         }
     }
 
+    public void Respawn()
+    {
+        PlatformLauncherScript.activate = false;
+        firstTimeOn = true;
+        isWaiting = true;
+        transform.position = departTarget.position;
+    }
+
     private void Move()
     {
         if (PlatformLauncherScript.activate)
