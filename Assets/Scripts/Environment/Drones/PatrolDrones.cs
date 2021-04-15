@@ -20,6 +20,7 @@ public class PatrolDrones : MonoBehaviour
     public float timeToKillPlayer = .5f;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
+    private GrapplingHook grapplin;
 
     float playerVisibleTimer;
     bool detected;
@@ -37,6 +38,9 @@ public class PatrolDrones : MonoBehaviour
     {
         //game master
         GM = FindObjectOfType<GameMaster>();
+
+        // Get uni Breathing Mecanic
+        grapplin = GameObject.FindGameObjectWithTag("uni").GetComponent<GrapplingHook>();
 
         // Get the animator 
         myAnimator = GameObject.FindGameObjectWithTag("uni").GetComponentInChildren<Animator>();
@@ -129,6 +133,8 @@ public class PatrolDrones : MonoBehaviour
         //GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
         //Destroy(impactGO, 1f);
         Movement.canMove = false;
+        if (grapplin.isGrappling)
+            grapplin.CutRope();
         yield return new WaitForSeconds(timeToKillPlayer);
         playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_fireshot_event", "DronesDeplacementVolume");
         myAnimator.Play("DeathBullet");
