@@ -60,7 +60,8 @@ public class Nacelle : MonoBehaviour
 
         else if(index == targets.Count)
         {
-            oldpos = rightDoor.position;
+            if(rightDoor)
+                oldpos = rightDoor.position;
 
             if (sol)
                 sol.GetComponent<BoxCollider>().enabled = false;
