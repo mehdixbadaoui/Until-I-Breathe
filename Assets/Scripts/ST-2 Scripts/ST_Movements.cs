@@ -196,14 +196,14 @@ public class ST_Movements : MonoBehaviour
         }
         if (!HookDetector.nearest_hook && !HookDetector.nearDead && !HookDetector.nearHint && closestDeadRobot )
         {
-            Vector3 desiredPosition = closestDeadRobot.transform.position + ((transform.position - closestDeadRobot.transform.position).normalized * distFromObj + closestDeadRobot.GetComponent<letterDetector>().offsetDeadRobotTranslation);
+            Vector3 desiredPosition = closestDeadRobot.transform.position + ((transform.position - closestDeadRobot.transform.position).normalized * distFromObj + closestDeadRobot.GetComponent<OffsetDeadDrones>().offsetDeadRobotTranslation);
             // Smooths the path between the initial and desired position
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 2 * fixationSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
             //playEvent.RTPCGameObjectValue(dstST2Uni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume"); 
             if (Math.Abs(transform.position.z - desiredPosition.z) < 1.5f) //check if ST2 is near enough from the dead robot and if so look at player otherwise it means it's still heading there
             {
-                SmoothLookAt(closestDeadRobot.transform.position + closestDeadRobot.GetComponent<letterDetector>().offsetDeadRobotRotation);
+                SmoothLookAt(closestDeadRobot.transform.position + closestDeadRobot.GetComponent<OffsetDeadDrones>().offsetDeadRobotRotation);
 
             }
             closestDeadRobot = null;
@@ -228,6 +228,7 @@ public class ST_Movements : MonoBehaviour
                 closestDeadRobot = deadRobotsList[i];
 
             }
+            
 
 
         }

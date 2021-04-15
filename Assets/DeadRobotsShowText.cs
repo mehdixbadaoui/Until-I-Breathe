@@ -19,7 +19,7 @@ public class DeadRobotsShowText : MonoBehaviour
     void Start()
     {
         canvas.gameObject.GetComponent<CanvasGroup>().alpha = 0;
-        _letterDetector = transform.parent.gameObject.GetComponentInParent<letterDetector>(); 
+        _letterDetector = transform.parent.gameObject.transform.parent.gameObject.GetComponentInChildren<letterDetector>(); 
 
 
     }

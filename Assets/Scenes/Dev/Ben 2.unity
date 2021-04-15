@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d6c886f11c21a438370c8ac849f3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platforms: []
+  lastCheckpoint: {fileID: 0}
   grapplin: {fileID: 0}
   gamepad: 1
   DialoguBox: {fileID: 0}
@@ -891,6 +891,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1810190096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &363665075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3020272548218394606, guid: cb85c55667e1f55428e0e3b8537c0372,
+    type: 3}
+  m_PrefabInstance: {fileID: 1912766301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &363665078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2495549781739015508, guid: cb85c55667e1f55428e0e3b8537c0372,
+    type: 3}
+  m_PrefabInstance: {fileID: 1912766301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &363665079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363665075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fad5881901ca248ab204ed7710ed5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetDeadRobotRotation: {x: 0, y: 0, z: 0}
+  offsetDeadRobotTranslation: {x: 0, y: 0, z: 0}
 --- !u!1 &369920786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,7 +2051,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeadDrone_v2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3827451163511401949, guid: cb85c55667e1f55428e0e3b8537c0372,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3827451163511401949, guid: cb85c55667e1f55428e0e3b8537c0372, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cb85c55667e1f55428e0e3b8537c0372, type: 3}
 --- !u!1 &661183630
 GameObject:
@@ -2508,6 +2540,32 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &785680427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3020272548218394606, guid: cb85c55667e1f55428e0e3b8537c0372,
+    type: 3}
+  m_PrefabInstance: {fileID: 653493522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &785680430 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2495549781739015508, guid: cb85c55667e1f55428e0e3b8537c0372,
+    type: 3}
+  m_PrefabInstance: {fileID: 653493522}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &785680431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785680427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fad5881901ca248ab204ed7710ed5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetDeadRobotRotation: {x: 0, y: 0, z: 0}
+  offsetDeadRobotTranslation: {x: 0, y: 0, z: 0}
 --- !u!1 &789714880
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,6 +3093,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3058826932280803898, guid: 676859e34d748994dab62ac850f97b30,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3058826932280803898, guid: 676859e34d748994dab62ac850f97b30,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -3064,6 +3127,70 @@ PrefabInstance:
     - {fileID: 9207960939952346216, guid: 676859e34d748994dab62ac850f97b30, type: 3}
     - {fileID: 8892452064335469811, guid: 676859e34d748994dab62ac850f97b30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 676859e34d748994dab62ac850f97b30, type: 3}
+--- !u!1 &882161398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 882161399}
+  - component: {fileID: 882161401}
+  - component: {fileID: 882161400}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &882161399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882161398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 363665078}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882161400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882161398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71f656df8c65084d85a81d2a3c311e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 0}
+  isLetter: 0
+  gm: {fileID: 0}
+  maxDistance: 7
+  offsetDeadRobotRotation: {x: 0, y: 0, z: 0}
+  offsetDeadRobotTranslation: {x: 0, y: 0, z: 0}
+  letter: 
+--- !u!135 &882161401
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882161398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &931551248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,7 +3718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1045472429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6582,6 +6709,70 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 718337091}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1862312861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1862312862}
+  - component: {fileID: 1862312864}
+  - component: {fileID: 1862312863}
+  m_Layer: 0
+  m_Name: DeadDroneToDelete
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1862312862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862312861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 785680430}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1862312863
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862312861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.62
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1862312864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862312861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71f656df8c65084d85a81d2a3c311e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 0}
+  isLetter: 0
+  gm: {fileID: 0}
+  maxDistance: 7
+  offsetDeadRobotRotation: {x: 0, y: 0, z: 0}
+  offsetDeadRobotTranslation: {x: 0, y: 0, z: 0}
+  letter: 
 --- !u!1001 &1880713675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6749,7 +6940,13 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 16
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3827451163511401949, guid: cb85c55667e1f55428e0e3b8537c0372,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3827451163511401949, guid: cb85c55667e1f55428e0e3b8537c0372, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cb85c55667e1f55428e0e3b8537c0372, type: 3}
 --- !u!1 &1919750475
 GameObject:
