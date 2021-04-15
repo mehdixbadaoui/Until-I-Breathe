@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585833895754311982
+    m_lastTime: -8585831327572725269
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585833895770201091
+    m_lastTime: -8585831327572409896
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -358,10 +358,13 @@ MonoBehaviour:
       - ElementName: Uni_events
         ObjectType: 4
         guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: Uni_respiration
+        ObjectType: 4
+        guid: fa126081904c13439d3c5733842858cb
       - ElementName: Break_Uni_Etouffement_event
         ObjectType: 3
         guid: 10c85d2f37472e4a83de444821868432
-      Path: Events\Default Work Unit\Uni_events\Break_Uni_Etouffement_event
+      Path: Events\Default Work Unit\Uni_events\Uni_respiration\Break_Uni_Etouffement_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2116,10 +2119,13 @@ MonoBehaviour:
       - ElementName: Uni_events
         ObjectType: 4
         guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: Uni_respiration
+        ObjectType: 4
+        guid: fa126081904c13439d3c5733842858cb
       - ElementName: Uni_Etouffement_event
         ObjectType: 3
         guid: ecf77b0264eabe4aac37b566e6a0704d
-      Path: Events\Default Work Unit\Uni_events\Uni_Etouffement_event
+      Path: Events\Default Work Unit\Uni_events\Uni_respiration\Uni_Etouffement_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2157,6 +2163,29 @@ MonoBehaviour:
         ObjectType: 4
         guid: fa126081904c13439d3c5733842858cb
       Path: Events\Default Work Unit\Uni_events\Uni_respiration
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Uni_tousse_a_mort_event
+      guid: dd75fbaa4c37224398ec0802918ad8c6
+      id: 4164979709
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: Uni_respiration
+        ObjectType: 4
+        guid: fa126081904c13439d3c5733842858cb
+      - ElementName: Uni_tousse_a_mort_event
+        ObjectType: 3
+        guid: dd75fbaa4c37224398ec0802918ad8c6
+      Path: Events\Default Work Unit\Uni_events\Uni_respiration\Uni_tousse_a_mort_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
