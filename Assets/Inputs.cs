@@ -176,7 +176,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""0f0769a3-6b8c-488d-8e80-4874b3161aa7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""rightleft"",
