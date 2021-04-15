@@ -8,15 +8,27 @@ public class Nacelle : MonoBehaviour
     public float speed;
     public GameObject sol;
 
+    public Transform leftDoor, rightDoor;
+
     public List<Transform> targets; 
     float time;
     int index;
     public bool move = false;
 
+    private Vector3 oldpos;
+    private bool openrightdoor = true;
+    private bool openleftdoor = true;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("uni"))
         {
+            if (openleftdoor)
+            {
+                StartCoroutine(MoveDoor(leftDoor, Vector3.left));
+                openleftdoor = false;
+            }
             StartCoroutine(StartMoving(WaitTime));
             other.transform.SetParent(transform);
         }
@@ -45,8 +57,19 @@ public class Nacelle : MonoBehaviour
             else
                 index++;
         }
-        if (index == targets.Count && sol)
-            sol.GetComponent<BoxCollider>().enabled = false;
+
+        else if(index == targets.Count)
+        {
+            oldpos = rightDoor.position;
+
+            if (sol)
+                sol.GetComponent<BoxCollider>().enabled = false;
+            else if (openrightdoor)
+            {
+                StartCoroutine(MoveDoor(rightDoor, Vector3.right));
+                openrightdoor = false;
+            }
+        }
     }
 
     IEnumerator StartMoving(float time)
@@ -55,5 +78,29 @@ public class Nacelle : MonoBehaviour
         index = 0;
         move = true;
         yield return null;
+    }
+
+
+    IEnumerator MoveDoor(Transform door, Vector3 direction)
+    {
+
+        Vector3 Gotoposition = door.position + direction;
+        float elapsedTime = 0;
+        float waitTime = 1f;
+
+        Vector3 currentPos = door.position;
+
+        while (elapsedTime < waitTime)
+        {
+            door.position = Vector3.Lerp(currentPos, Gotoposition, (elapsedTime / waitTime));
+            elapsedTime += Time.deltaTime;
+
+            // Yield here
+            yield return null;
+        }
+        // Make sure we got there
+        door.position = Gotoposition;
+        yield return null;
+
     }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>C:\Users\rpasse\Desktop\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\rpasse\Desktop\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\rpasse\Desktop\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\rpasse\Desktop\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="3279791231">
+		<SoundBank Id="2228651116" Language="SFX" Hash="2288804852">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -116,7 +116,7 @@
 				</Event>
 				<Event Id="3707020222" Name="Break_Drones_deplacement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_deplacement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2580519433" Name="Break_Drones_stationnaire_event" ObjectPath="\Events\Default Work Unit\Environment_events\Drones\Break_Drones_stationnaire_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3902829861" Name="Break_Uni_Etouffement_event" ObjectPath="\Events\Default Work Unit\Uni_events\Break_Uni_Etouffement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3902829861" Name="Break_Uni_Etouffement_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_respiration\Break_Uni_Etouffement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4014938746" Name="Break_UntilIBreathe_Level2_3_Run_Loop_event" ObjectPath="\Events\Default Work Unit\Music_levels\Lvl_2_3\Break_UntilIBreathe_Level2_3_Run_Loop_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="113833375" Name="BrokenWindow_event" ObjectPath="\Events\Default Work Unit\Environment_events\BrokenWindow_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.500000">
 					<IncludedMemoryFiles>
@@ -954,19 +954,35 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1109845805" Name="Uni_Etouffement_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_Etouffement_event" DurationType="OneShot" DurationMin="3.750000" DurationMax="3.875000">
+				<Event Id="1109845805" Name="Uni_Etouffement_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_respiration\Uni_Etouffement_event" DurationType="OneShot" DurationMin="1.500000" DurationMax="2.375000">
 					<IncludedMemoryFiles>
-						<File Id="190915537" Language="SFX">
-							<ShortName>Uni - e╠ütouffement1.wav</ShortName>
-							<Path>SFX\Uni - e╠ütouffement1_10C4C929.wem</Path>
+						<File Id="208766991" Language="SFX">
+							<ShortName>SD Uni Bruit poumons_01.wav</ShortName>
+							<Path>SFX\SD Uni Bruit poumons_01_10C4C929.wem</Path>
 						</File>
-						<File Id="362407695" Language="SFX">
-							<ShortName>Uni - e╠ütouffement2.wav</ShortName>
-							<Path>SFX\Uni - e╠ütouffement2_10C4C929.wem</Path>
+						<File Id="382988267" Language="SFX">
+							<ShortName>SD Uni Bruit poumons_02.wav</ShortName>
+							<Path>SFX\SD Uni Bruit poumons_02_10C4C929.wem</Path>
 						</File>
-						<File Id="468701614" Language="SFX">
-							<ShortName>Uni - e╠ütouffement3.wav</ShortName>
-							<Path>SFX\Uni - e╠ütouffement3_10C4C929.wem</Path>
+						<File Id="1052867141" Language="SFX">
+							<ShortName>SD Uni Bruit poumons_03.wav</ShortName>
+							<Path>SFX\SD Uni Bruit poumons_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4164979709" Name="Uni_tousse_a_mort_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_respiration\Uni_tousse_a_mort_event" DurationType="OneShot" DurationMin="2.875000" DurationMax="3.041667">
+					<IncludedMemoryFiles>
+						<File Id="180285156" Language="SFX">
+							<ShortName>SD Uni Tousse à mort_03.wav</ShortName>
+							<Path>SFX\SD Uni Tousse à mort_03_10C4C929.wem</Path>
+						</File>
+						<File Id="322145525" Language="SFX">
+							<ShortName>SD Uni Tousse à mort_02.wav</ShortName>
+							<Path>SFX\SD Uni Tousse à mort_02_10C4C929.wem</Path>
+						</File>
+						<File Id="794352713" Language="SFX">
+							<ShortName>SD Uni Tousse à mort_01.wav</ShortName>
+							<Path>SFX\SD Uni Tousse à mort_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

@@ -153,6 +153,38 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""rightup"",
+                    ""type"": ""Button"",
+                    ""id"": ""e81921db-c7f9-4da4-b7d0-72a9f7df149e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""rightdown"",
+                    ""type"": ""Button"",
+                    ""id"": ""34c28a99-a906-4499-bfb5-b0e3e95c0200"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""rightright"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f0769a3-6b8c-488d-8e80-4874b3161aa7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""rightleft"",
+                    ""type"": ""Button"",
+                    ""id"": ""69cac43c-c80b-4f3e-bd78-0cfce6598c8d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -639,6 +671,94 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""SwitchOffLight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02ed5283-f413-4ef2-8fe5-733e74c5db1e"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc3d71a2-93b3-4ca0-9bdb-3f9da66ac494"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""355db9c2-43a6-4362-add0-cb8bb3229081"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightdown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17eb80fb-ee1d-408f-819a-d924dff4b5e2"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightdown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae108822-0732-473d-a7b9-104063e3e0a1"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightright"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11ee7f00-47b4-416e-89cd-261f57263a87"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightright"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d9d9edd-d265-4faa-83be-bf80c7e6b000"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightleft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9810ce7-760c-4765-9905-97e058a838bd"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightleft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -691,6 +811,10 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Uni_Move_Box = m_Uni.FindAction("Move_Box", throwIfNotFound: true);
         m_Uni_GetLetter = m_Uni.FindAction("GetLetter", throwIfNotFound: true);
         m_Uni_SwitchOffLight = m_Uni.FindAction("SwitchOffLight", throwIfNotFound: true);
+        m_Uni_rightup = m_Uni.FindAction("rightup", throwIfNotFound: true);
+        m_Uni_rightdown = m_Uni.FindAction("rightdown", throwIfNotFound: true);
+        m_Uni_rightright = m_Uni.FindAction("rightright", throwIfNotFound: true);
+        m_Uni_rightleft = m_Uni.FindAction("rightleft", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Newaction = m_Menu.FindAction("New action", throwIfNotFound: true);
@@ -760,6 +884,10 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Uni_Move_Box;
     private readonly InputAction m_Uni_GetLetter;
     private readonly InputAction m_Uni_SwitchOffLight;
+    private readonly InputAction m_Uni_rightup;
+    private readonly InputAction m_Uni_rightdown;
+    private readonly InputAction m_Uni_rightright;
+    private readonly InputAction m_Uni_rightleft;
     public struct UniActions
     {
         private @Inputs m_Wrapper;
@@ -781,6 +909,10 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Move_Box => m_Wrapper.m_Uni_Move_Box;
         public InputAction @GetLetter => m_Wrapper.m_Uni_GetLetter;
         public InputAction @SwitchOffLight => m_Wrapper.m_Uni_SwitchOffLight;
+        public InputAction @rightup => m_Wrapper.m_Uni_rightup;
+        public InputAction @rightdown => m_Wrapper.m_Uni_rightdown;
+        public InputAction @rightright => m_Wrapper.m_Uni_rightright;
+        public InputAction @rightleft => m_Wrapper.m_Uni_rightleft;
         public InputActionMap Get() { return m_Wrapper.m_Uni; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -841,6 +973,18 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @SwitchOffLight.started -= m_Wrapper.m_UniActionsCallbackInterface.OnSwitchOffLight;
                 @SwitchOffLight.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnSwitchOffLight;
                 @SwitchOffLight.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnSwitchOffLight;
+                @rightup.started -= m_Wrapper.m_UniActionsCallbackInterface.OnRightup;
+                @rightup.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnRightup;
+                @rightup.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnRightup;
+                @rightdown.started -= m_Wrapper.m_UniActionsCallbackInterface.OnRightdown;
+                @rightdown.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnRightdown;
+                @rightdown.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnRightdown;
+                @rightright.started -= m_Wrapper.m_UniActionsCallbackInterface.OnRightright;
+                @rightright.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnRightright;
+                @rightright.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnRightright;
+                @rightleft.started -= m_Wrapper.m_UniActionsCallbackInterface.OnRightleft;
+                @rightleft.performed -= m_Wrapper.m_UniActionsCallbackInterface.OnRightleft;
+                @rightleft.canceled -= m_Wrapper.m_UniActionsCallbackInterface.OnRightleft;
             }
             m_Wrapper.m_UniActionsCallbackInterface = instance;
             if (instance != null)
@@ -896,6 +1040,18 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @SwitchOffLight.started += instance.OnSwitchOffLight;
                 @SwitchOffLight.performed += instance.OnSwitchOffLight;
                 @SwitchOffLight.canceled += instance.OnSwitchOffLight;
+                @rightup.started += instance.OnRightup;
+                @rightup.performed += instance.OnRightup;
+                @rightup.canceled += instance.OnRightup;
+                @rightdown.started += instance.OnRightdown;
+                @rightdown.performed += instance.OnRightdown;
+                @rightdown.canceled += instance.OnRightdown;
+                @rightright.started += instance.OnRightright;
+                @rightright.performed += instance.OnRightright;
+                @rightright.canceled += instance.OnRightright;
+                @rightleft.started += instance.OnRightleft;
+                @rightleft.performed += instance.OnRightleft;
+                @rightleft.canceled += instance.OnRightleft;
             }
         }
     }
@@ -952,6 +1108,10 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnMove_Box(InputAction.CallbackContext context);
         void OnGetLetter(InputAction.CallbackContext context);
         void OnSwitchOffLight(InputAction.CallbackContext context);
+        void OnRightup(InputAction.CallbackContext context);
+        void OnRightdown(InputAction.CallbackContext context);
+        void OnRightright(InputAction.CallbackContext context);
+        void OnRightleft(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

@@ -9,6 +9,9 @@ public class Checkpoint : MonoBehaviour
     public bool alreadyChecked = false;
     private GameObject plane;
 
+    // platforms
+    public Platforms[] platformsToReset;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,7 @@ public class Checkpoint : MonoBehaviour
         {
             //Debug.Log(gm.LastCheckPointPos);
             gm.LastCheckPointPos = new Vector3 ( other.transform.position.x , transform.position.y , transform.position.z );
+            gm.lastCheckpoint = this;
             //Debug.Log(gm.LastCheckPointPos);
             alreadyChecked = true;
 

@@ -39,7 +39,7 @@ public class ST_Movements : MonoBehaviour
     private float currentFollowOffsetX;
 
     private Vector3 minDeadRobotsCoordonates;
-    public float maxDistanceForDeadRobots =5f;
+    public float maxDistanceForDeadRobots = 5f;
     public List<Vector3> distWithRobots;
 
     // To access the children components of ST-2 (sprite)
@@ -51,10 +51,14 @@ public class ST_Movements : MonoBehaviour
     {
         // Automatically find player
         Player = GameObject.FindGameObjectWithTag("uni").transform;
+        HookDetector = Player.Find("hook_detector").GetComponent<hook_detector>(); 
         deadRobotsList = GameObject.FindGameObjectsWithTag("Dead_robots");
         distWithRobots = new List<Vector3>(deadRobotsList.Length);
         playEvent = Player.GetComponent<PlayEventSounds>();
-        letterdetector = GameObject.FindGameObjectWithTag("Dead_robots").GetComponent<letterDetector>(); 
+        PlayerMovement = Player.GetComponent<Movement>(); 
+        letterdetector = GameObject.FindGameObjectWithTag("Dead_robots").GetComponent<letterDetector>();
+       
+       
         // Stores the initial rotation of the sprite component
         //rotation_Sprite = ChildGO_Sprite.transform.rotation.eulerAngles;
 
@@ -62,18 +66,18 @@ public class ST_Movements : MonoBehaviour
 
         // Initialize the start position of ST-2
         Vector3 startOffset = new Vector3(-2.5f, 2f, 0.0f);
-
+        
         currentFollowOffsetY = followOffset.y;
         currentFollowOffsetX = followOffset.x;
         // Initialize the position of ST-2 at the start of  the game
         transform.position = Player.position + startOffset;
-
+        followOffset = transform.position - Player.transform.position;
         // Cache the initial offset at time of load/spawn
-        //followOffset = transform.position - Player.transform.position;
+
 
         // Fetches the script Hook_Detector from the Player GO
-        HookDetector = Player.Find("hook_detector").GetComponent<hook_detector>();
-        PlayerMovement = Player.GetComponent<Movement>();
+
+
     }
 
     private void Update()
@@ -85,9 +89,10 @@ public class ST_Movements : MonoBehaviour
 
     void FixedUpdate()
     {
+
         dstST2Uni = playEvent.CalculateDistanceUniFromObject(transform.position);
         // Allows ST-2 to follow the player
-        if (!HookDetector.nearest_hook && !HookDetector.nearDead && !HookDetector.nearHint && closestDeadRobot == null)
+        if (!HookDetector.nearest_hook && !HookDetector.nearDead && !HookDetector.nearHint && !closestDeadRobot)
         {
             // Resets expression
             //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[0];
@@ -127,7 +132,7 @@ public class ST_Movements : MonoBehaviour
         }
         
         // Allows ST-2 to show the nearest HOOK to the player
-        if (HookDetector.nearest_hook && !HookDetector.nearDead && closestDeadRobot == null && !HookDetector.nearHint) 
+        if (HookDetector.nearest_hook && !HookDetector.nearDead && !closestDeadRobot && !HookDetector.nearHint) 
         {
             // Changes expression
             //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[1];
@@ -153,7 +158,7 @@ public class ST_Movements : MonoBehaviour
         }
 
         // Allows ST-2 to show the nearest HINT to the player
-        if (!HookDetector.nearest_hook && !HookDetector.nearDead && closestDeadRobot == null && HookDetector.nearHint)
+        if (!HookDetector.nearest_hook && !HookDetector.nearDead && !closestDeadRobot &&  HookDetector.nearHint)
         {
             Vector3 desiredPosition = (HookDetector.hintPosition.position + (transform.position - HookDetector.hintPosition.position).normalized * distFromObj);
             // Smooths the path between the initial and desired position
@@ -171,7 +176,7 @@ public class ST_Movements : MonoBehaviour
         }
 
         // Allows ST-2 to collect lore from dead robots nearby
-        if (!HookDetector.nearest_hook && !HookDetector.nearHint && closestDeadRobot == null && HookDetector.nearDead)
+        if (!HookDetector.nearest_hook && !HookDetector.nearHint && !closestDeadRobot  && HookDetector.nearDead)
         {
             Vector3 desiredPosition = (HookDetector.deadPosition.position + (transform.position - HookDetector.deadPosition.position).normalized * distFromObj);
             // Smooths the path between the initial and desired position
@@ -189,19 +194,19 @@ public class ST_Movements : MonoBehaviour
             // Add features relative to HUD of lore found on dead robots and change expression to something sad/confused??
             //ChildGO_Sprite.GetComponent<SpriteRenderer>().sprite = sprites[2];
         }
-        if(!HookDetector.nearest_hook && !HookDetector.nearDead && !HookDetector.nearHint && closestDeadRobot != null)
+        if (!HookDetector.nearest_hook && !HookDetector.nearDead && !HookDetector.nearHint && closestDeadRobot )
         {
-            Vector3 desiredPosition = closestDeadRobot.transform.position + ((transform.position - closestDeadRobot.transform.position).normalized  /*+ offsetDeadRobotTranslation*//** distFromObj*/);
+            Vector3 desiredPosition = closestDeadRobot.transform.position + ((transform.position - closestDeadRobot.transform.position).normalized * distFromObj + closestDeadRobot.GetComponent<letterDetector>().offsetDeadRobotTranslation);
             // Smooths the path between the initial and desired position
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 2 * fixationSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
             //playEvent.RTPCGameObjectValue(dstST2Uni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume"); 
             if (Math.Abs(transform.position.z - desiredPosition.z) < 1.5f) //check if ST2 is near enough from the dead robot and if so look at player otherwise it means it's still heading there
             {
-                SmoothLookAt(closestDeadRobot.transform.position /*+ offsetDeadRobotRotation*/);
+                SmoothLookAt(closestDeadRobot.transform.position + closestDeadRobot.GetComponent<letterDetector>().offsetDeadRobotRotation);
 
             }
-            closestDeadRobot = null; 
+            closestDeadRobot = null;
         }
         DistanceWithDeadRobots();
     }
@@ -214,21 +219,21 @@ public class ST_Movements : MonoBehaviour
     }
     void DistanceWithDeadRobots()
     {
-        
+
         for (int i = 0; i < deadRobotsList.Length; i++)
         {
             distWithRobots.Add(Player.position - deadRobotsList[i].transform.position);
-            if (Mathf.Abs(distWithRobots[i].y) < maxDistanceForDeadRobots && Mathf.Abs(distWithRobots[i].z) < maxDistanceForDeadRobots )
+            if (Mathf.Abs(distWithRobots[i].y) < maxDistanceForDeadRobots && Mathf.Abs(distWithRobots[i].z) < maxDistanceForDeadRobots)
             {
-                closestDeadRobot = deadRobotsList[i]; 
+                closestDeadRobot = deadRobotsList[i];
 
             }
-            
-            
+
+
         }
-        
-        distWithRobots.Clear(); 
-        
+
+        distWithRobots.Clear();
+
 
     }
 }

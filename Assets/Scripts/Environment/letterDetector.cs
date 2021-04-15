@@ -60,7 +60,7 @@ public class letterDetector : MonoBehaviour
          
         if(isLetter)
         {
-            playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
+            //playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
             gm.FindLetter();
             //DestroyGameObject();
         }
@@ -73,7 +73,7 @@ public class letterDetector : MonoBehaviour
         {
 
             isLetter = true;
-            playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, GameObject.FindGameObjectWithTag("ST2"), "Message_ST2_decrypte_event", "DistWithUniVolume");
+            //playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, GameObject.FindGameObjectWithTag("ST2"), "Message_ST2_decrypte_event", "DistWithUniVolume");
         }
         else
         {
