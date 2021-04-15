@@ -10,7 +10,7 @@ public class letterDetector : MonoBehaviour
     
     
     private float detection_radius;
-    private bool isLetter;
+    public bool isLetter;
     private List<string> letterList;
     private int indexForLetter;
     public GameMaster gm;
@@ -19,6 +19,8 @@ public class letterDetector : MonoBehaviour
     private Vector3 dstwithUni;
     public Vector3 offsetDeadRobotRotation;
     public Vector3 offsetDeadRobotTranslation;
+    public string letter;
+    
 
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
 
@@ -61,7 +63,8 @@ public class letterDetector : MonoBehaviour
         if(isLetter)
         {
             //playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
-            gm.FindLetter();
+            letter = gm.FindLetter();
+
             //DestroyGameObject();
         }
         
