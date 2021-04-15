@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class NextScene : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class NextScene : MonoBehaviour
     public GameObject maincamera; 
     private AsyncOperation async;
     private int loadProgress;
+
+    public PlayableDirector Clip;
 
     private bool quit;
 
@@ -27,12 +31,24 @@ public class NextScene : MonoBehaviour
         if (background)
             background.SetActive(true);
         async = SceneManager.LoadSceneAsync(s);
-        async.allowSceneActivation = true;
+        async.allowSceneActivation = false;
         StartCoroutine(DisplayLoadingScreen());
     }
     IEnumerator DisplayLoadingScreen()
     {
-        while (!async.isDone)
+        Movement.canMove = false;
+        if (Clip != null)
+        {
+            Clip.Play();
+
+            yield return new WaitForSeconds((float)Clip.duration);
+
+            Clip.Stop();
+        }
+        async.allowSceneActivation = true;
+        Movement.canMove = true;
+
+/*        while (!async.isDone)
         {
             loadProgress = (int)(async.progress * 100);
             yield return null;
@@ -40,7 +56,8 @@ public class NextScene : MonoBehaviour
         if (async.progress >= 0.9f)
         {
             Debug.Log("Loading complete");
-        }
+        }*/
+
     }
 
     void OnTriggerEnter(Collider other)
