@@ -68,6 +68,16 @@ public class SoundKillTempo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (timerSound > timeOnePeriode)
+        {
+            if (isPlaying)
+                Debug.LogError("The soundlength is too long");
+
+            timerSound = 0;
+            isPlaying = true;
+        }
+
         // Si l'encinte s'allume
         if (isPlaying)
         {
@@ -143,14 +153,6 @@ public class SoundKillTempo : MonoBehaviour
     private void FixedUpdate()
     {
         timerSound += Time.deltaTime;
-        if (timerSound > timeOnePeriode)
-        {
-            if (isPlaying)
-                Debug.LogError("The soundlength is too long");
-
-            isPlaying = true;
-            timerSound = 0;
-        }
 
         if (isPlaying)
         {
