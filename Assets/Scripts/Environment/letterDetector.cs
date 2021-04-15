@@ -16,7 +16,7 @@ public class letterDetector : MonoBehaviour
     public GameMaster gm;
     private PlayEventSounds playEvent;
     public float maxDistance = 7f;
-    private Vector3 dstwithUni;
+    
     public Vector3 offsetDeadRobotRotation;
     public Vector3 offsetDeadRobotTranslation;
     public string letter;
@@ -53,7 +53,7 @@ public class letterDetector : MonoBehaviour
     {
        
         detection_radius = sphereCollider.radius;
-        dstwithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
+        //dstwithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
 
     }
 
@@ -65,7 +65,7 @@ public class letterDetector : MonoBehaviour
             //playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
             letter = gm.FindLetter();
 
-            //DestroyGameObject();
+            DestroyGameObject();
         }
         
     }
