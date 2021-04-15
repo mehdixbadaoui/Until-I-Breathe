@@ -155,7 +155,7 @@ public class GameMaster : MonoBehaviour
 
 
         //RESET PLATFORM POSITIONS
-        if (lastCheckpoint.platformsToReset != null)
+        if (lastCheckpoint != null && lastCheckpoint.platformsToReset != null)
         {
             for (int i = 0; i < lastCheckpoint.platformsToReset.Length; ++i)
             {
