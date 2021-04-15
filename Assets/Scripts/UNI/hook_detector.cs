@@ -72,10 +72,10 @@ public class hook_detector : MonoBehaviour
         //inputs.Uni.NextHook.performed += ctx => NextIndex();
         //inputs.Uni.PrevHook.performed += ctx => PrevIndex();
 
-        //inputs.Uni.rightup.performed += ctx => up();
-        //inputs.Uni.rightdown.performed += ctx => down();
-        //inputs.Uni.rightright.performed += ctx => right();
-        //inputs.Uni.rightleft.performed += ctx => left();
+        inputs.Uni.rightup.performed += ctx => up();
+        inputs.Uni.rightdown.performed += ctx => down();
+        inputs.Uni.rightright.performed += ctx => right();
+        inputs.Uni.rightleft.performed += ctx => left();
     }
 
     //Some Lazy Coding bc i gave up
@@ -173,37 +173,37 @@ public class hook_detector : MonoBehaviour
             if (GM.gamepad)
             {
                 //SHITCODING
-                if (inputs.Uni.rightup.ReadValue<float>() == 1 && b_up)
-                {
-                    up();
-                    b_up = false;
-                }
-                else if (inputs.Uni.rightup.ReadValue<float>() == 0)
-                    b_up = true;
+                //if (inputs.Uni.rightup.ReadValue<float>() == 1 && b_up)
+                //{
+                //    up();
+                //    b_up = false;
+                //}
+                //else if (inputs.Uni.rightup.ReadValue<float>() == 0)
+                //    b_up = true;
 
-                if (inputs.Uni.rightdown.ReadValue<float>() == 1 && b_down)
-                {
-                    down();
-                    b_down = false;
-                }
-                else if (inputs.Uni.rightdown.ReadValue<float>() == 0)
-                    b_down = true;
+                //if (inputs.Uni.rightdown.ReadValue<float>() == 1 && b_down)
+                //{
+                //    down();
+                //    b_down = false;
+                //}
+                //else if (inputs.Uni.rightdown.ReadValue<float>() == 0)
+                //    b_down = true;
 
-                if (inputs.Uni.rightleft.ReadValue<float>() == 1 && b_left)
-                {
-                    left();
-                    b_left = false;
-                }
-                else if (inputs.Uni.rightleft.ReadValue<float>() == 0)
-                    b_left = true;
+                //if (inputs.Uni.rightleft.ReadValue<float>() == 1 && b_left)
+                //{
+                //    left();
+                //    b_left = false;
+                //}
+                //else if (inputs.Uni.rightleft.ReadValue<float>() == 0)
+                //    b_left = true;
 
-                if (inputs.Uni.rightright.ReadValue<float>() == 1 && b_right)
-                {
-                    right();
-                    b_right = false;
-                }
-                else if (inputs.Uni.rightright.ReadValue<float>() == 0)
-                    b_right = true;
+                //if (inputs.Uni.rightright.ReadValue<float>() == 1 && b_right)
+                //{
+                //    right();
+                //    b_right = false;
+                //}
+                //else if (inputs.Uni.rightright.ReadValue<float>() == 0)
+                //    b_right = true;
 
             }
                 
