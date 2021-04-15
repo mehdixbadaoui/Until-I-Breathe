@@ -191,7 +191,7 @@ public class GameMaster : MonoBehaviour
 
 
     //Each time we find a letter it will update the text of the uni's letter
-    public void FindLetter()
+    public string FindLetter()
     {
         if (indexForLetter == 0)
         {
@@ -268,10 +268,14 @@ public class GameMaster : MonoBehaviour
         {
             letterForUni += letterList[i] + "\r\n"; 
         }
-        Debug.Log(letterForUni);
-        //DeadRobotsText(letterForUni); 
-        letterForUni = ""; 
+        string letterforUnifinal = letterForUni;
+        letterForUni = "";
         indexForLetter += 1;
+        return letterforUnifinal; 
+        
+        //DeadRobotsText(letterForUni); 
+        
+        
         Debug.Log(indexForLetter);
 
         

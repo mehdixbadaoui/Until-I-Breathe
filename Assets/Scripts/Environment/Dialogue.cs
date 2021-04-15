@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
@@ -15,6 +13,7 @@ public class Dialogue : MonoBehaviour
     private void Start()
     {
         canvas.gameObject.GetComponent<CanvasGroup>().alpha = 0;
+        
     }
     private void OnTriggerStay(Collider other)
     {
@@ -37,6 +36,7 @@ public class Dialogue : MonoBehaviour
         DialoguBox.text = Text;
 
     }
-    
+   
+
 
 }
