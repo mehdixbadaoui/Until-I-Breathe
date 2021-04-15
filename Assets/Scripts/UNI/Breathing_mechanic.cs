@@ -105,7 +105,7 @@ public class Breathing_mechanic : MonoBehaviour
         //    current_hold = 1;
         //}
 
-        if (inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f) && Movement.canMove)
+        if (inputs.Uni.Exhale.ReadValue<float>() != 0 && breath >= (max_breath * min_pourc / 100f) && (Movement.canMove || exhale ))
         {
             exhale = true;
             current_exhale = exhale_speed;
