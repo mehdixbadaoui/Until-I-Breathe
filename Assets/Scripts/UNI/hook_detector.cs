@@ -298,6 +298,7 @@ public class hook_detector : MonoBehaviour
         if (!all_hooks.Contains(other.gameObject) && (other.CompareTag("hook") || other.CompareTag("movable_hook") || other.CompareTag("boxhook")) )
         {
             all_hooks.Add(other.gameObject);
+            UpdateLists();
             nearHook = true;
         }
         
@@ -338,6 +339,7 @@ public class hook_detector : MonoBehaviour
         if (all_hooks.Contains(other.gameObject))
         {
             all_hooks.Remove(other.gameObject);
+            UpdateLists();
             other.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
             nearHook = false;
         }
