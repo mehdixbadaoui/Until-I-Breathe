@@ -37,5 +37,6 @@ public class Dialogue : MonoBehaviour
         DialoguBox.text = Text;
 
     }
+    
 
 }

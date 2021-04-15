@@ -105,7 +105,7 @@ public class BreathingColor : MonoBehaviour
 
                     if (bm.breath < step4 ) 
                     {
-                        playEvent.UniSuffoc("Uni_Etouffement_event", uni, 100f, "Uni_etouffementsVolume");
+                        playEvent.UniSuffoc("Uni_tousse_a_mort_event", uni, 100f, "Uni_etouffementsVolume");
                         if (colorAdjust)
                             colorAdjust.saturation.value = (bm.breath * bm.max_breath / step4) - bm.max_breath;
                     }
