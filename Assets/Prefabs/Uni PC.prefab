@@ -498,14 +498,11 @@ MonoBehaviour:
   clip: {fileID: 0}
   animationTime: 0.4
   camChanged: 0
-  climbingHorizontalOffset: 0.5
-  offsetLedgeClimbing: -0.3
-  securityOffsetLedgeClimbing: 0.01
-  securityOffsetMidClimbing: 0
-  ledgeDistanceDetection: 0.25
   topOfPlayer: {x: 0, y: 0, z: 0}
   didClimb: 0
   TimeAfterClimbing: 0
+  timeAfterHanging: 0
+  offsetTimeHanging: 20
   grabbingLedge: 0
   climb_up: 122
   let_go: 115
@@ -733,6 +730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601238876984352166, guid: 68d64ff1751895c4b8e699ba73d99ec5,
+        type: 3}
+      propertyPath: m_RendererPriority
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8601238876984352167, guid: 68d64ff1751895c4b8e699ba73d99ec5,
         type: 3}
