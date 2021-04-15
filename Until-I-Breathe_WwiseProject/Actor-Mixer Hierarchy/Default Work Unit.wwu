@@ -6049,6 +6049,236 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Uni_TousseaMort" ID="{6A852B0B-F55E-4384-A1DA-204C4EF48A77}" ShortID="229231012">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{47B2D534-FE6D-47FA-90B2-95A782063E99}" ShortID="943143434">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Uni_etouffementsVolume" ID="{EE4B7107-8796-40B4-AF06-7DB501F237EA}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{6F4509E8-456F-4318-B664-294A0786EE65}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="SD Uni Tousse à mort_01" ID="{BD5B61ED-886B-4CBC-8E80-1A97DEF219F1}" ShortID="406222035">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SD Uni Tousse à mort_01" ID="{7EEDCC14-8EB0-4C96-94EB-CD91AB33E230}">
+											<Language>SFX</Language>
+											<AudioFile>SD Uni Tousse à mort_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="794352713"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SD Uni Tousse à mort_01" ID="{7EEDCC14-8EB0-4C96-94EB-CD91AB33E230}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SD Uni Tousse à mort_02" ID="{EF4DEE96-1B17-4BCE-8DE8-707064FF5A6E}" ShortID="158195280">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SD Uni Tousse à mort_02" ID="{81118F06-D573-4B71-99F1-0DEFF128F55D}">
+											<Language>SFX</Language>
+											<AudioFile>SD Uni Tousse à mort_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="322145525"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SD Uni Tousse à mort_02" ID="{81118F06-D573-4B71-99F1-0DEFF128F55D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SD Uni Tousse à mort_03" ID="{9833403D-1B7E-4B0E-B540-763705717274}" ShortID="739598898">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SD Uni Tousse à mort_03" ID="{B04543AB-9ED2-48FD-91A9-9AC85408A9E7}">
+											<Language>SFX</Language>
+											<AudioFile>SD Uni Tousse à mort_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="180285156"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SD Uni Tousse à mort_03" ID="{B04543AB-9ED2-48FD-91A9-9AC85408A9E7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Uni_Bruit_Poumons" ID="{9CB22FEE-7843-4FC5-9D1B-41D51C05DB3A}" ShortID="714489745">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{F7072B33-8E00-4470-8E41-05D861AF1193}" ShortID="336140348">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="Uni_etouffementsVolume" ID="{EE4B7107-8796-40B4-AF06-7DB501F237EA}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{0BC53564-42B7-4B50-9A11-F59EFAEF59AF}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="SD Uni Bruit poumons_01" ID="{DF07292B-3670-4891-A0EF-7A7D7DD35406}" ShortID="242904164">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SD Uni Bruit poumons_01" ID="{8AB617E5-0A31-4BCB-930A-FDA955C8128A}">
+											<Language>SFX</Language>
+											<AudioFile>SD Uni Bruit poumons_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="208766991"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SD Uni Bruit poumons_01" ID="{8AB617E5-0A31-4BCB-930A-FDA955C8128A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SD Uni Bruit poumons_02" ID="{27DE19BB-7D9F-43CD-9D8B-E6B827697A06}" ShortID="804041428">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SD Uni Bruit poumons_02" ID="{DD293C6A-21D4-431C-9078-D5123EE18BA1}">
+											<Language>SFX</Language>
+											<AudioFile>SD Uni Bruit poumons_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="382988267"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SD Uni Bruit poumons_02" ID="{DD293C6A-21D4-431C-9078-D5123EE18BA1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SD Uni Bruit poumons_03" ID="{49343303-5FF1-4B2A-8AAD-0A3756FC6BB9}" ShortID="1047713117">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SD Uni Bruit poumons_03" ID="{AF58D8C7-24AB-43F3-A5D6-1D219CC7CA7B}">
+											<Language>SFX</Language>
+											<AudioFile>SD Uni Bruit poumons_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1052867141"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="SD Uni Bruit poumons_03" ID="{AF58D8C7-24AB-43F3-A5D6-1D219CC7CA7B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST-2Sounds" ID="{96482C6A-84E8-4DC6-8CA0-91C03ACD358D}" ShortID="683412825">

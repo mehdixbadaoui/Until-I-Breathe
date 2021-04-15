@@ -426,33 +426,44 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Break_Uni_Etouffement_event" ID="{2F5DC810-4737-4A2E-83DE-444821868432}">
+									<ChildrenList>
+										<Action Name="" ID="{AEA64316-058C-4A0F-AF58-A48B83C5D39D}" ShortID="573091151">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="34"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Uni_Bruit_Poumons" ID="{9CB22FEE-7843-4FC5-9D1B-41D51C05DB3A}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Uni_Etouffement_event" ID="{027BF7EC-EA64-4ABE-AC37-B566E6A0704D}">
+									<ChildrenList>
+										<Action Name="" ID="{7904EB7C-A4F1-4982-85A0-314643EA24C2}" ShortID="683860147">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Uni_Bruit_Poumons" ID="{9CB22FEE-7843-4FC5-9D1B-41D51C05DB3A}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Uni_tousse_a_mort_event" ID="{AAFB75DD-374C-4322-98EC-0802918AD8C6}">
+									<ChildrenList>
+										<Action Name="" ID="{E0DF0BA4-8CDB-42C7-B2C4-CA8180BDC3E7}" ShortID="1050521199">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Uni_TousseaMort" ID="{6A852B0B-F55E-4384-A1DA-204C4EF48A77}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
-						<Event Name="Uni_Etouffement_event" ID="{027BF7EC-EA64-4ABE-AC37-B566E6A0704D}">
-							<ChildrenList>
-								<Action Name="" ID="{59ABB860-0B33-4FD2-968A-1692CC4B2EAA}" ShortID="674434193">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Uni_etouffement" ID="{B6161B89-C68D-450A-9A1B-8B59CEAB39C4}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Break_Uni_Etouffement_event" ID="{2F5DC810-4737-4A2E-83DE-444821868432}">
-							<ChildrenList>
-								<Action Name="" ID="{871A0A5A-659C-4D56-BE54-6481FEE49E02}" ShortID="626058140">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="34"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Uni_etouffement" ID="{B6161B89-C68D-450A-9A1B-8B59CEAB39C4}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment_events" ID="{216B934E-6312-4A92-9793-8E866A179F9D}" ShortID="354338017">
