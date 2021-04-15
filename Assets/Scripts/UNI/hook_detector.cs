@@ -30,6 +30,12 @@ public class hook_detector : MonoBehaviour
     public List<GameObject> hooks_down;
     public List<GameObject> hooks_right;
     public List<GameObject> hooks_left;
+
+    private bool b_up;
+    private bool b_down;
+    private bool b_right;
+    private bool b_left;
+
     Vector3 LastPosition;
     private void Awake()
     {
@@ -58,51 +64,58 @@ public class hook_detector : MonoBehaviour
 
         GM = FindObjectOfType<GameMaster>();
 
+        b_up = true;
+        b_down = true;
+        b_right = true;
+        b_left = true;
+
         //inputs.Uni.NextHook.performed += ctx => NextIndex();
         //inputs.Uni.PrevHook.performed += ctx => PrevIndex();
 
-        inputs.Uni.rightup.performed += ctx => up();
-        inputs.Uni.rightdown.performed += ctx => down();
-        inputs.Uni.rightright.performed += ctx => right();
-        inputs.Uni.rightleft.performed += ctx => left();
+        //inputs.Uni.rightup.performed += ctx => up();
+        //inputs.Uni.rightdown.performed += ctx => down();
+        //inputs.Uni.rightright.performed += ctx => right();
+        //inputs.Uni.rightleft.performed += ctx => left();
     }
 
+    //Some Lazy Coding bc i gave up
     void right()
     {
-        nearest_hook = hooks_right[index];
+        if(hooks_right.Any())
+            nearest_hook = hooks_right[index];
         UpdateLists();
-        Debug.Log("moved");
     }
 
     void left()
     {
-        nearest_hook = hooks_left[index];
+        if(hooks_left.Any())
+            nearest_hook = hooks_left[index];
         UpdateLists();
-        Debug.Log("moved");
     }
 
     void up()
     {
-        nearest_hook = hooks_up[index];
+        if(hooks_left.Any())
+            nearest_hook = hooks_up[index];
         UpdateLists();
-        Debug.Log("moved");
     }
 
     void down()
     {
-        nearest_hook = hooks_down[index];
+        if(hooks_down.Any())
+            nearest_hook = hooks_down[index];
         UpdateLists();
-        Debug.Log("moved");
     }
 
     void UpdateLists()
     {
-        all_hooks = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, transform.position)).ToList();
+        all_hooks = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, nearest_hook.transform.position)).ToList();
         //nearest_hook = all_hooks[index % all_hooks.Count];
         hooks_up.Clear();
         hooks_down.Clear();
         hooks_right.Clear();
         hooks_left.Clear();
+
         foreach (GameObject h in all_hooks)
         {
             if (h.transform.position.y > nearest_hook.transform.position.y && !hooks_up.Contains(h))
@@ -158,6 +171,39 @@ public class hook_detector : MonoBehaviour
             //SELECT UHOOK WITH GAMEPAD
             if (GM.gamepad)
             {
+                //SHITCODING
+                if (inputs.Uni.rightup.ReadValue<float>() == 1 && b_up)
+                {
+                    up();
+                    b_up = false;
+                }
+                else if (inputs.Uni.rightup.ReadValue<float>() == 0)
+                    b_up = true;
+
+                if (inputs.Uni.rightdown.ReadValue<float>() == 1 && b_down)
+                {
+                    down();
+                    b_down = false;
+                }
+                else if (inputs.Uni.rightdown.ReadValue<float>() == 0)
+                    b_down = true;
+
+                if (inputs.Uni.rightleft.ReadValue<float>() == 1 && b_left)
+                {
+                    left();
+                    b_left = false;
+                }
+                else if (inputs.Uni.rightleft.ReadValue<float>() == 0)
+                    b_left = true;
+
+                if (inputs.Uni.rightright.ReadValue<float>() == 1 && b_right)
+                {
+                    right();
+                    b_right = false;
+                }
+                else if (inputs.Uni.rightright.ReadValue<float>() == 0)
+                    b_right = true;
+
             }
                 
 

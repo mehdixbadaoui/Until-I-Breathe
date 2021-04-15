@@ -176,7 +176,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""id"": ""0f0769a3-6b8c-488d-8e80-4874b3161aa7"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""rightleft"",
@@ -665,7 +665,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""02ed5283-f413-4ef2-8fe5-733e74c5db1e"",
                     ""path"": ""<Gamepad>/rightStick/up"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""rightup"",
@@ -675,7 +675,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""dc3d71a2-93b3-4ca0-9bdb-3f9da66ac494"",
-                    ""path"": ""<DualShockGamepad>/dpad/up"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
