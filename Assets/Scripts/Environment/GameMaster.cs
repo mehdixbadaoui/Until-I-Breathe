@@ -9,7 +9,7 @@ using TMPro;
 public class GameMaster : MonoBehaviour
 {
     //Position of the last checkpoint
-    private Vector3 lastCheckPointPos;
+    public Vector3 lastCheckPointPos;
     public Checkpoint lastCheckpoint;
     private static GameMaster instance;
 
