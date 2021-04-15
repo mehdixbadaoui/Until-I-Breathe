@@ -237,7 +237,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 			//When you grab the hook, the first behaviour of the rope is not a rigid line, only when you reach the end of the rope
-			if (!hookObject.CompareTag("lever") && isGrappling)
+			if (!hookObject.CompareTag("boxhook") && isGrappling)
 			{
 				// Quand la corde est tendue on peut la retracter
 				if ( countGrapplin > 15 /*&& beginLengthMin < 0.5f*/)
@@ -260,7 +260,7 @@ public class GrapplingHook : MonoBehaviour
 
 
 			// Retrait du grappin au bout d'un certain temps sur le levier
-			if (hookObject.CompareTag("lever") && countGrapplin > timeLever && isGrappling == true)
+			if (hookObject.CompareTag("boxhook") && countGrapplin > timeLever && isGrappling == true)
 			{
 				CutRope();
 			}
@@ -418,14 +418,15 @@ public class GrapplingHook : MonoBehaviour
 			// Add the first spring joint
 			AddSpringJoint();
 
-		else if (hookObject.CompareTag("movable_hook"))
-			// Add the first spring joint
-			AddMovableSpringJoint();
+		//else if (hookObject.CompareTag("boxhook"))
+		//	// Add the first spring joint
+		//	AddMovableSpringJoint();
 
 		else if (hookObject.CompareTag("boxhook"))
         {
+			//AddMovableSpringJoint();
 			hookObject.GetComponent<PullBox>().Pull();
-            CutRope();
+            //CutRope();
         }
 
 
