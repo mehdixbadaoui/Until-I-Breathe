@@ -82,28 +82,28 @@ public class hook_detector : MonoBehaviour
     void right()
     {
         if(hooks_right.Any())
-            nearest_hook = hooks_right[index];
+            nearest_hook = hooks_right[0];
         UpdateLists();
     }
 
     void left()
     {
         if(hooks_left.Any())
-            nearest_hook = hooks_left[index];
+            nearest_hook = hooks_left[0];
         UpdateLists();
     }
 
     void up()
     {
-        if(hooks_left.Any())
-            nearest_hook = hooks_up[index];
+        if(hooks_up.Any())
+            nearest_hook = hooks_up[0];
         UpdateLists();
     }
 
     void down()
     {
         if(hooks_down.Any())
-            nearest_hook = hooks_down[index];
+            nearest_hook = hooks_down[0];
         UpdateLists();
     }
 
@@ -145,6 +145,7 @@ public class hook_detector : MonoBehaviour
 
                 nearest_hook = all_hooks[j];
                 UpdateLists();
+
                 while (j < all_hooks.Count && (Physics.Raycast(gameObject.GetComponent<Collider>().bounds.center, (all_hooks[j].transform.position - gameObject.GetComponent<Collider>().bounds.center).normalized,
                     Vector3.Distance(all_hooks[j].transform.position, gameObject.GetComponent<Collider>().bounds.center)) ||
                     Physics.Raycast(all_hooks[j].transform.position, (gameObject.GetComponent<Collider>().bounds.center - all_hooks[j].transform.position).normalized,
