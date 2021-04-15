@@ -114,6 +114,12 @@ public class GameMaster : MonoBehaviour
 
         //Train
         LT = FindObjectOfType<LaunchTrain>();
+
+
+        if (GameObject.FindGameObjectWithTag("CinematicBeginning"))
+        {
+            StartCoroutine(Cinematic(GameObject.FindGameObjectWithTag("CinematicBeginning").GetComponent<PlayableDirector>()));
+        }
     }
 
     public void Pause()
