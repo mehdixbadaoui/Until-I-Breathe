@@ -269,7 +269,7 @@ public class GameMaster : MonoBehaviour
             letterForUni += letterList[i] + "\r\n"; 
         }
         Debug.Log(letterForUni);
-        DeadRobotsText(letterForUni); 
+        //DeadRobotsText(letterForUni); 
         letterForUni = ""; 
         indexForLetter += 1;
         Debug.Log(indexForLetter);
