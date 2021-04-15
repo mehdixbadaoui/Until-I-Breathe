@@ -418,11 +418,11 @@ public class GrapplingHook : MonoBehaviour
 			// Add the first spring joint
 			AddSpringJoint();
 
-		//else if (hookObject.CompareTag("boxhook"))
-		//	// Add the first spring joint
-		//	AddMovableSpringJoint();
+        else if (hookObject.CompareTag("movable_hook"))
+            // Add the first spring joint
+            AddMovableSpringJoint();
 
-		else if (hookObject.CompareTag("boxhook"))
+        else if (hookObject.CompareTag("boxhook"))
         {
 			//AddMovableSpringJoint();
 			hookObject.GetComponent<PullBox>().Pull();
