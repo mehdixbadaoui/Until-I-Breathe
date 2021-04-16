@@ -9,7 +9,7 @@ public class SoundKillTempo : MonoBehaviour
     public float ForceOndeAfter;
 
     // Cones
-    private List<Transform> cones;
+    private List<GameObject> cones = new List<GameObject>();
 
     // Previous color
     private Color previousColor;
@@ -57,14 +57,13 @@ public class SoundKillTempo : MonoBehaviour
         // Uni Animator
         myAnimator = GameObject.FindGameObjectWithTag("uni").GetComponentInChildren<Animator>();
 
+        //Get the cones shaders
         int count = transform.parent.transform.childCount;
-            Debug.Log(count);
         for(int i = 0; i < count; i++)
         {
             Transform child = transform.parent.transform.GetChild(i);
-            Debug.Log(child.name);
             if (child.tag == "cone")
-                cones.Add(transform.parent.transform.GetChild(i));
+                cones.Add(child.gameObject);
         }
 
         // Uni
@@ -179,10 +178,10 @@ public class SoundKillTempo : MonoBehaviour
                 timerPlay = 0;
             }
 
-            foreach (Transform cone in cones)
+            foreach (GameObject cone in cones)
             {
-                if (!cone.gameObject.activeSelf)
-                    cone.gameObject.SetActive(true);
+                if (!cone.activeSelf)
+                    cone.SetActive(true);
             }
 
         }
@@ -191,10 +190,10 @@ public class SoundKillTempo : MonoBehaviour
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("ForceOnde", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("ColorEnceinte", Color.HSVToRGB(Mathf.Lerp(0, previousColor_H, (timerSound - soundlength) * 6 ), previousColor_S, previousColor_V) );
 
-            foreach (Transform cone in cones)
+            foreach (GameObject cone in cones)
             {
-                if (cone.gameObject.activeSelf)
-                    cone.gameObject.SetActive(false);
+                if (cone.activeSelf)
+                    cone.SetActive(false);
             }
         }
 

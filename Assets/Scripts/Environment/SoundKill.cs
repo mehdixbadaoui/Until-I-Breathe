@@ -9,7 +9,7 @@ public class SoundKill : MonoBehaviour
     public float ForceOndeAfter;
 
     // Cones
-    private List<GameObject> cones;
+    private List<GameObject> cones = new List<GameObject>();
 
     // Previous color
     private Color previousColor;
@@ -57,8 +57,11 @@ public class SoundKill : MonoBehaviour
         // Uni
         player = GameObject.FindGameObjectWithTag("uni");
 
-        foreach (Transform child in transform)
+        //Get the cones shaders
+        int count = transform.parent.transform.childCount;
+        for (int i = 0; i < count; i++)
         {
+            Transform child = transform.parent.transform.GetChild(i);
             if (child.tag == "cone")
                 cones.Add(child.gameObject);
         }
