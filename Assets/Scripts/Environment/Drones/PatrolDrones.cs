@@ -36,8 +36,8 @@ public class PatrolDrones : MonoBehaviour
 
     void Start()
     {
-        //game master
-        GM = FindObjectOfType<GameMaster>();
+        // Game master
+        GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
 
         // Get uni Breathing Mecanic
         grapplin = GameObject.FindGameObjectWithTag("uni").GetComponent<GrapplingHook>();

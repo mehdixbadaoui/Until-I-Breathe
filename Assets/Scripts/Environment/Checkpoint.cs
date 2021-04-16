@@ -18,6 +18,7 @@ public class Checkpoint : MonoBehaviour
     {
         // Game master
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+
         // Plane to visualize the checkpoint
         if (transform.childCount != 0)
             plane = transform.GetChild(0).gameObject;
