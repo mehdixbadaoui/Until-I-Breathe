@@ -48,39 +48,42 @@ public class ObjectDetector : MonoBehaviour
             for (int index = 0; index < listObj.Count; index++)
             {
                 AkSoundEngine.PostEvent("Levier_event", uni);
-                if ( listObj[index].CompareTag("button"))
+                if (listObj[index].CompareTag("button"))
                 {
                     for (int i = 0; i < listObj[index].GetComponent<button_detector>().caisses.Length; i++)
                     {
                         StartCoroutine(boxStop(listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>()));
                     }
 
-                    foreach(GameObject light in listObj[index].GetComponent<button_detector>().lights)
+                    foreach (GameObject light in listObj[index].GetComponent<button_detector>().lights)
                         light.GetComponent<Light>().color = Color.green;
                 }
-                else if(listObj[index].CompareTag("Levier_Level_1_3"))
+                else if (listObj[index].CompareTag("Levier_Level_1_3"))
                 {
                     playEvent.PlayEventWithoutRTPC("Lvl_1_3_event", GameObject.FindGameObjectWithTag("MainCamera"));
-                    playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("MainCamera")); 
+                    playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("MainCamera"));
                 }
-                else if (listObj[index].CompareTag("lever") && !listObj[index].GetComponent<Lever>().activated)
+                else if (listObj[index].CompareTag("lever") && listObj[index].GetComponent<Lever>() && !listObj[index].GetComponent<Lever>().activated)
                 {
                     listObj[index].GetComponent<Lever>().activated = true;
 
-                    if (listObj[index].GetComponent<Lever>().Clip )
+                    if (listObj[index].GetComponent<Lever>().Clip)
                     {
                         StartCoroutine(Cinematic(listObj[index].GetComponent<Lever>().Clip));
                     }
                     else
                     {
-                        if (listObj[index].GetComponent<Lever>())
-                            listObj[index].GetComponent<Lever>().Unlock();
-                        else if (listObj[index].GetComponent<Blackout>())
+                        listObj[index].GetComponent<Lever>().Unlock();
+                        if (listObj[index].GetComponent<Blackout>())
                             listObj[index].GetComponent<Blackout>().BO();
                     }
-
-
                 }
+                // Si c'est le levier blackout sans le truc lever
+                else if (listObj[index].CompareTag("lever") && listObj[index].GetComponent<Blackout>())
+                {
+                            listObj[index].GetComponent<Blackout>().BO();
+                }
+
                 else if (listObj[index].GetComponent<LeverEnceinte>())
                 {
                     listObj[index].GetComponent<LeverEnceinte>().isOn = true;
@@ -89,7 +92,7 @@ public class ObjectDetector : MonoBehaviour
                 else if (listObj[index].CompareTag("RisingFogLever"))
                 {
                     listObj[index].GetComponent<RisingFogLever>().LaunchGaz();
-                    
+
                 }
 
                 else if (listObj[index].CompareTag("Button_Platform"))
@@ -100,7 +103,7 @@ public class ObjectDetector : MonoBehaviour
                 else if (listObj[index].CompareTag("Lever_Platform"))
                 {
                     listObj[index].GetComponent<LeverPlatforms>().GoTo();
-                    
+
                 }
             }
         }
