@@ -14,6 +14,8 @@ public class ObjectDetector : MonoBehaviour
     private GameObject uni;
     private PlayEventSounds playEvent;
 
+    public float BoxFallDuration = 0.5f;
+
     private void Awake()
     {
         inputs = new Inputs();
@@ -49,8 +51,7 @@ public class ObjectDetector : MonoBehaviour
                 {
                     for (int i = 0; i < listObj[index].GetComponent<button_detector>().caisses.Length; i++)
                     {
-                        listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>().isKinematic = false;
-                        listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>().useGravity = true;
+                        StartCoroutine(boxStop(listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>()));
                     }
 
                     foreach(GameObject light in listObj[index].GetComponent<button_detector>().lights)
@@ -94,6 +95,20 @@ public class ObjectDetector : MonoBehaviour
             }
         }
      }
+
+    private IEnumerator boxStop(Rigidbody box)
+    {
+        Movement.canMove = false;
+
+        box.isKinematic = false;
+        box.useGravity = true;
+
+        yield return new WaitForSeconds(BoxFallDuration);
+
+        box.isKinematic = true;
+
+        Movement.canMove = true;
+    }
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider col)
