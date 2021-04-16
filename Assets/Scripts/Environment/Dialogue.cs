@@ -30,6 +30,7 @@ public class Dialogue : MonoBehaviour
 
             canvas.gameObject.GetComponent<CanvasGroup>().alpha = 1; //alpha == 0 ? 1 : 0;
             DialoguBox.text = Text;
+            DialoguBox_Person.text = Person;
             //first = false;
         } 
     }
