@@ -81,6 +81,9 @@ namespace AK
         static const AkUniqueID PORTE_FERMEE_METAL_EVENT = 2193255299U;
         static const AkUniqueID PORTE_OUVERTE_BOIS_EVENT = 2335575013U;
         static const AkUniqueID PORTE_OUVERTE_METAL_EVENT = 756074935U;
+        static const AkUniqueID ST2_DANGER_EVENT = 2675001189U;
+        static const AkUniqueID ST2_NORMAL_EVENT = 1042672185U;
+        static const AkUniqueID ST2_TRISTE__EVENT = 264719496U;
         static const AkUniqueID STOP_CAISSE_FROTTEMENT_EVENT = 707299762U;
         static const AkUniqueID STOP_LITTLE_VENTILATOR_EVENT = 2239026864U;
         static const AkUniqueID STOP_MUSIC_EVENT = 3935460844U;
@@ -127,6 +130,8 @@ namespace AK
         static const AkUniqueID MUSICVOLUME = 2346531308U;
         static const AkUniqueID SFXVOLUME = 988953028U;
         static const AkUniqueID TRAINDEPARTVOLUME = 58362009U;
+        static const AkUniqueID TRAINLOWPASSFILTRER = 1579264580U;
+        static const AkUniqueID TRAINVOLUME = 1950279691U;
         static const AkUniqueID UNI_ETOUFFEMENTSVOLUME = 2719740865U;
         static const AkUniqueID VENTILATORVOLUME = 1991624541U;
     } // namespace GAME_PARAMETERS

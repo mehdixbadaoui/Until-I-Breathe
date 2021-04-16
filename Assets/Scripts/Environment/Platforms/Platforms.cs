@@ -55,10 +55,15 @@ public class Platforms : MonoBehaviour
 
     public void Respawn()
     {
+        StopAllCoroutines();
         PlatformLauncherScript.activate = false;
         firstTimeOn = true;
         isWaiting = true;
-        transform.position = departTarget.position;
+        transform.position = startPoint.position;
+
+        departTarget = startPoint;
+        destinationTarget = endPoint;
+        journeyLength = Vector3.Distance(departTarget.position, destinationTarget.position);
     }
 
     private void Move()

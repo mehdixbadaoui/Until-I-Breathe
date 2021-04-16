@@ -165,7 +165,10 @@ public class LedgeLocator : MonoBehaviour
         CheckForLedge();
         LedgeHanging();
         if (Movement.isGrounded)
+        {
             didClimb = false;
+
+        }
         if (didClimb && isclimbing == false)
         {
             TimeAfterClimbing += 1;

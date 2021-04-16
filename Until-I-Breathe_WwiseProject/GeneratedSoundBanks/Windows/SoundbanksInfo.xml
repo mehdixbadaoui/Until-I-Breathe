@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2597239801">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3825560078">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="2288804852">
+		<SoundBank Id="2228651116" Language="SFX" Hash="4153652896">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>Main_Soundbank.bnk</Path>
@@ -902,6 +902,54 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2675001189" Name="ST2_danger_event" ObjectPath="\Events\Default Work Unit\ST2_events\ST2_danger_event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.000000">
+					<IncludedMemoryFiles>
+						<File Id="73902770" Language="SFX">
+							<ShortName>ST-2_Voix_Danger_2.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Danger_2_10C4C929.wem</Path>
+						</File>
+						<File Id="523679507" Language="SFX">
+							<ShortName>ST-2_Voix_Danger_3.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Danger_3_10C4C929.wem</Path>
+						</File>
+						<File Id="691186280" Language="SFX">
+							<ShortName>ST-2_Voix_Danger_1.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Danger_1_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1042672185" Name="ST2_normal_event" ObjectPath="\Events\Default Work Unit\ST2_events\ST2_normal_event" DurationType="OneShot" DurationMin="1.250000" DurationMax="1.500000">
+					<IncludedMemoryFiles>
+						<File Id="16723674" Language="SFX">
+							<ShortName>ST-2_Voix_Normal_1.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Normal_1_10C4C929.wem</Path>
+						</File>
+						<File Id="197542737" Language="SFX">
+							<ShortName>ST-2_Voix_Normal_2.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Normal_2_10C4C929.wem</Path>
+						</File>
+						<File Id="1049537068" Language="SFX">
+							<ShortName>ST-2_Voix_Normal_3.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Normal_3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="264719496" Name="ST2_triste__event" ObjectPath="\Events\Default Work Unit\ST2_events\ST2_triste__event" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.624989">
+					<IncludedMemoryFiles>
+						<File Id="454728539" Language="SFX">
+							<ShortName>ST-2_Voix_Triste_2.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Triste_2_10C4C929.wem</Path>
+						</File>
+						<File Id="484980967" Language="SFX">
+							<ShortName>ST-2_Voix_Triste_1.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Triste_1_10C4C929.wem</Path>
+						</File>
+						<File Id="821817813" Language="SFX">
+							<ShortName>ST-2_Voix_Triste_3.wav</ShortName>
+							<Path>SFX\ST-2_Voix_Triste_3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="707299762" Name="Stop_Caisse_frottement_event" ObjectPath="\Events\Default Work Unit\Environment_events\Caisses\Stop_Caisse_frottement_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2239026864" Name="Stop_Little_Ventilator_event" ObjectPath="\Events\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3935460844" Name="Stop_music_event" ObjectPath="\Events\Default Work Unit\Music_levels\Stop_music_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -938,11 +986,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1127840350" Name="Train_exterieur_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_exterieur_event" DurationType="OneShot" DurationMin="7.250000" DurationMax="7.250000">
+				<Event Id="1127840350" Name="Train_exterieur_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_exterieur_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="582645094" Language="SFX">
 							<ShortName>Train_Marche_Exterieur_Loop_01.wav</ShortName>
-							<Path>SFX\Train_Marche_Exterieur_Loop_01_10C4C929.wem</Path>
+							<Path>SFX\Train_Marche_Exterieur_Loop_01_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -1025,6 +1073,8 @@
 				<GameParameter Id="956757313" Name="MusicLevelsVolume" ObjectPath="\Game Parameters\Default Work Unit\MusicLevelsVolume"/>
 				<GameParameter Id="1003961143" Name="FallingPlateformeVolume" ObjectPath="\Game Parameters\Default Work Unit\FallingPlateformeVolume"/>
 				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
+				<GameParameter Id="1579264580" Name="TrainLowPassFiltrer" ObjectPath="\Game Parameters\Default Work Unit\TrainLowPassFiltrer"/>
+				<GameParameter Id="1950279691" Name="TrainVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainVolume"/>
 				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>
 				<GameParameter Id="2352147213" Name="InspirationVolume" ObjectPath="\Game Parameters\Default Work Unit\InspirationVolume"/>
 				<GameParameter Id="2440552763" Name="DoorVolume" ObjectPath="\Game Parameters\Default Work Unit\DoorVolume"/>
