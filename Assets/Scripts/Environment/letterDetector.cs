@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class letterDetector : MonoBehaviour
 {
     private Inputs inputs;
 
     public SphereCollider sphereCollider;
-    
-    
+
+    public PlayableDirector Clip;
+
+    private bool didTake = false;
+
     private float detection_radius;
     public bool isLetter;
     private List<string> letterList;
@@ -61,15 +65,34 @@ public class letterDetector : MonoBehaviour
     private void GetLetter()
     {
          
-        if(isLetter)
+        if(isLetter && !didTake)
         {
-            playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
-            letter = gm.FindLetter();
-
-            DestroyGameObject();
+            didTake = true;
+            StartCoroutine(Cinematic(Clip));
         }
         
     }
+    private IEnumerator Cinematic(PlayableDirector playable)
+    {
+        Movement.canMove = false;
+
+        if (playable)
+        {
+            playable.Play();
+
+            yield return new WaitForSeconds((float)playable.duration);
+
+            playable.Stop();
+        }
+
+        playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
+        letter = gm.FindLetter();
+
+        Movement.canMove = true;
+
+        DestroyGameObject();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -62,12 +63,21 @@ public class ObjectDetector : MonoBehaviour
                     playEvent.PlayEventWithoutRTPC("Lvl_1_3_event", GameObject.FindGameObjectWithTag("MainCamera"));
                     playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("MainCamera")); 
                 }
-                else if (listObj[index].CompareTag("lever"))
+                else if (listObj[index].CompareTag("lever") && !listObj[index].GetComponent<Lever>().activated)
                 {
-                    if (listObj[index].GetComponent<Lever>())
-                        listObj[index].GetComponent<Lever>().Unlock();
-                    else if (listObj[index].GetComponent<Blackout>())
-                        listObj[index].GetComponent<Blackout>().BO();
+                    listObj[index].GetComponent<Lever>().activated = true;
+
+                    if (listObj[index].GetComponent<Lever>().Clip )
+                    {
+                        StartCoroutine(Cinematic(listObj[index].GetComponent<Lever>().Clip));
+                    }
+                    else
+                    {
+                        if (listObj[index].GetComponent<Lever>())
+                            listObj[index].GetComponent<Lever>().Unlock();
+                        else if (listObj[index].GetComponent<Blackout>())
+                            listObj[index].GetComponent<Blackout>().BO();
+                    }
 
 
                 }
@@ -108,6 +118,22 @@ public class ObjectDetector : MonoBehaviour
         box.isKinematic = true;
 
         Movement.canMove = true;
+    }
+    private IEnumerator Cinematic(PlayableDirector playable)
+    {
+        Movement.canMove = false;
+
+        if (playable)
+        {
+            playable.Play();
+
+            yield return new WaitForSeconds((float)playable.duration);
+
+            playable.Stop();
+        }
+
+        Movement.canMove = true;
+
     }
 
     // Update is called once per frame
