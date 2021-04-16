@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585831193221490821
+    m_lastTime: -8585830897908054439
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585831193221665413
+    m_lastTime: -8585830897907524466
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -1888,6 +1888,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: ST2_danger_event
+      guid: 681dca43af70134f8599cbd4b91ea563
+      id: 2675001189
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: ST2_events
+        ObjectType: 4
+        guid: d0a8e906e890dd4b9a083fff794014e5
+      - ElementName: ST2_danger_event
+        ObjectType: 3
+        guid: 681dca43af70134f8599cbd4b91ea563
+      Path: Events\Default Work Unit\ST2_events\ST2_danger_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: ST2_events
       guid: d0a8e906e890dd4b9a083fff794014e5
       id: 1788184474
@@ -1902,6 +1922,46 @@ MonoBehaviour:
         ObjectType: 4
         guid: d0a8e906e890dd4b9a083fff794014e5
       Path: Events\Default Work Unit\ST2_events
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: ST2_normal_event
+      guid: ea3c3d342da71a48add42c88eacc89cd
+      id: 1042672185
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: ST2_events
+        ObjectType: 4
+        guid: d0a8e906e890dd4b9a083fff794014e5
+      - ElementName: ST2_normal_event
+        ObjectType: 3
+        guid: ea3c3d342da71a48add42c88eacc89cd
+      Path: Events\Default Work Unit\ST2_events\ST2_normal_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: ST2_triste__event
+      guid: f49a7a5017e9e848a6a44cf8dd51e6f5
+      id: 264719496
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: ST2_events
+        ObjectType: 4
+        guid: d0a8e906e890dd4b9a083fff794014e5
+      - ElementName: ST2_triste__event
+        ObjectType: 3
+        guid: f49a7a5017e9e848a6a44cf8dd51e6f5
+      Path: Events\Default Work Unit\ST2_events\ST2_triste__event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2264,7 +2324,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585832937714003257
+    m_lastTime: -8585830872693513702
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2457,6 +2517,34 @@ MonoBehaviour:
         ObjectType: 13
         guid: 5bc0689a7590ff47bb3e19907ea47309
       Path: Game Parameters\Default Work Unit\TrainDepartVolume
+    - name: TrainLowPassFiltrer
+      guid: 6447ec01682eb74db92258b9b8844caf
+      id: 1579264580
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: TrainLowPassFiltrer
+        ObjectType: 13
+        guid: 6447ec01682eb74db92258b9b8844caf
+      Path: Game Parameters\Default Work Unit\TrainLowPassFiltrer
+    - name: TrainVolume
+      guid: fdc203c74cb36343af8b0bd48a726268
+      id: 1950279691
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: TrainVolume
+        ObjectType: 13
+        guid: fdc203c74cb36343af8b0bd48a726268
+      Path: Game Parameters\Default Work Unit\TrainVolume
     - name: Uni_etouffementsVolume
       guid: 07714bee9687b440af067db501f237ea
       id: 2719740865
@@ -2626,7 +2714,7 @@ MonoBehaviour:
     m_lastTime: -8585832937700734471
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 0500000006000000080000000d0000000e00000034000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

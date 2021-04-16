@@ -20,7 +20,8 @@ public class letterDetector : MonoBehaviour
     public Vector3 offsetDeadRobotRotation;
     public Vector3 offsetDeadRobotTranslation;
     public string letter;
-    
+    public Vector3 dstwithUni; 
+
 
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
 
@@ -53,7 +54,7 @@ public class letterDetector : MonoBehaviour
     {
        
         detection_radius = sphereCollider.radius;
-        //dstwithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
+        dstwithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
 
     }
 
@@ -62,7 +63,7 @@ public class letterDetector : MonoBehaviour
          
         if(isLetter)
         {
-            //playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
+            playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
             letter = gm.FindLetter();
 
             DestroyGameObject();
@@ -74,6 +75,7 @@ public class letterDetector : MonoBehaviour
 
         if (other.tag == "uni")
         {
+            playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "ST2_normal_event", "DistWithUniVolume");
 
             isLetter = true;
             //playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, GameObject.FindGameObjectWithTag("ST2"), "Message_ST2_decrypte_event", "DistWithUniVolume");

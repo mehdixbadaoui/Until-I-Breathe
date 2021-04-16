@@ -3321,10 +3321,65 @@
 								</RandomSequenceContainer>
 								<Sound Name="Train_Marche_Exterieur_Loop_01" ID="{E5A03468-1F46-4928-888D-688E61F3DA4F}" ShortID="258786775">
 									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Lowpass" Type="int16">
+											<RTPCList>
+												<RTPC Name="" ID="{6F32DF60-07A1-4158-9974-A529EA2A2C38}" ShortID="328496890">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="TrainLowPassFiltrer" ID="{01EC4764-2E68-4DB7-B922-58B9B8844CAF}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{0F9B1687-E991-4D47-BB53-3A1CBBE5D0CB}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="65537"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-15</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{1EB97D0A-2954-4A78-84B4-DE1108E5A547}" ShortID="956350558">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="TrainVolume" ID="{C703C2FD-B34C-4363-AF8B-0BD48A726268}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{8EB62E3C-B900-4BA6-AE7C-47924AABBBA2}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -6525,6 +6580,412 @@
 									<ObjectLists/>
 									<ActiveSourceList>
 										<ActiveSource Name="Message_ST2_Decrypte_02" ID="{039E4297-5096-4DFA-AF0D-2C875B74C6DF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<Sound Name="ST-2_hologramme_ACTIF" ID="{2F4E426B-25A4-4394-AAEA-DEF5AC6B96E6}" ShortID="891560712">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ST-2_hologramme_ACTIF" ID="{06908EE6-92CC-4A5C-8C36-940CD47FA6BC}">
+									<Language>SFX</Language>
+									<AudioFile>ST-2_hologramme_ACTIF.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="788540758"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ST-2_hologramme_ACTIF" ID="{06908EE6-92CC-4A5C-8C36-940CD47FA6BC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ST-2_hologramme_END" ID="{7E108DBE-44FD-41EB-BBAC-4869D8F1ECAD}" ShortID="770631335">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ST-2_hologramme_END" ID="{1541CB0C-462C-4114-BEE1-BBC455E3BCAD}">
+									<Language>SFX</Language>
+									<AudioFile>ST-2_hologramme_END.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="761055599"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ST-2_hologramme_END" ID="{1541CB0C-462C-4114-BEE1-BBC455E3BCAD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ST-2_hologramme_START" ID="{FB564C8B-9E47-45E0-887B-072E811E7225}" ShortID="112420897">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ST-2_hologramme_START" ID="{D8A47BEA-E208-4715-950D-B8E0943A3038}">
+									<Language>SFX</Language>
+									<AudioFile>ST-2_hologramme_START.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1060243757"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="ST-2_hologramme_START" ID="{D8A47BEA-E208-4715-950D-B8E0943A3038}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="ST2_triste" ID="{17B78B0A-A24C-4695-A505-0B7154959995}" ShortID="319183248">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{BBC20804-1312-4AE0-BB1C-92FD582E7D33}" ShortID="90087981">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="DistWithUniVolume" ID="{E6FC620E-F36B-4B3D-A3E9-5801A1CCB240}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{85115B5B-099C-4F30-8AC5-F32868C8156B}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="ST-2_Voix_Triste_1" ID="{24580B76-6D70-4B80-A355-DC670AE3E227}" ShortID="567207369">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Triste_1" ID="{F52058CD-F77A-44C7-BFB7-25346EB212D0}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Triste_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="484980967"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Triste_1" ID="{F52058CD-F77A-44C7-BFB7-25346EB212D0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="ST-2_Voix_Triste_3" ID="{DF4ACBCF-89C6-4737-9F61-95EEC5B4AF6E}" ShortID="578863627">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Triste_3" ID="{3163EA48-A699-4405-9ECE-7FF5D833FD96}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Triste_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="821817813"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Triste_3" ID="{3163EA48-A699-4405-9ECE-7FF5D833FD96}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="ST-2_Voix_Triste_2" ID="{BE57780D-72D3-4B88-ABC0-B3B348CA295B}" ShortID="208296904">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Triste_2" ID="{112915C3-29FB-452C-8528-A63F4CA2041B}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Triste_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="454728539"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Triste_2" ID="{112915C3-29FB-452C-8528-A63F4CA2041B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="ST-2_Voix_Normal" ID="{FC28B395-B110-4269-A2E1-928B8F4E1902}" ShortID="381257003">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<RTPCList>
+										<RTPC Name="" ID="{D79A478B-0820-43C2-99FF-A81D7A2A4C84}" ShortID="404504492">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="DistWithUniVolume" ID="{E6FC620E-F36B-4B3D-A3E9-5801A1CCB240}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{CC863C76-FEC9-40AB-A135-DF933E2D1484}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="ST-2_Voix_Normal_2" ID="{13128A38-453D-4D4D-BBC1-52AB9F77F460}" ShortID="910915969">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Normal_2" ID="{439FBF5F-C7F6-41DE-AF29-A1D3232106EF}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Normal_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="197542737"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Normal_2" ID="{439FBF5F-C7F6-41DE-AF29-A1D3232106EF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="ST-2_Voix_Normal_3" ID="{3C1B3AD6-4561-4531-AEA8-38C51D33CBBA}" ShortID="293517980">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Normal_3" ID="{BB2D6063-76B8-4C5D-AA31-0BC46F5E78A3}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Normal_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1049537068"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Normal_3" ID="{BB2D6063-76B8-4C5D-AA31-0BC46F5E78A3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="ST-2_Voix_Normal_1" ID="{CF334500-B12F-4D1C-8F20-27B517B432DA}" ShortID="837403526">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Normal_1" ID="{868E17A0-25C0-4C55-AF79-1097DC4CADEE}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Normal_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="16723674"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Normal_1" ID="{868E17A0-25C0-4C55-AF79-1097DC4CADEE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="ST2_Danger" ID="{AA8AAE86-52FE-47E3-8FFC-F77CC8883EC7}" ShortID="507728951">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="ST-2_Voix_Danger_2" ID="{2F57598B-55DA-4693-A452-46D48DBE2D08}" ShortID="794282145">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Danger_2" ID="{BA4ACA96-DBD8-48C7-BE0B-CA032C374446}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Danger_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="73902770"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Danger_2" ID="{BA4ACA96-DBD8-48C7-BE0B-CA032C374446}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="ST-2_Voix_Danger_3" ID="{006C6E8E-284E-4CC1-900F-279CA6BA9980}" ShortID="155001004">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Danger_3" ID="{E41B639C-4E8F-4EDE-98F0-58E429D424A4}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Danger_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="523679507"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Danger_3" ID="{E41B639C-4E8F-4EDE-98F0-58E429D424A4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="ST-2_Voix_Danger_1" ID="{825B35BF-FFAC-4BDB-9376-A6942B7F259B}" ShortID="793640204">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ST-2_Voix_Danger_1" ID="{98877626-2531-4B79-946C-FAABBE527A33}">
+											<Language>SFX</Language>
+											<AudioFile>ST-2_Voix_Danger_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="691186280"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="ST-2_Voix_Danger_1" ID="{98877626-2531-4B79-946C-FAABBE527A33}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
