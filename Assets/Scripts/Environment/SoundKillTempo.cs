@@ -9,7 +9,7 @@ public class SoundKillTempo : MonoBehaviour
     public float ForceOndeAfter;
 
     // Cones
-    private List<GameObject> cones;
+    private List<Transform> cones;
 
     // Previous color
     private Color previousColor;
@@ -57,10 +57,14 @@ public class SoundKillTempo : MonoBehaviour
         // Uni Animator
         myAnimator = GameObject.FindGameObjectWithTag("uni").GetComponentInChildren<Animator>();
 
-        foreach ( Transform child in transform )
+        int count = transform.parent.transform.childCount;
+            Debug.Log(count);
+        for(int i = 0; i < count; i++)
         {
+            Transform child = transform.parent.transform.GetChild(i);
+            Debug.Log(child.name);
             if (child.tag == "cone")
-                cones.Add(child.gameObject);
+                cones.Add(transform.parent.transform.GetChild(i));
         }
 
         // Uni
@@ -169,25 +173,28 @@ public class SoundKillTempo : MonoBehaviour
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("ForceOnde", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("ColorEnceinte", Color.HSVToRGB( Mathf.Lerp(previousColor_H , 0 , timerPlay * 6.0f ) , previousColor_S , previousColor_V ) );
 
-            foreach (GameObject cone in cones)
-            {
-                cone.SetActive(true);
-            }
-
             if (timerPlay > soundlength)
             {
                 isPlaying = false;
                 timerPlay = 0;
             }
+
+            foreach (Transform cone in cones)
+            {
+                if (!cone.gameObject.activeSelf)
+                    cone.gameObject.SetActive(true);
+            }
+
         }
         else
         {
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("ForceOnde", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("ColorEnceinte", Color.HSVToRGB(Mathf.Lerp(0, previousColor_H, (timerSound - soundlength) * 6 ), previousColor_S, previousColor_V) );
 
-            foreach (GameObject cone in cones)
+            foreach (Transform cone in cones)
             {
-                cone.SetActive(false);
+                if (cone.gameObject.activeSelf)
+                    cone.gameObject.SetActive(false);
             }
         }
 
