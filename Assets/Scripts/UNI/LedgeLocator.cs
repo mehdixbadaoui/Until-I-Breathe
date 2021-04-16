@@ -165,7 +165,10 @@ public class LedgeLocator : MonoBehaviour
         CheckForLedge();
         LedgeHanging();
         if (Movement.isGrounded)
+        {
             didClimb = false;
+
+        }
         if (didClimb && isclimbing == false)
         {
             TimeAfterClimbing += 1;
@@ -190,7 +193,8 @@ public class LedgeLocator : MonoBehaviour
 
             //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
             if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb && ledge == null) 
-                && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>() 
+                && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>()
+                && (!hit.collider.GetComponent<Rigidbody>() || hit.collider.GetComponent<Rigidbody>().isKinematic)
                 && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2))
             {
                 if (!hit.collider.isTrigger)
@@ -209,6 +213,7 @@ public class LedgeLocator : MonoBehaviour
             //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
             if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb && ledge == null && !grabbingLedge)
                 && Physics.Raycast(bottomOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection * 0.7f) && hit.collider.GetComponent<Ledge>()
+                && (!hit.collider.GetComponent<Rigidbody>() || hit.collider.GetComponent<Rigidbody>().isKinematic)
                 && !Physics.Raycast(middleOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2))
             {
                 if (!hit.collider.isTrigger)

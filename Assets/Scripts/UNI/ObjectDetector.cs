@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class ObjectDetector : MonoBehaviour
     SphereCollider sphere_collider;
     private GameObject uni;
     private PlayEventSounds playEvent;
+
+    public float BoxFallDuration = 0.5f;
 
     private void Awake()
     {
@@ -49,8 +52,7 @@ public class ObjectDetector : MonoBehaviour
                 {
                     for (int i = 0; i < listObj[index].GetComponent<button_detector>().caisses.Length; i++)
                     {
-                        listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>().isKinematic = false;
-                        listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>().useGravity = true;
+                        StartCoroutine(boxStop(listObj[index].GetComponent<button_detector>().caisses[i].GetComponent<Rigidbody>()));
                     }
 
                     foreach(GameObject light in listObj[index].GetComponent<button_detector>().lights)
@@ -61,12 +63,21 @@ public class ObjectDetector : MonoBehaviour
                     playEvent.PlayEventWithoutRTPC("Lvl_1_3_event", GameObject.FindGameObjectWithTag("MainCamera"));
                     playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("MainCamera")); 
                 }
-                else if (listObj[index].CompareTag("lever"))
+                else if (listObj[index].CompareTag("lever") && !listObj[index].GetComponent<Lever>().activated)
                 {
-                    if (listObj[index].GetComponent<Lever>())
-                        listObj[index].GetComponent<Lever>().Unlock();
-                    else if (listObj[index].GetComponent<Blackout>())
-                        listObj[index].GetComponent<Blackout>().BO();
+                    listObj[index].GetComponent<Lever>().activated = true;
+
+                    if (listObj[index].GetComponent<Lever>().Clip )
+                    {
+                        StartCoroutine(Cinematic(listObj[index].GetComponent<Lever>().Clip));
+                    }
+                    else
+                    {
+                        if (listObj[index].GetComponent<Lever>())
+                            listObj[index].GetComponent<Lever>().Unlock();
+                        else if (listObj[index].GetComponent<Blackout>())
+                            listObj[index].GetComponent<Blackout>().BO();
+                    }
 
 
                 }
@@ -94,6 +105,36 @@ public class ObjectDetector : MonoBehaviour
             }
         }
      }
+
+    private IEnumerator boxStop(Rigidbody box)
+    {
+        Movement.canMove = false;
+
+        box.isKinematic = false;
+        box.useGravity = true;
+
+        yield return new WaitForSeconds(BoxFallDuration);
+
+        box.isKinematic = true;
+
+        Movement.canMove = true;
+    }
+    private IEnumerator Cinematic(PlayableDirector playable)
+    {
+        Movement.canMove = false;
+
+        if (playable)
+        {
+            playable.Play();
+
+            yield return new WaitForSeconds((float)playable.duration);
+
+            playable.Stop();
+        }
+
+        Movement.canMove = true;
+
+    }
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider col)

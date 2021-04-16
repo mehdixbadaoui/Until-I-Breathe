@@ -809,10 +809,12 @@ MonoBehaviour:
   followSharpness: 2
   rotationSpeed: 5
   followOffset: {x: -1, y: 2, z: 1}
-  crouch: 1.1
-  fixationSpeed: 1.5
-  distFromObj: 2
+  crouch: 1
+  fixationSpeed: 5
+  distFromObj: 0.5
   lookAtSpeed: 3
+  maxDistanceForDeadRobots: 3
+  distWithRobots: []
 --- !u!1 &6059592103730164757
 GameObject:
   m_ObjectHideFlags: 0

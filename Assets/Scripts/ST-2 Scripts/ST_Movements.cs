@@ -23,7 +23,7 @@ public class ST_Movements : MonoBehaviour
     [Range(1f, 10f)]
     public float lookAtSpeed;
     float maxDistance = 20f;
-    private letterDetector letterdetector; 
+   
 
 
     Vector3 rotationOffset; //optional, not used right now
@@ -49,6 +49,7 @@ public class ST_Movements : MonoBehaviour
 
     void Start()
     {
+
         // Automatically find player
         Player = GameObject.FindGameObjectWithTag("uni").transform;
         HookDetector = Player.Find("hook_detector").GetComponent<hook_detector>(); 
@@ -56,7 +57,7 @@ public class ST_Movements : MonoBehaviour
         distWithRobots = new List<Vector3>(deadRobotsList.Length);
         playEvent = Player.GetComponent<PlayEventSounds>();
         PlayerMovement = Player.GetComponent<Movement>(); 
-        letterdetector = GameObject.FindGameObjectWithTag("Dead_robots").GetComponent<letterDetector>();
+       
        
        
         // Stores the initial rotation of the sprite component

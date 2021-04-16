@@ -9,7 +9,7 @@ using TMPro;
 public class GameMaster : MonoBehaviour
 {
     //Position of the last checkpoint
-    private Vector3 lastCheckPointPos;
+    public Vector3 lastCheckPointPos;
     public Checkpoint lastCheckpoint;
     private static GameMaster instance;
 
@@ -314,6 +314,8 @@ public class GameMaster : MonoBehaviour
         gamepad = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
 
 
     }
@@ -323,6 +325,8 @@ public class GameMaster : MonoBehaviour
         gamepad = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
 
 
     }

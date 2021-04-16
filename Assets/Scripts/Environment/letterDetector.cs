@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class letterDetector : MonoBehaviour
 {
     private Inputs inputs;
 
     public SphereCollider sphereCollider;
-    
-    
+
+    public PlayableDirector Clip;
+
+    private bool didTake = false;
+
     private float detection_radius;
     public bool isLetter;
     private List<string> letterList;
@@ -20,7 +24,8 @@ public class letterDetector : MonoBehaviour
     public Vector3 offsetDeadRobotRotation;
     public Vector3 offsetDeadRobotTranslation;
     public string letter;
-    
+    public Vector3 dstwithUni; 
+
 
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
 
@@ -45,7 +50,7 @@ public class letterDetector : MonoBehaviour
         playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>();
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         inputs.Uni.GetLetter.performed += ctx => GetLetter();
-        sphereCollider = GetComponent<SphereCollider>();
+        sphereCollider = transform.parent.GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
@@ -53,27 +58,47 @@ public class letterDetector : MonoBehaviour
     {
        
         detection_radius = sphereCollider.radius;
-        //dstwithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
+        dstwithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
 
     }
 
     private void GetLetter()
     {
          
-        if(isLetter)
+        if(isLetter && !didTake)
         {
-            //playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
-            letter = gm.FindLetter();
-
-            DestroyGameObject();
+            didTake = true;
+            StartCoroutine(Cinematic(Clip));
         }
         
     }
+    private IEnumerator Cinematic(PlayableDirector playable)
+    {
+        Movement.canMove = false;
+
+        if (playable)
+        {
+            playable.Play();
+
+            yield return new WaitForSeconds((float)playable.duration);
+
+            playable.Stop();
+        }
+
+        playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "Message_ST2_Branchement_event", "DistWithUniVolume");
+        letter = gm.FindLetter();
+
+        Movement.canMove = true;
+
+        DestroyGameObject();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.tag == "uni")
         {
+            playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, this.gameObject, "ST2_normal_event", "DistWithUniVolume");
 
             isLetter = true;
             //playEvent.RTPCGameObjectValue(dstwithUni, maxDistance, GameObject.FindGameObjectWithTag("ST2"), "Message_ST2_decrypte_event", "DistWithUniVolume");
