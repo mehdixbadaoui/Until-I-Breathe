@@ -64,7 +64,7 @@ public class SoundKill : MonoBehaviour
             Transform child = transform.parent.transform.GetChild(i);
             if (child.tag == "cone")
                 cones.Add(child.gameObject);
-        }
+        } 
 
         // Grapplin
         grapplin = player.GetComponent<GrapplingHook>();
