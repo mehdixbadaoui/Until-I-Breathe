@@ -164,9 +164,10 @@ public class LedgeLocator : MonoBehaviour
     {
         CheckForLedge();
         LedgeHanging();
-        if (Movement.isGrounded)
+        if (Movement.isGrounded && !isclimbing && !grabbingLedge)
         {
             didClimb = false;
+            StopAllCoroutines();
 
         }
         if (didClimb && isclimbing == false)
@@ -218,6 +219,7 @@ public class LedgeLocator : MonoBehaviour
             {
                 if (!hit.collider.isTrigger)
                 {
+                    isclimbing = true;
                     ledge = hit.collider.gameObject;
                     midLedge = true;
                     StartCoroutine(MidLedge());
