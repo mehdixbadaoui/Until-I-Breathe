@@ -8,6 +8,7 @@ public class ballon : MonoBehaviour
     public float capacity;
     public float force = 1f;
     public float travel_speed;
+    private float travel_speed_val;
 
     private Vector3 startPosition;
 
@@ -30,6 +31,7 @@ public class ballon : MonoBehaviour
     private void Start()
     {
         startPosition = transform.position;
+        travel_speed_val = travel_speed;
     }
 
     // Update is called once per frame
@@ -58,6 +60,7 @@ public class ballon : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             transform.position = startPosition;
             air = 0;
+            travel_speed = travel_speed_val;
         }
         else
             travel_speed = 2f;

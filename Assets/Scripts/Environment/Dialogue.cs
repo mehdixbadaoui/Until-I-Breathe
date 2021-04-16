@@ -4,9 +4,13 @@ using UnityEngine;
 public class Dialogue : MonoBehaviour
 {
     public string Text;
+    public string Person;
+
     private bool first = true;
 
     public TMP_Text DialoguBox;
+    public TMP_Text DialoguBox_Person;
+
     public Canvas canvas;
 
 
