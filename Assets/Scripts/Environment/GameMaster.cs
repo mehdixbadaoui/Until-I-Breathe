@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -171,8 +171,9 @@ public class GameMaster : MonoBehaviour
         }
 
         //RESET TRAIN
-        //LT.canstart = true;
 
+        ResetCanstarts();
+        
         //PullBox.can_pull = true;
     }
 
@@ -210,6 +211,12 @@ public class GameMaster : MonoBehaviour
         Movement.canMove = true;
     }
 
+    void ResetCanstarts()
+    {
+        LaunchTrain[] lts = FindObjectsOfType<LaunchTrain>();
+        foreach (LaunchTrain lt in lts)
+            lt.canstart = true;
+    }
 
     //Each time we find a letter it will update the text of the uni's letter
     public string FindLetter()
@@ -314,8 +321,6 @@ public class GameMaster : MonoBehaviour
         gamepad = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
 
 
     }
@@ -325,8 +330,6 @@ public class GameMaster : MonoBehaviour
         gamepad = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
 
 
     }
