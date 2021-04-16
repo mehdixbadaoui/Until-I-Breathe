@@ -10,6 +10,7 @@ public class Nacelle : MonoBehaviour
 
     public Transform leftDoor, rightDoor;
 
+    public float floorSpeed = .1f;
     public List<Transform> targets; 
     float time;
     int index;
@@ -18,6 +19,7 @@ public class Nacelle : MonoBehaviour
     private Vector3 oldpos;
     private bool openrightdoor = true;
     private bool openleftdoor = true;
+    private bool openfloor = true;
 
 
     private void OnTriggerEnter(Collider other)
@@ -63,12 +65,14 @@ public class Nacelle : MonoBehaviour
             if(rightDoor)
                 oldpos = rightDoor.position;
 
-            if (sol)
-                sol.GetComponent<BoxCollider>().enabled = false;
+            if (sol && openfloor)
+            {
+                if (sol.transform.eulerAngles != new Vector3(90, 0, 0))
+                    sol.transform.eulerAngles = Vector3.Lerp(sol.transform.eulerAngles, new Vector3(90, 0, 0), floorSpeed);
+            }
             else if (openrightdoor)
             {
                 StartCoroutine(MoveDoor(rightDoor, Vector3.right));
-                openrightdoor = false;
             }
         }
     }
