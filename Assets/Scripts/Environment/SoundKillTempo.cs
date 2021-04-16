@@ -8,6 +8,9 @@ public class SoundKillTempo : MonoBehaviour
     public float ForceOndeBefore;
     public float ForceOndeAfter;
 
+    // Cones
+    private List<GameObject> cones;
+
     // Previous color
     private Color previousColor;
     [Range(0.0f, 1.0f)]  public float previousColor_H = 0.5f;
@@ -53,6 +56,12 @@ public class SoundKillTempo : MonoBehaviour
 
         // Uni Animator
         myAnimator = GameObject.FindGameObjectWithTag("uni").GetComponentInChildren<Animator>();
+
+        foreach ( Transform child in transform )
+        {
+            if (child.tag == "cone")
+                cones.Add(child.gameObject);
+        }
 
         // Uni
         player = GameObject.FindGameObjectWithTag("uni");
@@ -160,6 +169,11 @@ public class SoundKillTempo : MonoBehaviour
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("ForceOnde", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("ColorEnceinte", Color.HSVToRGB( Mathf.Lerp(previousColor_H , 0 , timerPlay * 6.0f ) , previousColor_S , previousColor_V ) );
 
+            foreach (GameObject cone in cones)
+            {
+                cone.SetActive(true);
+            }
+
             if (timerPlay > soundlength)
             {
                 isPlaying = false;
@@ -170,6 +184,11 @@ public class SoundKillTempo : MonoBehaviour
         {
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("ForceOnde", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("ColorEnceinte", Color.HSVToRGB(Mathf.Lerp(0, previousColor_H, (timerSound - soundlength) * 6 ), previousColor_S, previousColor_V) );
+
+            foreach (GameObject cone in cones)
+            {
+                cone.SetActive(false);
+            }
         }
 
     }

@@ -8,6 +8,9 @@ public class SoundKill : MonoBehaviour
     public float ForceOndeBefore;
     public float ForceOndeAfter;
 
+    // Cones
+    private List<GameObject> cones;
+
     // Previous color
     private Color previousColor;
     [Range(0.0f, 1.0f)]  public float previousColor_H = 0.5f;
@@ -54,6 +57,12 @@ public class SoundKill : MonoBehaviour
         // Uni
         player = GameObject.FindGameObjectWithTag("uni");
 
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "cone")
+                cones.Add(child.gameObject);
+        }
+
         // Grapplin
         grapplin = player.GetComponent<GrapplingHook>();
 
@@ -71,6 +80,12 @@ public class SoundKill : MonoBehaviour
 
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeAfter);
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( 0 , 100000 , 100000 ) );
+
+            foreach (GameObject cone in cones)
+            {
+                if (!cone.activeSelf)
+                    cone.SetActive(true);
+            }
 
 
 
@@ -107,6 +122,12 @@ public class SoundKill : MonoBehaviour
 
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetFloat("AlwaysKillingForce", /*Mathf.Lerp(ForceOndeBefore, ForceOndeAfter, Time.time - startTime )*/ ForceOndeBefore);
             transform.parent.GetComponentInChildren<MeshRenderer>().sharedMaterial.SetColor("AlwaysKillingColor", Color.HSVToRGB( previousColor_H, previousColor_S, 0) );
+
+            foreach (GameObject cone in cones)
+            {
+                if (cone.activeSelf)
+                    cone.SetActive(false);
+            }
 
             if (all_hooks != null && haschanged)
             {
