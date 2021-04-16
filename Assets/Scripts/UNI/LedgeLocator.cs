@@ -44,11 +44,11 @@ public class LedgeLocator : MonoBehaviour
     private GameObject ledge;
   
     // Useful boolean 
-    private bool falling;
-    private bool moved;
-    private bool isclimbing = false;
+    public bool falling;
+    public bool moved;
+    public bool isclimbing = false;
     public bool didClimb = false;
-    private bool midLedge = false;
+    public bool midLedge = false;
 
     //Iterator to check after climbing
     public int TimeAfterClimbing;
@@ -164,9 +164,10 @@ public class LedgeLocator : MonoBehaviour
     {
         CheckForLedge();
         LedgeHanging();
-        if (Movement.isGrounded)
+        if (Movement.isGrounded && !isclimbing && !grabbingLedge)
         {
             didClimb = false;
+            StopAllCoroutines();
 
         }
         if (didClimb && isclimbing == false)
@@ -192,7 +193,7 @@ public class LedgeLocator : MonoBehaviour
             bottomOfPlayer = new Vector3(transform.position.x, col.bounds.min.y + securityOffsetMidClimbing, transform.position.z);
 
             //To climb a ledge the topOfPlayer raycast need to hit with the collider and the Security Raycast don't , the collider also needs to have Ledge script
-            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb && ledge == null) 
+            if ((!Movement.isGrounded && !Movement.isGrapplin && !didClimb && ledge == null && !grabbingLedge) 
                 && Physics.Raycast(topOfPlayer, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit, ledgeDistanceDetection) && hit.collider.GetComponent<Ledge>()
                 && (!hit.collider.GetComponent<Rigidbody>() || hit.collider.GetComponent<Rigidbody>().isKinematic)
                 && !Physics.Raycast(securityRayForClimbing, transform.TransformDirection(Vector3.forward * transform.localScale.z), out hitSecurity, ledgeDistanceDetection * 2))
@@ -218,6 +219,7 @@ public class LedgeLocator : MonoBehaviour
             {
                 if (!hit.collider.isTrigger)
                 {
+                    isclimbing = true;
                     ledge = hit.collider.gameObject;
                     midLedge = true;
                     StartCoroutine(MidLedge());
