@@ -376,7 +376,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2089520546416609255}
   - component: {fileID: 4293005906098912560}
-  m_Layer: 0
+  - component: {fileID: 2013604383695703973}
+  m_Layer: 2
   m_Name: DeadDroneGOtoDelete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,6 +417,20 @@ MonoBehaviour:
   offsetDeadRobotRotation: {x: 0, y: 0, z: 0}
   offsetDeadRobotTranslation: {x: 0, y: 0, z: 0}
   letter: 
+  dstwithUni: {x: 0, y: 0, z: 0}
+--- !u!135 &2013604383695703973
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4022630060632741621}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.6206968
+  m_Center: {x: 0.047925234, y: 0.5989549, z: -0.2744391}
 --- !u!1 &6082078316255817527
 GameObject:
   m_ObjectHideFlags: 0
