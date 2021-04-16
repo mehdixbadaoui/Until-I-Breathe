@@ -167,6 +167,7 @@ public class LedgeLocator : MonoBehaviour
         if (Movement.isGrounded && !isclimbing && !grabbingLedge)
         {
             didClimb = false;
+            ledge = null;
             StopAllCoroutines();
 
         }
