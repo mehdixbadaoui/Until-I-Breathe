@@ -78,7 +78,11 @@ public class anim : MonoBehaviour
         vert = Input.GetAxis("Horizontal");
         //vert = inputs.Uni.Walk.ReadValue<float>();
 
-        myAnimator.SetFloat("vertical", Mathf.Abs(vert));
+        if (Movement.canMove)
+            myAnimator.SetFloat("vertical", Mathf.Abs(vert));
+        else
+            myAnimator.SetFloat("vertical", Mathf.Abs(0));
+
         // Debug.Log("vertical = " + Mathf.Abs(Input.GetAxis("Vertical")));
 
         // random int for 2 different falls

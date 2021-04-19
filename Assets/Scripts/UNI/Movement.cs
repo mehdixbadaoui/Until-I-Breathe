@@ -271,15 +271,16 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        check_ground();
+        countGround += 1;
+        countNotGround += 1;
+        if (isGrounded == true)
+            countNotGround = 0;
+        SlopeCheck();
+
         if (canMove)
         {
 
-            check_ground();
-            countGround += 1;
-            countNotGround += 1;
-            if (isGrounded == true)
-                countNotGround = 0;
-            SlopeCheck();
 
             hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit_front, Quaternion.identity, capsule_collider.radius + 0.01f);
             //hit = false;
