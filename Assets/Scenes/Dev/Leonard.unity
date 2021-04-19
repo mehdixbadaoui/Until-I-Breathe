@@ -308,8 +308,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 254.5, y: -465.8333}
-  m_SizeDelta: {x: 509, y: 186.33333}
+  m_AnchoredPosition: {x: 273.25, y: -610.8333}
+  m_SizeDelta: {x: 546.5, y: 244.33333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &251429271
 GameObject:
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1639,7 +1639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &650203150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1893,6 +1893,7 @@ MonoBehaviour:
     Button: {fileID: 637800099}
   BaseColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
   HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+  iaa: {fileID: 0}
 --- !u!1 &717422903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2436,8 +2437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 254.5, y: -279.5}
-  m_SizeDelta: {x: 509, y: 186.33333}
+  m_AnchoredPosition: {x: 273.25, y: -366.5}
+  m_SizeDelta: {x: 546.5, y: 244.33333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1141019343
 GameObject:
@@ -3302,7 +3303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3924,8 +3925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 254.5, y: -93.166664}
-  m_SizeDelta: {x: 509, y: 186.33333}
+  m_AnchoredPosition: {x: 273.25, y: -122.166664}
+  m_SizeDelta: {x: 546.5, y: 244.33333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2129957320
 GameObject:
@@ -4186,12 +4187,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28291e88d65aee409410d22ebe49819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectionText: {fileID: 3922662923497989284}
+  MainTab:
+    Activable: {fileID: 5623849860041819275}
+    Selection: {fileID: 3922662922884939892}
+  ButtonsData:
+  - Name: Resume
+    SelectionTransform: {fileID: 4648677888072733375}
+    OnSubmit:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 976396706944973255}
+          m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+          m_MethodName: TriggerResume
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    Tab:
+      Activable: {fileID: 0}
+      Selection: {fileID: 0}
+  - Name: Logs
+    SelectionTransform: {fileID: 2004999205193277252}
+    OnSubmit:
+      m_PersistentCalls:
+        m_Calls: []
+    Tab:
+      Activable: {fileID: 713613133287936290}
+      Selection: {fileID: 0}
+  - Name: Settings
+    SelectionTransform: {fileID: 2267333529339756552}
+    OnSubmit:
+      m_PersistentCalls:
+        m_Calls: []
+    Tab:
+      Activable: {fileID: 1635249319}
+      Selection: {fileID: 0}
+  - Name: Save
+    SelectionTransform: {fileID: 3924060674973780984}
+    OnSubmit:
+      m_PersistentCalls:
+        m_Calls: []
+    Tab:
+      Activable: {fileID: 0}
+      Selection: {fileID: 0}
+  - Name: Quit
+    SelectionTransform: {fileID: 1065266524437416689}
+    OnSubmit:
+      m_PersistentCalls:
+        m_Calls: []
+    Tab:
+      Activable: {fileID: 0}
+      Selection: {fileID: 0}
   Resume:
     m_PersistentCalls:
-      m_Calls: []
-  Quit:
-    m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3922662923320775502}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1059817654865644440
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,8 @@ public class PauseMenu : MonoBehaviour
     }
     public List<PauseMenuButtonData> ButtonsData;
 
+    public UnityEvent Resume;
+
     private void Awake()
     {
         previousTabs = new List<Tab>();
@@ -41,10 +43,7 @@ public class PauseMenu : MonoBehaviour
         currentTab = MainTab;
 
         previousTabs.Add(currentTab);
-    }
 
-    private void Start()
-    {
         currentTab.Activable.SetActive(true);
     }
 
@@ -88,7 +87,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void CloseCurrentTab()
     {
-        if(previousTabs.Count > 0)
+        if(previousTabs.Count > 1)
         {
             currentTab.Activable.SetActive(false);
 
@@ -100,5 +99,14 @@ public class PauseMenu : MonoBehaviour
             if (currentTab.Selection)
                 currentTab.Selection.Select();
         }
+        else
+        {
+            TriggerResume();
+        }
+    }
+
+    public void TriggerResume()
+    {
+        Resume.Invoke();
     }
 }
