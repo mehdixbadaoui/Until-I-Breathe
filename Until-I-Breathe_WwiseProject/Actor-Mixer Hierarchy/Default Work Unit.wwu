@@ -3969,6 +3969,20 @@
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</Folder>
+						<Sound Name="Usine" ID="{62841546-FC10-4D0B-A5A0-E347BAA175FB}" ShortID="1063138167">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ObjectLists/>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UniSounds" ID="{3842463C-B6F3-43C6-B468-8FD42FE3352B}" ShortID="493599068">
