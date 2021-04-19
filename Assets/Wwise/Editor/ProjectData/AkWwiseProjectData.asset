@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 51aabce36bd9084484d9d84337a24ddc
     GuidInternal: 
-    m_lastTime: -8585832937700175735
+    m_lastTime: -8585848463710960879
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,11 +38,11 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 51825a5e24261e4b9d8cee98f3163d80
     GuidInternal: 
-    m_lastTime: -8585832937712147601
+    m_lastTime: -8585848463718162615
     List:
-    - name: Environment
-      guid: 9462943f00bc66409fa4e3bc35c1a358
-      id: 1229948536
+    - name: Environmental
+      guid: b25571ca98c79e47a4de9a05626a84a6
+      id: 1973600711
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
         ObjectType: 5
@@ -53,10 +53,10 @@ MonoBehaviour:
       - ElementName: Master Audio Bus
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
-      - ElementName: Environment
+      - ElementName: Environmental
         ObjectType: 2
-        guid: 9462943f00bc66409fa4e3bc35c1a358
-      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environment
+        guid: b25571ca98c79e47a4de9a05626a84a6
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environmental
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -72,7 +72,7 @@ MonoBehaviour:
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
     - name: Music
-      guid: 26d122670e770e44a0e03a6ff4e0ad03
+      guid: 3e63a480918ff44f8b5475f23ee26dad
       id: 3991942870
       PathAndIcons:
       - ElementName: Master-Mixer Hierarchy
@@ -86,7 +86,7 @@ MonoBehaviour:
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       - ElementName: Music
         ObjectType: 2
-        guid: 26d122670e770e44a0e03a6ff4e0ad03
+        guid: 3e63a480918ff44f8b5475f23ee26dad
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585830433022024024
+    m_lastTime: -8585848463711060760
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,392 +128,8 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585830433022233466
+    m_lastTime: -8585848463725793788
     List:
-    - name: Alarme_event
-      guid: 6ac233dd8626d64ab10fafd2cdc62b15
-      id: 1721773124
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Alarme_event
-        ObjectType: 3
-        guid: 6ac233dd8626d64ab10fafd2cdc62b15
-      Path: Events\Default Work Unit\Environment_events\Alarme_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ambiant_interior_event
-      guid: fef7efefcba927439afa6ae15103f599
-      id: 2961983739
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Music_levels
-        ObjectType: 4
-        guid: 83c154ea6ed22e4d99c862109a900c87
-      - ElementName: Ambiant_interior_event
-        ObjectType: 3
-        guid: fef7efefcba927439afa6ae15103f599
-      Path: Events\Default Work Unit\Music_levels\Ambiant_interior_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ascenseur_fermee_event
-      guid: 967a13e892078049957e60db0d46a474
-      id: 251064884
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ascenseur_fermee_event
-        ObjectType: 3
-        guid: 967a13e892078049957e60db0d46a474
-      Path: Events\Default Work Unit\Environment_events\Ascenseur_fermee_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ascenseur_ouvert_event
-      guid: 830018bcf4356a4586e593523c14a040
-      id: 1844130327
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ascenseur_ouvert_event
-        ObjectType: 3
-        guid: 830018bcf4356a4586e593523c14a040
-      Path: Events\Default Work Unit\Environment_events\Ascenseur_ouvert_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ballon
-      guid: 333043e10d3c364585aeef07142e1db5
-      id: 3306003129
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ballon
-        ObjectType: 4
-        guid: 333043e10d3c364585aeef07142e1db5
-      Path: Events\Default Work Unit\Environment_events\Ballon
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ballon_explosion_event
-      guid: 2701db53b742b64fbfc0b51abce34137
-      id: 2564548868
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ballon
-        ObjectType: 4
-        guid: 333043e10d3c364585aeef07142e1db5
-      - ElementName: Ballon_explosion_event
-        ObjectType: 3
-        guid: 2701db53b742b64fbfc0b51abce34137
-      Path: Events\Default Work Unit\Environment_events\Ballon\Ballon_explosion_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ballon_souffle_event
-      guid: b6d0201c97457945a4f879b83d99dd1b
-      id: 3952828675
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ballon
-        ObjectType: 4
-        guid: 333043e10d3c364585aeef07142e1db5
-      - ElementName: Ballon_souffle_event
-        ObjectType: 3
-        guid: b6d0201c97457945a4f879b83d99dd1b
-      Path: Events\Default Work Unit\Environment_events\Ballon\Ballon_souffle_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Big_Ventilator_event
-      guid: 8232c6f35a5a244e97a9a56761555d96
-      id: 478883995
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ventilator
-        ObjectType: 4
-        guid: 09dd01851908bc46b836725ffdd38bad
-      - ElementName: Big_Ventilator_event
-        ObjectType: 3
-        guid: 8232c6f35a5a244e97a9a56761555d96
-      Path: Events\Default Work Unit\Environment_events\Ventilator\Big_Ventilator_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Break_Drones_deplacement_event
-      guid: 2e809d645dad2843a1ab73da3623806d
-      id: 3707020222
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Drones
-        ObjectType: 4
-        guid: 1327498392a15548873c9c6fad1a49d7
-      - ElementName: Break_Drones_deplacement_event
-        ObjectType: 3
-        guid: 2e809d645dad2843a1ab73da3623806d
-      Path: Events\Default Work Unit\Environment_events\Drones\Break_Drones_deplacement_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Break_Drones_stationnaire_event
-      guid: ea79686c67211d4785e6107707a0fa7e
-      id: 2580519433
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Drones
-        ObjectType: 4
-        guid: 1327498392a15548873c9c6fad1a49d7
-      - ElementName: Break_Drones_stationnaire_event
-        ObjectType: 3
-        guid: ea79686c67211d4785e6107707a0fa7e
-      Path: Events\Default Work Unit\Environment_events\Drones\Break_Drones_stationnaire_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Break_Uni_Etouffement_event
-      guid: 10c85d2f37472e4a83de444821868432
-      id: 3902829861
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: Uni_respiration
-        ObjectType: 4
-        guid: fa126081904c13439d3c5733842858cb
-      - ElementName: Break_Uni_Etouffement_event
-        ObjectType: 3
-        guid: 10c85d2f37472e4a83de444821868432
-      Path: Events\Default Work Unit\Uni_events\Uni_respiration\Break_Uni_Etouffement_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Break_UntilIBreathe_Level2_3_Run_Loop_event
-      guid: f3898f7f0c5fe643aed083f20543fdcb
-      id: 4014938746
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Music_levels
-        ObjectType: 4
-        guid: 83c154ea6ed22e4d99c862109a900c87
-      - ElementName: Lvl_2_3
-        ObjectType: 4
-        guid: 3ef2ede1668b9a4c99671ccb1f6aaf64
-      - ElementName: Break_UntilIBreathe_Level2_3_Run_Loop_event
-        ObjectType: 3
-        guid: f3898f7f0c5fe643aed083f20543fdcb
-      Path: Events\Default Work Unit\Music_levels\Lvl_2_3\Break_UntilIBreathe_Level2_3_Run_Loop_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: BrokenWindow_event
-      guid: 24a931e80136e646a7b04bfb1e79106d
-      id: 113833375
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: BrokenWindow_event
-        ObjectType: 3
-        guid: 24a931e80136e646a7b04bfb1e79106d
-      Path: Events\Default Work Unit\Environment_events\BrokenWindow_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Caisse_frottement_event
-      guid: 6eeb0c6d2d56f849b5a2557bbcd8295b
-      id: 2529491121
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Caisses
-        ObjectType: 4
-        guid: 712f615b475d2d4da876fab30f96cbdb
-      - ElementName: Caisse_frottement_event
-        ObjectType: 3
-        guid: 6eeb0c6d2d56f849b5a2557bbcd8295b
-      Path: Events\Default Work Unit\Environment_events\Caisses\Caisse_frottement_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Caisses
-      guid: 712f615b475d2d4da876fab30f96cbdb
-      id: 2107312140
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Caisses
-        ObjectType: 4
-        guid: 712f615b475d2d4da876fab30f96cbdb
-      Path: Events\Default Work Unit\Environment_events\Caisses
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Camera_detection_event
-      guid: 8d5e22a6be8a3b45a849ffcf30bbed82
-      id: 4200175161
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Camera_detection_event
-        ObjectType: 3
-        guid: 8d5e22a6be8a3b45a849ffcf30bbed82
-      Path: Events\Default Work Unit\Environment_events\Camera_detection_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: CarteMagnetique_ramasse_event
-      guid: c5c08bfd8c928748ba4eda5e02e16d9c
-      id: 2894782302
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: CarteMagnetique_ramasse_event
-        ObjectType: 3
-        guid: c5c08bfd8c928748ba4eda5e02e16d9c
-      Path: Events\Default Work Unit\Environment_events\CarteMagnetique_ramasse_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: CarteMagnetique_utiliser_event
-      guid: cc29d56f6762244988060a25cd890c0c
-      id: 4133994025
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: CarteMagnetique_utiliser_event
-        ObjectType: 3
-        guid: cc29d56f6762244988060a25cd890c0c
-      Path: Events\Default Work Unit\Environment_events\CarteMagnetique_utiliser_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Clothes_event
       guid: b4923e88cb56b14faca3cf0f7ba29ed8
       id: 1884367558
@@ -524,271 +140,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: Clothes_event
         ObjectType: 3
         guid: b4923e88cb56b14faca3cf0f7ba29ed8
-      Path: Events\Default Work Unit\Uni_events\FS\Clothes_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Deplacements_ST2_event
-      guid: 9ca2a3d889baec4ebe76f12a6c6faea9
-      id: 4060145565
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: ST2_events
-        ObjectType: 4
-        guid: d0a8e906e890dd4b9a083fff794014e5
-      - ElementName: Deplacements_ST2_event
-        ObjectType: 3
-        guid: 9ca2a3d889baec4ebe76f12a6c6faea9
-      Path: Events\Default Work Unit\ST2_events\Deplacements_ST2_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Drone_acceleration_event
-      guid: 0e8b40a910cb2c44b6c6b39167a2a664
-      id: 239919669
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Drones
-        ObjectType: 4
-        guid: 1327498392a15548873c9c6fad1a49d7
-      - ElementName: Drone_acceleration_event
-        ObjectType: 3
-        guid: 0e8b40a910cb2c44b6c6b39167a2a664
-      Path: Events\Default Work Unit\Environment_events\Drones\Drone_acceleration_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Drone_deplacement_event
-      guid: 736bb6fa360eda47816abf7270fbce63
-      id: 3075378619
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Drones
-        ObjectType: 4
-        guid: 1327498392a15548873c9c6fad1a49d7
-      - ElementName: Drone_deplacement_event
-        ObjectType: 3
-        guid: 736bb6fa360eda47816abf7270fbce63
-      Path: Events\Default Work Unit\Environment_events\Drones\Drone_deplacement_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Drone_fireshot_event
-      guid: 9df25a4e6fdebc43b6ab151aa9a97100
-      id: 728004997
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Drones
-        ObjectType: 4
-        guid: 1327498392a15548873c9c6fad1a49d7
-      - ElementName: Drone_fireshot_event
-        ObjectType: 3
-        guid: 9df25a4e6fdebc43b6ab151aa9a97100
-      Path: Events\Default Work Unit\Environment_events\Drones\Drone_fireshot_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Drone_stationnaire_event
-      guid: c0342a2c8d9a4e4b874bdede9dbc8f72
-      id: 3298702202
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Drones
-        ObjectType: 4
-        guid: 1327498392a15548873c9c6fad1a49d7
-      - ElementName: Drone_stationnaire_event
-        ObjectType: 3
-        guid: c0342a2c8d9a4e4b874bdede9dbc8f72
-      Path: Events\Default Work Unit\Environment_events\Drones\Drone_stationnaire_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Drones
-      guid: 1327498392a15548873c9c6fad1a49d7
-      id: 3317944528
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Drones
-        ObjectType: 4
-        guid: 1327498392a15548873c9c6fad1a49d7
-      Path: Events\Default Work Unit\Environment_events\Drones
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Engranage_tourne_event
-      guid: 45bdae35844ede49aa05d39deed2b095
-      id: 2122763242
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Engranage_tourne_event
-        ObjectType: 3
-        guid: 45bdae35844ede49aa05d39deed2b095
-      Path: Events\Default Work Unit\Environment_events\Engranage_tourne_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Engrenage_bloquer_event
-      guid: fce1253c5f0e1048a637edb009a10f83
-      id: 480333909
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Engrenage_bloquer_event
-        ObjectType: 3
-        guid: fce1253c5f0e1048a637edb009a10f83
-      Path: Events\Default Work Unit\Environment_events\Engrenage_bloquer_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Environment_events
-      guid: 4e936b211263924a97938e866a179f9d
-      id: 3683375420
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      Path: Events\Default Work Unit\Environment_events
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Foule
-      guid: f02e4aa84eec514b90b30379def08574
-      id: 4222617504
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Foule
-        ObjectType: 4
-        guid: f02e4aa84eec514b90b30379def08574
-      Path: Events\Default Work Unit\Environment_events\Foule
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Foule_loop_event
-      guid: f3429ac42a67fb4cb04c696fa9fa9c64
-      id: 2985396484
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Foule
-        ObjectType: 4
-        guid: f02e4aa84eec514b90b30379def08574
-      - ElementName: Foule_loop_event
-        ObjectType: 3
-        guid: f3429ac42a67fb4cb04c696fa9fa9c64
-      Path: Events\Default Work Unit\Environment_events\Foule\Foule_loop_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Foule_wow_event
-      guid: 2b92c9e88fbb2c458ac85ab7721953d3
-      id: 2519954033
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Foule
-        ObjectType: 4
-        guid: f02e4aa84eec514b90b30379def08574
-      - ElementName: Foule_wow_event
-        ObjectType: 3
-        guid: 2b92c9e88fbb2c458ac85ab7721953d3
-      Path: Events\Default Work Unit\Environment_events\Foule\Foule_wow_event
+      Path: Events\Default Work Unit\FS\Clothes_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -802,13 +160,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
-      Path: Events\Default Work Unit\Uni_events\FS
+      Path: Events\Default Work Unit\FS
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -822,16 +177,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Beton_event
         ObjectType: 3
         guid: a3418c5f20f96b45ad9b6145e0838538
-      Path: Events\Default Work Unit\Uni_events\FS\FS_Beton_event
+      Path: Events\Default Work Unit\FS\FS_Beton_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -845,16 +197,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Bois_event
         ObjectType: 3
         guid: f01edba86f7dcf4e8e4fd0d01219363a
-      Path: Events\Default Work Unit\Uni_events\FS\FS_Bois_event
+      Path: Events\Default Work Unit\FS\FS_Bois_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -868,16 +217,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Beton_event
         ObjectType: 3
         guid: 508e7448f9393341b99925c0bd8007c5
-      Path: Events\Default Work Unit\Uni_events\FS\FS_crouch_Beton_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Beton_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -891,16 +237,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Bois_event
         ObjectType: 3
         guid: 121e0d83514e0041926137d3533dc58f
-      Path: Events\Default Work Unit\Uni_events\FS\FS_crouch_Bois_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Bois_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -914,16 +257,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Liquide_event
         ObjectType: 3
         guid: e780e13d4aa8a44ea96b74e7470a4f13
-      Path: Events\Default Work Unit\Uni_events\FS\FS_crouch_Liquide_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Liquide_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -937,16 +277,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Metal_event
         ObjectType: 3
         guid: 8540b847a1482b469103b5c84d0da367
-      Path: Events\Default Work Unit\Uni_events\FS\FS_crouch_Metal_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Metal_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -960,16 +297,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_crouch_Ordure_event
         ObjectType: 3
         guid: b6fe295eeeb3c0439f3f6ec889da219e
-      Path: Events\Default Work Unit\Uni_events\FS\FS_crouch_Ordure_event
+      Path: Events\Default Work Unit\FS\FS_crouch_Ordure_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -983,16 +317,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Liquide_event
         ObjectType: 3
         guid: 7de23be624da234c8a2dd857ad7e2824
-      Path: Events\Default Work Unit\Uni_events\FS\FS_Liquide_event
+      Path: Events\Default Work Unit\FS\FS_Liquide_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1006,16 +337,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Metal_event
         ObjectType: 3
         guid: 381a746a1ee04d43af8e06e715992ac2
-      Path: Events\Default Work Unit\Uni_events\FS\FS_Metal_event
+      Path: Events\Default Work Unit\FS\FS_Metal_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1029,16 +357,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: FS
         ObjectType: 4
         guid: 3fb923d3578a41488cf09474e945b822
       - ElementName: FS_Ordure_event
         ObjectType: 3
         guid: c73e5d7bd5f79845a14265aefa56eda8
-      Path: Events\Default Work Unit\Uni_events\FS\FS_Ordure_event
+      Path: Events\Default Work Unit\FS\FS_Ordure_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1052,13 +377,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: Hook
         ObjectType: 4
         guid: 27e80f07bf51ca49aae66271252fa17c
-      Path: Events\Default Work Unit\Uni_events\Hook
+      Path: Events\Default Work Unit\Hook
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1072,16 +394,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: Hook
         ObjectType: 4
         guid: 27e80f07bf51ca49aae66271252fa17c
       - ElementName: Hook_accroche_event
         ObjectType: 3
         guid: 1ad3aaea397b7e45ae0c2dd753ff3cc9
-      Path: Events\Default Work Unit\Uni_events\Hook\Hook_accroche_event
+      Path: Events\Default Work Unit\Hook\Hook_accroche_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1095,16 +414,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: Hook
         ObjectType: 4
         guid: 27e80f07bf51ca49aae66271252fa17c
       - ElementName: Hook_balance_event
         ObjectType: 3
         guid: 3c53551e2d206844be2630db8d5e39cb
-      Path: Events\Default Work Unit\Uni_events\Hook\Hook_balance_event
+      Path: Events\Default Work Unit\Hook\Hook_balance_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1118,16 +434,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: Hook
         ObjectType: 4
         guid: 27e80f07bf51ca49aae66271252fa17c
       - ElementName: Hook_decroche_event
         ObjectType: 3
         guid: a5141723466f9d46af91dafb949462c7
-      Path: Events\Default Work Unit\Uni_events\Hook\Hook_decroche_event
+      Path: Events\Default Work Unit\Hook\Hook_decroche_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1141,16 +454,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: Hook
         ObjectType: 4
         guid: 27e80f07bf51ca49aae66271252fa17c
       - ElementName: Hook_ralonge_event
         ObjectType: 3
         guid: a4688a10b1677f40b7437961fa5e280b
-      Path: Events\Default Work Unit\Uni_events\Hook\Hook_ralonge_event
+      Path: Events\Default Work Unit\Hook\Hook_ralonge_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1164,39 +474,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: Hook
         ObjectType: 4
         guid: 27e80f07bf51ca49aae66271252fa17c
       - ElementName: Hook_retracte_event
         ObjectType: 3
         guid: 58628b69bcefd84d9eac2dc426ef37ae
-      Path: Events\Default Work Unit\Uni_events\Hook\Hook_retracte_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Inspiration_event
-      guid: 284240941001c24fa086947dda2e54ad
-      id: 703873446
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: Uni_respiration
-        ObjectType: 4
-        guid: fa126081904c13439d3c5733842858cb
-      - ElementName: Inspiration_event
-        ObjectType: 3
-        guid: 284240941001c24fa086947dda2e54ad
-      Path: Events\Default Work Unit\Uni_events\Uni_respiration\Inspiration_event
+      Path: Events\Default Work Unit\Hook\Hook_retracte_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1210,13 +494,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: Jump
         ObjectType: 4
         guid: cbe3a38b2059da448a59333ae195de2c
-      Path: Events\Default Work Unit\Uni_events\Jump
+      Path: Events\Default Work Unit\Jump
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1230,59 +511,13 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
       - ElementName: Jump
         ObjectType: 4
         guid: cbe3a38b2059da448a59333ae195de2c
       - ElementName: Jump_event
         ObjectType: 3
         guid: fb3c5a7014353545a0848f3d0eb47937
-      Path: Events\Default Work Unit\Uni_events\Jump\Jump_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Levier_event
-      guid: b2d58d336a9d3443a4f6d19415b7d4f7
-      id: 5910555
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Levier_event
-        ObjectType: 3
-        guid: b2d58d336a9d3443a4f6d19415b7d4f7
-      Path: Events\Default Work Unit\Environment_events\Levier_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Little_Ventilator_event
-      guid: 1436555add626d4a8bb3685a9562d8d3
-      id: 3010937615
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ventilator
-        ObjectType: 4
-        guid: 09dd01851908bc46b836725ffdd38bad
-      - ElementName: Little_Ventilator_event
-        ObjectType: 3
-        guid: 1436555add626d4a8bb3685a9562d8d3
-      Path: Events\Default Work Unit\Environment_events\Ventilator\Little_Ventilator_event
+      Path: Events\Default Work Unit\Jump\Jump_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1326,26 +561,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Lvl_1_3_event
-      guid: 5715a83b09132840bd6b0cc2767d328a
-      id: 1150871578
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Music_levels
-        ObjectType: 4
-        guid: 83c154ea6ed22e4d99c862109a900c87
-      - ElementName: Lvl_1_3_event
-        ObjectType: 3
-        guid: 5715a83b09132840bd6b0cc2767d328a
-      Path: Events\Default Work Unit\Music_levels\Lvl_1_3_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Lvl_2_1_event
       guid: c3961dac7eb85c45bee153533aeab276
       id: 3922198791
@@ -1366,106 +581,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Lvl_2_2_event
-      guid: c24c8e5164d5b14aaac375941a9158a3
-      id: 3860896488
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Music_levels
-        ObjectType: 4
-        guid: 83c154ea6ed22e4d99c862109a900c87
-      - ElementName: Lvl_2_2_event
-        ObjectType: 3
-        guid: c24c8e5164d5b14aaac375941a9158a3
-      Path: Events\Default Work Unit\Music_levels\Lvl_2_2_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Lvl_2_3
-      guid: 3ef2ede1668b9a4c99671ccb1f6aaf64
-      id: 420223988
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Music_levels
-        ObjectType: 4
-        guid: 83c154ea6ed22e4d99c862109a900c87
-      - ElementName: Lvl_2_3
-        ObjectType: 4
-        guid: 3ef2ede1668b9a4c99671ccb1f6aaf64
-      Path: Events\Default Work Unit\Music_levels\Lvl_2_3
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Lvl_3_1_event
-      guid: bd6362e859baf54caa00818fad8324c2
-      id: 1157007206
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Music_levels
-        ObjectType: 4
-        guid: 83c154ea6ed22e4d99c862109a900c87
-      - ElementName: Lvl_3_1_event
-        ObjectType: 3
-        guid: bd6362e859baf54caa00818fad8324c2
-      Path: Events\Default Work Unit\Music_levels\Lvl_3_1_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Message_ST2_Branchement_event
-      guid: 1ee7439b9fa8c246bf8959447d7f0087
-      id: 3024873643
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: ST2_events
-        ObjectType: 4
-        guid: d0a8e906e890dd4b9a083fff794014e5
-      - ElementName: Message_ST2_Branchement_event
-        ObjectType: 3
-        guid: 1ee7439b9fa8c246bf8959447d7f0087
-      Path: Events\Default Work Unit\ST2_events\Message_ST2_Branchement_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Message_ST2_decrypte_event
-      guid: 666a1e2fe31e264f8d83dcfd79bc349d
-      id: 3095867336
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: ST2_events
-        ObjectType: 4
-        guid: d0a8e906e890dd4b9a083fff794014e5
-      - ElementName: Message_ST2_decrypte_event
-        ObjectType: 3
-        guid: 666a1e2fe31e264f8d83dcfd79bc349d
-      Path: Events\Default Work Unit\ST2_events\Message_ST2_decrypte_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Music_levels
       guid: 83c154ea6ed22e4d99c862109a900c87
       id: 2209143460
@@ -1483,835 +598,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Nacelle_depart_event
-      guid: d4bb8cc30f14c846bccade92a2c3a354
-      id: 4251687649
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Nacelles
-        ObjectType: 4
-        guid: aa4dda3d5c5de245867eadda22810449
-      - ElementName: Nacelle_depart_event
-        ObjectType: 3
-        guid: d4bb8cc30f14c846bccade92a2c3a354
-      Path: Events\Default Work Unit\Environment_events\Nacelles\Nacelle_depart_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Nacelle_detruite_event
-      guid: f8f85269afce744d80997fc70b10f21e
-      id: 3435722515
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Nacelles
-        ObjectType: 4
-        guid: aa4dda3d5c5de245867eadda22810449
-      - ElementName: Nacelle_detruite_event
-        ObjectType: 3
-        guid: f8f85269afce744d80997fc70b10f21e
-      Path: Events\Default Work Unit\Environment_events\Nacelles\Nacelle_detruite_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Nacelle_fin_event
-      guid: f1e80f5906280349a7d10696b061baef
-      id: 410758684
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Nacelles
-        ObjectType: 4
-        guid: aa4dda3d5c5de245867eadda22810449
-      - ElementName: Nacelle_fin_event
-        ObjectType: 3
-        guid: f1e80f5906280349a7d10696b061baef
-      Path: Events\Default Work Unit\Environment_events\Nacelles\Nacelle_fin_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Nacelle_loop_event
-      guid: 4e854ec4bbe60e44a33acdeefde6ef40
-      id: 2283719349
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Nacelles
-        ObjectType: 4
-        guid: aa4dda3d5c5de245867eadda22810449
-      - ElementName: Nacelle_loop_event
-        ObjectType: 3
-        guid: 4e854ec4bbe60e44a33acdeefde6ef40
-      Path: Events\Default Work Unit\Environment_events\Nacelles\Nacelle_loop_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Nacelles
-      guid: aa4dda3d5c5de245867eadda22810449
-      id: 2836423634
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Nacelles
-        ObjectType: 4
-        guid: aa4dda3d5c5de245867eadda22810449
-      Path: Events\Default Work Unit\Environment_events\Nacelles
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Plateforme
-      guid: 1bed420fad38d44db6e8187e9d53be94
-      id: 1736513622
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Plateforme
-        ObjectType: 4
-        guid: 1bed420fad38d44db6e8187e9d53be94
-      Path: Events\Default Work Unit\Environment_events\Plateforme
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Plateforme_casse_blacon_beton_event
-      guid: 139cb34c581ae841a59867b56d498e9f
-      id: 695806192
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Plateforme
-        ObjectType: 4
-        guid: 1bed420fad38d44db6e8187e9d53be94
-      - ElementName: Plateforme_casse_blacon_beton_event
-        ObjectType: 3
-        guid: 139cb34c581ae841a59867b56d498e9f
-      Path: Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_blacon_beton_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Plateforme_casse_goutiere_metal_event
-      guid: 47635ddadf8e824c8c433beee60194f8
-      id: 3013755494
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Plateforme
-        ObjectType: 4
-        guid: 1bed420fad38d44db6e8187e9d53be94
-      - ElementName: Plateforme_casse_goutiere_metal_event
-        ObjectType: 3
-        guid: 47635ddadf8e824c8c433beee60194f8
-      Path: Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_goutiere_metal_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Plateforme_casse_passerelle_metal_event
-      guid: fefb7d560cf4e448966bcf4407c91bca
-      id: 2517494722
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Plateforme
-        ObjectType: 4
-        guid: 1bed420fad38d44db6e8187e9d53be94
-      - ElementName: Plateforme_casse_passerelle_metal_event
-        ObjectType: 3
-        guid: fefb7d560cf4e448966bcf4407c91bca
-      Path: Events\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_passerelle_metal_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Play_Level2_3_event
-      guid: e9943d13fc78df4fa055e6abe8002818
-      id: 3795112257
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Music_levels
-        ObjectType: 4
-        guid: 83c154ea6ed22e4d99c862109a900c87
-      - ElementName: Lvl_2_3
-        ObjectType: 4
-        guid: 3ef2ede1668b9a4c99671ccb1f6aaf64
-      - ElementName: Play_Level2_3_event
-        ObjectType: 3
-        guid: e9943d13fc78df4fa055e6abe8002818
-      Path: Events\Default Work Unit\Music_levels\Lvl_2_3\Play_Level2_3_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Porte_coulissante_fermee_event
-      guid: 0824a9d8a377c64bb7bedce62fda93df
-      id: 1197453168
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Portes
-        ObjectType: 4
-        guid: 7c8393df6b097b40be56a90b16b9a3ef
-      - ElementName: Porte_coulissante_fermee_event
-        ObjectType: 3
-        guid: 0824a9d8a377c64bb7bedce62fda93df
-      Path: Events\Default Work Unit\Environment_events\Portes\Porte_coulissante_fermee_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Porte_coulissante_ouverte_event
-      guid: 6912466359ba8f4688fd6255e00cb709
-      id: 1772158906
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Portes
-        ObjectType: 4
-        guid: 7c8393df6b097b40be56a90b16b9a3ef
-      - ElementName: Porte_coulissante_ouverte_event
-        ObjectType: 3
-        guid: 6912466359ba8f4688fd6255e00cb709
-      Path: Events\Default Work Unit\Environment_events\Portes\Porte_coulissante_ouverte_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Porte_Deverouillee_event
-      guid: 3edca2c65700034a8d6462394b9073d6
-      id: 293930242
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Portes
-        ObjectType: 4
-        guid: 7c8393df6b097b40be56a90b16b9a3ef
-      - ElementName: Porte_Deverouillee_event
-        ObjectType: 3
-        guid: 3edca2c65700034a8d6462394b9073d6
-      Path: Events\Default Work Unit\Environment_events\Portes\Porte_Deverouillee_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Porte_fermee_bois_event
-      guid: d49f1b1ef9f58f4b95fde69f8540a87b
-      id: 2507411233
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Portes
-        ObjectType: 4
-        guid: 7c8393df6b097b40be56a90b16b9a3ef
-      - ElementName: Porte_fermee_bois_event
-        ObjectType: 3
-        guid: d49f1b1ef9f58f4b95fde69f8540a87b
-      Path: Events\Default Work Unit\Environment_events\Portes\Porte_fermee_bois_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Porte_fermee_metal_event
-      guid: f965099a6dcba84890d0730474e1deca
-      id: 2193255299
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Portes
-        ObjectType: 4
-        guid: 7c8393df6b097b40be56a90b16b9a3ef
-      - ElementName: Porte_fermee_metal_event
-        ObjectType: 3
-        guid: f965099a6dcba84890d0730474e1deca
-      Path: Events\Default Work Unit\Environment_events\Portes\Porte_fermee_metal_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Porte_ouverte_bois_event
-      guid: 66692f68f66ffe4795d4146da88c7136
-      id: 2335575013
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Portes
-        ObjectType: 4
-        guid: 7c8393df6b097b40be56a90b16b9a3ef
-      - ElementName: Porte_ouverte_bois_event
-        ObjectType: 3
-        guid: 66692f68f66ffe4795d4146da88c7136
-      Path: Events\Default Work Unit\Environment_events\Portes\Porte_ouverte_bois_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Porte_ouverte_metal_event
-      guid: b2c246180b1d9846b9e0be28ee49a051
-      id: 756074935
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Portes
-        ObjectType: 4
-        guid: 7c8393df6b097b40be56a90b16b9a3ef
-      - ElementName: Porte_ouverte_metal_event
-        ObjectType: 3
-        guid: b2c246180b1d9846b9e0be28ee49a051
-      Path: Events\Default Work Unit\Environment_events\Portes\Porte_ouverte_metal_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Portes
-      guid: 7c8393df6b097b40be56a90b16b9a3ef
-      id: 3185142948
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Portes
-        ObjectType: 4
-        guid: 7c8393df6b097b40be56a90b16b9a3ef
-      Path: Events\Default Work Unit\Environment_events\Portes
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ST2_danger_event
-      guid: 681dca43af70134f8599cbd4b91ea563
-      id: 2675001189
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: ST2_events
-        ObjectType: 4
-        guid: d0a8e906e890dd4b9a083fff794014e5
-      - ElementName: ST2_danger_event
-        ObjectType: 3
-        guid: 681dca43af70134f8599cbd4b91ea563
-      Path: Events\Default Work Unit\ST2_events\ST2_danger_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ST2_events
-      guid: d0a8e906e890dd4b9a083fff794014e5
-      id: 1788184474
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: ST2_events
-        ObjectType: 4
-        guid: d0a8e906e890dd4b9a083fff794014e5
-      Path: Events\Default Work Unit\ST2_events
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ST2_normal_event
-      guid: ea3c3d342da71a48add42c88eacc89cd
-      id: 1042672185
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: ST2_events
-        ObjectType: 4
-        guid: d0a8e906e890dd4b9a083fff794014e5
-      - ElementName: ST2_normal_event
-        ObjectType: 3
-        guid: ea3c3d342da71a48add42c88eacc89cd
-      Path: Events\Default Work Unit\ST2_events\ST2_normal_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: ST2_triste__event
-      guid: f49a7a5017e9e848a6a44cf8dd51e6f5
-      id: 264719496
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: ST2_events
-        ObjectType: 4
-        guid: d0a8e906e890dd4b9a083fff794014e5
-      - ElementName: ST2_triste__event
-        ObjectType: 3
-        guid: f49a7a5017e9e848a6a44cf8dd51e6f5
-      Path: Events\Default Work Unit\ST2_events\ST2_triste__event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Stop_Caisse_frottement_event
-      guid: be2bcf5e8cd736419f4bac35e152fa46
-      id: 707299762
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Caisses
-        ObjectType: 4
-        guid: 712f615b475d2d4da876fab30f96cbdb
-      - ElementName: Stop_Caisse_frottement_event
-        ObjectType: 3
-        guid: be2bcf5e8cd736419f4bac35e152fa46
-      Path: Events\Default Work Unit\Environment_events\Caisses\Stop_Caisse_frottement_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Stop_Little_Ventilator_event
-      guid: ddcd0e1956940e4480216867deeb730b
-      id: 2239026864
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ventilator
-        ObjectType: 4
-        guid: 09dd01851908bc46b836725ffdd38bad
-      - ElementName: Stop_Little_Ventilator_event
-        ObjectType: 3
-        guid: ddcd0e1956940e4480216867deeb730b
-      Path: Events\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Stop_music_event
-      guid: 10e1328e021e8f4397060182decfa8c9
-      id: 3935460844
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Music_levels
-        ObjectType: 4
-        guid: 83c154ea6ed22e4d99c862109a900c87
-      - ElementName: Stop_music_event
-        ObjectType: 3
-        guid: 10e1328e021e8f4397060182decfa8c9
-      Path: Events\Default Work Unit\Music_levels\Stop_music_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Stop_UniSouffle_event
-      guid: cd7a3e67d569034c9caa2a7537afd852
-      id: 3140239569
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: Uni_respiration
-        ObjectType: 4
-        guid: fa126081904c13439d3c5733842858cb
-      - ElementName: Stop_UniSouffle_event
-        ObjectType: 3
-        guid: cd7a3e67d569034c9caa2a7537afd852
-      Path: Events\Default Work Unit\Uni_events\Uni_respiration\Stop_UniSouffle_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Train
-      guid: 000782575951474298c1830daa35c124
-      id: 3412057565
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Train
-        ObjectType: 4
-        guid: 000782575951474298c1830daa35c124
-      Path: Events\Default Work Unit\Environment_events\Train
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Train_arret_event
-      guid: 4406c7b9413e89468bfeb74e01501ff4
-      id: 3009703055
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Train
-        ObjectType: 4
-        guid: 000782575951474298c1830daa35c124
-      - ElementName: Train_arret_event
-        ObjectType: 3
-        guid: 4406c7b9413e89468bfeb74e01501ff4
-      Path: Events\Default Work Unit\Environment_events\Train\Train_arret_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Train_depart_event
-      guid: b9af6b63493fc6418c2a2e4307b186ad
-      id: 3951010251
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Train
-        ObjectType: 4
-        guid: 000782575951474298c1830daa35c124
-      - ElementName: Train_depart_event
-        ObjectType: 3
-        guid: b9af6b63493fc6418c2a2e4307b186ad
-      Path: Events\Default Work Unit\Environment_events\Train\Train_depart_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Train_exterieur_event
-      guid: ee9a73482bd53046840d8ce69f2bcc29
-      id: 1127840350
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Train
-        ObjectType: 4
-        guid: 000782575951474298c1830daa35c124
-      - ElementName: Train_exterieur_event
-        ObjectType: 3
-        guid: ee9a73482bd53046840d8ce69f2bcc29
-      Path: Events\Default Work Unit\Environment_events\Train\Train_exterieur_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Train_Interieur_event
-      guid: 86952e1d77ef81419e77b4058ea6041a
-      id: 2137224780
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Train
-        ObjectType: 4
-        guid: 000782575951474298c1830daa35c124
-      - ElementName: Train_Interieur_event
-        ObjectType: 3
-        guid: 86952e1d77ef81419e77b4058ea6041a
-      Path: Events\Default Work Unit\Environment_events\Train\Train_Interieur_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Uni_Etouffement_event
-      guid: ecf77b0264eabe4aac37b566e6a0704d
-      id: 1109845805
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: Uni_respiration
-        ObjectType: 4
-        guid: fa126081904c13439d3c5733842858cb
-      - ElementName: Uni_Etouffement_event
-        ObjectType: 3
-        guid: ecf77b0264eabe4aac37b566e6a0704d
-      Path: Events\Default Work Unit\Uni_events\Uni_respiration\Uni_Etouffement_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Uni_events
-      guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      id: 2211272183
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      Path: Events\Default Work Unit\Uni_events
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Uni_respiration
-      guid: fa126081904c13439d3c5733842858cb
-      id: 3434065754
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: Uni_respiration
-        ObjectType: 4
-        guid: fa126081904c13439d3c5733842858cb
-      Path: Events\Default Work Unit\Uni_events\Uni_respiration
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Uni_tousse_a_mort_event
-      guid: dd75fbaa4c37224398ec0802918ad8c6
-      id: 4164979709
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: Uni_respiration
-        ObjectType: 4
-        guid: fa126081904c13439d3c5733842858cb
-      - ElementName: Uni_tousse_a_mort_event
-        ObjectType: 3
-        guid: dd75fbaa4c37224398ec0802918ad8c6
-      Path: Events\Default Work Unit\Uni_events\Uni_respiration\Uni_tousse_a_mort_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: UniSouffle_event
-      guid: 77d94e62d6f2c94190d2825a6c8e9810
-      id: 980828296
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: Uni_respiration
-        ObjectType: 4
-        guid: fa126081904c13439d3c5733842858cb
-      - ElementName: UniSouffle_event
-        ObjectType: 3
-        guid: 77d94e62d6f2c94190d2825a6c8e9810
-      Path: Events\Default Work Unit\Uni_events\Uni_respiration\UniSouffle_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Vent_event
-      guid: bda2e1dcc052a9428edb976aa8e34e5a
-      id: 4165311893
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Vent_event
-        ObjectType: 3
-        guid: bda2e1dcc052a9428edb976aa8e34e5a
-      Path: Events\Default Work Unit\Environment_events\Vent_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ventilator
-      guid: 09dd01851908bc46b836725ffdd38bad
-      id: 852397503
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ventilator
-        ObjectType: 4
-        guid: 09dd01851908bc46b836725ffdd38bad
-      Path: Events\Default Work Unit\Environment_events\Ventilator
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -2324,108 +610,10 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585830433022233466
+    m_lastTime: -8585848463725783804
     List:
-    - name: Ambiant_music_Sound
-      guid: dfc8bea834c55c4c8c843e62b285ddf2
-      id: 2979278319
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: Ambiant_music_Sound
-        ObjectType: 13
-        guid: dfc8bea834c55c4c8c843e62b285ddf2
-      Path: Game Parameters\Default Work Unit\Ambiant_music_Sound
-    - name: DistWithUniVolume
-      guid: 0e62fce66bf33d4ba3e95801a1ccb240
-      id: 1079181951
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: DistWithUniVolume
-        ObjectType: 13
-        guid: 0e62fce66bf33d4ba3e95801a1ccb240
-      Path: Game Parameters\Default Work Unit\DistWithUniVolume
-    - name: DoorVolume
-      guid: 64862ec2bf013b4e98e8a8b827147423
-      id: 2440552763
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: DoorVolume
-        ObjectType: 13
-        guid: 64862ec2bf013b4e98e8a8b827147423
-      Path: Game Parameters\Default Work Unit\DoorVolume
-    - name: DronesDeplacementVolume
-      guid: 55b4b9c4d4bd5c49a811cb97c5ebd004
-      id: 808486924
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: DronesDeplacementVolume
-        ObjectType: 13
-        guid: 55b4b9c4d4bd5c49a811cb97c5ebd004
-      Path: Game Parameters\Default Work Unit\DronesDeplacementVolume
-    - name: FallingPlateformeVolume
-      guid: 35ad8f5bd27d7f4dbc0fe2dafc0ed74d
-      id: 1003961143
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: FallingPlateformeVolume
-        ObjectType: 13
-        guid: 35ad8f5bd27d7f4dbc0fe2dafc0ed74d
-      Path: Game Parameters\Default Work Unit\FallingPlateformeVolume
-    - name: FanVolume
-      guid: 7258de91fdeb024198127d1b718daa69
-      id: 2656500902
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: FanVolume
-        ObjectType: 13
-        guid: 7258de91fdeb024198127d1b718daa69
-      Path: Game Parameters\Default Work Unit\FanVolume
-    - name: InspirationVolume
-      guid: 7cc9583e0e24334e9dae2f19fef3aafc
-      id: 2352147213
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: InspirationVolume
-        ObjectType: 13
-        guid: 7cc9583e0e24334e9dae2f19fef3aafc
-      Path: Game Parameters\Default Work Unit\InspirationVolume
     - name: MasterVolume
-      guid: 51eda605ecd41840bf416c3c6ccca290
+      guid: 1708362fcb81894480087028c3e8b1e7
       id: 2918011349
       PathAndIcons:
       - ElementName: Game Parameters
@@ -2434,29 +622,15 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: Settings
+      - ElementName: Volume
         ObjectType: 4
-        guid: b9acc3fa3438d14e9aeff7d4a414b364
+        guid: dbb83a78afcd4c41955c38c15d6942fe
       - ElementName: MasterVolume
         ObjectType: 13
-        guid: 51eda605ecd41840bf416c3c6ccca290
-      Path: Game Parameters\Default Work Unit\Settings\MasterVolume
-    - name: MusicLevelsVolume
-      guid: 815651bd0596b94f9191cb4af1090adb
-      id: 956757313
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: MusicLevelsVolume
-        ObjectType: 13
-        guid: 815651bd0596b94f9191cb4af1090adb
-      Path: Game Parameters\Default Work Unit\MusicLevelsVolume
+        guid: 1708362fcb81894480087028c3e8b1e7
+      Path: Game Parameters\Default Work Unit\Volume\MasterVolume
     - name: MusicVolume
-      guid: 7b51f4fad297ff46ae242b64a2067da9
+      guid: a2be516391a848408f2ecd799a8929eb
       id: 2346531308
       PathAndIcons:
       - ElementName: Game Parameters
@@ -2465,29 +639,15 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: Settings
+      - ElementName: Volume
         ObjectType: 4
-        guid: b9acc3fa3438d14e9aeff7d4a414b364
+        guid: dbb83a78afcd4c41955c38c15d6942fe
       - ElementName: MusicVolume
         ObjectType: 13
-        guid: 7b51f4fad297ff46ae242b64a2067da9
-      Path: Game Parameters\Default Work Unit\Settings\MusicVolume
-    - name: Settings
-      guid: b9acc3fa3438d14e9aeff7d4a414b364
-      id: 2910527622
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: Settings
-        ObjectType: 4
-        guid: b9acc3fa3438d14e9aeff7d4a414b364
-      Path: Game Parameters\Default Work Unit\Settings
+        guid: a2be516391a848408f2ecd799a8929eb
+      Path: Game Parameters\Default Work Unit\Volume\MusicVolume
     - name: SFXVolume
-      guid: fe2537c946948b4da62bc0b29a6ed0bc
+      guid: bbe6337368febf4abfdfa7bee60b9da1
       id: 988953028
       PathAndIcons:
       - ElementName: Game Parameters
@@ -2496,16 +656,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: Settings
+      - ElementName: Volume
         ObjectType: 4
-        guid: b9acc3fa3438d14e9aeff7d4a414b364
+        guid: dbb83a78afcd4c41955c38c15d6942fe
       - ElementName: SFXVolume
         ObjectType: 13
-        guid: fe2537c946948b4da62bc0b29a6ed0bc
-      Path: Game Parameters\Default Work Unit\Settings\SFXVolume
-    - name: TrainDepartVolume
-      guid: 5bc0689a7590ff47bb3e19907ea47309
-      id: 58362009
+        guid: bbe6337368febf4abfdfa7bee60b9da1
+      Path: Game Parameters\Default Work Unit\Volume\SFXVolume
+    - name: Volume
+      guid: dbb83a78afcd4c41955c38c15d6942fe
+      id: 2415836739
       PathAndIcons:
       - ElementName: Game Parameters
         ObjectType: 5
@@ -2513,66 +673,10 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: TrainDepartVolume
-        ObjectType: 13
-        guid: 5bc0689a7590ff47bb3e19907ea47309
-      Path: Game Parameters\Default Work Unit\TrainDepartVolume
-    - name: TrainLowPassFiltrer
-      guid: 6447ec01682eb74db92258b9b8844caf
-      id: 1579264580
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: TrainLowPassFiltrer
-        ObjectType: 13
-        guid: 6447ec01682eb74db92258b9b8844caf
-      Path: Game Parameters\Default Work Unit\TrainLowPassFiltrer
-    - name: TrainVolume
-      guid: fdc203c74cb36343af8b0bd48a726268
-      id: 1950279691
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: TrainVolume
-        ObjectType: 13
-        guid: fdc203c74cb36343af8b0bd48a726268
-      Path: Game Parameters\Default Work Unit\TrainVolume
-    - name: Uni_etouffementsVolume
-      guid: 07714bee9687b440af067db501f237ea
-      id: 2719740865
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: Uni_etouffementsVolume
-        ObjectType: 13
-        guid: 07714bee9687b440af067db501f237ea
-      Path: Game Parameters\Default Work Unit\Uni_etouffementsVolume
-    - name: VentilatorVolume
-      guid: 0e89c921e5b50d4ca0f405ac7873413f
-      id: 1991624541
-      PathAndIcons:
-      - ElementName: Game Parameters
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
-      - ElementName: VentilatorVolume
-        ObjectType: 13
-        guid: 0e89c921e5b50d4ca0f405ac7873413f
-      Path: Game Parameters\Default Work Unit\VentilatorVolume
+      - ElementName: Volume
+        ObjectType: 4
+        guid: dbb83a78afcd4c41955c38c15d6942fe
+      Path: Game Parameters\Default Work Unit\Volume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -2585,7 +689,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 6cd69aa556385a4980a194d531da01f9
     GuidInternal: 
-    m_lastTime: -8585832937700744538
+    m_lastTime: -8585848463711050773
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -2599,7 +703,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 55f3b155ac5f824c966e186f8dbe0dc6
     GuidInternal: 
-    m_lastTime: -8585832937700744538
+    m_lastTime: -8585848463711040783
     List:
     - name: FootSteps
       guid: e9b27687793928429459307ec8fff664
@@ -2711,10 +815,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 50ebb7989315ce43922b62fa3756eeb9
     GuidInternal: 
-    m_lastTime: -8585832937700734471
+    m_lastTime: -8585848463711040783
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 01000000020000000300000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000110000001400000015000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
