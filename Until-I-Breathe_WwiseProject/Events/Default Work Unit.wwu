@@ -64,7 +64,7 @@
 							<ChildrenList>
 								<Action Name="" ID="{9BD2A605-5E78-433E-B799-04714CCC8BDB}" ShortID="412839319">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="34"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -74,7 +74,7 @@
 								</Action>
 								<Action Name="" ID="{F1D24B54-3014-47F6-9C0A-79B8AEE735C8}" ShortID="604760988">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="34"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -84,7 +84,7 @@
 								</Action>
 								<Action Name="" ID="{DF702D3F-F519-4CEF-99A5-04A7EA27A7AF}" ShortID="340994081">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="34"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -94,7 +94,7 @@
 								</Action>
 								<Action Name="" ID="{63EA7810-956B-4D85-83A3-C2C44EEF71B1}" ShortID="146178026">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="34"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -104,7 +104,7 @@
 								</Action>
 								<Action Name="" ID="{4C0A8430-D0C7-444D-9FB3-6EA0532ACA56}" ShortID="185445211">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="34"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -114,7 +114,7 @@
 								</Action>
 								<Action Name="" ID="{BCD4E4AE-7122-43B0-B1FF-A0D0886BCB52}" ShortID="158809608">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="34"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -124,7 +124,7 @@
 								</Action>
 								<Action Name="" ID="{D1F89EB4-8FF9-4811-80DA-FD8D83E76C5B}" ShortID="254699873">
 									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="34"/>
+										<Property Name="ActionType" Type="int16" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
@@ -1000,6 +1000,28 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Camion_event" ID="{577B6236-EABA-4157-B7A5-C359B6581FEF}">
+							<ChildrenList>
+								<Action Name="" ID="{8800E04B-53BB-42E5-B3AF-DA2801822CB6}" ShortID="565558669">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Camion_Moteur_Arret_Loop" ID="{13D2D5EC-85A5-4CD4-8B8B-8C18A25BCB6B}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Enceinte_shutdown_event" ID="{0C32364C-D68D-4FCB-95ED-6039BB091B01}">
+							<ChildrenList>
+								<Action Name="" ID="{FDFAE044-E559-4219-A9FB-22BF9E10BB9F}" ShortID="885419420">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enceinte_Eteinte" ID="{178353CE-6E6E-44B7-829A-30FAC7C836CF}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST2_events" ID="{06E9A8D0-90E8-4BDD-9A08-3FFF794014E5}" ShortID="741954611">

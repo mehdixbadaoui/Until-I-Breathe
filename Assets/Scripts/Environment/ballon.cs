@@ -13,6 +13,9 @@ public class ballon : MonoBehaviour
     private Vector3 startPosition;
 
     private Inputs inputs;
+    private Vector3 distWithUni;
+    private PlayEventSounds playEvent;
+    public float maxDistance = 15f;
 
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class ballon : MonoBehaviour
     {
         startPosition = transform.position;
         travel_speed_val = travel_speed;
+        playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>(); 
     }
 
     // Update is called once per frame
@@ -61,6 +65,8 @@ public class ballon : MonoBehaviour
             transform.position = startPosition;
             air = 0;
             travel_speed = travel_speed_val;
+            distWithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
+            playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Ballon_explosion_event", "BallonExplosionVolume"); 
         }
         else if(collision.collider.CompareTag("PushBallon"))
             travel_speed = 2f;

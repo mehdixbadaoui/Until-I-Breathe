@@ -27,6 +27,7 @@ namespace AK
         static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
         static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;
         static const AkUniqueID CAMERA_DETECTION_EVENT = 4200175161U;
+        static const AkUniqueID CAMION_EVENT = 2091737429U;
         static const AkUniqueID CARTEMAGNETIQUE_RAMASSE_EVENT = 2894782302U;
         static const AkUniqueID CARTEMAGNETIQUE_UTILISER_EVENT = 4133994025U;
         static const AkUniqueID CLOTHES_EVENT = 1884367558U;
@@ -35,6 +36,7 @@ namespace AK
         static const AkUniqueID DRONE_DEPLACEMENT_EVENT = 3075378619U;
         static const AkUniqueID DRONE_FIRESHOT_EVENT = 728004997U;
         static const AkUniqueID DRONE_STATIONNAIRE_EVENT = 3298702202U;
+        static const AkUniqueID ENCEINTE_SHUTDOWN_EVENT = 773651708U;
         static const AkUniqueID ENGRANAGE_TOURNE_EVENT = 2122763242U;
         static const AkUniqueID ENGRENAGE_BLOQUER_EVENT = 480333909U;
         static const AkUniqueID FOULE_LOOP_EVENT = 2985396484U;
@@ -119,11 +121,14 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID AMBIANT_MUSIC_SOUND = 2979278319U;
+        static const AkUniqueID BALLONEXPLOSIONVOLUME = 366444476U;
+        static const AkUniqueID CAMIONVOLUME = 1636486062U;
         static const AkUniqueID DISTWITHUNIVOLUME = 1079181951U;
         static const AkUniqueID DOORVOLUME = 2440552763U;
         static const AkUniqueID DRONESDEPLACEMENTVOLUME = 808486924U;
         static const AkUniqueID FALLINGPLATEFORMEVOLUME = 1003961143U;
         static const AkUniqueID FANVOLUME = 2656500902U;
+        static const AkUniqueID FOULEVOLUME = 2014797766U;
         static const AkUniqueID INSPIRATIONVOLUME = 2352147213U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICLEVELSVOLUME = 956757313U;

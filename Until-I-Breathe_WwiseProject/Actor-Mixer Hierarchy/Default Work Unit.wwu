@@ -2939,6 +2939,32 @@
 											<ValueList>
 												<Value>-10</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{2A1663D3-4F93-4A72-B921-DEBC76EF671C}" ShortID="487557366">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="BallonExplosionVolume" ID="{48ADF3A0-8244-4FBE-88C9-0116BBE05015}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{0D079FE4-0CC8-4E61-BA95-CDAC2A6349D9}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -3873,10 +3899,37 @@
 							<ChildrenList>
 								<Sound Name="Foule_Loop_01" ID="{B7DCD99D-5440-4B9F-8391-CD0C4DE56C32}" ShortID="751707349">
 									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-20</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{04A44C98-1E98-464A-A29F-E7901DC51184}" ShortID="45572349">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Foulevolume" ID="{93DECEAC-8A7F-40E6-B4B3-F636AD05A8A4}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{E06C7B95-9F1D-4E20-AA06-1F4FA15C1FF8}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -3907,6 +3960,32 @@
 											<ValueList>
 												<Value>-20</Value>
 											</ValueList>
+											<RTPCList>
+												<RTPC Name="" ID="{F02F28E2-5384-4713-BAA5-EC4D887CACA6}" ShortID="216503125">
+													<ReferenceList>
+														<Reference Name="ControlInput">
+															<ObjectRef Name="Foulevolume" ID="{93DECEAC-8A7F-40E6-B4B3-F636AD05A8A4}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+														</Reference>
+													</ReferenceList>
+													<Curve Name="" ID="{8E1252CA-E084-4636-B61F-FBC2847DFFAB}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</RTPC>
+											</RTPCList>
 										</Property>
 									</PropertyList>
 									<ReferenceList>
@@ -3969,6 +4048,155 @@
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</Folder>
+						<Sound Name="Camion_Moteur_Arret_Loop" ID="{13D2D5EC-85A5-4CD4-8B8B-8C18A25BCB6B}" ShortID="243281740">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{6ADEC69F-93D4-4560-BEA1-2BDE2B038836}" ShortID="517797288">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="CamionVolume" ID="{04F2F90E-568C-4E10-BE08-A25A291996AF}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{5C725C02-047D-4435-B633-975D736023E1}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Camion_Moteur_Arret_Loop" ID="{E7619178-D6D9-4B46-BA34-78A09C20CCC9}">
+									<Language>English(US)</Language>
+									<AudioFile>Camion_Moteur_Arret_Loop.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="146912016"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Camion_Moteur_Arret_Loop" ID="{E7619178-D6D9-4B46-BA34-78A09C20CCC9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="Enceinte_Eteinte" ID="{178353CE-6E6E-44B7-829A-30FAC7C836CF}" ShortID="442394261">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Enceinte_Eteint_01" ID="{F9BA1A60-5BED-4D0C-A9CD-3E4BEDB2EA20}" ShortID="279609213">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enceinte_Eteint_01" ID="{2AE64D2B-8710-48CF-90A0-8F0AC649B2A9}">
+											<Language>English(US)</Language>
+											<AudioFile>Enceinte_Eteint_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="940446520"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Enceinte_Eteint_01" ID="{2AE64D2B-8710-48CF-90A0-8F0AC649B2A9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Enceinte_Eteint_02" ID="{4F9EB973-ED82-4EBB-8459-073902F4A213}" ShortID="750752291">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enceinte_Eteint_02" ID="{6EDDBE7B-7171-4E58-BAD2-9B8BD21B0FB0}">
+											<Language>English(US)</Language>
+											<AudioFile>Enceinte_Eteint_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="634223403"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Enceinte_Eteint_02" ID="{6EDDBE7B-7171-4E58-BAD2-9B8BD21B0FB0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Enceinte_Eteint_03" ID="{5A6EC56C-AD99-40D5-83DE-E181F0B6EABB}" ShortID="476932825">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enceinte_Eteint_03" ID="{ABB7307E-7CE4-46E5-B43B-44E13014E123}">
+											<Language>English(US)</Language>
+											<AudioFile>Enceinte_Eteint_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="933416733"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Enceinte_Eteint_03" ID="{ABB7307E-7CE4-46E5-B43B-44E13014E123}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UniSounds" ID="{3842463C-B6F3-43C6-B468-8FD42FE3352B}" ShortID="493599068">

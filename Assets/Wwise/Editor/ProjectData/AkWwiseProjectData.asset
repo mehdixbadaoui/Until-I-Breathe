@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585830389139907538
+    m_lastTime: -8585827632249209380
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585830389140077086
+    m_lastTime: -8585827632249060383
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -474,6 +474,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Camion_event
+      guid: 36627b57baea5741b7a5c359b6581fef
+      id: 2091737429
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Camion_event
+        ObjectType: 3
+        guid: 36627b57baea5741b7a5c359b6581fef
+      Path: Events\Default Work Unit\Environment_events\Camion_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: CarteMagnetique_ramasse_event
       guid: c5c08bfd8c928748ba4eda5e02e16d9c
       id: 2894782302
@@ -666,6 +686,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 1327498392a15548873c9c6fad1a49d7
       Path: Events\Default Work Unit\Environment_events\Drones
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enceinte_shutdown_event
+      guid: 4c36320c8dd6cb4f95ed6039bb091b01
+      id: 773651708
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Enceinte_shutdown_event
+        ObjectType: 3
+        guid: 4c36320c8dd6cb4f95ed6039bb091b01
+      Path: Events\Default Work Unit\Environment_events\Enceinte_shutdown_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2324,7 +2364,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585830389140077086
+    m_lastTime: -8585827666274335663
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2340,6 +2380,34 @@ MonoBehaviour:
         ObjectType: 13
         guid: dfc8bea834c55c4c8c843e62b285ddf2
       Path: Game Parameters\Default Work Unit\Ambiant_music_Sound
+    - name: BallonExplosionVolume
+      guid: a0f3ad484482be4f88c90116bbe05015
+      id: 366444476
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: BallonExplosionVolume
+        ObjectType: 13
+        guid: a0f3ad484482be4f88c90116bbe05015
+      Path: Game Parameters\Default Work Unit\BallonExplosionVolume
+    - name: CamionVolume
+      guid: 0ef9f2048c56104ebe08a25a291996af
+      id: 1636486062
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: CamionVolume
+        ObjectType: 13
+        guid: 0ef9f2048c56104ebe08a25a291996af
+      Path: Game Parameters\Default Work Unit\CamionVolume
     - name: DistWithUniVolume
       guid: 0e62fce66bf33d4ba3e95801a1ccb240
       id: 1079181951
@@ -2410,6 +2478,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 7258de91fdeb024198127d1b718daa69
       Path: Game Parameters\Default Work Unit\FanVolume
+    - name: Foulevolume
+      guid: accede937f8ae640b4b3f636ad05a8a4
+      id: 2014797766
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Foulevolume
+        ObjectType: 13
+        guid: accede937f8ae640b4b3f636ad05a8a4
+      Path: Game Parameters\Default Work Unit\Foulevolume
     - name: InspirationVolume
       guid: 7cc9583e0e24334e9dae2f19fef3aafc
       id: 2352147213
@@ -2714,7 +2796,7 @@ MonoBehaviour:
     m_lastTime: -8585832937700734471
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 050000000600000007000000080000000d0000000e0000000f000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
