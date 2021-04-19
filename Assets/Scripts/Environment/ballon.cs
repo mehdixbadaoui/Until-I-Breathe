@@ -62,7 +62,7 @@ public class ballon : MonoBehaviour
             air = 0;
             travel_speed = travel_speed_val;
         }
-        else
+        else if(collision.collider.CompareTag("PushBallon"))
             travel_speed = 2f;
     }
     void OnTriggerStay(Collider other)
