@@ -32,7 +32,13 @@ public class PatrolDrones : MonoBehaviour
 
     private PlayEventSounds playEvent;
     private Vector3 distWithUni;
-    public float maxDistance = 15f; 
+    public float maxDistance = 15f;
+
+    //New Variables
+    [Header("newVars")]
+    int index;
+    public List<Transform> targets;
+
 
     void Start()
     {
@@ -47,18 +53,29 @@ public class PatrolDrones : MonoBehaviour
 
         originalSpotlightColour = spotlight.color;
         playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>(); 
-        Vector3[] waypoints = new Vector3[pathHolder.childCount];
-        for (int i = 0; i < waypoints.Length; i++)
-        {
-            waypoints[i] = pathHolder.GetChild(i).position;
-            waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
-        }
+        //Vector3[] waypoints = new Vector3[pathHolder.childCount];
+        //for (int i = 0; i < waypoints.Length; i++)
+        //{
+        //    waypoints[i] = pathHolder.GetChild(i).position;
+        //    waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
+        //}
 
-        StartCoroutine(FollowPath(waypoints));
+        //StartCoroutine(FollowPath());
     }
 
     void Update()
     {
+        //Vector3 initialPos = transform.position;
+        if(targets.Count > 0)
+        {
+            if (transform.position != targets[index % targets.Count].position)
+                transform.position = Vector3.MoveTowards(transform.position, targets[index % targets.Count].position, speed);
+            else
+                index++;
+
+        }
+
+
         distWithUni = playEvent.CalculateDistanceUniFromObject(gameObject.transform.position); 
         if (detected)
         {
@@ -79,37 +96,48 @@ public class PatrolDrones : MonoBehaviour
     }
 
 
-    IEnumerator FollowPath(Vector3[] waypoints)
+    IEnumerator FollowPath()
     {
-        transform.position = waypoints[0];
-
-        int targetWaypointIndex = 1;
-        Vector3 targetWaypoint = waypoints[targetWaypointIndex];
-
-        if(canTurn)
+        if (index < targets.Count)
         {
-            transform.LookAt(targetWaypoint);
+            //Vector3 initialPos = transform.position;
+            if (transform.position != targets[index].position)
+                transform.position = Vector3.MoveTowards(transform.position, targets[index % targets.Count].position, speed);
+            else
+                index++;
         }
-            
 
-        while (true)
-        {
-            
-            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.smoothDeltaTime);
-            AkSoundEngine.PostEvent("Break_Drones_stationnaire_event", this.gameObject);
-            playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_deplacement_event", "DronesDeplacementVolume");
-            
-            if (transform.position == targetWaypoint)
-            {
-                
-                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
-                targetWaypoint = waypoints[targetWaypointIndex];
-                yield return new WaitForSeconds(waitTime);
-                if (canTurn)
-                    yield return StartCoroutine(TurnToFace(targetWaypoint));
-            }
-            yield return null;
-        }
+        yield return null;
+
+        //transform.position = waypoints[0];
+
+        //int targetWaypointIndex = 1;
+        //Vector3 targetWaypoint = waypoints[targetWaypointIndex];
+
+        //if(canTurn)
+        //{
+        //    transform.LookAt(targetWaypoint);
+        //}
+
+
+        //while (true)
+        //{
+
+        //    transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.smoothDeltaTime);
+        //    AkSoundEngine.PostEvent("Break_Drones_stationnaire_event", this.gameObject);
+        //    playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_deplacement_event", "DronesDeplacementVolume");
+
+        //    if (transform.position == targetWaypoint)
+        //    {
+
+        //        targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+        //        targetWaypoint = waypoints[targetWaypointIndex];
+        //        yield return new WaitForSeconds(waitTime);
+        //        if (canTurn)
+        //            yield return StartCoroutine(TurnToFace(targetWaypoint));
+        //    }
+        //    yield return null;
+        //}
     }
 
     IEnumerator TurnToFace(Vector3 lookTarget)
