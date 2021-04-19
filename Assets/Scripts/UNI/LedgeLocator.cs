@@ -270,7 +270,7 @@ public class LedgeLocator : MonoBehaviour
 
         // if uni attached to a ledge and whant to climb
         if (grabbingLedge && 
-            (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() * transform.localScale.z > 0 )  
+            (Convert.ToBoolean(inputs.Uni.Climb_Up.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() * transform.localScale.z > 0 || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()) )  
             && ledge!= null && !isclimbing && timeAfterHanging > offsetTimeHanging)
         {
             didClimb = true;
@@ -285,7 +285,7 @@ public class LedgeLocator : MonoBehaviour
 
         }
         // if uni attached but want to let the ledge out
-        if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Let_Go.ReadValue<float>() ) || Convert.ToBoolean(inputs.Uni.Jump.ReadValue<float>()) || inputs.Uni.Walk.ReadValue<float>() * transform.localScale.z < 0)
+        if (grabbingLedge && (Convert.ToBoolean(inputs.Uni.Let_Go.ReadValue<float>() ) || inputs.Uni.Walk.ReadValue<float>() * transform.localScale.z < 0)
             && ledge != null && !isclimbing && timeAfterHanging > offsetTimeHanging)
         {
 

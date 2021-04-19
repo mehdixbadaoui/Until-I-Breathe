@@ -96,7 +96,10 @@ public class anim : MonoBehaviour
         myAnimator.SetBool("crouch", isCrouching);
 
         // Can Uni walk?
-        myAnimator.SetBool("canWalk", !movement.hit);
+        if (movement.hit && !movement.hit_front.transform.CompareTag("box"))
+            myAnimator.SetBool("canWalk", false);
+        else
+            myAnimator.SetBool("canWalk", true);
 
         // Can Uni walk?
         myAnimator.SetBool("exhale", breathing.exhale);
