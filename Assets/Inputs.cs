@@ -366,17 +366,6 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""21837a0e-b01a-410f-9009-409bee293c72"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Grapple"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6d1f3065-eaca-444c-8ddd-d43f2e65f941"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
