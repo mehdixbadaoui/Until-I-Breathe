@@ -38,6 +38,14 @@ public class GrapplinCinematique : MonoBehaviour
             StartCoroutine(Cinematic(Clip1 , Clip2));
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (Played)
+        {
+            transform.parent.gameObject.SetActive(false);
+        }
+    }
 
     private IEnumerator Cinematic(PlayableDirector playable1 , PlayableDirector playable2)
     {
