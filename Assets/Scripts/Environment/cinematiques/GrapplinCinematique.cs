@@ -32,7 +32,7 @@ public class GrapplinCinematique : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!Played)
+        if (!Played && other.CompareTag("uni"))
         {
             Played = true;
             StartCoroutine(Cinematic(Clip1 , Clip2));
@@ -41,7 +41,7 @@ public class GrapplinCinematique : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (Played)
+        if (Played && other.CompareTag("uni"))
         {
             transform.parent.gameObject.SetActive(false);
         }
