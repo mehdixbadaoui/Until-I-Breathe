@@ -9,15 +9,24 @@ public class SplineWalker : MonoBehaviour {
 	public float speed = 1f;
 
 	public SplineWalkerMode mode;
-
+	private PlayEventSounds playEvent;
+	public float maxDist = 60f;
+	public Vector3 distWithUni; 
+	
 	[HideInInspector] public float progress;
 	private bool goingForward = true;
-
-	private void Update () {
+    private void Start()
+    {
+		playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>(); 
+    }
+    private void Update () {
 		if (goingForward) {
+			distWithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
+			
 			//progress += (Time.deltaTime / duration);
 			progress += (Time.deltaTime * speed / 100);
 			if (progress > 1f) {
+				
 				if (mode == SplineWalkerMode.Once) {
 					progress = 1f;
 				}
@@ -42,6 +51,7 @@ public class SplineWalker : MonoBehaviour {
         //transform.localPosition = position;
 
         Vector3 position = Vector3.MoveTowards(transform.localPosition, spline.GetPoint(progress), speed);
+		playEvent.RTPCGameObjectValueForTrain(distWithUni, maxDist, this.gameObject, "Train_exterieur_event", "TrainVolume");
 		transform.localPosition = position;
 
 		if (lookForward) {

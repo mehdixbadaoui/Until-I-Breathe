@@ -94,6 +94,7 @@ namespace AK
         static const AkUniqueID TRAIN_DEPART_EVENT = 3951010251U;
         static const AkUniqueID TRAIN_EXTERIEUR_EVENT = 1127840350U;
         static const AkUniqueID TRAIN_INTERIEUR_EVENT = 2137224780U;
+        static const AkUniqueID TRAIN_KLAXON_END_EVENT = 859900814U;
         static const AkUniqueID UNI_ETOUFFEMENT_EVENT = 1109845805U;
         static const AkUniqueID UNI_TOUSSE_A_MORT_EVENT = 4164979709U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;

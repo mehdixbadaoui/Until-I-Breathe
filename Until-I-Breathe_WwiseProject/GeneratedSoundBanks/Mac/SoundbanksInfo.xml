@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="English(US)" Hash="4144600920">
+		<SoundBank Id="2228651116" Language="English(US)" Hash="1031548436">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>English(US)\Main_Soundbank.bnk</Path>
@@ -994,19 +994,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3951010251" Name="Train_depart_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_depart_event" DurationType="OneShot" DurationMin="3.000000" DurationMax="3.000000">
+				<Event Id="3951010251" Name="Train_depart_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_depart_event" DurationType="OneShot" DurationMin="4.000000" DurationMax="4.000000">
 					<IncludedMemoryFiles>
-						<File Id="314046825" Language="SFX">
-							<ShortName>Train_Depart_01.wav</ShortName>
-							<Path>SFX\Train_Depart_01_10C4C929.wem</Path>
-						</File>
-						<File Id="381284664" Language="SFX">
-							<ShortName>Train_Depart_02.wav</ShortName>
-							<Path>SFX\Train_Depart_02_10C4C929.wem</Path>
-						</File>
-						<File Id="435869392" Language="SFX">
-							<ShortName>Train_Depart_03.wav</ShortName>
-							<Path>SFX\Train_Depart_03_10C4C929.wem</Path>
+						<File Id="280424232" Language="English(US)">
+							<ShortName>Train_Klaxon_01.wav</ShortName>
+							<Path>Voices\English(US)\Train_Klaxon_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -1023,6 +1015,14 @@
 						<File Id="124747176" Language="SFX">
 							<ShortName>Train_Marche_Interieur_Loop_01.wav</ShortName>
 							<Path>SFX\Train_Marche_Interieur_Loop_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="859900814" Name="Train_klaxon_end_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_klaxon_end_event" DurationType="OneShot" DurationMin="4.000000" DurationMax="4.000000">
+					<IncludedMemoryFiles>
+						<File Id="622424931" Language="English(US)">
+							<ShortName>Train_Klaxon_03.wav</ShortName>
+							<Path>Voices\English(US)\Train_Klaxon_03_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

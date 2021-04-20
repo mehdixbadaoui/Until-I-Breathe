@@ -856,10 +856,10 @@
 								</Event>
 								<Event Name="Train_depart_event" ID="{636BAFB9-3F49-41C6-8C2A-2E4307B186AD}">
 									<ChildrenList>
-										<Action Name="" ID="{1BE01BE2-0773-4EB1-9DB4-0DFAAB78C71F}" ShortID="664395584">
+										<Action Name="" ID="{7DDE415C-C5F9-4267-A795-6C873166569B}" ShortID="567130122">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Train_depart" ID="{3D0970CC-0BE7-472E-8965-D7F2A6402F8C}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+													<ObjectRef Name="Train_Klaxon_Start" ID="{663CC99E-9E32-4BE6-85A7-8065AF547AA5}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -882,6 +882,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Train_Marche_Exterieur_Loop_01" ID="{E5A03468-1F46-4928-888D-688E61F3DA4F}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Train_klaxon_end_event" ID="{C8536F0C-CEF1-418A-978A-7844AB188B4D}">
+									<ChildrenList>
+										<Action Name="" ID="{62A3FBD6-8987-456F-A653-FC3F2FB6CCAE}" ShortID="510471522">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Train_Klaxon_End" ID="{64C7A860-115D-4D33-947A-1F6DB9EEF477}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
