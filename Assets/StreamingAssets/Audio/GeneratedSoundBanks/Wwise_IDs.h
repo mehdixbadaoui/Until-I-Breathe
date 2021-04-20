@@ -98,7 +98,9 @@ namespace AK
         static const AkUniqueID UNI_ETOUFFEMENT_EVENT = 1109845805U;
         static const AkUniqueID UNI_TOUSSE_A_MORT_EVENT = 4164979709U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
+        static const AkUniqueID USINE_MUSIC_EVENT = 3270961216U;
         static const AkUniqueID VENT_EVENT = 4165311893U;
+        static const AkUniqueID VOITURE_VOLANTE_EVENT = 3356674548U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -140,6 +142,7 @@ namespace AK
         static const AkUniqueID TRAINVOLUME = 1950279691U;
         static const AkUniqueID UNI_ETOUFFEMENTSVOLUME = 2719740865U;
         static const AkUniqueID VENTILATORVOLUME = 1991624541U;
+        static const AkUniqueID VOITUREVOLANTEVOLUME = 1150438748U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

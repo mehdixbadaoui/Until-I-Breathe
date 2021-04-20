@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585826984336398518
+    m_lastTime: -8585826802067684426
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585826984448540255
+    m_lastTime: -8585826802067834334
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -2206,6 +2206,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Train_klaxon_end_event
+      guid: 0c6f53c8f1ce8a41978a7844ab188b4d
+      id: 859900814
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Train
+        ObjectType: 4
+        guid: 000782575951474298c1830daa35c124
+      - ElementName: Train_klaxon_end_event
+        ObjectType: 3
+        guid: 0c6f53c8f1ce8a41978a7844ab188b4d
+      Path: Events\Default Work Unit\Environment_events\Train\Train_klaxon_end_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Uni_Etouffement_event
       guid: ecf77b0264eabe4aac37b566e6a0704d
       id: 1109845805
@@ -2312,6 +2335,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Usine_music_event
+      guid: 2514df45fad5c54e854f4e9f9f88a6f8
+      id: 3270961216
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Usine_music_event
+        ObjectType: 3
+        guid: 2514df45fad5c54e854f4e9f9f88a6f8
+      Path: Events\Default Work Unit\Music_levels\Usine_music_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Vent_event
       guid: bda2e1dcc052a9428edb976aa8e34e5a
       id: 4165311893
@@ -2352,6 +2395,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Voiture_volante_event
+      guid: 08f856b1aa6c1944822db83241fc641a
+      id: 3356674548
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Voiture_volante_event
+        ObjectType: 3
+        guid: 08f856b1aa6c1944822db83241fc641a
+      Path: Events\Default Work Unit\Environment_events\Voiture_volante_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -2364,7 +2427,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585826984448530257
+    m_lastTime: -8585826802067624462
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2655,6 +2718,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 0e89c921e5b50d4ca0f405ac7873413f
       Path: Game Parameters\Default Work Unit\VentilatorVolume
+    - name: VoitureVolanteVolume
+      guid: 0f90ecc8a4f9004a930ccec3f5d18f33
+      id: 1150438748
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: VoitureVolanteVolume
+        ObjectType: 13
+        guid: 0f90ecc8a4f9004a930ccec3f5d18f33
+      Path: Game Parameters\Default Work Unit\VoitureVolanteVolume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:

@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="494039900">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3139304701">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="English(US)" Hash="1031548436">
+		<SoundBank Id="2228651116" Language="English(US)" Hash="2220380005">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>English(US)\Main_Soundbank.bnk</Path>
@@ -1074,6 +1074,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3270961216" Name="Usine_music_event" ObjectPath="\Events\Default Work Unit\Music_levels\Usine_music_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="163597169" Language="English(US)">
+							<ShortName>Until_I_Breathe_Usine.wav</ShortName>
+							<Path>Voices\English(US)\Until_I_Breathe_Usine_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="4165311893" Name="Vent_event" ObjectPath="\Events\Default Work Unit\Environment_events\Vent_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="324778096" Language="SFX">
@@ -1090,6 +1098,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3356674548" Name="Voiture_volante_event" ObjectPath="\Events\Default Work Unit\Environment_events\Voiture_volante_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="502806139" Language="English(US)">
+							<ShortName>Voiture_Volante_Loop_01.wav</ShortName>
+							<Path>Voices\English(US)\Voiture_Volante_Loop_01_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="58362009" Name="TrainDepartVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainDepartVolume"/>
@@ -1098,6 +1114,7 @@
 				<GameParameter Id="956757313" Name="MusicLevelsVolume" ObjectPath="\Game Parameters\Default Work Unit\MusicLevelsVolume"/>
 				<GameParameter Id="1003961143" Name="FallingPlateformeVolume" ObjectPath="\Game Parameters\Default Work Unit\FallingPlateformeVolume"/>
 				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
+				<GameParameter Id="1150438748" Name="VoitureVolanteVolume" ObjectPath="\Game Parameters\Default Work Unit\VoitureVolanteVolume"/>
 				<GameParameter Id="1579264580" Name="TrainLowPassFiltrer" ObjectPath="\Game Parameters\Default Work Unit\TrainLowPassFiltrer"/>
 				<GameParameter Id="1636486062" Name="CamionVolume" ObjectPath="\Game Parameters\Default Work Unit\CamionVolume"/>
 				<GameParameter Id="1950279691" Name="TrainVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainVolume"/>

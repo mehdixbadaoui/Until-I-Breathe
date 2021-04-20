@@ -28,6 +28,7 @@ public class Platforms : MonoBehaviour
     public bool isWaiting;
     //private GameObject uni;
     private PlayEventSounds playEvent;
+    public float maxDistance = 15f; 
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class Platforms : MonoBehaviour
         PlatformLauncherScript = PlatformLauncherGO.GetComponent<PlatformsLauncher>();
         departTarget = startPoint;
         destinationTarget = endPoint;
-        //uni = GameObject.FindGameObjectWithTag("uni");
+        Uni = GameObject.FindGameObjectWithTag("uni");
         playEvent = Uni.GetComponent<PlayEventSounds>();
         firstTimeOn = true;
         isWaiting = true;
@@ -101,6 +102,7 @@ public class Platforms : MonoBehaviour
         float t = 0f;
         while (t < 1f && !isWaiting)
         {
+            Vector3 distWithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
             t += Time.smoothDeltaTime / secondsItTakes;
             transform.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0f, 1f, Mathf.SmoothStep(0f, 1f, t)));
             yield return null;

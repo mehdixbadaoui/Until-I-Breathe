@@ -4337,6 +4337,101 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</RandomSequenceContainer>
+						<Sound Name="Voiture_Volante_Loop_01" ID="{D2ED5C65-2381-4D32-AB03-A63B287FAA6B}" ShortID="287742782">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{9853BD3D-997B-4839-A7DB-DCB01C915D38}" ShortID="232298769">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="VoitureVolanteVolume" ID="{C8EC900F-F9A4-4A00-930C-CEC3F5D18F33}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{83E9C6AA-E3E1-4495-8CC6-EB47D0034574}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Voiture_Volante_Loop_01" ID="{E7DD220D-42B9-4186-BA36-DEF9C1859F3A}">
+									<Language>English(US)</Language>
+									<AudioFile>Voiture_Volante_Loop_01.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="502806139"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Voiture_Volante_Loop_01" ID="{E7DD220D-42B9-4186-BA36-DEF9C1859F3A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Until_I_Breathe_Usine" ID="{16590ED7-C716-4AC3-8F8F-DDA633B198F1}" ShortID="951053556">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Until_I_Breathe_Usine" ID="{B848499E-1C4D-4A3B-B661-94264A9309F0}">
+									<Language>English(US)</Language>
+									<AudioFile>Until_I_Breathe_Usine.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="163597169"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="Until_I_Breathe_Usine" ID="{B848499E-1C4D-4A3B-B661-94264A9309F0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UniSounds" ID="{3842463C-B6F3-43C6-B468-8FD42FE3352B}" ShortID="493599068">
