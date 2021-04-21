@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3825560078">
+		<SoundBank Id="1355168291" Language="SFX" Hash="49742485">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,10 +21,10 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="SFX" Hash="4013699167">
+		<SoundBank Id="2228651116" Language="English(US)" Hash="1457446085">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
-			<Path>Main_Soundbank.bnk</Path>
+			<Path>English(US)\Main_Soundbank.bnk</Path>
 			<IncludedEvents>
 				<Event Id="1721773124" Name="Alarme_event" ObjectPath="\Events\Default Work Unit\Environment_events\Alarme_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -166,6 +166,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2091737429" Name="Camion_event" ObjectPath="\Events\Default Work Unit\Environment_events\Camion_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="146912016" Language="English(US)">
+							<ShortName>Camion_Moteur_Arret_Loop.wav</ShortName>
+							<Path>Voices\English(US)\Camion_Moteur_Arret_Loop_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2894782302" Name="CarteMagnetique_ramasse_event" ObjectPath="\Events\Default Work Unit\Environment_events\CarteMagnetique_ramasse_event" DurationType="OneShot" DurationMin="0.625000" DurationMax="0.625000">
 					<IncludedMemoryFiles>
 						<File Id="462077316" Language="SFX">
@@ -286,6 +294,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="773651708" Name="Enceinte_shutdown_event" ObjectPath="\Events\Default Work Unit\Environment_events\Enceinte_shutdown_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
+					<IncludedMemoryFiles>
+						<File Id="634223403" Language="English(US)">
+							<ShortName>Enceinte_Eteint_02.wav</ShortName>
+							<Path>Voices\English(US)\Enceinte_Eteint_02_10C4C929.wem</Path>
+						</File>
+						<File Id="933416733" Language="English(US)">
+							<ShortName>Enceinte_Eteint_03.wav</ShortName>
+							<Path>Voices\English(US)\Enceinte_Eteint_03_10C4C929.wem</Path>
+						</File>
+						<File Id="940446520" Language="English(US)">
+							<ShortName>Enceinte_Eteint_01.wav</ShortName>
+							<Path>Voices\English(US)\Enceinte_Eteint_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2122763242" Name="Engranage_tourne_event" ObjectPath="\Events\Default Work Unit\Environment_events\Engranage_tourne_event" DurationType="OneShot" DurationMin="1.874979" DurationMax="1.874979">
 					<IncludedMemoryFiles>
 						<File Id="144952040" Language="SFX">
@@ -310,11 +334,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2985396484" Name="Foule_loop_event" ObjectPath="\Events\Default Work Unit\Environment_events\Foule\Foule_loop_event" DurationType="OneShot" DurationMin="20.000000" DurationMax="20.000000">
+				<Event Id="2985396484" Name="Foule_loop_event" ObjectPath="\Events\Default Work Unit\Environment_events\Foule\Foule_loop_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="746466881" Language="SFX">
 							<ShortName>Foule_Loop_01.wav</ShortName>
-							<Path>SFX\Foule_Loop_01_10C4C929.wem</Path>
+							<Path>SFX\Foule_Loop_01_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -970,19 +994,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3951010251" Name="Train_depart_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_depart_event" DurationType="OneShot" DurationMin="3.000000" DurationMax="3.000000">
+				<Event Id="3951010251" Name="Train_depart_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_depart_event" DurationType="OneShot" DurationMin="4.000000" DurationMax="4.000000">
 					<IncludedMemoryFiles>
-						<File Id="314046825" Language="SFX">
-							<ShortName>Train_Depart_01.wav</ShortName>
-							<Path>SFX\Train_Depart_01_10C4C929.wem</Path>
-						</File>
-						<File Id="381284664" Language="SFX">
-							<ShortName>Train_Depart_02.wav</ShortName>
-							<Path>SFX\Train_Depart_02_10C4C929.wem</Path>
-						</File>
-						<File Id="435869392" Language="SFX">
-							<ShortName>Train_Depart_03.wav</ShortName>
-							<Path>SFX\Train_Depart_03_10C4C929.wem</Path>
+						<File Id="280424232" Language="English(US)">
+							<ShortName>Train_Klaxon_01.wav</ShortName>
+							<Path>Voices\English(US)\Train_Klaxon_01_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -999,6 +1015,14 @@
 						<File Id="124747176" Language="SFX">
 							<ShortName>Train_Marche_Interieur_Loop_01.wav</ShortName>
 							<Path>SFX\Train_Marche_Interieur_Loop_01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="859900814" Name="Train_klaxon_end_event" ObjectPath="\Events\Default Work Unit\Environment_events\Train\Train_klaxon_end_event" DurationType="OneShot" DurationMin="4.000000" DurationMax="4.000000">
+					<IncludedMemoryFiles>
+						<File Id="622424931" Language="English(US)">
+							<ShortName>Train_Klaxon_03.wav</ShortName>
+							<Path>Voices\English(US)\Train_Klaxon_03_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -1050,6 +1074,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3270961216" Name="Usine_music_event" ObjectPath="\Events\Default Work Unit\Music_levels\Usine_music_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="163597169" Language="English(US)">
+							<ShortName>Until_I_Breathe_Usine.wav</ShortName>
+							<Path>Voices\English(US)\Until_I_Breathe_Usine_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3717649508" Name="Usine_sound_break_event" ObjectPath="\Events\Default Work Unit\Music_levels\Usine_sound_break_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4165311893" Name="Vent_event" ObjectPath="\Events\Default Work Unit\Environment_events\Vent_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="324778096" Language="SFX">
@@ -1066,16 +1099,29 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3356674548" Name="Voiture_volante_event" ObjectPath="\Events\Default Work Unit\Environment_events\Voiture_volante_event" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="502806139" Language="English(US)">
+							<ShortName>Voiture_Volante_Loop_01.wav</ShortName>
+							<Path>Voices\English(US)\Voiture_Volante_Loop_01_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="58362009" Name="TrainDepartVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainDepartVolume"/>
+				<GameParameter Id="366444476" Name="BallonExplosionVolume" ObjectPath="\Game Parameters\Default Work Unit\BallonExplosionVolume"/>
 				<GameParameter Id="808486924" Name="DronesDeplacementVolume" ObjectPath="\Game Parameters\Default Work Unit\DronesDeplacementVolume"/>
 				<GameParameter Id="956757313" Name="MusicLevelsVolume" ObjectPath="\Game Parameters\Default Work Unit\MusicLevelsVolume"/>
 				<GameParameter Id="1003961143" Name="FallingPlateformeVolume" ObjectPath="\Game Parameters\Default Work Unit\FallingPlateformeVolume"/>
+				<GameParameter Id="1012520615" Name="UsineVolume" ObjectPath="\Game Parameters\Default Work Unit\UsineVolume"/>
 				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
+				<GameParameter Id="1150438748" Name="VoitureVolanteVolume" ObjectPath="\Game Parameters\Default Work Unit\VoitureVolanteVolume"/>
 				<GameParameter Id="1579264580" Name="TrainLowPassFiltrer" ObjectPath="\Game Parameters\Default Work Unit\TrainLowPassFiltrer"/>
+				<GameParameter Id="1636486062" Name="CamionVolume" ObjectPath="\Game Parameters\Default Work Unit\CamionVolume"/>
 				<GameParameter Id="1950279691" Name="TrainVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainVolume"/>
 				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>
+				<GameParameter Id="2014797766" Name="Foulevolume" ObjectPath="\Game Parameters\Default Work Unit\Foulevolume"/>
 				<GameParameter Id="2352147213" Name="InspirationVolume" ObjectPath="\Game Parameters\Default Work Unit\InspirationVolume"/>
 				<GameParameter Id="2440552763" Name="DoorVolume" ObjectPath="\Game Parameters\Default Work Unit\DoorVolume"/>
 				<GameParameter Id="2656500902" Name="FanVolume" ObjectPath="\Game Parameters\Default Work Unit\FanVolume"/>

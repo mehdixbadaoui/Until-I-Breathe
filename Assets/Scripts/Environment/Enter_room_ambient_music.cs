@@ -9,7 +9,7 @@ public class Enter_room_ambient_music : MonoBehaviour
     Renderer[] rends;
     private GameObject uni;
     Breathing_mechanic breathing_mechanic;
-
+    public bool usineLevel = false; 
     // parameters for ambiant interior  sounds 
     private CheckLenghtSound checkLenghtSound;
     private GameObject room_inside;
@@ -61,8 +61,11 @@ public class Enter_room_ambient_music : MonoBehaviour
             //Ambiant music for interior
             distanceEndRoomUniLeft = uni.transform.position.z - room_inside_collider.bounds.min.z;
             distanceEndRoomUniRight = room_inside_collider.bounds.max.z - uni.transform.position.z;
+           
+            
             distanceUniFromObjects.RTPCGameObjectValueEnterRoom(distanceEndRoomUniLeft, distanceEndRoomUniRight, dstUniFromEndofRoom, room_inside, "Ambiant_interior_event", "Ambiant_music_Sound", coefficientAttenuation);
-
+            
+            
 
         }
 
@@ -90,7 +93,7 @@ public class Enter_room_ambient_music : MonoBehaviour
             distanceEndRoomUniRight = 0f;
             ambiant_interior_volume = 0f;
             musicVolume = 100f;
-            AkSoundEngine.SetRTPCValue("Ambiant_music_Sound", ambiant_interior_volume);
+            AkSoundEngine.SetRTPCValue("ambiant_music_sound", ambiant_interior_volume);
         }
     }
 

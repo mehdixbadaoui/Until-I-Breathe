@@ -45,6 +45,27 @@ public class PlayEventSounds : MonoBehaviour
         if (!isSoundFinished)
             AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
+    public void RTPCGameObjectValueForTrain(Vector3 distUniFromObject, float maxDistance, GameObject gameObject, string nameOfEvent, string nameOfRTPC = "")
+    {
+
+        if (Mathf.Abs(distUniFromObject.z) <= maxDistance || Mathf.Abs(distUniFromObject.y) <= maxDistance  || Mathf.Abs(distUniFromObject.x) <= maxDistance )
+        {
+            volumeZ = (100 - Mathf.Abs(distUniFromObject.z * 100f / maxDistance));
+            volumeY = (100 - Mathf.Abs(distUniFromObject.y * 100f / maxDistance));
+            float volumeX = (100 - Mathf.Abs(distUniFromObject.x * 100f / maxDistance));
+            volume = Mathf.Min(volumeZ, volumeY, volumeX);
+
+            AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
+        }
+        else
+        {
+            volume = 0f;
+            AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
+        }
+        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
+        if (!isSoundFinished)
+            AkSoundEngine.PostEvent(nameOfEvent, gameObject);
+    }
     public void LaunchSoundsonLevels(Vector3 distUniFromTrigger, float maxDistance, string nameOfRTPC = "", GameObject gameObject = null, string nameOfEvent = "")
     {
         if ((distUniFromTrigger.z <= maxDistance && distUniFromTrigger.z > 0))
@@ -85,28 +106,7 @@ public class PlayEventSounds : MonoBehaviour
         if (!isSoundFinished)
             AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
-    public void RTPCGameObjectValueEnterRoomForTrain(float distUniFromObjectLeft, float distUniFromObjectRight, float maxDistance, GameObject gameObject, string nameOfEvent, string nameOfRTPC, float coeffAttenuation)
-    {
-        bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);
-        if (distUniFromObjectLeft <= maxDistance)
-        {
-            volume = distUniFromObjectLeft * 56f / maxDistance;
-
-        }
-        else if (distUniFromObjectRight <= maxDistance)
-        {
-            volume = distUniFromObjectRight * 56f / maxDistance;
-        }
-        else
-        {
-            volume = 56f;
-        }
-        float lowpassfilter = 56f - volume / coeffAttenuation;
-        //AkSoundEngine.SetRTPCValue(nameOfRTPC, volume);
-        AkSoundEngine.SetRTPCValue("MusicVolume", lowpassfilter);
-        if (!isSoundFinished)
-            AkSoundEngine.PostEvent(nameOfEvent, gameObject);
-    }
+   
     public void UniRespiration(string nameOfEvent, GameObject gameObject, float breathOfUni, string nameOfRTPC)
     {
         bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);

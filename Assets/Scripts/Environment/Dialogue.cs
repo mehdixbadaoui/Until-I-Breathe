@@ -11,6 +11,10 @@ public class Dialogue : MonoBehaviour
     public TMP_Text DialoguBox;
     public TMP_Text DialoguBox_Person;
 
+    public Sprite img1;
+    public Sprite img2;
+
+
     public Canvas canvas;
 
 

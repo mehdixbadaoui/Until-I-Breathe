@@ -70,9 +70,10 @@ public class Nacelle : MonoBehaviour
                 if (sol.transform.eulerAngles != new Vector3(90, 0, 0))
                     sol.transform.eulerAngles = Vector3.Lerp(sol.transform.eulerAngles, new Vector3(90, 0, 0), floorSpeed);
             }
-            else if (openrightdoor)
+            else if (openrightdoor && openrightdoor)
             {
                 StartCoroutine(MoveDoor(rightDoor, Vector3.right));
+                openrightdoor = false;
             }
         }
     }

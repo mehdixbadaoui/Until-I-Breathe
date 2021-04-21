@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 51aabce36bd9084484d9d84337a24ddc
     GuidInternal: 
-    m_lastTime: -8585832937700175735
+    m_lastTime: -8585826984336300477
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 51825a5e24261e4b9d8cee98f3163d80
     GuidInternal: 
-    m_lastTime: -8585832937712147601
+    m_lastTime: -8585826984445580325
     List:
     - name: Environment
       guid: 9462943f00bc66409fa4e3bc35c1a358
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585827353973946326
+    m_lastTime: -8585825998667387086
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585827354007510362
+    m_lastTime: -8585825998667307362
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -474,6 +474,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Camion_event
+      guid: 36627b57baea5741b7a5c359b6581fef
+      id: 2091737429
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Camion_event
+        ObjectType: 3
+        guid: 36627b57baea5741b7a5c359b6581fef
+      Path: Events\Default Work Unit\Environment_events\Camion_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: CarteMagnetique_ramasse_event
       guid: c5c08bfd8c928748ba4eda5e02e16d9c
       id: 2894782302
@@ -666,6 +686,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 1327498392a15548873c9c6fad1a49d7
       Path: Events\Default Work Unit\Environment_events\Drones
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enceinte_shutdown_event
+      guid: 4c36320c8dd6cb4f95ed6039bb091b01
+      id: 773651708
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Enceinte_shutdown_event
+        ObjectType: 3
+        guid: 4c36320c8dd6cb4f95ed6039bb091b01
+      Path: Events\Default Work Unit\Environment_events\Enceinte_shutdown_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2166,6 +2206,29 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Train_klaxon_end_event
+      guid: 0c6f53c8f1ce8a41978a7844ab188b4d
+      id: 859900814
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Train
+        ObjectType: 4
+        guid: 000782575951474298c1830daa35c124
+      - ElementName: Train_klaxon_end_event
+        ObjectType: 3
+        guid: 0c6f53c8f1ce8a41978a7844ab188b4d
+      Path: Events\Default Work Unit\Environment_events\Train\Train_klaxon_end_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Uni_Etouffement_event
       guid: ecf77b0264eabe4aac37b566e6a0704d
       id: 1109845805
@@ -2272,6 +2335,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Usine_music_event
+      guid: 2514df45fad5c54e854f4e9f9f88a6f8
+      id: 3270961216
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Usine_music_event
+        ObjectType: 3
+        guid: 2514df45fad5c54e854f4e9f9f88a6f8
+      Path: Events\Default Work Unit\Music_levels\Usine_music_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Usine_sound_break_event
+      guid: 78c6da737ebcb04e88cfe609cdc6fce5
+      id: 3717649508
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Usine_sound_break_event
+        ObjectType: 3
+        guid: 78c6da737ebcb04e88cfe609cdc6fce5
+      Path: Events\Default Work Unit\Music_levels\Usine_sound_break_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Vent_event
       guid: bda2e1dcc052a9428edb976aa8e34e5a
       id: 4165311893
@@ -2312,6 +2415,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Voiture_volante_event
+      guid: 08f856b1aa6c1944822db83241fc641a
+      id: 3356674548
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Voiture_volante_event
+        ObjectType: 3
+        guid: 08f856b1aa6c1944822db83241fc641a
+      Path: Events\Default Work Unit\Environment_events\Voiture_volante_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -2324,7 +2447,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585827354007510362
+    m_lastTime: -8585826009454987488
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2340,6 +2463,34 @@ MonoBehaviour:
         ObjectType: 13
         guid: dfc8bea834c55c4c8c843e62b285ddf2
       Path: Game Parameters\Default Work Unit\Ambiant_music_Sound
+    - name: BallonExplosionVolume
+      guid: a0f3ad484482be4f88c90116bbe05015
+      id: 366444476
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: BallonExplosionVolume
+        ObjectType: 13
+        guid: a0f3ad484482be4f88c90116bbe05015
+      Path: Game Parameters\Default Work Unit\BallonExplosionVolume
+    - name: CamionVolume
+      guid: 0ef9f2048c56104ebe08a25a291996af
+      id: 1636486062
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: CamionVolume
+        ObjectType: 13
+        guid: 0ef9f2048c56104ebe08a25a291996af
+      Path: Game Parameters\Default Work Unit\CamionVolume
     - name: DistWithUniVolume
       guid: 0e62fce66bf33d4ba3e95801a1ccb240
       id: 1079181951
@@ -2410,6 +2561,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 7258de91fdeb024198127d1b718daa69
       Path: Game Parameters\Default Work Unit\FanVolume
+    - name: Foulevolume
+      guid: accede937f8ae640b4b3f636ad05a8a4
+      id: 2014797766
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: Foulevolume
+        ObjectType: 13
+        guid: accede937f8ae640b4b3f636ad05a8a4
+      Path: Game Parameters\Default Work Unit\Foulevolume
     - name: InspirationVolume
       guid: 7cc9583e0e24334e9dae2f19fef3aafc
       id: 2352147213
@@ -2559,6 +2724,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 07714bee9687b440af067db501f237ea
       Path: Game Parameters\Default Work Unit\Uni_etouffementsVolume
+    - name: UsineVolume
+      guid: e1fbee659601e54d9d81ba0db819efba
+      id: 1012520615
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: UsineVolume
+        ObjectType: 13
+        guid: e1fbee659601e54d9d81ba0db819efba
+      Path: Game Parameters\Default Work Unit\UsineVolume
     - name: VentilatorVolume
       guid: 0e89c921e5b50d4ca0f405ac7873413f
       id: 1991624541
@@ -2573,6 +2752,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 0e89c921e5b50d4ca0f405ac7873413f
       Path: Game Parameters\Default Work Unit\VentilatorVolume
+    - name: VoitureVolanteVolume
+      guid: 0f90ecc8a4f9004a930ccec3f5d18f33
+      id: 1150438748
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: VoitureVolanteVolume
+        ObjectType: 13
+        guid: 0f90ecc8a4f9004a930ccec3f5d18f33
+      Path: Game Parameters\Default Work Unit\VoitureVolanteVolume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -2585,7 +2778,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 6cd69aa556385a4980a194d531da01f9
     GuidInternal: 
-    m_lastTime: -8585832937700744538
+    m_lastTime: -8585826984336388525
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -2599,7 +2792,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 55f3b155ac5f824c966e186f8dbe0dc6
     GuidInternal: 
-    m_lastTime: -8585832937700744538
+    m_lastTime: -8585826984336388525
     List:
     - name: FootSteps
       guid: e9b27687793928429459307ec8fff664
@@ -2711,10 +2904,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 50ebb7989315ce43922b62fa3756eeb9
     GuidInternal: 
-    m_lastTime: -8585832937700734471
+    m_lastTime: -8585826984336378531
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 040000000500000006000000
+  ExpandedWaapiItemIds: 050000000600000007000000080000000d0000000e0000000f000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
