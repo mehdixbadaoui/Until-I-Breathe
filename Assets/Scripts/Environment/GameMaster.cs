@@ -38,7 +38,8 @@ public class GameMaster : MonoBehaviour
     public TMP_Text DialoguBox;
     public Canvas canvas;
 
-
+    //Pause Menu
+    private bool isPaused;
 
     // Set and get of the last checkoint position
     public Vector3 LastCheckPointPos
@@ -124,13 +125,28 @@ public class GameMaster : MonoBehaviour
 
     public void Pause()
     {
+        isPaused = true;
         Time.timeScale = 0;
     }
 
 
     public void Resume()
     {
+        isPaused = false;
         Time.timeScale = 1;
+    }
+
+    public void PlayPause()
+    {
+        if (isPaused)
+            Resume();
+        else
+            Pause();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     // If Uni die
