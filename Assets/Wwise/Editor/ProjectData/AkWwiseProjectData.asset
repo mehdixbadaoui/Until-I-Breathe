@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585826802067684426
+    m_lastTime: -8585825998667387086
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585826802067834334
+    m_lastTime: -8585825998667307362
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -2355,6 +2355,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Usine_sound_break_event
+      guid: 78c6da737ebcb04e88cfe609cdc6fce5
+      id: 3717649508
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Usine_sound_break_event
+        ObjectType: 3
+        guid: 78c6da737ebcb04e88cfe609cdc6fce5
+      Path: Events\Default Work Unit\Music_levels\Usine_sound_break_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Vent_event
       guid: bda2e1dcc052a9428edb976aa8e34e5a
       id: 4165311893
@@ -2427,7 +2447,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585826802067624462
+    m_lastTime: -8585826009454987488
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2704,6 +2724,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 07714bee9687b440af067db501f237ea
       Path: Game Parameters\Default Work Unit\Uni_etouffementsVolume
+    - name: UsineVolume
+      guid: e1fbee659601e54d9d81ba0db819efba
+      id: 1012520615
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: UsineVolume
+        ObjectType: 13
+        guid: e1fbee659601e54d9d81ba0db819efba
+      Path: Game Parameters\Default Work Unit\UsineVolume
     - name: VentilatorVolume
       guid: 0e89c921e5b50d4ca0f405ac7873413f
       id: 1991624541

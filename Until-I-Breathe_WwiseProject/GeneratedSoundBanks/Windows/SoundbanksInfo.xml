@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3139304701">
+		<SoundBank Id="1355168291" Language="SFX" Hash="49742485">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="English(US)" Hash="2985014866">
+		<SoundBank Id="2228651116" Language="English(US)" Hash="1457446085">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>English(US)\Main_Soundbank.bnk</Path>
@@ -1082,6 +1082,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3717649508" Name="Usine_sound_break_event" ObjectPath="\Events\Default Work Unit\Music_levels\Usine_sound_break_event" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4165311893" Name="Vent_event" ObjectPath="\Events\Default Work Unit\Environment_events\Vent_event" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="324778096" Language="SFX">
@@ -1113,6 +1114,7 @@
 				<GameParameter Id="808486924" Name="DronesDeplacementVolume" ObjectPath="\Game Parameters\Default Work Unit\DronesDeplacementVolume"/>
 				<GameParameter Id="956757313" Name="MusicLevelsVolume" ObjectPath="\Game Parameters\Default Work Unit\MusicLevelsVolume"/>
 				<GameParameter Id="1003961143" Name="FallingPlateformeVolume" ObjectPath="\Game Parameters\Default Work Unit\FallingPlateformeVolume"/>
+				<GameParameter Id="1012520615" Name="UsineVolume" ObjectPath="\Game Parameters\Default Work Unit\UsineVolume"/>
 				<GameParameter Id="1079181951" Name="DistWithUniVolume" ObjectPath="\Game Parameters\Default Work Unit\DistWithUniVolume"/>
 				<GameParameter Id="1150438748" Name="VoitureVolanteVolume" ObjectPath="\Game Parameters\Default Work Unit\VoitureVolanteVolume"/>
 				<GameParameter Id="1579264580" Name="TrainLowPassFiltrer" ObjectPath="\Game Parameters\Default Work Unit\TrainLowPassFiltrer"/>
