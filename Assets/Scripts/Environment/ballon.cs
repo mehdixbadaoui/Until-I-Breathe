@@ -44,6 +44,7 @@ public class ballon : MonoBehaviour
         if(air >= capacity)
         {
             GetComponent<Rigidbody>().velocity = new Vector3(0, travel_speed, 0);
+            GetComponent<Rigidbody>().isKinematic = false;
         }
 
 
