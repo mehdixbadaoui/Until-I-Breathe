@@ -58,7 +58,7 @@ public class SplineWalker : MonoBehaviour {
 
         else if (onFlyingCar_GoingForward)
         {
-			playEvent.RTPCGameObjectValueForTrain(distWithUni, maxDist, this.gameObject, "Voiture_volante_event", "TrainVolume");
+			playEvent.RTPCGameObjectValueForTrain(distWithUni, maxDist, this.gameObject, "Voiture_volante_event", "VoitureVolanteVolume");
 
 
         }
