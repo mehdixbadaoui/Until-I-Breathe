@@ -8,6 +8,9 @@ using TMPro;
 
 public class GameMaster : MonoBehaviour
 {
+    //Inputs
+    private Inputs inputs;
+
     //Position of the last checkpoint
     public Vector3 lastCheckPointPos;
     public Checkpoint lastCheckpoint;
@@ -38,7 +41,9 @@ public class GameMaster : MonoBehaviour
     public TMP_Text DialoguBox;
     public Canvas canvas;
 
-
+    //Pause Menu
+    private bool isPaused;
+    public GameObject pauseMenu;
 
     // Set and get of the last checkoint position
     public Vector3 LastCheckPointPos
@@ -70,25 +75,42 @@ public class GameMaster : MonoBehaviour
         // Find the first character GameObject
         uni = GameObject.FindGameObjectWithTag("uni");
 
-        // Initialize the last checkpoint if she dies
-        lastCheckPointPos = uni.transform.position;
-
-        // Get uni Breathing Mecanic
-        bm = uni.GetComponent<Breathing_mechanic>();
-
-        // Get uni Breathing Mecanic
-        grapplin = uni.GetComponent<GrapplingHook>();
-
-        if (GameObject.FindGameObjectWithTag("CinematicBeginning"))
+        if (uni)
         {
-            StartCoroutine(Cinematic(GameObject.FindGameObjectWithTag("CinematicBeginning").GetComponent<PlayableDirector>()));
+            // Initialize the last checkpoint if she dies
+            lastCheckPointPos = uni.transform.position;
+
+            // Get uni Breathing Mecanic
+            bm = uni.GetComponent<Breathing_mechanic>();
+
+            // Get uni Breathing Mecanic
+            grapplin = uni.GetComponent<GrapplingHook>();
+
+            if (GameObject.FindGameObjectWithTag("CinematicBeginning"))
+            {
+                StartCoroutine(Cinematic(GameObject.FindGameObjectWithTag("CinematicBeginning").GetComponent<PlayableDirector>()));
+            }
+
         }
 
-
+        inputs = new Inputs();
 
 
     }
 
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
+
+    private void Start()
+    {
+        inputs.Menu.PlayPause.performed += ctx => PlayPause();
+    }
     private void FixedUpdate()
     {
         //Debug.Log( GameObject.FindGameObjectWithTag("CinematicBeginning").GetComponent<PlayableDirector>().state );
@@ -124,13 +146,32 @@ public class GameMaster : MonoBehaviour
 
     public void Pause()
     {
+        Debug.Log("paused");
+        isPaused = true;
         Time.timeScale = 0;
+        pauseMenu.SetActive(true);
     }
 
 
     public void Resume()
     {
+        Debug.Log("resumed");
+        isPaused = false;
         Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+
+    public void PlayPause()
+    {
+        if (isPaused)
+            Resume();
+        else if(SceneManager.GetActiveScene().buildIndex != 0)
+            Pause();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     // If Uni die
