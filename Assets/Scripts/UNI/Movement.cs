@@ -129,7 +129,9 @@ public class Movement : MonoBehaviour
         capsule_collider = GetComponent<CapsuleCollider>();
 
         // Get the animator 
-        myAnimator = GetComponentInChildren<Animator>();
+        myAnimator = GetComponentInChildren<anim>().GetComponent<Animator>();
+
+        Debug.Log(myAnimator);
 
         // Get the breathing script
         breathing = GetComponent<Breathing_mechanic>();
