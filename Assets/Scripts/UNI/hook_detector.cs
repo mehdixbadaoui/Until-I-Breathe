@@ -109,7 +109,8 @@ public class hook_detector : MonoBehaviour
 
     void UpdateLists()
     {
-        all_hooks = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, nearest_hook.transform.position)).ToList();
+        if(all_hooks.Any())
+            all_hooks = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, nearest_hook.transform.position)).ToList();
         //nearest_hook = all_hooks[index % all_hooks.Count];
         hooks_up.Clear();
         hooks_down.Clear();
@@ -138,7 +139,7 @@ public class hook_detector : MonoBehaviour
         {
 
             //IF NO HOOK IS SELECTED 
-            if (!nearest_hook)
+            if (!nearest_hook && all_hooks.Any())
             {
 
                 int j = 0;

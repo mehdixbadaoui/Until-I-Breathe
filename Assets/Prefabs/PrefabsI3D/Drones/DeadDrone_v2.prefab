@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2495549781739015508}
   - component: {fileID: 3827451163511401948}
-  - component: {fileID: 8841147026959066086}
+  - component: {fileID: 548347429519708595}
   m_Layer: 0
   m_Name: DeadDrone_v2
   m_TagString: Dead_robots
@@ -47,7 +47,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.6
   m_Center: {x: -0.009962678, y: 0.9, z: -0.65}
---- !u!114 &8841147026959066086
+--- !u!114 &548347429519708595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3020272548218394606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92fad5881901ca248ab204ed7710ed5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f41f2bda22c27d418a263c5e7087e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   offsetDeadRobotRotation: {x: 0, y: 0, z: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3827451162452430290}
   - component: {fileID: 3827451162452430292}
-  - component: {fileID: 3827451162452430291}
+  - component: {fileID: 1447677248890776083}
   m_Layer: 0
   m_Name: TextTrigger
   m_TagString: Untagged
@@ -240,7 +240,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3827451162452430291
+--- !u!114 &1447677248890776083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3827451162452430289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d9485ee7411174ea6d491bb9adb439, type: 3}
+  m_Script: {fileID: 11500000, guid: 38b5ad0b4ffc04d419277847fa0c6f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DialoguBox: {fileID: 3827451161582433796}
@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereCollider: {fileID: 0}
+  Clip: {fileID: 0}
   isLetter: 0
   gm: {fileID: 0}
   maxDistance: 7

@@ -11,21 +11,31 @@ public class Blackout : MonoBehaviour
     public Transform NextLevelPos;
     public GameObject NExtLevelPrefab;
 
+    private bool can_bo;
+
+    private void Start()
+    {
+        can_bo = true;
+    }
     public void BO()
     {
-        //TURN OFF LIGHTS
-        foreach (GameObject light in Lights)
-            light.GetComponent<Light>().intensity = 0;
+        if (can_bo)
+        {
+            can_bo = false;
+            //TURN OFF LIGHTS
+            foreach (GameObject light in Lights)
+                light.GetComponent<Light>().intensity = 0;
 
-        //DISABLE CAMERA
-        Camera.GetComponent<PatrolDrones>().enabled = false;
-        Camera.GetComponent<BoxDamage>().LightsOut();
+            //DISABLE CAMERA
+            Camera.GetComponent<PatrolDrones>().enabled = false;
+            Camera.GetComponent<BoxDamage>().LightsOut();
 
         //MOVE DOORS
-        door1.transform.position += Vector3.forward * doorDist;
-        door2.transform.position += Vector3.back * doorDist;
+        // door1.transform.position += Vector3.forward * doorDist;
+        // door2.transform.position += Vector3.back * doorDist;
 
-        //CREATE NEXT LEVEL TRIGGERBOX
-        Instantiate(NExtLevelPrefab, NextLevelPos);
+            //CREATE NEXT LEVEL TRIGGERBOX
+            Instantiate(NExtLevelPrefab, NextLevelPos);
+        }
     }
 }

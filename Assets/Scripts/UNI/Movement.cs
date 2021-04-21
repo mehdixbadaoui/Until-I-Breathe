@@ -17,6 +17,11 @@ public class Movement : MonoBehaviour
     public float grapplinSpeed = 1;
     public float horizontal_movement;
 
+    // Degats de chute
+    [Range(0f, 20f)] public float hauteurDeChuteMax = 10.0f;
+    private Vector3 positionBeforeFalling;
+    private bool didFall = false;
+
     //Grapplin 
     [HideInInspector] public bool animPushing;
     [HideInInspector] public bool animIdleAir;
@@ -71,7 +76,7 @@ public class Movement : MonoBehaviour
     private Vector3 facingLeft;
 
     RaycastHit ground_hit;
-    RaycastHit hit_front;
+    public RaycastHit hit_front;
 
     CapsuleCollider capsule_collider;
     private Vector3 colliderSize;
@@ -283,6 +288,20 @@ public class Movement : MonoBehaviour
         if (canMove)
         {
 
+
+            if (!isGrounded && !didFall)
+            {
+                didFall = true;
+                positionBeforeFalling = transform.position;
+            }
+            else if(isGrounded && didFall) 
+            {
+                didFall = false;
+                if ( Math.Abs(positionBeforeFalling.y - transform.position.y ) > hauteurDeChuteMax )
+                {
+                    StartCoroutine(ChuteDead());
+                }
+            }
 
             hit = Physics.BoxCast(capsule_collider.bounds.center, new Vector3(capsule_collider.radius, (capsule_collider.height / 2) * 0.8f, 0), transform.TransformDirection(Vector3.forward * transform.localScale.z), out hit_front, Quaternion.identity, capsule_collider.radius + 0.01f);
             //hit = false;
@@ -616,7 +635,33 @@ public class Movement : MonoBehaviour
             }
         }
     }
-  
+
+    private IEnumerator ChuteDead()
+    {
+        breathing.respawn = false;
+
+        Movement.canMove = false;
+
+        myAnimator.Play("BreathingDead", 0);
+
+
+        //Wait for the beginning of BreathingDead
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("BreathingDead"));
+
+        //new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length + myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime);
+
+        //Wait for the end of BreathingDead
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length  );
+
+
+        gm.Die();
+
+        breathing.respawn = true;
+
+
+        Movement.canMove = true;
+    }
+
 
 
     void OnDrawGizmos()

@@ -221,12 +221,12 @@ public class Breathing_mechanic : MonoBehaviour
 
 
         //Wait for the beginning of BreathingDead
-        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(1).IsName("BreathingDead"));
+        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("BreathingDead"));
 
         //new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length + myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime);
 
         //Wait for the end of BreathingDead
-        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length /*+ myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime*/ );
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length /*+ myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime*/ );
 
         respawn = true;
 

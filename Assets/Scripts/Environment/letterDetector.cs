@@ -21,8 +21,7 @@ public class letterDetector : MonoBehaviour
     private PlayEventSounds playEvent;
     public float maxDistance = 7f;
     
-    public Vector3 offsetDeadRobotRotation;
-    public Vector3 offsetDeadRobotTranslation;
+
     public string letter;
     public Vector3 dstwithUni; 
 
