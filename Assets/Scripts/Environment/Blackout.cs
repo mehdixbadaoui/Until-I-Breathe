@@ -30,9 +30,9 @@ public class Blackout : MonoBehaviour
             Camera.GetComponent<PatrolDrones>().enabled = false;
             Camera.GetComponent<BoxDamage>().LightsOut();
 
-            //MOVE DOORS
-            door1.transform.position += Vector3.forward * doorDist;
-            door2.transform.position += Vector3.back * doorDist;
+        //MOVE DOORS
+        // door1.transform.position += Vector3.forward * doorDist;
+        // door2.transform.position += Vector3.back * doorDist;
 
             //CREATE NEXT LEVEL TRIGGERBOX
             Instantiate(NExtLevelPrefab, NextLevelPos);
