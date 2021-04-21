@@ -185,6 +185,31 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Usine_music_event" ID="{45DF1425-D5FA-4EC5-854F-4E9F9F88A6F8}">
+							<ChildrenList>
+								<Action Name="" ID="{0C9F9193-49FD-4259-9DB0-527840A4C8AB}" ShortID="600800235">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Until_I_Breathe_Usine" ID="{16590ED7-C716-4AC3-8F8F-DDA633B198F1}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Usine_sound_break_event" ID="{73DAC678-BC7E-4EB0-88CF-E609CDC6FCE5}">
+							<ChildrenList>
+								<Action Name="" ID="{09A4FA05-7AEF-448C-A7CC-8F48F678E919}" ShortID="903185153">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Until_I_Breathe_Usine" ID="{16590ED7-C716-4AC3-8F8F-DDA633B198F1}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Uni_events" ID="{18EAD4E5-E3FB-44DD-90C9-DADDC37CE0B2}" ShortID="566197033">
@@ -856,10 +881,10 @@
 								</Event>
 								<Event Name="Train_depart_event" ID="{636BAFB9-3F49-41C6-8C2A-2E4307B186AD}">
 									<ChildrenList>
-										<Action Name="" ID="{1BE01BE2-0773-4EB1-9DB4-0DFAAB78C71F}" ShortID="664395584">
+										<Action Name="" ID="{7DDE415C-C5F9-4267-A795-6C873166569B}" ShortID="567130122">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Train_depart" ID="{3D0970CC-0BE7-472E-8965-D7F2A6402F8C}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+													<ObjectRef Name="Train_Klaxon_Start" ID="{663CC99E-9E32-4BE6-85A7-8065AF547AA5}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -882,6 +907,17 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Train_Marche_Exterieur_Loop_01" ID="{E5A03468-1F46-4928-888D-688E61F3DA4F}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Train_klaxon_end_event" ID="{C8536F0C-CEF1-418A-978A-7844AB188B4D}">
+									<ChildrenList>
+										<Action Name="" ID="{62A3FBD6-8987-456F-A653-FC3F2FB6CCAE}" ShortID="510471522">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Train_Klaxon_End" ID="{64C7A860-115D-4D33-947A-1F6DB9EEF477}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -1000,6 +1036,39 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Camion_event" ID="{577B6236-EABA-4157-B7A5-C359B6581FEF}">
+							<ChildrenList>
+								<Action Name="" ID="{8800E04B-53BB-42E5-B3AF-DA2801822CB6}" ShortID="565558669">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Camion_Moteur_Arret_Loop" ID="{13D2D5EC-85A5-4CD4-8B8B-8C18A25BCB6B}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Enceinte_shutdown_event" ID="{0C32364C-D68D-4FCB-95ED-6039BB091B01}">
+							<ChildrenList>
+								<Action Name="" ID="{FDFAE044-E559-4219-A9FB-22BF9E10BB9F}" ShortID="885419420">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Enceinte_Eteinte" ID="{178353CE-6E6E-44B7-829A-30FAC7C836CF}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Voiture_volante_event" ID="{B156F808-6CAA-4419-822D-B83241FC641A}">
+							<ChildrenList>
+								<Action Name="" ID="{340024D3-96B3-4369-A73F-5D2238E39245}" ShortID="413619392">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Voiture_Volante_Loop_01" ID="{D2ED5C65-2381-4D32-AB03-A63B287FAA6B}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST2_events" ID="{06E9A8D0-90E8-4BDD-9A08-3FFF794014E5}" ShortID="741954611">

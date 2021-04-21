@@ -27,6 +27,7 @@ namespace AK
         static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
         static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;
         static const AkUniqueID CAMERA_DETECTION_EVENT = 4200175161U;
+        static const AkUniqueID CAMION_EVENT = 2091737429U;
         static const AkUniqueID CARTEMAGNETIQUE_RAMASSE_EVENT = 2894782302U;
         static const AkUniqueID CARTEMAGNETIQUE_UTILISER_EVENT = 4133994025U;
         static const AkUniqueID CLOTHES_EVENT = 1884367558U;
@@ -35,6 +36,7 @@ namespace AK
         static const AkUniqueID DRONE_DEPLACEMENT_EVENT = 3075378619U;
         static const AkUniqueID DRONE_FIRESHOT_EVENT = 728004997U;
         static const AkUniqueID DRONE_STATIONNAIRE_EVENT = 3298702202U;
+        static const AkUniqueID ENCEINTE_SHUTDOWN_EVENT = 773651708U;
         static const AkUniqueID ENGRANAGE_TOURNE_EVENT = 2122763242U;
         static const AkUniqueID ENGRENAGE_BLOQUER_EVENT = 480333909U;
         static const AkUniqueID FOULE_LOOP_EVENT = 2985396484U;
@@ -92,10 +94,14 @@ namespace AK
         static const AkUniqueID TRAIN_DEPART_EVENT = 3951010251U;
         static const AkUniqueID TRAIN_EXTERIEUR_EVENT = 1127840350U;
         static const AkUniqueID TRAIN_INTERIEUR_EVENT = 2137224780U;
+        static const AkUniqueID TRAIN_KLAXON_END_EVENT = 859900814U;
         static const AkUniqueID UNI_ETOUFFEMENT_EVENT = 1109845805U;
         static const AkUniqueID UNI_TOUSSE_A_MORT_EVENT = 4164979709U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
+        static const AkUniqueID USINE_MUSIC_EVENT = 3270961216U;
+        static const AkUniqueID USINE_SOUND_BREAK_EVENT = 3717649508U;
         static const AkUniqueID VENT_EVENT = 4165311893U;
+        static const AkUniqueID VOITURE_VOLANTE_EVENT = 3356674548U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -119,11 +125,14 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID AMBIANT_MUSIC_SOUND = 2979278319U;
+        static const AkUniqueID BALLONEXPLOSIONVOLUME = 366444476U;
+        static const AkUniqueID CAMIONVOLUME = 1636486062U;
         static const AkUniqueID DISTWITHUNIVOLUME = 1079181951U;
         static const AkUniqueID DOORVOLUME = 2440552763U;
         static const AkUniqueID DRONESDEPLACEMENTVOLUME = 808486924U;
         static const AkUniqueID FALLINGPLATEFORMEVOLUME = 1003961143U;
         static const AkUniqueID FANVOLUME = 2656500902U;
+        static const AkUniqueID FOULEVOLUME = 2014797766U;
         static const AkUniqueID INSPIRATIONVOLUME = 2352147213U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MUSICLEVELSVOLUME = 956757313U;
@@ -133,7 +142,9 @@ namespace AK
         static const AkUniqueID TRAINLOWPASSFILTRER = 1579264580U;
         static const AkUniqueID TRAINVOLUME = 1950279691U;
         static const AkUniqueID UNI_ETOUFFEMENTSVOLUME = 2719740865U;
+        static const AkUniqueID USINEVOLUME = 1012520615U;
         static const AkUniqueID VENTILATORVOLUME = 1991624541U;
+        static const AkUniqueID VOITUREVOLANTEVOLUME = 1150438748U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS

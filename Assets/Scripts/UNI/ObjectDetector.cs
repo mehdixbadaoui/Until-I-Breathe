@@ -60,8 +60,9 @@ public class ObjectDetector : MonoBehaviour
                 }
                 else if (listObj[index].CompareTag("Levier_Level_1_3"))
                 {
-                    playEvent.PlayEventWithoutRTPC("Lvl_1_3_event", GameObject.FindGameObjectWithTag("MainCamera"));
+                    playEvent.PlayEventWithoutRTPC("Enceinte_shutdown_event", GameObject.FindGameObjectWithTag("MainCamera"));
                     playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("MainCamera"));
+                    GameObject.FindGameObjectWithTag("globalLight1_3").SetActive(false); 
                 }
                 else if (listObj[index].CompareTag("lever") && listObj[index].GetComponent<Lever>() && !listObj[index].GetComponent<Lever>().activated)
                 {
