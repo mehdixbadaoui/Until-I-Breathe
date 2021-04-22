@@ -53,6 +53,8 @@ public class PatrolDrones : MonoBehaviour
 
         originalSpotlightColour = spotlight.color;
         playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>(); 
+
+        speed = speed * Time.deltaTime;
         //Vector3[] waypoints = new Vector3[pathHolder.childCount];
         //for (int i = 0; i < waypoints.Length; i++)
         //{
