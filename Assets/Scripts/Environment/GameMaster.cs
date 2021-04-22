@@ -343,6 +343,22 @@ public class GameMaster : MonoBehaviour
 
     }
 
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(); 
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        GameObject.FindGameObjectWithTag("uni").transform.position = position;
+        SceneManager.LoadScene(data.sceneIndex); 
+
+    }
+
     //Just For Testing
     public void NextScene()
     {
