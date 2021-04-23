@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &304914731238827101
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9003205087813932998}
-  m_Material: {fileID: 13400000, guid: a079a3ea22123ad42a00c3465ed15288, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4189575836506834876, guid: 0752833f49de87d4b8b54d35a442c0ee, type: 3}
 --- !u!1 &6122354385773220368
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,7 +11,7 @@ GameObject:
   - component: {fileID: 3297498672918117850}
   m_Layer: 0
   m_Name: VentCo1Riche
-  m_TagString: Untagged
+  m_TagString: Ground_Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -46,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &304914731238827101
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003205087813932998}
+  m_Material: {fileID: 13400000, guid: a079a3ea22123ad42a00c3465ed15288, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4189575836506834876, guid: 0752833f49de87d4b8b54d35a442c0ee, type: 3}
 --- !u!1001 &4287193770149618741
 PrefabInstance:
   m_ObjectHideFlags: 0

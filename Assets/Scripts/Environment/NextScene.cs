@@ -39,6 +39,8 @@ public class NextScene : MonoBehaviour
         Movement.canMove = false;
         if (Clip != null)
         {
+            Debug.Log(" A CLIP IS PLAYING");
+
             Clip.Play();
 
             yield return new WaitForSeconds((float)Clip.duration);
