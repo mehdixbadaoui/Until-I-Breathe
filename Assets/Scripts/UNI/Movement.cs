@@ -286,15 +286,19 @@ public class Movement : MonoBehaviour
                 countNotGround = 0;
             SlopeCheck();
 
-            if (!isGrounded && !didFall)
+            if (!isGrounded && !isGrapplin && !didFall)
             {
                 didFall = true;
                 positionBeforeFalling = transform.position;
             }
+            else if (isGrapplin && didFall)
+            {
+                didFall = false;
+            }
             else if(isGrounded && didFall) 
             {
                 didFall = false;
-                if ( Math.Abs(positionBeforeFalling.y - transform.position.y ) > hauteurDeChuteMax )
+                if ( positionBeforeFalling.y - transform.position.y  > hauteurDeChuteMax )
                 {
                     StartCoroutine(ChuteDead());
                 }
