@@ -86,6 +86,16 @@ public class PauseMenu : MonoBehaviour
         text.SetActive(false);
     }
 
+    public void SelectSettings(GameObject layout)
+    {
+        layout.SetActive(true);
+    }
+
+    public void DeSelectSettings(GameObject layout)
+    {
+        layout.SetActive(false);
+    }
+
     public void SelectSave(GameObject text)
     {
         //Code de Ben ici;
