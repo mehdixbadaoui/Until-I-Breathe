@@ -264,28 +264,29 @@ public class GameMaster : MonoBehaviour
     {
         if (indexForLetter == 0)
         {
-            letterList[0] = "Je me souviens du temps où les humains n’avaient pas peur de perdre la chose la plus précieuse pour leur survie : l’oxygène. Aveuglés par leur essor économique, ils ont oublié la chose la plus précieuse qu’ils avaient. Mais cette tragédie n’a pas fait que des malheureux… Certains opportunistes ont su en profiter. Étant donné que l’éthique n’est plus au goût du jour, chacun fait bien ce qu’il veut.";
+            letterList[0] = "Quand le ciel est dégagé, j’arrive presque à voir l’entrée des bas-fonds de cette pauvre ville. on voit les fumerolles de l’usine de filtration d’air, je plains les habitants autour. Je ne sais même pas si eux peuvent me voir à cause de la pollution. Perché en haut de la plus haute tour, personne ne peut m’atteindre !";
         }
         if (indexForLetter == 1)
         {
-            letterList[1] = "Décadence ... une dégradation perpétuelle et immuable. Qu'importe l'horizon sur lequel mon regard se pose, tout ce qu'il y trouve est pourriture et putréfaction. Ces temps sont maudits, même mon génie ne peut rivaliser avec la stupidité et la débauche de ces asticots grouillants sur le sol. Être né à cette époque est très certainement mon plus grand échec.";
+            letterList[1] = "Je me souviens du temps où les humains n’avaient pas peur de perdre la chose la plus précieuse pour leur survie : l’oxygène. Aveuglés par leur essor économique, ils ont oublié la chose la plus précieuse qu’ils avaient. Mais cette tragédie n’a pas fait que des malheureux… Certains opportunistes ont su en profiter. Étant donné que l’éthique n’est plus au goût du jour, chacun fait bien ce qu’il veut.";
         }
         if (indexForLetter == 2)
         {
-            letterList[2] = "Encore des émeutes, j'écraserai ces déchets rapidement et sans état d'âme.Ces imbéciles ne réalisent même pas à quel point je peux être généreux.Sans moi ils suffoqueraient dans leur propre pisse pleurant pour un peu d'aide.";
+            letterList[2] = "Décadence ... une dégradation perpétuelle et immuable. Qu'importe l'horizon sur lequel mon regard se pose, tout ce qu'il y trouve est pourriture et putréfaction. Ces temps sont maudits, même mon génie ne peut rivaliser avec la stupidité et la débauche de ces asticots grouillants sur le sol. Être né à cette époque est très certainement mon plus grand échec.";
+
         }
         if (indexForLetter == 3)
         {
             
-            letterList[3] = "Le conseil vient de m'apprendre que l'entreprise avait du mal à approvisionner les niveaux inférieurs. Ces incompétents ... Qu'importe, je me chargerai moi-même de la situation. Et si je n'arrive pas à trouver de solution, il suffira de couper l'approvisionnement pendant quelque temps afin de diminuer la demande."; 
+            letterList[3] = "Encore des émeutes, j'écraserai ces déchets rapidement et sans état d'âme. Ces imbéciles ne réalisent même pas à quel point je peux être généreux. Sans moi ils suffoqueraient dans leur propre pisse pleurant pour un peu d'aide."; 
         }
         if (indexForLetter == 4)
         {
-            letterList[4] = "ElleestmorteElleestmorteElleestmorteElleestmorteElleestmorteElleestmorteElleestmorte ... Ma Céleste est morte... Comment suis je supposé continuer à vivre sans ma tendre épouse ?";
+            letterList[4] = "Le conseil vient de m'apprendre que l'entreprise avait du mal à approvisionner les niveaux inférieurs. Ces incompétents ... Qu'importe, je me chargerai moi-même de la situation. Et si je n'arrive pas à trouver de solution, il suffira de couper l'approvisionnement pendant quelque temps afin de diminuer la demande.";
         }
         if (indexForLetter == 5)
         {
-            letterList[5] = "Enfin mes efforts portent leurs fruits. Nous avons réussi à recréer le cœur et le foie de manière saine. Maintenant nous devons nous atteler à la conscience et aux poumons.";
+            letterList[5] = "ElleestmorteElleestmorteElleestmorteElleestmorteElleestmorteElleestmorteElleestmorte ... Ma Céleste est morte... Comment suis je supposé continuer à vivre sans ma tendre épouse ? Enfin mes efforts portent leurs fruits. Nous avons réussi à recréer le cœur et le foie de manière saine. Maintenant nous devons nous atteler à la conscience et aux poumons.";
         }
         if (indexForLetter == 6)
         {
@@ -293,11 +294,11 @@ public class GameMaster : MonoBehaviour
         }
         if (indexForLetter == 7)
         {
-            letterList[7] = "Elle est revenue ... Elle est revenue me voir ! Oh mon dieu quel moment délectable ... Mais elle ne peut pas rester, je ne le permettrait pas. \r\n Troisième rencontre, chaque nouvelle session est encore plus délectable que la dernière.Même mes échecs sont bien au-delà de tout ce que l'humanité a pu accomplir."; 
+            letterList[7] = "Elle est revenue ... Elle est revenue me voir ! Oh mon dieu quel moment délectable ... Mais elle ne peut pas rester, je ne le permettrait pas. Troisième rencontre, chaque nouvelle session est encore plus délectable que la dernière.Même mes échecs sont bien au-delà de tout ce que l'humanité a pu accomplir."; 
         }
         if (indexForLetter == 8)
         {
-            letterList[8] = "Ce robot va être un problème si tout doit se passer comme je l'entends, je vais devoir modifier quelques paramètres et l'empêcher de passer outre certains protocoles pour éviter toute mauvaise surprise. Même si je ne sais pas quelles informations ont été compromises, je ne peux pas me permettre une autre fuite de données. ";
+            letterList[8] = "Ce robot va être un problème si tout doit se passer comme je l'entends, je vais devoir modifier quelques paramètres et l'empêcher de passer outre certains protocoles pour éviter toute mauvaise surprise. Même si je ne sais pas quelles informations ont été compromises, je ne peux pas me permettre une autre fuite de données.";
         }
 
 
@@ -340,6 +341,22 @@ public class GameMaster : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(); 
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        GameObject.FindGameObjectWithTag("uni").transform.position = position;
+        SceneManager.LoadScene(data.sceneIndex); 
 
     }
 
