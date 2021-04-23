@@ -63,6 +63,8 @@ public class ObjectDetector : MonoBehaviour
                     playEvent.PlayEventWithoutRTPC("Enceinte_shutdown_event", GameObject.FindGameObjectWithTag("MainCamera"));
                     playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("MainCamera"));
                     GameObject.FindGameObjectWithTag("globalLight1_3").SetActive(false); 
+                    listObj[index].GetComponent<RisingFogLever>().LaunchGaz();
+
                 }
                 else if (listObj[index].CompareTag("lever") && listObj[index].GetComponent<Lever>() && !listObj[index].GetComponent<Lever>().activated)
                 {
@@ -90,11 +92,11 @@ public class ObjectDetector : MonoBehaviour
                     listObj[index].GetComponent<LeverEnceinte>().isOn = true;
                 }
 
-                else if (listObj[index].CompareTag("RisingFogLever"))
-                {
-                    listObj[index].GetComponent<RisingFogLever>().LaunchGaz();
+                // else if (listObj[index].CompareTag("RisingFogLever"))
+                // {
+                //     listObj[index].GetComponent<RisingFogLever>().LaunchGaz();
 
-                }
+                // }
 
                 else if (listObj[index].CompareTag("Button_Platform"))
                 {
