@@ -2888,13 +2888,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28291e88d65aee409410d22ebe49819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectionText: {fileID: 2518542371585433477}
+  SelectionText: {fileID: 0}
   MainTab:
     Activable: {fileID: 6523565707547099050}
     Selection: {fileID: 2518542369914682197}
   ButtonsData:
   - Name: Resume
     SelectionTransform: {fileID: 6053077854502398366}
+    button: {fileID: 0}
+    baseImage: {fileID: 0}
+    selectedImage: {fileID: 0}
     OnSubmit:
       m_PersistentCalls:
         m_Calls:
@@ -2915,6 +2918,9 @@ MonoBehaviour:
       Selection: {fileID: 0}
   - Name: Logs
     SelectionTransform: {fileID: 1103524790906627173}
+    button: {fileID: 0}
+    baseImage: {fileID: 0}
+    selectedImage: {fileID: 0}
     OnSubmit:
       m_PersistentCalls:
         m_Calls: []
@@ -2923,6 +2929,9 @@ MonoBehaviour:
       Selection: {fileID: 0}
   - Name: Settings
     SelectionTransform: {fileID: 861487156421393193}
+    button: {fileID: 0}
+    baseImage: {fileID: 0}
+    selectedImage: {fileID: 0}
     OnSubmit:
       m_PersistentCalls:
         m_Calls: []
@@ -2931,6 +2940,9 @@ MonoBehaviour:
       Selection: {fileID: 0}
   - Name: Save
     SelectionTransform: {fileID: 2519378821301121241}
+    button: {fileID: 0}
+    baseImage: {fileID: 0}
+    selectedImage: {fileID: 0}
     OnSubmit:
       m_PersistentCalls:
         m_Calls: []
@@ -2939,6 +2951,9 @@ MonoBehaviour:
       Selection: {fileID: 0}
   - Name: Quit
     SelectionTransform: {fileID: 1894651596367393232}
+    button: {fileID: 0}
+    baseImage: {fileID: 0}
+    selectedImage: {fileID: 0}
     OnSubmit:
       m_PersistentCalls:
         m_Calls: []
@@ -3096,85 +3111,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &2518542371585433479
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2518542371585433476}
-  - component: {fileID: 2518542371585433498}
-  - component: {fileID: 2518542371585433477}
-  m_Layer: 0
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2518542371585433476
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518542371585433479}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8919838316461884380}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.1}
-  m_AnchorMax: {x: 0.9, y: 0.3}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2518542371585433498
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518542371585433479}
-  m_CullTransparentMesh: 0
---- !u!114 &2518542371585433477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518542371585433479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: New Text
 --- !u!1 &2754683570596334222
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,7 +3987,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2518542371008868329}
-  - {fileID: 2518542371585433476}
   m_Father: {fileID: 2518542371562376959}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4575,11 +4510,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1805779029026865894}
           m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-          m_MethodName: Select
-          m_Mode: 3
+          m_MethodName: SelectLogs
+          m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4591,11 +4526,11 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1805779029026865894}
           m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-          m_MethodName: Deselect
-          m_Mode: 3
+          m_MethodName: DeSelectLogs
+          m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 

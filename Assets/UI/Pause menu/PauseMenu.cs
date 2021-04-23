@@ -28,6 +28,10 @@ public class PauseMenu : MonoBehaviour
         public string Name;
         public RectTransform SelectionTransform;
 
+        public Button button;
+        public Sprite baseImage;
+        public Sprite selectedImage;
+
         public UnityEvent OnSubmit;
 
         public Tab Tab;
@@ -49,20 +53,57 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            CloseCurrentTab();
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //    CloseCurrentTab();
     }
 
     public void Select(int i)
     {
-        SelectionText.text = "< " + ButtonsData[i].Name + " >";
-        ButtonsData[i].SelectionTransform.gameObject.SetActive(true);
+        //SelectionText.text = "< " + ButtonsData[i].Name + " >";
+        //Debug.Log("selected");
+        //ButtonsData[i].SelectionTransform.gameObject.SetActive(true);
+        //ButtonsData[i].button.GetComponent<Image>().sprite = ButtonsData[i].selectedImage;
+        Debug.Log("selected");
     }
     public void Deselect(int i)
     {
-        SelectionText.text = "";
-        ButtonsData[i].SelectionTransform.gameObject.SetActive(false);
+        //SelectionText.text = "";
+        //Debug.Log("unselected");
+        //ButtonsData[i].SelectionTransform.gameObject.SetActive(false);
+        //ButtonsData[i].button.GetComponent<Image>().sprite = ButtonsData[i].baseImage;
+        Debug.Log("de-selected");
+
+
     }
+
+    public void SelectLogs(GameObject text)
+    {
+        text.SetActive(true);
+    }
+
+    public void DeSelectLogs(GameObject text)
+    {
+        text.SetActive(false);
+    }
+
+    public void SelectSave(GameObject text)
+    {
+        //Code de Ben ici;
+        StartCoroutine(SavingText(text));
+    }
+
+    IEnumerator SavingText(GameObject text)
+    {
+        text.SetActive(true);
+        float time = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup - time < 2f)
+        {
+            yield return null;
+        }
+        text.SetActive(false);
+        yield return null;
+    }
+
     public void Submit(int i)
     {
         ButtonsData[i].OnSubmit.Invoke();
@@ -82,12 +123,12 @@ public class PauseMenu : MonoBehaviour
         currentTab = ButtonsData[i].Tab;
 
         currentTab.Activable.SetActive(true);
-        if(currentTab.Selection)
+        if (currentTab.Selection)
             currentTab.Selection.Select();
     }
     public void CloseCurrentTab()
     {
-        if(previousTabs.Count > 1)
+        if (previousTabs.Count > 1)
         {
             currentTab.Activable.SetActive(false);
 

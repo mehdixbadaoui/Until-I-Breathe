@@ -21,7 +21,7 @@ public class GameMaster : MonoBehaviour
     //LetterForUni 
     private List<string> letterList;
     private int indexForLetter;
-    private string letterForUni; 
+    private string letterForUni;
 
 
     // Breathing mecanic
@@ -42,8 +42,14 @@ public class GameMaster : MonoBehaviour
     public Canvas canvas;
 
     //Pause Menu
-    private bool isPaused;
+    [Header("Pause Manu")]
     public GameObject pauseMenu;
+    private bool isPaused;
+    public TMP_Text LetterMenuText;
+    public GameObject letterMenuGO;
+
+    public GameObject LogsText;
+    public GameObject SavingText;
 
     // Set and get of the last checkoint position
     public Vector3 LastCheckPointPos
@@ -51,7 +57,7 @@ public class GameMaster : MonoBehaviour
         get { return lastCheckPointPos; }   // get method
         set { lastCheckPointPos = value; }  // set method
     }
-    
+
 
     void Awake()
     {
@@ -146,7 +152,7 @@ public class GameMaster : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("paused");
+        //Debug.Log("paused");
         isPaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
@@ -155,23 +161,33 @@ public class GameMaster : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("resumed");
+        //Debug.Log("resumed");
         isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+
+        //pauseMenu.GetComponent<PauseMenu>().DeSelectLogs(LogsText);
+        //SavingText.SetActive(false);
+
     }
 
     public void PlayPause()
     {
         if (isPaused)
             Resume();
-        else if(SceneManager.GetActiveScene().buildIndex != 0)
+        else if (SceneManager.GetActiveScene().buildIndex != 0)
             Pause();
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void DisplayLetter()
+    {
+        //LetterMenuText.enabled = true;
+        letterMenuGO.SetActive(true);
     }
 
     // If Uni die
@@ -309,6 +325,7 @@ public class GameMaster : MonoBehaviour
         string letterforUnifinal = letterForUni;
         letterForUni = "";
         indexForLetter += 1;
+        LetterMenuText.text = letterforUnifinal;
         return letterforUnifinal; 
         
         //DeadRobotsText(letterForUni); 
