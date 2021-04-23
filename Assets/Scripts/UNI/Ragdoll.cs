@@ -14,15 +14,22 @@ public class Ragdoll : MonoBehaviour
     {
         rigColliders = GetComponentsInChildren<Collider>();
         rigRigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        if (OnOff)
+            RagOn();
+        else
+            RagOff();
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (OnOff)
             RagOn();
         else
             RagOff();
+        */
     }
 
     public void RagOn()
