@@ -202,11 +202,24 @@ public class GameMaster : MonoBehaviour
 
 
         //RESET PLATFORM POSITIONS
-        if (lastCheckpoint != null && lastCheckpoint.platformsToReset != null)
+        if (lastCheckpoint != null)
         {
-            for (int i = 0; i < lastCheckpoint.platformsToReset.Length; ++i)
+            if (lastCheckpoint.platformsToReset != null)
             {
-                lastCheckpoint.platformsToReset[i].Respawn();
+                for (int i = 0; i < lastCheckpoint.platformsToReset.Length; ++i)
+                {
+                    lastCheckpoint.platformsToReset[i].Respawn();
+                }
+            }
+
+            if (lastCheckpoint.fogToReset != null)
+            {
+                for (int i = 0; i < lastCheckpoint.fogToReset.Length; ++i)
+                {
+                    lastCheckpoint.fogToReset[i].GetComponent<RisingFog>().Respawn( new Vector3(lastCheckpoint.fogToReset[i].transform.position.x 
+                        , lastCheckpoint.transform.position.y + lastCheckpoint.heightToResetFog - lastCheckpoint.fogToReset[i].GetComponent<Collider>().bounds.size.y/2 
+                        , lastCheckpoint.fogToReset[i].transform.position.z));
+                }
             }
 
         }
