@@ -12,12 +12,17 @@ public class Checkpoint : MonoBehaviour
     // platforms
     public Platforms[] platformsToReset;
 
+    // platforms
+    public GameObject[] fogToReset;
+    public float heightToResetFog = -5f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         // Game master
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+
 
         // Plane to visualize the checkpoint
         if (transform.childCount != 0)
@@ -38,5 +43,15 @@ public class Checkpoint : MonoBehaviour
             if (plane != null)
                 plane.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (fogToReset.Length > 0)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawSphere(transform.position + new Vector3(0 , heightToResetFog , 0), 1f);
+        }
+
     }
 }

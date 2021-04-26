@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     private Inputs inputs;
 
     public Animator myAnimator;
+    public Ragdoll ragdoll;
 
     private Breathing_mechanic breathing;
 
@@ -135,6 +136,9 @@ public class Movement : MonoBehaviour
 
         // Get the animator 
         myAnimator = GetComponentInChildren<anim>().GetComponent<Animator>();
+
+        //Get the ragdoll
+        ragdoll = myAnimator.gameObject.GetComponent<Ragdoll>();
 
         Debug.Log(myAnimator);
 
@@ -646,17 +650,23 @@ public class Movement : MonoBehaviour
 
         Movement.canMove = false;
 
-        myAnimator.Play("BreathingDead", 0);
+        //myAnimator.Play("BreathingDead", 0);
 
+        myAnimator.enabled = false;
+        ragdoll.RagOn();
 
         //Wait for the beginning of BreathingDead
-        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("BreathingDead"));
+        //yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("BreathingDead"));
 
         //new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length + myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime);
 
         //Wait for the end of BreathingDead
-        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length  );
+        //yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length  );
 
+        yield return new WaitForSeconds( 5.0f );
+
+        ragdoll.RagOff();
+        myAnimator.enabled = true;
 
         gm.Die();
 

@@ -18,6 +18,11 @@ public class RisingFog : MonoBehaviour
         transform.Translate(new Vector3(0, Mathf.Lerp(0, 1, .5f), 0) * RiseSpeed / 10);
     }
 
+    public void Respawn(Vector3 position)
+    {
+        transform.position = position;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("uni"))
