@@ -109,7 +109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 153.6, y: -299.40005}
+  m_AnchoredPosition: {x: 153.6, y: -455.2821}
   m_SizeDelta: {x: 307.2, y: 199.60004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &712369369528734231
@@ -1194,29 +1194,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Settings
---- !u!114 &969903418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7402931070248362361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d6c886f11c21a438370c8ac849f3a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastCheckPointPos: {x: 0, y: 0, z: 0}
-  lastCheckpoint: {fileID: 0}
-  grapplin: {fileID: 0}
-  gamepad: 1
-  DialoguBox: {fileID: 0}
-  canvas: {fileID: 0}
-  pauseMenu: {fileID: 6794565392048389376}
-  LetterMenuText: {fileID: 7277513620100489600}
-  letterMenuGO: {fileID: 6890836039996484255}
-  LogsText: {fileID: 7051651037844471660}
-  SavingText: {fileID: 7775583378375242621}
 --- !u!114 &8009491418834212348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,6 +1465,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AspectMode: 2
   m_AspectRatio: 1
+--- !u!114 &969903418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7402931070248362361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d6c886f11c21a438370c8ac849f3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastCheckPointPos: {x: 0, y: 0, z: 0}
+  lastCheckpoint: {fileID: 0}
+  grapplin: {fileID: 0}
+  gamepad: 0
+  DialoguBox: {fileID: 0}
+  canvas: {fileID: 0}
+  pauseMenu: {fileID: 6794565392048389376}
+  LetterMenuText: {fileID: 7277513620100489600}
+  letterMenuGO: {fileID: 6890836039996484255}
+  LogsText: {fileID: 7051651037844471660}
+  SavingText: {fileID: 7775583378375242621}
 --- !u!1 &7775583378375242621
 GameObject:
   m_ObjectHideFlags: 0

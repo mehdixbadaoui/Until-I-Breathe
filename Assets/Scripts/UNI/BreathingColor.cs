@@ -24,6 +24,8 @@ public class BreathingColor : MonoBehaviour
     public int step2 = 50;
     public int step3 = 25;
     public int step4 = 10;
+
+    [Range(0f, 1f)] public float chomaticAberrationMax;
     private PlayEventSounds playEvent; 
 
     // Start is called before the first frame update
@@ -80,9 +82,13 @@ public class BreathingColor : MonoBehaviour
     {
         if (bm.breath< step1 && bm.breath>=0)
         {
-            AkSoundEngine.PostEvent("Break_Uni_Etouffement_event", uni); 
-            if (chrom && bm.breath > step2 - (bm.max_breath/10))
-                chrom.intensity.value = ( Mathf.Abs(bm.breath - step1) / step1 ) * (bm.max_breath / 10);
+            AkSoundEngine.PostEvent("Break_Uni_Etouffement_event", uni);
+            if (chrom && bm.breath > step1 - (bm.max_breath / 10))
+            {
+                chrom.intensity.value = (Mathf.Abs(bm.breath - step1) / step1) * (bm.max_breath / 10) * chomaticAberrationMax;
+                Debug.Log(chrom.intensity.value);
+                Debug.Log(bm.breath);
+            }
 
             if (bm.breath < step2)
             {
