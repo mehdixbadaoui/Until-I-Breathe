@@ -18,6 +18,7 @@ public class letterDetector : MonoBehaviour
     private List<string> letterList;
     private int indexForLetter;
     public GameMaster gm;
+    public GameObject pauseMenu;
     private PlayEventSounds playEvent;
     public float maxDistance = 7f;
     
@@ -68,6 +69,8 @@ public class letterDetector : MonoBehaviour
         {
             didTake = true;
             StartCoroutine(Cinematic(Clip));
+            gm.PlayPause();
+            pauseMenu.GetComponent<PauseMenu>().logsLayout.SetActive(true);
         }
         
     }
