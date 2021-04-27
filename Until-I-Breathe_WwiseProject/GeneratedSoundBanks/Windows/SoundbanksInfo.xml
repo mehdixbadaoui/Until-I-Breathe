@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>D:\UntilIBreath_project\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="49742485">
+		<SoundBank Id="1355168291" Language="SFX" Hash="237536956">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="English(US)" Hash="1457446085">
+		<SoundBank Id="2228651116" Language="English(US)" Hash="648252229">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>English(US)\Main_Soundbank.bnk</Path>
@@ -39,6 +39,22 @@
 						<File Id="175544168" Language="SFX">
 							<ShortName>AMB_Interieur_Doux.wav</ShortName>
 							<Path>SFX\AMB_Interieur_Doux_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2594406644" Name="Annonce_event" ObjectPath="\Events\Default Work Unit\Environment_events\Annonce_event" DurationType="OneShot" DurationMin="20.000000" DurationMax="20.000000">
+					<IncludedMemoryFiles>
+						<File Id="261041439" Language="English(US)">
+							<ShortName>Annonce2.wav</ShortName>
+							<Path>Voices\English(US)\Annonce2_10C4C929.wem</Path>
+						</File>
+						<File Id="453653944" Language="English(US)">
+							<ShortName>Annonce3.wav</ShortName>
+							<Path>Voices\English(US)\Annonce3_10C4C929.wem</Path>
+						</File>
+						<File Id="636257462" Language="English(US)">
+							<ShortName>Annonce1.wav</ShortName>
+							<Path>Voices\English(US)\Annonce1_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -310,6 +326,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3493793537" Name="EnginVolant_event" ObjectPath="\Events\Default Work Unit\Environment_events\EnginVolant_event" DurationType="OneShot" DurationMin="7.013651" DurationMax="10.366530">
+					<IncludedMemoryFiles>
+						<File Id="55352432" Language="English(US)">
+							<ShortName>Engin_volant3.wav</ShortName>
+							<Path>Voices\English(US)\Engin_volant3_10C4C929.wem</Path>
+						</File>
+						<File Id="249676402" Language="English(US)">
+							<ShortName>Engin_volant1.wav</ShortName>
+							<Path>Voices\English(US)\Engin_volant1_10C4C929.wem</Path>
+						</File>
+						<File Id="678281551" Language="English(US)">
+							<ShortName>Engin_volant2.wav</ShortName>
+							<Path>Voices\English(US)\Engin_volant2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2122763242" Name="Engranage_tourne_event" ObjectPath="\Events\Default Work Unit\Environment_events\Engranage_tourne_event" DurationType="OneShot" DurationMin="1.874979" DurationMax="1.874979">
 					<IncludedMemoryFiles>
 						<File Id="144952040" Language="SFX">
@@ -562,35 +594,19 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3869797606" Name="Hook_ralonge_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_ralonge_event" DurationType="OneShot" DurationMin="0.500000" DurationMax="0.500000">
+				<Event Id="3869797606" Name="Hook_ralonge_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_ralonge_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
 					<IncludedMemoryFiles>
-						<File Id="216791816" Language="SFX">
-							<ShortName>Uni_Grappin_Ralonge_Loop_03.wav</ShortName>
-							<Path>SFX\Uni_Grappin_Ralonge_Loop_03_10C4C929.wem</Path>
-						</File>
-						<File Id="924626134" Language="SFX">
-							<ShortName>Uni_Grappin_Ralonge_Loop_01.wav</ShortName>
-							<Path>SFX\Uni_Grappin_Ralonge_Loop_01_10C4C929.wem</Path>
-						</File>
-						<File Id="955761091" Language="SFX">
-							<ShortName>Uni_Grappin_Ralonge_Loop_02.wav</ShortName>
-							<Path>SFX\Uni_Grappin_Ralonge_Loop_02_10C4C929.wem</Path>
+						<File Id="1040834374" Language="English(US)">
+							<ShortName>Grappin_Ralonge_Loop.wav</ShortName>
+							<Path>Voices\English(US)\Grappin_Ralonge_Loop_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1354796538" Name="Hook_retracte_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_retracte_event" DurationType="OneShot" DurationMin="0.500042" DurationMax="0.500042">
+				<Event Id="1354796538" Name="Hook_retracte_event" ObjectPath="\Events\Default Work Unit\Uni_events\Hook\Hook_retracte_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="0.750000">
 					<IncludedMemoryFiles>
-						<File Id="285335161" Language="SFX">
-							<ShortName>Uni_Grapin_Retracte_01.wav</ShortName>
-							<Path>SFX\Uni_Grapin_Retracte_01_10C4C929.wem</Path>
-						</File>
-						<File Id="354250736" Language="SFX">
-							<ShortName>Uni_Grapin_Retracte_02.wav</ShortName>
-							<Path>SFX\Uni_Grapin_Retracte_02_10C4C929.wem</Path>
-						</File>
-						<File Id="751274313" Language="SFX">
-							<ShortName>Uni_Grapin_Retracte_03.wav</ShortName>
-							<Path>SFX\Uni_Grapin_Retracte_03_10C4C929.wem</Path>
+						<File Id="965300597" Language="English(US)">
+							<ShortName>Grappin_Retracte_Loop.wav</ShortName>
+							<Path>Voices\English(US)\Grappin_Retracte_Loop_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -1110,6 +1126,7 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="58362009" Name="TrainDepartVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainDepartVolume"/>
+				<GameParameter Id="148594698" Name="EnginVolantVolume" ObjectPath="\Game Parameters\Default Work Unit\EnginVolantVolume"/>
 				<GameParameter Id="366444476" Name="BallonExplosionVolume" ObjectPath="\Game Parameters\Default Work Unit\BallonExplosionVolume"/>
 				<GameParameter Id="808486924" Name="DronesDeplacementVolume" ObjectPath="\Game Parameters\Default Work Unit\DronesDeplacementVolume"/>
 				<GameParameter Id="956757313" Name="MusicLevelsVolume" ObjectPath="\Game Parameters\Default Work Unit\MusicLevelsVolume"/>
@@ -1120,6 +1137,7 @@
 				<GameParameter Id="1579264580" Name="TrainLowPassFiltrer" ObjectPath="\Game Parameters\Default Work Unit\TrainLowPassFiltrer"/>
 				<GameParameter Id="1636486062" Name="CamionVolume" ObjectPath="\Game Parameters\Default Work Unit\CamionVolume"/>
 				<GameParameter Id="1950279691" Name="TrainVolume" ObjectPath="\Game Parameters\Default Work Unit\TrainVolume"/>
+				<GameParameter Id="1951759365" Name="AnnonceVilleVolume" ObjectPath="\Game Parameters\Default Work Unit\AnnonceVilleVolume"/>
 				<GameParameter Id="1991624541" Name="VentilatorVolume" ObjectPath="\Game Parameters\Default Work Unit\VentilatorVolume"/>
 				<GameParameter Id="2014797766" Name="Foulevolume" ObjectPath="\Game Parameters\Default Work Unit\Foulevolume"/>
 				<GameParameter Id="2352147213" Name="InspirationVolume" ObjectPath="\Game Parameters\Default Work Unit\InspirationVolume"/>
