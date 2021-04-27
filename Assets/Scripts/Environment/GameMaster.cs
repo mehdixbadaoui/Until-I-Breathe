@@ -164,6 +164,11 @@ public class GameMaster : MonoBehaviour
         //Debug.Log("resumed");
         isPaused = false;
         Time.timeScale = 1;
+
+        pauseMenu.GetComponent<PauseMenu>().settingsLayout.SetActive(false);
+        pauseMenu.GetComponent<PauseMenu>().audioLayout.SetActive(false); 
+        pauseMenu.GetComponent<PauseMenu>().videoLayout.SetActive(false);
+        pauseMenu.GetComponent<PauseMenu>().logsLayout.SetActive(false);
         pauseMenu.SetActive(false);
 
         //pauseMenu.GetComponent<PauseMenu>().DeSelectLogs(LogsText);
