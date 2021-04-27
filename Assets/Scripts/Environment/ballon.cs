@@ -68,6 +68,8 @@ public class ballon : MonoBehaviour
             travel_speed = travel_speed_val;
             distWithUni = playEvent.CalculateDistanceUniFromObject(this.gameObject.transform.position);
             playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Ballon_explosion_event", "BallonExplosionVolume"); 
+            GetComponent<Rigidbody>().isKinematic = true;
+
         }
         else if(collision.collider.CompareTag("PushBallon"))
             travel_speed = 2f;
