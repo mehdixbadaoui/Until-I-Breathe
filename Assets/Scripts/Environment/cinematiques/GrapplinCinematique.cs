@@ -50,7 +50,6 @@ public class GrapplinCinematique : MonoBehaviour
     private IEnumerator Cinematic(PlayableDirector playable1 , PlayableDirector playable2)
     {
         Movement.canMove = false;
-
         myAnimator.Play("idle&run" , 0);
 
         playable1.Play();
