@@ -24,7 +24,7 @@ public class letterDetector : MonoBehaviour
     
 
     public string letter;
-    public Vector3 dstwithUni; 
+    public Vector3 dstwithUni;
 
 
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
@@ -72,6 +72,7 @@ public class letterDetector : MonoBehaviour
             gm.PlayPause();
             pauseMenu.GetComponent<PauseMenu>().logsLayout.SetActive(true);
         }
+
         
     }
     private IEnumerator Cinematic(PlayableDirector playable)
