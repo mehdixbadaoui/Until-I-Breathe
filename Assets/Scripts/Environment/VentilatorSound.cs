@@ -8,7 +8,7 @@ public class VentilatorSound : MonoBehaviour
     public GameObject ventilator;
     public Vector3 distanceVentilatorUni;
     public float maxDistanceFromVentilator = 15f; 
-    public float ventilatorVolume;
+    
     private PlayEventSounds playEventWithRTPCSound;
     
    
