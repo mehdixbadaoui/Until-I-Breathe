@@ -53,12 +53,12 @@ public class SplineWalker : MonoBehaviour {
         //transform.localPosition = position;
         if (onTrain_GoingForward)
         {
-            playEvent.RTPCGameObjectValueForTrain(distWithUni, maxDist, this.gameObject, "Train_exterieur_event", "TrainVolume");
+            playEvent.RTPCGameObjectValue(distWithUni, maxDist, this.gameObject, "Train_exterieur_event", "TrainVolume");
         }
 
         else if (onFlyingCar_GoingForward)
         {
-			playEvent.RTPCGameObjectValueForTrain(distWithUni, maxDist, this.gameObject, "Voiture_volante_event", "VoitureVolanteVolume");
+			playEvent.RTPCGameObjectValue(distWithUni, maxDist, this.gameObject, "Voiture_volante_event", "VoitureVolanteVolume");
 
 
         }

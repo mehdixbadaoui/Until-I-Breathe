@@ -66,7 +66,7 @@ public class ST_Movements : MonoBehaviour
         Vector3 rotationMask = new Vector3(0, 1, 0);
 
         // Initialize the start position of ST-2
-        Vector3 startOffset = new Vector3(-2.5f, 2f, 0.0f);
+        Vector3 startOffset = followOffset;
         
         currentFollowOffsetY = followOffset.y;
         currentFollowOffsetX = followOffset.x;

@@ -60,8 +60,8 @@ public class ObjectDetector : MonoBehaviour
                 }
                 else if (listObj[index].CompareTag("Levier_Level_1_3"))
                 {
-                    playEvent.PlayEventWithoutRTPC("Enceinte_shutdown_event", GameObject.FindGameObjectWithTag("MainCamera"));
-                    playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("MainCamera"));
+                    playEvent.PlayEventWithoutRTPC("Enceinte_shutdown_event", GameObject.FindGameObjectWithTag("WwiseSound"));
+                    playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("WwiseSound"));
                     GameObject.FindGameObjectWithTag("globalLight1_3").SetActive(false); 
                     listObj[index].GetComponent<RisingFogLever>().LaunchGaz();
 
