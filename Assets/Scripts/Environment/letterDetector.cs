@@ -26,9 +26,6 @@ public class letterDetector : MonoBehaviour
     public string letter;
     public Vector3 dstwithUni;
 
-    public GameObject pauseMenuGO;
-    public PauseMenu pauseMenu;
-
 
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
 
