@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -121,6 +123,13 @@ public class PauseMenu : MonoBehaviour
         settingsLayout.SetActive(false);
         logsLayout.SetActive(false);
         //Code de Ben ici;
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/player.UIBSave";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        PlayerData data = new PlayerData();
+        formatter.Serialize(stream, data);
+        stream.Close();
         StartCoroutine(SavingText(text));
     }
 
