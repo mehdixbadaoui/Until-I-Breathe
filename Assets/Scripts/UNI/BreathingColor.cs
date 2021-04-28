@@ -83,9 +83,9 @@ public class BreathingColor : MonoBehaviour
         if (bm.breath< step1 && bm.breath>=0)
         {
             AkSoundEngine.PostEvent("Break_Uni_Etouffement_event", uni);
-            if (chrom && bm.breath > step1 - (bm.max_breath / 10))
+            if (vig && bm.breath > step1 - (bm.max_breath / 10))
             {
-                chrom.intensity.value = (Mathf.Abs(bm.breath - step1) / step1) * (bm.max_breath / 10) * chomaticAberrationMax;
+                vig.intensity.value = (Mathf.Abs(bm.breath - step1) / step1)  * (bm.max_breath / (bm.max_breath / 10)) * 0.25f;
                 Debug.Log(chrom.intensity.value);
                 Debug.Log(bm.breath);
             }
@@ -93,8 +93,8 @@ public class BreathingColor : MonoBehaviour
             if (bm.breath < step2)
             {
                 playEvent.UniSuffoc("Uni_Etouffement_event", uni, 10f, "Uni_etouffementsVolume");
-                if (vig && bm.breath > step2 - (bm.max_breath / 10))
-                    vig.intensity.value = (Mathf.Abs(bm.breath - step2) / step2) * (bm.max_breath / (bm.max_breath / 10)) * 0.25f;
+                if (chrom && bm.breath > step2 - (bm.max_breath / 10))
+                    chrom.intensity.value = (Mathf.Abs(bm.breath - step2) / step2) * (bm.max_breath / 10) * chomaticAberrationMax;
 
                 if (bm.breath < step3)
                 {
