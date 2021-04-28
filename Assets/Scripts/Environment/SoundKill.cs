@@ -165,6 +165,11 @@ public class SoundKill : MonoBehaviour
 
     }
 
+    public void ShutDown()
+    {
+        isPlaying = false;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
