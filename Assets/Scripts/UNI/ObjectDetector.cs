@@ -64,7 +64,7 @@ public class ObjectDetector : MonoBehaviour
                     playEvent.PlayEventWithoutRTPC("Alarme_event", GameObject.FindGameObjectWithTag("WwiseSound"));
                     GameObject.FindGameObjectWithTag("globalLight1_3").SetActive(false); 
                     listObj[index].GetComponent<RisingFogLever>().LaunchGaz();
-
+                    StartCoroutine(listObj[index].GetComponent<Lever>().RotateDoor());
                 }
                 else if (listObj[index].CompareTag("lever") && listObj[index].GetComponent<Lever>() && !listObj[index].GetComponent<Lever>().activated)
                 {

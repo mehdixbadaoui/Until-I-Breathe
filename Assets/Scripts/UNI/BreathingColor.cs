@@ -86,8 +86,7 @@ public class BreathingColor : MonoBehaviour
             if (chrom && bm.breath > step1 - (bm.max_breath / 10))
             {
                 chrom.intensity.value = (Mathf.Abs(bm.breath - step1) / step1) * (bm.max_breath / 10) * chomaticAberrationMax;
-                Debug.Log(chrom.intensity.value);
-                Debug.Log(bm.breath);
+                //Debug.Log(chrom.intensity.value);
             }
 
             if (bm.breath < step2)
