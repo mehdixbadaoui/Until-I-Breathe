@@ -110,6 +110,7 @@ public class PauseMenu : MonoBehaviour
     {
         logsLayout.SetActive(false);
         settingsLayout.SetActive(true);
+        ControlsLayout.SetActive(false);
         //layout.SetActive(true);
     }
 
@@ -173,6 +174,8 @@ public class PauseMenu : MonoBehaviour
 
     public void SelectControls()
     {
+        audioLayout.SetActive(false);
+        videoLayout.SetActive(false);
         ControlsLayout.SetActive(true);
     }
 

@@ -156,6 +156,9 @@ public class GameMaster : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+
     }
 
 
@@ -164,11 +167,18 @@ public class GameMaster : MonoBehaviour
         //Debug.Log("resumed");
         isPaused = false;
         Time.timeScale = 1;
+        if (gamepad)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
+        }
 
         pauseMenu.GetComponent<PauseMenu>().audioLayout.SetActive(false); 
         pauseMenu.GetComponent<PauseMenu>().videoLayout.SetActive(false);
         pauseMenu.GetComponent<PauseMenu>().settingsLayout.SetActive(false);
         pauseMenu.GetComponent<PauseMenu>().logsLayout.SetActive(false);
+        pauseMenu.GetComponent<PauseMenu>().ControlsLayout.SetActive(false);
         pauseMenu.SetActive(false);
 
         //pauseMenu.GetComponent<PauseMenu>().DeSelectLogs(LogsText);
