@@ -64,10 +64,11 @@ public class NextScene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        AkSoundEngine.PostEvent("Stop_music_event", GameObject.FindGameObjectWithTag("WwiseSound") );
+        
         //maincamera.GetComponent<AkAmbient>().Stop(10);  
         if (other.tag == "uni")
         {
+            AkSoundEngine.PostEvent("Stop_music_event", GameObject.FindGameObjectWithTag("WwiseSound"));
             Uni = other.gameObject;
             LoadScenes( SceneManager.GetActiveScene().buildIndex + 1 );
         }
