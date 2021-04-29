@@ -81,11 +81,11 @@ public class PauseMenu : MonoBehaviour
     public void SelectResume()
     {
         gm.GetComponent<GameMaster>().PlayPause();
-        settingsLayout.SetActive(false);
-        audioLayout.SetActive(false);
-        videoLayout.SetActive(false);
-        logsLayout.SetActive(false);
-        ControlsLayout.SetActive(false);
+        //settingsLayout.SetActive(false);
+        //audioLayout.SetActive(false);
+        //videoLayout.SetActive(false);
+        //logsLayout.SetActive(false);
+        //ControlsLayout.SetActive(false);
 
     }
 
