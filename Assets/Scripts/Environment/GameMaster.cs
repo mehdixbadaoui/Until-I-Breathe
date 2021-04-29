@@ -204,9 +204,9 @@ public class GameMaster : MonoBehaviour
             grapplin.CutRope();
         }
 
+        uni.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         uni.transform.position = lastCheckPointPos;
         uni.transform.rotation = Quaternion.Euler(0, 0, 0);
-        uni.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 
         bm.breath = 100;
