@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 51aabce36bd9084484d9d84337a24ddc
     GuidInternal: 
-    m_lastTime: -8585826984336300477
+    m_lastTime: -8585824299053313055
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 51825a5e24261e4b9d8cee98f3163d80
     GuidInternal: 
-    m_lastTime: -8585826984445580325
+    m_lastTime: -8585824299304600600
     List:
     - name: Environment
       guid: 9462943f00bc66409fa4e3bc35c1a358
@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585820753018946669
+    m_lastTime: -8585824299053393051
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585820753019006636
+    m_lastTime: -8585824299309250782
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -167,6 +167,26 @@ MonoBehaviour:
         ObjectType: 3
         guid: fef7efefcba927439afa6ae15103f599
       Path: Events\Default Work Unit\Music_levels\Ambiant_interior_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Annonce_event
+      guid: 872152a5ded1444c8940908e5987eb15
+      id: 2594406644
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: Annonce_event
+        ObjectType: 3
+        guid: 872152a5ded1444c8940908e5987eb15
+      Path: Events\Default Work Unit\Environment_events\Annonce_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -706,6 +726,26 @@ MonoBehaviour:
         ObjectType: 3
         guid: 4c36320c8dd6cb4f95ed6039bb091b01
       Path: Events\Default Work Unit\Environment_events\Enceinte_shutdown_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: EnginVolant_event
+      guid: 5116f8bbe0c4ed45b8bfd1a389bbc314
+      id: 3493793537
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Environment_events
+        ObjectType: 4
+        guid: 4e936b211263924a97938e866a179f9d
+      - ElementName: EnginVolant_event
+        ObjectType: 3
+        guid: 5116f8bbe0c4ed45b8bfd1a389bbc314
+      Path: Events\Default Work Unit\Environment_events\EnginVolant_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2447,7 +2487,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585820753018996637
+    m_lastTime: -8585824299309250782
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2463,6 +2503,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: dfc8bea834c55c4c8c843e62b285ddf2
       Path: Game Parameters\Default Work Unit\Ambiant_music_Sound
+    - name: AnnonceVilleVolume
+      guid: 6d9c8d1c2e70ff44a4fcf6795026e23b
+      id: 1951759365
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: AnnonceVilleVolume
+        ObjectType: 13
+        guid: 6d9c8d1c2e70ff44a4fcf6795026e23b
+      Path: Game Parameters\Default Work Unit\AnnonceVilleVolume
     - name: BallonExplosionVolume
       guid: a0f3ad484482be4f88c90116bbe05015
       id: 366444476
@@ -2533,6 +2587,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 55b4b9c4d4bd5c49a811cb97c5ebd004
       Path: Game Parameters\Default Work Unit\DronesDeplacementVolume
+    - name: EnginVolantVolume
+      guid: c4c90df8dd6d5f48a7d7a0f88a33b1a2
+      id: 148594698
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: EnginVolantVolume
+        ObjectType: 13
+        guid: c4c90df8dd6d5f48a7d7a0f88a33b1a2
+      Path: Game Parameters\Default Work Unit\EnginVolantVolume
     - name: FallingPlateformeVolume
       guid: 35ad8f5bd27d7f4dbc0fe2dafc0ed74d
       id: 1003961143
@@ -2778,7 +2846,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 6cd69aa556385a4980a194d531da01f9
     GuidInternal: 
-    m_lastTime: -8585826984336388525
+    m_lastTime: -8585824299053383050
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -2792,7 +2860,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 55f3b155ac5f824c966e186f8dbe0dc6
     GuidInternal: 
-    m_lastTime: -8585826984336388525
+    m_lastTime: -8585824299053383050
     List:
     - name: FootSteps
       guid: e9b27687793928429459307ec8fff664
@@ -2904,10 +2972,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 50ebb7989315ce43922b62fa3756eeb9
     GuidInternal: 
-    m_lastTime: -8585826984336378531
+    m_lastTime: -8585824299053373054
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 08000000090000000a000000
+  ExpandedWaapiItemIds: 01000000030000000400000005000000060000000700000009000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

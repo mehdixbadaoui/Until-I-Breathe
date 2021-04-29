@@ -5,12 +5,12 @@ using UnityEngine;
 public class TriggerSoundUsine : MonoBehaviour
 {
 
-    public GameObject maincamera;
+   
 
     // Start is called before the first frame update
     void Start()
     {
-        maincamera = GameObject.FindGameObjectWithTag("MainCamera"); 
+        
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class TriggerSoundUsine : MonoBehaviour
     {
         if (other.tag == "uni")
         {
-            AkSoundEngine.PostEvent("Usine_sound_break_event", maincamera);
+            AkSoundEngine.PostEvent("Usine_sound_break_event", GameObject.FindGameObjectWithTag("WwiseSound"));
         }
     }
 }

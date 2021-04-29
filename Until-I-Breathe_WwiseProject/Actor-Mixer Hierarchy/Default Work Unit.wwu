@@ -4458,6 +4458,254 @@
 								<ActiveSource Name="Until_I_Breathe_Usine" ID="{B848499E-1C4D-4A3B-B661-94264A9309F0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<RandomSequenceContainer Name="EnginVolant" ID="{87709A13-F4DA-4589-BACA-1F29885E81AB}" ShortID="987386483">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{FAEDC1DC-B17E-4C64-B955-51288A2927FF}" ShortID="209231457">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="EnginVolantVolume" ID="{F80DC9C4-6DDD-485F-A7D7-A0F88A33B1A2}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{D3664CF7-8420-401D-87C5-2AC3F205EBD1}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Engin_volant1" ID="{1F47E83C-1807-4D72-9DB9-DF8E5C85672B}" ShortID="256707899">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Engin_volant1" ID="{4804F1EE-D49A-4BDF-8FBB-E02F5F626C92}">
+											<Language>English(US)</Language>
+											<AudioFile>Engin_volant1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="249676402"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Engin_volant1" ID="{4804F1EE-D49A-4BDF-8FBB-E02F5F626C92}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Engin_volant2" ID="{32B6073E-BBC9-4F13-B7ED-0950F72D8673}" ShortID="737978941">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Engin_volant2" ID="{AC9FC4DD-2A91-4D61-9FD1-52FF8B801723}">
+											<Language>English(US)</Language>
+											<AudioFile>Engin_volant2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="678281551"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Engin_volant2" ID="{AC9FC4DD-2A91-4D61-9FD1-52FF8B801723}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Engin_volant3" ID="{3B67792B-B687-45A0-95D3-D031AAA77C9B}" ShortID="842556446">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Engin_volant3" ID="{9F6BC53B-7F43-4618-8E0F-5B09B4FE9D3B}">
+											<Language>English(US)</Language>
+											<AudioFile>Engin_volant3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="55352432"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Engin_volant3" ID="{9F6BC53B-7F43-4618-8E0F-5B09B4FE9D3B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="AnnonceVille" ID="{4FD1216A-3919-43E9-81DE-C809A77EC8A8}" ShortID="305964734">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{EE9F6A06-644F-452B-837A-017D82082381}" ShortID="802658681">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="AnnonceVilleVolume" ID="{1C8D9C6D-702E-44FF-A4FC-F6795026E23B}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{01457E63-663E-4324-ABBD-08F7CEA647D9}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Annonce1" ID="{9B152268-EACE-479A-959F-AAF266434DD7}" ShortID="435340776">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Annonce1" ID="{C4ACBC6C-9351-43D1-AD47-64987E9CE200}">
+											<Language>English(US)</Language>
+											<AudioFile>Annonce1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="636257462"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Annonce1" ID="{C4ACBC6C-9351-43D1-AD47-64987E9CE200}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Annonce2" ID="{01C39DE4-744E-4334-BFC3-3E84565A4C1B}" ShortID="115617536">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Annonce2" ID="{D4BCE3C7-4CF7-483D-BBC8-A6DE666AC538}">
+											<Language>English(US)</Language>
+											<AudioFile>Annonce2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="261041439"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Annonce2" ID="{D4BCE3C7-4CF7-483D-BBC8-A6DE666AC538}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Annonce3" ID="{870B1CED-C8A3-46AF-9285-7A182C901C51}" ShortID="676450657">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Annonce3" ID="{C72FAD2D-AD17-400B-B7D1-532693D1C810}">
+											<Language>English(US)</Language>
+											<AudioFile>Annonce3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="453653944"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Annonce3" ID="{C72FAD2D-AD17-400B-B7D1-532693D1C810}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UniSounds" ID="{3842463C-B6F3-43C6-B468-8FD42FE3352B}" ShortID="493599068">
@@ -5875,11 +6123,12 @@
 									</ChildrenList>
 									<ObjectLists/>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Hook_ralonge" ID="{71F97FB1-6E06-481B-BDC1-9C52057CEDB1}" ShortID="103970119">
+								<Sound Name="Grappin_Ralonge_Loop" ID="{C32A9054-C57C-4E9C-B418-1CC9A8AE2FC5}" ShortID="479994446">
 									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-31</Value>
+												<Value>-20</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5892,90 +6141,25 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Uni_Grappin_Ralonge_Loop_01" ID="{9CD33427-059D-4394-874F-13DB575CE909}" ShortID="833766184">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Uni_Grappin_Ralonge_Loop_01" ID="{2A3C3EC6-465F-4973-BCBC-161D24DFF105}">
-													<Language>SFX</Language>
-													<AudioFile>Uni_Grappin_Ralonge_Loop_01.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="924626134"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Uni_Grappin_Ralonge_Loop_01" ID="{2A3C3EC6-465F-4973-BCBC-161D24DFF105}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Uni_Grappin_Ralonge_Loop_02" ID="{1622C06D-2FF0-4F5A-8E3F-658D039DDD7B}" ShortID="680051650">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Uni_Grappin_Ralonge_Loop_02" ID="{BD0CE736-8B2F-41F9-B487-34527718CB18}">
-													<Language>SFX</Language>
-													<AudioFile>Uni_Grappin_Ralonge_Loop_02.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="955761091"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Uni_Grappin_Ralonge_Loop_02" ID="{BD0CE736-8B2F-41F9-B487-34527718CB18}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Uni_Grappin_Ralonge_Loop_03" ID="{992C486D-F0A2-4F61-A9FE-1CE2CEA593AB}" ShortID="441619848">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Uni_Grappin_Ralonge_Loop_03" ID="{B2DB702A-9623-4C10-961E-0A817730EA16}">
-													<Language>SFX</Language>
-													<AudioFile>Uni_Grappin_Ralonge_Loop_03.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="216791816"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Uni_Grappin_Ralonge_Loop_03" ID="{B2DB702A-9623-4C10-961E-0A817730EA16}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										<AudioFileSource Name="Grappin_Ralonge_Loop" ID="{1EA633FD-5604-401D-984C-015D3E44AA0D}">
+											<Language>English(US)</Language>
+											<AudioFile>Grappin_Ralonge_Loop.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1040834374"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Hook_retracte" ID="{D1CB3084-2F24-40AD-AFBE-0F46B110A959}" ShortID="680624124">
+									<ActiveSourceList>
+										<ActiveSource Name="Grappin_Ralonge_Loop" ID="{1EA633FD-5604-401D-984C-015D3E44AA0D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Grappin_Retracte_Loop" ID="{3CFDD483-53DC-48BD-B324-9272424F948A}" ShortID="844169993">
 									<PropertyList>
-										<Property Name="Pitch" Type="int32">
-											<ModifierList>
-												<ModifierInfo>
-													<Modifier Name="" ID="{2B1DC8F7-D111-40DE-90CC-F9203A499243}"/>
-												</ModifierInfo>
-											</ModifierList>
-										</Property>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-30</Value>
+												<Value>-20</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -5988,78 +6172,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Uni_Grapin_Retracte_01" ID="{434B4806-D7B0-4C21-BCFA-3F7C07C6D45A}" ShortID="208928970">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Uni_Grapin_Retracte_01" ID="{A01167F8-84D8-4DD5-8CAF-E7CB8A363974}">
-													<Language>SFX</Language>
-													<AudioFile>Uni_Grapin_Retracte_01.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="285335161"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Uni_Grapin_Retracte_01" ID="{A01167F8-84D8-4DD5-8CAF-E7CB8A363974}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Uni_Grapin_Retracte_02" ID="{D87D05E0-A801-4242-B597-4530534B2012}" ShortID="595152408">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Uni_Grapin_Retracte_02" ID="{ECB91895-A06C-43C1-9EEC-0C80A0BB7FCE}">
-													<Language>SFX</Language>
-													<AudioFile>Uni_Grapin_Retracte_02.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="354250736"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Uni_Grapin_Retracte_02" ID="{ECB91895-A06C-43C1-9EEC-0C80A0BB7FCE}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Uni_Grapin_Retracte_03" ID="{42697AF4-C307-4589-BDAE-99F3A48D15F0}" ShortID="191978387">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Uni_Grapin_Retracte_03" ID="{53242443-E1C8-4D0B-9E73-6D9511B24EEA}">
-													<Language>SFX</Language>
-													<AudioFile>Uni_Grapin_Retracte_03.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="751274313"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Uni_Grapin_Retracte_03" ID="{53242443-E1C8-4D0B-9E73-6D9511B24EEA}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										<AudioFileSource Name="Grappin_Retracte_Loop" ID="{68B027B2-C645-4EB5-8A08-BA546139CB2B}">
+											<Language>English(US)</Language>
+											<AudioFile>Grappin_Retracte_Loop.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="965300597"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists/>
-								</RandomSequenceContainer>
+									<ActiveSourceList>
+										<ActiveSource Name="Grappin_Retracte_Loop" ID="{68B027B2-C645-4EB5-8A08-BA546139CB2B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<RandomSequenceContainer Name="Clothes" ID="{5BDE0345-B041-4554-871E-CEA3BEB4CC5B}" ShortID="1060452050">

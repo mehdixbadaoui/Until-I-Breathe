@@ -8,7 +8,7 @@ public static class SaveSystem
     public static void SavePlayer()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath +"/player.UIBSave";
+        string path = Application.persistentDataPath + "/player.UIBSave";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData();

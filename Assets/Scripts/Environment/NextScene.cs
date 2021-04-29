@@ -23,7 +23,7 @@ public class NextScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maincamera = GameObject.FindGameObjectWithTag("MainCamera"); 
+       
     }
 
     public void LoadScenes(int s)
@@ -64,7 +64,7 @@ public class NextScene : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        AkSoundEngine.PostEvent("Stop_music_event", maincamera);
+        AkSoundEngine.PostEvent("Stop_music_event", GameObject.FindGameObjectWithTag("WwiseSound") );
         //maincamera.GetComponent<AkAmbient>().Stop(10);  
         if (other.tag == "uni")
         {
