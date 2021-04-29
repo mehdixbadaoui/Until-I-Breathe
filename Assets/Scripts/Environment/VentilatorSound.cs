@@ -5,10 +5,9 @@ using UnityEngine;
 public class VentilatorSound : MonoBehaviour
 {
     private GameObject uni;
-    public GameObject ventilator;
+    private GameObject ventilator;
     public Vector3 distanceVentilatorUni;
     public float maxDistanceFromVentilator = 15f; 
-    
     private PlayEventSounds playEventWithRTPCSound;
     
    

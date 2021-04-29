@@ -18,12 +18,13 @@ public class letterDetector : MonoBehaviour
     private List<string> letterList;
     private int indexForLetter;
     public GameMaster gm;
+    public GameObject pauseMenu;
     private PlayEventSounds playEvent;
     public float maxDistance = 7f;
     
 
     public string letter;
-    public Vector3 dstwithUni; 
+    public Vector3 dstwithUni;
 
 
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
@@ -68,7 +69,10 @@ public class letterDetector : MonoBehaviour
         {
             didTake = true;
             StartCoroutine(Cinematic(Clip));
+            gm.PlayPause();
+            pauseMenu.GetComponent<PauseMenu>().logsLayout.SetActive(true);
         }
+
         
     }
     private IEnumerator Cinematic(PlayableDirector playable)

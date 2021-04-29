@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -9,7 +11,14 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+
     public Text SelectionText;
+
+    public GameMaster gm;
+    public GameObject logsLayout;
+    public GameObject settingsLayout;
+    public GameObject audioLayout;
+    public GameObject videoLayout;
 
     [Serializable]
     public struct Tab
@@ -51,19 +60,12 @@ public class PauseMenu : MonoBehaviour
         currentTab.Activable.SetActive(true);
     }
 
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //    CloseCurrentTab();
-    }
-
     public void Select(int i)
     {
         //SelectionText.text = "< " + ButtonsData[i].Name + " >";
         //Debug.Log("selected");
         //ButtonsData[i].SelectionTransform.gameObject.SetActive(true);
         //ButtonsData[i].button.GetComponent<Image>().sprite = ButtonsData[i].selectedImage;
-        Debug.Log("selected");
     }
     public void Deselect(int i)
     {
@@ -71,35 +73,82 @@ public class PauseMenu : MonoBehaviour
         //Debug.Log("unselected");
         //ButtonsData[i].SelectionTransform.gameObject.SetActive(false);
         //ButtonsData[i].button.GetComponent<Image>().sprite = ButtonsData[i].baseImage;
-        Debug.Log("de-selected");
 
 
     }
 
-    public void SelectLogs(GameObject text)
+    public void SelectResume()
     {
-        text.SetActive(true);
+        gm.GetComponent<GameMaster>().PlayPause();
+        settingsLayout.SetActive(false);
+        audioLayout.SetActive(false);
+        videoLayout.SetActive(false);
+        logsLayout.SetActive(false);
+
     }
 
-    public void DeSelectLogs(GameObject text)
+    public void SelectLog()
     {
-        text.SetActive(false);
+        settingsLayout.SetActive(false);
+        audioLayout.SetActive(false);
+        videoLayout.SetActive(false);
+        logsLayout.SetActive(true);
+        //text.SetActive(true);
     }
 
-    public void SelectSettings(GameObject layout)
+    public void DeSelectLogs()
     {
-        layout.SetActive(true);
+        //text.SetActive(false);
     }
 
-    public void DeSelectSettings(GameObject layout)
+    public void SelectSettings()
     {
-        layout.SetActive(false);
+        logsLayout.SetActive(false);
+        settingsLayout.SetActive(true);
+        //layout.SetActive(true);
+    }
+
+    public void DeSelectSettings()
+    {
+        //Debug.Log(EventSystem.current.currentSelectedGameObject.name);
+        //if (!(EventSystem.current.currentSelectedGameObject.name == "Audio Button" || EventSystem.current.currentSelectedGameObject.name == "Video Button"))
+        //    //layout.SetActive(false);
+        //    Debug.Log("setfalse");
     }
 
     public void SelectSave(GameObject text)
     {
+        audioLayout.SetActive(false);
+        videoLayout.SetActive(false);
+        settingsLayout.SetActive(false);
+        logsLayout.SetActive(false);
         //Code de Ben ici;
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/player.UIBSave";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        PlayerData data = new PlayerData();
+        formatter.Serialize(stream, data);
+        stream.Close();
         StartCoroutine(SavingText(text));
+    }
+
+    public void SelectAudio()
+    {
+        videoLayout.SetActive(false);
+        audioLayout.SetActive(true);
+    }
+
+    public void DeSelectAudio()
+    {
+        //audioLayout.SetActive(false);
+
+    }
+
+    public void SelectVideo()
+    {
+        audioLayout.SetActive(false);
+        videoLayout.SetActive(true);
     }
 
     IEnumerator SavingText(GameObject text)

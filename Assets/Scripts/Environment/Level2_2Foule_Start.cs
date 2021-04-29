@@ -24,8 +24,9 @@ public class Level2_2Foule_Start : MonoBehaviour
     {
         if(other.tag == "uni" && firstTime)
         {
-            playEvent.PlayEventWithoutRTPC("Foule_loop_event", GameObject.FindGameObjectWithTag("MainCamera"));
+            
             firstTime = false; 
+            playEvent.PlayEventWithoutRTPC("Foule_loop_event", GameObject.FindGameObjectWithTag("WwiseSound"));
         }
     }
 }
