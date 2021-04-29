@@ -19,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsLayout;
     public GameObject audioLayout;
     public GameObject videoLayout;
+    public GameObject ControlsLayout;
 
     [Serializable]
     public struct Tab
@@ -84,6 +85,7 @@ public class PauseMenu : MonoBehaviour
         audioLayout.SetActive(false);
         videoLayout.SetActive(false);
         logsLayout.SetActive(false);
+        ControlsLayout.SetActive(false);
 
     }
 
@@ -92,7 +94,10 @@ public class PauseMenu : MonoBehaviour
         settingsLayout.SetActive(false);
         audioLayout.SetActive(false);
         videoLayout.SetActive(false);
+        ControlsLayout.SetActive(false);
+
         logsLayout.SetActive(true);
+
         //text.SetActive(true);
     }
 
@@ -122,6 +127,7 @@ public class PauseMenu : MonoBehaviour
         videoLayout.SetActive(false);
         settingsLayout.SetActive(false);
         logsLayout.SetActive(false);
+        ControlsLayout.SetActive(false);
         //Code de Ben ici;
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.UIBSave";
@@ -135,6 +141,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SelectAudio()
     {
+        ControlsLayout.SetActive(false);
         videoLayout.SetActive(false);
         audioLayout.SetActive(true);
     }
@@ -147,6 +154,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SelectVideo()
     {
+        ControlsLayout.SetActive(false);
         audioLayout.SetActive(false);
         videoLayout.SetActive(true);
     }
@@ -163,6 +171,20 @@ public class PauseMenu : MonoBehaviour
         yield return null;
     }
 
+    public void SelectControls()
+    {
+        ControlsLayout.SetActive(true);
+    }
+
+    public void SelectMK()
+    {
+        gm.ChooseMouse();
+    }
+
+    public void SelectGP()
+    {
+        gm.ChooseGamepad();
+    }
     public void Submit(int i)
     {
         ButtonsData[i].OnSubmit.Invoke();
