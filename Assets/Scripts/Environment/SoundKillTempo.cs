@@ -26,6 +26,7 @@ public class SoundKillTempo : MonoBehaviour
 
     // For the kill
     private Animator myAnimator;
+    public Ragdoll ragdoll;
     private bool isDying = false;
 
     //Movement script
@@ -40,6 +41,9 @@ public class SoundKillTempo : MonoBehaviour
     public float soundlength;
     public float timerSound = 0;
     private float timerPlay = 0;
+
+    public bool killAndBounce = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +79,9 @@ public class SoundKillTempo : MonoBehaviour
         //Get rigidbodyCharacter component
         movements = player.GetComponent<Movement>();
 
+        //Get the ragdoll
+        ragdoll = myAnimator.gameObject.GetComponent<Ragdoll>();
+
     }
 
     // Update is called once per frame
@@ -97,7 +104,7 @@ public class SoundKillTempo : MonoBehaviour
             if (killUni)
             {
                 killUni = false;
-                gm.Die();
+                StartCoroutine(Kill());
             }
 
 
@@ -236,13 +243,13 @@ public class SoundKillTempo : MonoBehaviour
         if (other.tag == "uni" && isPlaying && !isDying)
         {
             isDying = true;
-            StartCoroutine(Kill());
         }
 
     }
 
     private IEnumerator Kill()
     {
+
         Movement.canMove = false;
 
         if (grapplin.isGrappling)
@@ -250,18 +257,28 @@ public class SoundKillTempo : MonoBehaviour
             grapplin.CutRope();
         }
 
+
         myAnimator.Play("DeathImpact", 0);
-        //myAnimator.Play("BreathingDead", 1);
 
 
         //Wait for the beginning of BreathingDead
         yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("DeathImpact"));
 
-        //new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(1).length + myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime);
-
         //Wait for the end of BreathingDead
         yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length /*+ myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime*/ );
 
+        myAnimator.enabled = false;
+        ragdoll.RagOn();
+
+        if(killAndBounce)
+            ragdoll.AddForceToRagdoll(new Vector3(0, 500, 0));
+        else
+            ragdoll.AddForceToRagdoll(new Vector3(5000, 1000, 0));
+
+        yield return new WaitForSeconds(2.0f);
+
+        ragdoll.RagOff();
+        myAnimator.enabled = true;
 
         gm.Die();
 
