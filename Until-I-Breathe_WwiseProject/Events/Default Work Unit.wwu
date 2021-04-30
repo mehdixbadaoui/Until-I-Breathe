@@ -132,6 +132,36 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{821F7AE3-BD7B-437A-A1B8-F099DA3397FB}" ShortID="798569412">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Alarmes" ID="{748FEF9B-4264-44F3-A8E8-315531586852}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{1D2599C5-5C8F-4E31-A1B5-7FACF39CABB3}" ShortID="774656483">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Until_I_Breathe_Usine" ID="{16590ED7-C716-4AC3-8F8F-DDA633B198F1}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{0B150AE4-6844-43EE-B741-3C897ED24B62}" ShortID="296979499">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Level2_3" ID="{4F0B9386-430A-47A3-B285-0555A0A1B655}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Folder Name="Lvl_2_3" ID="{E1EDF23E-8B66-4C9A-9967-1CCB1F6AAF64}" ShortID="365660053">
@@ -140,7 +170,7 @@
 									<ChildrenList>
 										<Action Name="" ID="{7005E932-1686-4DFD-83AA-1537E3100820}" ShortID="912380716">
 											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="34"/>
+												<Property Name="ActionType" Type="int16" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
@@ -1128,7 +1158,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="ST2_triste__event" ID="{507A9AF4-E917-48E8-A6A4-4CF8DD51E6F5}">
+						<Event Name="ST2_triste_event" ID="{507A9AF4-E917-48E8-A6A4-4CF8DD51E6F5}">
 							<ChildrenList>
 								<Action Name="" ID="{DF5B9A14-8907-4E67-9A99-45DD365CE60B}" ShortID="953662090">
 									<ReferenceList>

@@ -17,7 +17,7 @@ public class EnceintePush : MonoBehaviour
     {
         LR = GetComponentInParent<LineRenderer>();
 
-        positions[0] = transform.position;
+        positions[0] = transform.parent.transform.position;
         positions[1] = transform.parent.parent.GetComponentInChildren<SpringJoint>().transform.position;
         //Add the positions to the line renderer
         LR.positionCount = positions.Length;
@@ -29,7 +29,7 @@ public class EnceintePush : MonoBehaviour
     void Update()
     {
 
-        positions[0] = new Vector3(transform.parent.GetComponent<Collider>().bounds.center.x , transform.parent.GetComponent<Collider>().bounds.max.y , transform.parent.position.z );
+        positions[0] = transform.parent.transform.position; //new Vector3(transform.parent.GetComponent<Collider>().bounds.center.x , transform.parent.GetComponent<Collider>().bounds.max.y , transform.parent.position.z );
         //Add the positions to the line renderer
         LR.positionCount = positions.Length;
         LR.SetPositions(positions);

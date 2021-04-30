@@ -6,6 +6,7 @@ public class Ragdoll : MonoBehaviour
 {
     Collider[] rigColliders;
     Rigidbody[] rigRigidbodies;
+    public List<Vector3> previousPos;
 
     public bool OnOff = false;
 
@@ -14,6 +15,11 @@ public class Ragdoll : MonoBehaviour
     {
         rigColliders = GetComponentsInChildren<Collider>();
         rigRigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rb in rigRigidbodies)
+        {
+            previousPos.Add(rb.transform.position);
+        }
 
         if (OnOff)
             RagOn();
@@ -32,6 +38,14 @@ public class Ragdoll : MonoBehaviour
         */
     }
 
+    public void AddForceToRagdoll(Vector3 vector)
+    {
+        foreach (Rigidbody rb in rigRigidbodies)
+        {
+            rb.AddForce(vector);
+        }
+    }
+
     public void RagOn()
     {
         //wait 2-3 seconds.
@@ -39,10 +53,12 @@ public class Ragdoll : MonoBehaviour
         {
             col.enabled = true;
         }
-
+        int countRb = 0;
         foreach (Rigidbody rb in rigRigidbodies)
         {
             rb.isKinematic = false;
+            previousPos[countRb] = rb.transform.position;
+            countRb += 1;
         }
     }
 
@@ -55,9 +71,12 @@ public class Ragdoll : MonoBehaviour
             col.enabled = false;
         }
 
+        int countRb = 0;
         foreach (Rigidbody rb in rigRigidbodies)
         {
             rb.isKinematic = true;
+            rb.transform.position = previousPos[countRb];
+            countRb += 1;
         }
     }
 
