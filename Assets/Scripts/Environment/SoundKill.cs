@@ -20,12 +20,15 @@ public class SoundKill : MonoBehaviour
 
     private GameMaster gm;
     private Animator myAnimator;
+    public Ragdoll ragdoll;
     private List<GameObject> all_hooks;
     private List<string> all_hooks_tags;
     private GameObject player;
     private GrapplingHook grapplin;
     //Movement script
     private Movement movements;
+
+    private RigidbodyConstraints previousContraints;
 
     //private bool killUni = false;
     public bool isPlaying = false;
@@ -71,6 +74,9 @@ public class SoundKill : MonoBehaviour
 
         //Get rigidbodyCharacter component
         movements = player.GetComponent<Movement>();
+
+        //Get the ragdoll
+        ragdoll = myAnimator.gameObject.GetComponent<Ragdoll>();
 
     }
 
@@ -211,6 +217,7 @@ public class SoundKill : MonoBehaviour
             grapplin.CutRope();
         }
 
+
         myAnimator.Play("DeathImpact", 0);
         //myAnimator.Play("BreathingDead", 1);
 
@@ -223,6 +230,22 @@ public class SoundKill : MonoBehaviour
         //Wait for the end of BreathingDead
         yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length /*+ myAnimator.GetCurrentAnimatorStateInfo(1).normalizedTime*/ );
 
+        myAnimator.enabled = false;
+        ragdoll.RagOn();
+
+        ragdoll.AddForceToRagdoll(new Vector3(5000,1000,0));
+
+        //previousContraints = player.GetComponent<Rigidbody>().constraints;
+        //player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None ;
+
+        //player.GetComponent<Rigidbody>().AddForce(new Vector3(5 , 0 , 0));
+
+        yield return new WaitForSeconds(3.0f);
+
+        //player.GetComponent<Rigidbody>().constraints = previousContraints;
+
+        ragdoll.RagOff();
+        myAnimator.enabled = true;
 
         gm.Die();
 

@@ -302,7 +302,7 @@ public class Movement : MonoBehaviour
             {
                 didFall = false;
             }
-            else if(isGrounded && didFall) 
+            else if( isGrounded && didFall) 
             {
                 didFall = false;
                 if ( positionBeforeFalling.y - transform.position.y  > hauteurDeChuteMax )
