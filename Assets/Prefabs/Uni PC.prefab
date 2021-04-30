@@ -84,7 +84,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 114
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!135 &7231525159448075285
 SphereCollider:
@@ -94,7 +94,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860937077965450639}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.034593653
@@ -117,7 +117,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -40
+    limit: 25
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
@@ -128,7 +128,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_Swing1Limit:
-    limit: 25
+    limit: 8.556599
     bounciness: 0
     contactDistance: 0
   m_Swing2Limit:
@@ -192,11 +192,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -80
+    limit: -35.88933
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 56.941803
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b834df0827b5e469be4b39652ebe2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousPos: []
   OnOff: 0
 --- !u!54 &3269783527936812580
 Rigidbody:
@@ -404,11 +405,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -80
+    limit: -38.98863
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 0
+    limit: 42.264343
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -591,10 +592,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 7.7005625
-  m_Height: 38.50281
+  m_Radius: 12.8
+  m_Height: 41.08
   m_Direction: 0
-  m_Center: {x: 19.251406, y: 0, z: 0}
+  m_Center: {x: 20.8, y: 0, z: 0}
 --- !u!144 &1973649364239845552
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -762,11 +763,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -20
+    limit: -54.27733
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 20
+    limit: 5.7385216
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -815,10 +816,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 7.7005625
-  m_Height: 38.50281
+  m_Radius: 12.04
+  m_Height: 38.4
   m_Direction: 0
-  m_Center: {x: -19.251406, y: 0, z: 0}
+  m_Center: {x: -19, y: 0, z: 0}
 --- !u!144 &6610476307278194829
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -912,11 +913,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -20
+    limit: -98.02854
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 70
+    limit: 102.80326
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -1606,7 +1607,7 @@ PrefabInstance:
     - target: {fileID: 8601238876984352166, guid: 68d64ff1751895c4b8e699ba73d99ec5,
         type: 3}
       propertyPath: m_RendererPriority
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8601238876984352167, guid: 68d64ff1751895c4b8e699ba73d99ec5,
         type: 3}
