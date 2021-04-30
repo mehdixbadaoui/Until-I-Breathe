@@ -87,7 +87,7 @@ namespace AK
         static const AkUniqueID PORTE_OUVERTE_METAL_EVENT = 756074935U;
         static const AkUniqueID ST2_DANGER_EVENT = 2675001189U;
         static const AkUniqueID ST2_NORMAL_EVENT = 1042672185U;
-        static const AkUniqueID ST2_TRISTE__EVENT = 264719496U;
+        static const AkUniqueID ST2_TRISTE_EVENT = 286673375U;
         static const AkUniqueID STOP_CAISSE_FROTTEMENT_EVENT = 707299762U;
         static const AkUniqueID STOP_LITTLE_VENTILATOR_EVENT = 2239026864U;
         static const AkUniqueID STOP_MUSIC_EVENT = 3935460844U;
