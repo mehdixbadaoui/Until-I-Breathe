@@ -29,10 +29,14 @@ public class VentilatorSound : MonoBehaviour
     void Update()
     {
         
-        distanceVentilatorUni = playEventWithRTPCSound.CalculateDistanceUniFromObject(ventilator.transform.position); 
-        playEventWithRTPCSound.RTPCGameObjectValue(distanceVentilatorUni, maxDistanceFromVentilator, ventilator, "Big_Ventilator_event", "VentilatorVolume"); 
-        
-         
+       
     }
-    
+    private void FixedUpdate()
+    {
+        distanceVentilatorUni = playEventWithRTPCSound.CalculateDistanceUniFromObject(this.transform.position);
+        playEventWithRTPCSound.RTPCGameObjectValue(distanceVentilatorUni, maxDistanceFromVentilator, this.gameObject, "Big_Ventilator_event" , "VentilatorVolume");
+
+
+    }
+
 }

@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8560082562412203025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754121678008688229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b41b2cea486e0340b8df5e15e1e6e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceVentilatorUni: {x: 0, y: 0, z: 0}
+  maxDistanceFromVentilator: 20
 --- !u!95 &8206729612687900069
 Animator:
   serializedVersion: 3
@@ -1223,7 +1237,7 @@ PrefabInstance:
     - target: {fileID: 8977279761553221332, guid: cfe9e0cdb56a079439387476816c2ac9,
         type: 3}
       propertyPath: m_Name
-      value: VentilatorTurning 1
+      value: VentilatorTurningWithoutSmok
       objectReference: {fileID: 0}
     - target: {fileID: 8977279761553221332, guid: cfe9e0cdb56a079439387476816c2ac9,
         type: 3}
@@ -1232,6 +1246,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfe9e0cdb56a079439387476816c2ac9, type: 3}
+--- !u!1 &4754121678008688229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8977279761553221332, guid: cfe9e0cdb56a079439387476816c2ac9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4426963784625551537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5382321446909461727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8637451970163948654, guid: cfe9e0cdb56a079439387476816c2ac9,
