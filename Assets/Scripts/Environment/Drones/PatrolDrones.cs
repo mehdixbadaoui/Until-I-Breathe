@@ -39,6 +39,10 @@ public class PatrolDrones : MonoBehaviour
     int index;
     public List<Transform> targets;
 
+    public Ragdoll ragdoll;
+    //private LineRenderer LR;
+    private bool isShooting = false;
+
 
     void Start()
     {
@@ -63,6 +67,13 @@ public class PatrolDrones : MonoBehaviour
         //}
 
         //StartCoroutine(FollowPath());
+
+        //Get the ragdoll
+        ragdoll = myAnimator.gameObject.GetComponent<Ragdoll>();
+
+        //get the line renderer
+        //LR = GetComponent<LineRenderer>();
+        //LR.enabled = false;
     }
 
     void Update()
@@ -95,6 +106,21 @@ public class PatrolDrones : MonoBehaviour
             isKilling = true;
             StartCoroutine(CallShootWithDelay());
         }
+/*
+        if (isShooting)
+        {
+            //Create a line between uni and the patrol drone
+            Vector3[] positions = new Vector3[2];
+            positions[0] = transform.position;
+            positions[1] = player.transform.position;
+            LR.positionCount = 2;
+            LR.SetPositions(positions);
+            LR.enabled = true;
+        }
+        else if (LR.enabled == true)
+        {
+            LR.enabled = false;
+        }*/
     }
 
 
@@ -163,6 +189,9 @@ public class PatrolDrones : MonoBehaviour
         //GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
         //Destroy(impactGO, 1f);
         Movement.canMove = false;
+/*
+        isShooting = true;
+
         if (grapplin.isGrappling)
             grapplin.CutRope();
         yield return new WaitForSeconds(timeToKillPlayer);
@@ -173,7 +202,20 @@ public class PatrolDrones : MonoBehaviour
         yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("DeathBullet"));
 
         //Wait for the end of BreathingDead
-        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length * 1.5f );
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length * 0.5f );
+
+        isShooting = false;*/
+
+        myAnimator.enabled = false;
+        ragdoll.RagOn();
+
+        ragdoll.AddForceToRagdoll(new Vector3(1000, 0, 0));
+
+        yield return new WaitForSeconds(3.0f);
+
+
+        ragdoll.RagOff();
+        myAnimator.enabled = true;
 
         myAnimator.Play("idle&run");
         GM.Die();
