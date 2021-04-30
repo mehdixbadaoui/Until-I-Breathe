@@ -153,6 +153,9 @@ public class Movement : MonoBehaviour
         firstHeightColliderUni = capsule_collider.height;
 
         STFollow = transform.Find("ST2 Follow");
+
+        //Get the ragdoll
+        ragdoll = myAnimator.gameObject.GetComponent<Ragdoll>();
     }
 
 
