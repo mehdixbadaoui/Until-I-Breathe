@@ -109,6 +109,7 @@ public class hook_detector : MonoBehaviour
 
     void UpdateLists()
     {
+
         if(all_hooks.Any())
             all_hooks = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, nearest_hook.transform.position)).ToList();
         //nearest_hook = all_hooks[index % all_hooks.Count];
@@ -134,7 +135,14 @@ public class hook_detector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (nearest_hook)
+        {
+            Vector2 nh2d = new Vector2(nearest_hook.transform.position.z, nearest_hook.transform.position.y) - new Vector2(transform.position.z, transform.position.y).normalized;
+            nh2d.Normalize();
+        }
+
+
         if (all_hooks.Count != 0)
         {
 
@@ -173,6 +181,10 @@ public class hook_detector : MonoBehaviour
             //SELECT UHOOK WITH GAMEPAD
             if (GM.gamepad)
             {
+                Vector2 controllerAim = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                controllerAim.Normalize();
+
+                all_hooks = all_hooks.OrderBy(o => Mathf.Abs(Vector3.Angle(controllerAim, new Vector2(o.transform.position.z, o.transform.position.y) - new Vector2(transform.position.z, transform.position.y)))).ToList();
                 //SHITCODING
                 //if (inputs.Uni.rightup.ReadValue<float>() == 1 && b_up)
                 //{
@@ -207,7 +219,7 @@ public class hook_detector : MonoBehaviour
                 //    b_right = true;
 
             }
-                
+
 
             //SELECT HOOK WITH MOUSE CURSOR
             else
