@@ -189,22 +189,25 @@ public class PatrolDrones : MonoBehaviour
         //GameObject impactGO = Instantiate(impactEffect, player.position, Quaternion.identity);
         //Destroy(impactGO, 1f);
         Movement.canMove = false;
-/*
-        isShooting = true;
 
         if (grapplin.isGrappling)
             grapplin.CutRope();
-        yield return new WaitForSeconds(timeToKillPlayer);
-        playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_fireshot_event", "DronesDeplacementVolume");
-        myAnimator.Play("DeathBullet");
 
-        //Wait for the beginning of BreathingDead
-        yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("DeathBullet"));
+        /*
+                isShooting = true;
 
-        //Wait for the end of BreathingDead
-        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length * 0.5f );
 
-        isShooting = false;*/
+                yield return new WaitForSeconds(timeToKillPlayer);
+                playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_fireshot_event", "DronesDeplacementVolume");
+                myAnimator.Play("DeathBullet");
+
+                //Wait for the beginning of BreathingDead
+                yield return new WaitWhile(() => myAnimator.GetCurrentAnimatorStateInfo(0).IsName("DeathBullet"));
+
+                //Wait for the end of BreathingDead
+                yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length * 0.5f );
+
+                isShooting = false;*/
 
         myAnimator.enabled = false;
         ragdoll.RagOn();
