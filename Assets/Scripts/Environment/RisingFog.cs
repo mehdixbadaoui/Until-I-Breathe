@@ -11,6 +11,7 @@ public class RisingFog : MonoBehaviour
 
     private void Start()
     {
+        RiseSpeed = RiseSpeed * Time.deltaTime;
         SafeZones = new List<GameObject>();
     }
     void Update()
