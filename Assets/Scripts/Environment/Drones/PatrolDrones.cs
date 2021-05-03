@@ -42,6 +42,7 @@ public class PatrolDrones : MonoBehaviour
     public Ragdoll ragdoll;
     //private LineRenderer LR;
     private bool isShooting = false;
+    public bool isInTheBack = true;
 
 
     void Start()
@@ -213,8 +214,10 @@ public class PatrolDrones : MonoBehaviour
 
         myAnimator.enabled = false;
         ragdoll.RagOn();
-
-        ragdoll.AddForceToRagdoll(new Vector3(1000, 0, 0));
+        if (isInTheBack)
+            ragdoll.AddForceToRagdoll(new Vector3(1000, 0, 0));
+        else
+            ragdoll.AddForceToRagdoll(new Vector3(-1000, 0, 0));
 
         yield return new WaitForSeconds(3.0f);
 
