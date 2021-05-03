@@ -193,6 +193,8 @@ public class PatrolDrones : MonoBehaviour
         if (grapplin.isGrappling)
             grapplin.CutRope();
 
+        playEvent.RTPCGameObjectValue(distWithUni, maxDistance, this.gameObject, "Drone_fireshot_event", "DronesDeplacementVolume");
+
         /*
                 isShooting = true;
 
