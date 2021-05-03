@@ -9,16 +9,17 @@ public class NextScene : MonoBehaviour
 {
 
     //public GameObject text;
-    public GameObject background;
-    public GameObject Uni;
+    //public GameObject background;
+    private GameObject Uni;
     //public GameObject progressBars;
-    public GameObject maincamera; 
+    //public GameObject maincamera; 
     private AsyncOperation async;
     private int loadProgress;
 
     public PlayableDirector Clip;
 
     private bool quit;
+    public bool isTheLastScene = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,8 @@ public class NextScene : MonoBehaviour
 
     public void LoadScenes(int s)
     {
-        if (background)
-            background.SetActive(true);
+/*        if (background)
+            background.SetActive(true);*/
         async = SceneManager.LoadSceneAsync(s);
         async.allowSceneActivation = false;
         StartCoroutine(DisplayLoadingScreen());
@@ -70,7 +71,10 @@ public class NextScene : MonoBehaviour
         {
             AkSoundEngine.PostEvent("Stop_music_event", GameObject.FindGameObjectWithTag("WwiseSound"));
             Uni = other.gameObject;
-            LoadScenes( SceneManager.GetActiveScene().buildIndex + 1 );
+            if (!isTheLastScene)
+                LoadScenes( SceneManager.GetActiveScene().buildIndex + 1 );
+            else
+                LoadScenes(1);
         }
     }
 }
