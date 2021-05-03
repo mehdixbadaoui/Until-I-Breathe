@@ -16,6 +16,7 @@ public class Enter_room : MonoBehaviour
     
     private BoxCollider room_inside_collider;
     
+    
     private void Start()
     {
 
