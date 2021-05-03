@@ -39,8 +39,6 @@ namespace AK
         static const AkUniqueID DRONE_STATIONNAIRE_EVENT = 3298702202U;
         static const AkUniqueID ENCEINTE_SHUTDOWN_EVENT = 773651708U;
         static const AkUniqueID ENGINVOLANT_EVENT = 3493793537U;
-        static const AkUniqueID ENGRANAGE_TOURNE_EVENT = 2122763242U;
-        static const AkUniqueID ENGRENAGE_BLOQUER_EVENT = 480333909U;
         static const AkUniqueID FOULE_LOOP_EVENT = 2985396484U;
         static const AkUniqueID FOULE_WOW_EVENT = 2519954033U;
         static const AkUniqueID FS_BETON_EVENT = 1592626750U;
@@ -68,6 +66,7 @@ namespace AK
         static const AkUniqueID LVL_2_1_EVENT = 3922198791U;
         static const AkUniqueID LVL_2_2_EVENT = 3860896488U;
         static const AkUniqueID LVL_3_1_EVENT = 1157007206U;
+        static const AkUniqueID MENU_MUSIC_EVENT = 1992837697U;
         static const AkUniqueID MESSAGE_ST2_BRANCHEMENT_EVENT = 3024873643U;
         static const AkUniqueID MESSAGE_ST2_DECRYPTE_EVENT = 3095867336U;
         static const AkUniqueID NACELLE_DEPART_EVENT = 4251687649U;
@@ -98,8 +97,11 @@ namespace AK
         static const AkUniqueID TRAIN_INTERIEUR_EVENT = 2137224780U;
         static const AkUniqueID TRAIN_KLAXON_END_EVENT = 859900814U;
         static const AkUniqueID UNI_ETOUFFEMENT_EVENT = 1109845805U;
+        static const AkUniqueID UNI_FALL_DEATH_EVENT = 3179662169U;
         static const AkUniqueID UNI_TOUSSE_A_MORT_EVENT = 4164979709U;
+        static const AkUniqueID UNIPEREVOICE_EVENT = 3694440818U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
+        static const AkUniqueID UNIVOICE_EVENT = 681037832U;
         static const AkUniqueID USINE_MUSIC_EVENT = 3270961216U;
         static const AkUniqueID USINE_SOUND_BREAK_EVENT = 3717649508U;
         static const AkUniqueID VENT_EVENT = 4165311893U;

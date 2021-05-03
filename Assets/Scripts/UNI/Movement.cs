@@ -649,6 +649,7 @@ public class Movement : MonoBehaviour
 
     private IEnumerator ChuteDead()
     {
+        AkSoundEngine.PostEvent("Uni_Fall_Death_event", this.gameObject); 
         breathing.respawn = false;
 
         Movement.canMove = false;

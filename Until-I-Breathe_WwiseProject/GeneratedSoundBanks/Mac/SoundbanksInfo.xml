@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="English(US)" Hash="4275656871">
+		<SoundBank Id="2228651116" Language="English(US)" Hash="1467709627">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>English(US)\Main_Soundbank.bnk</Path>
@@ -339,30 +339,6 @@
 						<File Id="678281551" Language="English(US)">
 							<ShortName>Engin_volant2.wav</ShortName>
 							<Path>Voices\English(US)\Engin_volant2_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2122763242" Name="Engranage_tourne_event" ObjectPath="\Events\Default Work Unit\Environment_events\Engranage_tourne_event" DurationType="OneShot" DurationMin="1.874979" DurationMax="1.874979">
-					<IncludedMemoryFiles>
-						<File Id="144952040" Language="SFX">
-							<ShortName>Engrenage_Tourne_Loop_02.wav</ShortName>
-							<Path>SFX\Engrenage_Tourne_Loop_02_10C4C929.wem</Path>
-						</File>
-						<File Id="687398414" Language="SFX">
-							<ShortName>Engrenage_Tourne_Loop_01.wav</ShortName>
-							<Path>SFX\Engrenage_Tourne_Loop_01_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="480333909" Name="Engrenage_bloquer_event" ObjectPath="\Events\Default Work Unit\Environment_events\Engrenage_bloquer_event" DurationType="OneShot" DurationMin="0.750000" DurationMax="1.000000">
-					<IncludedMemoryFiles>
-						<File Id="12822707" Language="SFX">
-							<ShortName>Engrenage_Bloque_01.wav</ShortName>
-							<Path>SFX\Engrenage_Bloque_01_10C4C929.wem</Path>
-						</File>
-						<File Id="39962802" Language="SFX">
-							<ShortName>Engrenage_Bloquer_02.wav</ShortName>
-							<Path>SFX\Engrenage_Bloquer_02_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -714,6 +690,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1992837697" Name="Menu_music_event" ObjectPath="\Events\Default Work Unit\Music_levels\Menu_music_event" DurationType="OneShot" DurationMin="47.213104" DurationMax="47.213104">
+					<IncludedMemoryFiles>
+						<File Id="181356928" Language="English(US)">
+							<ShortName>Until I Breathe Menu.wav</ShortName>
+							<Path>Voices\English(US)\Until I Breathe Menu_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3024873643" Name="Message_ST2_Branchement_event" ObjectPath="\Events\Default Work Unit\ST2_events\Message_ST2_Branchement_event" DurationType="OneShot" DurationMin="1.500000" DurationMax="1.500000">
 					<IncludedMemoryFiles>
 						<File Id="638510207" Language="SFX">
@@ -1058,6 +1042,26 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3179662169" Name="Uni_Fall_Death_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_Fall_Death_event" DurationType="OneShot" DurationMin="0.624979" DurationMax="0.750000">
+					<IncludedMemoryFiles>
+						<File Id="263050143" Language="English(US)">
+							<ShortName>Uni_Chute_Meurt_04.wav</ShortName>
+							<Path>Voices\English(US)\Uni_Chute_Meurt_04_10C4C929.wem</Path>
+						</File>
+						<File Id="440544308" Language="English(US)">
+							<ShortName>Uni_Chute_Meurt_01.wav</ShortName>
+							<Path>Voices\English(US)\Uni_Chute_Meurt_01_10C4C929.wem</Path>
+						</File>
+						<File Id="618949203" Language="English(US)">
+							<ShortName>Uni_Chute_Meurt_02.wav</ShortName>
+							<Path>Voices\English(US)\Uni_Chute_Meurt_02_10C4C929.wem</Path>
+						</File>
+						<File Id="746120754" Language="English(US)">
+							<ShortName>Uni_Chute_Meurt_03.wav</ShortName>
+							<Path>Voices\English(US)\Uni_Chute_Meurt_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="4164979709" Name="Uni_tousse_a_mort_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_respiration\Uni_tousse_a_mort_event" DurationType="OneShot" DurationMin="2.875000" DurationMax="3.041667">
 					<IncludedMemoryFiles>
 						<File Id="180285156" Language="SFX">
@@ -1074,6 +1078,26 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3694440818" Name="UniPereVoice_event" ObjectPath="\Events\Default Work Unit\Uni_events\UniPereVoice_event" DurationType="OneShot" DurationMin="0.374979" DurationMax="0.624979">
+					<IncludedMemoryFiles>
+						<File Id="68431410" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Homme_02.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Homme_02_10C4C929.wem</Path>
+						</File>
+						<File Id="85540717" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Homme_01.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Homme_01_10C4C929.wem</Path>
+						</File>
+						<File Id="910774638" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Homme_04.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Homme_04_10C4C929.wem</Path>
+						</File>
+						<File Id="968202926" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Homme_03.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Homme_03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="980828296" Name="UniSouffle_event" ObjectPath="\Events\Default Work Unit\Uni_events\Uni_respiration\UniSouffle_event" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000">
 					<IncludedMemoryFiles>
 						<File Id="169853502" Language="SFX">
@@ -1087,6 +1111,30 @@
 						<File Id="271850952" Language="SFX">
 							<ShortName>Uni_souffle 3.wav</ShortName>
 							<Path>SFX\Uni_souffle 3_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="681037832" Name="UniVoice_event" ObjectPath="\Events\Default Work Unit\Uni_events\UniVoice_event" DurationType="OneShot" DurationMin="0.374979" DurationMax="0.875000">
+					<IncludedMemoryFiles>
+						<File Id="66339368" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Femme_01.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Femme_01_10C4C929.wem</Path>
+						</File>
+						<File Id="66737376" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Femme_03.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Femme_03_10C4C929.wem</Path>
+						</File>
+						<File Id="234038392" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Femme_02.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Femme_02_10C4C929.wem</Path>
+						</File>
+						<File Id="805845234" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Femme_05.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Femme_05_10C4C929.wem</Path>
+						</File>
+						<File Id="990994489" Language="English(US)">
+							<ShortName>Exclamation_Pnj_Femme_04.wav</ShortName>
+							<Path>Voices\English(US)\Exclamation_Pnj_Femme_04_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
