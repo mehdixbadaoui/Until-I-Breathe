@@ -7,8 +7,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	293930242	Porte_Deverouillee_event			\Default Work Unit\Environment_events\Portes\Porte_Deverouillee_event	
 	410758684	Nacelle_fin_event			\Default Work Unit\Environment_events\Nacelles\Nacelle_fin_event	
 	478883995	Big_Ventilator_event			\Default Work Unit\Environment_events\Ventilator\Big_Ventilator_event	
-	480333909	Engrenage_bloquer_event			\Default Work Unit\Environment_events\Engrenage_bloquer_event	
 	623275868	Jump_event			\Default Work Unit\Uni_events\Jump\Jump_event	
+	681037832	UniVoice_event			\Default Work Unit\Uni_events\UniVoice_event	
 	695806192	Plateforme_casse_blacon_beton_event			\Default Work Unit\Environment_events\Plateforme\Plateforme_casse_blacon_beton_event	
 	703873446	Inspiration_event			\Default Work Unit\Uni_events\Uni_respiration\Inspiration_event	
 	707299762	Stop_Caisse_frottement_event			\Default Work Unit\Environment_events\Caisses\Stop_Caisse_frottement_event	
@@ -35,8 +35,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	1844130327	Ascenseur_ouvert_event			\Default Work Unit\Environment_events\Ascenseur_ouvert_event	
 	1884367558	Clothes_event			\Default Work Unit\Uni_events\FS\Clothes_event	
 	1959957461	FS_Liquide_event			\Default Work Unit\Uni_events\FS\FS_Liquide_event	
+	1992837697	Menu_music_event			\Default Work Unit\Music_levels\Menu_music_event	
 	2091737429	Camion_event			\Default Work Unit\Environment_events\Camion_event	
-	2122763242	Engranage_tourne_event			\Default Work Unit\Environment_events\Engranage_tourne_event	
 	2137224780	Train_Interieur_event			\Default Work Unit\Environment_events\Train\Train_Interieur_event	
 	2193255299	Porte_fermee_metal_event			\Default Work Unit\Environment_events\Portes\Porte_fermee_metal_event	
 	2239026864	Stop_Little_Ventilator_event			\Default Work Unit\Environment_events\Ventilator\Stop_Little_Ventilator_event	
@@ -65,12 +65,14 @@ Event	ID	Name			Wwise Object Path	Notes
 	3095867336	Message_ST2_decrypte_event			\Default Work Unit\ST2_events\Message_ST2_decrypte_event	
 	3109581025	FS_Metal_event			\Default Work Unit\Uni_events\FS\FS_Metal_event	
 	3140239569	Stop_UniSouffle_event			\Default Work Unit\Uni_events\Uni_respiration\Stop_UniSouffle_event	
+	3179662169	Uni_Fall_Death_event			\Default Work Unit\Uni_events\Uni_Fall_Death_event	
 	3270961216	Usine_music_event			\Default Work Unit\Music_levels\Usine_music_event	
 	3298702202	Drone_stationnaire_event			\Default Work Unit\Environment_events\Drones\Drone_stationnaire_event	
 	3356674548	Voiture_volante_event			\Default Work Unit\Environment_events\Voiture_volante_event	
 	3378064531	FS_Ordure_event			\Default Work Unit\Uni_events\FS\FS_Ordure_event	
 	3435722515	Nacelle_detruite_event			\Default Work Unit\Environment_events\Nacelles\Nacelle_detruite_event	
 	3493793537	EnginVolant_event			\Default Work Unit\Environment_events\EnginVolant_event	
+	3694440818	UniPereVoice_event			\Default Work Unit\Uni_events\UniPereVoice_event	
 	3697862452	FS_crouch_Ordure_event			\Default Work Unit\Uni_events\FS\FS_crouch_Ordure_event	
 	3707020222	Break_Drones_deplacement_event			\Default Work Unit\Environment_events\Drones\Break_Drones_deplacement_event	
 	3717649508	Usine_sound_break_event			\Default Work Unit\Music_levels\Usine_sound_break_event	
@@ -115,17 +117,19 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	3668484078	VentVolume			\Default Work Unit\VentVolume	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	12822707	Engrenage_Bloque_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Engrenage_Bloque_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Engrenage\Engrenage_bloquer\Engrenage_Bloque_01		144144
 	16723674	ST-2_Voix_Normal_1	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\ST-2_Voix_Normal_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ST-2Sounds\ST-2_Voix_Normal\ST-2_Voix_Normal_1		264744
 	22230456	FS_Beton_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Beton_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_crouch_Beton\FS_Beton_Uni_03		57836
-	39962802	Engrenage_Bloquer_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Engrenage_Bloquer_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Engrenage\Engrenage_bloquer\Engrenage_Bloquer_02		176544
 	55352432	Engin_volant3	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Engin_volant3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\EnginVolant\Engin_volant3		1237352
 	65055988	UntilIBreathe_Level2-3_Run_Loop	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\UntilIBreathe_Level2-3_Run_Loop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiant_music\Level2_3\UntilIBreathe_Level2-3_Run_Loop		8507312
 	65937578	Uni_Grappin_Balance_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Grappin_Balance_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_balance\Uni_Grappin_Balance_01		90344
+	66339368	Exclamation_Pnj_Femme_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Femme_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\UniVoice\Exclamation_Pnj_Femme_01		96192
+	66737376	Exclamation_Pnj_Femme_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Femme_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\UniVoice\Exclamation_Pnj_Femme_03		72188
+	68431410	Exclamation_Pnj_Homme_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Homme_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Pere_Voice\Exclamation_Pnj_Homme_02		96192
 	69852667	Porte_Ouvre_Metal_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ouvre_Metal_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_ouverte_metal\Porte_Ouvre_Metal_01		144144
 	73902770	ST-2_Voix_Danger_2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\ST-2_Voix_Danger_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ST-2Sounds\ST2_Danger\ST-2_Voix_Danger_2		176592
 	77377138	FS_Ordure_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Ordure\FS_Ordure_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_Ordure_randomContainer\FS_Ordure_Uni_02		102340
 	78198669	Grappin_Accroche_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Accroche_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_accroche\Grappin_Accroche_Uni_01		50928
+	85540717	Exclamation_Pnj_Homme_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Homme_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Pere_Voice\Exclamation_Pnj_Homme_01		120188
 	100497621	FS_Bois_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Fs_Bois\FS_Bois_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_Bois_randomContainer\FS_Bois_Uni_03		52140
 	118591292	Porte_Ferme_Bois_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ferme_Bois_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_fermee_bois\Porte_Ferme_Bois_03		144144
 	124747176	Train_Marche_Interieur_Loop_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Train_Marche_Interieur_Loop_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Train\Train_Marche_Interieur_Loop_01		1392144
@@ -133,7 +137,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	129212878	Porte_Ferme_Bois_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ferme_Bois_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_fermee_bois\Porte_Ferme_Bois_01		144144
 	133016993	Ascenseur_Ferme_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ascenseur_Ferme_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Ascenseur\Ascenseur_fermee\Ascenseur_Ferme_02		576144
 	135645864	Porte_Ouvre_Bois_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ouvre_Bois_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_ouverte_bois\Porte_Ouvre_Bois_01		216144
-	144952040	Engrenage_Tourne_Loop_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Engrenage_Tourne_Loop_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Engrenage\Engrenage_tourne\Engrenage_Tourne_Loop_02		360140
 	146550505	FS_Liquide_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Liquide\FS_Liquide_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_Liquide_randomContainer\FS_Liquide_Uni_03		76132
 	146912016	Camion_Moteur_Arret_Loop	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Camion_Moteur_Arret_Loop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Camion_Moteur_Arret_Loop		1536192
 	153506774	FS_Liquide_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Liquide_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_crouch_Liquide\FS_Liquide_Uni_03		76132
@@ -145,12 +148,14 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	175544168	AMB_Interieur_Doux	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\AMB_Interieur_Doux_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiant_music\Ambient_interior_music\AMB_Interieur_Doux		11520192
 	177874080	Message_ST2_Decrypte_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Message_ST2_Decrypte_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ST-2Sounds\Message_Decrypte\Message_ST2_Decrypte_01		768192
 	180285156	SD Uni Tousse à mort_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\SD Uni Tousse à mort_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_TousseaMort\SD Uni Tousse à mort_03		552144
+	181356928	Until I Breathe Menu	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Until I Breathe Menu_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiant_music\Menu_music\Until I Breathe Menu		9065060
 	184699236	Caisse_frotte_noreverb_loop 2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Caisse_frotte_noreverb_loop 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Caisse_frottement_noreverb\Caisse_frotte_noreverb_loop 2		235256
 	187653033	Porte_Ferme_Metal_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ferme_Metal_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_fermee_metal\Porte_Ferme_Metal_02		144144
 	197542737	ST-2_Voix_Normal_2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\ST-2_Voix_Normal_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ST-2Sounds\ST-2_Voix_Normal\ST-2_Voix_Normal_2		264744
 	208766991	SD Uni Bruit poumons_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\SD Uni Bruit poumons_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Bruit_Poumons\SD Uni Bruit poumons_01		288144
 	212799008	Plateforme_Casse_Passerelle_Metal_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Plateforme_Casse_Passerelle_Metal_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Plateforme\Plateforme_casse_Passerelle_Metal\Plateforme_Casse_Passerelle_Metal_02		207140
 	222777660	Nacelle_Depart_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Nacelle_Depart_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Nacelle\Nacelle_Depart_01		264144
+	234038392	Exclamation_Pnj_Femme_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Femme_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\UniVoice\Exclamation_Pnj_Femme_02		72188
 	235026524	Porte_Coulissante_Ferme_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Coulissante_Ferme_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_coulissante_fermee\Porte_Coulissante_Ferme_03		192144
 	235342702	Alarme2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Alarme2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Alarmes\Alarme2		1129104
 	235359345	CarteMagnetique_Utiliser_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\CarteMagnetique_Utiliser_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\CarteMagnetique\Carte_utiliser\CarteMagnetique_Utiliser_02		192144
@@ -161,6 +166,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	257210288	Drone_coup de feu_1	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Drone_coup de feu_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Drones\Drones_fireshot\Drone_coup de feu_1		288144
 	261041439	Annonce2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Annonce2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\AnnonceVille\Annonce2		3528144
 	262888218	FS_Beton_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Beton\FS_Beton_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_Beton_randomContainer\FS_Beton_Uni_02		57836
+	263050143	Uni_Chute_Meurt_04	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Uni_Chute_Meurt_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Fall_Death\Uni_Chute_Meurt_04		144192
 	263517263	Until I Breathe lev 1-1 LOOP	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Until I Breathe lev 1-1 LOOP_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiant_music\Ambient_music_1_1\Until I Breathe lev 1-1 LOOP		12711868
 	265883135	Ballon_explosion 2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ballon_explosion 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Ballon\Ballon_explosion\Ballon_explosion 2		417988
 	266166256	Plateforme_Casse_Goutiere_Metal_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Plateforme_Casse_Goutiere_Metal_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Plateforme\Plateforme_casse_goutiere_metal\Plateforme_Casse_Goutiere_Metal_01		192144
@@ -197,6 +203,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	427107952	Porte_Coulissante_Ouvert_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Coulissante_Ouvert_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_coulissante_ouverte\Porte_Coulissante_Ouvert_03		576144
 	431791995	Grappin_Deccroche_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Deccroche_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_deccroche\Grappin_Deccroche_Uni_01		39032
 	434924597	Drone_Deplacement_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Drone_Deplacement_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Drones\Drone_Deplacement_01		672192
+	440544308	Uni_Chute_Meurt_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Uni_Chute_Meurt_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Fall_Death\Uni_Chute_Meurt_01		120188
 	445305863	Uni_Saut_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Uni_Saut_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Jump\Uni_Saut_03		72144
 	453653944	Annonce3	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Annonce3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\AnnonceVille\Annonce3		3528144
 	454728539	ST-2_Voix_Triste_2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\ST-2_Voix_Triste_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ST-2Sounds\ST2_triste\ST-2_Voix_Triste_2		257392
@@ -230,6 +237,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	611500078	Vent_Random_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Vent_Random_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Vent_normal\Vent_Random_02		1200192
 	616338067	Drone_Acceleration_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Drone_Acceleration_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Drones\Drones_acceleration\Drone_Acceleration_01		132144
 	616477893	Little_Ventilator_Sound	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ventilateur_Petit_Loop_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Ventilator\Little_Ventilator_Sound		768144
+	618949203	Uni_Chute_Meurt_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Uni_Chute_Meurt_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Fall_Death\Uni_Chute_Meurt_02		144192
 	621944333	Grappin_Accroche_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Accroche_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_accroche\Grappin_Accroche_Uni_03		48132
 	622424931	Train_Klaxon_End	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Train_Klaxon_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Train\Train_Klaxon_End		768192
 	634223403	Enceinte_Eteint_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Enceinte_Eteint_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Enceinte_Eteinte\Enceinte_Eteint_02		384192
@@ -247,7 +255,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	666599763	Fene╠étre brise 2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Fene╠étre brise 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\BrokenWindows\Fene╠étre brise 2		264744
 	675717278	FS_Metal_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Metal\FS_Metal_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_Metal_randomContainer\FS_Metal_Uni_01		133636
 	678281551	Engin_volant2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Engin_volant2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\EnginVolant\Engin_volant2		1828800
-	687398414	Engrenage_Tourne_Loop_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Engrenage_Tourne_Loop_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Engrenage\Engrenage_tourne\Engrenage_Tourne_Loop_01		360140
 	689089162	Levier1	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Levier1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Levier\Levier1		88344
 	691186280	ST-2_Voix_Danger_1	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\ST-2_Voix_Danger_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ST-2Sounds\ST2_Danger\ST-2_Voix_Danger_1		176592
 	695222196	Porte_Ouvre_Bois_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ouvre_Bois_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_ouverte_bois\Porte_Ouvre_Bois_03		216144
@@ -259,6 +266,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	722937640	Caisse_frotte_noreverb_loop 3	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Caisse_frotte_noreverb_loop 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Caisse_frottement_noreverb\Caisse_frotte_noreverb_loop 3		231584
 	728790962	Nacelle_Fin_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Nacelle_Fin_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Nacelle\Nacelle_Fin_01		312144
 	744382959	Camera_Detection_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Camera_Detection_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Camera_detection\Camera_Detection_03		396144
+	746120754	Uni_Chute_Meurt_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Uni_Chute_Meurt_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Fall_Death\Uni_Chute_Meurt_03		144192
 	746466881	Foule_Loop_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Foule_Loop_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Foule\Foule_Loop_01		3840192
 	749326371	FS_Ordure_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Ordure_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_crouch_Ordure\FS_Ordure_Uni_03		101640
 	753064847	Porte_Ouvre_Metal_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ouvre_Metal_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_ouverte_metal\Porte_Ouvre_Metal_03		144144
@@ -268,6 +276,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	794352713	SD Uni Tousse à mort_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\SD Uni Tousse à mort_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_TousseaMort\SD Uni Tousse à mort_01		576144
 	795046867	Inspiration3	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Inspiration3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_inspiration\Inspiration3		384144
 	799718434	Ballon 2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ballon 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Ballon\Ballon\Ballon 2		611264
+	805845234	Exclamation_Pnj_Femme_05	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Femme_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\UniVoice\Exclamation_Pnj_Femme_05		168192
 	818140893	Drone_coup de feu_2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Drone_coup de feu_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Drones\Drones_fireshot\Drone_coup de feu_2		284144
 	819396503	FS_Liquide_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Liquide_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_crouch_Liquide\FS_Liquide_Uni_02		76132
 	819594480	Drone_coup de feu_3	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Drone_coup de feu_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Drones\Drones_fireshot\Drone_coup de feu_3		288144
@@ -278,6 +287,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	882414551	Porte_Ferme_Metal_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ferme_Metal_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_fermee_metal\Porte_Ferme_Metal_03		144144
 	888126657	Porte_Ferme_Bois_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Ferme_Bois_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_fermee_bois\Porte_Ferme_Bois_02		144144
 	906837268	FS_Bois_Uni_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Bois_Uni_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_crouch_Bois\FS_Bois_Uni_03		52140
+	910774638	Exclamation_Pnj_Homme_04	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Homme_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Pere_Voice\Exclamation_Pnj_Homme_04		72188
 	915525319	FS_Liquide_Uni_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Liquide\FS_Liquide_Uni_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_Liquide_randomContainer\FS_Liquide_Uni_01		76132
 	918410245	UntilIBreath 2-2	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\UntilIBreath 2-2_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiant_music\Ambient_music_2_2\UntilIBreath 2-2		12288144
 	933416733	Enceinte_Eteint_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Enceinte_Eteint_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Enceinte_Eteinte\Enceinte_Eteint_03		384192
@@ -290,9 +300,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	961642650	Ascenseur_Ferme_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Ascenseur_Ferme_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Ascenseur\Ascenseur_fermee\Ascenseur_Ferme_03		576144
 	965209919	Porte_Coulissante_Ferme_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Coulissante_Ferme_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_coulissante_fermee\Porte_Coulissante_Ferme_01		192144
 	965300597	Grappin_Retracte_Loop	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Grappin_Retracte_Loop_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Grappin_Retracte_Loop		144192
+	968202926	Exclamation_Pnj_Homme_03	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Homme_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Uni_Pere_Voice\Exclamation_Pnj_Homme_03		72188
 	969395605	Porte_Coulissante_Ferme_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Porte_Coulissante_Ferme_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Portes\Porte_coulissante_fermee\Porte_Coulissante_Ferme_02		192144
 	969994697	Grappin_Deccroche_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Grappin_Deccroche_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\Hook\Hook_deccroche\Grappin_Deccroche_Uni_02		44128
 	990445670	Message_ST2_Decrypte_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Message_ST2_Decrypte_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ST-2Sounds\Message_Decrypte\Message_ST2_Decrypte_02		768192
+	990994489	Exclamation_Pnj_Femme_04	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\Voices\English(US)\Exclamation_Pnj_Femme_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\UniVoice\Exclamation_Pnj_Femme_04		120192
 	997543404	Train_Arret_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Train_Arret_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Train\Train_arret\Train_Arret_01		960144
 	1018370728	Message_ST2_Branchement_01	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\Message_ST2_Branchement_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ST-2Sounds\Message_Branchement\Message_ST2_Branchement_01		288192
 	1033435149	FS_Metal_Uni_02	D:\Github\Until-I-Breathe\Until-I-Breathe_WwiseProject\.cache\Mac\SFX\FS_Metal\FS_Metal_Uni_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UniSounds\FootStep\FS_Metal_randomContainer\FS_Metal_Uni_02		133636

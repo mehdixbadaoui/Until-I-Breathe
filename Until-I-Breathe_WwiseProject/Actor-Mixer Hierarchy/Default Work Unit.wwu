@@ -634,6 +634,52 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</BlendContainer>
+						<BlendContainer Name="Menu_music" ID="{032BB46C-4A65-4142-A79F-D3C15D35CC48}" ShortID="276781629">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Music" ID="{6722D126-770E-440E-A0E0-3A6FF4E0AD03}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Until I Breathe Menu" ID="{8A432FF9-C04F-42F1-AFA8-29B87415CF9E}" ShortID="797416189">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Until I Breathe Menu" ID="{38943049-B913-4B46-8941-8B84F389591C}">
+											<Language>English(US)</Language>
+											<AudioFile>Until I Breathe Menu.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="181356928"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Until I Breathe Menu" ID="{38943049-B913-4B46-8941-8B84F389591C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</BlendContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment" ID="{F147F5F0-1EF6-4350-B203-5ED1A3166AE8}" ShortID="676180417">
@@ -958,7 +1004,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-20</Value>
+												<Value>-30</Value>
 											</ValueList>
 											<RTPCList>
 												<RTPC Name="" ID="{148E0FB0-5A87-4114-97BE-3661F6F75DB0}" ShortID="916886958">
@@ -2688,142 +2734,6 @@
 										<ActiveSource Name="Drone_Deplacement_01" ID="{6FF2F214-5381-4DC2-8D98-88A127809B03}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-							</ChildrenList>
-						</Folder>
-						<Folder Name="Engrenage" ID="{BA3D8EDB-0816-40EC-8765-95F86B52B93A}" ShortID="901018251">
-							<ChildrenList>
-								<RandomSequenceContainer Name="Engrenage_bloquer" ID="{46EE9524-42CA-4D0F-BB22-14AF70BBFBAB}" ShortID="176304840">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-15</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Engrenage_Bloque_01" ID="{B7960FC0-8CB0-43DC-9528-DC4A60E50639}" ShortID="695275674">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Engrenage_Bloque_01" ID="{7AB0E86F-0EB8-4547-933C-3CAAF462E331}">
-													<Language>SFX</Language>
-													<AudioFile>Engrenage_Bloque_01.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="12822707"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Engrenage_Bloque_01" ID="{7AB0E86F-0EB8-4547-933C-3CAAF462E331}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Engrenage_Bloquer_02" ID="{28A4CC4F-B6B2-4585-8C90-FFA7B2E9086A}" ShortID="613942204">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Engrenage_Bloquer_02" ID="{AA9E4CC9-A4D7-4A0F-8DF2-9B264AC0C6F4}">
-													<Language>SFX</Language>
-													<AudioFile>Engrenage_Bloquer_02.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="39962802"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Engrenage_Bloquer_02" ID="{AA9E4CC9-A4D7-4A0F-8DF2-9B264AC0C6F4}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<ObjectLists/>
-								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="Engrenage_tourne" ID="{17A2965E-F55D-4A9A-AE3E-FDA0660BCFDE}" ShortID="932165221">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-15</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Engrenage_Tourne_Loop_01" ID="{1A7A8989-906E-47D5-A0E9-FCED9847394C}" ShortID="365012453">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Engrenage_Tourne_Loop_01" ID="{A748DBA1-A684-497E-B4F7-87B295E9696D}">
-													<Language>SFX</Language>
-													<AudioFile>Engrenage_Tourne_Loop_01.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="687398414"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Engrenage_Tourne_Loop_01" ID="{A748DBA1-A684-497E-B4F7-87B295E9696D}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Engrenage_Tourne_Loop_02" ID="{469894BD-6C89-4662-AC44-4B186268914A}" ShortID="361449359">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Engrenage_Tourne_Loop_02" ID="{33395F20-6A41-47DC-A5EA-061EC7C16570}">
-													<Language>SFX</Language>
-													<AudioFile>Engrenage_Tourne_Loop_02.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="144952040"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ObjectLists/>
-											<ActiveSourceList>
-												<ActiveSource Name="Engrenage_Tourne_Loop_02" ID="{33395F20-6A41-47DC-A5EA-061EC7C16570}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-									<ObjectLists/>
-								</RandomSequenceContainer>
 							</ChildrenList>
 						</Folder>
 						<RandomSequenceContainer Name="Vent_normal" ID="{4A19DD20-4188-440E-B32D-CE513F62CA27}" ShortID="360704370">
@@ -6970,6 +6880,390 @@
 									<ObjectLists/>
 									<ActiveSourceList>
 										<ActiveSource Name="SD Uni Bruit poumons_03" ID="{AF58D8C7-24AB-43F3-A5D6-1D219CC7CA7B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Uni_Pere_Voice" ID="{1A9B2C37-5449-47CD-86F0-D43B4160DCF9}" ShortID="453730366">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Exclamation_Pnj_Homme_01" ID="{7D447C24-4035-45CD-B933-517DB9C59441}" ShortID="447763887">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Homme_01" ID="{EA552AC1-830C-4347-B6EC-5A8E4A7AB7EE}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Homme_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="85540717"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Homme_01" ID="{EA552AC1-830C-4347-B6EC-5A8E4A7AB7EE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Exclamation_Pnj_Homme_02" ID="{30FCAF9A-BE4B-4B5D-80AF-13B9E77AB7D6}" ShortID="933047347">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Homme_02" ID="{16990BA2-2525-4A61-A5D0-CDEF0456BC06}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Homme_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="68431410"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Homme_02" ID="{16990BA2-2525-4A61-A5D0-CDEF0456BC06}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Exclamation_Pnj_Homme_03" ID="{0EB3DAD1-A055-4FC9-9214-83AB4730809A}" ShortID="675372228">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Homme_03" ID="{629F3DEF-AC8D-4C6B-BE12-8238BF1BF629}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Homme_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="968202926"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Homme_03" ID="{629F3DEF-AC8D-4C6B-BE12-8238BF1BF629}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Exclamation_Pnj_Homme_04" ID="{5EF7A553-3B6D-4A49-B505-2B8E7DC0BF68}" ShortID="1066356644">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Homme_04" ID="{7605A2E3-BFCF-4E3A-8CAD-E2B334AEC151}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Homme_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="910774638"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Homme_04" ID="{7605A2E3-BFCF-4E3A-8CAD-E2B334AEC151}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="UniVoice" ID="{C0583909-A5E9-4170-8E37-C016507692AC}" ShortID="4037229">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Exclamation_Pnj_Femme_01" ID="{A2CE0936-CF92-4E67-9C99-EA373F73C1C3}" ShortID="278552246">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Femme_01" ID="{339C542F-2231-4983-8862-FBAA432B715C}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Femme_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="66339368"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Femme_01" ID="{339C542F-2231-4983-8862-FBAA432B715C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Exclamation_Pnj_Femme_02" ID="{111B6EF1-80A9-4D3E-AB6E-365F85CF00D6}" ShortID="1006709721">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Femme_02" ID="{1F3B61BC-F06E-4CB0-A45F-900C345AAE3C}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Femme_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="234038392"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Femme_02" ID="{1F3B61BC-F06E-4CB0-A45F-900C345AAE3C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Exclamation_Pnj_Femme_03" ID="{B4838D92-AF04-4D8B-811B-7A8190395D84}" ShortID="644652078">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Femme_03" ID="{299621FA-4F72-4DF2-BEF1-9EDA136B963E}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Femme_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="66737376"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Femme_03" ID="{299621FA-4F72-4DF2-BEF1-9EDA136B963E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Exclamation_Pnj_Femme_04" ID="{A9704436-436F-41F1-B94F-B2D3DBFAD30E}" ShortID="649985850">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Femme_04" ID="{3896EFE9-215F-43FD-9234-B7E78614B3BA}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Femme_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="990994489"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Femme_04" ID="{3896EFE9-215F-43FD-9234-B7E78614B3BA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Exclamation_Pnj_Femme_05" ID="{951D6992-4118-48A7-8D2D-7D47B6CE2AC8}" ShortID="64754258">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Exclamation_Pnj_Femme_05" ID="{FEB4E766-6613-4C6F-8953-D2738168D866}">
+											<Language>English(US)</Language>
+											<AudioFile>Exclamation_Pnj_Femme_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="805845234"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Exclamation_Pnj_Femme_05" ID="{FEB4E766-6613-4C6F-8953-D2738168D866}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Uni_Fall_Death" ID="{3A7C9585-1FCE-4736-8B97-C472E4D55A0A}" ShortID="674456582">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Uni_Chute_Meurt_01" ID="{BAC0A908-F06E-4301-B5EF-93868D1B7D23}" ShortID="220892417">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Chute_Meurt_01" ID="{218D631D-89D9-4BE5-BC2E-643C452DB166}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Chute_Meurt_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="440544308"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Chute_Meurt_01" ID="{218D631D-89D9-4BE5-BC2E-643C452DB166}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Chute_Meurt_02" ID="{EC335263-100E-4D5D-8FC4-5BD465FAF543}" ShortID="691001101">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Chute_Meurt_02" ID="{9FFB3D83-85A6-4CEB-9276-DB0FAF6FD7F8}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Chute_Meurt_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="618949203"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Chute_Meurt_02" ID="{9FFB3D83-85A6-4CEB-9276-DB0FAF6FD7F8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Chute_Meurt_03" ID="{5CDE5E4B-9F21-4730-B2B0-DE2D684731E8}" ShortID="5362309">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Chute_Meurt_03" ID="{27ED0025-72C5-4586-89BF-FE4EE6CF554D}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Chute_Meurt_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="746120754"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Chute_Meurt_03" ID="{27ED0025-72C5-4586-89BF-FE4EE6CF554D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Chute_Meurt_04" ID="{56B1432F-255D-44DE-9A85-F0485F43D6B1}" ShortID="733377502">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Chute_Meurt_04" ID="{812B9A4B-892A-457A-BAA9-4AB8F06AF745}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Chute_Meurt_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="263050143"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Chute_Meurt_04" ID="{812B9A4B-892A-457A-BAA9-4AB8F06AF745}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

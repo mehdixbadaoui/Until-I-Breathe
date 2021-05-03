@@ -421,6 +421,8 @@ public class GameMaster : MonoBehaviour
     //Just For Testing
     public void NextScene()
     {
+        AkSoundEngine.PostEvent("Stop_music_event", GameObject.FindGameObjectWithTag("WwiseSound"));
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
