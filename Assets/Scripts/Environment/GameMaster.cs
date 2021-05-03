@@ -124,6 +124,8 @@ public class GameMaster : MonoBehaviour
 
     private void OnLevelWasLoaded()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+            indexForLetter = 0;
 
         fallingPlatforms = (FallingPlatform[])GameObject.FindObjectsOfType(typeof(FallingPlatform));
 
