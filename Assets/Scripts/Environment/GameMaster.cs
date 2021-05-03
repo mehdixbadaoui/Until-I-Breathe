@@ -51,6 +51,8 @@ public class GameMaster : MonoBehaviour
     public GameObject LogsText;
     public GameObject SavingText;
 
+    public bool isInEnglish = false;
+
     // Set and get of the last checkoint position
     public Vector3 LastCheckPointPos
     {
@@ -76,6 +78,7 @@ public class GameMaster : MonoBehaviour
         }
 
 
+
         fallingPlatforms = (FallingPlatform[])GameObject.FindObjectsOfType(typeof(FallingPlatform));
 
         // Find the first character GameObject
@@ -98,6 +101,7 @@ public class GameMaster : MonoBehaviour
             }
 
         }
+
 
         inputs = new Inputs();
 
@@ -124,6 +128,7 @@ public class GameMaster : MonoBehaviour
 
     private void OnLevelWasLoaded()
     {
+
         if (SceneManager.GetActiveScene().buildIndex == 1)
             indexForLetter = 0;
 
