@@ -20,6 +20,7 @@ public class Enter_room_ambient_music : MonoBehaviour
     public float dstUniFromEndofRoom = 7f;
     public float musicVolume;
     public float coefficientAttenuation = 1.5f;
+    public bool lvl3_3sound;
 
     private PlayEventSounds distanceUniFromObjects;
     private void Start()
@@ -61,11 +62,21 @@ public class Enter_room_ambient_music : MonoBehaviour
             //Ambiant music for interior
             distanceEndRoomUniLeft = uni.transform.position.z - room_inside_collider.bounds.min.z;
             distanceEndRoomUniRight = room_inside_collider.bounds.max.z - uni.transform.position.z;
-           
-            
-            distanceUniFromObjects.RTPCGameObjectValueEnterRoom(distanceEndRoomUniLeft, distanceEndRoomUniRight, dstUniFromEndofRoom, room_inside, "Ambiant_interior_event", "Ambiant_music_Sound", coefficientAttenuation);
-            
-            
+            if (lvl3_3sound)
+            {
+                
+
+                
+                distanceUniFromObjects.RTPCGameObjectValueEnterRoomLvl3_3(distanceEndRoomUniLeft, distanceEndRoomUniRight, dstUniFromEndofRoom, room_inside, coefficientAttenuation);
+
+            }
+            else
+            {
+                distanceUniFromObjects.RTPCGameObjectValueEnterRoom(distanceEndRoomUniLeft, distanceEndRoomUniRight, dstUniFromEndofRoom, room_inside, "Ambiant_interior_event", "Ambiant_music_Sound", coefficientAttenuation);
+            }
+
+
+
 
         }
 
@@ -93,6 +104,7 @@ public class Enter_room_ambient_music : MonoBehaviour
             distanceEndRoomUniRight = 0f;
             ambiant_interior_volume = 0f;
             musicVolume = 100f;
+           
             AkSoundEngine.SetRTPCValue("ambiant_music_sound", ambiant_interior_volume);
         }
     }

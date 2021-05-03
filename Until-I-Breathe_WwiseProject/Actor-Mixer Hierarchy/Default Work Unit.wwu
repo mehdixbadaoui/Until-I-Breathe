@@ -2851,6 +2851,32 @@
 									<ValueList>
 										<Value>-15</Value>
 									</ValueList>
+									<RTPCList>
+										<RTPC Name="" ID="{7C883FC0-C3C5-46B3-990D-785C787DDB57}" ShortID="317244581">
+											<ReferenceList>
+												<Reference Name="ControlInput">
+													<ObjectRef Name="VentVolume" ID="{686A546B-1EC6-42F1-848C-47DDC7E9EF99}" WorkUnitID="{1C4EE163-8B2A-4D6C-AFE7-0C5F12EB9AFA}"/>
+												</Reference>
+											</ReferenceList>
+											<Curve Name="" ID="{0791EA39-D366-49BF-8DBF-52F62E0117BA}">
+												<PropertyList>
+													<Property Name="Flags" Type="int32" Value="3"/>
+												</PropertyList>
+												<PointList>
+													<Point>
+														<XPos>0</XPos>
+														<YPos>-200</YPos>
+														<Flags>5</Flags>
+													</Point>
+													<Point>
+														<XPos>100</XPos>
+														<YPos>0</YPos>
+														<Flags>37</Flags>
+													</Point>
+												</PointList>
+											</Curve>
+										</RTPC>
+									</RTPCList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -4348,6 +4374,9 @@
 									</ValueList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{9853BD3D-997B-4839-A7DB-DCB01C915D38}" ShortID="232298769">
 											<ReferenceList>
