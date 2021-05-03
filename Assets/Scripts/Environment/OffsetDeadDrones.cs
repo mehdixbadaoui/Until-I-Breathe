@@ -63,18 +63,18 @@ public class OffsetDeadDrones : MonoBehaviour
         Movement.canMove = true;
         blockForFirstDrone = false; 
     }
-    private IEnumerator waitForKeyPress(KeyCode key)
-    {
-        bool done = false;
-        while (!done) // essentially a "while true", but with a bool to break out naturally
-        {
-            if (Input.GetKeyDown(key))
-            {
-                done = true; // breaks the loop
-            }
-            yield return null; // wait until next frame, then continue execution from here (loop continues)
-        }
+    //private IEnumerator waitForKeyPress(KeyCode key)
+    //{
+    //    bool done = false;
+    //    while (!done) // essentially a "while true", but with a bool to break out naturally
+    //    {
+    //        if (Input.GetKeyDown(key))
+    //        {
+    //            done = true; // breaks the loop
+    //        }
+    //        yield return null; // wait until next frame, then continue execution from here (loop continues)
+    //    }
 
-        // now this function returns
-    }
+    //    // now this function returns
+    //}
 }
