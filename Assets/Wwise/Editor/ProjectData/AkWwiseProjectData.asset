@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585818219474943266
+    m_lastTime: -8585815600077946927
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585818219474983160
+    m_lastTime: -8585815597872772424
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -746,46 +746,6 @@ MonoBehaviour:
         ObjectType: 3
         guid: 5116f8bbe0c4ed45b8bfd1a389bbc314
       Path: Events\Default Work Unit\Environment_events\EnginVolant_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Engranage_tourne_event
-      guid: 45bdae35844ede49aa05d39deed2b095
-      id: 2122763242
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Engranage_tourne_event
-        ObjectType: 3
-        guid: 45bdae35844ede49aa05d39deed2b095
-      Path: Events\Default Work Unit\Environment_events\Engranage_tourne_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Engrenage_bloquer_event
-      guid: fce1253c5f0e1048a637edb009a10f83
-      id: 480333909
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Engrenage_bloquer_event
-        ObjectType: 3
-        guid: fce1253c5f0e1048a637edb009a10f83
-      Path: Events\Default Work Unit\Environment_events\Engrenage_bloquer_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1503,6 +1463,26 @@ MonoBehaviour:
         ObjectType: 3
         guid: bd6362e859baf54caa00818fad8324c2
       Path: Events\Default Work Unit\Music_levels\Lvl_3_1_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Menu_music_event
+      guid: e244c2ea5d7103458885228f34616617
+      id: 1992837697
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Music_levels
+        ObjectType: 4
+        guid: 83c154ea6ed22e4d99c862109a900c87
+      - ElementName: Menu_music_event
+        ObjectType: 3
+        guid: e244c2ea5d7103458885228f34616617
+      Path: Events\Default Work Unit\Music_levels\Menu_music_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2309,6 +2289,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Uni_Fall_Death_event
+      guid: 9fbb249e1a2f204f89343aae982d717e
+      id: 3179662169
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: Uni_Fall_Death_event
+        ObjectType: 3
+        guid: 9fbb249e1a2f204f89343aae982d717e
+      Path: Events\Default Work Unit\Uni_events\Uni_Fall_Death_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Uni_respiration
       guid: fa126081904c13439d3c5733842858cb
       id: 3434065754
@@ -2352,6 +2352,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: UniPereVoice_event
+      guid: a21c59341254cc46ad048ad46e2e479a
+      id: 3694440818
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: UniPereVoice_event
+        ObjectType: 3
+        guid: a21c59341254cc46ad048ad46e2e479a
+      Path: Events\Default Work Unit\Uni_events\UniPereVoice_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: UniSouffle_event
       guid: 77d94e62d6f2c94190d2825a6c8e9810
       id: 980828296
@@ -2372,6 +2392,26 @@ MonoBehaviour:
         ObjectType: 3
         guid: 77d94e62d6f2c94190d2825a6c8e9810
       Path: Events\Default Work Unit\Uni_events\Uni_respiration\UniSouffle_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UniVoice_event
+      guid: 1212e08624337b47aa4cb10e3b965d63
+      id: 681037832
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: UniVoice_event
+        ObjectType: 3
+        guid: 1212e08624337b47aa4cb10e3b965d63
+      Path: Events\Default Work Unit\Uni_events\UniVoice_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -2487,7 +2527,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
     GuidInternal: 
-    m_lastTime: -8585818372770421510
+    m_lastTime: -8585815727957537678
     List:
     - name: Ambiant_music_Sound
       guid: dfc8bea834c55c4c8c843e62b285ddf2
@@ -2820,6 +2860,20 @@ MonoBehaviour:
         ObjectType: 13
         guid: 0e89c921e5b50d4ca0f405ac7873413f
       Path: Game Parameters\Default Work Unit\VentilatorVolume
+    - name: VentVolume
+      guid: 6b546a68c61ef142848c47ddc7e9ef99
+      id: 3668484078
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 63e14e1c2a8b6c4dafe70c5f12eb9afa
+      - ElementName: VentVolume
+        ObjectType: 13
+        guid: 6b546a68c61ef142848c47ddc7e9ef99
+      Path: Game Parameters\Default Work Unit\VentVolume
     - name: VoitureVolanteVolume
       guid: 0f90ecc8a4f9004a930ccec3f5d18f33
       id: 1150438748
@@ -2975,7 +3029,7 @@ MonoBehaviour:
     m_lastTime: -8585818372687465031
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 01000000050000000600000007000000090000000a00000045000000
+  ExpandedWaapiItemIds: 01000000050000000600000008000000090000000a0000000b0000001b0000001d0000002200000027000000290000002a0000002b0000002c0000002e00000036000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
