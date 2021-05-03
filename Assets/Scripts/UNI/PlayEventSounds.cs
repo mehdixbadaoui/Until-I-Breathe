@@ -87,7 +87,28 @@ public class PlayEventSounds : MonoBehaviour
         if (!isSoundFinished)
             AkSoundEngine.PostEvent(nameOfEvent, gameObject);
     }
-   
+    public void RTPCGameObjectValueEnterRoomLvl3_3(float distUniFromObjectLeft, float distUniFromObjectRight, float maxDistance, GameObject gameObject, float coeffAttenuation)
+    {
+        
+        if (distUniFromObjectLeft <= maxDistance)
+        {
+            volume = distUniFromObjectLeft * 100f / maxDistance;
+
+        }
+        else if (distUniFromObjectRight <= maxDistance)
+        {
+            volume = distUniFromObjectRight * 100f / maxDistance;
+        }
+        else
+        {
+            volume = 100f;
+        }
+        float musicVolume = 100f - volume / coeffAttenuation;
+       
+        AkSoundEngine.SetRTPCValue("VentVolume", musicVolume);
+        
+    }
+
     public void UniRespiration(string nameOfEvent, GameObject gameObject, float breathOfUni, string nameOfRTPC)
     {
         bool isSoundFinished = checkLenghtSound.IsEventPlayingOnGameObject(nameOfEvent, gameObject);

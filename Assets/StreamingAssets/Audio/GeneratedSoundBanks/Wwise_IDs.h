@@ -148,6 +148,7 @@ namespace AK
         static const AkUniqueID UNI_ETOUFFEMENTSVOLUME = 2719740865U;
         static const AkUniqueID USINEVOLUME = 1012520615U;
         static const AkUniqueID VENTILATORVOLUME = 1991624541U;
+        static const AkUniqueID VENTVOLUME = 3668484078U;
         static const AkUniqueID VOITUREVOLANTEVOLUME = 1150438748U;
     } // namespace GAME_PARAMETERS
 
