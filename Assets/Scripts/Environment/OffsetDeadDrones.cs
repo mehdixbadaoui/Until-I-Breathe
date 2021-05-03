@@ -6,10 +6,26 @@ public class OffsetDeadDrones : MonoBehaviour
 {
     public Vector3 offsetDeadRobotRotation;
     public Vector3 offsetDeadRobotTranslation;
+    private Inputs inputs;
 
     [SerializeField] private bool blockForFirstDrone = false;
     private GameObject uni;
     private Animator myAnimator;
+    private void Awake()
+    {
+        inputs = new Inputs();
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +34,8 @@ public class OffsetDeadDrones : MonoBehaviour
 
         // Get the animator 
         myAnimator = uni.GetComponentInChildren<Animator>();
+
+        
     }
 
     // Update is called once per frame
@@ -36,11 +54,12 @@ public class OffsetDeadDrones : MonoBehaviour
     private IEnumerator waitForPushE()
     {
         Movement.canMove = false;
-        uni.GetComponent<Rigidbody>().velocity =  Vector3.zero;
+        uni.GetComponent<Rigidbody>().velocity =  Vector3.zero ;
+
 
         myAnimator.Play("idle&run", 0);
-
-        yield return waitForKeyPress(KeyCode.E);
+        yield return new WaitUntil(() => inputs.Uni.GetLetter.ReadValue<float>() > 0);
+        //yield return waitForKeyPress(KeyCode.E);
         Movement.canMove = true;
         blockForFirstDrone = false; 
     }
