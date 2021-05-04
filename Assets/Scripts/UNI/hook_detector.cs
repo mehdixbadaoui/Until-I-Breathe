@@ -135,6 +135,9 @@ public class hook_detector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 controllerAim = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        controllerAim.Normalize();
+        Debug.Log(controllerAim);
 
         if (nearest_hook)
         {
@@ -181,10 +184,14 @@ public class hook_detector : MonoBehaviour
             //SELECT UHOOK WITH GAMEPAD
             if (GM.gamepad)
             {
-                Vector2 controllerAim = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                controllerAim.Normalize();
+                //Vector2 controllerAim = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                //controllerAim.Normalize();
+                //Debug.Log(controllerAim);
 
                 all_hooks = all_hooks.OrderBy(o => Mathf.Abs(Vector3.Angle(controllerAim, new Vector2(o.transform.position.z, o.transform.position.y) - new Vector2(transform.position.z, transform.position.y)))).ToList();
+
+                Debug.Log(Vector3.Angle(new Vector2(all_hooks[0].transform.position.z, all_hooks[0].transform.position.y) - new Vector2(transform.position.z, transform.position.y), controllerAim));
+
                 //SHITCODING
                 //if (inputs.Uni.rightup.ReadValue<float>() == 1 && b_up)
                 //{
