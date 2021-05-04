@@ -72,75 +72,78 @@ public class hook_detector : MonoBehaviour
         //inputs.Uni.NextHook.performed += ctx => NextIndex();
         //inputs.Uni.PrevHook.performed += ctx => PrevIndex();
 
-        inputs.Uni.rightup.performed += ctx => up();
-        inputs.Uni.rightdown.performed += ctx => down();
-        inputs.Uni.rightright.performed += ctx => right();
-        inputs.Uni.rightleft.performed += ctx => left();
+        //inputs.Uni.rightup.performed += ctx => up();
+        //inputs.Uni.rightdown.performed += ctx => down();
+        //inputs.Uni.rightright.performed += ctx => right();
+        //inputs.Uni.rightleft.performed += ctx => left();
     }
 
     //Some Lazy Coding bc i gave up
-    void right()
-    {
-        if(hooks_right.Any())
-            nearest_hook = hooks_right[0];
-        UpdateLists();
-    }
+    //void right()
+    //{
+    //    if(hooks_right.Any())
+    //        nearest_hook = hooks_right[0];
+    //    UpdateLists();
+    //}
 
-    void left()
-    {
-        if(hooks_left.Any())
-            nearest_hook = hooks_left[0];
-        UpdateLists();
-    }
+    //void left()
+    //{
+    //    if(hooks_left.Any())
+    //        nearest_hook = hooks_left[0];
+    //    UpdateLists();
+    //}
 
-    void up()
-    {
-        if(hooks_up.Any())
-            nearest_hook = hooks_up[0];
-        UpdateLists();
-    }
+    //void up()
+    //{
+    //    if(hooks_up.Any())
+    //        nearest_hook = hooks_up[0];
+    //    UpdateLists();
+    //}
 
-    void down()
-    {
-        if(hooks_down.Any())
-            nearest_hook = hooks_down[0];
-        UpdateLists();
-    }
+    //void down()
+    //{
+    //    if(hooks_down.Any())
+    //        nearest_hook = hooks_down[0];
+    //    UpdateLists();
+    //}
 
     void UpdateLists()
     {
 
-        if(all_hooks.Any())
-            all_hooks = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, nearest_hook.transform.position)).ToList();
-        //nearest_hook = all_hooks[index % all_hooks.Count];
-        hooks_up.Clear();
-        hooks_down.Clear();
-        hooks_right.Clear();
-        hooks_left.Clear();
+        //if(all_hooks.Any())
+        //    all_hooks = all_hooks.OrderBy(o => Vector3.Distance(o.transform.position, nearest_hook.transform.position)).ToList();
+        ////nearest_hook = all_hooks[index % all_hooks.Count];
+        //hooks_up.Clear();
+        //hooks_down.Clear();
+        //hooks_right.Clear();
+        //hooks_left.Clear();
 
-        foreach (GameObject h in all_hooks)
-        {
-            if (h.transform.position.y > nearest_hook.transform.position.y && !hooks_up.Contains(h))
-                hooks_up.Add(h);
-            else if (h.transform.position.y < nearest_hook.transform.position.y && !hooks_down.Contains(h))
-                hooks_down.Add(h);
+        //foreach (GameObject h in all_hooks)
+        //{
+        //    if (h.transform.position.y > nearest_hook.transform.position.y && !hooks_up.Contains(h))
+        //        hooks_up.Add(h);
+        //    else if (h.transform.position.y < nearest_hook.transform.position.y && !hooks_down.Contains(h))
+        //        hooks_down.Add(h);
 
-            if (h.transform.position.z > nearest_hook.transform.position.z && !hooks_right.Contains(h))
-                hooks_right.Add(h);
-            else if (h.transform.position.z < nearest_hook.transform.position.z && !hooks_left.Contains(h))
-                hooks_left.Add(h);
-        }
+        //    if (h.transform.position.z > nearest_hook.transform.position.z && !hooks_right.Contains(h))
+        //        hooks_right.Add(h);
+        //    else if (h.transform.position.z < nearest_hook.transform.position.z && !hooks_left.Contains(h))
+        //        hooks_left.Add(h);
+        //}
 
     }
     // Update is called once per frame
     void Update()
     {
+        Vector2 controllerAim = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        controllerAim.Normalize();
+        //Debug.Log(controllerAim);
 
-        if (nearest_hook)
-        {
-            Vector2 nh2d = new Vector2(nearest_hook.transform.position.z, nearest_hook.transform.position.y) - new Vector2(transform.position.z, transform.position.y).normalized;
-            nh2d.Normalize();
-        }
+        //if (nearest_hook)
+        //{
+        //    Vector2 nh2d = new Vector2(nearest_hook.transform.position.z, nearest_hook.transform.position.y) - new Vector2(transform.position.z, transform.position.y).normalized;
+        //    nh2d.Normalize();
+        //}
 
 
         if (all_hooks.Count != 0)
@@ -181,10 +184,16 @@ public class hook_detector : MonoBehaviour
             //SELECT UHOOK WITH GAMEPAD
             if (GM.gamepad)
             {
-                Vector2 controllerAim = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                controllerAim.Normalize();
+                //Vector2 controllerAim = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                //controllerAim.Normalize();
+                //Debug.Log(controllerAim);
 
-                all_hooks = all_hooks.OrderBy(o => Mathf.Abs(Vector3.Angle(controllerAim, new Vector2(o.transform.position.z, o.transform.position.y) - new Vector2(transform.position.z, transform.position.y)))).ToList();
+                all_hooks = all_hooks.OrderBy(o => Vector3.Angle(new Vector2(o.transform.position.z, o.transform.position.y) - new Vector2(transform.position.z, transform.position.y), controllerAim)).ToList();
+                nearest_hook = all_hooks[0];
+
+
+                //Debug.Log(Vector3.Angle(new Vector2(all_hooks[0].transform.position.z, all_hooks[0].transform.position.y) - new Vector2(transform.position.z, transform.position.y), controllerAim));
+
                 //SHITCODING
                 //if (inputs.Uni.rightup.ReadValue<float>() == 1 && b_up)
                 //{
@@ -268,7 +277,7 @@ public class hook_detector : MonoBehaviour
         else
         {
             nearest_hook = null;
-            UpdateLists();
+            //UpdateLists();
         }
 
 

@@ -22,7 +22,8 @@ public class VentilatorSound : MonoBehaviour
         uni = GameObject.FindGameObjectWithTag("uni");
         playEventWithRTPCSound = uni.GetComponent<PlayEventSounds>(); 
        
-        ventilator = this.gameObject; 
+        ventilator = this.gameObject;
+        
     }
 
     // Update is called once per frame
@@ -34,6 +35,8 @@ public class VentilatorSound : MonoBehaviour
     private void FixedUpdate()
     {
         distanceVentilatorUni = playEventWithRTPCSound.CalculateDistanceUniFromObject(this.transform.position);
+
+       
         playEventWithRTPCSound.RTPCGameObjectValue(distanceVentilatorUni, maxDistanceFromVentilator, this.gameObject, "Big_Ventilator_event" , "VentilatorVolume");
 
 

@@ -16,8 +16,6 @@ namespace AK
         static const AkUniqueID ALARME_EVENT = 1721773124U;
         static const AkUniqueID AMBIANT_INTERIOR_EVENT = 2961983739U;
         static const AkUniqueID ANNONCE_EVENT = 2594406644U;
-        static const AkUniqueID ASCENSEUR_FERMEE_EVENT = 251064884U;
-        static const AkUniqueID ASCENSEUR_OUVERT_EVENT = 1844130327U;
         static const AkUniqueID BALLON_EXPLOSION_EVENT = 2564548868U;
         static const AkUniqueID BALLON_SOUFFLE_EVENT = 3952828675U;
         static const AkUniqueID BIG_VENTILATOR_EVENT = 478883995U;
@@ -25,7 +23,6 @@ namespace AK
         static const AkUniqueID BREAK_DRONES_STATIONNAIRE_EVENT = 2580519433U;
         static const AkUniqueID BREAK_UNI_ETOUFFEMENT_EVENT = 3902829861U;
         static const AkUniqueID BREAK_UNTILIBREATHE_LEVEL2_3_RUN_LOOP_EVENT = 4014938746U;
-        static const AkUniqueID BROKENWINDOW_EVENT = 113833375U;
         static const AkUniqueID CAISSE_FROTTEMENT_EVENT = 2529491121U;
         static const AkUniqueID CAMERA_DETECTION_EVENT = 4200175161U;
         static const AkUniqueID CAMION_EVENT = 2091737429U;
@@ -73,6 +70,10 @@ namespace AK
         static const AkUniqueID NACELLE_DETRUITE_EVENT = 3435722515U;
         static const AkUniqueID NACELLE_FIN_EVENT = 410758684U;
         static const AkUniqueID NACELLE_LOOP_EVENT = 2283719349U;
+        static const AkUniqueID PEREUNI_ENERVEE_EVENT = 4282575451U;
+        static const AkUniqueID PEREUNI_JOYEUX_EVENT = 2041082079U;
+        static const AkUniqueID PEREUNI_SURPRISE_EVENT = 3862291650U;
+        static const AkUniqueID PEREUNI_TRISTE_EVENT = 4119048072U;
         static const AkUniqueID PLATEFORME_CASSE_BLACON_BETON_EVENT = 695806192U;
         static const AkUniqueID PLATEFORME_CASSE_GOUTIERE_METAL_EVENT = 3013755494U;
         static const AkUniqueID PLATEFORME_CASSE_PASSERELLE_METAL_EVENT = 2517494722U;
@@ -99,9 +100,11 @@ namespace AK
         static const AkUniqueID UNI_ETOUFFEMENT_EVENT = 1109845805U;
         static const AkUniqueID UNI_FALL_DEATH_EVENT = 3179662169U;
         static const AkUniqueID UNI_TOUSSE_A_MORT_EVENT = 4164979709U;
-        static const AkUniqueID UNIPEREVOICE_EVENT = 3694440818U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
-        static const AkUniqueID UNIVOICE_EVENT = 681037832U;
+        static const AkUniqueID UNIVOICE_ENERVE_EVENT = 2657275214U;
+        static const AkUniqueID UNIVOICE_JOYEUSE_EVENT = 86153749U;
+        static const AkUniqueID UNIVOICE_SURPRISE_EVENT = 2917547156U;
+        static const AkUniqueID UNIVOICE_TRISTE_EVENT = 1836817122U;
         static const AkUniqueID USINE_MUSIC_EVENT = 3270961216U;
         static const AkUniqueID USINE_SOUND_BREAK_EVENT = 3717649508U;
         static const AkUniqueID VENT_EVENT = 4165311893U;
