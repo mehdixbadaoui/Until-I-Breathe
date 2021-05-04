@@ -186,7 +186,10 @@ public class GameMaster : MonoBehaviour
         pauseMenu.GetComponent<PauseMenu>().settingsLayout.SetActive(false);
         pauseMenu.GetComponent<PauseMenu>().logsLayout.SetActive(false);
         pauseMenu.GetComponent<PauseMenu>().ControlsLayout.SetActive(false);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
         pauseMenu.SetActive(false);
+
 
         //pauseMenu.GetComponent<PauseMenu>().DeSelectLogs(LogsText);
         //SavingText.SetActive(false);
@@ -212,7 +215,7 @@ public class GameMaster : MonoBehaviour
         letterMenuGO.SetActive(true);
     }
 
-    // If Uni die
+    // If Uni dies
     public void Die()
     {
 
