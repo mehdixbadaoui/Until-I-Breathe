@@ -104,7 +104,6 @@ namespace AK
         static const AkUniqueID UNIVOICE_ENERVE_EVENT = 2657275214U;
         static const AkUniqueID UNIVOICE_JOYEUSE_EVENT = 86153749U;
         static const AkUniqueID UNIVOICE_SURPRISE_EVENT = 2917547156U;
-        static const AkUniqueID UNIVOICE_TRISTE_EVENT = 1836817122U;
         static const AkUniqueID USINE_MUSIC_EVENT = 3270961216U;
         static const AkUniqueID USINE_SOUND_BREAK_EVENT = 3717649508U;
         static const AkUniqueID VENT_EVENT = 4165311893U;
