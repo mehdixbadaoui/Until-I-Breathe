@@ -28,6 +28,10 @@ public class PlatformsWithButton : MonoBehaviour
     [HideInInspector]
     public bool readyToGo;
 
+    public GameObject leftdoor;
+    private bool doorOpen = true;
+    private bool doorismoving = false;
+
     private void Awake()
     {
         currentPos = transform.position;
@@ -57,11 +61,20 @@ public class PlatformsWithButton : MonoBehaviour
     {
         if (!isWaiting)
         {
+
+
             launched = true;
             readyToGo = false;
 
             if (Vector3.Distance(transform.position, goToPoint.position) > 0.01f)
             {
+                if (doorOpen && !doorismoving)
+                {
+                    doorismoving = true;
+                    doorOpen = false;
+                    StartCoroutine(MoveDoor(leftdoor.transform, Vector3.right));
+                }
+
                 //float distCovered = (Time.time - startTime) * speed;
 
                 //float fractionOfJourney = distCovered / journeyLength;
@@ -81,6 +94,15 @@ public class PlatformsWithButton : MonoBehaviour
                 StartCoroutine(ChangeDelay());
             }
         }
+        else
+        {
+            if (!doorOpen && !doorismoving)
+            {
+                doorismoving = true;
+                doorOpen = true;
+                StartCoroutine(MoveDoor(leftdoor.transform, Vector3.left));
+            }
+        }
     }
 
     private IEnumerator Move_Routine(Vector3 from, Vector3 to)
@@ -94,6 +116,31 @@ public class PlatformsWithButton : MonoBehaviour
         }
 
         transform.position = to;
+    }
+
+    IEnumerator MoveDoor(Transform door, Vector3 direction)
+    {
+
+        Vector3 Gotoposition = new Vector3(door.position.x + direction.x * 1.6f , door.position.y , door.position.z );   
+        float elapsedTime = 0;
+        float waitTime = 0.5f;
+
+        Vector3 currentPos = door.position;
+
+        while (elapsedTime < waitTime)
+        {
+            door.position = new Vector3( Mathf.Lerp(currentPos.x, Gotoposition.x, (elapsedTime / waitTime) ) , door.position.y, door.position.z );
+            elapsedTime += Time.deltaTime;
+
+            // Yield here
+            yield return null;
+        }
+        // Make sure we got there
+        door.position = new Vector3( Gotoposition.x, door.position.y, door.position.z);
+        yield return null;
+
+        doorismoving = false;
+
     }
 
     void ChangeDestination()
