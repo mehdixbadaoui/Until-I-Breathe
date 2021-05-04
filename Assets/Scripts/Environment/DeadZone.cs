@@ -20,7 +20,8 @@ public class DeadZone : MonoBehaviour
     {
         if (other.tag == "uni")
         {
-            gm.Die();
+            if (!other.GetComponentInChildren<Ragdoll>().OnOff)
+                gm.Die();
         }
     }
 }
