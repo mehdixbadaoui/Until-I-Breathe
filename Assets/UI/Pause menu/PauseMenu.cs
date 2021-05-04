@@ -81,6 +81,8 @@ public class PauseMenu : MonoBehaviour
     public void SelectResume()
     {
         gm.GetComponent<GameMaster>().PlayPause();
+        //if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+        //    FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
         //settingsLayout.SetActive(false);
         //audioLayout.SetActive(false);
         //videoLayout.SetActive(false);
@@ -97,6 +99,8 @@ public class PauseMenu : MonoBehaviour
         ControlsLayout.SetActive(false);
 
         logsLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
 
         //text.SetActive(true);
     }
@@ -109,8 +113,12 @@ public class PauseMenu : MonoBehaviour
     public void SelectSettings()
     {
         logsLayout.SetActive(false);
-        settingsLayout.SetActive(true);
         ControlsLayout.SetActive(false);
+
+        settingsLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
+
         //layout.SetActive(true);
     }
 
@@ -129,6 +137,9 @@ public class PauseMenu : MonoBehaviour
         settingsLayout.SetActive(false);
         logsLayout.SetActive(false);
         ControlsLayout.SetActive(false);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
+
         //Code de Ben ici;
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.UIBSave";
@@ -144,7 +155,10 @@ public class PauseMenu : MonoBehaviour
     {
         ControlsLayout.SetActive(false);
         videoLayout.SetActive(false);
+
         audioLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
     }
 
     public void DeSelectAudio()
@@ -157,7 +171,10 @@ public class PauseMenu : MonoBehaviour
     {
         ControlsLayout.SetActive(false);
         audioLayout.SetActive(false);
+
         videoLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
     }
 
     IEnumerator SavingText(GameObject text)
@@ -176,7 +193,10 @@ public class PauseMenu : MonoBehaviour
     {
         audioLayout.SetActive(false);
         videoLayout.SetActive(false);
+
         ControlsLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
     }
 
     public void SelectMK()

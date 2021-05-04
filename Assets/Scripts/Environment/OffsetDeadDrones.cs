@@ -8,9 +8,12 @@ public class OffsetDeadDrones : MonoBehaviour
     public Vector3 offsetDeadRobotTranslation;
     private Inputs inputs;
 
-    [SerializeField] private bool blockForFirstDrone = false;
+    public bool blockForFirstDrone = false;
     private GameObject uni;
     private Animator myAnimator;
+
+    public GameObject DialogBox;
+
     private void Awake()
     {
         inputs = new Inputs();

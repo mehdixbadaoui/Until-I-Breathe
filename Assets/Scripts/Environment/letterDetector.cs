@@ -26,6 +26,9 @@ public class letterDetector : MonoBehaviour
     public string letter;
     public Vector3 dstwithUni;
 
+    [Header("Premier Drone")]
+    public OffsetDeadDrones odd;
+
 
     //public Dictionary<int, string> letterDict = new Dictionary<int, string>();
 
@@ -52,6 +55,8 @@ public class letterDetector : MonoBehaviour
         gm = FindObjectOfType<GameMaster>();
         inputs.Uni.GetLetter.performed += ctx => GetLetter();
         sphereCollider = transform.parent.GetComponent<SphereCollider>();
+
+        odd = FindObjectOfType<OffsetDeadDrones>();
     }
 
     // Update is called once per frame
@@ -73,6 +78,8 @@ public class letterDetector : MonoBehaviour
             gm.PlayPause();
             pauseMenu = FindObjectOfType<PauseMenu>();
             pauseMenu.logsLayout.SetActive(true);
+            if (odd.blockForFirstDrone)
+                FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(true);
         }
 
         
