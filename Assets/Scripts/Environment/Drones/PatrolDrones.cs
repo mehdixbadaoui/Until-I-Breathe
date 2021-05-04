@@ -102,7 +102,7 @@ public class PatrolDrones : MonoBehaviour
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
-        if (playerVisibleTimer >= timeToSpotPlayer && !isKilling)
+        if (playerVisibleTimer >= timeToSpotPlayer && !isKilling && !player.GetComponentInChildren<Ragdoll>().OnOff )
         {
             isKilling = true;
             StartCoroutine(CallShootWithDelay());
