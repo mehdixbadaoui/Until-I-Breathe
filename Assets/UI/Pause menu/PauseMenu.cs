@@ -202,11 +202,15 @@ public class PauseMenu : MonoBehaviour
     public void SelectMK()
     {
         gm.ChooseMouse();
+        ControlsLayout.SetActive(false);
+
     }
 
     public void SelectGP()
     {
         gm.ChooseGamepad();
+        ControlsLayout.SetActive(false);
+
     }
     public void Submit(int i)
     {

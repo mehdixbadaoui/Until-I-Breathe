@@ -183,9 +183,9 @@ public class GameMaster : MonoBehaviour
 
         pauseMenu.GetComponent<PauseMenu>().audioLayout.SetActive(false); 
         pauseMenu.GetComponent<PauseMenu>().videoLayout.SetActive(false);
+        pauseMenu.GetComponent<PauseMenu>().ControlsLayout.SetActive(false);
         pauseMenu.GetComponent<PauseMenu>().settingsLayout.SetActive(false);
         pauseMenu.GetComponent<PauseMenu>().logsLayout.SetActive(false);
-        pauseMenu.GetComponent<PauseMenu>().ControlsLayout.SetActive(false);
         if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
             FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
         pauseMenu.SetActive(false);
