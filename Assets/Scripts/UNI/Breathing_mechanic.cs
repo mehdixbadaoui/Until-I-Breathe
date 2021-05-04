@@ -215,7 +215,7 @@ public class Breathing_mechanic : MonoBehaviour
         {
             grapplin.CutRope();
         }
-
+        playEvent.UniSuffoc("Uni_tousse_a_mort_event", this.gameObject, 100f, "Uni_etouffementsVolume");
         myAnimator.Play("BreathingDead", 0);
         //myAnimator.Play("BreathingDead", 1);
 
