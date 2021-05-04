@@ -17,8 +17,8 @@ public class letterDetector : MonoBehaviour
     public bool isLetter;
     private List<string> letterList;
     private int indexForLetter;
-    public GameMaster gm;
-    public GameObject pauseMenu;
+    private GameMaster gm;
+    private PauseMenu pauseMenu;
     private PlayEventSounds playEvent;
     public float maxDistance = 7f;
     
@@ -48,7 +48,8 @@ public class letterDetector : MonoBehaviour
     void Start()
     {
         playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>();
-        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        //gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        gm = FindObjectOfType<GameMaster>();
         inputs.Uni.GetLetter.performed += ctx => GetLetter();
         sphereCollider = transform.parent.GetComponent<SphereCollider>();
     }
@@ -70,7 +71,8 @@ public class letterDetector : MonoBehaviour
             didTake = true;
             StartCoroutine(Cinematic(Clip));
             gm.PlayPause();
-            pauseMenu.GetComponent<PauseMenu>().logsLayout.SetActive(true);
+            pauseMenu = FindObjectOfType<PauseMenu>();
+            pauseMenu.logsLayout.SetActive(true);
         }
 
         
