@@ -183,7 +183,7 @@ public class Breathing_mechanic : MonoBehaviour
                         blowObj.GetComponent<Lever>().door.GetComponent<Door>().locked = false;
                 }*/
 
-        if (breath <= 0 && !isDying)
+        if (breath <= 0 && !isDying && !GetComponentInChildren<Ragdoll>().OnOff )
         {
             isDying = true;
             StartCoroutine(BreathingDie(myAnimator, gm));

@@ -540,28 +540,6 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
-						<Event Name="UniPereVoice_event" ID="{34591CA2-5412-46CC-AD04-8AD46E2E479A}">
-							<ChildrenList>
-								<Action Name="" ID="{1AC4AF65-7A21-4D53-BB17-2C31770C0725}" ShortID="459237787">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Uni_Pere_Voice" ID="{1A9B2C37-5449-47CD-86F0-D43B4160DCF9}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="UniVoice_event" ID="{86E01212-3324-477B-AA4C-B10E3B965D63}">
-							<ChildrenList>
-								<Action Name="" ID="{CA799FB2-B7BA-4A5A-AA6F-89A55EAB0573}" ShortID="139036959">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="UniVoice" ID="{C0583909-A5E9-4170-8E37-C016507692AC}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Uni_Fall_Death_event" ID="{9E24BB9F-2F1A-4F20-8934-3AAE982D717E}">
 							<ChildrenList>
 								<Action Name="" ID="{E3BD40E9-E7E3-4503-99A5-589C31EA1023}" ShortID="329710466">
@@ -573,21 +551,106 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Folder Name="UniVoice" ID="{46DBE478-E25B-481F-BA7C-BF65D1D55E4D}" ShortID="605092853">
+							<ChildrenList>
+								<Event Name="UniVoice_Joyeuse_event" ID="{A3DEAA10-2E45-4665-8AA7-BF52B4034B39}">
+									<ChildrenList>
+										<Action Name="" ID="{BF807BD5-C150-49BA-961D-B4E589670B60}" ShortID="268695312">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniVoice_Joyeux" ID="{7CF6E0E5-7E39-4656-AAFF-89AFB0BB8307}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="UniVoice_Triste_event" ID="{4A44B019-CFF1-4F13-8A29-22BD914F381E}">
+									<ChildrenList>
+										<Action Name="" ID="{0F7D6AEA-251E-4296-85D4-1DE1872BABA4}" ShortID="319478960">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniVoice_Triste" ID="{491CA097-65A0-4ACC-BA7E-8512296EF0D8}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="UniVoice_Enerve_event" ID="{F65AFDED-FD73-4DD0-9B79-1216095DFA29}">
+									<ChildrenList>
+										<Action Name="" ID="{F03B8C96-C1AA-4FD0-8C87-B39D71146EEB}" ShortID="386129708">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniVoice_Enervee" ID="{ACC2A462-FD55-49D7-85C6-1993437339BF}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="UniVoice_Surprise_event" ID="{79B25ECD-50C3-47B6-847E-89682BE4D473}">
+									<ChildrenList>
+										<Action Name="" ID="{7BCA28A4-4372-482C-8E86-783C4E5B19FB}" ShortID="524241962">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniVoice_Surprise" ID="{4CB8E764-1959-4210-B2C3-1EA2D1FD6E6D}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="PereUniVoice" ID="{E54BA73B-4ED4-4527-92E7-34DD90EAF894}" ShortID="303620507">
+							<ChildrenList>
+								<Event Name="PereUni_Enervee_event" ID="{D12AFA06-E4C9-47EE-91D0-51511E5179A5}">
+									<ChildrenList>
+										<Action Name="" ID="{5EBBF1A6-824A-4448-A6A1-6EBAD0C33B50}" ShortID="654438475">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniPereVoice_Enervee" ID="{AA8F7C57-3B22-4CAD-ABBA-B466102C7289}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PereUni_Triste_event" ID="{D11735FA-FD26-4A05-B58F-9B32BB51104C}">
+									<ChildrenList>
+										<Action Name="" ID="{E4962309-2397-464F-A2EF-9D998B8839F4}" ShortID="741612107">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniPereVoice_Triste" ID="{54E9104A-DF6F-4587-99D0-7FCFCB0B8457}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PereUni_Joyeux_event" ID="{20E70482-CAC8-4A20-ABEE-3AA7BFAC6B0A}">
+									<ChildrenList>
+										<Action Name="" ID="{6246AA71-B5B5-49B4-87BC-ABCBA4CB626E}" ShortID="475217308">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniPereVoice_Joyeux" ID="{4F8185BD-87C5-4185-A00B-45FDFD546C6E}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="PereUni_Surprise_event" ID="{DBB7453C-5B39-4A45-95E6-C568B0FC9D33}">
+									<ChildrenList>
+										<Action Name="" ID="{5821CA2F-6626-470C-9BE4-4317FF48B31E}" ShortID="182230069">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UniPereVoice_Surprise" ID="{1D1C83BE-5622-435E-87B6-6104E33E48BF}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment_events" ID="{216B934E-6312-4A92-9793-8E866A179F9D}" ShortID="354338017">
 					<ChildrenList>
-						<Event Name="BrokenWindow_event" ID="{E831A924-3601-46E6-A7B0-4BFB1E79106D}">
-							<ChildrenList>
-								<Action Name="" ID="{D19F2E79-645C-4F41-B558-81CD0A7D1807}" ShortID="161185798">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="BrokenWindows" ID="{51148587-B9CE-4976-905A-E74A31C0789E}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Levier_event" ID="{338DD5B2-9D6A-4334-A4F6-D19415B7D4F7}">
 							<ChildrenList>
 								<Action Name="" ID="{93BD1FC7-E271-4041-89AA-E34956D981DE}" ShortID="261213927">
@@ -605,28 +668,6 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Alarmes" ID="{748FEF9B-4264-44F3-A8E8-315531586852}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Ascenseur_fermee_event" ID="{E8137A96-0792-4980-957E-60DB0D46A474}">
-							<ChildrenList>
-								<Action Name="" ID="{E4D7196C-0698-47A2-BE8E-AAD7A4A102A8}" ShortID="5789999">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Ascenseur_fermee" ID="{8C91BE2F-0C41-4125-80ED-5D5E7BE0FC21}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Ascenseur_ouvert_event" ID="{BC180083-35F4-456A-86E5-93523C14A040}">
-							<ChildrenList>
-								<Action Name="" ID="{C3F8681A-98F7-4E17-B0AD-D2AA8B9A9F1F}" ShortID="85840552">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Ascenseur_ouvert" ID="{3549D4DC-57F2-4C28-8093-9181AE1CA544}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

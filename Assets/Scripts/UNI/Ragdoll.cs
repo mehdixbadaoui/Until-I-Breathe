@@ -48,6 +48,8 @@ public class Ragdoll : MonoBehaviour
 
     public void RagOn()
     {
+        OnOff = true;
+
         //wait 2-3 seconds.
         foreach (Collider col in rigColliders)
         {
@@ -65,6 +67,8 @@ public class Ragdoll : MonoBehaviour
 
     public void RagOff()
     {
+        OnOff = false;
+
         //wait 2-3 seconds.
         foreach (Collider col in rigColliders)
         {
