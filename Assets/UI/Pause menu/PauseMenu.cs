@@ -97,10 +97,10 @@ public class PauseMenu : MonoBehaviour
         audioLayout.SetActive(false);
         videoLayout.SetActive(false);
         ControlsLayout.SetActive(false);
-        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
-            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
 
         logsLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
 
         //text.SetActive(true);
     }
@@ -114,9 +114,10 @@ public class PauseMenu : MonoBehaviour
     {
         logsLayout.SetActive(false);
         ControlsLayout.SetActive(false);
+
+        settingsLayout.SetActive(true);
         if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
             FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
-        settingsLayout.SetActive(true);
 
         //layout.SetActive(true);
     }
@@ -154,10 +155,10 @@ public class PauseMenu : MonoBehaviour
     {
         ControlsLayout.SetActive(false);
         videoLayout.SetActive(false);
-        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
-            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
 
         audioLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
     }
 
     public void DeSelectAudio()
@@ -170,10 +171,10 @@ public class PauseMenu : MonoBehaviour
     {
         ControlsLayout.SetActive(false);
         audioLayout.SetActive(false);
-        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
-            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
 
         videoLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
     }
 
     IEnumerator SavingText(GameObject text)
@@ -192,10 +193,10 @@ public class PauseMenu : MonoBehaviour
     {
         audioLayout.SetActive(false);
         videoLayout.SetActive(false);
-        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
-            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
 
         ControlsLayout.SetActive(true);
+        if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
+            FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
     }
 
     public void SelectMK()
