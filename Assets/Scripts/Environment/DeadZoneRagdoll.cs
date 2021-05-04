@@ -30,9 +30,10 @@ public class DeadZoneRagdoll : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "uni")
+        if (other.tag == "uni" )
         {
-            StartCoroutine(DeadDestroyed());
+            if (!other.GetComponentInChildren<Ragdoll>().OnOff)
+                StartCoroutine(DeadDestroyed());
         }
     }
 
