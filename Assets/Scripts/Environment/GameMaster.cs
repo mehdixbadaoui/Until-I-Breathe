@@ -426,4 +426,22 @@ public class GameMaster : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
+
+    public void LoadSceneFromSave()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null)
+            LoadScene(data.sceneIndex);
+        else
+            NextScene();
+    }
+
+    public void LoadScene( int sceneIndex)
+    {
+        AkSoundEngine.PostEvent("Stop_music_event", GameObject.FindGameObjectWithTag("WwiseSound"));
+
+        SceneManager.LoadScene(sceneIndex);
+
+    }
+
 }
