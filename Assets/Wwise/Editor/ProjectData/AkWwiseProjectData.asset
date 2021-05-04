@@ -100,7 +100,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: a75e6d5faae25b46af35e8674bc89a87
     GuidInternal: 
-    m_lastTime: -8585815543658532204
+    m_lastTime: -8585814853642687068
     List:
     - name: Main_Soundbank
       guid: 65cb380e49ff6648ae09c5c0d9dcf8f7
@@ -128,7 +128,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: f90261659c0f524281b260ce3e217d9c
     GuidInternal: 
-    m_lastTime: -8585815543659441341
+    m_lastTime: -8585814853642929918
     List:
     - name: Alarme_event
       guid: 6ac233dd8626d64ab10fafd2cdc62b15
@@ -187,46 +187,6 @@ MonoBehaviour:
         ObjectType: 3
         guid: 872152a5ded1444c8940908e5987eb15
       Path: Events\Default Work Unit\Environment_events\Annonce_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ascenseur_fermee_event
-      guid: 967a13e892078049957e60db0d46a474
-      id: 251064884
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ascenseur_fermee_event
-        ObjectType: 3
-        guid: 967a13e892078049957e60db0d46a474
-      Path: Events\Default Work Unit\Environment_events\Ascenseur_fermee_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Ascenseur_ouvert_event
-      guid: 830018bcf4356a4586e593523c14a040
-      id: 1844130327
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: Ascenseur_ouvert_event
-        ObjectType: 3
-        guid: 830018bcf4356a4586e593523c14a040
-      Path: Events\Default Work Unit\Environment_events\Ascenseur_ouvert_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -408,26 +368,6 @@ MonoBehaviour:
         ObjectType: 3
         guid: f3898f7f0c5fe643aed083f20543fdcb
       Path: Events\Default Work Unit\Music_levels\Lvl_2_3\Break_UntilIBreathe_Level2_3_Run_Loop_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: BrokenWindow_event
-      guid: 24a931e80136e646a7b04bfb1e79106d
-      id: 113833375
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Environment_events
-        ObjectType: 4
-        guid: 4e936b211263924a97938e866a179f9d
-      - ElementName: BrokenWindow_event
-        ObjectType: 3
-        guid: 24a931e80136e646a7b04bfb1e79106d
-      Path: Events\Default Work Unit\Environment_events\BrokenWindow_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -1655,6 +1595,118 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: PereUni_Enervee_event
+      guid: 06fa2ad1c9e4ee4791d051511e5179a5
+      id: 4282575451
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: PereUniVoice
+        ObjectType: 4
+        guid: 3ba74be5d44e274592e734dd90eaf894
+      - ElementName: PereUni_Enervee_event
+        ObjectType: 3
+        guid: 06fa2ad1c9e4ee4791d051511e5179a5
+      Path: Events\Default Work Unit\Uni_events\PereUniVoice\PereUni_Enervee_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PereUni_Joyeux_event
+      guid: 8204e720c8ca204aabee3aa7bfac6b0a
+      id: 2041082079
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: PereUniVoice
+        ObjectType: 4
+        guid: 3ba74be5d44e274592e734dd90eaf894
+      - ElementName: PereUni_Joyeux_event
+        ObjectType: 3
+        guid: 8204e720c8ca204aabee3aa7bfac6b0a
+      Path: Events\Default Work Unit\Uni_events\PereUniVoice\PereUni_Joyeux_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PereUni_Surprise_event
+      guid: 3c45b7db395b454a95e6c568b0fc9d33
+      id: 3862291650
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: PereUniVoice
+        ObjectType: 4
+        guid: 3ba74be5d44e274592e734dd90eaf894
+      - ElementName: PereUni_Surprise_event
+        ObjectType: 3
+        guid: 3c45b7db395b454a95e6c568b0fc9d33
+      Path: Events\Default Work Unit\Uni_events\PereUniVoice\PereUni_Surprise_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PereUni_Triste_event
+      guid: fa3517d126fd054ab58f9b32bb51104c
+      id: 4119048072
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: PereUniVoice
+        ObjectType: 4
+        guid: 3ba74be5d44e274592e734dd90eaf894
+      - ElementName: PereUni_Triste_event
+        ObjectType: 3
+        guid: fa3517d126fd054ab58f9b32bb51104c
+      Path: Events\Default Work Unit\Uni_events\PereUniVoice\PereUni_Triste_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PereUniVoice
+      guid: 3ba74be5d44e274592e734dd90eaf894
+      id: 2618071163
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: PereUniVoice
+        ObjectType: 4
+        guid: 3ba74be5d44e274592e734dd90eaf894
+      Path: Events\Default Work Unit\Uni_events\PereUniVoice
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Plateforme
       guid: 1bed420fad38d44db6e8187e9d53be94
       id: 1736513622
@@ -2352,26 +2404,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: UniPereVoice_event
-      guid: a21c59341254cc46ad048ad46e2e479a
-      id: 3694440818
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f90261659c0f524281b260ce3e217d9c
-      - ElementName: Uni_events
-        ObjectType: 4
-        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: UniPereVoice_event
-        ObjectType: 3
-        guid: a21c59341254cc46ad048ad46e2e479a
-      Path: Events\Default Work Unit\Uni_events\UniPereVoice_event
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: UniSouffle_event
       guid: 77d94e62d6f2c94190d2825a6c8e9810
       id: 980828296
@@ -2395,9 +2427,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: UniVoice_event
-      guid: 1212e08624337b47aa4cb10e3b965d63
-      id: 681037832
+    - name: UniVoice
+      guid: 78e4db465be21f48ba7cbf65d1d55e4d
+      id: 2618075989
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -2408,10 +2440,102 @@ MonoBehaviour:
       - ElementName: Uni_events
         ObjectType: 4
         guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
-      - ElementName: UniVoice_event
+      - ElementName: UniVoice
+        ObjectType: 4
+        guid: 78e4db465be21f48ba7cbf65d1d55e4d
+      Path: Events\Default Work Unit\Uni_events\UniVoice
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UniVoice_Enerve_event
+      guid: edfd5af673fdd04d9b791216095dfa29
+      id: 2657275214
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: UniVoice
+        ObjectType: 4
+        guid: 78e4db465be21f48ba7cbf65d1d55e4d
+      - ElementName: UniVoice_Enerve_event
         ObjectType: 3
-        guid: 1212e08624337b47aa4cb10e3b965d63
-      Path: Events\Default Work Unit\Uni_events\UniVoice_event
+        guid: edfd5af673fdd04d9b791216095dfa29
+      Path: Events\Default Work Unit\Uni_events\UniVoice\UniVoice_Enerve_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UniVoice_Joyeuse_event
+      guid: 10aadea3452e65468aa7bf52b4034b39
+      id: 86153749
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: UniVoice
+        ObjectType: 4
+        guid: 78e4db465be21f48ba7cbf65d1d55e4d
+      - ElementName: UniVoice_Joyeuse_event
+        ObjectType: 3
+        guid: 10aadea3452e65468aa7bf52b4034b39
+      Path: Events\Default Work Unit\Uni_events\UniVoice\UniVoice_Joyeuse_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UniVoice_Surprise_event
+      guid: cd5eb279c350b647847e89682be4d473
+      id: 2917547156
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: UniVoice
+        ObjectType: 4
+        guid: 78e4db465be21f48ba7cbf65d1d55e4d
+      - ElementName: UniVoice_Surprise_event
+        ObjectType: 3
+        guid: cd5eb279c350b647847e89682be4d473
+      Path: Events\Default Work Unit\Uni_events\UniVoice\UniVoice_Surprise_event
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UniVoice_Triste_event
+      guid: 19b0444af1cf134f8a2922bd914f381e
+      id: 1836817122
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f90261659c0f524281b260ce3e217d9c
+      - ElementName: Uni_events
+        ObjectType: 4
+        guid: e5d4ea18fbe3dd4490c9daddc37ce0b2
+      - ElementName: UniVoice
+        ObjectType: 4
+        guid: 78e4db465be21f48ba7cbf65d1d55e4d
+      - ElementName: UniVoice_Triste_event
+        ObjectType: 3
+        guid: 19b0444af1cf134f8a2922bd914f381e
+      Path: Events\Default Work Unit\Uni_events\UniVoice\UniVoice_Triste_event
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
