@@ -41,7 +41,7 @@ public class DeadZoneRagdoll : MonoBehaviour
     IEnumerator DeadDestroyed()
     {
         Movement.canMove = false;
-
+        AkSoundEngine.PostEvent("Uni_Fall_Death_event", GameObject.FindGameObjectWithTag("uni")); 
         if (grapplin.isGrappling)
             grapplin.CutRope();
 
