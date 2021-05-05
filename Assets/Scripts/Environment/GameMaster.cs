@@ -124,6 +124,38 @@ public class GameMaster : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            LoadScene(1);
+        }
+        else if(Input.GetKeyDown(KeyCode.F2))
+        {
+            LoadScene(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.F3))
+        {
+            LoadScene(3);
+        }
+        else if (Input.GetKeyDown(KeyCode.F4))
+        {
+            LoadScene(4);
+        }
+        else if (Input.GetKeyDown(KeyCode.F5))
+        {
+            LoadScene(5);
+        }
+        else if (Input.GetKeyDown(KeyCode.F6))
+        {
+            LoadScene(6);
+        }
+        else if (Input.GetKeyDown(KeyCode.F7))
+        {
+            LoadScene(7);
+        }
+        else if (Input.GetKeyDown(KeyCode.F8))
+        {
+            LoadScene(8);
+        }
         //Debug.Log( GameObject.FindGameObjectWithTag("CinematicBeginning").GetComponent<PlayableDirector>().state );
     }
 
