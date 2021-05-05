@@ -297,7 +297,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-30</Value>
 									</ValueList>
 									<RTPCList>
 										<RTPC Name="" ID="{01404223-169A-48D2-A112-E756E9E79650}" ShortID="103424077">
@@ -7310,6 +7310,104 @@
 							</ChildrenList>
 							<ObjectLists/>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="UniReception" ID="{0D428774-FE14-43DF-A3EA-6C073D796A6B}" ShortID="223609941">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Uni_Reception_01" ID="{E4259FC2-5AC1-400E-9E75-6E12121743D8}" ShortID="118655560">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Reception_01" ID="{E38496D9-078A-4EE3-AD8E-5FBF2ADE267E}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Reception_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="4912292"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Reception_01" ID="{E38496D9-078A-4EE3-AD8E-5FBF2ADE267E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Reception_02" ID="{5C0519D2-6655-4C13-8414-67878FBF51EF}" ShortID="157588038">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Reception_02" ID="{ECD1A349-9A5B-4B1E-A3D7-2404826041EF}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Reception_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="665662926"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Reception_02" ID="{ECD1A349-9A5B-4B1E-A3D7-2404826041EF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Reception_03" ID="{6172F61D-D29A-4212-AF39-47EEB9045C07}" ShortID="322694565">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Reception_03" ID="{A4A4D238-9A45-4839-83F6-2EBA351F6624}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Reception_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="108115056"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Reception_03" ID="{A4A4D238-9A45-4839-83F6-2EBA351F6624}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST-2Sounds" ID="{96482C6A-84E8-4DC6-8CA0-91C03ACD358D}" ShortID="683412825">
@@ -7433,7 +7531,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-15</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7490,72 +7588,6 @@
 									<ObjectLists/>
 									<ActiveSourceList>
 										<ActiveSource Name="Message_ST2_Branchement_02" ID="{44595218-B3D8-472C-814F-68F3D82E6BCD}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-							<ObjectLists/>
-						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="Message_Decrypte" ID="{FE960202-FFB6-4A32-B97C-F1B567ED2818}" ShortID="909618002">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-10</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="Message_ST2_Decrypte_01" ID="{2535D6B6-AA6B-47A4-BA07-763047A59D60}" ShortID="527981885">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Message_ST2_Decrypte_01" ID="{9163B299-972E-48D9-8BDE-7D841F5848F7}">
-											<Language>SFX</Language>
-											<AudioFile>Message_ST2_Decrypte_01.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="177874080"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="Message_ST2_Decrypte_01" ID="{9163B299-972E-48D9-8BDE-7D841F5848F7}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Message_ST2_Decrypte_02" ID="{412A31B0-6403-4502-B84B-D3D740085B7D}" ShortID="204093759">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Message_ST2_Decrypte_02" ID="{039E4297-5096-4DFA-AF0D-2C875B74C6DF}">
-											<Language>SFX</Language>
-											<AudioFile>Message_ST2_Decrypte_02.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="990445670"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ObjectLists/>
-									<ActiveSourceList>
-										<ActiveSource Name="Message_ST2_Decrypte_02" ID="{039E4297-5096-4DFA-AF0D-2C875B74C6DF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
