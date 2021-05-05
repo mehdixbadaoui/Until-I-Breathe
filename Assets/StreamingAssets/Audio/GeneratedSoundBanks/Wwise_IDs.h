@@ -65,7 +65,6 @@ namespace AK
         static const AkUniqueID LVL_3_1_EVENT = 1157007206U;
         static const AkUniqueID MENU_MUSIC_EVENT = 1992837697U;
         static const AkUniqueID MESSAGE_ST2_BRANCHEMENT_EVENT = 3024873643U;
-        static const AkUniqueID MESSAGE_ST2_DECRYPTE_EVENT = 3095867336U;
         static const AkUniqueID NACELLE_DEPART_EVENT = 4251687649U;
         static const AkUniqueID NACELLE_DETRUITE_EVENT = 3435722515U;
         static const AkUniqueID NACELLE_FIN_EVENT = 410758684U;
@@ -101,6 +100,7 @@ namespace AK
         static const AkUniqueID UNI_FALL_DEATH_EVENT = 3179662169U;
         static const AkUniqueID UNI_TOUSSE_A_MORT_EVENT = 4164979709U;
         static const AkUniqueID UNI_VOICE_DEATH_EVENT = 841688152U;
+        static const AkUniqueID UNIRECEPTION_EVENT = 2632089517U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
         static const AkUniqueID UNIVOICE_ENERVE_EVENT = 2657275214U;
         static const AkUniqueID UNIVOICE_JOYEUSE_EVENT = 86153749U;

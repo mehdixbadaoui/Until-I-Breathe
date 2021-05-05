@@ -48,6 +48,7 @@ public class GameMaster : MonoBehaviour
     public TMP_Text LetterMenuText;
     public GameObject letterMenuGO;
 
+    public GameObject DialogueBoxTuto;
     public GameObject LogsText;
     public GameObject SavingText;
 

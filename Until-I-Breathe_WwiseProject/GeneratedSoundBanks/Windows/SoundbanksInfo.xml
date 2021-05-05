@@ -21,7 +21,7 @@
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\Settings\MasterVolume"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2228651116" Language="English(US)" Hash="1232568438">
+		<SoundBank Id="2228651116" Language="English(US)" Hash="2743887334">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main_Soundbank</ObjectPath>
 			<ShortName>Main_Soundbank</ShortName>
 			<Path>English(US)\Main_Soundbank.bnk</Path>
@@ -662,18 +662,6 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3095867336" Name="Message_ST2_decrypte_event" ObjectPath="\Events\Default Work Unit\ST2_events\Message_ST2_decrypte_event" DurationType="OneShot" DurationMin="4.000000" DurationMax="4.000000">
-					<IncludedMemoryFiles>
-						<File Id="177874080" Language="SFX">
-							<ShortName>Message_ST2_Decrypte_01.wav</ShortName>
-							<Path>SFX\Message_ST2_Decrypte_01_10C4C929.wem</Path>
-						</File>
-						<File Id="990445670" Language="SFX">
-							<ShortName>Message_ST2_Decrypte_02.wav</ShortName>
-							<Path>SFX\Message_ST2_Decrypte_02_10C4C929.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="4251687649" Name="Nacelle_depart_event" ObjectPath="\Events\Default Work Unit\Environment_events\Nacelles\Nacelle_depart_event" DurationType="OneShot" DurationMin="1.375000" DurationMax="1.375000">
 					<IncludedMemoryFiles>
 						<File Id="222777660" Language="SFX">
@@ -1095,6 +1083,22 @@
 						<File Id="906910969" Language="English(US)">
 							<ShortName>Uni_Voix_Chute_05.wav</ShortName>
 							<Path>Voices\English(US)\Uni_Voix_Chute_05_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2632089517" Name="UniReception_event" ObjectPath="\Events\Default Work Unit\Uni_events\UniReception_event" DurationType="OneShot" DurationMin="0.374979" DurationMax="0.500000">
+					<IncludedMemoryFiles>
+						<File Id="4912292" Language="English(US)">
+							<ShortName>Uni_Reception_01.wav</ShortName>
+							<Path>Voices\English(US)\Uni_Reception_01_10C4C929.wem</Path>
+						</File>
+						<File Id="108115056" Language="English(US)">
+							<ShortName>Uni_Reception_03.wav</ShortName>
+							<Path>Voices\English(US)\Uni_Reception_03_10C4C929.wem</Path>
+						</File>
+						<File Id="665662926" Language="English(US)">
+							<ShortName>Uni_Reception_02.wav</ShortName>
+							<Path>Voices\English(US)\Uni_Reception_02_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
