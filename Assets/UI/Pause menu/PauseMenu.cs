@@ -15,6 +15,12 @@ public class PauseMenu : MonoBehaviour
     public Text SelectionText;
 
     public GameMaster gm;
+
+    public GameObject resumeButton;
+    public GameObject audioButton;
+    public GameObject firstSlider;
+    public GameObject MKButton;
+
     public GameObject logsLayout;
     public GameObject settingsLayout;
     public GameObject audioLayout;
@@ -119,6 +125,9 @@ public class PauseMenu : MonoBehaviour
         if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
             FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
 
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(audioButton);
+
         //layout.SetActive(true);
     }
 
@@ -159,6 +168,10 @@ public class PauseMenu : MonoBehaviour
         audioLayout.SetActive(true);
         if (FindObjectOfType<OffsetDeadDrones>().DialogBox)
             FindObjectOfType<OffsetDeadDrones>().DialogBox.SetActive(false);
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSlider);
+
     }
 
     public void DeSelectAudio()
