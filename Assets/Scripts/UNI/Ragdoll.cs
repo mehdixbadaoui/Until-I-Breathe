@@ -55,6 +55,7 @@ public class Ragdoll : MonoBehaviour
         {
             col.enabled = true;
         }
+
         int countRb = 0;
         foreach (Rigidbody rb in rigRigidbodies)
         {
@@ -79,6 +80,7 @@ public class Ragdoll : MonoBehaviour
         foreach (Rigidbody rb in rigRigidbodies)
         {
             rb.isKinematic = true;
+            rb.velocity = Vector3.zero;
             rb.transform.position = previousPos[countRb];
             countRb += 1;
         }
