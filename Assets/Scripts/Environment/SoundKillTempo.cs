@@ -43,6 +43,7 @@ public class SoundKillTempo : MonoBehaviour
     private float timerPlay = 0;
 
     public bool killAndBounce = false;
+    private bool firstTime = true;
 
 
     // Start is called before the first frame update
@@ -100,6 +101,11 @@ public class SoundKillTempo : MonoBehaviour
         // Si l'encinte s'allume
         if (isPlaying)
         {
+            if (firstTime)
+            {
+                firstTime = false;
+                AkSoundEngine.PostEvent("Lvl_2_2_event", GameObject.FindGameObjectWithTag("WwiseSound"));
+            }
 
             if (killUni)
             {
@@ -215,7 +221,7 @@ public class SoundKillTempo : MonoBehaviour
             all_hooks.Add(other.gameObject);
             all_hooks_tags.Add(other.gameObject.tag);
         }
-        else if (other.tag == "uni")
+        else if (other.tag == "uni" && !ragdoll.OnOff)
         {
             killUni = true;
         }

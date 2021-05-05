@@ -564,17 +564,6 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="UniVoice_Triste_event" ID="{4A44B019-CFF1-4F13-8A29-22BD914F381E}">
-									<ChildrenList>
-										<Action Name="" ID="{0F7D6AEA-251E-4296-85D4-1DE1872BABA4}" ShortID="319478960">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="UniVoice_Triste" ID="{491CA097-65A0-4ACC-BA7E-8512296EF0D8}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
-									</ChildrenList>
-								</Event>
 								<Event Name="UniVoice_Enerve_event" ID="{F65AFDED-FD73-4DD0-9B79-1216095DFA29}">
 									<ChildrenList>
 										<Action Name="" ID="{F03B8C96-C1AA-4FD0-8C87-B39D71146EEB}" ShortID="386129708">
@@ -647,6 +636,17 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Uni_Voice_Death_event" ID="{CD6DA390-02A9-4AF8-BA89-E796E05112D7}">
+							<ChildrenList>
+								<Action Name="" ID="{EEEC2436-347C-4D36-8FF5-030305A6133D}" ShortID="736239112">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UniVoiceDeath" ID="{757230EF-42ED-47A9-8D15-C3AB9C732D84}" WorkUnitID="{C40A6E13-3206-406B-9CAB-495017552967}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Environment_events" ID="{216B934E-6312-4A92-9793-8E866A179F9D}" ShortID="354338017">

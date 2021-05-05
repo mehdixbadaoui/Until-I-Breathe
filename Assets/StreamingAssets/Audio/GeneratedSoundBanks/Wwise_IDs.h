@@ -100,6 +100,7 @@ namespace AK
         static const AkUniqueID UNI_ETOUFFEMENT_EVENT = 1109845805U;
         static const AkUniqueID UNI_FALL_DEATH_EVENT = 3179662169U;
         static const AkUniqueID UNI_TOUSSE_A_MORT_EVENT = 4164979709U;
+        static const AkUniqueID UNI_VOICE_DEATH_EVENT = 841688152U;
         static const AkUniqueID UNISOUFFLE_EVENT = 980828296U;
         static const AkUniqueID UNIVOICE_ENERVE_EVENT = 2657275214U;
         static const AkUniqueID UNIVOICE_JOYEUSE_EVENT = 86153749U;
