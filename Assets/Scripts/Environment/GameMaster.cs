@@ -432,6 +432,7 @@ public class GameMaster : MonoBehaviour
 
     public void LoadSceneFromSave()
     {
+        AkSoundEngine.PostEvent("Stop_music_event", GameObject.FindGameObjectWithTag("WwiseSound"));
         PlayerData data = SaveSystem.LoadPlayer();
         if (data != null)
             LoadScene(data.sceneIndex);
