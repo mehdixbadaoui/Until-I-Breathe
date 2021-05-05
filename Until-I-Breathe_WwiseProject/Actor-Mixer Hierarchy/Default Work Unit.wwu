@@ -7160,6 +7160,156 @@
 								</RandomSequenceContainer>
 							</ChildrenList>
 						</Folder>
+						<RandomSequenceContainer Name="UniVoiceDeath" ID="{757230EF-42ED-47A9-8D15-C3AB9C732D84}" ShortID="280733595">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Environment" ID="{3F946294-BC00-4066-9FA4-E3BC35C1A358}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Uni_Voix_Chute_01" ID="{F6E5756D-EB9B-47EA-9CC1-0E25836B0E48}" ShortID="84421516">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Voix_Chute_01" ID="{C330009D-57EB-42BE-8A03-169649256945}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Voix_Chute_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="474659278"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Voix_Chute_01" ID="{C330009D-57EB-42BE-8A03-169649256945}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Voix_Chute_02" ID="{A4CB0E68-8CCD-4C83-B0C5-A1F73691D1A6}" ShortID="1045786696">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Voix_Chute_02" ID="{E4D53FE5-1DB7-4D13-B6C0-1AFBE9B47F6D}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Voix_Chute_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="259562923"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Voix_Chute_02" ID="{E4D53FE5-1DB7-4D13-B6C0-1AFBE9B47F6D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Voix_Chute_03" ID="{719518B5-8DA8-4A35-B46C-5EED44C95073}" ShortID="463929168">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Voix_Chute_03" ID="{45629791-91A6-4077-B6D2-0B0FD1CF7279}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Voix_Chute_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="748250718"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Voix_Chute_03" ID="{45629791-91A6-4077-B6D2-0B0FD1CF7279}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Voix_Chute_04" ID="{FC99AB39-E50B-44A9-B640-AD98E172DB46}" ShortID="569271428">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Voix_Chute_04" ID="{999B1195-6453-4B5A-AFDA-0B579762516F}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Voix_Chute_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="433383731"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Voix_Chute_04" ID="{999B1195-6453-4B5A-AFDA-0B579762516F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Uni_Voix_Chute_05" ID="{7C6D71AC-4C2E-4D8F-9BD3-DC46198D0BAF}" ShortID="1057804553">
+									<PropertyList>
+										<Property Name="IsVoice" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D006262-30E7-4E9C-A199-E38506A6CA5D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5E5A8251-2624-4B1E-9D8C-EE98F3163D80}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Uni_Voix_Chute_05" ID="{12A0816D-015C-44FB-AB68-E7CA9A3B95EA}">
+											<Language>English(US)</Language>
+											<AudioFile>Uni_Voix_Chute_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="906910969"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists/>
+									<ActiveSourceList>
+										<ActiveSource Name="Uni_Voix_Chute_05" ID="{12A0816D-015C-44FB-AB68-E7CA9A3B95EA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists/>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="ST-2Sounds" ID="{96482C6A-84E8-4DC6-8CA0-91C03ACD358D}" ShortID="683412825">

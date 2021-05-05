@@ -21,7 +21,12 @@ public class DeadZone : MonoBehaviour
         if (other.tag == "uni")
         {
             if (!other.GetComponentInChildren<Ragdoll>().OnOff)
+            {
+                AkSoundEngine.PostEvent("Uni_Voice_Death_event", GameObject.FindGameObjectWithTag("uni"));
                 gm.Die();
+
+            }
+            
         }
     }
 }
