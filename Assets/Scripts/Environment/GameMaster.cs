@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class GameMaster : MonoBehaviour
 {
@@ -199,6 +200,8 @@ public class GameMaster : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseMenu.GetComponent<PauseMenu>().resumeButton);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
 
