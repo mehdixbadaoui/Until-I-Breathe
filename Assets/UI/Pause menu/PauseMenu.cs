@@ -181,7 +181,7 @@ public class PauseMenu : MonoBehaviour
     {
         text.SetActive(true);
         float time = Time.realtimeSinceStartup;
-        while (Time.realtimeSinceStartup - time < 2f)
+        while (Time.realtimeSinceStartup - time < 1f)
         {
             yield return null;
         }
