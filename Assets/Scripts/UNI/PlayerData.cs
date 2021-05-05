@@ -9,6 +9,7 @@ public class PlayerData
     public Scene scene;
     public string sceneName;
     public int sceneIndex;
+    public int letterIndex;
     public float[] position; 
 
     public PlayerData()
@@ -20,6 +21,7 @@ public class PlayerData
         position[0] = GameObject.FindGameObjectWithTag("uni").transform.position.x;
         position[1] = GameObject.FindGameObjectWithTag("uni").transform.position.y;
         position[2] = GameObject.FindGameObjectWithTag("uni").transform.position.z;
+        letterIndex = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>().indexForLetter;
 
     }
 }

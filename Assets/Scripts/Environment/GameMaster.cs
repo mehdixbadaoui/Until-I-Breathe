@@ -20,7 +20,7 @@ public class GameMaster : MonoBehaviour
 
     //LetterForUni 
     private List<string> letterList;
-    private int indexForLetter;
+    public int indexForLetter;
     private string letterForUni;
 
 
@@ -155,6 +155,9 @@ public class GameMaster : MonoBehaviour
         {
             StartCoroutine(Cinematic(GameObject.FindGameObjectWithTag("CinematicBeginning").GetComponent<PlayableDirector>()));
         }
+
+
+        SavePlayer();
     }
 
     public void Pause()
@@ -409,6 +412,7 @@ public class GameMaster : MonoBehaviour
     {
         SaveSystem.SavePlayer(); 
     }
+
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
@@ -428,6 +432,7 @@ public class GameMaster : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+
     }
 
     public void LoadSceneFromSave()
@@ -435,7 +440,10 @@ public class GameMaster : MonoBehaviour
         AkSoundEngine.PostEvent("Stop_music_event", GameObject.FindGameObjectWithTag("WwiseSound"));
         PlayerData data = SaveSystem.LoadPlayer();
         if (data != null)
+        {
+            indexForLetter = data.letterIndex;
             LoadScene(data.sceneIndex);
+        }
         else
             NextScene();
     }
