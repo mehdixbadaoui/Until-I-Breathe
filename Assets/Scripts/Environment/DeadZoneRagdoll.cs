@@ -49,9 +49,9 @@ public class DeadZoneRagdoll : MonoBehaviour
         ragdoll.RagOn();
 
         if (droite)
-            ragdoll.AddForceToRagdoll(new Vector3(0, 0, -1000));
+            ragdoll.AddForceToRagdoll(new Vector3(0, 0, -500));
         else
-            ragdoll.AddForceToRagdoll(new Vector3(0, 0, 1000));
+            ragdoll.AddForceToRagdoll(new Vector3(0, 0, 500));
 
         yield return new WaitForSeconds(3.0f);
 
