@@ -38,6 +38,8 @@ public class OffsetDeadDrones : MonoBehaviour
         // Get the animator 
         myAnimator = uni.GetComponentInChildren<Animator>();
 
+        DialogBox = FindObjectOfType<GameMaster>().DialogueBoxTuto;
+
         
     }
 
