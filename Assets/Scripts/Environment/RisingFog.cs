@@ -11,12 +11,11 @@ public class RisingFog : MonoBehaviour
 
     private void Start()
     {
-        RiseSpeed = RiseSpeed * Time.deltaTime;
         SafeZones = new List<GameObject>();
     }
     void Update()
     {
-        transform.Translate(new Vector3(0, Mathf.Lerp(0, 1, .5f), 0) * RiseSpeed / 10);
+        transform.Translate(new Vector3(0, Mathf.Lerp(0, 1, .5f), 0) * RiseSpeed * Time.deltaTime / 10);
     }
 
     public void Respawn(Vector3 position)

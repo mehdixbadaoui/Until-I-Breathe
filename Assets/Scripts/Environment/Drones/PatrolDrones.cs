@@ -59,7 +59,6 @@ public class PatrolDrones : MonoBehaviour
         originalSpotlightColour = spotlight.color;
         playEvent = GameObject.FindGameObjectWithTag("uni").GetComponent<PlayEventSounds>(); 
 
-        speed = speed * Time.deltaTime;
         //Vector3[] waypoints = new Vector3[pathHolder.childCount];
         //for (int i = 0; i < waypoints.Length; i++)
         //{
@@ -83,7 +82,7 @@ public class PatrolDrones : MonoBehaviour
         if(targets.Count > 0)
         {
             if (transform.position != targets[index % targets.Count].position)
-                transform.position = Vector3.MoveTowards(transform.position, targets[index % targets.Count].position, speed);
+                transform.position = Vector3.MoveTowards(transform.position, targets[index % targets.Count].position, speed * Time.deltaTime);
             else
                 index++;
 
@@ -131,7 +130,7 @@ public class PatrolDrones : MonoBehaviour
         {
             //Vector3 initialPos = transform.position;
             if (transform.position != targets[index].position)
-                transform.position = Vector3.MoveTowards(transform.position, targets[index % targets.Count].position, speed);
+                transform.position = Vector3.MoveTowards(transform.position, targets[index % targets.Count].position, speed * Time.deltaTime);
             else
                 index++;
         }
