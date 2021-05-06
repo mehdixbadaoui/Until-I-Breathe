@@ -46,8 +46,16 @@ public class NextScene : MonoBehaviour
 
             Clip.Stop();
         }
+
+        Destroy(Clip.transform.parent.gameObject);
+
+        System.GC.Collect();
+        Resources.UnloadUnusedAssets();
+        /*
         async = SceneManager.LoadSceneAsync(s);
         async.allowSceneActivation = true;
+        */
+        SceneManager.LoadScene(s);
         Movement.canMove = true;
 
 /*        while (!async.isDone)
