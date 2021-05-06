@@ -240,6 +240,9 @@ public class hook_detector : MonoBehaviour
                 //JUST PICK THE NEAREST ONE
                 //nearest_hook = all_hooks[0];
 
+
+            }
+
                 //PICK THE NEAREST AVAILABLE HOOK
                 int i = 0;
 
@@ -269,9 +272,6 @@ public class hook_detector : MonoBehaviour
                         UpdateLists();
                     }
                 }
-
-            }
-
             //}
         }
         else
