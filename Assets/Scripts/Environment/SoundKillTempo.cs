@@ -279,7 +279,7 @@ public class SoundKillTempo : MonoBehaviour
         if(killAndBounce)
             ragdoll.AddForceToRagdoll(new Vector3(0, 500, 0));
         else
-            ragdoll.AddForceToRagdoll(new Vector3(5000, 1000, 0));
+            ragdoll.AddForceToRagdoll(new Vector3(500, 500, 0));
 
         yield return new WaitForSeconds(2.0f);
 

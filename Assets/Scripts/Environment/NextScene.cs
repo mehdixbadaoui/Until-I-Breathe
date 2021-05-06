@@ -31,11 +31,9 @@ public class NextScene : MonoBehaviour
     {
 /*        if (background)
             background.SetActive(true);*/
-        async = SceneManager.LoadSceneAsync(s);
-        async.allowSceneActivation = false;
-        StartCoroutine(DisplayLoadingScreen());
+        StartCoroutine(DisplayLoadingScreen(s));
     }
-    IEnumerator DisplayLoadingScreen()
+    IEnumerator DisplayLoadingScreen(int s)
     {
         Movement.canMove = false;
         if (Clip != null)
@@ -48,6 +46,7 @@ public class NextScene : MonoBehaviour
 
             Clip.Stop();
         }
+        async = SceneManager.LoadSceneAsync(s);
         async.allowSceneActivation = true;
         Movement.canMove = true;
 

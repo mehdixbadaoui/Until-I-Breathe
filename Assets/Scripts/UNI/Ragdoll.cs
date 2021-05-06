@@ -49,6 +49,8 @@ public class Ragdoll : MonoBehaviour
     public void RagOn()
     {
         OnOff = true;
+        transform.parent.GetComponent<Rigidbody>().useGravity = false;
+        transform.parent.GetComponent<Rigidbody>().isKinematic = true;
 
         //wait 2-3 seconds.
         foreach (Collider col in rigColliders)
@@ -59,6 +61,7 @@ public class Ragdoll : MonoBehaviour
         int countRb = 0;
         foreach (Rigidbody rb in rigRigidbodies)
         {
+            rb.useGravity = true;
             rb.isKinematic = false;
             previousPos[countRb] = rb.transform.position;
             countRb += 1;
@@ -69,6 +72,8 @@ public class Ragdoll : MonoBehaviour
     public void RagOff()
     {
         OnOff = false;
+        transform.parent.GetComponent<Rigidbody>().useGravity = true;
+        transform.parent.GetComponent<Rigidbody>().isKinematic = false;
 
         //wait 2-3 seconds.
         foreach (Collider col in rigColliders)
@@ -79,6 +84,7 @@ public class Ragdoll : MonoBehaviour
         int countRb = 0;
         foreach (Rigidbody rb in rigRigidbodies)
         {
+            rb.useGravity = false;
             rb.isKinematic = true;
             rb.velocity = Vector3.zero;
             rb.transform.position = previousPos[countRb];
