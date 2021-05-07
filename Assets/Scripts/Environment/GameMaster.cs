@@ -425,7 +425,8 @@ public class GameMaster : MonoBehaviour
         position.y = data.position[1];
         position.z = data.position[2];
         GameObject.FindGameObjectWithTag("uni").transform.position = position;
-        SceneManager.LoadScene(data.sceneIndex); 
+        indexForLetter = data.letterIndex;
+        //SceneManager.LoadScene(data.sceneIndex); 
 
     }
 
@@ -445,7 +446,6 @@ public class GameMaster : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
         if (data != null)
         {
-            indexForLetter = data.letterIndex;
             LoadScene(data.sceneIndex);
         }
         else

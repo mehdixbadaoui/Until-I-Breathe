@@ -49,6 +49,9 @@ public class NextScene : MonoBehaviour
 
         Destroy(Clip.transform.parent.gameObject);
 
+        if (!isTheLastScene)
+            SaveSystem.SavePlayerNextScene();
+
         System.GC.Collect();
         Resources.UnloadUnusedAssets();
         /*

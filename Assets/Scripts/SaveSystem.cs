@@ -15,6 +15,17 @@ public static class SaveSystem
         formatter.Serialize(stream, data);
         stream.Close(); 
     }
+    public static void SavePlayerNextScene()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/player.UIBSave";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        PlayerData data = new PlayerData();
+        data.sceneIndex = data.sceneIndex + +1;
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
 
     public static PlayerData LoadPlayer ()
     {
