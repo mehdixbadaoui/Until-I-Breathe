@@ -17,10 +17,11 @@ public class PlayerData
         scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
         sceneIndex = scene.buildIndex;
-        position = new float[3];
-        position[0] = GameObject.FindGameObjectWithTag("uni").transform.position.x;
+        //position = new float[3];
+/*        position[0] = GameObject.FindGameObjectWithTag("uni").transform.position.x;
         position[1] = GameObject.FindGameObjectWithTag("uni").transform.position.y;
         position[2] = GameObject.FindGameObjectWithTag("uni").transform.position.z;
+*/
         letterIndex = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>().indexForLetter;
 
     }

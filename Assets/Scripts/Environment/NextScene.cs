@@ -47,7 +47,7 @@ public class NextScene : MonoBehaviour
             Clip.Stop();
         }
 
-        Destroy(Clip.transform.parent.gameObject);
+        //Destroy(Clip.transform.parent.gameObject);
 
         if (!isTheLastScene)
             SaveSystem.SavePlayerNextScene();
@@ -58,7 +58,7 @@ public class NextScene : MonoBehaviour
         async = SceneManager.LoadSceneAsync(s);
         async.allowSceneActivation = true;
         */
-        SceneManager.LoadScene(s);
+        FindObjectOfType<GameMaster>().LoadScene(s);
         Movement.canMove = true;
 
 /*        while (!async.isDone)

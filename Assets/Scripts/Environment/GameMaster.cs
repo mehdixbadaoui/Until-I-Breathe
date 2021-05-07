@@ -420,11 +420,12 @@ public class GameMaster : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-        Vector3 position;
+/*        Vector3 position;
         position.x = data.position[0];
         position.y = data.position[1];
         position.z = data.position[2];
-        GameObject.FindGameObjectWithTag("uni").transform.position = position;
+*/
+        //GameObject.FindGameObjectWithTag("uni").transform.position = position;
         indexForLetter = data.letterIndex;
         //SceneManager.LoadScene(data.sceneIndex); 
 
